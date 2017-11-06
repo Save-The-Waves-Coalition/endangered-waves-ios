@@ -7,12 +7,17 @@
 //
 
 import UIKit
-
+import Firebase
+import FirebaseFirestoreUI
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    var dataSource: FUIFirestoreTableViewDataSource!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         // Do any additional setup after loading the view, typically from a nib.
     }
 

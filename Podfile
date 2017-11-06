@@ -10,7 +10,7 @@ target 'Endangered Waves' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for Endangered Waves
+  # Firebase
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
@@ -19,5 +19,8 @@ target 'Endangered Waves' do
   pod 'FirebaseUI/Firestore'
   pod 'FirebaseUI/Auth'
   pod 'FirebaseUI/Facebook'
+
+  # UI Related
+  pod 'SwiftIconFont'
 
 end
