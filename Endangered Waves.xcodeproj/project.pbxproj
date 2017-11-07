@@ -14,6 +14,7 @@
 		4A7FA9241FAA966300C6A2BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A7FA9221FAA966300C6A2BB /* LaunchScreen.storyboard */; };
 		4A7FA92C1FAA96ED00C6A2BB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A7FA92B1FAA96ED00C6A2BB /* GoogleService-Info.plist */; };
 		4A8987681FAE0B4E0098E473 /* ReportsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8987671FAE0B4E0098E473 /* ReportsTableViewController.swift */; };
+		4ADAE8DA1FB20D6B00DAAFFD /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADAE8D91FB20D6B00DAAFFD /* ContainerViewController.swift */; };
 		4AF232A31FB0C46500ADA075 /* ReportsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF232A21FB0C46500ADA075 /* ReportsTableViewCell.swift */; };
 		4AF232A51FB0CA8900ADA075 /* NewReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF232A41FB0CA8900ADA075 /* NewReportViewController.swift */; };
 		5A1CAA72357D10A44CD1E0DD /* Pods_Endangered_Waves.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88BE5F84E4FF6158AE4C63E1 /* Pods_Endangered_Waves.framework */; };
@@ -29,6 +30,7 @@
 		4A7FA9251FAA966300C6A2BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A7FA92B1FAA96ED00C6A2BB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4A8987671FAE0B4E0098E473 /* ReportsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsTableViewController.swift; sourceTree = "<group>"; };
+		4ADAE8D91FB20D6B00DAAFFD /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		4AF232A21FB0C46500ADA075 /* ReportsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsTableViewCell.swift; sourceTree = "<group>"; };
 		4AF232A41FB0CA8900ADA075 /* NewReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReportViewController.swift; sourceTree = "<group>"; };
 		4E012A9B083A87390F514C8B /* Pods-Endangered Waves.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Endangered Waves.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Endangered Waves/Pods-Endangered Waves.debug.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				4A8987671FAE0B4E0098E473 /* ReportsTableViewController.swift */,
 				4AF232A21FB0C46500ADA075 /* ReportsTableViewCell.swift */,
 				4AF232A41FB0CA8900ADA075 /* NewReportViewController.swift */,
+				4ADAE8D91FB20D6B00DAAFFD /* ContainerViewController.swift */,
 				4A7FA91D1FAA966300C6A2BB /* Main.storyboard */,
 				4A7FA9201FAA966300C6A2BB /* Assets.xcassets */,
 				4A7FA9221FAA966300C6A2BB /* LaunchScreen.storyboard */,
@@ -266,6 +269,7 @@
 				4A8987681FAE0B4E0098E473 /* ReportsTableViewController.swift in Sources */,
 				4A7FA91C1FAA966300C6A2BB /* ViewController.swift in Sources */,
 				4A7FA91A1FAA966300C6A2BB /* AppDelegate.swift in Sources */,
+				4ADAE8DA1FB20D6B00DAAFFD /* ContainerViewController.swift in Sources */,
 				4AF232A31FB0C46500ADA075 /* ReportsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

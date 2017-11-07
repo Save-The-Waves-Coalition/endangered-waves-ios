@@ -23,7 +23,8 @@ class ReportsTableViewController: UITableViewController, FUIAuthDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.navigationBar.prefersLargeTitles = true;
+//        self.title = "Reports"
+        navigationController?.navigationBar.prefersLargeTitles = true;
 
         let collection = Firestore.firestore().collection("reports")
 

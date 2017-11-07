@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lJp-cn-5ay">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GOI-u6-3Zq">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,10 +11,73 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Container View Controller-->
+        <scene sceneID="980-8I-4Bd">
+            <objects>
+                <viewController id="7kg-W3-L0V" customClass="ContainerViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jlf-vt-RCN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IhD-Re-Bio">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="IhD-Re-Bio" secondAttribute="trailing" id="LMD-9P-Orv"/>
+                            <constraint firstItem="IhD-Re-Bio" firstAttribute="top" secondItem="Jlf-vt-RCN" secondAttribute="top" id="UFa-tT-pfW"/>
+                            <constraint firstItem="IhD-Re-Bio" firstAttribute="leading" secondItem="Jlf-vt-RCN" secondAttribute="leading" id="ZRG-C7-vNn"/>
+                            <constraint firstItem="IhD-Re-Bio" firstAttribute="bottom" secondItem="4Oa-ah-5tO" secondAttribute="bottom" id="uLO-UF-X8n"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4Oa-ah-5tO"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Filter" id="AF0-u2-25Z" customClass="SwiftIconBarButtonItem" customModule="SwiftIconFont">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="Icon" value="fa:filter"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="FontSize">
+                                    <real key="value" value="18"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="VEF-Fm-qvP"/>
+                        <barButtonItem title="List" id="QEb-Yp-PVp" customClass="SwiftIconBarButtonItem" customModule="SwiftIconFont">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="Icon" value="fa:map"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="FontSize">
+                                    <real key="value" value="18"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="mapButtonWasTapped:" destination="7kg-W3-L0V" id="pdg-ig-fTI"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="jIr-Vl-WAc"/>
+                        <barButtonItem systemItem="add" id="yGL-j9-LqC" customClass="SwiftIconBarButtonItem" customModule="SwiftIconFont">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="Icon" value="fa:filter"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="FontSize">
+                                    <real key="value" value="18"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="Gjk-7M-Ifa"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="containerView" destination="IhD-Re-Bio" id="1hM-0k-ceZ"/>
+                        <outlet property="viewSwitchBarButton" destination="QEb-Yp-PVp" id="8Ak-Kn-5Nm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kkw-Vo-l1r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1358" y="1475"/>
+        </scene>
         <!--Reports-->
         <scene sceneID="DKf-Bx-LfQ">
             <objects>
-                <tableViewController title="Reports" id="Jy2-TV-vBO" customClass="ReportsTableViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ReportsListComponent" title="Reports" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Jy2-TV-vBO" customClass="ReportsTableViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="NiL-5B-jWS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,39 +124,13 @@
                             <outlet property="delegate" destination="Jy2-TV-vBO" id="6ID-4H-M53"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="Filter" id="L7e-Ez-dfa" customClass="SwiftIconBarButtonItem" customModule="SwiftIconFont">
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="Icon" value="io:ios-color-filter-outline"/>
-                                <userDefinedRuntimeAttribute type="number" keyPath="FontSize">
-                                    <real key="value" value="34"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="bxq-jD-EAM"/>
-                        <barButtonItem title="Map" id="E3U-l5-5ZN" customClass="SwiftIconBarButtonItem" customModule="SwiftIconFont">
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="Icon" value="ic:map"/>
-                                <userDefinedRuntimeAttribute type="number" keyPath="FontSize">
-                                    <real key="value" value="18"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="FdJ-73-OPe"/>
-                        <barButtonItem systemItem="add" id="Ygh-pS-0Sw">
-                            <connections>
-                                <segue destination="Lei-EY-yJh" kind="popoverPresentation" popoverAnchorBarButtonItem="Ygh-pS-0Sw" id="KSW-8q-oW7">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Reports" id="24c-Bw-5DV">
                         <barButtonItem key="rightBarButtonItem" title="Profile" id="yyl-6e-ql3" customClass="SwiftIconBarButtonItem" customModule="SwiftIconFont">
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="Icon" value="io:person"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="Icon" value="fa:user"/>
                                 <userDefinedRuntimeAttribute type="number" keyPath="FontSize">
-                                    <real key="value" value="34"/>
+                                    <real key="value" value="18"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
@@ -108,7 +145,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J05-pd-ay7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-768.79999999999995" y="1052.9556650246307"/>
+            <point key="canvasLocation" x="415.19999999999999" y="773.64532019704438"/>
         </scene>
         <!--New Report View Controller-->
         <scene sceneID="888-2I-PJV">
@@ -133,29 +170,101 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMn-AX-r3n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-27" y="1364"/>
+            <point key="canvasLocation" x="-319" y="2210"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="P60-gf-p8j">
+            <objects>
+                <viewController storyboardIdentifier="ReportsMapComponent" title="Map" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WeE-kv-SUU" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LlL-bE-d1P">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fIi-vg-cWS">
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fIi-vg-cWS" firstAttribute="leading" secondItem="Mzn-nh-Iq1" secondAttribute="leading" id="SpT-S5-BpC"/>
+                            <constraint firstItem="fIi-vg-cWS" firstAttribute="top" secondItem="Mzn-nh-Iq1" secondAttribute="top" id="adP-ph-dz7"/>
+                            <constraint firstItem="fIi-vg-cWS" firstAttribute="trailing" secondItem="Mzn-nh-Iq1" secondAttribute="trailing" id="uQ5-se-h1d"/>
+                            <constraint firstItem="fIi-vg-cWS" firstAttribute="bottom" secondItem="Mzn-nh-Iq1" secondAttribute="bottom" id="vYO-yU-jp1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Mzn-nh-Iq1"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Map" id="DAX-Rx-61B">
+                        <barButtonItem key="rightBarButtonItem" title="Profile" id="Ryt-Hr-yDt" customClass="SwiftIconBarButtonItem" customModule="SwiftIconFont">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="Icon" value="fa:user"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="FontSize">
+                                    <real key="value" value="18"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2hj-J2-ZHk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="413.60000000000002" y="1474.8768472906404"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="1Ux-9U-zzC">
+        <scene sceneID="iSz-zQ-3tY">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="lJp-cn-5ay" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ReportsNavListComponent" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="w1x-7l-n9L" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0KJ-sW-cLd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Uc7-Dq-Caj">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="245-eD-2aI">
+                    <connections>
+                        <segue destination="Jy2-TV-vBO" kind="relationship" relationship="rootViewController" id="VK0-TA-jCT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fba-7o-VI6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-317.60000000000002" y="773.64532019704438"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="n1U-bq-2M1">
+            <objects>
+                <navigationController storyboardIdentifier="ReportsNavMapComponent" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TtH-PY-DoK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b7Q-C1-d46">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WeE-kv-SUU" kind="relationship" relationship="rootViewController" id="H7w-hG-S8k"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Lv-v5-dPg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-318" y="1475"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8cx-Ul-jQq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" toolbarHidden="NO" id="GOI-u6-3Zq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TlV-sp-Fig">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rlB-nb-Ehr">
                         <rect key="frame" x="0.0" y="729.5" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="Jy2-TV-vBO" kind="relationship" relationship="rootViewController" id="OUn-RL-Pf2"/>
+                        <segue destination="7kg-W3-L0V" kind="relationship" relationship="rootViewController" id="uG9-1q-9hT"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NdH-uH-6tA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xo4-aB-54i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1770" y="1053"/>
+            <point key="canvasLocation" x="-2274" y="1475"/>
         </scene>
     </scenes>
     <resources>
