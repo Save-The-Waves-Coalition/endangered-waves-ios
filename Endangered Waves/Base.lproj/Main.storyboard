@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,13 +20,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="defaultCell" id="rFO-w5-dOu">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="defaultCell" rowHeight="144" id="rFO-w5-dOu" customClass="ReportsTableViewCell" customModule="Endangered_Waves" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="144"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rFO-w5-dOu" id="Ksb-xb-cd0">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="143.66666666666666"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beach_trash" translatesAutoresizingMaskIntoConstraints="NO" id="1Da-Wg-zib">
+                                            <rect key="frame" x="16" y="11" width="122" height="122"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="122" id="D5u-ZG-pBs"/>
+                                                <constraint firstAttribute="height" constant="122" id="dAa-x7-ahe"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Kf-IY-79V">
+                                            <rect key="frame" x="146" y="11" width="213" height="21"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="1Da-Wg-zib" firstAttribute="leading" secondItem="Ksb-xb-cd0" secondAttribute="leadingMargin" id="DDX-IV-Bf0"/>
+                                        <constraint firstItem="1Kf-IY-79V" firstAttribute="leading" secondItem="1Da-Wg-zib" secondAttribute="trailing" constant="8" id="U2g-zj-mdO"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="1Da-Wg-zib" secondAttribute="bottom" constant="8" id="V9w-kO-IoE"/>
+                                        <constraint firstItem="1Kf-IY-79V" firstAttribute="top" secondItem="Ksb-xb-cd0" secondAttribute="top" constant="11" id="XvA-io-vsX"/>
+                                        <constraint firstAttribute="trailing" secondItem="1Kf-IY-79V" secondAttribute="trailing" constant="16" id="pg9-bp-LG1"/>
+                                        <constraint firstItem="1Da-Wg-zib" firstAttribute="top" secondItem="Ksb-xb-cd0" secondAttribute="topMargin" id="s5a-Wj-Aad"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="1Kf-IY-79V" id="gwd-Jo-wXe"/>
+                                    <outlet property="reportImageView" destination="1Da-Wg-zib" id="dwg-RB-eAh"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -42,9 +71,22 @@
                             </userDefinedRuntimeAttributes>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="bxq-jD-EAM"/>
-                        <barButtonItem id="E3U-l5-5ZN"/>
+                        <barButtonItem title="Map" id="E3U-l5-5ZN" customClass="SwiftIconBarButtonItem" customModule="SwiftIconFont">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="Icon" value="ic:map"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="FontSize">
+                                    <real key="value" value="18"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="FdJ-73-OPe"/>
-                        <barButtonItem systemItem="add" id="Ygh-pS-0Sw"/>
+                        <barButtonItem systemItem="add" id="Ygh-pS-0Sw">
+                            <connections>
+                                <segue destination="Lei-EY-yJh" kind="popoverPresentation" popoverAnchorBarButtonItem="Ygh-pS-0Sw" id="KSW-8q-oW7">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Reports" id="24c-Bw-5DV">
                         <barButtonItem key="rightBarButtonItem" title="Profile" id="yyl-6e-ql3" customClass="SwiftIconBarButtonItem" customModule="SwiftIconFont">
@@ -67,6 +109,31 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J05-pd-ay7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-768.79999999999995" y="1052.9556650246307"/>
+        </scene>
+        <!--New Report View Controller-->
+        <scene sceneID="888-2I-PJV">
+            <objects>
+                <viewController id="Lei-EY-yJh" customClass="NewReportViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="E4s-SM-HhL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NQ-Rm-f7y">
+                                <rect key="frame" x="168" y="44" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="closeButtonWasTapped:" destination="Lei-EY-yJh" eventType="touchUpInside" id="WLX-zF-4Da"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="uEl-cu-qVy"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JMn-AX-r3n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-27" y="1364"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1Ux-9U-zzC">
@@ -91,5 +158,8 @@
             <point key="canvasLocation" x="-1770" y="1053"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="beach_trash" width="700" height="525"/>
+    </resources>
     <color key="tintColor" red="0.38058959694989108" green="0.51145237608932459" blue="0.79696960670842421" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
 </document>

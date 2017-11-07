@@ -28,11 +28,14 @@ class ReportsTableViewController: UITableViewController, FUIAuthDelegate {
         let collection = Firestore.firestore().collection("reports")
 
         dataSource = self.tableView.bind(toFirestoreQuery: collection) { (tableView, indexPath, snapshot) -> UITableViewCell in
-            let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath)
-            /* populate cell */
-            if let descriptionAny = snapshot.data()["description"], let descriptionString = descriptionAny as? String {
-                cell.textLabel?.text = descriptionString
+
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath) as? ReportsTableViewCell, let descriptionAny = snapshot.data()["description"], let descriptionString = descriptionAny as? String else {
+
+                // TODO: Return something else here?
+                return UITableViewCell()
             }
+
+            cell.descriptionLabel.text = descriptionString
             return cell
         }
 
