@@ -23,4 +23,7 @@ target 'Endangered Waves' do
   # UI Related
   pod 'SwiftIconFont'
 
+ # Other
+ pod 'BuddyBuildSDK'
+
 end

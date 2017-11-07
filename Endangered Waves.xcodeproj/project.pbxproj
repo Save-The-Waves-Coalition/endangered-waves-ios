@@ -17,6 +17,15 @@
 		4ADAE8DA1FB20D6B00DAAFFD /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADAE8D91FB20D6B00DAAFFD /* ContainerViewController.swift */; };
 		4AF232A31FB0C46500ADA075 /* ReportsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF232A21FB0C46500ADA075 /* ReportsTableViewCell.swift */; };
 		4AF232A51FB0CA8900ADA075 /* NewReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF232A41FB0CA8900ADA075 /* NewReportViewController.swift */; };
+		4AF7736A1FB22386005BFE50 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773691FB22362005BFE50 /* AssetsLibrary.framework */; };
+		4AF7736C1FB2239A005BFE50 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF7736B1FB22394005BFE50 /* CoreTelephony.framework */; };
+		4AF7736E1FB223A9005BFE50 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF7736D1FB223A3005BFE50 /* CoreText.framework */; };
+		4AF773701FB223BB005BFE50 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF7736F1FB223B5005BFE50 /* CoreMedia.framework */; };
+		4AF773721FB223C9005BFE50 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773711FB223C3005BFE50 /* AVFoundation.framework */; };
+		4AF773741FB223D9005BFE50 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773731FB223D3005BFE50 /* CoreVideo.framework */; };
+		4AF773761FB223E6005BFE50 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773751FB223E1005BFE50 /* QuartzCore.framework */; };
+		4AF773781FB223F4005BFE50 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773771FB223EE005BFE50 /* SystemConfiguration.framework */; };
+		4AF7737A1FB22407005BFE50 /* BuddyBuildSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773791FB22407005BFE50 /* BuddyBuildSDK.framework */; };
 		5A1CAA72357D10A44CD1E0DD /* Pods_Endangered_Waves.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88BE5F84E4FF6158AE4C63E1 /* Pods_Endangered_Waves.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +42,15 @@
 		4ADAE8D91FB20D6B00DAAFFD /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		4AF232A21FB0C46500ADA075 /* ReportsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsTableViewCell.swift; sourceTree = "<group>"; };
 		4AF232A41FB0CA8900ADA075 /* NewReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReportViewController.swift; sourceTree = "<group>"; };
+		4AF773691FB22362005BFE50 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		4AF7736B1FB22394005BFE50 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		4AF7736D1FB223A3005BFE50 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		4AF7736F1FB223B5005BFE50 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		4AF773711FB223C3005BFE50 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		4AF773731FB223D3005BFE50 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		4AF773751FB223E1005BFE50 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4AF773771FB223EE005BFE50 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4AF773791FB22407005BFE50 /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BuddyBuildSDK.framework; path = Pods/BuddyBuildSDK/BuddyBuildSDK.framework; sourceTree = "<group>"; };
 		4E012A9B083A87390F514C8B /* Pods-Endangered Waves.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Endangered Waves.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Endangered Waves/Pods-Endangered Waves.debug.xcconfig"; sourceTree = "<group>"; };
 		88BE5F84E4FF6158AE4C63E1 /* Pods_Endangered_Waves.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Endangered_Waves.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD8FE50085C6E18B24650B9 /* Pods-Endangered Waves.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Endangered Waves.release.xcconfig"; path = "Pods/Target Support Files/Pods-Endangered Waves/Pods-Endangered Waves.release.xcconfig"; sourceTree = "<group>"; };
@@ -43,6 +61,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AF7737A1FB22407005BFE50 /* BuddyBuildSDK.framework in Frameworks */,
+				4AF773781FB223F4005BFE50 /* SystemConfiguration.framework in Frameworks */,
+				4AF773761FB223E6005BFE50 /* QuartzCore.framework in Frameworks */,
+				4AF773741FB223D9005BFE50 /* CoreVideo.framework in Frameworks */,
+				4AF773721FB223C9005BFE50 /* AVFoundation.framework in Frameworks */,
+				4AF773701FB223BB005BFE50 /* CoreMedia.framework in Frameworks */,
+				4AF7736E1FB223A9005BFE50 /* CoreText.framework in Frameworks */,
+				4AF7736C1FB2239A005BFE50 /* CoreTelephony.framework in Frameworks */,
+				4AF7736A1FB22386005BFE50 /* AssetsLibrary.framework in Frameworks */,
 				5A1CAA72357D10A44CD1E0DD /* Pods_Endangered_Waves.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,6 +125,15 @@
 		568EA3F3D670EFB352B1386E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4AF773791FB22407005BFE50 /* BuddyBuildSDK.framework */,
+				4AF773771FB223EE005BFE50 /* SystemConfiguration.framework */,
+				4AF773751FB223E1005BFE50 /* QuartzCore.framework */,
+				4AF773731FB223D3005BFE50 /* CoreVideo.framework */,
+				4AF773711FB223C3005BFE50 /* AVFoundation.framework */,
+				4AF7736F1FB223B5005BFE50 /* CoreMedia.framework */,
+				4AF7736D1FB223A3005BFE50 /* CoreText.framework */,
+				4AF7736B1FB22394005BFE50 /* CoreTelephony.framework */,
+				4AF773691FB22362005BFE50 /* AssetsLibrary.framework */,
 				88BE5F84E4FF6158AE4C63E1 /* Pods_Endangered_Waves.framework */,
 			);
 			name = Frameworks;
@@ -410,6 +446,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 748R87K27U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/BuddyBuildSDK",
+				);
 				INFOPLIST_FILE = "Endangered Waves/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -427,6 +467,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 748R87K27U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/BuddyBuildSDK",
+				);
 				INFOPLIST_FILE = "Endangered Waves/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
