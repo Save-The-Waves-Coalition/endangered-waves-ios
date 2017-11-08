@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import MobileCoreServices
 
-class NewReportViewController: UIViewController {
+class NewReportViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    let imagePicker = UIImagePickerController()
+    @IBOutlet weak var imageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        imagePicker.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,6 +27,30 @@ class NewReportViewController: UIViewController {
     @IBAction func closeButtonWasTapped(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
+
+    @IBAction func capturePhotoButtonWasTapped(_ sender: UIButton) {
+        imagePicker.mediaTypes = [kUTTypeImage as String]
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = false
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
+            present(imagePicker, animated: true, completion: nil)
+        }
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            imageView.contentMode = .scaleAspectFit
+            imageView.image = pickedImage
+        }
+
+        dismiss(animated: true, completion: nil)
+    }
+
+
 
     /*
     // MARK: - Navigation
@@ -36,3 +63,13 @@ class NewReportViewController: UIViewController {
     */
 
 }
+
+//extension NewReportViewController: UIImagePickerControllerDelegate {
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+//        defer {
+//            dismiss(animated: true, completion: nil)
+//        }
+//        print(info)
+//    }
+//}
+
