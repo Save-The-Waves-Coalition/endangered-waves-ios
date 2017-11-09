@@ -89,7 +89,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="144"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rFO-w5-dOu" id="Ksb-xb-cd0">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="143.66666666666666"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="143.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beach_trash" translatesAutoresizingMaskIntoConstraints="NO" id="1Da-Wg-zib">
@@ -157,39 +157,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NQ-Rm-f7y">
-                                <rect key="frame" x="168" y="44" width="39" height="30"/>
-                                <state key="normal" title="Close"/>
-                                <connections>
-                                    <action selector="closeButtonWasTapped:" destination="Lei-EY-yJh" eventType="touchUpInside" id="WLX-zF-4Da"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltP-PS-xgM">
-                                <rect key="frame" x="145" y="82" width="85" height="30"/>
-                                <state key="normal" title="Take Picture"/>
-                                <connections>
-                                    <action selector="capturePhotoButtonWasTapped:" destination="Lei-EY-yJh" eventType="touchUpInside" id="nui-Ra-JK4"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wH9-YY-Ygn">
-                                <rect key="frame" x="67" y="120" width="240" height="239"/>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="u2e-bF-EDE">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NQ-Rm-f7y">
+                                        <rect key="frame" x="168" y="0.0" width="39" height="343"/>
+                                        <state key="normal" title="Close"/>
+                                        <connections>
+                                            <action selector="closeButtonWasTapped:" destination="Lei-EY-yJh" eventType="touchUpInside" id="WLX-zF-4Da"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltP-PS-xgM">
+                                        <rect key="frame" x="145" y="343" width="85" height="30"/>
+                                        <state key="normal" title="Take Picture"/>
+                                        <connections>
+                                            <action selector="capturePhotoButtonWasTapped:" destination="Lei-EY-yJh" eventType="touchUpInside" id="nui-Ra-JK4"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wH9-YY-Ygn">
+                                        <rect key="frame" x="37.666666666666657" y="373" width="300" height="300"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTA-Xq-mrm">
+                                        <rect key="frame" x="166.66666666666666" y="673" width="41.666666666666657" height="20.333333333333371"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVT-nr-hSg">
+                                        <rect key="frame" x="166.66666666666666" y="693.33333333333337" width="41.666666666666657" height="20.333333333333371"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eC-0s-dyp">
+                                        <rect key="frame" x="166.66666666666666" y="713.66666666666663" width="41.666666666666657" height="20.333333333333371"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="uEl-cu-qVy" firstAttribute="bottom" secondItem="wH9-YY-Ygn" secondAttribute="bottom" constant="419" id="0y0-mn-gUS"/>
-                            <constraint firstItem="ltP-PS-xgM" firstAttribute="centerX" secondItem="E4s-SM-HhL" secondAttribute="centerX" id="H95-q3-2YF"/>
-                            <constraint firstItem="uEl-cu-qVy" firstAttribute="bottom" secondItem="ltP-PS-xgM" secondAttribute="bottom" constant="666" id="NNZ-JW-PiQ"/>
-                            <constraint firstItem="wH9-YY-Ygn" firstAttribute="top" secondItem="ltP-PS-xgM" secondAttribute="bottom" constant="8" symbolic="YES" id="RZV-bg-FlJ"/>
-                            <constraint firstItem="ltP-PS-xgM" firstAttribute="centerX" secondItem="2NQ-Rm-f7y" secondAttribute="centerX" id="cOE-XF-QAM"/>
-                            <constraint firstItem="ltP-PS-xgM" firstAttribute="top" secondItem="2NQ-Rm-f7y" secondAttribute="bottom" constant="8" symbolic="YES" id="ev1-RM-5iX"/>
-                            <constraint firstItem="wH9-YY-Ygn" firstAttribute="leading" secondItem="uEl-cu-qVy" secondAttribute="leading" constant="67" id="v66-oI-K9d"/>
-                            <constraint firstItem="wH9-YY-Ygn" firstAttribute="centerX" secondItem="ltP-PS-xgM" secondAttribute="centerX" id="yVh-n3-jUP"/>
+                            <constraint firstItem="uEl-cu-qVy" firstAttribute="trailing" secondItem="u2e-bF-EDE" secondAttribute="trailing" id="6Ct-YU-PE0"/>
+                            <constraint firstItem="u2e-bF-EDE" firstAttribute="leading" secondItem="uEl-cu-qVy" secondAttribute="leading" id="JDc-Yp-CSg"/>
+                            <constraint firstItem="uEl-cu-qVy" firstAttribute="bottom" secondItem="u2e-bF-EDE" secondAttribute="bottom" id="M92-KN-4Cg"/>
+                            <constraint firstItem="u2e-bF-EDE" firstAttribute="top" secondItem="uEl-cu-qVy" secondAttribute="top" id="m3R-uy-VMD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uEl-cu-qVy"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="wH9-YY-Ygn" id="lbI-Xa-cYV"/>
+                        <outlet property="latitudeLabel" destination="NTA-Xq-mrm" id="TqJ-yK-Akz"/>
+                        <outlet property="locationName" destination="3eC-0s-dyp" id="j2L-C0-JsJ"/>
+                        <outlet property="longitudeLabel" destination="qVT-nr-hSg" id="Mfk-xr-X4k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMn-AX-r3n" userLabel="First Responder" sceneMemberID="firstResponder"/>
