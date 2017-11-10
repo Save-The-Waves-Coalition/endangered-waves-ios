@@ -10,6 +10,7 @@ import UIKit
 import MobileCoreServices
 import Photos
 import CoreLocation
+import LocationPickerViewController
 
 class NewReportViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -18,6 +19,7 @@ class NewReportViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var latitudeLabel: UILabel!
     @IBOutlet weak var longitudeLabel: UILabel!
     @IBOutlet weak var locationName: UILabel!
+    @IBOutlet weak var locationName2: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -192,6 +194,17 @@ class NewReportViewController: UIViewController, UIImagePickerControllerDelegate
             }
 
             dismiss(animated: true, completion: nil)
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "LocationPickerSegue" {
+            let locationPicker = segue.destination as! LocationPicker
+//            locationPicker.isAllowArbitraryLocation = true
+            locationPicker.addBarButtons()
+            locationPicker.pickCompletion = { (pickedLocationItem) in
+                self.locationName2.text = pickedLocationItem.name
+            }
         }
     }
 }

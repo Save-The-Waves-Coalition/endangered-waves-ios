@@ -45,5 +45,7 @@
 	<string>Allow us to use the camera to capture images of Endangered Waves.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Allow us access to your photos so we can create new reports for Endangered Waves.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We use your location so that we can record the exact location of your reports.</string>
 </dict>
 </plist>

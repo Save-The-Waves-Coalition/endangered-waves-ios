@@ -61,7 +61,7 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
-                                <segue destination="Lei-EY-yJh" kind="presentation" id="KAl-Cf-lXs"/>
+                                <segue destination="I7f-UO-PxT" kind="custom" id="KAl-Cf-lXs"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
@@ -89,7 +89,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="144"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rFO-w5-dOu" id="Ksb-xb-cd0">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="143.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="143.66666666666666"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beach_trash" translatesAutoresizingMaskIntoConstraints="NO" id="1Da-Wg-zib">
@@ -158,39 +158,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="u2e-bF-EDE">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NQ-Rm-f7y">
-                                        <rect key="frame" x="168" y="0.0" width="39" height="343"/>
+                                        <rect key="frame" x="168" y="0.0" width="39" height="248.66666666666666"/>
                                         <state key="normal" title="Close"/>
                                         <connections>
                                             <action selector="closeButtonWasTapped:" destination="Lei-EY-yJh" eventType="touchUpInside" id="WLX-zF-4Da"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltP-PS-xgM">
-                                        <rect key="frame" x="145" y="343" width="85" height="30"/>
+                                        <rect key="frame" x="145" y="248.66666666666669" width="85" height="30"/>
                                         <state key="normal" title="Take Picture"/>
                                         <connections>
                                             <action selector="capturePhotoButtonWasTapped:" destination="Lei-EY-yJh" eventType="touchUpInside" id="nui-Ra-JK4"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wH9-YY-Ygn">
-                                        <rect key="frame" x="37.666666666666657" y="373" width="300" height="300"/>
+                                        <rect key="frame" x="37.666666666666657" y="278.66666666666669" width="300" height="300.00000000000006"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTA-Xq-mrm">
-                                        <rect key="frame" x="166.66666666666666" y="673" width="41.666666666666657" height="20.333333333333371"/>
+                                        <rect key="frame" x="166.66666666666666" y="578.66666666666663" width="41.666666666666657" height="20.333333333333371"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVT-nr-hSg">
-                                        <rect key="frame" x="166.66666666666666" y="693.33333333333337" width="41.666666666666657" height="20.333333333333371"/>
+                                        <rect key="frame" x="166.66666666666666" y="599" width="41.666666666666657" height="20.333333333333371"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eC-0s-dyp">
-                                        <rect key="frame" x="166.66666666666666" y="713.66666666666663" width="41.666666666666657" height="20.333333333333371"/>
+                                        <rect key="frame" x="166.66666666666666" y="619.33333333333337" width="41.666666666666657" height="20.333333333333371"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zy-EA-eOR">
+                                        <rect key="frame" x="135" y="639.66666666666663" width="105" height="30"/>
+                                        <state key="normal" title="Location Picker"/>
+                                        <connections>
+                                            <segue destination="igI-KZ-xnN" kind="show" identifier="LocationPickerSegue" id="eEd-Ic-cAI"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFB-L9-aRi">
+                                        <rect key="frame" x="166.66666666666666" y="669.66666666666663" width="41.666666666666657" height="20.333333333333371"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -207,16 +220,33 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uEl-cu-qVy"/>
                     </view>
+                    <navigationItem key="navigationItem" id="j1j-dX-VGP"/>
                     <connections>
                         <outlet property="imageView" destination="wH9-YY-Ygn" id="lbI-Xa-cYV"/>
                         <outlet property="latitudeLabel" destination="NTA-Xq-mrm" id="TqJ-yK-Akz"/>
                         <outlet property="locationName" destination="3eC-0s-dyp" id="j2L-C0-JsJ"/>
+                        <outlet property="locationName2" destination="UFB-L9-aRi" id="JGE-XA-UIx"/>
                         <outlet property="longitudeLabel" destination="qVT-nr-hSg" id="Mfk-xr-X4k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JMn-AX-r3n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-319.19999999999999" y="2209.3596059113302"/>
+            <point key="canvasLocation" x="23.199999999999999" y="2209.3596059113302"/>
+        </scene>
+        <!--Location Picker-->
+        <scene sceneID="dp3-Aj-vJl">
+            <objects>
+                <viewController id="igI-KZ-xnN" customClass="LocationPicker" customModule="LocationPickerViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Yp6-40-DKn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="tyA-El-bKH"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FgA-6p-HNQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1207.2" y="2214.5320197044334"/>
         </scene>
         <!--Map-->
         <scene sceneID="P60-gf-p8j">
@@ -311,6 +341,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xo4-aB-54i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2274" y="1475"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="G3v-qj-sPM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="I7f-UO-PxT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e7V-Si-4Uk">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Lei-EY-yJh" kind="relationship" relationship="rootViewController" id="d4X-Wd-9Vj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rPP-nK-byY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-807" y="2209"/>
         </scene>
     </scenes>
     <resources>
