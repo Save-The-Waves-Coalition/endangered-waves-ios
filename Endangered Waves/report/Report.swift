@@ -15,6 +15,15 @@ struct ReportLocation {
     var name: String?
     var coordinate: CLLocationCoordinate2D?
 
+    init(name: String?, coordinate: CLLocationCoordinate2D?) {
+        if let name = name {
+            self.name = name
+        }
+        if let coordinate = coordinate {
+            self.coordinate = coordinate
+        }
+    }
+
     init(dictionary: [String: Any]) {
         if let name = dictionary["name"] as? String {
             self.name = name
@@ -36,7 +45,7 @@ extension ReportLocation {
             dictionary["name"] = name
         }
         if let coordinate = coordinate {
-            dictionary["coordinate"] = coordinate
+            dictionary["coordinate"] = GeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude)
         }
         return (dictionary.count > 0) ? dictionary : nil
     }
@@ -58,6 +67,27 @@ struct Report {
     var location: ReportLocation?
     var type: ReportType?
     var user: String?
+
+    init(creationDate: Date?, description: String?, imageURLs: [String]?, location: ReportLocation?, type: ReportType?, user: String?) {
+        if let creationDate = creationDate {
+            self.creationDate = creationDate
+        }
+        if let description = description {
+            self.description = description
+        }
+        if let imageURLs = imageURLs {
+            self.imageURLs = imageURLs
+        }
+        if let location = location {
+            self.location = location
+        }
+        if let type = type {
+            self.type = type
+        }
+        if let user = user {
+            self.user = user
+        }
+    }
 
     init(dictionary: [String: Any]) {
         if let creationDate = dictionary["creationDate"] as? Date {

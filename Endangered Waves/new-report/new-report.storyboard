@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,46 +18,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xBl-kj-raP">
+                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xBl-kj-raP">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6f-h6-Lx4">
-                                        <rect key="frame" x="168" y="0.0" width="39" height="161"/>
-                                        <state key="normal" title="Close"/>
-                                        <connections>
-                                            <action selector="closeButtonWasTapped:" destination="QgS-HS-PiT" eventType="touchUpInside" id="ZhI-RN-ech"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFW-yU-jom">
-                                        <rect key="frame" x="145" y="161" width="85" height="30"/>
-                                        <state key="normal" title="Take Picture"/>
-                                        <connections>
-                                            <action selector="capturePhotoButtonWasTapped:" destination="QgS-HS-PiT" eventType="touchUpInside" id="xho-Qq-EmV"/>
-                                        </connections>
-                                    </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6kk-V9-xBD">
-                                        <rect key="frame" x="37.5" y="191" width="300" height="300"/>
-                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aBy-zA-1s0">
+                                        <rect key="frame" x="41" y="0.0" width="293" height="200"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6kk-V9-xBD">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="cUh-OZ-m2r"/>
+                                                    <constraint firstAttribute="width" constant="200" id="g1A-ox-G0r"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFW-yU-jom">
+                                                <rect key="frame" x="208" y="85" width="85" height="30"/>
+                                                <state key="normal" title="Take Picture"/>
+                                                <connections>
+                                                    <action selector="capturePhotoButtonWasTapped:" destination="QgS-HS-PiT" eventType="touchUpInside" id="xho-Qq-EmV"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C9R-4r-Dc1">
+                                        <rect key="frame" x="128.5" y="225" width="118" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gLq-RK-QZD">
+                                        <rect key="frame" x="140" y="280.5" width="95" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="heW-HZ-ks2">
+                                        <rect key="frame" x="161" y="335.5" width="53" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJv-bp-8Qf">
-                                        <rect key="frame" x="166.5" y="491" width="42" height="20.5"/>
+                                        <rect key="frame" x="166.5" y="390.5" width="42" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mbk-6v-9G2">
-                                        <rect key="frame" x="166.5" y="511.5" width="42" height="20.5"/>
+                                        <rect key="frame" x="166.5" y="436" width="42" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dw9-yg-P2n">
-                                        <rect key="frame" x="166.5" y="532" width="42" height="20.5"/>
+                                        <rect key="frame" x="166.5" y="482" width="42" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81v-gh-LkA">
-                                        <rect key="frame" x="135" y="552.5" width="105" height="30"/>
+                                        <rect key="frame" x="135" y="527.5" width="105" height="30"/>
                                         <state key="normal" title="Location Picker"/>
                                         <connections>
                                             <segue destination="nBV-c8-gVS" kind="show" identifier="LocationPickerSegue" id="CJq-Je-4Em">
@@ -82,18 +103,32 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="paR-Me-Q4Y"/>
                     </view>
-                    <navigationItem key="navigationItem" id="znt-dc-L9q"/>
+                    <navigationItem key="navigationItem" id="znt-dc-L9q">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="trq-cv-vnl">
+                            <connections>
+                                <action selector="cancelButtonWasTapped:" destination="QgS-HS-PiT" id="wcl-3i-tQY"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="dCW-NZ-k71">
+                            <connections>
+                                <action selector="saveButtonWasTapped:" destination="QgS-HS-PiT" id="FRU-kw-cat"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="descriptionTextField" destination="gLq-RK-QZD" id="sH2-Dw-ome"/>
                         <outlet property="imageView" destination="6kk-V9-xBD" id="uJO-B9-kfP"/>
                         <outlet property="latitudeLabel" destination="WJv-bp-8Qf" id="a4A-6E-EXi"/>
                         <outlet property="locationName" destination="dw9-yg-P2n" id="MKZ-h0-nx1"/>
                         <outlet property="locationName2" destination="ccM-3s-PX9" id="bMI-1D-XqL"/>
+                        <outlet property="locationNameTextField" destination="C9R-4r-Dc1" id="gRR-0o-UzO"/>
                         <outlet property="longitudeLabel" destination="Mbk-6v-9G2" id="nW1-Kh-1I2"/>
+                        <outlet property="typeTextField" destination="gLq-RK-QZD" id="K4w-mn-DSZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zX9-1T-aOj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="23.199999999999999" y="2209.3596059113302"/>
+            <point key="canvasLocation" x="23.199999999999999" y="2208.8455772113944"/>
         </scene>
         <!--Location Picker-->
         <scene sceneID="V6X-kI-4bI">

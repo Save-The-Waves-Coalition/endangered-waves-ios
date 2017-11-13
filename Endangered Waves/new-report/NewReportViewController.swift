@@ -11,11 +11,22 @@ import MobileCoreServices
 import Photos
 import CoreLocation
 import LocationPickerViewController
+import Firebase
 
-class NewReportViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class NewReportViewController: UIViewController {
 
-    let imagePicker = UIImagePickerController()
+    lazy var imagePicker = UIImagePickerController()
+
+    lazy var reportDictionary = [String: Any]()
+
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var locationNameTextField: UITextField!
+    @IBOutlet weak var descriptionTextField: UITextField!
+    @IBOutlet weak var typeTextField: UITextField!
+
+
+
+
     @IBOutlet weak var latitudeLabel: UILabel!
     @IBOutlet weak var longitudeLabel: UILabel!
     @IBOutlet weak var locationName: UILabel!
@@ -25,10 +36,32 @@ class NewReportViewController: UIViewController, UIImagePickerControllerDelegate
         super.viewDidLoad()
         imagePicker.delegate = self
     }
-    
-    @IBAction func closeButtonWasTapped(_ sender: UIButton) {
+
+    @IBAction func saveButtonWasTapped(_ sender: Any) {
+        // TODO: Save Report
+
+
+        let type = ReportType(rawValue: typeTextField.text ?? "other")
+        let userID = Auth.auth().currentUser?.uid
+        let coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(latitudeLabel.text ?? "0")!, longitude: CLLocationDegrees(longitudeLabel.text ?? "0")!)
+        let reportLocation = ReportLocation(name: locationName.text, coordinate: coordinate)
+        let report = Report(creationDate: Date(), description: descriptionTextField.text, imageURLs: nil, location: reportLocation, type: type, user: userID)
+
+        let collection = Firestore.firestore().collection("reports")
+
+        let reportData = report.documentDataDictionary()
+        print(reportData)
+
+        collection.addDocument(data: report.documentDataDictionary()!)
+
+        
         dismiss(animated: true, completion: nil)
     }
+
+    @IBAction func cancelButtonWasTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+
 
     @IBAction func capturePhotoButtonWasTapped(_ sender: UIButton) {
         let imageSourceIsAvailable = (UIImagePickerController.isSourceTypeAvailable(.camera) || UIImagePickerController.isSourceTypeAvailable(.photoLibrary))
@@ -109,9 +142,7 @@ class NewReportViewController: UIViewController, UIImagePickerControllerDelegate
         present(imagePicker, animated: true, completion: nil)
     }
 
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
-    }
+
 
     @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         if error != nil {
@@ -128,6 +159,27 @@ class NewReportViewController: UIViewController, UIImagePickerControllerDelegate
         }
     }
 
+
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "LocationPickerSegue" {
+            let locationPicker = segue.destination as! LocationPicker
+//            locationPicker.isAllowArbitraryLocation = true
+            locationPicker.addBarButtons()
+            locationPicker.pickCompletion = { (pickedLocationItem) in
+                self.locationName2.text = pickedLocationItem.name
+            }
+        }
+    }
+}
+
+// MARK: 📸 UIImagePickerControllerDelegate
+extension NewReportViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
 
         guard let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
@@ -140,31 +192,16 @@ class NewReportViewController: UIViewController, UIImagePickerControllerDelegate
 
         // If the image comes from the camera there is no PHAsset
         if picker.sourceType == .camera {
-
+            // Save to user's photo library
             let completionSelector = #selector(self.image(_:didFinishSavingWithError:contextInfo:))
-
             UIImageWriteToSavedPhotosAlbum(pickedImage, self, completionSelector, nil)
-//            if let url = info[UIImagePickerControllerImageURL] as? URL {
-//                print("URL: \(url)")
-//
-//                PHPhotoLibrary.shared().performChanges({
-//                    _ = PHAssetChangeRequest.creationRequestForAssetFromImage(atFileURL: url)
-//                }, completionHandler: { (success, error) in
-//                    if success {
-//                        print("💃💃💃💃💃💃")
-//
-//
-//                    }
-//                })
-//            }
             dismiss(animated: true, completion: nil)
         } else {
             // If the image comes from the library there is a PHAsset with potential location info
-
-
             if let asset = info[UIImagePickerControllerPHAsset] as? PHAsset {
-                print("Photo location: \(asset.location)")
+
                 if let location = asset.location {
+
                     latitudeLabel.text = String(describing: location.coordinate.latitude)
                     longitudeLabel.text = String(describing: location.coordinate.longitude)
 
@@ -175,9 +212,6 @@ class NewReportViewController: UIViewController, UIImagePickerControllerDelegate
                         }
 
                         if let placemarks = placemarks, placemarks.count > 0 {
-                            placemarks.forEach({ (placemark) in
-                                print("Placemark: \(placemark.name)")
-                            })
                             DispatchQueue.main.async {
                                 self.locationName.text = placemarks.first?.name
                             }
@@ -196,25 +230,6 @@ class NewReportViewController: UIViewController, UIImagePickerControllerDelegate
             dismiss(animated: true, completion: nil)
         }
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "LocationPickerSegue" {
-            let locationPicker = segue.destination as! LocationPicker
-//            locationPicker.isAllowArbitraryLocation = true
-            locationPicker.addBarButtons()
-            locationPicker.pickCompletion = { (pickedLocationItem) in
-                self.locationName2.text = pickedLocationItem.name
-            }
-        }
-    }
 }
 
-//extension NewReportViewController: UIImagePickerControllerDelegate {
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-//        defer {
-//            dismiss(animated: true, completion: nil)
-//        }
-//        print(info)
-//    }
-//}
 
