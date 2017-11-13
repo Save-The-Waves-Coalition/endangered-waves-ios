@@ -1,0 +1,112 @@
+//
+//  Report.swift
+//  Endangered Waves
+//
+//  Created by Matthew Morey on 11/11/17.
+//  Copyright © 2017 Save The Waves. All rights reserved.
+//
+
+import Foundation
+import UIKit
+import MapKit
+import FirebaseFirestore
+
+struct ReportLocation {
+    var name: String?
+    var coordinate: CLLocationCoordinate2D?
+
+    init(dictionary: [String: Any]) {
+        if let name = dictionary["name"] as? String {
+            self.name = name
+        }
+        if let coordinate = dictionary["coordinate"] as? GeoPoint {
+            self.coordinate = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        }
+    }
+}
+
+extension ReportLocation {
+    init(snapshot: DocumentSnapshot) {
+        self.init(dictionary: snapshot.data())
+    }
+
+    func documentDataDictionary() -> [String: Any]? {
+        var dictionary = [String: Any]()
+        if let name = name {
+            dictionary["name"] = name
+        }
+        if let coordinate = coordinate {
+            dictionary["coordinate"] = coordinate
+        }
+        return (dictionary.count > 0) ? dictionary : nil
+    }
+}
+
+enum ReportType: String {
+    case garbage
+    case sewage
+    case other
+    init() {
+        self = .other
+    }
+}
+
+struct Report {
+    var creationDate: Date?
+    var description: String?
+    var imageURLs: [String]?
+    var location: ReportLocation?
+    var type: ReportType?
+    var user: String?
+
+    init(dictionary: [String: Any]) {
+        if let creationDate = dictionary["creationDate"] as? Date {
+            self.creationDate = creationDate
+        }
+        if let description = dictionary["description"] as? String {
+            self.description = description
+        }
+        if let imageURLs = dictionary["images"] as? [String] {
+            self.imageURLs = imageURLs
+        }
+        if let location = dictionary["location"] as? [String: Any] {
+            self.location = ReportLocation(dictionary: location)
+        }
+        if let type = dictionary["type"] as? String {
+            let enumType = ReportType(rawValue: type)
+            self.type = enumType
+        }
+        if let user = dictionary["user"] as? String {
+            self.user = user
+        }
+    }
+}
+
+extension Report {
+    init(snapshot: DocumentSnapshot) {
+        self.init(dictionary: snapshot.data())
+    }
+
+    func documentDataDictionary() -> [String: Any]? {
+        var dictionary = [String: Any]()
+        if let creationDate = creationDate {
+            dictionary["creationDate"] = creationDate
+        }
+        if let description = description {
+            dictionary["description"] = description
+        }
+        if let imageURLs = imageURLs {
+            dictionary["imageURLs"] = imageURLs
+        }
+        if let location = location {
+            dictionary["location"] = location.documentDataDictionary()
+        }
+        if let type = type {
+            dictionary["type"] = type.rawValue
+        }
+        if let user = user {
+            dictionary["user"] = user
+        }
+        return (dictionary.count > 0) ? dictionary : nil
+    }
+}

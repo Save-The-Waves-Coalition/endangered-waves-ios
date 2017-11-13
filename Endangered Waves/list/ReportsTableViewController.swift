@@ -23,20 +23,20 @@ class ReportsTableViewController: UITableViewController, FUIAuthDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        self.title = "Reports"
         navigationController?.navigationBar.prefersLargeTitles = true;
 
-        let collection = Firestore.firestore().collection("reports")
+        let collection = Firestore.firestore().collection("reports").order(by: "creationDate", descending: true)
 
         dataSource = self.tableView.bind(toFirestoreQuery: collection) { (tableView, indexPath, snapshot) -> UITableViewCell in
 
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath) as? ReportsTableViewCell, let descriptionAny = snapshot.data()["description"], let descriptionString = descriptionAny as? String else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath) as? ReportsTableViewCell else {
 
-                // TODO: Return something else here?
+                // TODO: Return something else here? Or Fatal error or Assert
                 return UITableViewCell()
             }
 
-            cell.descriptionLabel.text = descriptionString
+            let report = Report(dictionary: snapshot.data())
+            cell.report = report
             return cell
         }
 
@@ -81,5 +81,27 @@ class ReportsTableViewController: UITableViewController, FUIAuthDelegate {
             print("Login error: \((detailedError as! NSError).localizedDescription)");
         }
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier else {
+            assertionFailure("Segue had no identifier.")
+            return
+        }
+
+        switch identifier {
+        case "ReportsListToReportDetailSegue":
+            if let cell = sender as? ReportsTableViewCell,
+                let destinationVC = segue.destination as? ReportDetailViewController {
+                destinationVC.report = cell.report
+            }
+        default:
+            fatalError("Unknown segue identifier.")
+        }
+    }
+}
+
+extension ReportsTableViewController: StoryboardInstantiable {
+    static var storyboardName: String { return "list" }
+    static var storyboardIdentifier: String? { return "Master" }
 
 }

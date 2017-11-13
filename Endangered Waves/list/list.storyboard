@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Reports-->
+        <scene sceneID="3qQ-Ep-e1f">
+            <objects>
+                <tableViewController storyboardIdentifier="ReportsListComponent" title="Reports" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pWA-bt-Wdb" customClass="ReportsTableViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ioe-rw-jNT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="defaultCell" rowHeight="100" id="FIf-IL-hPl" customClass="ReportsTableViewCell" customModule="Endangered_Waves" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FIf-IL-hPl" id="vB8-xi-iRF">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="moa-ao-Cwk">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beach_trash" translatesAutoresizingMaskIntoConstraints="NO" id="IyV-1H-2Hk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="99.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="hHH-oF-A7o"/>
+                                                        <constraint firstAttribute="height" constant="100" id="ycF-Rw-2Rr"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wtd-o9-gGI">
+                                                    <rect key="frame" x="108" y="0.0" width="267" height="38.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtv-5j-nvx">
+                                                            <rect key="frame" x="0.0" y="0.0" width="267" height="20.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amE-xa-mah">
+                                                            <rect key="frame" x="0.0" y="20.5" width="267" height="18"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="moa-ao-Cwk" secondAttribute="bottom" id="CEK-iy-bNR"/>
+                                        <constraint firstItem="moa-ao-Cwk" firstAttribute="leading" secondItem="vB8-xi-iRF" secondAttribute="leading" id="hok-0T-eHm"/>
+                                        <constraint firstItem="moa-ao-Cwk" firstAttribute="top" secondItem="vB8-xi-iRF" secondAttribute="top" id="lA9-8O-hTG"/>
+                                        <constraint firstAttribute="trailing" secondItem="moa-ao-Cwk" secondAttribute="trailing" id="nEP-Di-PHO"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="amE-xa-mah" id="KWj-Wd-hex"/>
+                                    <outlet property="locationNameLabel" destination="Mtv-5j-nvx" id="LWh-qN-E6O"/>
+                                    <outlet property="reportImageView" destination="IyV-1H-2Hk" id="u3H-UZ-ET0"/>
+                                    <segue destination="3SZ-I2-YNN" kind="show" identifier="ReportsListToReportDetailSegue" id="nWz-Dg-Zpm">
+                                        <segue key="commit" inheritsFrom="parent" id="Qgf-Da-kC7"/>
+                                        <segue key="preview" inheritsFrom="commit" id="0br-A5-CF7"/>
+                                    </segue>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="pWA-bt-Wdb" id="szk-M0-LCi"/>
+                            <outlet property="delegate" destination="pWA-bt-Wdb" id="0wd-07-i0W"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Reports" id="aue-4R-ruv">
+                        <barButtonItem key="rightBarButtonItem" title="Profile" id="PZf-fP-4DV" customClass="SwiftIconBarButtonItem" customModule="SwiftIconFont">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="Icon" value="fa:user"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="FontSize">
+                                    <real key="value" value="18"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="signInWasTapped:" destination="pWA-bt-Wdb" id="FC2-3d-Cqq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="signInBarButtonItem" destination="PZf-fP-4DV" id="9eS-3i-T5B"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LXm-Vt-gGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="420" y="143"/>
+        </scene>
+        <!--ReportDetailComponent-->
+        <scene sceneID="zKS-1z-oVK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="report" referencedIdentifier="ReportDetailComponent" id="3SZ-I2-YNN" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="waE-7M-782" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1185" y="99"/>
+        </scene>
+        <!--Reports Nav List View Controller-->
+        <scene sceneID="LMY-Tn-16g">
+            <objects>
+                <navigationController storyboardIdentifier="ReportsNavListComponent" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nd1-AM-4wj" customClass="ReportsNavListViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AGZ-qP-adU">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pWA-bt-Wdb" kind="relationship" relationship="rootViewController" id="375-WJ-uUC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yEx-7I-HGb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-313" y="143"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="beach_trash" width="700" height="525"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="nWz-Dg-Zpm"/>
+    </inferredMetricsTieBreakers>
+</document>

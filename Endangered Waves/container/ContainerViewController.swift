@@ -13,10 +13,11 @@ class ContainerViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var viewSwitchBarButton: UIBarButtonItem!
+    
     weak var currentViewController: UIViewController?
 
     override func viewDidLoad() {
-        currentViewController = storyboard?.instantiateViewController(withIdentifier: "ReportsNavListComponent")
+        currentViewController = ReportsNavListViewController.instantiate()
         currentViewController?.view.translatesAutoresizingMaskIntoConstraints = false
         addChildViewController(currentViewController!)
         addSubview(subView: (currentViewController?.view)!, toView: containerView)
@@ -51,18 +52,18 @@ class ContainerViewController: UIViewController {
     }
 
     func showMapComponent() {
-        let newViewController = self.storyboard?.instantiateViewController(withIdentifier: "ReportsNavMapComponent")
-        newViewController!.view.translatesAutoresizingMaskIntoConstraints = false
-        cycleFromViewController(oldViewController: self.currentViewController!, toViewController: newViewController!)
-        currentViewController = newViewController
+        let viewController = ReportsNavMapViewController.instantiate()
+        viewController.view.translatesAutoresizingMaskIntoConstraints = false
+        cycleFromViewController(oldViewController: self.currentViewController!, toViewController: viewController)
+        currentViewController = viewController
         viewSwitchBarButton.icon(from: .FontAwesome, code: "list", ofSize: 18)
     }
 
     func showListComponent() {
-        let newViewController = self.storyboard?.instantiateViewController(withIdentifier: "ReportsNavListComponent")
-        newViewController!.view.translatesAutoresizingMaskIntoConstraints = false
-        cycleFromViewController(oldViewController: self.currentViewController!, toViewController: newViewController!)
-        currentViewController = newViewController
+        let viewController = ReportsNavListViewController.instantiate()
+        viewController.view.translatesAutoresizingMaskIntoConstraints = false
+        cycleFromViewController(oldViewController: self.currentViewController!, toViewController: viewController)
+        currentViewController = viewController
         viewSwitchBarButton.icon(from: .FontAwesome, code: "map", ofSize: 18)
     }
 
