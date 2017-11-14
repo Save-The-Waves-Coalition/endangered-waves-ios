@@ -19,7 +19,6 @@
 		4A321A9D1FB79169001DA08A /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321A9C1FB79169001DA08A /* Report.swift */; };
 		4A321AA01FB7A85B001DA08A /* report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A9F1FB7A85B001DA08A /* report.storyboard */; };
 		4A321AA21FB7AB17001DA08A /* ReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321AA11FB7AB17001DA08A /* ReportDetailViewController.swift */; };
-		4A321AC41FB7C5B5001DA08A /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321AC31FB7C5B5001DA08A /* SegueHandlerType.swift */; };
 		4A321AC61FB8EF17001DA08A /* ReportMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321AC51FB8EF17001DA08A /* ReportMapAnnotation.swift */; };
 		4A321AC81FB9131D001DA08A /* ReportDetailNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321AC71FB9131D001DA08A /* ReportDetailNavViewController.swift */; };
 		4A7FA91A1FAA966300C6A2BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FA9191FAA966300C6A2BB /* AppDelegate.swift */; };
@@ -60,7 +59,6 @@
 		4A321A9C1FB79169001DA08A /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		4A321A9F1FB7A85B001DA08A /* report.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = report.storyboard; sourceTree = "<group>"; };
 		4A321AA11FB7AB17001DA08A /* ReportDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailViewController.swift; sourceTree = "<group>"; };
-		4A321AC31FB7C5B5001DA08A /* SegueHandlerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
 		4A321AC51FB8EF17001DA08A /* ReportMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportMapAnnotation.swift; sourceTree = "<group>"; };
 		4A321AC71FB9131D001DA08A /* ReportDetailNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailNavViewController.swift; sourceTree = "<group>"; };
 		4A7FA9161FAA966300C6A2BB /* Endangered Waves.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Endangered Waves.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,7 +155,6 @@
 			isa = PBXGroup;
 			children = (
 				4A321A8B1FB67308001DA08A /* StoryboardInstantiable.swift */,
-				4A321AC31FB7C5B5001DA08A /* SegueHandlerType.swift */,
 			);
 			path = "swift-extras";
 			sourceTree = "<group>";
@@ -205,12 +202,12 @@
 			children = (
 				4A7FA9191FAA966300C6A2BB /* AppDelegate.swift */,
 				4A9578C91FBB4FF20051837C /* AppCoordinator.swift */,
+				4A321A961FB67DF8001DA08A /* swift-extras */,
 				4A321A871FB67145001DA08A /* container */,
 				4A9578C41FBB46250051837C /* onboarding */,
-				4A321A9E1FB7A847001DA08A /* report */,
-				4A321A961FB67DF8001DA08A /* swift-extras */,
 				4A321A881FB67288001DA08A /* list */,
 				4A321A911FB67C28001DA08A /* map */,
+				4A321A9E1FB7A847001DA08A /* report */,
 				4A321A971FB67E10001DA08A /* new-report */,
 				4A7FA9201FAA966300C6A2BB /* Assets.xcassets */,
 				4A7FA9221FAA966300C6A2BB /* LaunchScreen.storyboard */,
@@ -434,7 +431,6 @@
 				4A321A901FB67C1F001DA08A /* ReportsMapViewController.swift in Sources */,
 				4A321AC61FB8EF17001DA08A /* ReportMapAnnotation.swift in Sources */,
 				4A9578CA1FBB4FF20051837C /* AppCoordinator.swift in Sources */,
-				4A321AC41FB7C5B5001DA08A /* SegueHandlerType.swift in Sources */,
 				4A8987681FAE0B4E0098E473 /* ReportsTableViewController.swift in Sources */,
 				4A321AC81FB9131D001DA08A /* ReportDetailNavViewController.swift in Sources */,
 				4A321AA21FB7AB17001DA08A /* ReportDetailViewController.swift in Sources */,
