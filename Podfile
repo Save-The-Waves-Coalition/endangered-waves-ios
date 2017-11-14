@@ -23,8 +23,10 @@ target 'Endangered Waves' do
   # UI Related
   pod 'SwiftIconFont'
   pod 'LocationPickerViewController'
+  pod 'ImagePicker'
+  pod 'Lightbox'
 
- # Other
- pod 'BuddyBuildSDK'
+  # Other
+  pod 'BuddyBuildSDK'
 
 end

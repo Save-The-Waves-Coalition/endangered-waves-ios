@@ -27,6 +27,10 @@
 		4A7FA9241FAA966300C6A2BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A7FA9221FAA966300C6A2BB /* LaunchScreen.storyboard */; };
 		4A7FA92C1FAA96ED00C6A2BB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A7FA92B1FAA96ED00C6A2BB /* GoogleService-Info.plist */; };
 		4A8987681FAE0B4E0098E473 /* ReportsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8987671FAE0B4E0098E473 /* ReportsTableViewController.swift */; };
+		4A9578C31FBB45E50051837C /* onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A9578C21FBB45E50051837C /* onboarding.storyboard */; };
+		4A9578C61FBB465A0051837C /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9578C51FBB465A0051837C /* OnboardingViewController.swift */; };
+		4A9578C81FBB4F970051837C /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9578C71FBB4F970051837C /* OnboardingCoordinator.swift */; };
+		4A9578CA1FBB4FF20051837C /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9578C91FBB4FF20051837C /* AppCoordinator.swift */; };
 		4ADAE8DA1FB20D6B00DAAFFD /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADAE8D91FB20D6B00DAAFFD /* ContainerViewController.swift */; };
 		4AF232A31FB0C46500ADA075 /* ReportsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF232A21FB0C46500ADA075 /* ReportsTableViewCell.swift */; };
 		4AF232A51FB0CA8900ADA075 /* NewReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF232A41FB0CA8900ADA075 /* NewReportViewController.swift */; };
@@ -66,6 +70,10 @@
 		4A7FA9251FAA966300C6A2BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A7FA92B1FAA96ED00C6A2BB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4A8987671FAE0B4E0098E473 /* ReportsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsTableViewController.swift; sourceTree = "<group>"; };
+		4A9578C21FBB45E50051837C /* onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = onboarding.storyboard; sourceTree = "<group>"; };
+		4A9578C51FBB465A0051837C /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		4A9578C71FBB4F970051837C /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
+		4A9578C91FBB4FF20051837C /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		4ADAE8D91FB20D6B00DAAFFD /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		4AF232A21FB0C46500ADA075 /* ReportsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsTableViewCell.swift; sourceTree = "<group>"; };
 		4AF232A41FB0CA8900ADA075 /* NewReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReportViewController.swift; sourceTree = "<group>"; };
@@ -196,9 +204,11 @@
 			isa = PBXGroup;
 			children = (
 				4A7FA9191FAA966300C6A2BB /* AppDelegate.swift */,
+				4A9578C91FBB4FF20051837C /* AppCoordinator.swift */,
+				4A321A871FB67145001DA08A /* container */,
+				4A9578C41FBB46250051837C /* onboarding */,
 				4A321A9E1FB7A847001DA08A /* report */,
 				4A321A961FB67DF8001DA08A /* swift-extras */,
-				4A321A871FB67145001DA08A /* container */,
 				4A321A881FB67288001DA08A /* list */,
 				4A321A911FB67C28001DA08A /* map */,
 				4A321A971FB67E10001DA08A /* new-report */,
@@ -209,6 +219,16 @@
 				4A321A841FB61CDE001DA08A /* Black's Beach.gpx */,
 			);
 			path = "Endangered Waves";
+			sourceTree = "<group>";
+		};
+		4A9578C41FBB46250051837C /* onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				4A9578C71FBB4F970051837C /* OnboardingCoordinator.swift */,
+				4A9578C21FBB45E50051837C /* onboarding.storyboard */,
+				4A9578C51FBB465A0051837C /* OnboardingViewController.swift */,
+			);
+			path = onboarding;
 			sourceTree = "<group>";
 		};
 		568EA3F3D670EFB352B1386E /* Frameworks */ = {
@@ -298,6 +318,7 @@
 				4A7FA9211FAA966300C6A2BB /* Assets.xcassets in Resources */,
 				4A321A861FB66ECC001DA08A /* container.storyboard in Resources */,
 				4A321A991FB67E50001DA08A /* new-report.storyboard in Resources */,
+				4A9578C31FBB45E50051837C /* onboarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,10 +371,15 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Endangered Waves/Pods-Endangered Waves-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Hue/Hue.framework",
+				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/Imaginary/Imaginary.framework",
+				"${BUILT_PRODUCTS_DIR}/Lightbox/Lightbox.framework",
 				"${BUILT_PRODUCTS_DIR}/LocationPickerViewController/LocationPickerViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -369,10 +395,15 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hue.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Imaginary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lightbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LocationPickerViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -402,15 +433,18 @@
 				4A321A9B1FB67F4F001DA08A /* ContainerNavViewController.swift in Sources */,
 				4A321A901FB67C1F001DA08A /* ReportsMapViewController.swift in Sources */,
 				4A321AC61FB8EF17001DA08A /* ReportMapAnnotation.swift in Sources */,
+				4A9578CA1FBB4FF20051837C /* AppCoordinator.swift in Sources */,
 				4A321AC41FB7C5B5001DA08A /* SegueHandlerType.swift in Sources */,
 				4A8987681FAE0B4E0098E473 /* ReportsTableViewController.swift in Sources */,
 				4A321AC81FB9131D001DA08A /* ReportDetailNavViewController.swift in Sources */,
 				4A321AA21FB7AB17001DA08A /* ReportDetailViewController.swift in Sources */,
 				4A7FA91A1FAA966300C6A2BB /* AppDelegate.swift in Sources */,
+				4A9578C61FBB465A0051837C /* OnboardingViewController.swift in Sources */,
 				4A321A8E1FB673ED001DA08A /* ReportsNavListViewController.swift in Sources */,
 				4A321A8C1FB67308001DA08A /* StoryboardInstantiable.swift in Sources */,
 				4ADAE8DA1FB20D6B00DAAFFD /* ContainerViewController.swift in Sources */,
 				4AF232A31FB0C46500ADA075 /* ReportsTableViewCell.swift in Sources */,
+				4A9578C81FBB4F970051837C /* OnboardingCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

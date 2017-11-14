@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Onboarding View Controller-->
+        <scene sceneID="BwZ-95-0I2">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingComponent" id="J6W-Aj-VhK" customClass="OnboardingViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k1u-Ay-HbP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Onboarding view not implemented yet" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmi-pl-TdF">
+                                <rect key="frame" x="42" y="323" width="291" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bT7-e7-5cD">
+                                <rect key="frame" x="164" y="617" width="46" height="30"/>
+                                <state key="normal" title="Skip"/>
+                                <connections>
+                                    <action selector="skipButtonWasTapped:" destination="J6W-Aj-VhK" eventType="touchUpInside" id="QZS-aB-D5a"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="bT7-e7-5cD" firstAttribute="leading" secondItem="bWR-nD-lak" secondAttribute="leading" constant="164" id="0kq-cO-kKm"/>
+                            <constraint firstItem="kmi-pl-TdF" firstAttribute="centerX" secondItem="k1u-Ay-HbP" secondAttribute="centerX" id="Ebp-6g-WGe"/>
+                            <constraint firstItem="bT7-e7-5cD" firstAttribute="centerX" secondItem="kmi-pl-TdF" secondAttribute="centerX" id="GVN-BK-u5B"/>
+                            <constraint firstItem="bWR-nD-lak" firstAttribute="bottom" secondItem="bT7-e7-5cD" secondAttribute="bottom" constant="20" id="cvC-JP-IhD"/>
+                            <constraint firstItem="kmi-pl-TdF" firstAttribute="centerY" secondItem="k1u-Ay-HbP" secondAttribute="centerY" id="oWj-Au-ONc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bWR-nD-lak"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gue-f5-nN1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9" y="149"/>
+        </scene>
+    </scenes>
+</document>

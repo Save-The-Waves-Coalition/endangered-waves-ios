@@ -12,10 +12,21 @@ import Photos
 import CoreLocation
 import LocationPickerViewController
 import Firebase
+import ImagePicker
+import Lightbox
 
 class NewReportViewController: UIViewController {
 
     lazy var imagePicker = UIImagePickerController()
+
+    lazy var imagePickerController: ImagePickerController = {
+        var configuration = Configuration()
+        configuration.allowVideoSelection = false
+        configuration.recordLocation = true
+        let imagePicker = ImagePickerController(configuration: configuration)
+        imagePicker.delegate = self
+        return imagePicker
+    }()
 
     lazy var reportDictionary = [String: Any]()
 
@@ -64,6 +75,13 @@ class NewReportViewController: UIViewController {
 
 
     @IBAction func capturePhotoButtonWasTapped(_ sender: UIButton) {
+
+        present(imagePickerController, animated: true, completion: nil)
+
+        return
+
+
+
         let imageSourceIsAvailable = (UIImagePickerController.isSourceTypeAvailable(.camera) || UIImagePickerController.isSourceTypeAvailable(.photoLibrary))
         let photoLibraryIsAuthorized = PHPhotoLibrary.authorizationStatus() == .authorized
 
@@ -232,4 +250,26 @@ extension NewReportViewController: UINavigationControllerDelegate, UIImagePicker
     }
 }
 
+extension NewReportViewController: ImagePickerDelegate {
+    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        guard images.count > 0 else { return }
+
+        let lightboxImages = images.map {
+            return LightboxImage(image: $0)
+        }
+
+        let lightbox = LightboxController(images: lightboxImages, startIndex: 0)
+        imagePicker.present(lightbox, animated: true, completion: nil)
+    }
+
+    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
+
+    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
+
+
+}
 
