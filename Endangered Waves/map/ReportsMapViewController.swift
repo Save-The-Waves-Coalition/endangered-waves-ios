@@ -47,7 +47,7 @@ class ReportsMapViewController: UIViewController {
 
     fileprivate func configureMap() {
         mapView.delegate = self
-        mapView.mapType = .hybrid
+        mapView.mapType = .standard
     }
 
     fileprivate func viewController(for annotation: ReportMapAnnotation) -> ReportDetailViewController {

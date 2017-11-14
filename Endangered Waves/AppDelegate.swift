@@ -16,8 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     var appCoordinator: AppCoordinator = {
-        let vc = ContainerNavViewController.instantiate()
-        let c = AppCoordinator(with: vc)
+        let c = AppCoordinator(with: UIViewController())
         return c
     }()
 
@@ -25,13 +24,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         BuddyBuildSDK.setup()
         FirebaseApp.configure()
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = appCoordinator.navigationController
+        window?.rootViewController = appCoordinator.rootViewController
         return true
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window?.makeKeyAndVisible()
         appCoordinator.start()
+
+
+
+//        for family: String in UIFont.familyNames
+//        {
+//            print("\(family)")
+//            for names: String in UIFont.fontNames(forFamilyName: family)
+//            {
+//                print("== \(names)")
+//            }
+//        }
         return true
     }
 }

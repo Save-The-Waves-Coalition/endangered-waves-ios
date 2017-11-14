@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReportsNavListViewController: UINavigationController {
+class ReportsNavListViewController: NavigationViewController {
 
 }
 

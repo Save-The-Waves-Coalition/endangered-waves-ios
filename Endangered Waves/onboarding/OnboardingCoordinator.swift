@@ -12,30 +12,24 @@ protocol OnboardingCoordinatorDelegate: class {
     func coordinatorDidFinishOnboarding(_ coordinator: OnboardingCoordinator)
 }
 
-class OnboardingCoordinator {
+class OnboardingCoordinator: Coordinator {
 
     weak var delegate: OnboardingCoordinatorDelegate?
 
-    var rootViewController: UIViewController
-
-    init(with rootViewController: UIViewController) {
-        self.rootViewController = rootViewController
-    }
-
-    func start() {
+    override func start() {
         let onboardingVC = OnboardingViewController.instantiate()
         onboardingVC.delegate = self
-        rootViewController.present(onboardingVC, animated: false, completion: nil)
+        addFullScreenChildViewController(viewController: onboardingVC, toViewController: rootViewController)
     }
 
-    func stop() {
+    override func stop() {
         delegate?.coordinatorDidFinishOnboarding(self)
     }
 }
 
 extension OnboardingCoordinator: OnboardingViewControllerDelegate {
     func controller(_ controller: OnboardingViewController, didTapSkipButton button: UIButton) {
-        rootViewController.dismiss(animated: true, completion: nil)
+        removeChildViewController(viewController: controller, fromViewController: rootViewController)
         stop()
     }
 }

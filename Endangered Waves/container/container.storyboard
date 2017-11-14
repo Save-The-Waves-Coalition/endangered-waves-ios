@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5oz-Qy-NCe">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,88 +15,77 @@
             <objects>
                 <viewController id="yxe-08-AbJ" customClass="ContainerViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Bc-EI-G7r">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fjd-Ay-qwk">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="728"/>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PY3-AS-fv3">
+                                <rect key="frame" x="0.0" y="728" width="375" height="84"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="en0-ya-nr3">
+                                        <rect key="frame" x="172" y="12" width="30" height="30"/>
+                                        <state key="normal" title="Add"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2x-wo-OnQ">
+                                        <rect key="frame" x="50" y="12" width="30" height="30"/>
+                                        <state key="normal" title="Map"/>
+                                        <connections>
+                                            <action selector="mapButtonWasTapped:" destination="yxe-08-AbJ" eventType="touchUpInside" id="fqO-fl-N3U"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IPF-3z-7sg">
+                                        <rect key="frame" x="295" y="12" width="30" height="30"/>
+                                        <state key="normal" title="List"/>
+                                        <connections>
+                                            <action selector="listButtonWasTapped:" destination="yxe-08-AbJ" eventType="touchUpInside" id="49R-rF-U4i"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="STW-White"/>
+                                <constraints>
+                                    <constraint firstItem="en0-ya-nr3" firstAttribute="top" secondItem="PY3-AS-fv3" secondAttribute="top" constant="12" id="WfA-we-beK"/>
+                                    <constraint firstItem="X2x-wo-OnQ" firstAttribute="leading" secondItem="PY3-AS-fv3" secondAttribute="leading" constant="50" id="aZS-tc-Nkc"/>
+                                    <constraint firstAttribute="trailing" secondItem="IPF-3z-7sg" secondAttribute="trailing" constant="50" id="hVT-1n-x5p"/>
+                                    <constraint firstItem="X2x-wo-OnQ" firstAttribute="baseline" secondItem="en0-ya-nr3" secondAttribute="baseline" id="iDX-xy-mWP"/>
+                                    <constraint firstItem="en0-ya-nr3" firstAttribute="centerX" secondItem="PY3-AS-fv3" secondAttribute="centerX" id="jsF-Oi-LdI"/>
+                                    <constraint firstItem="IPF-3z-7sg" firstAttribute="baseline" secondItem="en0-ya-nr3" secondAttribute="baseline" id="vdH-Rc-DV4"/>
+                                    <constraint firstAttribute="height" constant="84" id="vlZ-HG-YPt"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fjd-Ay-qwk" firstAttribute="leading" secondItem="8Bc-EI-G7r" secondAttribute="leading" id="1zW-RJ-XgH"/>
-                            <constraint firstItem="fjd-Ay-qwk" firstAttribute="bottom" secondItem="rhc-VJ-AZY" secondAttribute="bottom" id="4r6-qL-zyA"/>
+                            <constraint firstAttribute="bottom" secondItem="PY3-AS-fv3" secondAttribute="bottom" id="2go-oy-tuU"/>
                             <constraint firstItem="fjd-Ay-qwk" firstAttribute="top" secondItem="8Bc-EI-G7r" secondAttribute="top" id="Abp-pj-cgZ"/>
+                            <constraint firstItem="PY3-AS-fv3" firstAttribute="trailing" secondItem="rhc-VJ-AZY" secondAttribute="trailing" id="bB9-YT-zlQ"/>
+                            <constraint firstItem="PY3-AS-fv3" firstAttribute="top" secondItem="fjd-Ay-qwk" secondAttribute="bottom" id="kjP-Mh-Jt2"/>
+                            <constraint firstItem="PY3-AS-fv3" firstAttribute="leading" secondItem="rhc-VJ-AZY" secondAttribute="leading" id="uoY-PB-lhJ"/>
                             <constraint firstAttribute="trailing" secondItem="fjd-Ay-qwk" secondAttribute="trailing" id="wtu-65-Adz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rhc-VJ-AZY"/>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem title="Filter" id="gpI-yZ-jTs" customClass="SwiftIconBarButtonItem" customModule="SwiftIconFont">
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="Icon" value="fa:filter"/>
-                                <userDefinedRuntimeAttribute type="number" keyPath="FontSize">
-                                    <real key="value" value="18"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="BbZ-IB-a4z"/>
-                        <barButtonItem title="List" id="DBS-HB-7xU" customClass="SwiftIconBarButtonItem" customModule="SwiftIconFont">
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="Icon" value="fa:map"/>
-                                <userDefinedRuntimeAttribute type="number" keyPath="FontSize">
-                                    <real key="value" value="18"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="mapButtonWasTapped:" destination="yxe-08-AbJ" id="GBK-aA-gMF"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="5gG-MR-1QC"/>
-                        <barButtonItem systemItem="add" id="Xyw-Kt-w0p" customClass="SwiftIconBarButtonItem" customModule="SwiftIconFont">
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="Icon" value="fa:filter"/>
-                                <userDefinedRuntimeAttribute type="number" keyPath="FontSize">
-                                    <real key="value" value="18"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                            <connections>
-                                <segue destination="Fjg-Pd-xAb" kind="show" id="nim-X0-W6x"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="zQt-rF-KrB"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="containerView" destination="fjd-Ay-qwk" id="tPc-vk-lKC"/>
-                        <outlet property="viewSwitchBarButton" destination="DBS-HB-7xU" id="eDR-X1-BdQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGc-dV-vmb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1358" y="1475"/>
-        </scene>
-        <!--new-report-->
-        <scene sceneID="R0R-TV-EuX">
-            <objects>
-                <viewControllerPlaceholder storyboardName="new-report" id="Fjg-Pd-xAb" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="z2Y-cw-E5b" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-167" y="1817"/>
+            <point key="canvasLocation" x="-1359.2" y="1474.1379310344828"/>
         </scene>
         <!--Container Nav View Controller-->
         <scene sceneID="6mP-hY-aXO">
             <objects>
-                <navigationController storyboardIdentifier="ContainerNavComponent" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" toolbarHidden="NO" id="5oz-Qy-NCe" customClass="ContainerNavViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ContainerNavComponent" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="5oz-Qy-NCe" customClass="ContainerNavViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bhs-cT-bqF">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AcO-8g-qCG">
-                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
                     <connections>
                         <segue destination="yxe-08-AbJ" kind="relationship" relationship="rootViewController" id="YBM-op-eGw"/>
                     </connections>
@@ -105,4 +95,9 @@
             <point key="canvasLocation" x="-2274" y="1475"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="STW-White">
+            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

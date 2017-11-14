@@ -8,8 +8,7 @@
 
 import UIKit
 
-class ReportsNavMapViewController: UINavigationController {
-
+class ReportsNavMapViewController: NavigationViewController {
 }
 
 extension ReportsNavMapViewController: StoryboardInstantiable {

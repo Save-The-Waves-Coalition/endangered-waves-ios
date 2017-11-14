@@ -30,6 +30,10 @@
 		4A9578C61FBB465A0051837C /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9578C51FBB465A0051837C /* OnboardingViewController.swift */; };
 		4A9578C81FBB4F970051837C /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9578C71FBB4F970051837C /* OnboardingCoordinator.swift */; };
 		4A9578CA1FBB4FF20051837C /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9578C91FBB4FF20051837C /* AppCoordinator.swift */; };
+		4A9578CE1FBB98CE0051837C /* ContainerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9578CD1FBB98CE0051837C /* ContainerCoordinator.swift */; };
+		4A9578D01FBB9DC30051837C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9578CF1FBB9DC30051837C /* Coordinator.swift */; };
+		4A9578D21FBBAE540051837C /* Brandon_blk.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A9578D11FBBAE530051837C /* Brandon_blk.otf */; };
+		4A9578D51FBBB6730051837C /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9578D41FBBB6730051837C /* NavigationViewController.swift */; };
 		4ADAE8DA1FB20D6B00DAAFFD /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADAE8D91FB20D6B00DAAFFD /* ContainerViewController.swift */; };
 		4AF232A31FB0C46500ADA075 /* ReportsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF232A21FB0C46500ADA075 /* ReportsTableViewCell.swift */; };
 		4AF232A51FB0CA8900ADA075 /* NewReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF232A41FB0CA8900ADA075 /* NewReportViewController.swift */; };
@@ -72,6 +76,10 @@
 		4A9578C51FBB465A0051837C /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		4A9578C71FBB4F970051837C /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		4A9578C91FBB4FF20051837C /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		4A9578CD1FBB98CE0051837C /* ContainerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerCoordinator.swift; sourceTree = "<group>"; };
+		4A9578CF1FBB9DC30051837C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		4A9578D11FBBAE530051837C /* Brandon_blk.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_blk.otf; sourceTree = "<group>"; };
+		4A9578D41FBBB6730051837C /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		4ADAE8D91FB20D6B00DAAFFD /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		4AF232A21FB0C46500ADA075 /* ReportsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsTableViewCell.swift; sourceTree = "<group>"; };
 		4AF232A41FB0CA8900ADA075 /* NewReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReportViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +130,7 @@
 		4A321A871FB67145001DA08A /* container */ = {
 			isa = PBXGroup;
 			children = (
+				4A9578CD1FBB98CE0051837C /* ContainerCoordinator.swift */,
 				4ADAE8D91FB20D6B00DAAFFD /* ContainerViewController.swift */,
 				4A321A9A1FB67F4F001DA08A /* ContainerNavViewController.swift */,
 				4A321A851FB66ECC001DA08A /* container.storyboard */,
@@ -155,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				4A321A8B1FB67308001DA08A /* StoryboardInstantiable.swift */,
+				4A9578CF1FBB9DC30051837C /* Coordinator.swift */,
 			);
 			path = "swift-extras";
 			sourceTree = "<group>";
@@ -202,6 +212,7 @@
 			children = (
 				4A7FA9191FAA966300C6A2BB /* AppDelegate.swift */,
 				4A9578C91FBB4FF20051837C /* AppCoordinator.swift */,
+				4A9578D41FBBB6730051837C /* NavigationViewController.swift */,
 				4A321A961FB67DF8001DA08A /* swift-extras */,
 				4A321A871FB67145001DA08A /* container */,
 				4A9578C41FBB46250051837C /* onboarding */,
@@ -211,6 +222,7 @@
 				4A321A971FB67E10001DA08A /* new-report */,
 				4A7FA9201FAA966300C6A2BB /* Assets.xcassets */,
 				4A7FA9221FAA966300C6A2BB /* LaunchScreen.storyboard */,
+				4A9578D31FBBAE5C0051837C /* fonts */,
 				4A7FA9251FAA966300C6A2BB /* Info.plist */,
 				4A7FA92B1FAA96ED00C6A2BB /* GoogleService-Info.plist */,
 				4A321A841FB61CDE001DA08A /* Black's Beach.gpx */,
@@ -226,6 +238,14 @@
 				4A9578C51FBB465A0051837C /* OnboardingViewController.swift */,
 			);
 			path = onboarding;
+			sourceTree = "<group>";
+		};
+		4A9578D31FBBAE5C0051837C /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4A9578D11FBBAE530051837C /* Brandon_blk.otf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 		568EA3F3D670EFB352B1386E /* Frameworks */ = {
@@ -307,6 +327,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A9578D21FBBAE540051837C /* Brandon_blk.otf in Resources */,
 				4A7FA9241FAA966300C6A2BB /* LaunchScreen.storyboard in Resources */,
 				4A7FA92C1FAA96ED00C6A2BB /* GoogleService-Info.plist in Resources */,
 				4A321A931FB67C3C001DA08A /* map.storyboard in Resources */,
@@ -430,8 +451,11 @@
 				4A321A9B1FB67F4F001DA08A /* ContainerNavViewController.swift in Sources */,
 				4A321A901FB67C1F001DA08A /* ReportsMapViewController.swift in Sources */,
 				4A321AC61FB8EF17001DA08A /* ReportMapAnnotation.swift in Sources */,
+				4A9578D01FBB9DC30051837C /* Coordinator.swift in Sources */,
 				4A9578CA1FBB4FF20051837C /* AppCoordinator.swift in Sources */,
+				4A9578D51FBBB6730051837C /* NavigationViewController.swift in Sources */,
 				4A8987681FAE0B4E0098E473 /* ReportsTableViewController.swift in Sources */,
+				4A9578CE1FBB98CE0051837C /* ContainerCoordinator.swift in Sources */,
 				4A321AC81FB9131D001DA08A /* ReportDetailNavViewController.swift in Sources */,
 				4A321AA21FB7AB17001DA08A /* ReportDetailViewController.swift in Sources */,
 				4A7FA91A1FAA966300C6A2BB /* AppDelegate.swift in Sources */,

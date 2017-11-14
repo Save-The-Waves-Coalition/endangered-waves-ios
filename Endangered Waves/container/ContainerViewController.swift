@@ -7,17 +7,15 @@
 //
 
 import UIKit
-import SwiftIconFont
 
 class ContainerViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var viewSwitchBarButton: UIBarButtonItem!
     
     weak var currentViewController: UIViewController?
 
     override func viewDidLoad() {
-        currentViewController = ReportsNavListViewController.instantiate()
+        currentViewController = ReportsNavMapViewController.instantiate()
         currentViewController?.view.translatesAutoresizingMaskIntoConstraints = false
         addChildViewController(currentViewController!)
         addSubview(subView: (currentViewController?.view)!, toView: containerView)
@@ -35,36 +33,50 @@ class ContainerViewController: UIViewController {
                                                                  options: [], metrics: nil, views: viewBindingsDictionary))
     }
 
-    @IBAction func mapButtonWasTapped(_ sender: UIBarButtonItem) {
-        guard let identifier = currentViewController?.restorationIdentifier else {
-            // TODO what should we do here
+    @IBAction func mapButtonWasTapped(_ sender: UIButton) {
+        showMapComponent()
+    }
+
+    @IBAction func listButtonWasTapped(_ sender: UIButton) {
+        showListComponent()
+    }
+
+//    @IBAction func mapButtonWasTapped(_ sender: UIBarButtonItem) {
+//        guard let identifier = currentViewController?.restorationIdentifier else {
+//            // TODO what should we do here
+//            return
+//        }
+//
+//        switch identifier {
+//        case "ReportsNavListComponent":
+//            // Switch to map view
+//            showMapComponent()
+//        default:
+//            // Switch to list view
+//            showListComponent()
+//        }
+//    }
+
+    func showMapComponent() {
+        guard let identifier = currentViewController?.restorationIdentifier, identifier != "ReportsNavMapComponent" else {
             return
         }
 
-        switch identifier {
-        case "ReportsNavListComponent":
-            // Switch to map view
-            showMapComponent()
-        default:
-            // Switch to list view
-            showListComponent()
-        }
-    }
-
-    func showMapComponent() {
         let viewController = ReportsNavMapViewController.instantiate()
         viewController.view.translatesAutoresizingMaskIntoConstraints = false
         cycleFromViewController(oldViewController: self.currentViewController!, toViewController: viewController)
         currentViewController = viewController
-        viewSwitchBarButton.icon(from: .FontAwesome, code: "list", ofSize: 18)
     }
 
     func showListComponent() {
+        guard let identifier = currentViewController?.restorationIdentifier, identifier != "ReportsNavListComponent" else {
+            return
+        }
+
         let viewController = ReportsNavListViewController.instantiate()
         viewController.view.translatesAutoresizingMaskIntoConstraints = false
         cycleFromViewController(oldViewController: self.currentViewController!, toViewController: viewController)
         currentViewController = viewController
-        viewSwitchBarButton.icon(from: .FontAwesome, code: "map", ofSize: 18)
     }
 
     

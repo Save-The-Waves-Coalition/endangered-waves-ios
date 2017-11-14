@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReportDetailNavViewController: UINavigationController {
+class ReportDetailNavViewController: NavigationViewController {
 }
 
 extension ReportDetailNavViewController: StoryboardInstantiable {

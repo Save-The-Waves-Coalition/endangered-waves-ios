@@ -9,62 +9,29 @@
 import UIKit
 import FirebaseAuth
 
-class AppCoordinator {
+class AppCoordinator: Coordinator {
 
-    var childCoordinators = [AnyObject]()
-
-    lazy var auth = Auth.auth()
-    var authStateListenerHandle: AuthStateDidChangeListenerHandle?
-
-    var navigationController: UINavigationController
-
-    init(with navigationController: UINavigationController) {
-        self.navigationController = navigationController
-    }
-
-    func start() {
+    override func start() {
+        showContent()
         if isFirstLaunch() {
             showOnboarding()
-        } else {
-            showContent()
         }
-
-
-        //        authStateListenerHandle = auth.addStateDidChangeListener({ (auth, user) in
-        //            if let user = user {
-        //                print("User is signed in: \(user)")
-        //            } else {
-        //                print("User is not signed in")
-        //
-        //                auth.signInAnonymously(completion: { (user, error) in
-        //                    guard let user = user else {
-        //                        if let error = error {
-        //                            print("⚠️: Couldn't anonymously sign the user in \(error.localizedDescription)")
-        //                        }
-        //                        return
-        //                    }
-        //
-        //
-        //                    print("User is anonymously signed in: \(user)")
-        //                })
-        //            }
-        //        })
-    }
-
-    func stop() {
-        // TODO
     }
 
     func showContent() {
-        // TODO
+        let containerCoordinator = ContainerCoordinator(with: rootViewController)
+        childCoordinators.append(containerCoordinator)
+        containerCoordinator.start()
     }
 
     func showOnboarding() {
-        let onboardingCoordinator = OnboardingCoordinator(with: navigationController)
+        let onboardingCoordinator = OnboardingCoordinator(with: rootViewController)
         onboardingCoordinator.delegate = self
         childCoordinators.append(onboardingCoordinator)
         onboardingCoordinator.start()
     }
+
+    // MARK: Miscellaneous helper functions
 
     func isFirstLaunch() -> Bool {
         let hasBeenLaunchedBeforeFlag = "hasBeenLaunchedBeforeFlag"
@@ -77,14 +44,35 @@ class AppCoordinator {
     }
 }
 
+// MARK: OnboardingCoordinatorDelegate
 extension AppCoordinator: OnboardingCoordinatorDelegate {
-
     func coordinatorDidFinishOnboarding(_ coordinator: OnboardingCoordinator) {
-        if let index = childCoordinators.index(where: { (item) -> Bool in
-            return item === coordinator }) {
-            childCoordinators.remove(at: index)
-        }
-
-        showContent()
+        removeChildCoordinator(coordinator: coordinator)
     }
 }
+
+
+// MARK: Scratchpad
+
+//lazy var auth = Auth.auth()
+//var authStateListenerHandle: AuthStateDidChangeListenerHandle?
+
+//        authStateListenerHandle = auth.addStateDidChangeListener({ (auth, user) in
+//            if let user = user {
+//                print("User is signed in: \(user)")
+//            } else {
+//                print("User is not signed in")
+//
+//                auth.signInAnonymously(completion: { (user, error) in
+//                    guard let user = user else {
+//                        if let error = error {
+//                            print("⚠️: Couldn't anonymously sign the user in \(error.localizedDescription)")
+//                        }
+//                        return
+//                    }
+//
+//
+//                    print("User is anonymously signed in: \(user)")
+//                })
+//            }
+//        })
