@@ -47,7 +47,7 @@ class AppCoordinator: Coordinator {
 // MARK: OnboardingCoordinatorDelegate
 extension AppCoordinator: OnboardingCoordinatorDelegate {
     func coordinatorDidFinishOnboarding(_ coordinator: OnboardingCoordinator) {
-        removeChildCoordinator(coordinator: coordinator)
+        removeChildCoordinator(coordinator)
     }
 }
 

@@ -38,6 +38,7 @@ class Coordinator {
     }
 
     func addFullScreenSubview(subView: UIView, toView parentView:UIView) {
+        subView.translatesAutoresizingMaskIntoConstraints = false
         parentView.addSubview(subView)
         var viewBindingsDictionary = [String: AnyObject]()
         viewBindingsDictionary["subView"] = subView
@@ -47,7 +48,7 @@ class Coordinator {
                                                                  options: [], metrics: nil, views: viewBindingsDictionary))
     }
 
-    func removeChildCoordinator(coordinator: Coordinator) {
+    func removeChildCoordinator(_ coordinator: Coordinator) {
         if let index = childCoordinators.index(where: { (item) -> Bool in
             return item === coordinator }) {
             childCoordinators.remove(at: index)

@@ -33,6 +33,8 @@
 		4A9578D01FBB9DC30051837C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9578CF1FBB9DC30051837C /* Coordinator.swift */; };
 		4A9578D21FBBAE540051837C /* Brandon_blk.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A9578D11FBBAE530051837C /* Brandon_blk.otf */; };
 		4A9578D51FBBB6730051837C /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9578D41FBBB6730051837C /* NavigationViewController.swift */; };
+		4AA85B911FBBD11D009A72E8 /* NewReportCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA85B901FBBD11D009A72E8 /* NewReportCoordinator.swift */; };
+		4AA85B931FBBD61D009A72E8 /* NewReportNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA85B921FBBD61D009A72E8 /* NewReportNavViewController.swift */; };
 		4ADAE8DA1FB20D6B00DAAFFD /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADAE8D91FB20D6B00DAAFFD /* ContainerViewController.swift */; };
 		4AF232A31FB0C46500ADA075 /* ReportsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF232A21FB0C46500ADA075 /* ReportsTableViewCell.swift */; };
 		4AF232A51FB0CA8900ADA075 /* NewReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF232A41FB0CA8900ADA075 /* NewReportViewController.swift */; };
@@ -78,6 +80,8 @@
 		4A9578CF1FBB9DC30051837C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		4A9578D11FBBAE530051837C /* Brandon_blk.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_blk.otf; sourceTree = "<group>"; };
 		4A9578D41FBBB6730051837C /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		4AA85B901FBBD11D009A72E8 /* NewReportCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReportCoordinator.swift; sourceTree = "<group>"; };
+		4AA85B921FBBD61D009A72E8 /* NewReportNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReportNavViewController.swift; sourceTree = "<group>"; };
 		4ADAE8D91FB20D6B00DAAFFD /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		4AF232A21FB0C46500ADA075 /* ReportsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsTableViewCell.swift; sourceTree = "<group>"; };
 		4AF232A41FB0CA8900ADA075 /* NewReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReportViewController.swift; sourceTree = "<group>"; };
@@ -169,7 +173,9 @@
 		4A321A971FB67E10001DA08A /* new-report */ = {
 			isa = PBXGroup;
 			children = (
+				4AA85B901FBBD11D009A72E8 /* NewReportCoordinator.swift */,
 				4AF232A41FB0CA8900ADA075 /* NewReportViewController.swift */,
+				4AA85B921FBBD61D009A72E8 /* NewReportNavViewController.swift */,
 				4A321A981FB67E50001DA08A /* new-report.storyboard */,
 			);
 			path = "new-report";
@@ -447,6 +453,7 @@
 				4A321AC61FB8EF17001DA08A /* ReportMapAnnotation.swift in Sources */,
 				4A9578D01FBB9DC30051837C /* Coordinator.swift in Sources */,
 				4A9578CA1FBB4FF20051837C /* AppCoordinator.swift in Sources */,
+				4AA85B911FBBD11D009A72E8 /* NewReportCoordinator.swift in Sources */,
 				4A9578D51FBBB6730051837C /* NavigationViewController.swift in Sources */,
 				4A8987681FAE0B4E0098E473 /* ReportsTableViewController.swift in Sources */,
 				4A9578CE1FBB98CE0051837C /* ContainerCoordinator.swift in Sources */,
@@ -456,6 +463,7 @@
 				4A9578C61FBB465A0051837C /* OnboardingViewController.swift in Sources */,
 				4A321A8E1FB673ED001DA08A /* ReportsNavListViewController.swift in Sources */,
 				4A321A8C1FB67308001DA08A /* StoryboardInstantiable.swift in Sources */,
+				4AA85B931FBBD61D009A72E8 /* NewReportNavViewController.swift in Sources */,
 				4ADAE8DA1FB20D6B00DAAFFD /* ContainerViewController.swift in Sources */,
 				4AF232A31FB0C46500ADA075 /* ReportsTableViewCell.swift in Sources */,
 				4A9578C81FBB4F970051837C /* OnboardingCoordinator.swift in Sources */,

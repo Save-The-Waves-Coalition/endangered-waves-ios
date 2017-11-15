@@ -19,13 +19,11 @@ class ContainerCoordinator: Coordinator {
 
     var mapNavViewController: ReportsNavMapViewController = {
         let vc = ReportsNavMapViewController.instantiate()
-        vc.view.translatesAutoresizingMaskIntoConstraints = false
         return vc
     }()
 
     var listNavViewController: ReportsNavListViewController = {
         let vc = ReportsNavListViewController.instantiate()
-        vc.view.translatesAutoresizingMaskIntoConstraints = false
         return vc
     }()
 
@@ -58,6 +56,12 @@ class ContainerCoordinator: Coordinator {
         currentViewController = listNavViewController
     }
 
+    func showAddComponent() {
+        let newReportCoordinator = NewReportCoordinator(with: rootViewController)
+        childCoordinators.append(newReportCoordinator)
+        newReportCoordinator.start()
+    }
+
     func cycleFromViewController(oldViewController: UIViewController, toViewController newViewController: UIViewController) {
         oldViewController.willMove(toParentViewController: nil)
         containerViewController.addChildViewController(newViewController)
@@ -76,18 +80,24 @@ class ContainerCoordinator: Coordinator {
     }
 }
 
+// MARK: ContainerViewControllerDelegate
 extension ContainerCoordinator: ContainerViewControllerDelegate {
     func controller(_ controller: ContainerViewController, didTapMapButton button: UIButton) {
-        print("stop it map")
         showMapComponent()
     }
 
     func controller(_ controller: ContainerViewController, didTapListButton button: UIButton) {
-        print("stop it list")
         showListComponent()
     }
 
     func controller(_ controller: ContainerViewController, didTapAddButton button: UIButton) {
-        print("stop it add")
+        showAddComponent()
+    }
+}
+
+// MARK: NewReportCoordinatorDelegate
+extension ContainerCoordinator: NewReportCoordinatorDelegate {
+    func coordinatorDidFinishNewReport(_ coordinator: NewReportCoordinator) {
+        removeChildCoordinator(coordinator)
     }
 }
