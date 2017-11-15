@@ -82,12 +82,6 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Reports" id="aue-4R-ruv">
                         <barButtonItem key="rightBarButtonItem" title="i" id="PZf-fP-4DV">
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="Icon" value="fa:user"/>
-                                <userDefinedRuntimeAttribute type="number" keyPath="FontSize">
-                                    <real key="value" value="18"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="signInWasTapped:" destination="pWA-bt-Wdb" id="FC2-3d-Cqq"/>
                             </connections>

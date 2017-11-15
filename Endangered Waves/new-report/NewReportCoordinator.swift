@@ -46,23 +46,34 @@ class NewReportCoordinator: Coordinator {
     }
 }
 
-// MARK: ImagePickerDelegate
-extension NewReportCoordinator: ImagePickerDelegate {
-    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        guard images.count > 0 else { return }
+extension NewReportCoordinator {
+    func lightboxForImages(_ images:[UIImage]) -> LightboxController? {
+        guard images.count > 0 else { return nil }
 
         let lightboxImages = images.map {
             return LightboxImage(image: $0)
         }
 
         let lightbox = LightboxController(images: lightboxImages, startIndex: 0)
-        imagePicker.present(lightbox, animated: true, completion: nil)
+        return lightbox
+    }
+}
+
+// MARK: ImagePickerDelegate
+extension NewReportCoordinator: ImagePickerDelegate {
+    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        if let lightbox = lightboxForImages(images) {
+            imagePicker.present(lightbox, animated: true, completion: nil)
+        }
     }
 
     func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
         self.images = images
+        let presentingViewController = imagePicker.presentingViewController
         imagePicker.dismiss(animated: true) {
-            self.showNewReport()
+            if let presentingViewController = presentingViewController, !(presentingViewController is NewReportNavViewController) {
+                self.showNewReport()
+            }
         }
     }
 
@@ -75,6 +86,12 @@ extension NewReportCoordinator: ImagePickerDelegate {
 
 // MARK: NewReportViewControllerDelegate
 extension NewReportCoordinator: NewReportViewControllerDelegate {
+    func viewController(_ viewController: NewReportViewController, didTapImage gesture: UITapGestureRecognizer) {
+        if let images = images, let lightbox = lightboxForImages(images) {
+            viewController.present(lightbox, animated: true, completion: nil)
+        }
+    }
+
     func viewController(_ viewController: NewReportViewController, didTapCancelButton button: UIBarButtonItem) {
         viewController.dismiss(animated: true) {
             self.stop()
@@ -85,5 +102,9 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
         viewController.dismiss(animated: true) {
             self.stop()
         }
+    }
+
+    func viewController(_ viewController: NewReportViewController, didTapAddButton button: UIButton) {
+        viewController.present(imagePickerController, animated: true, completion: nil)
     }
 }

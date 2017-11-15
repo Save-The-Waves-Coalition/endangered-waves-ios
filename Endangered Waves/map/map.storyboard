@@ -31,14 +31,7 @@
                         <viewLayoutGuide key="safeArea" id="ZSd-RM-jyd"/>
                     </view>
                     <navigationItem key="navigationItem" title="REPORTED ISSUES" id="gzK-lB-ii4">
-                        <barButtonItem key="rightBarButtonItem" title="i" style="plain" id="vAo-Fr-Hsy">
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="Icon" value="fa:user"/>
-                                <userDefinedRuntimeAttribute type="number" keyPath="FontSize">
-                                    <real key="value" value="18"/>
-                                </userDefinedRuntimeAttribute>
-                            </userDefinedRuntimeAttributes>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="i" style="plain" id="vAo-Fr-Hsy"/>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="zsS-mk-lnY" id="Frz-WW-bbl"/>

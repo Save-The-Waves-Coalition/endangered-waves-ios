@@ -5,9 +5,19 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Brandon_blk.otf">
+            <string>BrandonGrotesque-Black</string>
+        </array>
+        <array key="Brandon_reg.otf">
+            <string>BrandonGrotesque-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Location Picker-->
         <scene sceneID="V6X-kI-4bI">
@@ -67,29 +77,98 @@
                                                         <outletCollection property="gestureRecognizers" destination="oNj-FQ-C6W" appends="YES" id="SEc-G9-ika"/>
                                                     </connections>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEo-wi-9Cl">
+                                                    <rect key="frame" x="313" y="171" width="30" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="iv6-zN-FiT"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Add"/>
+                                                    <connections>
+                                                        <action selector="addButtonWasTapped:" destination="QT1-n4-6Zb" eventType="touchUpInside" id="v9t-jq-i6Y"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="Ahd-Bl-2UV" secondAttribute="bottom" id="Ee9-zA-QNa"/>
                                             <constraint firstItem="Ahd-Bl-2UV" firstAttribute="leading" secondItem="ezu-mz-W6v" secondAttribute="leading" id="TrE-fd-Koq"/>
                                             <constraint firstItem="Ahd-Bl-2UV" firstAttribute="top" secondItem="ezu-mz-W6v" secondAttribute="top" id="XPT-Mu-Js1"/>
+                                            <constraint firstAttribute="bottom" secondItem="cEo-wi-9Cl" secondAttribute="bottom" id="br0-WI-wRd"/>
+                                            <constraint firstAttribute="trailing" secondItem="cEo-wi-9Cl" secondAttribute="trailing" constant="32" id="gUm-oh-9xD"/>
                                             <constraint firstAttribute="trailing" secondItem="Ahd-Bl-2UV" secondAttribute="trailing" id="zvn-fQ-ACV"/>
                                         </constraints>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="lvS-fH-Wkx">
-                                        <rect key="frame" x="0.0" y="215" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="lvS-fH-Wkx">
+                                        <rect key="frame" x="0.0" y="215" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lvS-fH-Wkx" id="i9j-L6-rQI">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a description..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g31-XY-ihz">
+                                                    <rect key="frame" x="16" y="11" width="343" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="g31-XY-ihz" firstAttribute="trailing" secondItem="i9j-L6-rQI" secondAttribute="trailingMargin" id="BQI-QK-uAW"/>
+                                                <constraint firstItem="g31-XY-ihz" firstAttribute="top" secondItem="i9j-L6-rQI" secondAttribute="topMargin" id="bCg-GJ-epo"/>
+                                                <constraint firstItem="g31-XY-ihz" firstAttribute="leading" secondItem="i9j-L6-rQI" secondAttribute="leadingMargin" id="sA3-jC-Xx3"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="H4S-Qv-jPB">
-                                        <rect key="frame" x="0.0" y="259" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="H4S-Qv-jPB">
+                                        <rect key="frame" x="0.0" y="315" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H4S-Qv-jPB" id="Uq3-J3-wd6">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGT-9M-TFg">
+                                                    <rect key="frame" x="16" y="11" width="60" height="17.5"/>
+                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
+                                                    <color key="textColor" name="STW-Grey"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UxH-4M-XEX">
+                                                    <rect key="frame" x="16" y="29" width="315" height="40.5"/>
+                                                    <string key="text">OCEAN BEACH PIER,  NIAGRA AVENUE,
+SAN DIEGO, CA</string>
+                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOz-xT-4ra">
+                                                    <rect key="frame" x="331" y="28" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="QGH-uP-mos"/>
+                                                        <constraint firstAttribute="height" constant="44" id="gBa-2f-WJL"/>
+                                                    </constraints>
+                                                    <state key="normal" title="X"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="WGT-9M-TFg" firstAttribute="top" secondItem="Uq3-J3-wd6" secondAttribute="topMargin" id="78r-HX-ypk"/>
+                                                <constraint firstItem="xOz-xT-4ra" firstAttribute="centerY" secondItem="Uq3-J3-wd6" secondAttribute="centerY" id="GPE-JG-hSt"/>
+                                                <constraint firstItem="UxH-4M-XEX" firstAttribute="leading" secondItem="WGT-9M-TFg" secondAttribute="leading" id="Qmu-27-tj8"/>
+                                                <constraint firstItem="WGT-9M-TFg" firstAttribute="leading" secondItem="Uq3-J3-wd6" secondAttribute="leadingMargin" id="WPl-zA-wi9"/>
+                                                <constraint firstItem="xOz-xT-4ra" firstAttribute="leading" secondItem="UxH-4M-XEX" secondAttribute="trailing" id="Y9t-Lr-6h6"/>
+                                                <constraint firstItem="UxH-4M-XEX" firstAttribute="top" secondItem="WGT-9M-TFg" secondAttribute="bottom" id="fAv-PD-Lee"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="xOz-xT-4ra" secondAttribute="trailing" id="yge-5L-JxO"/>
+                                        </constraints>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gJI-QQ-TdM">
+                                        <rect key="frame" x="0.0" y="415" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gJI-QQ-TdM" id="zLT-SQ-F7h">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="1" green="0.18829162399999999" blue="0.22786210900000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -106,7 +185,7 @@
                                 <action selector="cancelButtonWasTapped:" destination="QT1-n4-6Zb" id="DlC-nN-5e0"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="dh3-kF-1Y8">
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="dh3-kF-1Y8">
                             <connections>
                                 <action selector="saveButtonWasTapped:" destination="QT1-n4-6Zb" id="Y6n-Ze-vsr"/>
                             </connections>
@@ -123,7 +202,12 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="139" y="2206"/>
+            <point key="canvasLocation" x="138.40000000000001" y="2205.2473763118442"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="STW-Grey">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

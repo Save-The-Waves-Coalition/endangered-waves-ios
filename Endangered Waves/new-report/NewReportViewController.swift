@@ -18,6 +18,8 @@ import Lightbox
 protocol NewReportViewControllerDelegate: class {
     func viewController(_ viewController: NewReportViewController, didTapCancelButton button: UIBarButtonItem)
     func viewController(_ viewController: NewReportViewController, didTapSaveButton button: UIBarButtonItem)
+    func viewController(_ viewController: NewReportViewController, didTapImage gesture: UITapGestureRecognizer)
+    func viewController(_ viewController: NewReportViewController, didTapAddButton button:UIButton)
 }
 
 class NewReportViewController: UITableViewController {
@@ -45,8 +47,13 @@ class NewReportViewController: UITableViewController {
     }
 
     @IBAction func imageViewWasTapped(_ sender: UITapGestureRecognizer) {
-        print("stop it")
+        delegate?.viewController(self, didTapImage: sender)
     }
+
+    @IBAction func addButtonWasTapped(_ sender: UIButton) {
+        delegate?.viewController(self, didTapAddButton: sender)
+    }
+
 }
 
 extension NewReportViewController: StoryboardInstantiable {

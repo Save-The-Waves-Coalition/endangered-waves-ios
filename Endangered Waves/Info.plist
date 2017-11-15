@@ -46,6 +46,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Brandon_blk.otf</string>
+		<string>Brandon_reg.otf</string>
 	</array>
 </dict>
 </plist>
