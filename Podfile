@@ -21,7 +21,6 @@ target 'Endangered Waves' do
   pod 'FirebaseUI/Facebook'
 
   # UI Related
-  pod 'SwiftIconFont'
   pod 'LocationPickerViewController'
   pod 'ImagePicker'
   pod 'Lightbox'

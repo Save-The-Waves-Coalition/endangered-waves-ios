@@ -211,3 +211,9 @@ extension ReportsMapViewController: UIViewControllerPreviewingDelegate {
         navigationController?.pushViewController(viewControllerToCommit, animated: true)
     }
 }
+
+// MARK: 📖 StoryboardInstantiable
+extension ReportsMapViewController: StoryboardInstantiable {
+    static var storyboardName: String { return "map" }
+    static var storyboardIdentifier: String? { return "ReportsMapComponent" }
+}

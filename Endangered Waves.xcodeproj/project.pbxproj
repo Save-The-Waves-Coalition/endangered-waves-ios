@@ -15,7 +15,6 @@
 		4A321A931FB67C3C001DA08A /* map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A921FB67C3B001DA08A /* map.storyboard */; };
 		4A321A951FB67C89001DA08A /* ReportsNavMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321A941FB67C89001DA08A /* ReportsNavMapViewController.swift */; };
 		4A321A991FB67E50001DA08A /* new-report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A981FB67E50001DA08A /* new-report.storyboard */; };
-		4A321A9B1FB67F4F001DA08A /* ContainerNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321A9A1FB67F4F001DA08A /* ContainerNavViewController.swift */; };
 		4A321A9D1FB79169001DA08A /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321A9C1FB79169001DA08A /* Report.swift */; };
 		4A321AA01FB7A85B001DA08A /* report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A9F1FB7A85B001DA08A /* report.storyboard */; };
 		4A321AA21FB7AB17001DA08A /* ReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321AA11FB7AB17001DA08A /* ReportDetailViewController.swift */; };
@@ -59,7 +58,6 @@
 		4A321A921FB67C3B001DA08A /* map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = map.storyboard; sourceTree = "<group>"; };
 		4A321A941FB67C89001DA08A /* ReportsNavMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsNavMapViewController.swift; sourceTree = "<group>"; };
 		4A321A981FB67E50001DA08A /* new-report.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "new-report.storyboard"; sourceTree = "<group>"; };
-		4A321A9A1FB67F4F001DA08A /* ContainerNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerNavViewController.swift; sourceTree = "<group>"; };
 		4A321A9C1FB79169001DA08A /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		4A321A9F1FB7A85B001DA08A /* report.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = report.storyboard; sourceTree = "<group>"; };
 		4A321AA11FB7AB17001DA08A /* ReportDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailViewController.swift; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 			children = (
 				4A9578CD1FBB98CE0051837C /* ContainerCoordinator.swift */,
 				4ADAE8D91FB20D6B00DAAFFD /* ContainerViewController.swift */,
-				4A321A9A1FB67F4F001DA08A /* ContainerNavViewController.swift */,
 				4A321A851FB66ECC001DA08A /* container.storyboard */,
 			);
 			path = container;
@@ -401,7 +398,6 @@
 				"${BUILT_PRODUCTS_DIR}/LocationPickerViewController/LocationPickerViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftIconFont/SwiftIconFont.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
@@ -425,7 +421,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LocationPickerViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIconFont.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
@@ -448,7 +443,6 @@
 				4A321A9D1FB79169001DA08A /* Report.swift in Sources */,
 				4AF232A51FB0CA8900ADA075 /* NewReportViewController.swift in Sources */,
 				4A321A951FB67C89001DA08A /* ReportsNavMapViewController.swift in Sources */,
-				4A321A9B1FB67F4F001DA08A /* ContainerNavViewController.swift in Sources */,
 				4A321A901FB67C1F001DA08A /* ReportsMapViewController.swift in Sources */,
 				4A321AC61FB8EF17001DA08A /* ReportMapAnnotation.swift in Sources */,
 				4A9578D01FBB9DC30051837C /* Coordinator.swift in Sources */,

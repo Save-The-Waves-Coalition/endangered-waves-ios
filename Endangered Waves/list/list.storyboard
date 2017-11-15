@@ -81,7 +81,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Reports" id="aue-4R-ruv">
-                        <barButtonItem key="rightBarButtonItem" title="Profile" id="PZf-fP-4DV" customClass="SwiftIconBarButtonItem" customModule="SwiftIconFont">
+                        <barButtonItem key="rightBarButtonItem" title="i" id="PZf-fP-4DV">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="Icon" value="fa:user"/>
                                 <userDefinedRuntimeAttribute type="number" keyPath="FontSize">
@@ -93,10 +93,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="signInBarButtonItem" destination="PZf-fP-4DV" id="9eS-3i-T5B"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LXm-Vt-gGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
