@@ -25,6 +25,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = appCoordinator.rootViewController
+
+
+
+        UIBarButtonItem.appearance().setTitleTextAttributes(
+            [
+                NSAttributedStringKey.font : UIFont(name: "SFProDisplay-Semibold", size: 16)!,
+                NSAttributedStringKey.foregroundColor : UIColor(named: "STW-Blue")!,
+            ], for: .normal)
+
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSAttributedStringKey.font: UIFont(name: "BrandonGrotesque-Bold", size: 16)!,
+            NSAttributedStringKey.foregroundColor : UIColor.black,
+        ]
+
         return true
     }
 

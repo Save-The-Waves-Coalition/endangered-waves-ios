@@ -27,13 +27,15 @@ class NewReportViewController: UITableViewController {
     weak var delegate: NewReportViewControllerDelegate?
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageGallaryContainerView: UIView!
+    var imageSliderViewController: ImageSliderViewController?
 
     var images: [UIImage]?
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let images = images {
-            imageView.image = images.first
+//            imageView.image = images.first
         }
     }
 
@@ -54,6 +56,11 @@ class NewReportViewController: UITableViewController {
         delegate?.viewController(self, didTapAddButton: sender)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let imageSliderViewController = segue.destination as? ImageSliderViewController {
+            self.imageSliderViewController = imageSliderViewController
+        }
+    }
 }
 
 extension NewReportViewController: StoryboardInstantiable {
@@ -61,6 +68,36 @@ extension NewReportViewController: StoryboardInstantiable {
     static var storyboardIdentifier: String? { return "NewReportComponent" }
 }
 
+class ImageSliderViewController: UIPageViewController {
+    var images: [UIImage]?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+
+    }
+}
+
+extension ImageSliderViewController: UIPageViewControllerDelegate {
+
+}
+
+extension ImageSliderViewController: UIPageViewControllerDataSource {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        return nil
+    }
+
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        return nil
+    }
+}
+
+class ImageViewController: UIViewController {
+    
+    @IBOutlet weak var imageView: UIImageView!
+
+    
+}
 
 /**
 

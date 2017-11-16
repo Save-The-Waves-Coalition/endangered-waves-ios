@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A0ABE701FBD2B4F007B06B9 /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A0ABE6F1FBD2B4F007B06B9 /* SF-Pro-Display-Semibold.otf */; };
+		4A0ABE721FBD2D04007B06B9 /* Brandon_bld.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A0ABE711FBD2D04007B06B9 /* Brandon_bld.otf */; };
 		4A321A861FB66ECC001DA08A /* container.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A851FB66ECC001DA08A /* container.storyboard */; };
 		4A321A8A1FB672A1001DA08A /* list.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A891FB672A1001DA08A /* list.storyboard */; };
 		4A321A8C1FB67308001DA08A /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321A8B1FB67308001DA08A /* StoryboardInstantiable.swift */; };
@@ -52,6 +54,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A0ABE6F1FBD2B4F007B06B9 /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
+		4A0ABE711FBD2D04007B06B9 /* Brandon_bld.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_bld.otf; sourceTree = "<group>"; };
 		4A321A841FB61CDE001DA08A /* Black's Beach.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Black's Beach.gpx"; sourceTree = "<group>"; };
 		4A321A851FB66ECC001DA08A /* container.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = container.storyboard; sourceTree = "<group>"; };
 		4A321A891FB672A1001DA08A /* list.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = list.storyboard; sourceTree = "<group>"; };
@@ -250,6 +254,8 @@
 			children = (
 				4A9578D11FBBAE530051837C /* Brandon_blk.otf */,
 				4AA85B941FBCA3CA009A72E8 /* Brandon_reg.otf */,
+				4A0ABE711FBD2D04007B06B9 /* Brandon_bld.otf */,
+				4A0ABE6F1FBD2B4F007B06B9 /* SF-Pro-Display-Semibold.otf */,
 			);
 			path = fonts;
 			sourceTree = "<group>";
@@ -333,12 +339,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A0ABE701FBD2B4F007B06B9 /* SF-Pro-Display-Semibold.otf in Resources */,
 				4A9578D21FBBAE540051837C /* Brandon_blk.otf in Resources */,
 				4A7FA9241FAA966300C6A2BB /* LaunchScreen.storyboard in Resources */,
 				4A7FA92C1FAA96ED00C6A2BB /* GoogleService-Info.plist in Resources */,
 				4A321A931FB67C3C001DA08A /* map.storyboard in Resources */,
 				4A321A8A1FB672A1001DA08A /* list.storyboard in Resources */,
 				4AA85B951FBCA3CA009A72E8 /* Brandon_reg.otf in Resources */,
+				4A0ABE721FBD2D04007B06B9 /* Brandon_bld.otf in Resources */,
 				4A321AA01FB7A85B001DA08A /* report.storyboard in Resources */,
 				4A7FA9211FAA966300C6A2BB /* Assets.xcassets in Resources */,
 				4A321A861FB66ECC001DA08A /* container.storyboard in Resources */,
