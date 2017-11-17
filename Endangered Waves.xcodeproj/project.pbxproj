@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4A0ABE701FBD2B4F007B06B9 /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A0ABE6F1FBD2B4F007B06B9 /* SF-Pro-Display-Semibold.otf */; };
 		4A0ABE721FBD2D04007B06B9 /* Brandon_bld.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A0ABE711FBD2D04007B06B9 /* Brandon_bld.otf */; };
+		4A0ABE751FBE6E2F007B06B9 /* ImageSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE741FBE6E2F007B06B9 /* ImageSliderViewController.swift */; };
+		4A0ABE781FBE6EF4007B06B9 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE771FBE6EF4007B06B9 /* ImageViewController.swift */; };
+		4A0ABE7A1FBE6F15007B06B9 /* image-slider.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A0ABE791FBE6F15007B06B9 /* image-slider.storyboard */; };
 		4A321A861FB66ECC001DA08A /* container.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A851FB66ECC001DA08A /* container.storyboard */; };
 		4A321A8A1FB672A1001DA08A /* list.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A891FB672A1001DA08A /* list.storyboard */; };
 		4A321A8C1FB67308001DA08A /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321A8B1FB67308001DA08A /* StoryboardInstantiable.swift */; };
@@ -56,6 +59,9 @@
 /* Begin PBXFileReference section */
 		4A0ABE6F1FBD2B4F007B06B9 /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
 		4A0ABE711FBD2D04007B06B9 /* Brandon_bld.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_bld.otf; sourceTree = "<group>"; };
+		4A0ABE741FBE6E2F007B06B9 /* ImageSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSliderViewController.swift; sourceTree = "<group>"; };
+		4A0ABE771FBE6EF4007B06B9 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		4A0ABE791FBE6F15007B06B9 /* image-slider.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "image-slider.storyboard"; sourceTree = "<group>"; };
 		4A321A841FB61CDE001DA08A /* Black's Beach.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Black's Beach.gpx"; sourceTree = "<group>"; };
 		4A321A851FB66ECC001DA08A /* container.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = container.storyboard; sourceTree = "<group>"; };
 		4A321A891FB672A1001DA08A /* list.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = list.storyboard; sourceTree = "<group>"; };
@@ -133,6 +139,16 @@
 				9CD8FE50085C6E18B24650B9 /* Pods-Endangered Waves.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		4A0ABE761FBE6EC9007B06B9 /* image-slider */ = {
+			isa = PBXGroup;
+			children = (
+				4A0ABE741FBE6E2F007B06B9 /* ImageSliderViewController.swift */,
+				4A0ABE771FBE6EF4007B06B9 /* ImageViewController.swift */,
+				4A0ABE791FBE6F15007B06B9 /* image-slider.storyboard */,
+			);
+			path = "image-slider";
 			sourceTree = "<group>";
 		};
 		4A321A871FB67145001DA08A /* container */ = {
@@ -231,6 +247,7 @@
 				4A321A971FB67E10001DA08A /* new-report */,
 				4A7FA9201FAA966300C6A2BB /* Assets.xcassets */,
 				4A7FA9221FAA966300C6A2BB /* LaunchScreen.storyboard */,
+				4A0ABE761FBE6EC9007B06B9 /* image-slider */,
 				4A9578D31FBBAE5C0051837C /* fonts */,
 				4A7FA9251FAA966300C6A2BB /* Info.plist */,
 				4A7FA92B1FAA96ED00C6A2BB /* GoogleService-Info.plist */,
@@ -340,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A0ABE701FBD2B4F007B06B9 /* SF-Pro-Display-Semibold.otf in Resources */,
+				4A0ABE7A1FBE6F15007B06B9 /* image-slider.storyboard in Resources */,
 				4A9578D21FBBAE540051837C /* Brandon_blk.otf in Resources */,
 				4A7FA9241FAA966300C6A2BB /* LaunchScreen.storyboard in Resources */,
 				4A7FA92C1FAA96ED00C6A2BB /* GoogleService-Info.plist in Resources */,
@@ -459,10 +477,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A321A9D1FB79169001DA08A /* Report.swift in Sources */,
+				4A0ABE751FBE6E2F007B06B9 /* ImageSliderViewController.swift in Sources */,
 				4AF232A51FB0CA8900ADA075 /* NewReportViewController.swift in Sources */,
 				4A321A951FB67C89001DA08A /* ReportsNavMapViewController.swift in Sources */,
 				4A321A901FB67C1F001DA08A /* ReportsMapViewController.swift in Sources */,
 				4A321AC61FB8EF17001DA08A /* ReportMapAnnotation.swift in Sources */,
+				4A0ABE781FBE6EF4007B06B9 /* ImageViewController.swift in Sources */,
 				4A9578D01FBB9DC30051837C /* Coordinator.swift in Sources */,
 				4A9578CA1FBB4FF20051837C /* AppCoordinator.swift in Sources */,
 				4AA85B911FBBD11D009A72E8 /* NewReportCoordinator.swift in Sources */,

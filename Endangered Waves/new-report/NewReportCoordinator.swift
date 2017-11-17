@@ -21,7 +21,11 @@ class NewReportCoordinator: Coordinator {
     var newReportNavVC: NewReportNavViewController?
     var newReportVC: NewReportViewController?
 
-    var images: [UIImage]?
+    var images: [UIImage]? {
+        didSet {
+            newReportVC?.images = images
+        }
+    }
 
     lazy var imagePickerController: ImagePickerController = {
         var configuration = Configuration()
@@ -50,14 +54,14 @@ class NewReportCoordinator: Coordinator {
 }
 
 extension NewReportCoordinator {
-    func lightboxForImages(_ images:[UIImage]) -> LightboxController? {
+    func lightboxForImages(_ images:[UIImage], withStartIndex index:Int) -> LightboxController? {
         guard images.count > 0 else { return nil }
 
         let lightboxImages = images.map {
             return LightboxImage(image: $0)
         }
 
-        let lightbox = LightboxController(images: lightboxImages, startIndex: 0)
+        let lightbox = LightboxController(images: lightboxImages, startIndex: index)
         return lightbox
     }
 }
@@ -65,7 +69,7 @@ extension NewReportCoordinator {
 // MARK: ImagePickerDelegate
 extension NewReportCoordinator: ImagePickerDelegate {
     func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        if let lightbox = lightboxForImages(images) {
+        if let lightbox = lightboxForImages(images, withStartIndex: 0) {
             imagePicker.present(lightbox, animated: true, completion: nil)
         }
     }
@@ -89,8 +93,8 @@ extension NewReportCoordinator: ImagePickerDelegate {
 
 // MARK: NewReportViewControllerDelegate
 extension NewReportCoordinator: NewReportViewControllerDelegate {
-    func viewController(_ viewController: NewReportViewController, didTapImage gesture: UITapGestureRecognizer) {
-        if let images = images, let lightbox = lightboxForImages(images) {
+    func viewController(_ viewController: NewReportViewController, didTapImageAtIndex index: Int) {
+        if let images = images, let lightbox = lightboxForImages(images, withStartIndex: index) {
             viewController.present(lightbox, animated: true, completion: nil)
         }
     }

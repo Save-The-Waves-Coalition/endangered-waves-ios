@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Image View Controller-->
+        <scene sceneID="pNj-RW-fgn">
+            <objects>
+                <viewController storyboardIdentifier="ImageViewComponent" id="Xdz-5p-mNM" customClass="ImageViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UFl-GW-bEr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="213"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="evg-Ig-9OZ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="213"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="I0F-Ae-wdq" firstAttribute="bottom" secondItem="evg-Ig-9OZ" secondAttribute="bottom" id="Gta-jZ-QpE"/>
+                            <constraint firstItem="I0F-Ae-wdq" firstAttribute="trailing" secondItem="evg-Ig-9OZ" secondAttribute="trailing" id="jQf-We-yKN"/>
+                            <constraint firstItem="evg-Ig-9OZ" firstAttribute="top" secondItem="I0F-Ae-wdq" secondAttribute="top" id="sls-DI-lPe"/>
+                            <constraint firstItem="evg-Ig-9OZ" firstAttribute="leading" secondItem="I0F-Ae-wdq" secondAttribute="leading" id="xKY-zz-sMC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="I0F-Ae-wdq"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="213"/>
+                    <connections>
+                        <outlet property="imageView" destination="evg-Ig-9OZ" id="Lig-kF-aQ3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gxn-hJ-DF7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1020" y="2516"/>
+        </scene>
+    </scenes>
+</document>

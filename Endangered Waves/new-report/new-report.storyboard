@@ -45,36 +45,6 @@
             </objects>
             <point key="canvasLocation" x="1052" y="2209"/>
         </scene>
-        <!--Image View Controller-->
-        <scene sceneID="nqu-Vu-R8U">
-            <objects>
-                <viewController storyboardIdentifier="ImageViewComponent" id="2rz-xZ-nBG" customClass="ImageViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Me7-Dx-997">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="213"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FLq-1f-Iog">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="213"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="FLq-1f-Iog" firstAttribute="leading" secondItem="jdj-0h-P1k" secondAttribute="leading" id="1Zk-qW-fuj"/>
-                            <constraint firstItem="jdj-0h-P1k" firstAttribute="bottom" secondItem="FLq-1f-Iog" secondAttribute="bottom" id="EuW-sm-XKI"/>
-                            <constraint firstItem="FLq-1f-Iog" firstAttribute="top" secondItem="jdj-0h-P1k" secondAttribute="top" id="IKC-40-yIl"/>
-                            <constraint firstItem="jdj-0h-P1k" firstAttribute="trailing" secondItem="FLq-1f-Iog" secondAttribute="trailing" id="Vmj-FY-5mH"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="jdj-0h-P1k"/>
-                    </view>
-                    <size key="freeformSize" width="375" height="213"/>
-                    <connections>
-                        <outlet property="imageView" destination="FLq-1f-Iog" id="vWr-Ft-HBj"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kFb-pY-s9n" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1020" y="2516"/>
-        </scene>
         <!--New Report Nav View Controller-->
         <scene sceneID="fv9-Ox-3Qu">
             <objects>
@@ -133,6 +103,7 @@
                                                 <constraint firstItem="cEo-wi-9Cl" firstAttribute="top" secondItem="Q39-kE-bpK" secondAttribute="bottom" constant="-22" id="j6V-4Q-N7m"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="Q39-kE-bpK" firstAttribute="leading" secondItem="ezu-mz-W6v" secondAttribute="leading" id="SId-kE-2nY"/>
                                             <constraint firstAttribute="trailing" secondItem="Q39-kE-bpK" secondAttribute="trailing" id="T6S-cy-ryq"/>
