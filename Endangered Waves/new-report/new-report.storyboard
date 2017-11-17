@@ -7,36 +7,17 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="Brandon_blk.otf">
             <string>BrandonGrotesque-Black</string>
         </array>
-        <array key="Brandon_reg.otf">
-            <string>BrandonGrotesque-Regular</string>
-        </array>
         <array key="GeorgiaItalic.ttf">
             <string>Georgia-Italic</string>
         </array>
     </customFonts>
     <scenes>
-        <!--Location Picker-->
-        <scene sceneID="V6X-kI-4bI">
-            <objects>
-                <viewController id="nBV-c8-gVS" customClass="LocationPicker" customModule="LocationPickerViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="NsB-xj-JPo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="l75-Vp-4Vt"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zpQ-5d-wrn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1020" y="1722"/>
-        </scene>
         <!--Image Slider View Controller-->
         <scene sceneID="ZLA-ob-SG3">
             <objects>
@@ -67,8 +48,8 @@
         <scene sceneID="t5a-Xe-uey">
             <objects>
                 <tableViewController storyboardIdentifier="NewReportComponent" title="REPORT AN ISSUE" id="QT1-n4-6Zb" customClass="NewReportViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fhz-eN-4Jj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fhz-eN-4Jj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
@@ -119,17 +100,27 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Write a description..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g31-XY-ihz">
-                                                    <rect key="frame" x="16" y="11" width="343" height="16"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write a description..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JCo-oR-o9H">
+                                                    <rect key="frame" x="10" y="11.5" width="349" height="88.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="textColor" name="STW-Grey"/>
-                                                    <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
+                                                    <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESCRIPTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZ1-sH-e8A">
+                                                    <rect key="frame" x="16" y="0.0" width="78.5" height="17.5"/>
+                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
+                                                    <color key="textColor" name="STW-Grey"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="g31-XY-ihz" firstAttribute="trailing" secondItem="i9j-L6-rQI" secondAttribute="trailingMargin" id="BQI-QK-uAW"/>
-                                                <constraint firstItem="g31-XY-ihz" firstAttribute="top" secondItem="i9j-L6-rQI" secondAttribute="topMargin" id="bCg-GJ-epo"/>
-                                                <constraint firstItem="g31-XY-ihz" firstAttribute="leading" secondItem="i9j-L6-rQI" secondAttribute="leadingMargin" id="sA3-jC-Xx3"/>
+                                                <constraint firstItem="JCo-oR-o9H" firstAttribute="leading" secondItem="i9j-L6-rQI" secondAttribute="leading" constant="10" id="9Jg-qi-Cnh"/>
+                                                <constraint firstItem="SZ1-sH-e8A" firstAttribute="top" secondItem="i9j-L6-rQI" secondAttribute="top" id="UgZ-ec-W3p"/>
+                                                <constraint firstItem="JCo-oR-o9H" firstAttribute="top" secondItem="SZ1-sH-e8A" secondAttribute="bottom" constant="-6" id="fr4-eT-mIB"/>
+                                                <constraint firstAttribute="trailing" secondItem="JCo-oR-o9H" secondAttribute="trailing" constant="16" id="gdQ-m2-KHZ"/>
+                                                <constraint firstItem="SZ1-sH-e8A" firstAttribute="leading" secondItem="i9j-L6-rQI" secondAttribute="leading" constant="16" id="mZp-rb-LFU"/>
+                                                <constraint firstAttribute="bottom" secondItem="JCo-oR-o9H" secondAttribute="bottom" id="pMu-U1-wqE"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -141,49 +132,129 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGT-9M-TFg">
-                                                    <rect key="frame" x="16" y="11" width="59" height="14"/>
+                                                    <rect key="frame" x="16" y="11" width="60" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
                                                     <color key="textColor" name="STW-Grey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHOOSE A LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UxH-4M-XEX">
-                                                    <rect key="frame" x="16" y="25.5" width="315" height="16.5"/>
-                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="14"/>
-                                                    <nil key="textColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a location..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UxH-4M-XEX">
+                                                    <rect key="frame" x="16" y="29" width="130" height="18"/>
+                                                    <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="15"/>
+                                                    <color key="textColor" name="STW-Grey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOz-xT-4ra">
-                                                    <rect key="frame" x="331" y="28" width="44" height="44"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="44" id="QGH-uP-mos"/>
-                                                        <constraint firstAttribute="height" constant="44" id="gBa-2f-WJL"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <state key="normal" title="X">
-                                                        <color key="titleColor" name="STW-Grey"/>
-                                                    </state>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="WGT-9M-TFg" firstAttribute="top" secondItem="Uq3-J3-wd6" secondAttribute="topMargin" id="78r-HX-ypk"/>
-                                                <constraint firstItem="xOz-xT-4ra" firstAttribute="centerY" secondItem="Uq3-J3-wd6" secondAttribute="centerY" id="GPE-JG-hSt"/>
                                                 <constraint firstItem="UxH-4M-XEX" firstAttribute="leading" secondItem="WGT-9M-TFg" secondAttribute="leading" id="Qmu-27-tj8"/>
                                                 <constraint firstItem="WGT-9M-TFg" firstAttribute="leading" secondItem="Uq3-J3-wd6" secondAttribute="leadingMargin" id="WPl-zA-wi9"/>
-                                                <constraint firstItem="xOz-xT-4ra" firstAttribute="leading" secondItem="UxH-4M-XEX" secondAttribute="trailing" id="Y9t-Lr-6h6"/>
                                                 <constraint firstItem="UxH-4M-XEX" firstAttribute="top" secondItem="WGT-9M-TFg" secondAttribute="bottom" id="fAv-PD-Lee"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="xOz-xT-4ra" secondAttribute="trailing" id="yge-5L-JxO"/>
-                                        </constraints>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Qt0-P6-Qnh" appends="YES" id="SYr-je-Tgi"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gJI-QQ-TdM">
-                                        <rect key="frame" x="0.0" y="435" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="300" id="gJI-QQ-TdM">
+                                        <rect key="frame" x="0.0" y="435" width="375" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gJI-QQ-TdM" id="zLT-SQ-F7h">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" red="1" green="0.18829162399999999" blue="0.22786210900000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CATEGORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06W-gh-CHS">
+                                                    <rect key="frame" x="16" y="11" width="62" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="17.5" id="O6s-c0-Dye"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
+                                                    <color key="textColor" name="STW-Grey"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hpE-SB-vft">
+                                                    <rect key="frame" x="77" y="50" width="220" height="200"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="b5b-OV-xqk">
+                                                            <rect key="frame" x="0.0" y="0.0" width="220" height="100"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vUn-VT-n3g" customClass="STWButton" customModule="Endangered_Waves" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="100"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="60" id="eJt-8c-YYI"/>
+                                                                        <constraint firstAttribute="height" constant="100" id="gXX-p0-1t8"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="Oil" image="oil">
+                                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZi-Tm-b01" customClass="STWButton" customModule="Endangered_Waves" customModuleProvider="target">
+                                                                    <rect key="frame" x="80" y="0.0" width="60" height="100"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="60" id="ZMC-h1-Ecu"/>
+                                                                        <constraint firstAttribute="height" constant="100" id="tzd-8d-9NW"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="Oil" image="oil">
+                                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cQ-Ii-pfa" customClass="STWButton" customModule="Endangered_Waves" customModuleProvider="target">
+                                                                    <rect key="frame" x="160" y="0.0" width="60" height="100"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="60" id="ANk-ue-Vcf"/>
+                                                                        <constraint firstAttribute="height" constant="100" id="av8-Un-o4W"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="Oil" image="oil">
+                                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                </button>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="mKe-oD-bdx">
+                                                            <rect key="frame" x="0.0" y="100" width="220" height="100"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FCH-H9-CcS" customClass="STWButton" customModule="Endangered_Waves" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="100"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="100" id="oHH-91-xOP"/>
+                                                                        <constraint firstAttribute="width" constant="60" id="tyg-HW-aRc"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="Oil" image="oil">
+                                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZX3-jY-thw" customClass="STWButton" customModule="Endangered_Waves" customModuleProvider="target">
+                                                                    <rect key="frame" x="80" y="0.0" width="60" height="100"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="100" id="sO3-66-aNS"/>
+                                                                        <constraint firstAttribute="width" constant="60" id="yK0-ao-7Rp"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="Oil" image="oil">
+                                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Azr-gv-SYf" customClass="STWButton" customModule="Endangered_Waves" customModuleProvider="target">
+                                                                    <rect key="frame" x="160" y="0.0" width="60" height="100"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="100" id="bqv-ZP-61W"/>
+                                                                        <constraint firstAttribute="width" constant="60" id="ogW-TU-ytR"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="Oil" image="oil">
+                                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                </button>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" name="STW-White"/>
+                                            <constraints>
+                                                <constraint firstItem="06W-gh-CHS" firstAttribute="leading" secondItem="zLT-SQ-F7h" secondAttribute="leadingMargin" id="FgE-f5-TEJ"/>
+                                                <constraint firstItem="hpE-SB-vft" firstAttribute="centerX" secondItem="zLT-SQ-F7h" secondAttribute="centerX" id="dm3-7P-XQ9"/>
+                                                <constraint firstItem="hpE-SB-vft" firstAttribute="centerY" secondItem="zLT-SQ-F7h" secondAttribute="centerY" id="ucX-1h-O49"/>
+                                                <constraint firstItem="06W-gh-CHS" firstAttribute="top" secondItem="zLT-SQ-F7h" secondAttribute="topMargin" id="xVP-pJ-bdO"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -206,19 +277,40 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <size key="freeformSize" width="375" height="1000"/>
                     <connections>
+                        <outlet property="descriptionTextView" destination="JCo-oR-o9H" id="1HA-0W-ELt"/>
                         <outlet property="imageGallaryContainerView" destination="Q39-kE-bpK" id="NaF-OL-feM"/>
+                        <outlet property="locationLabel" destination="UxH-4M-XEX" id="glI-YC-gQo"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IqA-TC-mE3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Qt0-P6-Qnh">
+                    <connections>
+                        <action selector="locationWasTapped:" destination="QT1-n4-6Zb" id="vq5-Ej-Ujc"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="138.40000000000001" y="2205.2473763118442"/>
+            <point key="canvasLocation" x="138.40000000000001" y="2204.7976011994006"/>
         </scene>
     </scenes>
     <resources>
+        <image name="oil" width="66" height="67"/>
         <image name="small-add-button" width="132" height="132"/>
         <namedColor name="STW-Grey">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="STW-Grey">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="STW-Grey">
+            <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="STW-Grey">
+            <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="STW-White">
+            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
     <color key="tintColor" name="STW-Blue"/>

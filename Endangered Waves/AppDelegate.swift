@@ -30,12 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UIBarButtonItem.appearance().setTitleTextAttributes(
             [
-                NSAttributedStringKey.font : UIFont(name: "SFProDisplay-Semibold", size: 16)!,
-                NSAttributedStringKey.foregroundColor : UIColor(named: "STW-Blue")!,
+                NSAttributedStringKey.font :  Style.fontSFProDisplaySemiBold(),
+                NSAttributedStringKey.foregroundColor : Style.colorSTWBlue,
             ], for: .normal)
 
         UINavigationBar.appearance().titleTextAttributes = [
-            NSAttributedStringKey.font: UIFont(name: "BrandonGrotesque-Bold", size: 16)!,
+            NSAttributedStringKey.font: Style.fontBrandonGrotesqueBold(),
             NSAttributedStringKey.foregroundColor : UIColor.black,
         ]
         

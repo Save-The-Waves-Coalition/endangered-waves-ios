@@ -9,6 +9,7 @@
 import UIKit
 import ImagePicker
 import Lightbox
+import LocationPickerViewController
 
 protocol NewReportCoordinatorDelegate: class {
     func coordinatorDidFinishNewReport(_ coordinator: NewReportCoordinator)
@@ -24,6 +25,12 @@ class NewReportCoordinator: Coordinator {
     var images: [UIImage]? {
         didSet {
             newReportVC?.images = images
+        }
+    }
+
+    var location: LocationItem? {
+        didSet {
+            newReportVC?.location = location
         }
     }
 
@@ -45,11 +52,27 @@ class NewReportCoordinator: Coordinator {
     }
 
     func showNewReport() {
+
+        // TODO fix all these !
         newReportNavVC = NewReportNavViewController.instantiate()
         newReportVC = (newReportNavVC!.topViewController as! NewReportViewController)
         newReportVC!.delegate = self
         newReportVC!.images = images
         rootViewController.present(newReportNavVC!, animated: true, completion: nil)
+    }
+
+    func showLocationPicker(withRootViewController viewController: UIViewController) {
+        let locationPicker = LocationPicker()
+        locationPicker.addBarButtons()
+        locationPicker.pinColor = Style.colorSTWBlue
+        locationPicker.searchResultLocationIconColor = Style.colorSTWBlue
+        locationPicker.currentLocationIconColor = Style.colorSTWBlue
+        locationPicker.pickCompletion = { (pickedLocationItem) in
+            self.location = pickedLocationItem
+        }
+
+        let navigationController = UINavigationController(rootViewController: locationPicker)
+        viewController.present(navigationController, animated: true, completion: nil)
     }
 }
 
@@ -93,6 +116,10 @@ extension NewReportCoordinator: ImagePickerDelegate {
 
 // MARK: NewReportViewControllerDelegate
 extension NewReportCoordinator: NewReportViewControllerDelegate {
+    func viewController(_ viewController: NewReportViewController, didTapLocation sender: UITapGestureRecognizer) {
+        showLocationPicker(withRootViewController: viewController)
+    }
+
     func viewController(_ viewController: NewReportViewController, didTapImageAtIndex index: Int) {
         if let images = images, let lightbox = lightboxForImages(images, withStartIndex: index) {
             viewController.present(lightbox, animated: true, completion: nil)

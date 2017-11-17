@@ -12,6 +12,8 @@
 		4A0ABE751FBE6E2F007B06B9 /* ImageSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE741FBE6E2F007B06B9 /* ImageSliderViewController.swift */; };
 		4A0ABE781FBE6EF4007B06B9 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE771FBE6EF4007B06B9 /* ImageViewController.swift */; };
 		4A0ABE7A1FBE6F15007B06B9 /* image-slider.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A0ABE791FBE6F15007B06B9 /* image-slider.storyboard */; };
+		4A0ABE7D1FBF48B0007B06B9 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE7C1FBF48B0007B06B9 /* Style.swift */; };
+		4A0ABE7F1FBF574F007B06B9 /* STWButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE7E1FBF574F007B06B9 /* STWButton.swift */; };
 		4A321A861FB66ECC001DA08A /* container.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A851FB66ECC001DA08A /* container.storyboard */; };
 		4A321A8A1FB672A1001DA08A /* list.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A891FB672A1001DA08A /* list.storyboard */; };
 		4A321A8C1FB67308001DA08A /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321A8B1FB67308001DA08A /* StoryboardInstantiable.swift */; };
@@ -62,6 +64,8 @@
 		4A0ABE741FBE6E2F007B06B9 /* ImageSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSliderViewController.swift; sourceTree = "<group>"; };
 		4A0ABE771FBE6EF4007B06B9 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		4A0ABE791FBE6F15007B06B9 /* image-slider.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "image-slider.storyboard"; sourceTree = "<group>"; };
+		4A0ABE7C1FBF48B0007B06B9 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		4A0ABE7E1FBF574F007B06B9 /* STWButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STWButton.swift; sourceTree = "<group>"; };
 		4A321A841FB61CDE001DA08A /* Black's Beach.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Black's Beach.gpx"; sourceTree = "<group>"; };
 		4A321A851FB66ECC001DA08A /* container.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = container.storyboard; sourceTree = "<group>"; };
 		4A321A891FB672A1001DA08A /* list.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = list.storyboard; sourceTree = "<group>"; };
@@ -198,6 +202,7 @@
 				4AA85B901FBBD11D009A72E8 /* NewReportCoordinator.swift */,
 				4AF232A41FB0CA8900ADA075 /* NewReportViewController.swift */,
 				4AA85B921FBBD61D009A72E8 /* NewReportNavViewController.swift */,
+				4A0ABE7E1FBF574F007B06B9 /* STWButton.swift */,
 				4A321A981FB67E50001DA08A /* new-report.storyboard */,
 			);
 			path = "new-report";
@@ -236,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				4A7FA9191FAA966300C6A2BB /* AppDelegate.swift */,
+				4A0ABE7C1FBF48B0007B06B9 /* Style.swift */,
 				4A9578C91FBB4FF20051837C /* AppCoordinator.swift */,
 				4A9578D41FBBB6730051837C /* NavigationViewController.swift */,
 				4A321A961FB67DF8001DA08A /* swift-extras */,
@@ -483,6 +489,7 @@
 				4A321A901FB67C1F001DA08A /* ReportsMapViewController.swift in Sources */,
 				4A321AC61FB8EF17001DA08A /* ReportMapAnnotation.swift in Sources */,
 				4A0ABE781FBE6EF4007B06B9 /* ImageViewController.swift in Sources */,
+				4A0ABE7D1FBF48B0007B06B9 /* Style.swift in Sources */,
 				4A9578D01FBB9DC30051837C /* Coordinator.swift in Sources */,
 				4A9578CA1FBB4FF20051837C /* AppCoordinator.swift in Sources */,
 				4AA85B911FBBD11D009A72E8 /* NewReportCoordinator.swift in Sources */,
@@ -499,6 +506,7 @@
 				4ADAE8DA1FB20D6B00DAAFFD /* ContainerViewController.swift in Sources */,
 				4AF232A31FB0C46500ADA075 /* ReportsTableViewCell.swift in Sources */,
 				4A9578C81FBB4F970051837C /* OnboardingCoordinator.swift in Sources */,
+				4A0ABE7F1FBF574F007B06B9 /* STWButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

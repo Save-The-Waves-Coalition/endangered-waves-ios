@@ -9,12 +9,5 @@
 import UIKit
 
 class NavigationViewController: UINavigationController {
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        let font = UIFont(name: "BrandonGrotesque-Black", size: 24)
-//        if let font = font {
-//            navigationBar.titleTextAttributes = [NSAttributedStringKey.font: font]
-//        }
-//        navigationBar.backgroundColor = UIColor(named: "STW-White")
-//    }
+
 }
