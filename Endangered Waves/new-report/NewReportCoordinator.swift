@@ -17,6 +17,9 @@ protocol NewReportCoordinatorDelegate: class {
 class NewReportCoordinator: Coordinator {
 
     weak var delegate: NewReportCoordinatorDelegate?
+    
+    var newReportNavVC: NewReportNavViewController?
+    var newReportVC: NewReportViewController?
 
     var images: [UIImage]?
 
@@ -38,11 +41,11 @@ class NewReportCoordinator: Coordinator {
     }
 
     func showNewReport() {
-        let newReportNavVC = NewReportNavViewController.instantiate()
-        let newReportVC = newReportNavVC.topViewController as! NewReportViewController
-        newReportVC.delegate = self
-        newReportVC.images = images
-        rootViewController.present(newReportNavVC, animated: true, completion: nil)
+        newReportNavVC = NewReportNavViewController.instantiate()
+        newReportVC = (newReportNavVC!.topViewController as! NewReportViewController)
+        newReportVC!.delegate = self
+        newReportVC!.images = images
+        rootViewController.present(newReportNavVC!, animated: true, completion: nil)
     }
 }
 

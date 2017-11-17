@@ -38,7 +38,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSAttributedStringKey.font: UIFont(name: "BrandonGrotesque-Bold", size: 16)!,
             NSAttributedStringKey.foregroundColor : UIColor.black,
         ]
-
+        
+        
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor(white: 1.0, alpha: 0.22)
+        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor.white
+        UIPageControl.appearance().backgroundColor = UIColor.clear
         return true
     }
 
