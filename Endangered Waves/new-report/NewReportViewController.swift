@@ -21,6 +21,7 @@ protocol NewReportViewControllerDelegate: class {
     func viewController(_ viewController: NewReportViewController, didTapImageAtIndex index:Int)
     func viewController(_ viewController: NewReportViewController, didTapAddButton button:UIButton)
     func viewController(_ viewController: NewReportViewController, didTapLocation sender: UITapGestureRecognizer)
+    func viewController(_ viewController: NewReportViewController, didTapDescription sender: UITapGestureRecognizer)
 }
 
 class NewReportViewController: UITableViewController {
@@ -30,14 +31,25 @@ class NewReportViewController: UITableViewController {
     @IBOutlet weak var imageGallaryContainerView: UIView!
     var imageSliderViewController: ImageSliderViewController?
 
+
+
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+
     var images: [UIImage]? {
         didSet {
             imageSliderViewController?.images = images
         }
     }
-
-    @IBOutlet weak var locationLabel: UILabel!
-
+    
+    var reportDescription: String? {
+        didSet {
+            if let reportDescription = reportDescription {
+                descriptionLabel.text = reportDescription
+            }
+        }
+    }
+    
     var location: LocationItem? {
         didSet {
             if let location = location, let addressString = location.formattedAddressString {
@@ -46,13 +58,6 @@ class NewReportViewController: UITableViewController {
                 locationLabel.font = Style.fontBrandonGrotesqueRegular(size: 15)
             }
         }
-    }
-
-    @IBOutlet weak var descriptionTextView: UITextView!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        descriptionTextView.delegate = self
     }
 
     @IBAction func saveButtonWasTapped(_ sender: UIBarButtonItem) {
@@ -72,6 +77,10 @@ class NewReportViewController: UITableViewController {
         delegate?.viewController(self, didTapLocation: sender)
     }
 
+    @IBAction func descriptionWasTapped(_ sender: UITapGestureRecognizer) {
+        delegate?.viewController(self, didTapDescription: sender)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let imageSliderViewController = segue.destination as? ImageSliderViewController {
             imageSliderViewController.images = self.images
@@ -84,26 +93,6 @@ class NewReportViewController: UITableViewController {
 extension NewReportViewController: ImageSliderViewControllerDelegate {
     func controller(_ controller: ImageSliderViewController, didTapImageAtIndex index: Int) {
         delegate?.viewController(self, didTapImageAtIndex: index)
-    }
-}
-
-extension NewReportViewController: UITextViewDelegate {
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if (textView.text == "Write a description...") {
-            textView.text = ""
-            textView.textColor = .black
-            textView.font = Style.fontBrandonGrotesqueRegular()
-        }
-        textView.becomeFirstResponder() //Optional
-    }
-
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if (textView.text == "") {
-            textView.text = "Write a description..."
-            textView.textColor = Style.colorSTWGrey
-            textView.font = Style.fontGeorgiaItalic()
-        }
-        textView.resignFirstResponder()
     }
 }
 

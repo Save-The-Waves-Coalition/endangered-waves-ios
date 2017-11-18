@@ -27,12 +27,20 @@ class NewReportCoordinator: Coordinator {
             newReportVC?.images = images
         }
     }
+    
+    var reportDescription: String? {
+        didSet {
+            newReportVC?.reportDescription = reportDescription
+        }
+    }
 
     var location: LocationItem? {
         didSet {
             newReportVC?.location = location
         }
     }
+    
+    
 
     lazy var imagePickerController: ImagePickerController = {
         var configuration = Configuration()
@@ -63,16 +71,24 @@ class NewReportCoordinator: Coordinator {
 
     func showLocationPicker(withRootViewController viewController: UIViewController) {
         let locationPicker = LocationPicker()
-        locationPicker.addBarButtons()
         locationPicker.pinColor = Style.colorSTWBlue
         locationPicker.searchResultLocationIconColor = Style.colorSTWBlue
         locationPicker.currentLocationIconColor = Style.colorSTWBlue
         locationPicker.pickCompletion = { (pickedLocationItem) in
+            // TODO: Should this be an unowned self
             self.location = pickedLocationItem
         }
-
-        let navigationController = UINavigationController(rootViewController: locationPicker)
-        viewController.present(navigationController, animated: true, completion: nil)
+        viewController.navigationController?.pushViewController(locationPicker, animated: true)
+    }
+    
+    func showDescriptionEditor(withRootViewController viewController: UIViewController) {
+        let descriptionEditorViewController = STWTextViewController.instantiate()
+        descriptionEditorViewController.text = reportDescription
+        descriptionEditorViewController.textViewDidEndEditing = {
+            (text) in
+            self.reportDescription = text
+        }
+        viewController.navigationController?.pushViewController(descriptionEditorViewController, animated: true)
     }
 }
 
@@ -116,6 +132,10 @@ extension NewReportCoordinator: ImagePickerDelegate {
 
 // MARK: NewReportViewControllerDelegate
 extension NewReportCoordinator: NewReportViewControllerDelegate {
+    func viewController(_ viewController: NewReportViewController, didTapDescription sender: UITapGestureRecognizer) {
+        showDescriptionEditor(withRootViewController: viewController)
+    }
+    
     func viewController(_ viewController: NewReportViewController, didTapLocation sender: UITapGestureRecognizer) {
         showLocationPicker(withRootViewController: viewController)
     }

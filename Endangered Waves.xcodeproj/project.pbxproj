@@ -14,6 +14,9 @@
 		4A0ABE7A1FBE6F15007B06B9 /* image-slider.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A0ABE791FBE6F15007B06B9 /* image-slider.storyboard */; };
 		4A0ABE7D1FBF48B0007B06B9 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE7C1FBF48B0007B06B9 /* Style.swift */; };
 		4A0ABE7F1FBF574F007B06B9 /* STWButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE7E1FBF574F007B06B9 /* STWButton.swift */; };
+		4A3027931FBF9B4F00F5D87D /* STWTextView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A3027921FBF9B4F00F5D87D /* STWTextView.storyboard */; };
+		4A3027981FBF9C2000F5D87D /* STWTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3027971FBF9C2000F5D87D /* STWTextViewController.swift */; };
+		4A30279A1FBFABC600F5D87D /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3027991FBFABC600F5D87D /* UIViewController+Keyboard.swift */; };
 		4A321A861FB66ECC001DA08A /* container.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A851FB66ECC001DA08A /* container.storyboard */; };
 		4A321A8A1FB672A1001DA08A /* list.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A891FB672A1001DA08A /* list.storyboard */; };
 		4A321A8C1FB67308001DA08A /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321A8B1FB67308001DA08A /* StoryboardInstantiable.swift */; };
@@ -66,6 +69,9 @@
 		4A0ABE791FBE6F15007B06B9 /* image-slider.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "image-slider.storyboard"; sourceTree = "<group>"; };
 		4A0ABE7C1FBF48B0007B06B9 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		4A0ABE7E1FBF574F007B06B9 /* STWButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STWButton.swift; sourceTree = "<group>"; };
+		4A3027921FBF9B4F00F5D87D /* STWTextView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = STWTextView.storyboard; sourceTree = "<group>"; };
+		4A3027971FBF9C2000F5D87D /* STWTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STWTextViewController.swift; sourceTree = "<group>"; };
+		4A3027991FBFABC600F5D87D /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		4A321A841FB61CDE001DA08A /* Black's Beach.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Black's Beach.gpx"; sourceTree = "<group>"; };
 		4A321A851FB66ECC001DA08A /* container.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = container.storyboard; sourceTree = "<group>"; };
 		4A321A891FB672A1001DA08A /* list.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = list.storyboard; sourceTree = "<group>"; };
@@ -155,6 +161,15 @@
 			path = "image-slider";
 			sourceTree = "<group>";
 		};
+		4A3027941FBF9BAC00F5D87D /* text-view */ = {
+			isa = PBXGroup;
+			children = (
+				4A3027921FBF9B4F00F5D87D /* STWTextView.storyboard */,
+				4A3027971FBF9C2000F5D87D /* STWTextViewController.swift */,
+			);
+			path = "text-view";
+			sourceTree = "<group>";
+		};
 		4A321A871FB67145001DA08A /* container */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +207,7 @@
 			children = (
 				4A321A8B1FB67308001DA08A /* StoryboardInstantiable.swift */,
 				4A9578CF1FBB9DC30051837C /* Coordinator.swift */,
+				4A3027991FBFABC600F5D87D /* UIViewController+Keyboard.swift */,
 			);
 			path = "swift-extras";
 			sourceTree = "<group>";
@@ -244,6 +260,7 @@
 				4A0ABE7C1FBF48B0007B06B9 /* Style.swift */,
 				4A9578C91FBB4FF20051837C /* AppCoordinator.swift */,
 				4A9578D41FBBB6730051837C /* NavigationViewController.swift */,
+				4A3027941FBF9BAC00F5D87D /* text-view */,
 				4A321A961FB67DF8001DA08A /* swift-extras */,
 				4A321A871FB67145001DA08A /* container */,
 				4A9578C41FBB46250051837C /* onboarding */,
@@ -367,6 +384,7 @@
 				4A9578D21FBBAE540051837C /* Brandon_blk.otf in Resources */,
 				4A7FA9241FAA966300C6A2BB /* LaunchScreen.storyboard in Resources */,
 				4A7FA92C1FAA96ED00C6A2BB /* GoogleService-Info.plist in Resources */,
+				4A3027931FBF9B4F00F5D87D /* STWTextView.storyboard in Resources */,
 				4A321A931FB67C3C001DA08A /* map.storyboard in Resources */,
 				4A321A8A1FB672A1001DA08A /* list.storyboard in Resources */,
 				4AA85B951FBCA3CA009A72E8 /* Brandon_reg.otf in Resources */,
@@ -486,6 +504,7 @@
 				4A0ABE751FBE6E2F007B06B9 /* ImageSliderViewController.swift in Sources */,
 				4AF232A51FB0CA8900ADA075 /* NewReportViewController.swift in Sources */,
 				4A321A951FB67C89001DA08A /* ReportsNavMapViewController.swift in Sources */,
+				4A30279A1FBFABC600F5D87D /* UIViewController+Keyboard.swift in Sources */,
 				4A321A901FB67C1F001DA08A /* ReportsMapViewController.swift in Sources */,
 				4A321AC61FB8EF17001DA08A /* ReportMapAnnotation.swift in Sources */,
 				4A0ABE781FBE6EF4007B06B9 /* ImageViewController.swift in Sources */,
@@ -497,6 +516,7 @@
 				4A8987681FAE0B4E0098E473 /* ReportsTableViewController.swift in Sources */,
 				4A9578CE1FBB98CE0051837C /* ContainerCoordinator.swift in Sources */,
 				4A321AC81FB9131D001DA08A /* ReportDetailNavViewController.swift in Sources */,
+				4A3027981FBF9C2000F5D87D /* STWTextViewController.swift in Sources */,
 				4A321AA21FB7AB17001DA08A /* ReportDetailViewController.swift in Sources */,
 				4A7FA91A1FAA966300C6A2BB /* AppDelegate.swift in Sources */,
 				4A9578C61FBB465A0051837C /* OnboardingViewController.swift in Sources */,

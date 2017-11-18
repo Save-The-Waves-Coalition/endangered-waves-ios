@@ -100,29 +100,31 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write a description..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JCo-oR-o9H">
-                                                    <rect key="frame" x="10" y="11.5" width="349" height="88.5"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="textColor" name="STW-Grey"/>
-                                                    <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESCRIPTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZ1-sH-e8A">
-                                                    <rect key="frame" x="16" y="0.0" width="78.5" height="17.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="79.5" height="14"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
+                                                    <color key="textColor" name="STW-Grey"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Write a description..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnt-uN-0J9">
+                                                    <rect key="frame" x="16" y="16.5" width="343" height="18"/>
+                                                    <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="15"/>
                                                     <color key="textColor" name="STW-Grey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="JCo-oR-o9H" firstAttribute="leading" secondItem="i9j-L6-rQI" secondAttribute="leading" constant="10" id="9Jg-qi-Cnh"/>
+                                                <constraint firstItem="rnt-uN-0J9" firstAttribute="leading" secondItem="SZ1-sH-e8A" secondAttribute="leading" id="HdH-Ej-SMu"/>
+                                                <constraint firstItem="rnt-uN-0J9" firstAttribute="top" secondItem="SZ1-sH-e8A" secondAttribute="bottom" constant="2" id="PxZ-Ud-O0z"/>
                                                 <constraint firstItem="SZ1-sH-e8A" firstAttribute="top" secondItem="i9j-L6-rQI" secondAttribute="top" id="UgZ-ec-W3p"/>
-                                                <constraint firstItem="JCo-oR-o9H" firstAttribute="top" secondItem="SZ1-sH-e8A" secondAttribute="bottom" constant="-6" id="fr4-eT-mIB"/>
-                                                <constraint firstAttribute="trailing" secondItem="JCo-oR-o9H" secondAttribute="trailing" constant="16" id="gdQ-m2-KHZ"/>
                                                 <constraint firstItem="SZ1-sH-e8A" firstAttribute="leading" secondItem="i9j-L6-rQI" secondAttribute="leading" constant="16" id="mZp-rb-LFU"/>
-                                                <constraint firstAttribute="bottom" secondItem="JCo-oR-o9H" secondAttribute="bottom" id="pMu-U1-wqE"/>
+                                                <constraint firstItem="rnt-uN-0J9" firstAttribute="trailing" secondItem="i9j-L6-rQI" secondAttribute="trailingMargin" id="vmH-FN-aFt"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="GP6-XR-HCA" appends="YES" id="1Cj-Cn-7wW"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="H4S-Qv-jPB">
                                         <rect key="frame" x="0.0" y="335" width="375" height="100"/>
@@ -132,13 +134,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGT-9M-TFg">
-                                                    <rect key="frame" x="16" y="11" width="60" height="17.5"/>
+                                                    <rect key="frame" x="16" y="11" width="59" height="14"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
                                                     <color key="textColor" name="STW-Grey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a location..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UxH-4M-XEX">
-                                                    <rect key="frame" x="16" y="29" width="130" height="18"/>
+                                                    <rect key="frame" x="16" y="25.5" width="343" height="18"/>
                                                     <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="15"/>
                                                     <color key="textColor" name="STW-Grey"/>
                                                     <nil key="highlightedColor"/>
@@ -149,6 +151,7 @@
                                                 <constraint firstItem="UxH-4M-XEX" firstAttribute="leading" secondItem="WGT-9M-TFg" secondAttribute="leading" id="Qmu-27-tj8"/>
                                                 <constraint firstItem="WGT-9M-TFg" firstAttribute="leading" secondItem="Uq3-J3-wd6" secondAttribute="leadingMargin" id="WPl-zA-wi9"/>
                                                 <constraint firstItem="UxH-4M-XEX" firstAttribute="top" secondItem="WGT-9M-TFg" secondAttribute="bottom" id="fAv-PD-Lee"/>
+                                                <constraint firstItem="UxH-4M-XEX" firstAttribute="trailing" secondItem="Uq3-J3-wd6" secondAttribute="trailingMargin" id="h5A-9J-HKb"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
@@ -164,7 +167,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CATEGORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06W-gh-CHS">
-                                                    <rect key="frame" x="16" y="11" width="62" height="18"/>
+                                                    <rect key="frame" x="16" y="11" width="63.5" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="17.5" id="O6s-c0-Dye"/>
                                                     </constraints>
@@ -184,8 +187,9 @@
                                                                         <constraint firstAttribute="width" constant="60" id="eJt-8c-YYI"/>
                                                                         <constraint firstAttribute="height" constant="100" id="gXX-p0-1t8"/>
                                                                     </constraints>
+                                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="10"/>
                                                                     <state key="normal" title="Oil" image="oil">
-                                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        <color key="titleColor" name="STW-Grey"/>
                                                                     </state>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZi-Tm-b01" customClass="STWButton" customModule="Endangered_Waves" customModuleProvider="target">
@@ -279,7 +283,7 @@
                     </navigationItem>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
-                        <outlet property="descriptionTextView" destination="JCo-oR-o9H" id="1HA-0W-ELt"/>
+                        <outlet property="descriptionLabel" destination="rnt-uN-0J9" id="SKu-fB-MB6"/>
                         <outlet property="imageGallaryContainerView" destination="Q39-kE-bpK" id="NaF-OL-feM"/>
                         <outlet property="locationLabel" destination="UxH-4M-XEX" id="glI-YC-gQo"/>
                     </connections>
@@ -290,21 +294,23 @@
                         <action selector="locationWasTapped:" destination="QT1-n4-6Zb" id="vq5-Ej-Ujc"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="GP6-XR-HCA">
+                    <connections>
+                        <action selector="descriptionWasTapped:" destination="QT1-n4-6Zb" id="9pC-MG-qqU"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="138.40000000000001" y="2204.7976011994006"/>
         </scene>
     </scenes>
     <resources>
-        <image name="oil" width="66" height="67"/>
+        <image name="oil" width="56" height="56"/>
         <image name="small-add-button" width="132" height="132"/>
         <namedColor name="STW-Grey">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="STW-Grey">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="STW-Grey">
-            <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="STW-Grey">
             <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
