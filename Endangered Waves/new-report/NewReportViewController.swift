@@ -22,6 +22,7 @@ protocol NewReportViewControllerDelegate: class {
     func viewController(_ viewController: NewReportViewController, didTapAddButton button:UIButton)
     func viewController(_ viewController: NewReportViewController, didTapLocation sender: UITapGestureRecognizer)
     func viewController(_ viewController: NewReportViewController, didTapDescription sender: UITapGestureRecognizer)
+    func viewController(_ viewController: NewReportViewController, didTapReportType sender: STWButton)
 }
 
 class NewReportViewController: UITableViewController {
@@ -31,7 +32,20 @@ class NewReportViewController: UITableViewController {
     @IBOutlet weak var imageGallaryContainerView: UIView!
     var imageSliderViewController: ImageSliderViewController?
 
+    @IBOutlet var categoryTypeCollection: [STWButton]!
 
+    @IBAction func categoryTypeButtonTapped(_ sender: STWButton) {
+        categoryTypeCollection.forEach { (button) in
+            if button === sender {
+                button.tintColor = .black
+                button.isSelected = true
+            } else {
+                button.tintColor = Style.colorSTWGrey
+                button.isSelected = false
+            }
+        }
+        delegate?.viewController(self, didTapReportType: sender)
+    }
 
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!

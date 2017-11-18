@@ -52,11 +52,14 @@ extension ReportLocation {
 }
 
 enum ReportType: String {
-    case garbage
-    case sewage
-    case other
+    case OilSpill
+    case Sewage
+    case Trashed
+    case CoastalErosion
+    case AccessLost
+    case General
     init() {
-        self = .other
+        self = .General
     }
 }
 

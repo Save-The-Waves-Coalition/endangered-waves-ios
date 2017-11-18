@@ -33,12 +33,18 @@ class ReportMapAnnotationView: MKAnnotationView {
 
             if let type = reportMapAnnotation.report.type {
                 switch type {
-                case .sewage:
-                    image = UIImage(named: "sewage")
-                case .garbage:
-                    image = UIImage(named: "garbage")
-                default:
-                    image = UIImage(named: "oil")
+                case .OilSpill:
+                    image = Style.iconOil
+                case .Sewage:
+                    image = Style.iconSewage
+                case .Trashed:
+                    image = Style.iconTrash
+                case .CoastalErosion:
+                    image = Style.iconCoastalErosion
+                case .AccessLost:
+                    image = Style.iconAccess
+                case .General:
+                    image = Style.iconGeneral
                 }
             }
 

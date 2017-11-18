@@ -10,6 +10,12 @@ import UIKit
 
 class STWButton: UIButton {
 
+    var reportTypeString: String!
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
     override func layoutSubviews() {
 
         let spacing: CGFloat = 6.0

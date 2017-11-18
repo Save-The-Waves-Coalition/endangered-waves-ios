@@ -10,6 +10,7 @@ import UIKit
 import ImagePicker
 import Lightbox
 import LocationPickerViewController
+import FirebaseStorage
 
 protocol NewReportCoordinatorDelegate: class {
     func coordinatorDidFinishNewReport(_ coordinator: NewReportCoordinator)
@@ -39,8 +40,8 @@ class NewReportCoordinator: Coordinator {
             newReportVC?.location = location
         }
     }
-    
-    
+
+    var reportType: ReportType?
 
     lazy var imagePickerController: ImagePickerController = {
         var configuration = Configuration()
@@ -86,6 +87,7 @@ class NewReportCoordinator: Coordinator {
         descriptionEditorViewController.text = reportDescription
         descriptionEditorViewController.textViewDidEndEditing = {
             (text) in
+            // TODO: Should this be an unowned self
             self.reportDescription = text
         }
         viewController.navigationController?.pushViewController(descriptionEditorViewController, animated: true)
@@ -105,7 +107,7 @@ extension NewReportCoordinator {
     }
 }
 
-// MARK: ImagePickerDelegate
+// MARK: 📸 ImagePickerDelegate
 extension NewReportCoordinator: ImagePickerDelegate {
     func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
         if let lightbox = lightboxForImages(images, withStartIndex: 0) {
@@ -132,6 +134,28 @@ extension NewReportCoordinator: ImagePickerDelegate {
 
 // MARK: NewReportViewControllerDelegate
 extension NewReportCoordinator: NewReportViewControllerDelegate {
+
+    func viewController(_ viewController: NewReportViewController, didTapReportType sender: STWButton) {
+        if let buttonTitleText = sender.titleLabel?.text {
+            switch buttonTitleText {
+            case "OIL SPILL":
+                reportType = .OilSpill
+            case "SEWAGE":
+                reportType = .Sewage
+            case "TRASHED":
+                reportType = .Trashed
+            case "COASTAL\nEROSION":
+                reportType = .CoastalErosion
+            case "ACCESS\nLOST":
+                reportType = .AccessLost
+            case "GENERAL\n ":
+                reportType = .General
+            default:
+                assertionFailure("Missing type.")
+            }
+        }
+    }
+
     func viewController(_ viewController: NewReportViewController, didTapDescription sender: UITapGestureRecognizer) {
         showDescriptionEditor(withRootViewController: viewController)
     }
@@ -153,6 +177,94 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
     }
 
     func viewController(_ viewController: NewReportViewController, didTapSaveButton button: UIBarButtonItem) {
+        // validate picture
+        // TODO: not needed as you currently can't deselect all pics
+
+        // validate description
+        if reportDescription == nil {
+            showValidationError(title: "Missing Description", message: "Please enter a description.", withViewController: viewController)
+            return
+        }
+
+        // validate location
+        if location == nil {
+            showValidationError(title: "Missing Location", message: "Please select a location.", withViewController: viewController)
+            return
+        }
+
+        // Validate type
+        if reportType == nil {
+            showValidationError(title: "Missing Report Type", message: "Please select a report type, such as OIL SPILL.", withViewController: viewController)
+            return
+        }
+
+
+        images?.forEach({ (image) in
+            if let imageData = UIImageJPEGRepresentation(image, 0.8) {
+
+                let imageName = UUID().uuidString + ".jpg"
+
+                let storage = Storage.storage()
+                let reportImagesRef = storage.reference().child("report-images")
+                let imageRef = reportImagesRef.child(imageName)
+
+                let metadata = StorageMetadata()
+                metadata.contentType = "image/jpeg"
+
+                let uploadTask = imageRef.putData(imageData, metadata: metadata)
+
+                uploadTask.observe(.progress, handler: { (snapshot) in
+                    let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)
+                        / Double(snapshot.progress!.totalUnitCount)
+                    print("Upload progress: \(percentComplete)")
+                })
+
+                uploadTask.observe(.failure, handler: { (snapshot) in
+                    print("Upload failed: \(snapshot.debugDescription)")
+
+                    if let error = snapshot.error as NSError? {
+                        print("Error: \(error.localizedDescription)")
+                        switch (StorageErrorCode(rawValue: error.code)!) {
+                        case .objectNotFound:
+                            // File doesn't exist
+                            break
+                        case .unauthorized:
+                            // User doesn't have permission to access file
+                            break
+                        case .cancelled:
+                            // User canceled the upload
+                            break
+
+                            /* ... */
+
+                        case .unknown:
+                            // Unknown error occurred, inspect the server response
+                            break
+                        default:
+                            // A separate error occurred. This is a good place to retry the upload.
+                            break
+                        }
+                    }
+                })
+
+                uploadTask.observe(.success, handler: { (snapshot) in
+                    print("Upload completed:\(snapshot.debugDescription)")
+                    let metaData = snapshot.metadata
+                    let downloadURL = metaData?.downloadURL()
+                    let downloadURLString = downloadURL?.absoluteString
+                    if let string = downloadURLString {
+                        print("Download string: \(string)")
+                    }
+                })
+            }
+
+        })
+        
+//        let reportLocation = ReportLocation(name: location?.name, coordinate: location?.mapItem.placemark.coordinate)
+//
+//
+//        let report = Report(creationDate: Date(), description: reportDescription, imageURLs: <#T##[String]?#>, location: <#T##ReportLocation?#>, type: <#T##ReportType?#>, user: <#T##String?#>)
+
         viewController.dismiss(animated: true) {
             self.stop()
         }
@@ -160,5 +272,14 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
 
     func viewController(_ viewController: NewReportViewController, didTapAddButton button: UIButton) {
         viewController.present(imagePickerController, animated: true, completion: nil)
+    }
+}
+
+extension NewReportCoordinator {
+    func showValidationError(title: String, message: String, withViewController viewController: UIViewController) {
+        let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertViewController.addAction(okAction)
+        viewController.present(alertViewController, animated: true, completion: nil)
     }
 }

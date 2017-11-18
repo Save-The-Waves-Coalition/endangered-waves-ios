@@ -187,65 +187,136 @@
                                                                         <constraint firstAttribute="width" constant="60" id="eJt-8c-YYI"/>
                                                                         <constraint firstAttribute="height" constant="100" id="gXX-p0-1t8"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="10"/>
-                                                                    <state key="normal" title="Oil" image="oil">
+                                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
+                                                                    <state key="normal" title="OIL SPILL" image="oil">
                                                                         <color key="titleColor" name="STW-Grey"/>
                                                                     </state>
+                                                                    <state key="selected">
+                                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="string" keyPath="reportTypeString" value="OilSpill"/>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="categoryTypeButtonTapped:" destination="QT1-n4-6Zb" eventType="touchUpInside" id="8LW-1A-lOU"/>
+                                                                    </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZi-Tm-b01" customClass="STWButton" customModule="Endangered_Waves" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w1D-Ug-k45" customClass="STWButton" customModule="Endangered_Waves" customModuleProvider="target">
                                                                     <rect key="frame" x="80" y="0.0" width="60" height="100"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="60" id="ZMC-h1-Ecu"/>
-                                                                        <constraint firstAttribute="height" constant="100" id="tzd-8d-9NW"/>
+                                                                        <constraint firstAttribute="height" constant="100" id="Vzu-Hm-deK"/>
+                                                                        <constraint firstAttribute="width" constant="60" id="kgw-i7-t6j"/>
                                                                     </constraints>
-                                                                    <state key="normal" title="Oil" image="oil">
+                                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
+                                                                    <state key="normal" title="SEWAGE" image="sewage">
+                                                                        <color key="titleColor" name="STW-Grey"/>
+                                                                    </state>
+                                                                    <state key="selected">
                                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                     </state>
+                                                                    <connections>
+                                                                        <action selector="categoryTypeButtonTapped:" destination="QT1-n4-6Zb" eventType="touchUpInside" id="YmN-Aa-N1Z"/>
+                                                                    </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cQ-Ii-pfa" customClass="STWButton" customModule="Endangered_Waves" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeb-Uh-R5w" customClass="STWButton" customModule="Endangered_Waves" customModuleProvider="target">
                                                                     <rect key="frame" x="160" y="0.0" width="60" height="100"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="60" id="ANk-ue-Vcf"/>
-                                                                        <constraint firstAttribute="height" constant="100" id="av8-Un-o4W"/>
+                                                                        <constraint firstAttribute="width" constant="60" id="5nb-He-QA6"/>
+                                                                        <constraint firstAttribute="height" constant="100" id="P3M-eI-rPl"/>
                                                                     </constraints>
-                                                                    <state key="normal" title="Oil" image="oil">
+                                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
+                                                                    <state key="normal" title="TRASHED" image="trash">
+                                                                        <color key="titleColor" name="STW-Grey"/>
+                                                                    </state>
+                                                                    <state key="selected">
                                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                                     </state>
+                                                                    <connections>
+                                                                        <action selector="categoryTypeButtonTapped:" destination="QT1-n4-6Zb" eventType="touchUpInside" id="Qwl-4Z-U41"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="mKe-oD-bdx">
                                                             <rect key="frame" x="0.0" y="100" width="220" height="100"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FCH-H9-CcS" customClass="STWButton" customModule="Endangered_Waves" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tjA-cE-tep" customClass="STWButton" customModule="Endangered_Waves" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="100"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="100" id="oHH-91-xOP"/>
-                                                                        <constraint firstAttribute="width" constant="60" id="tyg-HW-aRc"/>
+                                                                        <constraint firstAttribute="height" constant="100" id="1kL-Eh-4sW"/>
+                                                                        <constraint firstAttribute="width" constant="60" id="ezU-Bb-XWp"/>
                                                                     </constraints>
-                                                                    <state key="normal" title="Oil" image="oil">
-                                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <state key="normal" image="access">
+                                                                        <attributedString key="attributedTitle">
+                                                                            <fragment>
+                                                                                <string key="content">ACCESS
+LOST</string>
+                                                                                <attributes>
+                                                                                    <color key="NSColor" name="STW-Grey"/>
+                                                                                    <font key="NSFont" size="12" name="BrandonGrotesque-Black"/>
+                                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                        </attributedString>
                                                                     </state>
+                                                                    <state key="selected">
+                                                                        <attributedString key="attributedTitle"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="categoryTypeButtonTapped:" destination="QT1-n4-6Zb" eventType="touchUpInside" id="eqD-ke-Hh3"/>
+                                                                    </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZX3-jY-thw" customClass="STWButton" customModule="Endangered_Waves" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Id-7h-Qt5" customClass="STWButton" customModule="Endangered_Waves" customModuleProvider="target">
                                                                     <rect key="frame" x="80" y="0.0" width="60" height="100"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="100" id="sO3-66-aNS"/>
-                                                                        <constraint firstAttribute="width" constant="60" id="yK0-ao-7Rp"/>
+                                                                        <constraint firstAttribute="height" constant="100" id="DoM-an-t8o"/>
+                                                                        <constraint firstAttribute="width" constant="60" id="Ntp-be-8kH"/>
                                                                     </constraints>
-                                                                    <state key="normal" title="Oil" image="oil">
-                                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <state key="normal" image="general">
+                                                                        <attributedString key="attributedTitle">
+                                                                            <fragment>
+                                                                                <string key="content">GENERAL
+ </string>
+                                                                                <attributes>
+                                                                                    <color key="NSColor" name="STW-Grey"/>
+                                                                                    <font key="NSFont" size="12" name="BrandonGrotesque-Black"/>
+                                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                        </attributedString>
                                                                     </state>
+                                                                    <state key="selected">
+                                                                        <attributedString key="attributedTitle"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="categoryTypeButtonTapped:" destination="QT1-n4-6Zb" eventType="touchUpInside" id="Mmx-PL-Wes"/>
+                                                                    </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Azr-gv-SYf" customClass="STWButton" customModule="Endangered_Waves" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2kH-NJ-OTQ" customClass="STWButton" customModule="Endangered_Waves" customModuleProvider="target">
                                                                     <rect key="frame" x="160" y="0.0" width="60" height="100"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="100" id="bqv-ZP-61W"/>
-                                                                        <constraint firstAttribute="width" constant="60" id="ogW-TU-ytR"/>
+                                                                        <constraint firstAttribute="width" constant="60" id="DfJ-T4-LHw"/>
+                                                                        <constraint firstAttribute="height" constant="100" id="lC9-ZB-eyM"/>
                                                                     </constraints>
-                                                                    <state key="normal" title="Oil" image="oil">
-                                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <state key="normal" image="coastal-erosion">
+                                                                        <attributedString key="attributedTitle">
+                                                                            <fragment>
+                                                                                <string key="content">COASTAL
+EROSION</string>
+                                                                                <attributes>
+                                                                                    <color key="NSColor" name="STW-Grey"/>
+                                                                                    <font key="NSFont" size="12" name="BrandonGrotesque-Black"/>
+                                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                </attributes>
+                                                                            </fragment>
+                                                                        </attributedString>
                                                                     </state>
+                                                                    <state key="selected">
+                                                                        <attributedString key="attributedTitle"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="categoryTypeButtonTapped:" destination="QT1-n4-6Zb" eventType="touchUpInside" id="f8p-TV-bgZ"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
@@ -286,6 +357,12 @@
                         <outlet property="descriptionLabel" destination="rnt-uN-0J9" id="SKu-fB-MB6"/>
                         <outlet property="imageGallaryContainerView" destination="Q39-kE-bpK" id="NaF-OL-feM"/>
                         <outlet property="locationLabel" destination="UxH-4M-XEX" id="glI-YC-gQo"/>
+                        <outletCollection property="categoryTypeCollection" destination="w1D-Ug-k45" collectionClass="NSMutableArray" id="asV-7r-YAI"/>
+                        <outletCollection property="categoryTypeCollection" destination="vUn-VT-n3g" collectionClass="NSMutableArray" id="F5Q-ET-r6h"/>
+                        <outletCollection property="categoryTypeCollection" destination="eeb-Uh-R5w" collectionClass="NSMutableArray" id="mqO-1O-bn2"/>
+                        <outletCollection property="categoryTypeCollection" destination="tjA-cE-tep" collectionClass="NSMutableArray" id="sIA-oF-87g"/>
+                        <outletCollection property="categoryTypeCollection" destination="2Id-7h-Qt5" collectionClass="NSMutableArray" id="7Ha-7P-JKa"/>
+                        <outletCollection property="categoryTypeCollection" destination="2kH-NJ-OTQ" collectionClass="NSMutableArray" id="THI-uY-FL2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IqA-TC-mE3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -304,13 +381,21 @@
         </scene>
     </scenes>
     <resources>
+        <image name="access" width="56" height="56"/>
+        <image name="coastal-erosion" width="56" height="56"/>
+        <image name="general" width="56" height="56"/>
         <image name="oil" width="56" height="56"/>
+        <image name="sewage" width="56" height="56"/>
         <image name="small-add-button" width="132" height="132"/>
+        <image name="trash" width="56" height="56"/>
+        <namedColor name="STW-Grey">
+            <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="STW-Grey">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="STW-Grey">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="STW-Grey">
             <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -319,5 +404,5 @@
             <color red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
-    <color key="tintColor" name="STW-Blue"/>
+    <color key="tintColor" name="STW-Grey"/>
 </document>
