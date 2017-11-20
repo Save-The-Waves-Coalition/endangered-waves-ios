@@ -259,9 +259,6 @@ LOST</string>
                                                                             </fragment>
                                                                         </attributedString>
                                                                     </state>
-                                                                    <state key="selected">
-                                                                        <attributedString key="attributedTitle"/>
-                                                                    </state>
                                                                     <connections>
                                                                         <action selector="categoryTypeButtonTapped:" destination="QT1-n4-6Zb" eventType="touchUpInside" id="eqD-ke-Hh3"/>
                                                                     </connections>
@@ -388,15 +385,6 @@ EROSION</string>
         <image name="sewage" width="56" height="56"/>
         <image name="small-add-button" width="132" height="132"/>
         <image name="trash" width="56" height="56"/>
-        <namedColor name="STW-Grey">
-            <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="STW-Grey">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="STW-Grey">
-            <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="STW-Grey">
             <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
