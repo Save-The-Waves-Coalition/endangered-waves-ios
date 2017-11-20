@@ -40,10 +40,32 @@ class NewReportViewController: UITableViewController {
                 button.tintColor = .black
                 button.isSelected = true
                 button.titleLabel?.font = Style.fontBrandonGrotesqueBlack(size: 12)
+
+
+                if let currentAttributedTitle = button.currentAttributedTitle {
+                    let style = NSMutableParagraphStyle()
+                    style.alignment = .center
+                    let attributes = [NSAttributedStringKey.font: Style.fontBrandonGrotesqueBlack(size: 12),
+                                      NSAttributedStringKey.foregroundColor: UIColor.black,
+                                      NSAttributedStringKey.paragraphStyle: style]
+                    let attributedString = NSAttributedString(string: currentAttributedTitle.string, attributes: attributes)
+                    button.setAttributedTitle(attributedString, for: .normal)
+                }
+
             } else {
                 button.tintColor = Style.colorSTWGrey
                 button.isSelected = false
                 button.titleLabel?.font = Style.fontBrandonGrotesqueBlack(size: 12)
+
+                if let currentAttributedTitle = button.currentAttributedTitle {
+                    let style = NSMutableParagraphStyle()
+                    style.alignment = .center
+                    let attributes = [NSAttributedStringKey.font: Style.fontBrandonGrotesqueBlack(size: 12),
+                                      NSAttributedStringKey.foregroundColor: Style.colorSTWGrey,
+                                      NSAttributedStringKey.paragraphStyle: style]
+                    let attributedString = NSAttributedString(string: currentAttributedTitle.string, attributes: attributes)
+                    button.setAttributedTitle(attributedString, for: .normal)
+                }
             }
         }
         delegate?.viewController(self, didTapReportType: sender)
