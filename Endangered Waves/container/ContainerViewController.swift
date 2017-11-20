@@ -25,11 +25,33 @@ class ContainerViewController: UIViewController {
     }
 
     @IBAction func addButtonWasTapped(_ sender: UIButton) {
+        // Hide the status bar
+        statusBarShouldBeHidden = true
+        UIView.animate(withDuration: 0.25) {
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
         delegate?.controller(self, didTapAddButton: sender)
     }
 
     @IBAction func listButtonWasTapped(_ sender: UIButton) {
         delegate?.controller(self, didTapListButton: sender)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        statusBarShouldBeHidden = false
+        UIView.animate(withDuration: 0.25) {
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+
+    var statusBarShouldBeHidden = false
+    override var prefersStatusBarHidden: Bool {
+        return statusBarShouldBeHidden
+    }
+
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+        return .slide
     }
 }
 

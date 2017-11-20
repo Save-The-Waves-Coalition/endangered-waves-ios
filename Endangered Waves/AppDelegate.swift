@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     var appCoordinator: AppCoordinator = {
-        let c = AppCoordinator(with: UIViewController())
+        let c = AppCoordinator(with: RootViewController())
         return c
     }()
 
@@ -61,5 +61,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            }
 //        }
         return true
+    }
+}
+
+class RootViewController: UIViewController {
+
+
+    var statusBarShouldBeHidden = false
+    override var prefersStatusBarHidden: Bool {
+        return statusBarShouldBeHidden
+    }
+
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+        return .slide
+    }
+
+    override var childViewControllerForStatusBarHidden: UIViewController? {
+        var childViewController: UIViewController? = nil
+
+        for viewController in childViewControllers {
+            if viewController is ContainerViewController {
+                childViewController = viewController
+                break
+            }
+        }
+
+        return childViewController
+    }
+
+    override var childViewControllerForStatusBarStyle: UIViewController? {
+        var childViewController: UIViewController? = nil
+
+        for viewController in childViewControllers {
+            if viewController is ContainerViewController {
+                childViewController = viewController
+                break
+            }
+        }
+
+        return childViewController
     }
 }

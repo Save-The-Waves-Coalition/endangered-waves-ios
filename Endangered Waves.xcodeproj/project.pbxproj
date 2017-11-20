@@ -36,6 +36,8 @@
 		4A7FA9241FAA966300C6A2BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A7FA9221FAA966300C6A2BB /* LaunchScreen.storyboard */; };
 		4A7FA92C1FAA96ED00C6A2BB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A7FA92B1FAA96ED00C6A2BB /* GoogleService-Info.plist */; };
 		4A8987681FAE0B4E0098E473 /* ReportsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8987671FAE0B4E0098E473 /* ReportsTableViewController.swift */; };
+		4A8B6A791FC3421C005A5989 /* NSObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8B6A781FC3421C005A5989 /* NSObjectExtensions.swift */; };
+		4A8B6A7B1FC3423D005A5989 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8B6A7A1FC3423D005A5989 /* NavigationBar.swift */; };
 		4A9578C31FBB45E50051837C /* onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A9578C21FBB45E50051837C /* onboarding.storyboard */; };
 		4A9578C61FBB465A0051837C /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9578C51FBB465A0051837C /* OnboardingViewController.swift */; };
 		4A9578C81FBB4F970051837C /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9578C71FBB4F970051837C /* OnboardingCoordinator.swift */; };
@@ -95,6 +97,8 @@
 		4A7FA9251FAA966300C6A2BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A7FA92B1FAA96ED00C6A2BB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4A8987671FAE0B4E0098E473 /* ReportsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsTableViewController.swift; sourceTree = "<group>"; };
+		4A8B6A781FC3421C005A5989 /* NSObjectExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectExtensions.swift; sourceTree = "<group>"; };
+		4A8B6A7A1FC3423D005A5989 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		4A9578C21FBB45E50051837C /* onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = onboarding.storyboard; sourceTree = "<group>"; };
 		4A9578C51FBB465A0051837C /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		4A9578C71FBB4F970051837C /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 				4A321A8B1FB67308001DA08A /* StoryboardInstantiable.swift */,
 				4A9578CF1FBB9DC30051837C /* Coordinator.swift */,
 				4A3027991FBFABC600F5D87D /* UIViewController+Keyboard.swift */,
+				4A8B6A781FC3421C005A5989 /* NSObjectExtensions.swift */,
 			);
 			path = "swift-extras";
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 				4A9578C91FBB4FF20051837C /* AppCoordinator.swift */,
 				4A0ABE801FC24587007B06B9 /* APIManager.swift */,
 				4A9578D41FBBB6730051837C /* NavigationViewController.swift */,
+				4A8B6A7A1FC3423D005A5989 /* NavigationBar.swift */,
 				4A3027941FBF9BAC00F5D87D /* text-view */,
 				4A321A961FB67DF8001DA08A /* swift-extras */,
 				4A321A871FB67145001DA08A /* container */,
@@ -510,6 +516,7 @@
 				4AF232A51FB0CA8900ADA075 /* NewReportViewController.swift in Sources */,
 				4A321A951FB67C89001DA08A /* ReportsNavMapViewController.swift in Sources */,
 				4A30279A1FBFABC600F5D87D /* UIViewController+Keyboard.swift in Sources */,
+				4A8B6A7B1FC3423D005A5989 /* NavigationBar.swift in Sources */,
 				4A321A901FB67C1F001DA08A /* ReportsMapViewController.swift in Sources */,
 				4A321AC61FB8EF17001DA08A /* ReportMapAnnotation.swift in Sources */,
 				4A0ABE781FBE6EF4007B06B9 /* ImageViewController.swift in Sources */,
@@ -526,6 +533,7 @@
 				4A7FA91A1FAA966300C6A2BB /* AppDelegate.swift in Sources */,
 				4A9578C61FBB465A0051837C /* OnboardingViewController.swift in Sources */,
 				4A0ABE811FC24587007B06B9 /* APIManager.swift in Sources */,
+				4A8B6A791FC3421C005A5989 /* NSObjectExtensions.swift in Sources */,
 				4A321A8E1FB673ED001DA08A /* ReportsNavListViewController.swift in Sources */,
 				4A321A8C1FB67308001DA08A /* StoryboardInstantiable.swift in Sources */,
 				4AA85B931FBBD61D009A72E8 /* NewReportNavViewController.swift in Sources */,
