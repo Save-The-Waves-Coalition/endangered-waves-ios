@@ -24,6 +24,7 @@ target 'Endangered Waves' do
   pod 'LocationPickerViewController'
   pod 'ImagePicker'
   pod 'Lightbox'
+  pod 'SVProgressHUD'
 
   # Other
   pod 'BuddyBuildSDK'

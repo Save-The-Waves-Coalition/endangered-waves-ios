@@ -108,6 +108,7 @@ PODS:
   - SDWebImage (4.2.1):
     - SDWebImage/Core (= 4.2.1)
   - SDWebImage/Core (4.2.1)
+  - SVProgressHUD (2.2.2)
 
 DEPENDENCIES:
   - BuddyBuildSDK
@@ -122,6 +123,7 @@ DEPENDENCIES:
   - ImagePicker
   - Lightbox
   - LocationPickerViewController
+  - SVProgressHUD
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
@@ -153,7 +155,8 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 03eef2ee0b674770735cf79d9c4d3659cf6908e8
   SDWebImage: 1fa4c9edf525b744f002db89f3f5a38b3cd4c541
+  SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
 
-PODFILE CHECKSUM: ec0e6cd09a955610268057157929debfdaf2c17f
+PODFILE CHECKSUM: afc8e75d2ac025e1eadaa2311179a26efff86ac0
 
 COCOAPODS: 1.3.1

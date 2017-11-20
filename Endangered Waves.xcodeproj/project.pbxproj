@@ -14,6 +14,7 @@
 		4A0ABE7A1FBE6F15007B06B9 /* image-slider.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A0ABE791FBE6F15007B06B9 /* image-slider.storyboard */; };
 		4A0ABE7D1FBF48B0007B06B9 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE7C1FBF48B0007B06B9 /* Style.swift */; };
 		4A0ABE7F1FBF574F007B06B9 /* STWButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE7E1FBF574F007B06B9 /* STWButton.swift */; };
+		4A0ABE811FC24587007B06B9 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE801FC24587007B06B9 /* APIManager.swift */; };
 		4A3027931FBF9B4F00F5D87D /* STWTextView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A3027921FBF9B4F00F5D87D /* STWTextView.storyboard */; };
 		4A3027981FBF9C2000F5D87D /* STWTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3027971FBF9C2000F5D87D /* STWTextViewController.swift */; };
 		4A30279A1FBFABC600F5D87D /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3027991FBFABC600F5D87D /* UIViewController+Keyboard.swift */; };
@@ -69,6 +70,7 @@
 		4A0ABE791FBE6F15007B06B9 /* image-slider.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "image-slider.storyboard"; sourceTree = "<group>"; };
 		4A0ABE7C1FBF48B0007B06B9 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		4A0ABE7E1FBF574F007B06B9 /* STWButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STWButton.swift; sourceTree = "<group>"; };
+		4A0ABE801FC24587007B06B9 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		4A3027921FBF9B4F00F5D87D /* STWTextView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = STWTextView.storyboard; sourceTree = "<group>"; };
 		4A3027971FBF9C2000F5D87D /* STWTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STWTextViewController.swift; sourceTree = "<group>"; };
 		4A3027991FBFABC600F5D87D /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				4A7FA9191FAA966300C6A2BB /* AppDelegate.swift */,
 				4A0ABE7C1FBF48B0007B06B9 /* Style.swift */,
 				4A9578C91FBB4FF20051837C /* AppCoordinator.swift */,
+				4A0ABE801FC24587007B06B9 /* APIManager.swift */,
 				4A9578D41FBBB6730051837C /* NavigationViewController.swift */,
 				4A3027941FBF9BAC00F5D87D /* text-view */,
 				4A321A961FB67DF8001DA08A /* swift-extras */,
@@ -425,8 +428,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Endangered Waves/Pods-Endangered Waves-resources.sh",
-				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle,
-				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseFacebookAuthUI.bundle,
+				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle",
+				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseFacebookAuthUI.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -458,6 +461,7 @@
 				"${BUILT_PRODUCTS_DIR}/LocationPickerViewController/LocationPickerViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
@@ -481,6 +485,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LocationPickerViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
@@ -520,6 +525,7 @@
 				4A321AA21FB7AB17001DA08A /* ReportDetailViewController.swift in Sources */,
 				4A7FA91A1FAA966300C6A2BB /* AppDelegate.swift in Sources */,
 				4A9578C61FBB465A0051837C /* OnboardingViewController.swift in Sources */,
+				4A0ABE811FC24587007B06B9 /* APIManager.swift in Sources */,
 				4A321A8E1FB673ED001DA08A /* ReportsNavListViewController.swift in Sources */,
 				4A321A8C1FB67308001DA08A /* StoryboardInstantiable.swift in Sources */,
 				4AA85B931FBBD61D009A72E8 /* NewReportNavViewController.swift in Sources */,

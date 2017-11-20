@@ -11,6 +11,8 @@ import ImagePicker
 import Lightbox
 import LocationPickerViewController
 import FirebaseStorage
+import FirebaseFirestore
+import SVProgressHUD
 
 protocol NewReportCoordinatorDelegate: class {
     func coordinatorDidFinishNewReport(_ coordinator: NewReportCoordinator)
@@ -178,10 +180,13 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
 
     func viewController(_ viewController: NewReportViewController, didTapSaveButton button: UIBarButtonItem) {
         // validate picture
-        // TODO: not needed as you currently can't deselect all pics
+        guard let images = images else {
+            showValidationError(title: "Missing Images", message: "Please select at least 1 image.", withViewController: viewController)
+            return
+        }
 
         // validate description
-        if reportDescription == nil {
+        if (reportDescription ?? "").isEmpty {
             showValidationError(title: "Missing Description", message: "Please enter a description.", withViewController: viewController)
             return
         }
@@ -198,77 +203,28 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
             return
         }
 
-
-        images?.forEach({ (image) in
-            if let imageData = UIImageJPEGRepresentation(image, 0.8) {
-
-                let imageName = UUID().uuidString + ".jpg"
-
-                let storage = Storage.storage()
-                let reportImagesRef = storage.reference().child("report-images")
-                let imageRef = reportImagesRef.child(imageName)
-
-                let metadata = StorageMetadata()
-                metadata.contentType = "image/jpeg"
-
-                let uploadTask = imageRef.putData(imageData, metadata: metadata)
-
-                uploadTask.observe(.progress, handler: { (snapshot) in
-                    let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)
-                        / Double(snapshot.progress!.totalUnitCount)
-                    print("Upload progress: \(percentComplete)")
-                })
-
-                uploadTask.observe(.failure, handler: { (snapshot) in
-                    print("Upload failed: \(snapshot.debugDescription)")
-
-                    if let error = snapshot.error as NSError? {
-                        print("Error: \(error.localizedDescription)")
-                        switch (StorageErrorCode(rawValue: error.code)!) {
-                        case .objectNotFound:
-                            // File doesn't exist
-                            break
-                        case .unauthorized:
-                            // User doesn't have permission to access file
-                            break
-                        case .cancelled:
-                            // User canceled the upload
-                            break
-
-                            /* ... */
-
-                        case .unknown:
-                            // Unknown error occurred, inspect the server response
-                            break
-                        default:
-                            // A separate error occurred. This is a good place to retry the upload.
-                            break
-                        }
-                    }
-                })
-
-                uploadTask.observe(.success, handler: { (snapshot) in
-                    print("Upload completed:\(snapshot.debugDescription)")
-                    let metaData = snapshot.metadata
-                    let downloadURL = metaData?.downloadURL()
-                    let downloadURLString = downloadURL?.absoluteString
-                    if let string = downloadURLString {
-                        print("Download string: \(string)")
-                    }
-                })
-            }
-
-        })
-        
-//        let reportLocation = ReportLocation(name: location?.name, coordinate: location?.mapItem.placemark.coordinate)
-//
-//
-//        let report = Report(creationDate: Date(), description: reportDescription, imageURLs: <#T##[String]?#>, location: <#T##ReportLocation?#>, type: <#T##ReportType?#>, user: <#T##String?#>)
-
-        viewController.dismiss(animated: true) {
-            self.stop()
+        guard let reportDescription = reportDescription, let location = location, let reportType = reportType else {
+            // TODO: what to do here? This should never happen, show error
+            return
         }
-    }
+
+        SVProgressHUD.setHapticsEnabled(true)
+        SVProgressHUD.showProgress(0, status: "Uploading Images")
+
+        APIManager.createNewReport(creationDate: Date(), description: reportDescription, images: images, location: location, type: reportType, user: "matt_is_testing", progressHandler: { (progress: Double) in
+            SVProgressHUD.showProgress(Float(progress), status: "Uploading Images")
+        }) { (documentID: String?, error: Error?) in
+            if let error = error {
+                print("Error adding document: \(error.localizedDescription)")
+                SVProgressHUD.showError(withStatus: "There was an issue creating your post. Please try again.")
+            } else {
+                SVProgressHUD.showSuccess(withStatus: "Thank you 🤙")
+                viewController.dismiss(animated: true) {
+                    self.stop()
+                }
+            }
+        }
+    } // func
 
     func viewController(_ viewController: NewReportViewController, didTapAddButton button: UIButton) {
         viewController.present(imagePickerController, animated: true, completion: nil)

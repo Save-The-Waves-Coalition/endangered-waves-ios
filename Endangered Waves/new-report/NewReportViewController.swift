@@ -55,11 +55,21 @@ class NewReportViewController: UITableViewController {
             imageSliderViewController?.images = images
         }
     }
-    
+
+    private let descriptionLabelPlaceholder = "Write a description..."
+
     var reportDescription: String? {
         didSet {
             if let reportDescription = reportDescription {
-                descriptionLabel.text = reportDescription
+                if reportDescription.isEmpty {
+                    descriptionLabel.text = descriptionLabelPlaceholder
+                    descriptionLabel.textColor = Style.colorSTWGrey
+                    descriptionLabel.font = Style.fontGeorgiaItalic(size: 15)
+                } else {
+                    descriptionLabel.text = reportDescription
+                    descriptionLabel.textColor = .black
+                    descriptionLabel.font = Style.fontBrandonGrotesqueRegular(size: 15)
+                }
             }
         }
     }
