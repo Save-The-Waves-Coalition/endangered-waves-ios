@@ -128,6 +128,24 @@ class NewReportViewController: UITableViewController {
     @IBAction func descriptionWasTapped(_ sender: UITapGestureRecognizer) {
         delegate?.viewController(self, didTapDescription: sender)
     }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Attributed text set in the Storyboard is only working on the simulator, not builds distributed via Buddybuild
+        categoryTypeCollection.forEach { (button) in
+            if let currentAttributedTitle = button.currentAttributedTitle {
+                let style = NSMutableParagraphStyle()
+                style.alignment = .center
+                let attributes = [NSAttributedStringKey.font: Style.fontBrandonGrotesqueBlack(size: 12),
+                                  NSAttributedStringKey.foregroundColor: Style.colorSTWGrey,
+                                  NSAttributedStringKey.paragraphStyle: style]
+                let attributedString = NSAttributedString(string: currentAttributedTitle.string, attributes: attributes)
+                button.setAttributedTitle(attributedString, for: .normal)
+            }
+        }
+
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let imageSliderViewController = segue.destination as? ImageSliderViewController {
