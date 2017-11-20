@@ -39,9 +39,11 @@ class NewReportViewController: UITableViewController {
             if button === sender {
                 button.tintColor = .black
                 button.isSelected = true
+                button.titleLabel?.font = Style.fontBrandonGrotesqueBlack(size: 12)
             } else {
                 button.tintColor = Style.colorSTWGrey
                 button.isSelected = false
+                button.titleLabel?.font = Style.fontBrandonGrotesqueBlack(size: 12)
             }
         }
         delegate?.viewController(self, didTapReportType: sender)

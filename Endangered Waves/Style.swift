@@ -17,6 +17,10 @@ struct Style {
         return UIFont(name: "BrandonGrotesque-Regular", size: size)!
     }
 
+    static func fontBrandonGrotesqueBlack(size: CGFloat = 15) -> UIFont {
+        return UIFont(name: "BrandonGrotesque-Black", size: size)!
+    }
+
     static func fontSFProDisplaySemiBold(size: CGFloat = 16) -> UIFont {
         return UIFont(name: "SFProDisplay-Semibold", size: size)!
     }
