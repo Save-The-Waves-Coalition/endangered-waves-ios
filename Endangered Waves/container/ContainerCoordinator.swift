@@ -12,7 +12,7 @@ class ContainerCoordinator: Coordinator {
 
     weak var currentViewController: UIViewController?
 
-    var containerViewController: ContainerViewController = {
+    lazy var containerViewController: ContainerViewController = {
         let vc = ContainerViewController.instantiate()
         return vc
     }()
@@ -62,6 +62,7 @@ class ContainerCoordinator: Coordinator {
 
     func showAddComponent() {
         let newReportCoordinator = NewReportCoordinator(with: rootViewController)
+        newReportCoordinator.delegate = self
         childCoordinators.append(newReportCoordinator)
         newReportCoordinator.start()
     }
@@ -110,7 +111,6 @@ extension ContainerCoordinator: ContainerViewControllerDelegate {
 // MARK: NewReportCoordinatorDelegate
 extension ContainerCoordinator: NewReportCoordinatorDelegate {
     func coordinatorDidFinishNewReport(_ coordinator: NewReportCoordinator) {
-        // TODO: This is not called ever
         removeChildCoordinator(coordinator)
     }
 }
@@ -122,6 +122,7 @@ extension ContainerCoordinator: ReportsMapViewControllerDelegate {
     }
 }
 
+// MARK: ReportsTableViewControllerDelegate
 extension ContainerCoordinator: ReportsTableViewControllerDelegate {
     func viewController(_ viewController: ReportsTableViewController, didTapInformationButton button: UIBarButtonItem) {
         showInformationComponent()
