@@ -74,6 +74,7 @@ class NewReportCoordinator: Coordinator {
 
     func showLocationPicker(withRootViewController viewController: UIViewController) {
         let locationPicker = LocationPicker()
+        locationPicker.title = "LOCATION"
         locationPicker.addBarButtons()
         locationPicker.pinColor = Style.colorSTWBlue
         locationPicker.searchResultLocationIconColor = Style.colorSTWBlue
@@ -84,17 +85,6 @@ class NewReportCoordinator: Coordinator {
         }
         let locationNavVC = NavigationViewController(rootViewController: locationPicker)
         viewController.present(locationNavVC, animated: true, completion: nil)
-    }
-    
-    func showDescriptionEditor(withRootViewController viewController: UIViewController) {
-        let descriptionEditorViewController = STWTextViewController.instantiate()
-        descriptionEditorViewController.text = reportDescription
-        descriptionEditorViewController.textViewDidEndEditing = {
-            (text) in
-            // TODO: Should this be an unowned self
-            self.reportDescription = text
-        }
-        viewController.navigationController?.pushViewController(descriptionEditorViewController, animated: true)
     }
 }
 
@@ -160,10 +150,6 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
         }
     }
 
-    func viewController(_ viewController: NewReportViewController, didTapDescription sender: UITapGestureRecognizer) {
-        showDescriptionEditor(withRootViewController: viewController)
-    }
-    
     func viewController(_ viewController: NewReportViewController, didTapLocation sender: UITapGestureRecognizer) {
         showLocationPicker(withRootViewController: viewController)
     }

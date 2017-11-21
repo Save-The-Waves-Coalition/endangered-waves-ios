@@ -15,8 +15,6 @@
 		4A0ABE7D1FBF48B0007B06B9 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE7C1FBF48B0007B06B9 /* Style.swift */; };
 		4A0ABE7F1FBF574F007B06B9 /* STWButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE7E1FBF574F007B06B9 /* STWButton.swift */; };
 		4A0ABE811FC24587007B06B9 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE801FC24587007B06B9 /* APIManager.swift */; };
-		4A3027931FBF9B4F00F5D87D /* STWTextView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A3027921FBF9B4F00F5D87D /* STWTextView.storyboard */; };
-		4A3027981FBF9C2000F5D87D /* STWTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3027971FBF9C2000F5D87D /* STWTextViewController.swift */; };
 		4A30279A1FBFABC600F5D87D /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3027991FBFABC600F5D87D /* UIViewController+Keyboard.swift */; };
 		4A321A861FB66ECC001DA08A /* container.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A851FB66ECC001DA08A /* container.storyboard */; };
 		4A321A8A1FB672A1001DA08A /* list.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A891FB672A1001DA08A /* list.storyboard */; };
@@ -77,8 +75,6 @@
 		4A0ABE7C1FBF48B0007B06B9 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		4A0ABE7E1FBF574F007B06B9 /* STWButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STWButton.swift; sourceTree = "<group>"; };
 		4A0ABE801FC24587007B06B9 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		4A3027921FBF9B4F00F5D87D /* STWTextView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = STWTextView.storyboard; sourceTree = "<group>"; };
-		4A3027971FBF9C2000F5D87D /* STWTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STWTextViewController.swift; sourceTree = "<group>"; };
 		4A3027991FBFABC600F5D87D /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		4A321A841FB61CDE001DA08A /* Black's Beach.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Black's Beach.gpx"; sourceTree = "<group>"; };
 		4A321A851FB66ECC001DA08A /* container.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = container.storyboard; sourceTree = "<group>"; };
@@ -175,15 +171,6 @@
 			path = "image-slider";
 			sourceTree = "<group>";
 		};
-		4A3027941FBF9BAC00F5D87D /* text-view */ = {
-			isa = PBXGroup;
-			children = (
-				4A3027921FBF9B4F00F5D87D /* STWTextView.storyboard */,
-				4A3027971FBF9C2000F5D87D /* STWTextViewController.swift */,
-			);
-			path = "text-view";
-			sourceTree = "<group>";
-		};
 		4A321A871FB67145001DA08A /* container */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,7 +264,6 @@
 				4A0ABE801FC24587007B06B9 /* APIManager.swift */,
 				4A9578D41FBBB6730051837C /* NavigationViewController.swift */,
 				4A8B6A7A1FC3423D005A5989 /* NavigationBar.swift */,
-				4A3027941FBF9BAC00F5D87D /* text-view */,
 				4A321A961FB67DF8001DA08A /* swift-extras */,
 				4A321A871FB67145001DA08A /* container */,
 				4A9578C41FBB46250051837C /* onboarding */,
@@ -416,7 +402,6 @@
 				4A0ABE7A1FBE6F15007B06B9 /* image-slider.storyboard in Resources */,
 				4A7FA9241FAA966300C6A2BB /* LaunchScreen.storyboard in Resources */,
 				4A7FA92C1FAA96ED00C6A2BB /* GoogleService-Info.plist in Resources */,
-				4A3027931FBF9B4F00F5D87D /* STWTextView.storyboard in Resources */,
 				4A321A931FB67C3C001DA08A /* map.storyboard in Resources */,
 				4A321A8A1FB672A1001DA08A /* list.storyboard in Resources */,
 				4A321AA01FB7A85B001DA08A /* report.storyboard in Resources */,
@@ -550,7 +535,6 @@
 				4A8987681FAE0B4E0098E473 /* ReportsTableViewController.swift in Sources */,
 				4A9578CE1FBB98CE0051837C /* ContainerCoordinator.swift in Sources */,
 				4A321AC81FB9131D001DA08A /* ReportDetailNavViewController.swift in Sources */,
-				4A3027981FBF9C2000F5D87D /* STWTextViewController.swift in Sources */,
 				4A321AA21FB7AB17001DA08A /* ReportDetailViewController.swift in Sources */,
 				4A7FA91A1FAA966300C6A2BB /* AppDelegate.swift in Sources */,
 				4A9578C61FBB465A0051837C /* OnboardingViewController.swift in Sources */,

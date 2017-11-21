@@ -48,7 +48,7 @@
         <scene sceneID="t5a-Xe-uey">
             <objects>
                 <tableViewController storyboardIdentifier="NewReportComponent" title="REPORT AN ISSUE" id="QT1-n4-6Zb" customClass="NewReportViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fhz-eN-4Jj">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fhz-eN-4Jj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="STW-White"/>
@@ -65,6 +65,9 @@
                                             <subviews>
                                                 <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q39-kE-bpK">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="213"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="213" id="Bq9-cf-eQI"/>
+                                                    </constraints>
                                                     <connections>
                                                         <segue destination="vjd-Ja-QDu" kind="embed" id="WbH-wZ-yJl"/>
                                                     </connections>
@@ -82,6 +85,8 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Q39-kE-bpK" secondAttribute="bottom" constant="22" id="49b-5B-fbY"/>
+                                                <constraint firstItem="Q39-kE-bpK" firstAttribute="top" secondItem="xw1-tZ-4HD" secondAttribute="top" id="U2B-mT-IYz"/>
                                                 <constraint firstItem="cEo-wi-9Cl" firstAttribute="top" secondItem="Q39-kE-bpK" secondAttribute="bottom" constant="-22" id="j6V-4Q-N7m"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -101,31 +106,36 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESCRIPTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZ1-sH-e8A">
-                                                    <rect key="frame" x="16" y="0.0" width="79.5" height="14"/>
-                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
-                                                    <color key="textColor" name="STW-Grey"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Write a description..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnt-uN-0J9">
-                                                    <rect key="frame" x="16" y="16.5" width="343" height="18"/>
-                                                    <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="15"/>
-                                                    <color key="textColor" name="STW-Grey"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="n1U-hX-tcI">
+                                                    <rect key="frame" x="16" y="0.0" width="339" height="100"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESCRIPTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZ1-sH-e8A">
+                                                            <rect key="frame" x="0.0" y="0.0" width="339" height="14"/>
+                                                            <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
+                                                            <color key="textColor" name="STW-Grey"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="Write a description..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2er-Wd-wia">
+                                                            <rect key="frame" x="0.0" y="14" width="339" height="86"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="82.5" id="yXI-rN-0Tq"/>
+                                                            </constraints>
+                                                            <color key="textColor" name="STW-Grey"/>
+                                                            <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="15"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="rnt-uN-0J9" firstAttribute="leading" secondItem="SZ1-sH-e8A" secondAttribute="leading" id="HdH-Ej-SMu"/>
-                                                <constraint firstItem="rnt-uN-0J9" firstAttribute="top" secondItem="SZ1-sH-e8A" secondAttribute="bottom" constant="2" id="PxZ-Ud-O0z"/>
-                                                <constraint firstItem="SZ1-sH-e8A" firstAttribute="top" secondItem="i9j-L6-rQI" secondAttribute="top" id="UgZ-ec-W3p"/>
-                                                <constraint firstItem="SZ1-sH-e8A" firstAttribute="leading" secondItem="i9j-L6-rQI" secondAttribute="leading" constant="16" id="mZp-rb-LFU"/>
-                                                <constraint firstItem="rnt-uN-0J9" firstAttribute="trailing" secondItem="i9j-L6-rQI" secondAttribute="trailingMargin" id="vmH-FN-aFt"/>
+                                                <constraint firstAttribute="trailing" secondItem="n1U-hX-tcI" secondAttribute="trailing" constant="20" symbolic="YES" id="LfD-KO-qBJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="n1U-hX-tcI" secondAttribute="bottom" id="Uzf-4w-8Ze"/>
+                                                <constraint firstItem="n1U-hX-tcI" firstAttribute="leading" secondItem="i9j-L6-rQI" secondAttribute="leading" constant="16" id="hSM-8m-zKL"/>
+                                                <constraint firstItem="n1U-hX-tcI" firstAttribute="top" secondItem="i9j-L6-rQI" secondAttribute="top" id="kIX-Go-LXS"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="GP6-XR-HCA" appends="YES" id="1Cj-Cn-7wW"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="H4S-Qv-jPB">
                                         <rect key="frame" x="0.0" y="335" width="375" height="100"/>
@@ -135,13 +145,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGT-9M-TFg">
-                                                    <rect key="frame" x="16" y="11" width="59" height="14"/>
+                                                    <rect key="frame" x="16" y="11" width="59" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
                                                     <color key="textColor" name="STW-Grey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a location..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UxH-4M-XEX">
-                                                    <rect key="frame" x="16" y="25.5" width="343" height="18"/>
+                                                    <rect key="frame" x="16" y="29" width="343" height="18"/>
                                                     <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="15"/>
                                                     <color key="textColor" name="STW-Grey"/>
                                                     <nil key="highlightedColor"/>
@@ -150,6 +160,7 @@
                                             <constraints>
                                                 <constraint firstItem="WGT-9M-TFg" firstAttribute="top" secondItem="Uq3-J3-wd6" secondAttribute="topMargin" id="78r-HX-ypk"/>
                                                 <constraint firstItem="UxH-4M-XEX" firstAttribute="leading" secondItem="WGT-9M-TFg" secondAttribute="leading" id="Qmu-27-tj8"/>
+                                                <constraint firstAttribute="bottom" secondItem="WGT-9M-TFg" secondAttribute="bottom" constant="71.5" id="WGn-dV-H2f"/>
                                                 <constraint firstItem="WGT-9M-TFg" firstAttribute="leading" secondItem="Uq3-J3-wd6" secondAttribute="leadingMargin" id="WPl-zA-wi9"/>
                                                 <constraint firstItem="UxH-4M-XEX" firstAttribute="top" secondItem="WGT-9M-TFg" secondAttribute="bottom" id="fAv-PD-Lee"/>
                                                 <constraint firstItem="UxH-4M-XEX" firstAttribute="trailing" secondItem="Uq3-J3-wd6" secondAttribute="trailingMargin" id="h5A-9J-HKb"/>
@@ -169,9 +180,6 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CATEGORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06W-gh-CHS">
                                                     <rect key="frame" x="16" y="11" width="63.5" height="18"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="17.5" id="O6s-c0-Dye"/>
-                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
                                                     <color key="textColor" name="STW-Grey"/>
                                                     <nil key="highlightedColor"/>
@@ -322,6 +330,7 @@ EROSION</string>
                                             <constraints>
                                                 <constraint firstItem="06W-gh-CHS" firstAttribute="leading" secondItem="zLT-SQ-F7h" secondAttribute="leadingMargin" id="FgE-f5-TEJ"/>
                                                 <constraint firstItem="hpE-SB-vft" firstAttribute="centerX" secondItem="zLT-SQ-F7h" secondAttribute="centerX" id="dm3-7P-XQ9"/>
+                                                <constraint firstAttribute="bottom" secondItem="06W-gh-CHS" secondAttribute="bottom" constant="271" id="qfl-J4-9J2"/>
                                                 <constraint firstItem="hpE-SB-vft" firstAttribute="centerY" secondItem="zLT-SQ-F7h" secondAttribute="centerY" id="ucX-1h-O49"/>
                                                 <constraint firstItem="06W-gh-CHS" firstAttribute="top" secondItem="zLT-SQ-F7h" secondAttribute="topMargin" id="xVP-pJ-bdO"/>
                                             </constraints>
@@ -349,7 +358,7 @@ EROSION</string>
                     </navigationItem>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
-                        <outlet property="descriptionLabel" destination="rnt-uN-0J9" id="SKu-fB-MB6"/>
+                        <outlet property="descriptionTextView" destination="2er-Wd-wia" id="vrX-6h-3x7"/>
                         <outlet property="imageGallaryContainerView" destination="Q39-kE-bpK" id="NaF-OL-feM"/>
                         <outlet property="locationLabel" destination="UxH-4M-XEX" id="glI-YC-gQo"/>
                         <outletCollection property="categoryTypeCollection" destination="w1D-Ug-k45" collectionClass="NSMutableArray" id="asV-7r-YAI"/>
@@ -366,11 +375,6 @@ EROSION</string>
                         <action selector="locationWasTapped:" destination="QT1-n4-6Zb" id="vq5-Ej-Ujc"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="GP6-XR-HCA">
-                    <connections>
-                        <action selector="descriptionWasTapped:" destination="QT1-n4-6Zb" id="9pC-MG-qqU"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="138.40000000000001" y="2204.7976011994006"/>
         </scene>
@@ -383,6 +387,9 @@ EROSION</string>
         <image name="sewage" width="56" height="56"/>
         <image name="small-add-button" width="132" height="132"/>
         <image name="trash" width="56" height="56"/>
+        <namedColor name="STW-Grey">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="STW-Grey">
             <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

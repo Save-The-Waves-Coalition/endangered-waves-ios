@@ -21,7 +21,6 @@ protocol NewReportViewControllerDelegate: class {
     func viewController(_ viewController: NewReportViewController, didTapImageAtIndex index:Int)
     func viewController(_ viewController: NewReportViewController, didTapAddButton button:UIButton)
     func viewController(_ viewController: NewReportViewController, didTapLocation sender: UITapGestureRecognizer)
-    func viewController(_ viewController: NewReportViewController, didTapDescription sender: UITapGestureRecognizer)
     func viewController(_ viewController: NewReportViewController, didTapReportType sender: STWButton)
 }
 
@@ -31,6 +30,9 @@ class NewReportViewController: UITableViewController {
 
     @IBOutlet weak var imageGallaryContainerView: UIView!
     var imageSliderViewController: ImageSliderViewController?
+
+    @IBOutlet weak var descriptionTextView: UITextView!
+
 
     @IBOutlet var categoryTypeCollection: [STWButton]!
 
@@ -71,7 +73,6 @@ class NewReportViewController: UITableViewController {
         delegate?.viewController(self, didTapReportType: sender)
     }
 
-    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
 
     var images: [UIImage]? {
@@ -80,30 +81,14 @@ class NewReportViewController: UITableViewController {
         }
     }
 
-    private let descriptionLabelPlaceholder = "Write a description..."
-
-    var reportDescription: String? {
-        didSet {
-            if let reportDescription = reportDescription {
-                if reportDescription.isEmpty {
-                    descriptionLabel.text = descriptionLabelPlaceholder
-                    descriptionLabel.textColor = Style.colorSTWGrey
-                    descriptionLabel.font = Style.fontGeorgiaItalic(size: 15)
-                } else {
-                    descriptionLabel.text = reportDescription
-                    descriptionLabel.textColor = .black
-                    descriptionLabel.font = Style.fontBrandonGrotesqueRegular(size: 15)
-                }
-            }
-        }
-    }
+    var reportDescription: String?
     
     var location: LocationItem? {
         didSet {
             if let location = location, let addressString = location.formattedAddressString {
                 locationLabel.text = "\(location.name)\n\(addressString)"
                 locationLabel.textColor = .black
-                locationLabel.font = Style.fontBrandonGrotesqueRegular(size: 15)
+                locationLabel.font = Style.fontGeorgia(size: 15)
             }
         }
     }
@@ -125,12 +110,12 @@ class NewReportViewController: UITableViewController {
         delegate?.viewController(self, didTapLocation: sender)
     }
 
-    @IBAction func descriptionWasTapped(_ sender: UITapGestureRecognizer) {
-        delegate?.viewController(self, didTapDescription: sender)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        descriptionTextView.delegate = self
+        descriptionTextView.textContainerInset = .zero
+        descriptionTextView.textContainer.lineFragmentPadding = 0
 
         // Attributed text set in the Storyboard is only working on the simulator, not builds distributed via Buddybuild
         categoryTypeCollection.forEach { (button) in
@@ -167,8 +152,43 @@ extension NewReportViewController: StoryboardInstantiable {
     static var storyboardIdentifier: String? { return "NewReportComponent" }
 }
 
+extension NewReportViewController {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+}
 
 
+extension NewReportViewController: UITextViewDelegate {
+
+    func textViewDidChange(_ textView: UITextView) {
+        // Hack to make the auto expanding cell animation look nice
+        UIView.setAnimationsEnabled(false)
+        tableView.beginUpdates()
+        tableView.endUpdates()
+        let indexPath = IndexPath(row: 1, section: 0)
+        tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+        UIView.setAnimationsEnabled(true)
+    }
+
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if (textView.text == "Write a description...") {
+            textView.text = ""
+            textView.textColor = .black
+            textView.font = Style.fontGeorgia(size: 15)
+        }
+        textView.becomeFirstResponder() //Optional
+    }
+
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if (textView.text == "") {
+            textView.text = "Write a description..."
+            textView.textColor = Style.colorSTWGrey
+            textView.font = Style.fontGeorgiaItalic(size: 15)
+        }
+        textView.resignFirstResponder()
+    }
+}
 
 /**
 

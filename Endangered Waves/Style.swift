@@ -29,6 +29,10 @@ struct Style {
         return UIFont(name: "Georgia-Italic", size: size)!
     }
 
+    static func fontGeorgia(size: CGFloat = 15) -> UIFont {
+        return UIFont(name: "Georgia", size: size)!
+    }
+
     static let colorSTWBlue = UIColor(named: "STW-Blue")!
     static let colorSTWGrey = UIColor(named: "STW-Grey")!
 
