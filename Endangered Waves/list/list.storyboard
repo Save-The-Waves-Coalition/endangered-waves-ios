@@ -81,9 +81,10 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Reports" id="aue-4R-ruv">
-                        <barButtonItem key="rightBarButtonItem" title="i" id="PZf-fP-4DV">
+                        <barButtonItem key="rightBarButtonItem" image="information" style="plain" id="PZf-fP-4DV">
+                            <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                             <connections>
-                                <action selector="signInWasTapped:" destination="pWA-bt-Wdb" id="FC2-3d-Cqq"/>
+                                <action selector="informationButtonWasTapped:" destination="pWA-bt-Wdb" id="Rn5-Ca-Zi9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -121,8 +122,10 @@
     </scenes>
     <resources>
         <image name="beach_trash" width="700" height="525"/>
+        <image name="information" width="51" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="nWz-Dg-Zpm"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
 </document>

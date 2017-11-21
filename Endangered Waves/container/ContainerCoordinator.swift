@@ -24,8 +24,10 @@ class ContainerCoordinator: Coordinator {
         return vc
     }()
 
-    var listNavViewController: ReportsNavListViewController = {
+    lazy var listNavViewController: ReportsNavListViewController = {
         let vc = ReportsNavListViewController.instantiate()
+        let topVC = vc.topViewController as! ReportsTableViewController
+        topVC.delegate = self
         return vc
     }()
 
@@ -116,6 +118,12 @@ extension ContainerCoordinator: NewReportCoordinatorDelegate {
 // MARK: ReportsMapViewControllerDelegate
 extension ContainerCoordinator: ReportsMapViewControllerDelegate {
     func viewController(_ viewController: ReportsMapViewController, didTapInformationButton button: UIBarButtonItem) {
+        showInformationComponent()
+    }
+}
+
+extension ContainerCoordinator: ReportsTableViewControllerDelegate {
+    func viewController(_ viewController: ReportsTableViewController, didTapInformationButton button: UIBarButtonItem) {
         showInformationComponent()
     }
 }

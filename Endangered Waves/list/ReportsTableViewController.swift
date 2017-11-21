@@ -11,7 +11,14 @@ import Firebase
 import FirebaseFirestoreUI
 import FirebaseAuthUI
 
+protocol ReportsTableViewControllerDelegate: class {
+    func viewController(_ viewController: ReportsTableViewController, didTapInformationButton button: UIBarButtonItem)
+}
+
 class ReportsTableViewController: UITableViewController, FUIAuthDelegate {
+
+    weak var delegate: ReportsTableViewControllerDelegate?
+
 
     @IBOutlet weak var signInBarButtonItem: UIBarButtonItem!
     var dataSource: FUIFirestoreTableViewDataSource!
@@ -51,6 +58,11 @@ class ReportsTableViewController: UITableViewController, FUIAuthDelegate {
 
 //            self.signInBarButtonItem.title = "Sign Out"
         }
+    }
+
+
+    @IBAction func informationButtonWasTapped(_ sender: UIBarButtonItem) {
+        delegate?.viewController(self, didTapInformationButton: sender)
     }
 
     @IBAction func signInWasTapped(_ sender: UIBarButtonItem) {
