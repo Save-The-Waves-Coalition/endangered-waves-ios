@@ -74,6 +74,7 @@ class NewReportCoordinator: Coordinator {
 
     func showLocationPicker(withRootViewController viewController: UIViewController) {
         let locationPicker = LocationPicker()
+        locationPicker.addBarButtons()
         locationPicker.pinColor = Style.colorSTWBlue
         locationPicker.searchResultLocationIconColor = Style.colorSTWBlue
         locationPicker.currentLocationIconColor = Style.colorSTWBlue
@@ -81,7 +82,8 @@ class NewReportCoordinator: Coordinator {
             // TODO: Should this be an unowned self
             self.location = pickedLocationItem
         }
-        viewController.navigationController?.pushViewController(locationPicker, animated: true)
+        let locationNavVC = NavigationViewController(rootViewController: locationPicker)
+        viewController.present(locationNavVC, animated: true, completion: nil)
     }
     
     func showDescriptionEditor(withRootViewController viewController: UIViewController) {
