@@ -20,7 +20,10 @@ class ContainerViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
 
+    @IBOutlet weak var mapButton: UIButton!
     @IBAction func mapButtonWasTapped(_ sender: UIButton) {
+        applyActiveStyleToButton(sender)
+        applyInactiveStyleToButton(listButton)
         delegate?.controller(self, didTapMapButton: sender)
     }
 
@@ -33,8 +36,26 @@ class ContainerViewController: UIViewController {
         delegate?.controller(self, didTapAddButton: sender)
     }
 
+    @IBOutlet weak var listButton: UIButton!
     @IBAction func listButtonWasTapped(_ sender: UIButton) {
+        applyActiveStyleToButton(sender)
+        applyInactiveStyleToButton(mapButton)
         delegate?.controller(self, didTapListButton: sender)
+    }
+
+    func applyActiveStyleToButton(_ button: UIButton) {
+        button.tintColor = .black
+        button.isSelected = true
+    }
+
+    func applyInactiveStyleToButton(_ button: UIButton) {
+        button.tintColor = Style.colorSTWGrey
+        button.isSelected = false
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        applyActiveStyleToButton(mapButton)
     }
 
     override func viewWillAppear(_ animated: Bool) {

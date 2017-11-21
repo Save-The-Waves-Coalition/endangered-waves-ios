@@ -17,8 +17,10 @@ class ContainerCoordinator: Coordinator {
         return vc
     }()
 
-    var mapNavViewController: ReportsNavMapViewController = {
+    lazy var mapNavViewController: ReportsNavMapViewController = {
         let vc = ReportsNavMapViewController.instantiate()
+        let topVC = vc.topViewController as! ReportsMapViewController
+        topVC.delegate = self
         return vc
     }()
 
@@ -62,6 +64,14 @@ class ContainerCoordinator: Coordinator {
         newReportCoordinator.start()
     }
 
+    func showInformationComponent() {
+        let informationCoordinator = InformationCoordinator(with: rootViewController)
+        informationCoordinator.delegate = self
+        childCoordinators.append(informationCoordinator)
+        informationCoordinator.start()
+    }
+
+
     func cycleFromViewController(oldViewController: UIViewController, toViewController newViewController: UIViewController) {
         oldViewController.willMove(toParentViewController: nil)
         containerViewController.addChildViewController(newViewController)
@@ -98,6 +108,21 @@ extension ContainerCoordinator: ContainerViewControllerDelegate {
 // MARK: NewReportCoordinatorDelegate
 extension ContainerCoordinator: NewReportCoordinatorDelegate {
     func coordinatorDidFinishNewReport(_ coordinator: NewReportCoordinator) {
+        // TODO: This is not called ever
+        removeChildCoordinator(coordinator)
+    }
+}
+
+// MARK: ReportsMapViewControllerDelegate
+extension ContainerCoordinator: ReportsMapViewControllerDelegate {
+    func viewController(_ viewController: ReportsMapViewController, didTapInformationButton button: UIBarButtonItem) {
+        showInformationComponent()
+    }
+}
+
+// MARK: InformationCoordinatorDelegate
+extension ContainerCoordinator: InformationCoordinatorDelegate {
+    func coordinatorDidFinish(_ coordinator: InformationCoordinator) {
         removeChildCoordinator(coordinator)
     }
 }

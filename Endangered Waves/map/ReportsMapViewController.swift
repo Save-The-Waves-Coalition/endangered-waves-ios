@@ -12,7 +12,13 @@ import CoreLocation
 import FirebaseFirestore
 import FirebaseFirestoreUI
 
+protocol ReportsMapViewControllerDelegate: class {
+    func viewController(_ viewController: ReportsMapViewController, didTapInformationButton button: UIBarButtonItem)
+}
+
 class ReportsMapViewController: UIViewController {
+
+    weak var delegate: ReportsMapViewControllerDelegate?
 
     @IBOutlet weak var mapView: MKMapView!
 
@@ -35,6 +41,11 @@ class ReportsMapViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         checkLocationAuthorizationStatus()
+    }
+
+
+    @IBAction func informationButtonWasTapped(_ sender: UIBarButtonItem) {
+        delegate?.viewController(self, didTapInformationButton: sender)
     }
 
     fileprivate func checkLocationAuthorizationStatus() {

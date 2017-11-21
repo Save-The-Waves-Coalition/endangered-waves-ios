@@ -10,12 +10,11 @@ import UIKit
 
 class STWButton: UIButton {
 
-    var reportTypeString: String!
-
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
+    // Hack to put the tech under the image on a UIButton
     override func layoutSubviews() {
 
         let spacing: CGFloat = 6.0
