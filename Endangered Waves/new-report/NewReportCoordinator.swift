@@ -31,11 +31,7 @@ class NewReportCoordinator: Coordinator {
         }
     }
     
-    var reportDescription: String? {
-        didSet {
-            newReportVC?.reportDescription = reportDescription
-        }
-    }
+    var reportDescription: String?
 
     var location: LocationItem? {
         didSet {
@@ -128,6 +124,10 @@ extension NewReportCoordinator: ImagePickerDelegate {
 
 // MARK: NewReportViewControllerDelegate
 extension NewReportCoordinator: NewReportViewControllerDelegate {
+    func viewController(_ viewController: NewReportViewController, didWriteDescription description: String) {
+        reportDescription = description
+    }
+
 
     func viewController(_ viewController: NewReportViewController, didTapReportType sender: STWButton) {
         if let buttonTitleText = sender.titleLabel?.text {
@@ -197,10 +197,11 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
         }
 
         SVProgressHUD.setHapticsEnabled(true)
-        SVProgressHUD.showProgress(0, status: "Uploading Images")
+        let statusString = images.count > 1 ? "Uploading Images" : "Uploading Image"
+        SVProgressHUD.showProgress(0, status: statusString)
 
         APIManager.createNewReport(creationDate: Date(), description: reportDescription, images: images, location: location, type: reportType, user: "matt_is_testing", progressHandler: { (progress: Double) in
-            SVProgressHUD.showProgress(Float(progress), status: "Uploading Images")
+            SVProgressHUD.showProgress(Float(progress), status: statusString)
         }) { (documentID: String?, error: Error?) in
             if let error = error {
                 print("Error adding document: \(error.localizedDescription)")
@@ -222,6 +223,7 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
 extension NewReportCoordinator {
     func showValidationError(title: String, message: String, withViewController viewController: UIViewController) {
         let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertViewController.view.tintColor = Style.colorSTWBlue
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertViewController.addAction(okAction)
         viewController.present(alertViewController, animated: true, completion: nil)

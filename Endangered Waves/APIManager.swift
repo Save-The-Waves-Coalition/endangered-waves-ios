@@ -22,6 +22,7 @@ class APIManager {
                 return
             }
 
+            // TODO: Use actual user here
             let reportLocation = ReportLocation(name: location.name, coordinate: location.mapItem.placemark.coordinate)
             let report = Report(creationDate: Date(), description: description, imageURLs: uploadedImageURLStrings, location: reportLocation, type: type, user: "matt_is_testing")
 

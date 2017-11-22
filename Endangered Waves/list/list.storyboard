@@ -81,7 +81,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Reports" id="aue-4R-ruv">
-                        <barButtonItem key="rightBarButtonItem" image="information" style="plain" id="PZf-fP-4DV">
+                        <barButtonItem key="rightBarButtonItem" image="information" id="PZf-fP-4DV">
                             <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                             <connections>
                                 <action selector="informationButtonWasTapped:" destination="pWA-bt-Wdb" id="Rn5-Ca-Zi9"/>

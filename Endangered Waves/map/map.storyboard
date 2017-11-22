@@ -31,7 +31,7 @@
                         <viewLayoutGuide key="safeArea" id="ZSd-RM-jyd"/>
                     </view>
                     <navigationItem key="navigationItem" title="REPORTED ISSUES" id="gzK-lB-ii4">
-                        <barButtonItem key="rightBarButtonItem" image="information" style="plain" id="vAo-Fr-Hsy">
+                        <barButtonItem key="rightBarButtonItem" image="information" id="vAo-Fr-Hsy">
                             <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                             <connections>
                                 <action selector="informationButtonWasTapped:" destination="1Oi-B0-cyD" id="iAA-PY-WE9"/>

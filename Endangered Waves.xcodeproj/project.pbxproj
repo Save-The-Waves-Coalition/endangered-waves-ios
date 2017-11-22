@@ -47,6 +47,7 @@
 		4AA85B911FBBD11D009A72E8 /* NewReportCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA85B901FBBD11D009A72E8 /* NewReportCoordinator.swift */; };
 		4AA85B931FBBD61D009A72E8 /* NewReportNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA85B921FBBD61D009A72E8 /* NewReportNavViewController.swift */; };
 		4AA85B951FBCA3CA009A72E8 /* Brandon_reg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4AA85B941FBCA3CA009A72E8 /* Brandon_reg.otf */; };
+		4AB6AA891FC5C84D001C36C2 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB6AA881FC5C84D001C36C2 /* RootViewController.swift */; };
 		4AC528881FC4818A0084E442 /* information.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC528871FC4818A0084E442 /* information.storyboard */; };
 		4AC5288B1FC482110084E442 /* InformationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC5288A1FC482110084E442 /* InformationCoordinator.swift */; };
 		4AC5288D1FC482900084E442 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC5288C1FC482900084E442 /* InformationViewController.swift */; };
@@ -110,6 +111,7 @@
 		4AA85B901FBBD11D009A72E8 /* NewReportCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReportCoordinator.swift; sourceTree = "<group>"; };
 		4AA85B921FBBD61D009A72E8 /* NewReportNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReportNavViewController.swift; sourceTree = "<group>"; };
 		4AA85B941FBCA3CA009A72E8 /* Brandon_reg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_reg.otf; sourceTree = "<group>"; };
+		4AB6AA881FC5C84D001C36C2 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		4AC528871FC4818A0084E442 /* information.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = information.storyboard; sourceTree = "<group>"; };
 		4AC5288A1FC482110084E442 /* InformationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCoordinator.swift; sourceTree = "<group>"; };
 		4AC5288C1FC482900084E442 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				4A7FA9191FAA966300C6A2BB /* AppDelegate.swift */,
+				4AB6AA881FC5C84D001C36C2 /* RootViewController.swift */,
 				4A0ABE7C1FBF48B0007B06B9 /* Style.swift */,
 				4A9578C91FBB4FF20051837C /* AppCoordinator.swift */,
 				4A0ABE801FC24587007B06B9 /* APIManager.swift */,
@@ -531,6 +534,7 @@
 				4A9578D01FBB9DC30051837C /* Coordinator.swift in Sources */,
 				4A9578CA1FBB4FF20051837C /* AppCoordinator.swift in Sources */,
 				4AA85B911FBBD11D009A72E8 /* NewReportCoordinator.swift in Sources */,
+				4AB6AA891FC5C84D001C36C2 /* RootViewController.swift in Sources */,
 				4A9578D51FBBB6730051837C /* NavigationViewController.swift in Sources */,
 				4A8987681FAE0B4E0098E473 /* ReportsTableViewController.swift in Sources */,
 				4A9578CE1FBB98CE0051837C /* ContainerCoordinator.swift in Sources */,

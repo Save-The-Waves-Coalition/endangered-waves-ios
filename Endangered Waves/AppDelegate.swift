@@ -26,79 +26,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = appCoordinator.rootViewController
 
+        styleApp()
+//        listOutFonts()
 
-
-        UIBarButtonItem.appearance().setTitleTextAttributes(
-            [
-                NSAttributedStringKey.font :  Style.fontSFProDisplaySemiBold(),
-                NSAttributedStringKey.foregroundColor : Style.colorSTWBlue,
-            ], for: .normal)
-
-        UINavigationBar.appearance().titleTextAttributes = [
-            NSAttributedStringKey.font: Style.fontBrandonGrotesqueBold(),
-            NSAttributedStringKey.foregroundColor : UIColor.black,
-        ]
-        
-        
-        UIPageControl.appearance().pageIndicatorTintColor = UIColor(white: 1.0, alpha: 0.22)
-        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor.white
-        UIPageControl.appearance().backgroundColor = UIColor.clear
         return true
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window?.makeKeyAndVisible()
         appCoordinator.start()
-
-
-
-//        for family: String in UIFont.familyNames
-//        {
-//            print("\(family)")
-//            for names: String in UIFont.fontNames(forFamilyName: family)
-//            {
-//                print("== \(names)")
-//            }
-//        }
         return true
     }
-}
 
-class RootViewController: UIViewController {
+    private func styleApp() {
+        UIBarButtonItem.appearance().setTitleTextAttributes([
+            NSAttributedStringKey.font :  Style.fontSFProDisplaySemiBold(),
+            NSAttributedStringKey.foregroundColor : Style.colorSTWBlue,
+        ], for: .normal)
 
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSAttributedStringKey.font: Style.fontBrandonGrotesqueBold(),
+            NSAttributedStringKey.foregroundColor : UIColor.black,
+        ]
 
-    var statusBarShouldBeHidden = false
-    override var prefersStatusBarHidden: Bool {
-        return statusBarShouldBeHidden
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor(white: 1.0, alpha: 0.22)
+        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor.white
+        UIPageControl.appearance().backgroundColor = UIColor.clear
     }
 
-    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
-        return .slide
-    }
-
-    override var childViewControllerForStatusBarHidden: UIViewController? {
-        var childViewController: UIViewController? = nil
-
-        for viewController in childViewControllers {
-            if viewController is ContainerViewController {
-                childViewController = viewController
-                break
+    private func listOutFonts() {
+        for family: String in UIFont.familyNames {
+            print("\(family)")
+            for names: String in UIFont.fontNames(forFamilyName: family) {
+                print("== \(names)")
             }
         }
-
-        return childViewController
-    }
-
-    override var childViewControllerForStatusBarStyle: UIViewController? {
-        var childViewController: UIViewController? = nil
-
-        for viewController in childViewControllers {
-            if viewController is ContainerViewController {
-                childViewController = viewController
-                break
-            }
-        }
-
-        return childViewController
     }
 }

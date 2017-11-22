@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ImageSliderViewControllerDelegate: class {
-    func controller(_ controller: ImageSliderViewController, didTapImageAtIndex index:Int)
+    func viewController(_ viewController: ImageSliderViewController, didTapImageAtIndex index:Int)
 }
 
 class ImageSliderViewController: UIPageViewController {
@@ -42,7 +42,7 @@ class ImageSliderViewController: UIPageViewController {
     }
 
     @objc func imageSliderViewControllerWasTapped(sender:UITapGestureRecognizer) {
-        imageSliderViewControllerDelegate?.controller(self, didTapImageAtIndex: currentPageIndex)
+        imageSliderViewControllerDelegate?.viewController(self, didTapImageAtIndex: currentPageIndex)
     }
 
     func imageViewControllersForImages(_ images:[UIImage]) -> [ImageViewController] {
