@@ -80,15 +80,20 @@ class ReportMapAnnotationView: MKAnnotationView {
     func createCustomCalloutView() -> UIView? {
 
         if let views = Bundle.main.loadNibNamed("ReportMapCalloutView", owner: self, options: nil) as? [UIView], views.count > 0 {
-            let view = views.first!
+            let view = views.first! as! ReportMapCalloutView
+            var newFrame = view.frame
+            newFrame.size.width = 50
+            view.frame = newFrame
+            view.clipsToBounds = true
+//            view.translatesAutoresizingMaskIntoConstraints = true
+//            view.center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+//            view.autoresizingMask = [UIViewAutoresizing.flexibleRightMargin, UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleBottomMargin]
+
             return view
         }
 
         return nil
-//        let frame = CGRect(x: 0, y: 0, width: 150, height: 50)
-//        let view = UIView(frame: frame)
-//        view.backgroundColor = .purple
-//        return view
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -102,24 +107,42 @@ class ReportMapAnnotationView: MKAnnotationView {
 //                newCustomCalloutView.frame.origin.x -= newCustomCalloutView.frame.width / 2.0 - (self.frame.width / 2.0)
 //                newCustomCalloutView.frame.origin.y -= newCustomCalloutView.frame.height
 
+
+
                 // set custom callout view
                 self.addSubview(newCustomCalloutView)
                 self.customCalloutView = newCustomCalloutView
 
+
+
+                newCustomCalloutView.translatesAutoresizingMaskIntoConstraints = false
+                let horizontalConstraint = NSLayoutConstraint(item: newCustomCalloutView, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.left, multiplier: 1, constant: 0)
+                let verticalConstraint = NSLayoutConstraint(item: newCustomCalloutView, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 0)
+                let widthConstraint = NSLayoutConstraint(item: newCustomCalloutView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 50)
+                let heightConstraint = NSLayoutConstraint(item: newCustomCalloutView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 50)
+                self.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
+
+
+
+
+
                 // animate presentation
                 if animated {
-                    self.customCalloutView!.alpha = 0.0
-                    self.customCalloutView?.frame = CGRect(x: 0, y: 0, width: 0, height: 50)
-                    UIView.animate(withDuration: 0.3, animations: {
-                        self.customCalloutView!.alpha = 1.0
-                        self.customCalloutView?.frame = CGRect(x: 0, y: 0, width: 150, height: 50)
+//                    self.customCalloutView!.alpha = 0.0
+
+                    widthConstraint.constant = 200
+//                    verticalConstraint.constant = 300
+                    UIView.animate(withDuration: 1, animations: {
+//                        self.customCalloutView!.alpha = 1.0
+                        self.layoutIfNeeded()
+
                     })
                 }
             }
         } else {
             if customCalloutView != nil {
                 if animated { // fade out animation, then remove it.
-                    UIView.animate(withDuration: 0.3, animations: {
+                    UIView.animate(withDuration: 1, animations: {
                         self.customCalloutView!.alpha = 0.0
                     }, completion: { (success) in
                         self.customCalloutView!.removeFromSuperview()
@@ -143,5 +166,7 @@ class ReportMapAnnotationView: MKAnnotationView {
             } else { return nil }
         }
     }
+
+    
 
 }
