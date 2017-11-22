@@ -26,6 +26,7 @@ class ImageViewController: UIViewController {
     }
 }
 
+// MARK: 📖 StoryboardInstantiable
 extension ImageViewController: StoryboardInstantiable {
     static var storyboardName: String { return "image-slider" }
     static var storyboardIdentifier: String? { return "ImageViewComponent" }

@@ -48,6 +48,7 @@
 		4AA85B931FBBD61D009A72E8 /* NewReportNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA85B921FBBD61D009A72E8 /* NewReportNavViewController.swift */; };
 		4AA85B951FBCA3CA009A72E8 /* Brandon_reg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4AA85B941FBCA3CA009A72E8 /* Brandon_reg.otf */; };
 		4AB6AA891FC5C84D001C36C2 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB6AA881FC5C84D001C36C2 /* RootViewController.swift */; };
+		4AB6AA8B1FC5D655001C36C2 /* ReportMapCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AB6AA8A1FC5D655001C36C2 /* ReportMapCalloutView.xib */; };
 		4AC528881FC4818A0084E442 /* information.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC528871FC4818A0084E442 /* information.storyboard */; };
 		4AC5288B1FC482110084E442 /* InformationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC5288A1FC482110084E442 /* InformationCoordinator.swift */; };
 		4AC5288D1FC482900084E442 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC5288C1FC482900084E442 /* InformationViewController.swift */; };
@@ -112,6 +113,7 @@
 		4AA85B921FBBD61D009A72E8 /* NewReportNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReportNavViewController.swift; sourceTree = "<group>"; };
 		4AA85B941FBCA3CA009A72E8 /* Brandon_reg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_reg.otf; sourceTree = "<group>"; };
 		4AB6AA881FC5C84D001C36C2 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		4AB6AA8A1FC5D655001C36C2 /* ReportMapCalloutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportMapCalloutView.xib; sourceTree = "<group>"; };
 		4AC528871FC4818A0084E442 /* information.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = information.storyboard; sourceTree = "<group>"; };
 		4AC5288A1FC482110084E442 /* InformationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCoordinator.swift; sourceTree = "<group>"; };
 		4AC5288C1FC482900084E442 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				4A321A8F1FB67C1F001DA08A /* ReportsMapViewController.swift */,
 				4A321AC51FB8EF17001DA08A /* ReportMapAnnotation.swift */,
 				4A321A941FB67C89001DA08A /* ReportsNavMapViewController.swift */,
+				4AB6AA8A1FC5D655001C36C2 /* ReportMapCalloutView.xib */,
 				4A321A921FB67C3B001DA08A /* map.storyboard */,
 			);
 			path = map;
@@ -399,6 +402,7 @@
 			files = (
 				4A0ABE701FBD2B4F007B06B9 /* SF-Pro-Display-Semibold.otf in Resources */,
 				4A9578D21FBBAE540051837C /* Brandon_blk.otf in Resources */,
+				4AB6AA8B1FC5D655001C36C2 /* ReportMapCalloutView.xib in Resources */,
 				4AA85B951FBCA3CA009A72E8 /* Brandon_reg.otf in Resources */,
 				4AC528881FC4818A0084E442 /* information.storyboard in Resources */,
 				4A0ABE721FBD2D04007B06B9 /* Brandon_bld.otf in Resources */,

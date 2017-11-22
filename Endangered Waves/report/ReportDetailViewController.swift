@@ -54,6 +54,7 @@ class ReportDetailViewController: UIViewController {
 
 }
 
+// MARK: 📖 StoryboardInstantiable
 extension ReportDetailViewController: StoryboardInstantiable {
     static var storyboardName: String { return "report" }
     static var storyboardIdentifier: String? { return "ReportDetailComponent" }

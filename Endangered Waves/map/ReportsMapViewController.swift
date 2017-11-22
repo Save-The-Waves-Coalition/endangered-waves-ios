@@ -32,6 +32,8 @@ class ReportsMapViewController: UIViewController {
         return array
     }()
 
+    // View lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureMap()
@@ -43,11 +45,14 @@ class ReportsMapViewController: UIViewController {
         checkLocationAuthorizationStatus()
     }
 
+    // IBActions
 
     @IBAction func informationButtonWasTapped(_ sender: UIBarButtonItem) {
         delegate?.viewController(self, didTapInformationButton: sender)
     }
 
+    // Helpers
+    
     fileprivate func checkLocationAuthorizationStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             mapView.showsUserLocation = true

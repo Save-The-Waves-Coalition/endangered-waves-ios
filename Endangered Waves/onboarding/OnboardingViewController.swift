@@ -21,6 +21,7 @@ class OnboardingViewController: UIViewController {
     }
 }
 
+// MARK: 📖 StoryboardInstantiable
 extension OnboardingViewController: StoryboardInstantiable {
     static var storyboardName: String { return "onboarding" }
     static var storyboardIdentifier: String? { return "OnboardingComponent" }

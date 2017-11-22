@@ -76,6 +76,7 @@ class ContainerViewController: UIViewController {
     }
 }
 
+// MARK: 📖 StoryboardInstantiable
 extension ContainerViewController: StoryboardInstantiable {
     static var storyboardName: String { return "container" }
     static var storyboardIdentifier: String? { return "ContainerComponent" }

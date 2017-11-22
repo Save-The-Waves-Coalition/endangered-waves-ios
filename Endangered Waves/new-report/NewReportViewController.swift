@@ -196,7 +196,7 @@ extension NewReportViewController: UITextViewDelegate {
     }
 }
 
-// MARK: StoryboardInstantiable
+// MARK: 📖 StoryboardInstantiable
 extension NewReportViewController: StoryboardInstantiable {
     static var storyboardName: String { return "new-report" }
     static var storyboardIdentifier: String? { return "NewReportComponent" }

@@ -12,6 +12,7 @@ class ReportsNavListViewController: NavigationViewController {
 
 }
 
+// MARK: 📖 StoryboardInstantiable
 extension ReportsNavListViewController: StoryboardInstantiable {
     static var storyboardName: String { return "list" }
     static var storyboardIdentifier: String? { return "ReportsNavListComponent" }

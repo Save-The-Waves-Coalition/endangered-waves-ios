@@ -21,6 +21,7 @@ class InformationViewController: UITableViewController {
     }
 }
 
+// MARK: 📖 StoryboardInstantiable
 extension InformationViewController: StoryboardInstantiable {
     static var storyboardName: String { return "information" }
     static var storyboardIdentifier: String? { return "InformationComponent" }

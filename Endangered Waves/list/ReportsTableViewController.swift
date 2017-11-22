@@ -112,6 +112,7 @@ class ReportsTableViewController: UITableViewController, FUIAuthDelegate {
     }
 }
 
+// MARK: 📖 StoryboardInstantiable
 extension ReportsTableViewController: StoryboardInstantiable {
     static var storyboardName: String { return "list" }
     static var storyboardIdentifier: String? { return "Master" }

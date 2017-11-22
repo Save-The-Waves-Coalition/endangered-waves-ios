@@ -11,6 +11,7 @@ import UIKit
 class ReportDetailNavViewController: NavigationViewController {
 }
 
+// MARK: 📖 StoryboardInstantiable
 extension ReportDetailNavViewController: StoryboardInstantiable {
     static var storyboardName: String { return "report" }
     static var storyboardIdentifier: String? { return "ReportDetailNavComponent" }

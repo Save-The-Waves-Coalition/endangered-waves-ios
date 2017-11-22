@@ -11,6 +11,7 @@ import UIKit
 class ReportsNavMapViewController: NavigationViewController {
 }
 
+// MARK: 📖 StoryboardInstantiable
 extension ReportsNavMapViewController: StoryboardInstantiable {
     static var storyboardName: String { return "map" }
     static var storyboardIdentifier: String? { return "ReportsNavMapComponent" }
