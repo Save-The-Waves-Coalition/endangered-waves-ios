@@ -12,7 +12,7 @@ import FirebaseFirestoreUI
 import FirebaseAuthUI
 
 protocol ReportsTableViewControllerDelegate: class {
-    func viewController(_ viewController: ReportsTableViewController, didTapInformationButton button: UIBarButtonItem)
+    func viewController(_ viewController: ReportsTableViewController, didRequestDetailsForReport report: Report)
 }
 
 class ReportsTableViewController: UITableViewController, FUIAuthDelegate {
@@ -60,11 +60,6 @@ class ReportsTableViewController: UITableViewController, FUIAuthDelegate {
         }
     }
 
-
-    @IBAction func informationButtonWasTapped(_ sender: UIBarButtonItem) {
-        delegate?.viewController(self, didTapInformationButton: sender)
-    }
-
     @IBAction func signInWasTapped(_ sender: UIBarButtonItem) {
         if auth?.currentUser != nil {
             do {
@@ -94,27 +89,33 @@ class ReportsTableViewController: UITableViewController, FUIAuthDelegate {
         }
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let identifier = segue.identifier else {
-            assertionFailure("Segue had no identifier.")
-            return
-        }
-
-        switch identifier {
-        case "ReportsListToReportDetailSegue":
-            if let cell = sender as? ReportsTableViewCell,
-                let destinationVC = segue.destination as? ReportDetailViewController {
-                destinationVC.report = cell.report
-            }
-        default:
-            fatalError("Unknown segue identifier.")
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cellVC = tableView.cellForRow(at: indexPath) as? ReportsTableViewCell {
+            delegate?.viewController(self, didRequestDetailsForReport: cellVC.report)
         }
     }
+
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        guard let identifier = segue.identifier else {
+//            assertionFailure("Segue had no identifier.")
+//            return
+//        }
+//
+//        switch identifier {
+//        case "ReportsListToReportDetailSegue":
+//            if let cell = sender as? ReportsTableViewCell,
+//                let destinationVC = segue.destination as? ReportDetailViewController {
+//                destinationVC.report = cell.report
+//            }
+//        default:
+//            fatalError("Unknown segue identifier.")
+//        }
+//    }
 }
 
 // MARK: 📖 StoryboardInstantiable
 extension ReportsTableViewController: StoryboardInstantiable {
     static var storyboardName: String { return "list" }
-    static var storyboardIdentifier: String? { return "Master" }
+    static var storyboardIdentifier: String? { return "ReportsListComponent" }
 
 }

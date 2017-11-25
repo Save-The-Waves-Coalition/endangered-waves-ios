@@ -42,4 +42,12 @@ struct Style {
     static let iconSewage = UIImage(named: "sewage")!
     static let iconTrash = UIImage(named: "trash")!
     static let iconAccess = UIImage(named: "access")!
+
+    // Map annotation icons
+    static let iconOilPlacemark = UIImage(named: "oil-placemark")!
+    static let iconCoastalErosionPlacemark = UIImage(named: "coastal-erosion-placemark")!
+    static let iconGeneralPlacemark = UIImage(named: "general-placemark")!
+    static let iconSewagePlacemark = UIImage(named: "sewage-placemark")!
+    static let iconTrashPlacemark = UIImage(named: "trash-placemark")!
+    static let iconAccessPlacemark = UIImage(named: "access-placemark")!
 }

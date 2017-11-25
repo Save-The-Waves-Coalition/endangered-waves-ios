@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ], for: .normal)
 
         UINavigationBar.appearance().titleTextAttributes = [
-            NSAttributedStringKey.font: Style.fontBrandonGrotesqueBold(),
+            NSAttributedStringKey.font: Style.fontBrandonGrotesqueBlack(size: 20),
             NSAttributedStringKey.foregroundColor : UIColor.black,
         ]
 

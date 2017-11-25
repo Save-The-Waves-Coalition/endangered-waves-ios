@@ -12,6 +12,7 @@ protocol ContainerViewControllerDelegate: class {
     func controller(_ controller: ContainerViewController, didTapMapButton button: UIButton)
     func controller(_ controller: ContainerViewController, didTapListButton button: UIButton)
     func controller(_ controller: ContainerViewController, didTapAddButton button: UIButton)
+    func controller(_ controller: ContainerViewController, didTapInfoButton button: UIBarButtonItem)
 }
 
 class ContainerViewController: UIViewController {
@@ -41,6 +42,10 @@ class ContainerViewController: UIViewController {
         applyActiveStyleToButton(sender)
         applyInactiveStyleToButton(mapButton)
         delegate?.controller(self, didTapListButton: sender)
+    }
+
+    @IBAction func inforButtonWasTapped(_ sender: UIBarButtonItem) {
+        delegate?.controller(self, didTapInfoButton: sender)
     }
 
     func applyActiveStyleToButton(_ button: UIButton) {

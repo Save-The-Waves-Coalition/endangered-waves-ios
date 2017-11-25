@@ -9,7 +9,13 @@
 import UIKit
 import SDWebImage
 
+protocol ReportDetailViewControllerDelegate: class {
+    func finishedViewingDetailsViewController(_ viewController: ReportDetailViewController)
+}
+
 class ReportDetailViewController: UIViewController {
+
+    weak var delegate: ReportDetailViewControllerDelegate?
 
     var report: Report! {
         didSet {
@@ -37,6 +43,13 @@ class ReportDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: animated)
         super.viewWillAppear(animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if self.isMovingFromParentViewController {
+            delegate?.finishedViewingDetailsViewController(self)
+        }
     }
 
     func updateView() {

@@ -13,7 +13,7 @@ import FirebaseFirestore
 import FirebaseFirestoreUI
 
 protocol ReportsMapViewControllerDelegate: class {
-    func viewController(_ viewController: ReportsMapViewController, didTapInformationButton button: UIBarButtonItem)
+    func viewController(_ viewController: ReportsMapViewController, didRequestDetailsForReport report: Report)
 }
 
 class ReportsMapViewController: UIViewController {
@@ -22,7 +22,7 @@ class ReportsMapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
 
-    fileprivate lazy var locationManager = CLLocationManager()
+    fileprivate lazy var locationManager = LocationManager()
 
     fileprivate var didUpdateRegion = false
 
@@ -47,26 +47,32 @@ class ReportsMapViewController: UIViewController {
 
     // IBActions
 
-    @IBAction func informationButtonWasTapped(_ sender: UIBarButtonItem) {
-        delegate?.viewController(self, didTapInformationButton: sender)
+    @IBAction func userLocationButtonWasTapped(_ sender: UIButton) {
+        centerMapOnUser()
     }
-
+    
     // Helpers
     
-    fileprivate func checkLocationAuthorizationStatus() {
+    private func checkLocationAuthorizationStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             mapView.showsUserLocation = true
-        } else {
-            locationManager.requestWhenInUseAuthorization()
         }
     }
 
-    fileprivate func configureMap() {
+    private func configureMap() {
         mapView.delegate = self
         mapView.mapType = .standard
     }
 
-    fileprivate func viewController(for annotation: ReportMapAnnotation) -> ReportDetailViewController {
+    private func centerMapOnUser() {
+        locationManager.getCurrentLocation { (location: CLLocation) in
+            let span = MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25)
+            let region = MKCoordinateRegion(center: location.coordinate, span: span)
+            self.mapView.setRegion(region, animated: true)
+        }
+    }
+
+    private func viewController(for annotation: ReportMapAnnotation) -> ReportDetailViewController {
         let vc = ReportDetailViewController.instantiate()
         vc.report = annotation.report
         return vc
@@ -123,6 +129,7 @@ extension ReportsMapViewController: MKMapViewDelegate {
             annotationView = dequeuedView
         } else {
             annotationView = ReportMapAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView.calloutViewDelegate = self
             registerForPreviewing(with: self, sourceView: annotationView)
         }
 
@@ -176,6 +183,13 @@ extension ReportsMapViewController: MKMapViewDelegate {
 //            })
 //        }
 //    }
+}
+
+// MARK: ReportMapCalloutViewDelegate
+extension ReportsMapViewController: ReportMapCalloutViewDelegate {
+    func view(_ view: ReportMapCalloutView, didTapDetailsButton button: UIButton, forReport report: Report) {
+        delegate?.viewController(self, didRequestDetailsForReport: report)
+    }
 }
 
 // MARK: 🎑 UIViewControllerPreviewingDelegate

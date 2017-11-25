@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pWA-bt-Wdb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -67,10 +66,6 @@
                                     <outlet property="descriptionLabel" destination="amE-xa-mah" id="KWj-Wd-hex"/>
                                     <outlet property="locationNameLabel" destination="Mtv-5j-nvx" id="LWh-qN-E6O"/>
                                     <outlet property="reportImageView" destination="IyV-1H-2Hk" id="u3H-UZ-ET0"/>
-                                    <segue destination="3SZ-I2-YNN" kind="show" identifier="ReportsListToReportDetailSegue" id="nWz-Dg-Zpm">
-                                        <segue key="commit" inheritsFrom="parent" id="Qgf-Da-kC7"/>
-                                        <segue key="preview" inheritsFrom="commit" id="0br-A5-CF7"/>
-                                    </segue>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -83,9 +78,6 @@
                     <navigationItem key="navigationItem" title="Reports" id="aue-4R-ruv">
                         <barButtonItem key="rightBarButtonItem" image="information" id="PZf-fP-4DV">
                             <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
-                            <connections>
-                                <action selector="informationButtonWasTapped:" destination="pWA-bt-Wdb" id="Rn5-Ca-Zi9"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
@@ -93,39 +85,10 @@
             </objects>
             <point key="canvasLocation" x="420" y="143"/>
         </scene>
-        <!--ReportDetailComponent-->
-        <scene sceneID="zKS-1z-oVK">
-            <objects>
-                <viewControllerPlaceholder storyboardName="report" referencedIdentifier="ReportDetailComponent" id="3SZ-I2-YNN" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="waE-7M-782" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1185" y="99"/>
-        </scene>
-        <!--Reports Nav List View Controller-->
-        <scene sceneID="LMY-Tn-16g">
-            <objects>
-                <navigationController storyboardIdentifier="ReportsNavListComponent" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nd1-AM-4wj" customClass="ReportsNavListViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AGZ-qP-adU" customClass="NavigationBar" customModule="Endangered_Waves" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="pWA-bt-Wdb" kind="relationship" relationship="rootViewController" id="375-WJ-uUC"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yEx-7I-HGb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-313" y="143"/>
-        </scene>
     </scenes>
     <resources>
         <image name="beach_trash" width="700" height="525"/>
         <image name="information" width="51" height="51"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="nWz-Dg-Zpm"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
 </document>

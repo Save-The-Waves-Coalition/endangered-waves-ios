@@ -16,14 +16,16 @@
 		4A0ABE7F1FBF574F007B06B9 /* STWButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE7E1FBF574F007B06B9 /* STWButton.swift */; };
 		4A0ABE811FC24587007B06B9 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE801FC24587007B06B9 /* APIManager.swift */; };
 		4A1C34601FC604F200D94684 /* ReportMapCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C345F1FC604F200D94684 /* ReportMapCalloutView.swift */; };
+		4A2987811FC74B2A0061B401 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2987801FC74B2A0061B401 /* LocationManager.swift */; };
+		4A2987831FC755180061B401 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2987821FC755180061B401 /* UIImageExtensions.swift */; };
+		4A2987851FC9E22A0061B401 /* ContainerNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2987841FC9E22A0061B401 /* ContainerNavViewController.swift */; };
+		4A2987871FC9F4A50061B401 /* ReportCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2987861FC9F4A50061B401 /* ReportCoordinator.swift */; };
 		4A30279A1FBFABC600F5D87D /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3027991FBFABC600F5D87D /* UIViewController+Keyboard.swift */; };
 		4A321A861FB66ECC001DA08A /* container.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A851FB66ECC001DA08A /* container.storyboard */; };
 		4A321A8A1FB672A1001DA08A /* list.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A891FB672A1001DA08A /* list.storyboard */; };
 		4A321A8C1FB67308001DA08A /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321A8B1FB67308001DA08A /* StoryboardInstantiable.swift */; };
-		4A321A8E1FB673ED001DA08A /* ReportsNavListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321A8D1FB673ED001DA08A /* ReportsNavListViewController.swift */; };
 		4A321A901FB67C1F001DA08A /* ReportsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321A8F1FB67C1F001DA08A /* ReportsMapViewController.swift */; };
 		4A321A931FB67C3C001DA08A /* map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A921FB67C3B001DA08A /* map.storyboard */; };
-		4A321A951FB67C89001DA08A /* ReportsNavMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321A941FB67C89001DA08A /* ReportsNavMapViewController.swift */; };
 		4A321A991FB67E50001DA08A /* new-report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A981FB67E50001DA08A /* new-report.storyboard */; };
 		4A321A9D1FB79169001DA08A /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321A9C1FB79169001DA08A /* Report.swift */; };
 		4A321AA01FB7A85B001DA08A /* report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A9F1FB7A85B001DA08A /* report.storyboard */; };
@@ -79,15 +81,17 @@
 		4A0ABE7E1FBF574F007B06B9 /* STWButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STWButton.swift; sourceTree = "<group>"; };
 		4A0ABE801FC24587007B06B9 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		4A1C345F1FC604F200D94684 /* ReportMapCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportMapCalloutView.swift; sourceTree = "<group>"; };
+		4A2987801FC74B2A0061B401 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		4A2987821FC755180061B401 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
+		4A2987841FC9E22A0061B401 /* ContainerNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerNavViewController.swift; sourceTree = "<group>"; };
+		4A2987861FC9F4A50061B401 /* ReportCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCoordinator.swift; sourceTree = "<group>"; };
 		4A3027991FBFABC600F5D87D /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		4A321A841FB61CDE001DA08A /* Black's Beach.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Black's Beach.gpx"; sourceTree = "<group>"; };
 		4A321A851FB66ECC001DA08A /* container.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = container.storyboard; sourceTree = "<group>"; };
 		4A321A891FB672A1001DA08A /* list.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = list.storyboard; sourceTree = "<group>"; };
 		4A321A8B1FB67308001DA08A /* StoryboardInstantiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardInstantiable.swift; sourceTree = "<group>"; };
-		4A321A8D1FB673ED001DA08A /* ReportsNavListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsNavListViewController.swift; sourceTree = "<group>"; };
 		4A321A8F1FB67C1F001DA08A /* ReportsMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsMapViewController.swift; sourceTree = "<group>"; };
 		4A321A921FB67C3B001DA08A /* map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = map.storyboard; sourceTree = "<group>"; };
-		4A321A941FB67C89001DA08A /* ReportsNavMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsNavMapViewController.swift; sourceTree = "<group>"; };
 		4A321A981FB67E50001DA08A /* new-report.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "new-report.storyboard"; sourceTree = "<group>"; };
 		4A321A9C1FB79169001DA08A /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		4A321A9F1FB7A85B001DA08A /* report.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = report.storyboard; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				4A9578CD1FBB98CE0051837C /* ContainerCoordinator.swift */,
+				4A2987841FC9E22A0061B401 /* ContainerNavViewController.swift */,
 				4ADAE8D91FB20D6B00DAAFFD /* ContainerViewController.swift */,
 				4A321A851FB66ECC001DA08A /* container.storyboard */,
 			);
@@ -191,7 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				4A8987671FAE0B4E0098E473 /* ReportsTableViewController.swift */,
-				4A321A8D1FB673ED001DA08A /* ReportsNavListViewController.swift */,
 				4AF232A21FB0C46500ADA075 /* ReportsTableViewCell.swift */,
 				4A321A891FB672A1001DA08A /* list.storyboard */,
 			);
@@ -203,7 +207,6 @@
 			children = (
 				4A321A8F1FB67C1F001DA08A /* ReportsMapViewController.swift */,
 				4A321AC51FB8EF17001DA08A /* ReportMapAnnotation.swift */,
-				4A321A941FB67C89001DA08A /* ReportsNavMapViewController.swift */,
 				4A1C345F1FC604F200D94684 /* ReportMapCalloutView.swift */,
 				4AB6AA8A1FC5D655001C36C2 /* ReportMapCalloutView.xib */,
 				4A321A921FB67C3B001DA08A /* map.storyboard */,
@@ -218,6 +221,7 @@
 				4A9578CF1FBB9DC30051837C /* Coordinator.swift */,
 				4A3027991FBFABC600F5D87D /* UIViewController+Keyboard.swift */,
 				4A8B6A781FC3421C005A5989 /* NSObjectExtensions.swift */,
+				4A2987821FC755180061B401 /* UIImageExtensions.swift */,
 			);
 			path = "swift-extras";
 			sourceTree = "<group>";
@@ -237,6 +241,7 @@
 		4A321A9E1FB7A847001DA08A /* report */ = {
 			isa = PBXGroup;
 			children = (
+				4A2987861FC9F4A50061B401 /* ReportCoordinator.swift */,
 				4A321A9C1FB79169001DA08A /* Report.swift */,
 				4A321AA11FB7AB17001DA08A /* ReportDetailViewController.swift */,
 				4A321AC71FB9131D001DA08A /* ReportDetailNavViewController.swift */,
@@ -273,6 +278,7 @@
 				4A0ABE801FC24587007B06B9 /* APIManager.swift */,
 				4A9578D41FBBB6730051837C /* NavigationViewController.swift */,
 				4A8B6A7A1FC3423D005A5989 /* NavigationBar.swift */,
+				4A2987801FC74B2A0061B401 /* LocationManager.swift */,
 				4A321A961FB67DF8001DA08A /* swift-extras */,
 				4A321A871FB67145001DA08A /* container */,
 				4A9578C41FBB46250051837C /* onboarding */,
@@ -531,9 +537,9 @@
 				4A321A9D1FB79169001DA08A /* Report.swift in Sources */,
 				4A0ABE751FBE6E2F007B06B9 /* ImageSliderViewController.swift in Sources */,
 				4AF232A51FB0CA8900ADA075 /* NewReportViewController.swift in Sources */,
-				4A321A951FB67C89001DA08A /* ReportsNavMapViewController.swift in Sources */,
 				4A30279A1FBFABC600F5D87D /* UIViewController+Keyboard.swift in Sources */,
 				4A8B6A7B1FC3423D005A5989 /* NavigationBar.swift in Sources */,
+				4A2987871FC9F4A50061B401 /* ReportCoordinator.swift in Sources */,
 				4A321A901FB67C1F001DA08A /* ReportsMapViewController.swift in Sources */,
 				4A321AC61FB8EF17001DA08A /* ReportMapAnnotation.swift in Sources */,
 				4A0ABE781FBE6EF4007B06B9 /* ImageViewController.swift in Sources */,
@@ -544,15 +550,17 @@
 				4AA85B911FBBD11D009A72E8 /* NewReportCoordinator.swift in Sources */,
 				4AB6AA891FC5C84D001C36C2 /* RootViewController.swift in Sources */,
 				4A9578D51FBBB6730051837C /* NavigationViewController.swift in Sources */,
+				4A2987811FC74B2A0061B401 /* LocationManager.swift in Sources */,
 				4A8987681FAE0B4E0098E473 /* ReportsTableViewController.swift in Sources */,
 				4A9578CE1FBB98CE0051837C /* ContainerCoordinator.swift in Sources */,
 				4A321AC81FB9131D001DA08A /* ReportDetailNavViewController.swift in Sources */,
 				4A321AA21FB7AB17001DA08A /* ReportDetailViewController.swift in Sources */,
 				4A7FA91A1FAA966300C6A2BB /* AppDelegate.swift in Sources */,
 				4A9578C61FBB465A0051837C /* OnboardingViewController.swift in Sources */,
+				4A2987851FC9E22A0061B401 /* ContainerNavViewController.swift in Sources */,
 				4A0ABE811FC24587007B06B9 /* APIManager.swift in Sources */,
 				4A8B6A791FC3421C005A5989 /* NSObjectExtensions.swift in Sources */,
-				4A321A8E1FB673ED001DA08A /* ReportsNavListViewController.swift in Sources */,
+				4A2987831FC755180061B401 /* UIImageExtensions.swift in Sources */,
 				4AC5288B1FC482110084E442 /* InformationCoordinator.swift in Sources */,
 				4A321A8C1FB67308001DA08A /* StoryboardInstantiable.swift in Sources */,
 				4AA85B931FBBD61D009A72E8 /* NewReportNavViewController.swift in Sources */,

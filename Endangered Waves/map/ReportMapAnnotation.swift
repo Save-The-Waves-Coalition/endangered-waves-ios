@@ -10,6 +10,7 @@ import Foundation
 import MapKit
 
 class ReportMapAnnotation: NSObject, MKAnnotation {
+
     var title: String? {
         return report.location?.name
     }
@@ -26,74 +27,64 @@ class ReportMapAnnotation: NSObject, MKAnnotation {
     }
 }
 
-// INspired by https://github.com/DigitalLeaves/YourPersonalWishlist/blob/master/CustomPinsMap/PersonWishListAnnotationView.swift
+// Inspired by https://github.com/DigitalLeaves/YourPersonalWishlist/blob/master/CustomPinsMap/PersonWishListAnnotationView.swift
 
 class ReportMapAnnotationView: MKAnnotationView {
+
+    weak var customCalloutView: ReportMapCalloutView?
+    weak var calloutViewDelegate: ReportMapCalloutViewDelegate?
+
     override var annotation: MKAnnotation? {
         willSet {
-            guard let reportMapAnnotation = newValue as?  ReportMapAnnotation else {return}
-
+            guard (newValue as?  ReportMapAnnotation) != nil else {return}
             customCalloutView?.removeFromSuperview()
-
-            if let type = reportMapAnnotation.report.type {
-                switch type {
-                case .OilSpill:
-                    image = Style.iconOil
-                case .Sewage:
-                    image = Style.iconSewage
-                case .Trashed:
-                    image = Style.iconTrash
-                case .CoastalErosion:
-                    image = Style.iconCoastalErosion
-                case .AccessLost:
-                    image = Style.iconAccess
-                case .General:
-                    image = Style.iconGeneral
-                }
-            }
-
-            canShowCallout = false // touched
-
-            rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-
-            let detailLabel = UILabel()
-            detailLabel.numberOfLines = 0
-            detailLabel.font = detailLabel.font.withSize(12)
-            detailLabel.text = reportMapAnnotation.subtitle
-            detailCalloutAccessoryView = detailLabel
         }
     }
 
+    override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
+        super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
+        self.canShowCallout = false // Showing custom callout thus turn off default one
 
-//    override func draw(_ rect: CGRect) {
-//        print("dawing")
-//
-//        let bezierPath = UIBezierPath(ovalIn: rect)
-//        UIColor.white.set()
-//        bezierPath.fill()
-//
-//
-//    }
+        if let reportMapAnnotation = annotation as? ReportMapAnnotation, let type = reportMapAnnotation.report.type {
+            switch type {
+            case .OilSpill:
+                image = Style.iconOilPlacemark
+            case .Sewage:
+                image = Style.iconSewagePlacemark
+            case .Trashed:
+                image = Style.iconTrashPlacemark
+            case .CoastalErosion:
+                image = Style.iconCoastalErosionPlacemark
+            case .AccessLost:
+                image = Style.iconAccessPlacemark
+            case .General:
+                image = Style.iconGeneralPlacemark
+            }
+        }
+    }
 
-    weak var customCalloutView: UIView?
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.canShowCallout = false // Showing custom callout thus turn off default one
+        self.image = Style.iconGeneralPlacemark
+    }
 
-    func createCustomCalloutView() -> UIView? {
+    //
 
-        if let views = Bundle.main.loadNibNamed("ReportMapCalloutView", owner: self, options: nil) as? [UIView], views.count > 0 {
-            let view = views.first! as! ReportMapCalloutView
+    func createCustomCalloutView() -> ReportMapCalloutView? {
+        if let views = Bundle.main.loadNibNamed("ReportMapCalloutView", owner: self, options: nil) as? [ReportMapCalloutView], views.count > 0 {
+            let view = views.first!
+            let reportAnnotation = annotation as! ReportMapAnnotation
+            view.report = reportAnnotation.report
             var newFrame = view.frame
-            newFrame.size.width = 50
+            newFrame.size.width = 48
+            newFrame.size.height = 48
             view.frame = newFrame
             view.clipsToBounds = true
-//            view.translatesAutoresizingMaskIntoConstraints = true
-//            view.center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
-//            view.autoresizingMask = [UIViewAutoresizing.flexibleRightMargin, UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleBottomMargin]
-
+            view.delegate = self.calloutViewDelegate
             return view
         }
-
         return nil
-
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -103,51 +94,38 @@ class ReportMapAnnotationView: MKAnnotationView {
             self.customCalloutView?.removeFromSuperview() // remove old custom callout (if any)
 
             if let newCustomCalloutView = createCustomCalloutView() {
-                // fix location from top-left to its right place.
-//                newCustomCalloutView.frame.origin.x -= newCustomCalloutView.frame.width / 2.0 - (self.frame.width / 2.0)
-//                newCustomCalloutView.frame.origin.y -= newCustomCalloutView.frame.height
 
-
-
-                // set custom callout view
                 self.addSubview(newCustomCalloutView)
                 self.customCalloutView = newCustomCalloutView
 
-
-
                 newCustomCalloutView.translatesAutoresizingMaskIntoConstraints = false
-                let horizontalConstraint = NSLayoutConstraint(item: newCustomCalloutView, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.left, multiplier: 1, constant: 0)
-                let verticalConstraint = NSLayoutConstraint(item: newCustomCalloutView, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 0)
-                let widthConstraint = NSLayoutConstraint(item: newCustomCalloutView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 50)
-                let heightConstraint = NSLayoutConstraint(item: newCustomCalloutView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 50)
+
+                let horizontalConstraint = NSLayoutConstraint(item: newCustomCalloutView, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.left, multiplier: 1, constant: 5)
+                let verticalConstraint = NSLayoutConstraint(item: newCustomCalloutView, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 0)
+                let widthConstraint = NSLayoutConstraint(item: newCustomCalloutView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 200)
+                let heightConstraint = NSLayoutConstraint(item: newCustomCalloutView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 48)
                 self.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
 
-
-
-
-
-                // animate presentation
                 if animated {
-//                    self.customCalloutView!.alpha = 0.0
-
-                    widthConstraint.constant = 200
-//                    verticalConstraint.constant = 300
-                    UIView.animate(withDuration: 1, animations: {
-//                        self.customCalloutView!.alpha = 1.0
+                    self.customCalloutView!.alpha = 0.0
+                    UIView.animate(withDuration: 0.25, animations: {
+                        self.customCalloutView!.alpha = 1.0
                         self.layoutIfNeeded()
-
                     })
                 }
             }
         } else {
             if customCalloutView != nil {
                 if animated { // fade out animation, then remove it.
-                    UIView.animate(withDuration: 1, animations: {
+                    UIView.animate(withDuration: 0.25, animations: {
                         self.customCalloutView!.alpha = 0.0
                     }, completion: { (success) in
                         self.customCalloutView!.removeFromSuperview()
                     })
-                } else { self.customCalloutView!.removeFromSuperview() } // just remove it.
+                } else {
+                    // Or just remove it.
+                    self.customCalloutView!.removeFromSuperview()
+                }
             }
         }
     }
@@ -163,10 +141,9 @@ class ReportMapAnnotationView: MKAnnotationView {
         else { // test in our custom callout.
             if customCalloutView != nil {
                 return customCalloutView!.hitTest(convert(point, to: customCalloutView!), with: event)
-            } else { return nil }
+            } else {
+                return nil
+            }
         }
     }
-
-    
-
 }

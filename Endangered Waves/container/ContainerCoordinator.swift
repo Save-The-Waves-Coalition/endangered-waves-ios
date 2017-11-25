@@ -12,34 +12,38 @@ class ContainerCoordinator: Coordinator {
 
     weak var currentViewController: UIViewController?
 
-    lazy var containerViewController: ContainerViewController = {
-        let vc = ContainerViewController.instantiate()
+    lazy var containerNavViewController: ContainerNavViewController = {
+        let vc = ContainerNavViewController.instantiate()
+        containerViewController = vc.topViewController as! ContainerViewController
+        containerViewController.delegate = self
+        let _ = containerViewController.view // This forces the view to load: https://stackoverflow.com/a/29322364
+        return vc
+    }()
+    var containerViewController: ContainerViewController!
+
+    lazy var mapViewController: ReportsMapViewController = {
+        let vc = ReportsMapViewController.instantiate()
+        vc.delegate = self
         return vc
     }()
 
-    lazy var mapNavViewController: ReportsNavMapViewController = {
-        let vc = ReportsNavMapViewController.instantiate()
-        let topVC = vc.topViewController as! ReportsMapViewController
-        topVC.delegate = self
-        return vc
-    }()
-
-    lazy var listNavViewController: ReportsNavListViewController = {
-        let vc = ReportsNavListViewController.instantiate()
-        let topVC = vc.topViewController as! ReportsTableViewController
-        topVC.delegate = self
+    lazy var listViewController: ReportsTableViewController = {
+        let vc = ReportsTableViewController.instantiate()
+        vc.delegate = self
         return vc
     }()
 
     override func start() {
-        containerViewController.delegate = self
+        // Add container to root
+        addFullScreenChildViewController(viewController: containerNavViewController, toViewController: rootViewController)
 
-        addFullScreenChildViewController(viewController: containerViewController, toViewController: rootViewController)
+        // Add map to container
+        containerViewController.addChildViewController(mapViewController)
+        addFullScreenSubview(subView: mapViewController.view, toView: containerViewController.containerView)
+        mapViewController.didMove(toParentViewController: containerViewController)
 
-        containerViewController.addChildViewController(mapNavViewController)
-        addFullScreenSubview(subView: mapNavViewController.view, toView: containerViewController.containerView)
-        mapNavViewController.didMove(toParentViewController: containerViewController)
-        currentViewController = mapNavViewController
+        // Set map as the currently shown controller
+        currentViewController = mapViewController
     }
 
     func showMapComponent() {
@@ -47,8 +51,8 @@ class ContainerCoordinator: Coordinator {
             return
         }
 
-        cycleFromViewController(oldViewController: self.currentViewController!, toViewController: mapNavViewController)
-        currentViewController = mapNavViewController
+        cycleFromViewController(oldViewController: self.currentViewController!, toViewController: mapViewController)
+        currentViewController = mapViewController
     }
 
     func showListComponent() {
@@ -56,8 +60,8 @@ class ContainerCoordinator: Coordinator {
             return
         }
 
-        cycleFromViewController(oldViewController: self.currentViewController!, toViewController: listNavViewController)
-        currentViewController = listNavViewController
+        cycleFromViewController(oldViewController: self.currentViewController!, toViewController: listViewController)
+        currentViewController = listViewController
     }
 
     func showAddComponent() {
@@ -74,8 +78,15 @@ class ContainerCoordinator: Coordinator {
         informationCoordinator.start()
     }
 
+    func showReportDetailsComponentForReport(_ report:Report) {
+        let reportCoordinator = ReportCoordinator(with: containerNavViewController, report: report)
+        reportCoordinator.delegate = self
+        childCoordinators.append(reportCoordinator)
+        reportCoordinator.start()
+    }
 
     func cycleFromViewController(oldViewController: UIViewController, toViewController newViewController: UIViewController) {
+
         oldViewController.willMove(toParentViewController: nil)
         containerViewController.addChildViewController(newViewController)
         addFullScreenSubview(subView: newViewController.view, toView: containerViewController.containerView)
@@ -90,11 +101,16 @@ class ContainerCoordinator: Coordinator {
                         oldViewController.removeFromParentViewController()
                         newViewController.didMove(toParentViewController: self.containerViewController)
         })
+
     }
 }
 
 // MARK: ContainerViewControllerDelegate
 extension ContainerCoordinator: ContainerViewControllerDelegate {
+    func controller(_ controller: ContainerViewController, didTapInfoButton button: UIBarButtonItem) {
+        showInformationComponent()
+    }
+
     func controller(_ controller: ContainerViewController, didTapMapButton button: UIButton) {
         showMapComponent()
     }
@@ -117,21 +133,28 @@ extension ContainerCoordinator: NewReportCoordinatorDelegate {
 
 // MARK: ReportsMapViewControllerDelegate
 extension ContainerCoordinator: ReportsMapViewControllerDelegate {
-    func viewController(_ viewController: ReportsMapViewController, didTapInformationButton button: UIBarButtonItem) {
-        showInformationComponent()
+    func viewController(_ viewController: ReportsMapViewController, didRequestDetailsForReport report: Report) {
+        showReportDetailsComponentForReport(report)
     }
 }
 
 // MARK: ReportsTableViewControllerDelegate
 extension ContainerCoordinator: ReportsTableViewControllerDelegate {
-    func viewController(_ viewController: ReportsTableViewController, didTapInformationButton button: UIBarButtonItem) {
-        showInformationComponent()
+    func viewController(_ viewController: ReportsTableViewController, didRequestDetailsForReport report: Report) {
+        showReportDetailsComponentForReport(report)
     }
 }
 
 // MARK: InformationCoordinatorDelegate
 extension ContainerCoordinator: InformationCoordinatorDelegate {
     func coordinatorDidFinish(_ coordinator: InformationCoordinator) {
+        removeChildCoordinator(coordinator)
+    }
+}
+
+// MARK: ReportCoordinatorDelegate
+extension ContainerCoordinator: ReportCoordinatorDelegate {
+    func coordinatorDidFinishViewingReport(_ coordinator: ReportCoordinator) {
         removeChildCoordinator(coordinator)
     }
 }

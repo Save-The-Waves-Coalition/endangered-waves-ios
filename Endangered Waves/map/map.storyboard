@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wlo-j5-cue">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Oi-B0-cyD">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,14 +18,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zsS-mk-lnY">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAL-dv-ryY">
+                                <rect key="frame" x="318" y="40" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="f20-sU-HAm"/>
+                                    <constraint firstAttribute="height" constant="32" id="jJi-qT-nzA"/>
+                                </constraints>
+                                <state key="normal" image="location"/>
+                                <connections>
+                                    <action selector="userLocationButtonWasTapped:" destination="1Oi-B0-cyD" eventType="touchUpInside" id="PTv-46-Bl9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ZSd-RM-jyd" firstAttribute="trailing" secondItem="aAL-dv-ryY" secondAttribute="trailing" constant="25" id="2fr-Ia-7Yk"/>
                             <constraint firstItem="zsS-mk-lnY" firstAttribute="top" secondItem="ZSd-RM-jyd" secondAttribute="top" id="49I-GH-FgQ"/>
                             <constraint firstItem="zsS-mk-lnY" firstAttribute="leading" secondItem="ZSd-RM-jyd" secondAttribute="leading" id="MHY-ng-SIe"/>
                             <constraint firstItem="zsS-mk-lnY" firstAttribute="trailing" secondItem="ZSd-RM-jyd" secondAttribute="trailing" id="N3d-Ls-7fY"/>
+                            <constraint firstItem="aAL-dv-ryY" firstAttribute="top" secondItem="ZSd-RM-jyd" secondAttribute="top" constant="20" id="nmB-Z1-QkW"/>
                             <constraint firstItem="zsS-mk-lnY" firstAttribute="bottom" secondItem="ZSd-RM-jyd" secondAttribute="bottom" id="yv8-kU-YLg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZSd-RM-jyd"/>
@@ -33,9 +46,6 @@
                     <navigationItem key="navigationItem" title="REPORTED ISSUES" id="gzK-lB-ii4">
                         <barButtonItem key="rightBarButtonItem" image="information" id="vAo-Fr-Hsy">
                             <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
-                            <connections>
-                                <action selector="informationButtonWasTapped:" destination="1Oi-B0-cyD" id="iAA-PY-WE9"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -46,27 +56,10 @@
             </objects>
             <point key="canvasLocation" x="413.60000000000002" y="1474.8125937031487"/>
         </scene>
-        <!--Reports Nav Map View Controller-->
-        <scene sceneID="LB2-cg-xrP">
-            <objects>
-                <navigationController storyboardIdentifier="ReportsNavMapComponent" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wlo-j5-cue" customClass="ReportsNavMapViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ACv-2q-vll" customClass="NavigationBar" customModule="Endangered_Waves" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="1Oi-B0-cyD" kind="relationship" relationship="rootViewController" id="O8u-LC-HQ2"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XTC-vF-enT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-318" y="1475"/>
-        </scene>
     </scenes>
     <resources>
         <image name="information" width="51" height="51"/>
+        <image name="location" width="92" height="92"/>
     </resources>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
 </document>
