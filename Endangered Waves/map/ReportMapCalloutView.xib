@@ -34,7 +34,7 @@
                     <rect key="frame" x="24" y="0.0" width="152" height="48"/>
                     <subviews>
                         <stackView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="9cn-zv-Rlh">
-                            <rect key="frame" x="25" y="10.5" width="113.5" height="28"/>
+                            <rect key="frame" x="25" y="11" width="113.5" height="28"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OIL SPILL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxA-w1-a41">
                                     <rect key="frame" x="0.0" y="0.0" width="54.5" height="14"/>
@@ -64,7 +64,7 @@
                         <constraint firstAttribute="width" constant="48" id="pIx-1N-5M3"/>
                     </constraints>
                 </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beach_trash" translatesAutoresizingMaskIntoConstraints="NO" id="q1G-LI-21S">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beach_trash" translatesAutoresizingMaskIntoConstraints="NO" id="q1G-LI-21S">
                     <rect key="frame" x="3.5" y="3.5" width="41" height="41"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="41" id="UYv-50-h0r"/>
@@ -104,7 +104,7 @@
                 <outlet property="dateLabel" destination="oxE-Mg-IFT" id="jfA-kV-Az8"/>
                 <outlet property="detailButton" destination="aYn-ef-Rwq" id="lKc-SP-p9g"/>
                 <outlet property="mainView" destination="ir7-RS-RID" id="cbh-Pk-Njg"/>
-                <outlet property="placemarkView" destination="y4f-Zm-eCO" id="N4p-JZ-pRs"/>
+                <outlet property="placemarkImageView" destination="y4f-Zm-eCO" id="N4p-JZ-pRs"/>
                 <outlet property="reportTypeLabel" destination="qxA-w1-a41" id="3Wd-u5-5nf"/>
                 <outlet property="stackView" destination="9cn-zv-Rlh" id="A1k-8o-F6D"/>
                 <outlet property="userImageView" destination="q1G-LI-21S" id="avL-Uz-d93"/>

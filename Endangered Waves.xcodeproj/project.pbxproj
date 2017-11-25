@@ -17,9 +17,9 @@
 		4A0ABE811FC24587007B06B9 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE801FC24587007B06B9 /* APIManager.swift */; };
 		4A1C34601FC604F200D94684 /* ReportMapCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C345F1FC604F200D94684 /* ReportMapCalloutView.swift */; };
 		4A2987811FC74B2A0061B401 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2987801FC74B2A0061B401 /* LocationManager.swift */; };
-		4A2987831FC755180061B401 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2987821FC755180061B401 /* UIImageExtensions.swift */; };
 		4A2987851FC9E22A0061B401 /* ContainerNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2987841FC9E22A0061B401 /* ContainerNavViewController.swift */; };
 		4A2987871FC9F4A50061B401 /* ReportCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2987861FC9F4A50061B401 /* ReportCoordinator.swift */; };
+		4A2987891FCA08FC0061B401 /* ReportMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2987881FCA08FC0061B401 /* ReportMapAnnotationView.swift */; };
 		4A30279A1FBFABC600F5D87D /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3027991FBFABC600F5D87D /* UIViewController+Keyboard.swift */; };
 		4A321A861FB66ECC001DA08A /* container.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A851FB66ECC001DA08A /* container.storyboard */; };
 		4A321A8A1FB672A1001DA08A /* list.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A891FB672A1001DA08A /* list.storyboard */; };
@@ -82,9 +82,9 @@
 		4A0ABE801FC24587007B06B9 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		4A1C345F1FC604F200D94684 /* ReportMapCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportMapCalloutView.swift; sourceTree = "<group>"; };
 		4A2987801FC74B2A0061B401 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		4A2987821FC755180061B401 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		4A2987841FC9E22A0061B401 /* ContainerNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerNavViewController.swift; sourceTree = "<group>"; };
 		4A2987861FC9F4A50061B401 /* ReportCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCoordinator.swift; sourceTree = "<group>"; };
+		4A2987881FCA08FC0061B401 /* ReportMapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportMapAnnotationView.swift; sourceTree = "<group>"; };
 		4A3027991FBFABC600F5D87D /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		4A321A841FB61CDE001DA08A /* Black's Beach.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Black's Beach.gpx"; sourceTree = "<group>"; };
 		4A321A851FB66ECC001DA08A /* container.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = container.storyboard; sourceTree = "<group>"; };
@@ -207,6 +207,7 @@
 			children = (
 				4A321A8F1FB67C1F001DA08A /* ReportsMapViewController.swift */,
 				4A321AC51FB8EF17001DA08A /* ReportMapAnnotation.swift */,
+				4A2987881FCA08FC0061B401 /* ReportMapAnnotationView.swift */,
 				4A1C345F1FC604F200D94684 /* ReportMapCalloutView.swift */,
 				4AB6AA8A1FC5D655001C36C2 /* ReportMapCalloutView.xib */,
 				4A321A921FB67C3B001DA08A /* map.storyboard */,
@@ -221,7 +222,6 @@
 				4A9578CF1FBB9DC30051837C /* Coordinator.swift */,
 				4A3027991FBFABC600F5D87D /* UIViewController+Keyboard.swift */,
 				4A8B6A781FC3421C005A5989 /* NSObjectExtensions.swift */,
-				4A2987821FC755180061B401 /* UIImageExtensions.swift */,
 			);
 			path = "swift-extras";
 			sourceTree = "<group>";
@@ -557,10 +557,10 @@
 				4A321AA21FB7AB17001DA08A /* ReportDetailViewController.swift in Sources */,
 				4A7FA91A1FAA966300C6A2BB /* AppDelegate.swift in Sources */,
 				4A9578C61FBB465A0051837C /* OnboardingViewController.swift in Sources */,
+				4A2987891FCA08FC0061B401 /* ReportMapAnnotationView.swift in Sources */,
 				4A2987851FC9E22A0061B401 /* ContainerNavViewController.swift in Sources */,
 				4A0ABE811FC24587007B06B9 /* APIManager.swift in Sources */,
 				4A8B6A791FC3421C005A5989 /* NSObjectExtensions.swift in Sources */,
-				4A2987831FC755180061B401 /* UIImageExtensions.swift in Sources */,
 				4AC5288B1FC482110084E442 /* InformationCoordinator.swift in Sources */,
 				4A321A8C1FB67308001DA08A /* StoryboardInstantiable.swift in Sources */,
 				4AA85B931FBBD61D009A72E8 /* NewReportNavViewController.swift in Sources */,

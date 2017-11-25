@@ -7,21 +7,58 @@
 //
 
 import UIKit
+import SDWebImage
 
 protocol ReportMapCalloutViewDelegate: class {
-    func view(_ view:ReportMapCalloutView, didTapDetailsButton button:UIButton, forReport report:Report)
+    func view(_ view:ReportMapCalloutView, didTapDetailsButton button:UIButton?, forReport report:Report)
 }
 
 class ReportMapCalloutView: UIView {
 
-    var report: Report!
+    var report: Report! {
+        didSet {
+            if let reportTypeLabel = reportTypeLabel {
+                reportTypeLabel.text = report.type?.displayString().uppercased()
+            }
+            
+            if let dateLabel = dateLabel, let creationDate = report.creationDate {
+                let formatter = DateFormatter()
+                formatter.dateStyle = .long
+                let dateString = formatter.string(from: creationDate)
+                dateLabel.text = dateString
+            }
+
+            if let placemarkImageView = placemarkImageView, let type = report.type {
+                placemarkImageView.image = type.placemarkIcon()
+            }
+
+            if let userImageView = userImageView, let imageURLStrings = report.imageURLs, let firstImageURLString = imageURLStrings.first, let firstImageURL = URL(string: firstImageURLString) {
+
+                // TODO: Use storage references instead of URLs for better caching ¯\(°_o)/¯
+                userImageView.sd_setImage(with: firstImageURL, completed: { (image, error, cacheType, url) in
+                    if image == nil {
+                        return
+                    }
+
+                    if cacheType == SDImageCacheType.none {
+                        UIView.animate(withDuration: 0.25, animations: {
+                            userImageView.alpha = 1.0
+                        })
+                    } else {
+                        userImageView.alpha = 1.0
+                    }
+                })
+
+            }
+        }
+    }
 
     weak var delegate: ReportMapCalloutViewDelegate?
 
     @IBOutlet weak var whiteCircleImageView: UIImageView!
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var placemarkView: UIImageView!
+    @IBOutlet weak var placemarkImageView: UIImageView!
     @IBOutlet weak var detailButton: UIButton!
     @IBOutlet weak var reportTypeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -35,9 +72,16 @@ class ReportMapCalloutView: UIView {
         super.awakeFromNib()
         userImageView.layer.cornerRadius = userImageView.bounds.size.width / 2
         userImageView.layer.masksToBounds = true
+
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(userTapped))
+        self.addGestureRecognizer(tapGestureRecognizer)
     }
 
-    // MARK: - Hit test. We need to override this to detect hits in our custom callout.
+    @objc func userTapped() {
+        delegate?.view(self, didTapDetailsButton: nil, forReport: report)
+    }
+
+    // MARK: - Hit test. We need to override this to detect hits in our custom callout. Is this really needed ¯\(°_o)/¯
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
 
         // Check if it hit our annotation detail view components.
@@ -47,7 +91,7 @@ class ReportMapCalloutView: UIView {
             return result
         }
 
-        if let result = placemarkView.hitTest(convert(point, to: placemarkView), with: event) {
+        if let result = placemarkImageView.hitTest(convert(point, to: placemarkImageView), with: event) {
             return result
         }
 

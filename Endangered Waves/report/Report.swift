@@ -63,6 +63,42 @@ enum ReportType: String {
     }
 }
 
+extension ReportType {
+    func displayString() -> String {
+        switch self {
+        case .OilSpill:
+            return "Oil Spill"
+        case .Sewage:
+            return "Sewage "
+        case .Trashed:
+            return "Trashed"
+        case .CoastalErosion:
+            return "Coastal Erosion"
+        case .AccessLost:
+            return "Access Lost"
+        case .General:
+            return "General"
+        }
+    }
+
+    func placemarkIcon() -> UIImage {
+        switch self {
+        case .OilSpill:
+            return Style.iconOilPlacemark
+        case .Sewage:
+            return Style.iconSewagePlacemark
+        case .Trashed:
+            return Style.iconTrashPlacemark
+        case .CoastalErosion:
+            return Style.iconCoastalErosionPlacemark
+        case .AccessLost:
+            return Style.iconAccessPlacemark
+        case .General:
+            return Style.iconGeneralPlacemark
+        }
+    }
+}
+
 struct Report {
     var creationDate: Date?
     var description: String?
@@ -99,7 +135,7 @@ struct Report {
         if let description = dictionary["description"] as? String {
             self.description = description
         }
-        if let imageURLs = dictionary["images"] as? [String] {
+        if let imageURLs = dictionary["imageURLs"] as? [String] {
             self.imageURLs = imageURLs
         }
         if let location = dictionary["location"] as? [String: Any] {

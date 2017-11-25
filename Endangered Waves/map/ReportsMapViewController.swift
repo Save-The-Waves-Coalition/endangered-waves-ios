@@ -73,6 +73,7 @@ class ReportsMapViewController: UIViewController {
     }
 
     private func viewController(for annotation: ReportMapAnnotation) -> ReportDetailViewController {
+        // TODO: Coordinator should take care of this
         let vc = ReportDetailViewController.instantiate()
         vc.report = annotation.report
         return vc
@@ -136,14 +137,8 @@ extension ReportsMapViewController: MKMapViewDelegate {
         return annotationView
     }
 
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        guard let view = view as? ReportMapAnnotationView,
-            let annotation = view.annotation as? ReportMapAnnotation else { return }
-
-        let vc = viewController(for: annotation)
-        navigationController?.pushViewController(vc, animated: true)
-    }
-
+// // Animation for the pin drops
+//
 //    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
 //        var i = -1;
 //        for view in views {
@@ -187,7 +182,7 @@ extension ReportsMapViewController: MKMapViewDelegate {
 
 // MARK: ReportMapCalloutViewDelegate
 extension ReportsMapViewController: ReportMapCalloutViewDelegate {
-    func view(_ view: ReportMapCalloutView, didTapDetailsButton button: UIButton, forReport report: Report) {
+    func view(_ view: ReportMapCalloutView, didTapDetailsButton button: UIButton?, forReport report: Report) {
         delegate?.viewController(self, didRequestDetailsForReport: report)
     }
 }
@@ -238,6 +233,7 @@ extension ReportsMapViewController: UIViewControllerPreviewingDelegate {
     }
 
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        // TODO: Coordinator should take care of this
         navigationController?.pushViewController(viewControllerToCommit, animated: true)
     }
 }
