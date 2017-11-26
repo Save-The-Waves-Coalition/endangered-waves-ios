@@ -47,7 +47,7 @@ class ContainerCoordinator: Coordinator {
     }
 
     func showMapComponent() {
-        guard let identifier = currentViewController?.restorationIdentifier, identifier != "ReportsNavMapComponent" else {
+        guard let identifier = currentViewController?.restorationIdentifier, identifier != "ReportsMapComponent" else {
             return
         }
 
@@ -56,7 +56,7 @@ class ContainerCoordinator: Coordinator {
     }
 
     func showListComponent() {
-        guard let identifier = currentViewController?.restorationIdentifier, identifier != "ReportsNavListComponent" else {
+        guard let identifier = currentViewController?.restorationIdentifier, identifier != "ReportsListComponent" else {
             return
         }
 

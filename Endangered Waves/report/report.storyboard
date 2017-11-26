@@ -73,13 +73,14 @@
                                                     </connections>
                                                 </containerView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white-circle48x48" translatesAutoresizingMaskIntoConstraints="NO" id="QCi-qb-zGX">
-                                                    <rect key="frame" x="293" y="141" width="60" height="60"/>
+                                                    <rect key="frame" x="313" y="159" width="40" height="40"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oil" translatesAutoresizingMaskIntoConstraints="NO" id="xcZ-Qv-VOe">
-                                                    <rect key="frame" x="291" y="139" width="64" height="64"/>
+                                                    <rect key="frame" x="311" y="157" width="44" height="44"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="64" id="Vsf-FY-fZU"/>
-                                                        <constraint firstAttribute="width" constant="64" id="a04-2r-UrQ"/>
+                                                        <constraint firstAttribute="height" constant="44" id="Vsf-FY-fZU"/>
+                                                        <constraint firstAttribute="width" constant="44" id="a04-2r-UrQ"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
@@ -88,7 +89,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="xcZ-Qv-VOe" secondAttribute="trailing" constant="20" symbolic="YES" id="C3K-Ai-If4"/>
                                                 <constraint firstItem="QCi-qb-zGX" firstAttribute="top" secondItem="xcZ-Qv-VOe" secondAttribute="top" constant="2" id="LXd-mw-Pjr"/>
                                                 <constraint firstItem="S1S-cS-x1O" firstAttribute="top" secondItem="nVv-Ot-mpx" secondAttribute="top" id="dVn-GS-qqA"/>
-                                                <constraint firstItem="xcZ-Qv-VOe" firstAttribute="top" secondItem="S1S-cS-x1O" secondAttribute="bottom" constant="-74" id="iSO-RP-qAG"/>
+                                                <constraint firstItem="xcZ-Qv-VOe" firstAttribute="top" secondItem="S1S-cS-x1O" secondAttribute="bottom" constant="-56" id="jbk-Qt-c7I"/>
                                                 <constraint firstItem="QCi-qb-zGX" firstAttribute="bottom" secondItem="xcZ-Qv-VOe" secondAttribute="bottom" constant="-2" id="lMG-TI-x05"/>
                                                 <constraint firstItem="C33-jj-OX5" firstAttribute="centerY" secondItem="S1S-cS-x1O" secondAttribute="centerY" id="oQc-BI-8K8"/>
                                                 <constraint firstItem="QCi-qb-zGX" firstAttribute="leading" secondItem="xcZ-Qv-VOe" secondAttribute="leading" constant="2" id="qOj-QY-RgG"/>
@@ -132,13 +133,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWL-RG-GLj">
-                                                    <rect key="frame" x="16" y="31" width="60" height="17.5"/>
+                                                    <rect key="frame" x="16" y="31" width="59" height="14"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
                                                     <color key="textColor" name="STW-Grey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a location..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSi-fo-DRO">
-                                                    <rect key="frame" x="16" y="49" width="241" height="18"/>
+                                                    <rect key="frame" x="16" y="45.5" width="241" height="18"/>
                                                     <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="15"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -214,6 +215,7 @@
                         <outlet property="imageSliderContainerView" destination="S1S-cS-x1O" id="77w-Pq-Uh4"/>
                         <outlet property="locationLabel" destination="QSi-fo-DRO" id="1cl-iq-FV7"/>
                         <outlet property="mapImageView" destination="BkY-kU-Kao" id="w8V-8E-fAe"/>
+                        <outlet property="typeImageView" destination="xcZ-Qv-VOe" id="xh9-ma-UM7"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NFn-q2-iye" userLabel="First Responder" sceneMemberID="firstResponder"/>

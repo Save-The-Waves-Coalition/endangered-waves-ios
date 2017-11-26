@@ -22,6 +22,7 @@ class ReportMapCalloutView: UIView {
             }
             
             if let dateLabel = dateLabel, let creationDate = report.creationDate {
+                // TODO: replace with helper function 
                 let formatter = DateFormatter()
                 formatter.dateStyle = .long
                 let dateString = formatter.string(from: creationDate)

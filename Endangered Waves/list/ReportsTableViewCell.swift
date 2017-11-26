@@ -14,14 +14,28 @@ class ReportsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var reportImageView: UIImageView!
     @IBOutlet weak var locationNameLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var typeImageView: UIImageView!
+    @IBOutlet weak var typeLabel: UILabel!
 
     var report:Report! {
         didSet {
-            let url = URL(string: (report.imageURLs?.first) ?? "https://via.placeholder.com/100x100")
-            reportImageView.sd_setImage(with: url, completed: nil)
-            descriptionLabel.text = report.description ?? "No Description!"
-            locationNameLabel.text = report.location?.name ?? "No Name!"
+            if let reportImageView = reportImageView, let imageURLStrings = report.imageURLs, let firstURLString = imageURLStrings.first, let url = URL(string: firstURLString) {
+                reportImageView.sd_setImage(with: url, completed: nil)
+            }
+
+            if let typeImageView = typeImageView, let typeLabel = typeLabel, let type = report.type {
+                typeImageView.image = type.icon()
+                typeLabel.text = type.displayString().uppercased()
+            }
+
+            if let locationNameLabel = locationNameLabel, let locationName = report.location?.name {
+                locationNameLabel.text = locationName.uppercased()
+            }
+
+            if let dateLabel = dateLabel {
+                dateLabel.text = report.dateDisplayString()
+            }
         }
     }
 }

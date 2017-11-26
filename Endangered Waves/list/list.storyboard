@@ -5,67 +5,100 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Brandon_bld.otf">
+            <string>BrandonGrotesque-Bold</string>
+        </array>
+        <array key="Brandon_reg.otf">
+            <string>BrandonGrotesque-Regular</string>
+        </array>
+        <array key="GeorgiaItalic.ttf">
+            <string>Georgia-Italic</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Reports-->
         <scene sceneID="3qQ-Ep-e1f">
             <objects>
                 <tableViewController storyboardIdentifier="ReportsListComponent" title="Reports" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pWA-bt-Wdb" customClass="ReportsTableViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ioe-rw-jNT">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="340" estimatedRowHeight="340" sectionHeaderHeight="28" sectionFooterHeight="28" id="ioe-rw-jNT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="defaultCell" rowHeight="100" id="FIf-IL-hPl" customClass="ReportsTableViewCell" customModule="Endangered_Waves" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="defaultCell" rowHeight="340" id="FIf-IL-hPl" customClass="ReportsTableViewCell" customModule="Endangered_Waves" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="340"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FIf-IL-hPl" id="vB8-xi-iRF">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="340"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="moa-ao-Cwk">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XJ8-L8-PVc">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="213"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="213" id="hCK-Yu-ig2"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white-circle48x48" translatesAutoresizingMaskIntoConstraints="NO" id="9gV-dd-bw5">
+                                            <rect key="frame" x="317" y="163" width="40" height="40"/>
+                                        </imageView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="D0X-hr-80t">
+                                            <rect key="frame" x="16" y="221" width="343" height="60.5"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beach_trash" translatesAutoresizingMaskIntoConstraints="NO" id="IyV-1H-2Hk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="99.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="hHH-oF-A7o"/>
-                                                        <constraint firstAttribute="height" constant="100" id="ycF-Rw-2Rr"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wtd-o9-gGI">
-                                                    <rect key="frame" x="108" y="0.0" width="267" height="38.5"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtv-5j-nvx">
-                                                            <rect key="frame" x="0.0" y="0.0" width="267" height="20.5"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amE-xa-mah">
-                                                            <rect key="frame" x="0.0" y="20.5" width="267" height="18"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OIL SPILL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Axc-zc-z9a">
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="16.5"/>
+                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OCEAN BEACH PIER, NIAGRA AVENUE,  SAN DIEGO, CA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikp-HH-VtK">
+                                                    <rect key="frame" x="0.0" y="24.5" width="343" height="14"/>
+                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Regular" family="Brandon Grotesque" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="– November 12th, 2016 –" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XzO-oW-Duz">
+                                                    <rect key="frame" x="0.0" y="46.5" width="343" height="14"/>
+                                                    <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="12"/>
+                                                    <color key="textColor" name="STW-Grey"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </stackView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oil" translatesAutoresizingMaskIntoConstraints="NO" id="mju-A0-dyM">
+                                            <rect key="frame" x="315" y="161" width="44" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="44" id="frP-KE-bfg"/>
+                                                <constraint firstAttribute="height" constant="44" id="x0P-iI-eGD"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="moa-ao-Cwk" secondAttribute="bottom" id="CEK-iy-bNR"/>
-                                        <constraint firstItem="moa-ao-Cwk" firstAttribute="leading" secondItem="vB8-xi-iRF" secondAttribute="leading" id="hok-0T-eHm"/>
-                                        <constraint firstItem="moa-ao-Cwk" firstAttribute="top" secondItem="vB8-xi-iRF" secondAttribute="top" id="lA9-8O-hTG"/>
-                                        <constraint firstAttribute="trailing" secondItem="moa-ao-Cwk" secondAttribute="trailing" id="nEP-Di-PHO"/>
+                                        <constraint firstAttribute="trailing" secondItem="XJ8-L8-PVc" secondAttribute="trailing" id="0ry-Wc-2cE"/>
+                                        <constraint firstItem="9gV-dd-bw5" firstAttribute="top" secondItem="mju-A0-dyM" secondAttribute="top" constant="2" id="1j0-p2-nhJ"/>
+                                        <constraint firstItem="D0X-hr-80t" firstAttribute="leading" secondItem="vB8-xi-iRF" secondAttribute="leadingMargin" id="2qT-V3-6mK"/>
+                                        <constraint firstItem="9gV-dd-bw5" firstAttribute="leading" secondItem="mju-A0-dyM" secondAttribute="leading" constant="2" id="2yc-QN-3AJ"/>
+                                        <constraint firstItem="XJ8-L8-PVc" firstAttribute="leading" secondItem="vB8-xi-iRF" secondAttribute="leading" id="I3G-ER-ZrI"/>
+                                        <constraint firstItem="XJ8-L8-PVc" firstAttribute="top" secondItem="vB8-xi-iRF" secondAttribute="top" id="J0x-6J-9zz"/>
+                                        <constraint firstItem="9gV-dd-bw5" firstAttribute="bottom" secondItem="mju-A0-dyM" secondAttribute="bottom" constant="-2" id="a7y-Uh-Gj4"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="D0X-hr-80t" secondAttribute="trailing" id="cR6-Re-olI"/>
+                                        <constraint firstItem="mju-A0-dyM" firstAttribute="trailing" secondItem="vB8-xi-iRF" secondAttribute="trailingMargin" id="dLy-kf-1wY"/>
+                                        <constraint firstItem="9gV-dd-bw5" firstAttribute="trailing" secondItem="mju-A0-dyM" secondAttribute="trailing" constant="-2" id="gkG-j6-O8V"/>
+                                        <constraint firstItem="D0X-hr-80t" firstAttribute="top" secondItem="XJ8-L8-PVc" secondAttribute="bottom" constant="8" id="i6r-ZC-P2r"/>
+                                        <constraint firstItem="mju-A0-dyM" firstAttribute="top" secondItem="XJ8-L8-PVc" secondAttribute="bottom" constant="-52" id="tIv-DL-jFu"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="descriptionLabel" destination="amE-xa-mah" id="KWj-Wd-hex"/>
-                                    <outlet property="locationNameLabel" destination="Mtv-5j-nvx" id="LWh-qN-E6O"/>
-                                    <outlet property="reportImageView" destination="IyV-1H-2Hk" id="u3H-UZ-ET0"/>
+                                    <outlet property="dateLabel" destination="XzO-oW-Duz" id="i6H-Q6-Z3d"/>
+                                    <outlet property="locationNameLabel" destination="ikp-HH-VtK" id="c4Z-Na-1jo"/>
+                                    <outlet property="reportImageView" destination="XJ8-L8-PVc" id="aad-oB-iBW"/>
+                                    <outlet property="typeImageView" destination="mju-A0-dyM" id="LEb-Rn-rJf"/>
+                                    <outlet property="typeLabel" destination="Axc-zc-z9a" id="cBQ-Bm-qqX"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -83,12 +116,16 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LXm-Vt-gGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="420" y="143"/>
+            <point key="canvasLocation" x="420" y="142.57871064467767"/>
         </scene>
     </scenes>
     <resources>
-        <image name="beach_trash" width="700" height="525"/>
         <image name="information" width="51" height="51"/>
+        <image name="oil" width="56" height="56"/>
+        <image name="white-circle48x48" width="48" height="48"/>
+        <namedColor name="STW-Grey">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
 </document>

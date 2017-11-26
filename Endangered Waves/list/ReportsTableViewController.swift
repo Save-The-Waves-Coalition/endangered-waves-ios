@@ -9,108 +9,71 @@
 import UIKit
 import Firebase
 import FirebaseFirestoreUI
-import FirebaseAuthUI
 
 protocol ReportsTableViewControllerDelegate: class {
     func viewController(_ viewController: ReportsTableViewController, didRequestDetailsForReport report: Report)
 }
 
-class ReportsTableViewController: UITableViewController, FUIAuthDelegate {
+class ReportsTableViewController: UITableViewController {
 
     weak var delegate: ReportsTableViewControllerDelegate?
 
-
-    @IBOutlet weak var signInBarButtonItem: UIBarButtonItem!
-    var dataSource: FUIFirestoreTableViewDataSource!
-
-    fileprivate(set) var auth:Auth?
-    fileprivate(set) var authUI: FUIAuth? //only set internally but get externally
-    fileprivate(set) var authStateListenerHandle: AuthStateDidChangeListenerHandle?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        navigationController?.navigationBar.prefersLargeTitles = true;
-
-        let collection = Firestore.firestore().collection("reports").order(by: "creationDate", descending: true)
-
-        dataSource = self.tableView.bind(toFirestoreQuery: collection) { (tableView, indexPath, snapshot) -> UITableViewCell in
-
+    lazy var dataSource: FUIFirestoreTableViewDataSource = {
+        let query = Firestore.firestore().collection("reports").order(by: "creationDate", descending: true)
+        let source = FUIFirestoreTableViewDataSource(query: query, populateCell: { [unowned self] (tableView, indexPath, snapshot) -> UITableViewCell in
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath) as? ReportsTableViewCell else {
-
-                // TODO: Return something else here? Or Fatal error or Assert
+                assertionFailure("⚠️: Wrong cell type in use.")
                 return UITableViewCell()
             }
 
             let report = Report(dictionary: snapshot.data())
             cell.report = report
             return cell
-        }
+        })
+        return source
+    }()
 
-        auth = Auth.auth()
-        authUI = FUIAuth.defaultAuthUI()
-        authUI?.delegate = self
-        authStateListenerHandle = self.auth?.addStateDidChangeListener { (auth, user) in
-            guard user != nil else {
-//                self.signInBarButtonItem.title = "Sign In"
-                return
-            }
+    // View lifecycle
 
-//            self.signInBarButtonItem.title = "Sign Out"
-        }
-    }
-
-    @IBAction func signInWasTapped(_ sender: UIBarButtonItem) {
-        if auth?.currentUser != nil {
-            do {
-                try auth?.signOut()
-            } catch {
-                print("error")
-            }
-        } else {
-            let authViewController = authUI?.authViewController()
-            self.present(authViewController!, animated: true)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        dataSource.bind(to: tableView)
+        if traitCollection.forceTouchCapability == .available {
+            // TODO: Coordinator should take care of this
+            registerForPreviewing(with: self, sourceView: view)
         }
     }
+}
 
-    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
-        guard let authError = error else { return }
-
-        let errorCode = UInt((authError as NSError).code)
-
-        switch errorCode {
-        case FUIAuthErrorCode.userCancelledSignIn.rawValue:
-            print("User cancelled sign-in");
-            break
-
-        default:
-            let detailedError = (authError as NSError).userInfo[NSUnderlyingErrorKey] ?? authError
-            print("Login error: \((detailedError as! NSError).localizedDescription)");
-        }
-    }
-
+// MARK: UITableViewDelegate
+extension ReportsTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cellVC = tableView.cellForRow(at: indexPath) as? ReportsTableViewCell {
             delegate?.viewController(self, didRequestDetailsForReport: cellVC.report)
         }
     }
+}
 
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let identifier = segue.identifier else {
-//            assertionFailure("Segue had no identifier.")
-//            return
-//        }
-//
-//        switch identifier {
-//        case "ReportsListToReportDetailSegue":
-//            if let cell = sender as? ReportsTableViewCell,
-//                let destinationVC = segue.destination as? ReportDetailViewController {
-//                destinationVC.report = cell.report
-//            }
-//        default:
-//            fatalError("Unknown segue identifier.")
-//        }
-//    }
+// MARK: 🎑 UIViewControllerPreviewingDelegate
+extension ReportsTableViewController: UIViewControllerPreviewingDelegate {
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        // TODO: Coordinator should take care of this
+        let cellPosition = tableView.convert(location, from: previewingContext.sourceView)
+        guard let cellIndexPath = tableView.indexPathForRow(at: cellPosition), let cellView = tableView.cellForRow(at: cellIndexPath) as? ReportsTableViewCell, let report = cellView.report else {
+            return nil
+        }
+
+        let detailVC = ReportDetailViewController.instantiate()
+        detailVC.report = report
+        previewingContext.sourceRect = cellView.frame
+
+        return detailVC
+    }
+
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        // TODO: Coordinator should take care of this
+        navigationController?.pushViewController(viewControllerToCommit, animated: true)
+    }
 }
 
 // MARK: 📖 StoryboardInstantiable

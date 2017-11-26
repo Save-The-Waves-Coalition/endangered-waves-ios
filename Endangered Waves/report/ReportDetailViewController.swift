@@ -38,6 +38,7 @@ class ReportDetailViewController: UITableViewController {
     @IBOutlet weak var imageLoadingLabel: UILabel!
     @IBOutlet weak var imageSliderContainerView: UIView!
     var imageSliderViewController: ImageSliderViewController!
+    @IBOutlet weak var typeImageView: UIImageView!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var mapImageView: UIImageView!
@@ -63,6 +64,10 @@ class ReportDetailViewController: UITableViewController {
     func updateView() {
 
         title = report.type?.displayString().uppercased()
+
+        if let typeImageView = typeImageView {
+            typeImageView.image = report.type?.icon()
+        }
 
         if let imageURLStrings = report.imageURLs {
             let urls:[URL] = imageURLStrings.flatMap({ (urlString) -> URL? in

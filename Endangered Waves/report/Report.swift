@@ -97,6 +97,23 @@ extension ReportType {
             return Style.iconGeneralPlacemark
         }
     }
+
+    func icon() -> UIImage {
+        switch self {
+        case .OilSpill:
+            return Style.iconOil
+        case .Sewage:
+            return Style.iconSewage
+        case .Trashed:
+            return Style.iconTrash
+        case .CoastalErosion:
+            return Style.iconCoastalErosion
+        case .AccessLost:
+            return Style.iconAccess
+        case .General:
+            return Style.iconGeneral
+        }
+    }
 }
 
 struct Report {
@@ -177,5 +194,14 @@ extension Report {
             dictionary["user"] = user
         }
         return (dictionary.count > 0) ? dictionary : nil
+    }
+}
+
+extension Report {
+    func dateDisplayString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        let dateString = formatter.string(from: creationDate ?? Date())
+        return dateString
     }
 }
