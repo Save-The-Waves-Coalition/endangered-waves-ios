@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ImageSliderViewControllerDelegate: class {
-    func viewController(_ viewController: ImageSliderViewController, didTapImageAtIndex index:Int)
+    func viewController(_ viewController: ImageSliderViewController, didTapImage image: UIImage, atIndex index:Int)
 }
 
 class ImageSliderViewController: UIPageViewController {
@@ -19,15 +19,16 @@ class ImageSliderViewController: UIPageViewController {
     var images: [UIImage]? {
         didSet {
             if let images = self.images {
-                self.imageViewControllers = imageViewControllersForImages(images)
+                let imageViewControllers = imageViewControllersForImages(images)
                 currentPageIndex = 0
                 nextPageIndex = 0
+                self.imageViewControllers = imageViewControllers
                 setViewControllers([imageViewControllers.first!], direction: .forward, animated: false, completion: nil)
             }
         }
     }
 
-    private var imageViewControllers: [ImageViewController]!
+    private var imageViewControllers: [ImageViewController]?
     private var currentPageIndex = 0
     private var nextPageIndex = 0
 
@@ -42,7 +43,10 @@ class ImageSliderViewController: UIPageViewController {
     }
 
     @objc func imageSliderViewControllerWasTapped(sender:UITapGestureRecognizer) {
-        imageSliderViewControllerDelegate?.viewController(self, didTapImageAtIndex: currentPageIndex)
+        if let images = self.images {
+            let image = images[currentPageIndex]
+            imageSliderViewControllerDelegate?.viewController(self, didTapImage: image, atIndex: currentPageIndex)
+        }
     }
 
     func imageViewControllersForImages(_ images:[UIImage]) -> [ImageViewController] {
@@ -66,10 +70,11 @@ class ImageSliderViewController: UIPageViewController {
                 subView.frame = self.view.bounds
             } else if subView is UIPageControl {
                 self.view.bringSubview(toFront: subView)
-                if imageViewControllers.count < 2 {
-                    subView.isHidden = true // If there is only 1 image don't show the dots
-                } else {
+
+                if let imageControllers = self.imageViewControllers, imageControllers.count > 1 {
                     subView.isHidden = false
+                } else {
+                    subView.isHidden = true // If there is only 1 image don't show the dots
                 }
             }
         }
@@ -77,6 +82,7 @@ class ImageSliderViewController: UIPageViewController {
     }
 }
 
+// MARK: UIPageViewControllerDelegate
 extension ImageSliderViewController: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         guard finished else { return }
@@ -84,15 +90,17 @@ extension ImageSliderViewController: UIPageViewControllerDelegate {
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        if let viewController = pendingViewControllers.first as? ImageViewController, let index = imageViewControllers.index(of: viewController) {
+        if let viewController = pendingViewControllers.first as? ImageViewController, let imageViewControllers = self.imageViewControllers, let index = imageViewControllers.index(of: viewController) {
             nextPageIndex = index
         }
     }
 }
 
+// MARK: UIPageViewControllerDataSource
 extension ImageSliderViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewController = viewController as? ImageViewController,
+            let imageViewControllers = self.imageViewControllers,
             let index = imageViewControllers.index(of: viewController),
             index > 0 else {
                 return nil
@@ -102,16 +110,21 @@ extension ImageSliderViewController: UIPageViewControllerDataSource {
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let viewController = viewController as? ImageViewController,
-            let index = imageViewControllers.index(of: viewController),
-            index < (imageViewControllers.count - 1) else {
+        guard let imageControllers = imageViewControllers,
+            let viewController = viewController as? ImageViewController,
+            let index = imageControllers.index(of: viewController),
+            index < (imageControllers.count - 1) else {
             return nil
         }
 
-        return imageViewControllers[index + 1]
+        return imageControllers[index + 1]
     }
 
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        guard let imageViewControllers = self.imageViewControllers else {
+            return 0
+        }
+
         let count = imageViewControllers.count
         if count > 1 {
             return count

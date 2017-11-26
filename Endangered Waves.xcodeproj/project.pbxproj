@@ -20,6 +20,7 @@
 		4A2987851FC9E22A0061B401 /* ContainerNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2987841FC9E22A0061B401 /* ContainerNavViewController.swift */; };
 		4A2987871FC9F4A50061B401 /* ReportCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2987861FC9F4A50061B401 /* ReportCoordinator.swift */; };
 		4A2987891FCA08FC0061B401 /* ReportMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2987881FCA08FC0061B401 /* ReportMapAnnotationView.swift */; };
+		4A29878B1FCA2D3E0061B401 /* ImageDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A29878A1FCA2D3E0061B401 /* ImageDownloadManager.swift */; };
 		4A30279A1FBFABC600F5D87D /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3027991FBFABC600F5D87D /* UIViewController+Keyboard.swift */; };
 		4A321A861FB66ECC001DA08A /* container.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A851FB66ECC001DA08A /* container.storyboard */; };
 		4A321A8A1FB672A1001DA08A /* list.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A891FB672A1001DA08A /* list.storyboard */; };
@@ -85,6 +86,7 @@
 		4A2987841FC9E22A0061B401 /* ContainerNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerNavViewController.swift; sourceTree = "<group>"; };
 		4A2987861FC9F4A50061B401 /* ReportCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCoordinator.swift; sourceTree = "<group>"; };
 		4A2987881FCA08FC0061B401 /* ReportMapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportMapAnnotationView.swift; sourceTree = "<group>"; };
+		4A29878A1FCA2D3E0061B401 /* ImageDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadManager.swift; sourceTree = "<group>"; };
 		4A3027991FBFABC600F5D87D /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		4A321A841FB61CDE001DA08A /* Black's Beach.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Black's Beach.gpx"; sourceTree = "<group>"; };
 		4A321A851FB66ECC001DA08A /* container.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = container.storyboard; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				4A9578D41FBBB6730051837C /* NavigationViewController.swift */,
 				4A8B6A7A1FC3423D005A5989 /* NavigationBar.swift */,
 				4A2987801FC74B2A0061B401 /* LocationManager.swift */,
+				4A29878A1FCA2D3E0061B401 /* ImageDownloadManager.swift */,
 				4A321A961FB67DF8001DA08A /* swift-extras */,
 				4A321A871FB67145001DA08A /* container */,
 				4A9578C41FBB46250051837C /* onboarding */,
@@ -537,6 +540,7 @@
 				4A321A9D1FB79169001DA08A /* Report.swift in Sources */,
 				4A0ABE751FBE6E2F007B06B9 /* ImageSliderViewController.swift in Sources */,
 				4AF232A51FB0CA8900ADA075 /* NewReportViewController.swift in Sources */,
+				4A29878B1FCA2D3E0061B401 /* ImageDownloadManager.swift in Sources */,
 				4A30279A1FBFABC600F5D87D /* UIViewController+Keyboard.swift in Sources */,
 				4A8B6A7B1FC3423D005A5989 /* NavigationBar.swift in Sources */,
 				4A2987871FC9F4A50061B401 /* ReportCoordinator.swift in Sources */,

@@ -60,6 +60,7 @@ class ContainerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil) // Hack to remove the "Back" text
         applyActiveStyleToButton(mapButton)
     }
 

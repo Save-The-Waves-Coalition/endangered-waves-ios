@@ -49,6 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             NSAttributedStringKey.foregroundColor : UIColor.black,
         ]
 
+        UINavigationBar.appearance().backgroundColor = UIColor.white
+
         UIPageControl.appearance().pageIndicatorTintColor = UIColor(white: 1.0, alpha: 0.22)
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor.white
         UIPageControl.appearance().backgroundColor = UIColor.clear

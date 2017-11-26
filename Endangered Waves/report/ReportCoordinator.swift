@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lightbox
 
 protocol ReportCoordinatorDelegate: class {
     func coordinatorDidFinishViewingReport(_ coordinator: ReportCoordinator)
@@ -36,10 +37,33 @@ class ReportCoordinator: Coordinator {
     override func stop() {
         delegate?.coordinatorDidFinishViewingReport(self)
     }
+
+    func showLightboxComponentWithImages(_ images:[UIImage], atIndex index:Int) {
+        if let vc = lightboxForImages(images, withStartIndex: index){
+            rootViewController.present(vc, animated: true, completion: nil)
+        }
+    }
 }
 
 extension ReportCoordinator: ReportDetailViewControllerDelegate {
+    func viewController(_ viewController: ReportDetailViewController, didTapImages images: [UIImage], atIndex index: Int) {
+        showLightboxComponentWithImages(images, atIndex: index)
+    }
+
     func finishedViewingDetailsViewController(_ viewController: ReportDetailViewController) {
         stop()
+    }
+}
+
+extension ReportCoordinator {
+    func lightboxForImages(_ images:[UIImage], withStartIndex index:Int) -> LightboxController? {
+        guard images.count > 0 else { return nil }
+
+        let lightboxImages = images.map {
+            return LightboxImage(image: $0)
+        }
+
+        let lightbox = LightboxController(images: lightboxImages, startIndex: index)
+        return lightbox
     }
 }

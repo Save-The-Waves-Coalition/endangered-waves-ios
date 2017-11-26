@@ -149,7 +149,7 @@ class NewReportViewController: UITableViewController {
 
 // MARK: ImageSliderViewControllerDelegate
 extension NewReportViewController: ImageSliderViewControllerDelegate {
-    func viewController(_ viewController: ImageSliderViewController, didTapImageAtIndex index: Int) {
+    func viewController(_ viewController: ImageSliderViewController, didTapImage image: UIImage, atIndex index: Int) {
         delegate?.viewController(self, didTapImageAtIndex: index)
     }
 }
