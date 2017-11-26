@@ -37,19 +37,16 @@ class APIManager {
     }
 
     static func uploadReport(_ report: Report, completionHandler: @escaping (String?, Error?) -> ()) {
-        if let dataDictionary = report.documentDataDictionary() {
-            let collection = Firestore.firestore().collection("reports")
-            var ref: DocumentReference? = nil
-            ref = collection.addDocument(data: dataDictionary, completion: { (error) in
-                if let error = error {
-                    completionHandler(nil, error)
-                } else {
-                    completionHandler(ref!.documentID, nil)
-                }
-            })
-        } else {
-            completionHandler(nil, NSError(domain: "STW", code: 1, userInfo: nil))
-        }
+        let dataDictionary = report.documentDataDictionary()
+        let collection = Firestore.firestore().collection("reports")
+        var ref: DocumentReference? = nil
+        ref = collection.addDocument(data: dataDictionary, completion: { (error) in
+            if let error = error {
+                completionHandler(nil, error)
+            } else {
+                completionHandler(ref!.documentID, nil)
+            }
+        })
     }
 
     static func uploadImages(_ images : [UIImage], progressHandler: @escaping (Double) -> (), completionHandler: @escaping ([String]?, Error?) -> ()){

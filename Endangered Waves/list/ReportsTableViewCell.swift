@@ -20,17 +20,17 @@ class ReportsTableViewCell: UITableViewCell {
 
     var report:Report! {
         didSet {
-            if let reportImageView = reportImageView, let imageURLStrings = report.imageURLs, let firstURLString = imageURLStrings.first, let url = URL(string: firstURLString) {
+            if let reportImageView = reportImageView, let firstURLString = report.imageURLs.first, let url = URL(string: firstURLString) {
                 reportImageView.sd_setImage(with: url, completed: nil)
             }
 
-            if let typeImageView = typeImageView, let typeLabel = typeLabel, let type = report.type {
-                typeImageView.image = type.icon()
-                typeLabel.text = type.displayString().uppercased()
+            if let typeImageView = typeImageView, let typeLabel = typeLabel {
+                typeImageView.image = report.type.icon()
+                typeLabel.text = report.type.displayString().uppercased()
             }
 
-            if let locationNameLabel = locationNameLabel, let locationName = report.location?.name {
-                locationNameLabel.text = locationName.uppercased()
+            if let locationNameLabel = locationNameLabel {
+                locationNameLabel.text = report.location.name.uppercased()
             }
 
             if let dateLabel = dateLabel {

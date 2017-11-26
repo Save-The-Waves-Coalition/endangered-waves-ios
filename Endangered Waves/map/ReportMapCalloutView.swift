@@ -18,24 +18,20 @@ class ReportMapCalloutView: UIView {
     var report: Report! {
         didSet {
             if let reportTypeLabel = reportTypeLabel {
-                reportTypeLabel.text = report.type?.displayString().uppercased()
+                reportTypeLabel.text = report.type.displayString().uppercased()
             }
             
-            if let dateLabel = dateLabel, let creationDate = report.creationDate {
-                // TODO: replace with helper function 
-                let formatter = DateFormatter()
-                formatter.dateStyle = .long
-                let dateString = formatter.string(from: creationDate)
-                dateLabel.text = dateString
+            if let dateLabel = dateLabel {
+                dateLabel.text = report.dateDisplayString()
             }
 
-            if let placemarkImageView = placemarkImageView, let type = report.type {
-                placemarkImageView.image = type.placemarkIcon()
+            if let placemarkImageView = placemarkImageView {
+                placemarkImageView.image = report.type.placemarkIcon()
             }
 
-            if let userImageView = userImageView, let imageURLStrings = report.imageURLs, let firstImageURLString = imageURLStrings.first, let firstImageURL = URL(string: firstImageURLString) {
+            if let userImageView = userImageView, let firstImageURLString = report.imageURLs.first, let firstImageURL = URL(string: firstImageURLString) {
 
-                // TODO: Use storage references instead of URLs for better caching ¯\(°_o)/¯
+                // TODO: Maybe use storage references instead of URLs for better caching ¯\(°_o)/¯
                 userImageView.sd_setImage(with: firstImageURL, completed: { (image, error, cacheType, url) in
                     if image == nil {
                         return

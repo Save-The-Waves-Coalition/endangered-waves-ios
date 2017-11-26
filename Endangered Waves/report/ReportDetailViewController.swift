@@ -63,28 +63,29 @@ class ReportDetailViewController: UITableViewController {
 
     func updateView() {
 
-        title = report.type?.displayString().uppercased()
+        title = report.type.displayString().uppercased()
 
         if let typeImageView = typeImageView {
-            typeImageView.image = report.type?.icon()
+            typeImageView.image = report.type.icon()
         }
 
-        if let imageURLStrings = report.imageURLs {
-            let urls:[URL] = imageURLStrings.flatMap({ (urlString) -> URL? in
-                return URL(string: urlString)
-            })
 
-            imageDownloadManager.loadImagesWithURLs(urls, completion: { (images) in
-                self.images = images
-                self.imageSliderViewController.images = images
-            })
-        }
+        let urls:[URL] = report.imageURLs.flatMap({ (urlString) -> URL? in
+            return URL(string: urlString)
+        })
+
+        imageDownloadManager.loadImagesWithURLs(urls, completion: { (images) in
+            self.images = images
+            self.imageSliderViewController.images = images
+        })
+
 
         if let locationLabel = locationLabel {
-            locationLabel.text = report.location?.name
+            locationLabel.text = report.location.name
         }
 
-        if let mapImageView = mapImageView, let reportLocation = report.location, let coordinate = reportLocation.coordinate {
+        if let mapImageView = mapImageView {
+            let coordinate = report.location.coordinate
             let mapSnapshotOptions = MKMapSnapshotOptions()
 
             // Set the region of the map that is rendered.

@@ -26,7 +26,7 @@ class ReportsTableViewController: UITableViewController {
                 return UITableViewCell()
             }
 
-            let report = Report(dictionary: snapshot.data())
+            let report = Report.createReportWithSnapshot(snapshot)
             cell.report = report
             return cell
         })

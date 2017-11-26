@@ -12,42 +12,30 @@ import MapKit
 import FirebaseFirestore
 
 struct ReportLocation {
-    var name: String?
-    var coordinate: CLLocationCoordinate2D?
+    var name: String
+    var coordinate: CLLocationCoordinate2D
 
-    init(name: String?, coordinate: CLLocationCoordinate2D?) {
-        if let name = name {
-            self.name = name
-        }
-        if let coordinate = coordinate {
-            self.coordinate = coordinate
-        }
+    init(name: String, coordinate: CLLocationCoordinate2D) {
+        self.name = name
+        self.coordinate = coordinate
     }
 
-    init(dictionary: [String: Any]) {
-        if let name = dictionary["name"] as? String {
-            self.name = name
+    static func createReportLocationWithDictionary(_ dictionary: [String: Any]) -> ReportLocation? {
+        guard let name = dictionary["name"] as? String, let coordinate = dictionary["coordinate"] as? GeoPoint else {
+            return nil
         }
-        if let coordinate = dictionary["coordinate"] as? GeoPoint {
-            self.coordinate = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        }
+        return ReportLocation(name: name, coordinate: CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude))
     }
 }
 
 extension ReportLocation {
-    init(snapshot: DocumentSnapshot) {
-        self.init(dictionary: snapshot.data())
+    static func createReportLocationWithSnapshot(_ snapshot: DocumentSnapshot) -> ReportLocation? {
+        return self.createReportLocationWithDictionary(snapshot.data())
     }
 
-    func documentDataDictionary() -> [String: Any]? {
-        var dictionary = [String: Any]()
-        if let name = name {
-            dictionary["name"] = name
-        }
-        if let coordinate = coordinate {
-            dictionary["coordinate"] = GeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        }
-        return (dictionary.count > 0) ? dictionary : nil
+    func documentDataDictionary() -> [String: Any] {
+        return ["name": name,
+                "coordinate": GeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude)]
     }
 }
 
@@ -117,83 +105,51 @@ extension ReportType {
 }
 
 struct Report {
-    var creationDate: Date?
-    var description: String?
-    var imageURLs: [String]?
-    var location: ReportLocation?
-    var type: ReportType?
-    var user: String?
+    var creationDate: Date
+    var description: String
+    var imageURLs: [String]
+    var location: ReportLocation
+    var type: ReportType
+    var user: String
 
-    init(creationDate: Date?, description: String?, imageURLs: [String]?, location: ReportLocation?, type: ReportType?, user: String?) {
-        if let creationDate = creationDate {
-            self.creationDate = creationDate
-        }
-        if let description = description {
-            self.description = description
-        }
-        if let imageURLs = imageURLs {
-            self.imageURLs = imageURLs
-        }
-        if let location = location {
-            self.location = location
-        }
-        if let type = type {
-            self.type = type
-        }
-        if let user = user {
-            self.user = user
-        }
+    init(creationDate: Date, description: String, imageURLs: [String], location: ReportLocation, type: ReportType, user: String) {
+        self.creationDate = creationDate
+        self.description = description
+        self.imageURLs = imageURLs
+        self.location = location
+        self.type = type
+        self.user = user
     }
 
-    init(dictionary: [String: Any]) {
-        if let creationDate = dictionary["creationDate"] as? Date {
-            self.creationDate = creationDate
+    static func createReportWithDictionary(_ dictionary: [String: Any]) -> Report? {
+        guard let creationDate = dictionary["creationDate"] as? Date,
+            let description = dictionary["description"] as? String,
+            let imageURLs = dictionary["imageURLs"] as? [String],
+            let locationDictionary = dictionary["location"] as? [String: Any],
+            let location = ReportLocation.createReportLocationWithDictionary(locationDictionary),
+            let typeString = dictionary["type"] as? String,
+            let type = ReportType(rawValue: typeString),
+            let user = dictionary["user"] as? String
+        else {
+                return nil
         }
-        if let description = dictionary["description"] as? String {
-            self.description = description
-        }
-        if let imageURLs = dictionary["imageURLs"] as? [String] {
-            self.imageURLs = imageURLs
-        }
-        if let location = dictionary["location"] as? [String: Any] {
-            self.location = ReportLocation(dictionary: location)
-        }
-        if let type = dictionary["type"] as? String {
-            let enumType = ReportType(rawValue: type)
-            self.type = enumType
-        }
-        if let user = dictionary["user"] as? String {
-            self.user = user
-        }
+
+        return Report(creationDate: creationDate, description: description, imageURLs: imageURLs, location: location, type: type, user: user)
     }
 }
 
 extension Report {
-    init(snapshot: DocumentSnapshot) {
-        self.init(dictionary: snapshot.data())
+    static func createReportWithSnapshot(_ snapshot: DocumentSnapshot) -> Report? {
+        return self.createReportWithDictionary(snapshot.data())
     }
 
-    func documentDataDictionary() -> [String: Any]? {
-        var dictionary = [String: Any]()
-        if let creationDate = creationDate {
-            dictionary["creationDate"] = creationDate
-        }
-        if let description = description {
-            dictionary["description"] = description
-        }
-        if let imageURLs = imageURLs {
-            dictionary["imageURLs"] = imageURLs
-        }
-        if let location = location {
-            dictionary["location"] = location.documentDataDictionary()
-        }
-        if let type = type {
-            dictionary["type"] = type.rawValue
-        }
-        if let user = user {
-            dictionary["user"] = user
-        }
-        return (dictionary.count > 0) ? dictionary : nil
+    func documentDataDictionary() -> [String: Any] {
+        return ["creationDate": creationDate,
+                          "description": description,
+                          "imageURLs": imageURLs,
+                          "location": location.documentDataDictionary(),
+                          "type": type.rawValue,
+                          "user": user]
     }
 }
 
@@ -201,7 +157,7 @@ extension Report {
     func dateDisplayString() -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
-        let dateString = formatter.string(from: creationDate ?? Date())
+        let dateString = formatter.string(from: creationDate)
         return dateString
     }
 }

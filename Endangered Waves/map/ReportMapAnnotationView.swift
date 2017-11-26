@@ -27,8 +27,8 @@ class ReportMapAnnotationView: MKAnnotationView {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         self.canShowCallout = false // Showing custom callout thus turn off default one
 
-        if let reportMapAnnotation = annotation as? ReportMapAnnotation, let type = reportMapAnnotation.report.type {
-            image = type.placemarkIcon()
+        if let reportMapAnnotation = annotation as? ReportMapAnnotation {
+            image = reportMapAnnotation.report.type.placemarkIcon()
         }
     }
 

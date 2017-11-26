@@ -91,9 +91,8 @@ extension ReportsMapViewController: FUIBatchedArrayDelegate {
         mapView.removeAnnotations(annotations)
 
         array.items.forEach { (snapshot) in
-            let report = Report(dictionary: snapshot.data())
-            if let coordiante = report.location?.coordinate {
-                let annotation = ReportMapAnnotation(coordinate: coordiante, report: report)
+            if let report = Report.createReportWithSnapshot(snapshot) {
+                let annotation = ReportMapAnnotation(coordinate: report.location.coordinate, report: report)
                 mapView.addAnnotation(annotation)
             }
         }
