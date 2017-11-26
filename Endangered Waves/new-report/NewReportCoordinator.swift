@@ -59,8 +59,6 @@ class NewReportCoordinator: Coordinator {
     }
 
     func showNewReport() {
-
-        // TODO fix all these !
         newReportNavVC = NewReportNavViewController.instantiate()
         newReportVC = (newReportNavVC!.topViewController as! NewReportViewController)
         newReportVC!.delegate = self
@@ -173,15 +171,15 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
             return
         }
 
-        // validate description
-        if (reportDescription ?? "").isEmpty {
-            showValidationError(title: "Missing Description", message: "Please enter a description.", withViewController: viewController)
-            return
-        }
-
         // validate location
         if location == nil {
             showValidationError(title: "Missing Location", message: "Please select a location.", withViewController: viewController)
+            return
+        }
+
+        // validate description
+        if (reportDescription ?? "").isEmpty {
+            showValidationError(title: "Missing Description", message: "Please enter a description.", withViewController: viewController)
             return
         }
 

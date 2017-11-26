@@ -22,9 +22,13 @@ class APIManager {
                 return
             }
 
-            // TODO: Use actual user here
+            guard let userID = UserMananger.shared.user?.uid else {
+                completionHandler(nil, NSError(domain: "STW", code: 0, userInfo: nil))
+                return
+            }
+
             let reportLocation = ReportLocation(name: location.name, coordinate: location.mapItem.placemark.coordinate)
-            let report = Report(creationDate: Date(), description: description, imageURLs: uploadedImageURLStrings, location: reportLocation, type: type, user: "matt_is_testing")
+            let report = Report(creationDate: Date(), description: description, imageURLs: uploadedImageURLStrings, location: reportLocation, type: type, user: userID)
 
             uploadReport(report, completionHandler: { (documentID, error) in
                 if let error = error {

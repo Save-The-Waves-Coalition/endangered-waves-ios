@@ -27,8 +27,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <gestureRecognizers/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="ctY-C9-pUk">
-                            <rect key="frame" x="0.0" y="769.5" width="375" height="633"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="ctY-C9-pUk">
+                            <rect key="frame" x="0.0" y="769.5" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VAG-iX-ySV">

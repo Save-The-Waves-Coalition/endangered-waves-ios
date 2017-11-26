@@ -34,7 +34,7 @@
                     <rect key="frame" x="24" y="0.0" width="152" height="48"/>
                     <subviews>
                         <stackView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="9cn-zv-Rlh">
-                            <rect key="frame" x="25" y="11" width="113.5" height="28"/>
+                            <rect key="frame" x="25" y="10.5" width="113.5" height="28"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OIL SPILL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxA-w1-a41">
                                     <rect key="frame" x="0.0" y="0.0" width="54.5" height="14"/>
