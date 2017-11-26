@@ -166,7 +166,7 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
         }
     }
 
-    func viewController(_ viewController: NewReportViewController, didTapSaveButton button: UIBarButtonItem) {
+    func viewController(_ viewController: NewReportViewController, didTapPostButton button: Any) {
         // validate picture
         guard let images = images else {
             showValidationError(title: "Missing Images", message: "Please select at least 1 image.", withViewController: viewController)

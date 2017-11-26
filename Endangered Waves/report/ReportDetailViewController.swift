@@ -86,15 +86,8 @@ class ReportDetailViewController: UITableViewController {
             let region = MKCoordinateRegionMakeWithDistance(coordinate, 1000, 1000)
             mapSnapshotOptions.region = region
 
-            // Set the scale of the image. We'll just use the scale of the current device, which is 2x scale on Retina screens.
-            mapSnapshotOptions.scale = UIScreen.main.scale
-
             // Set the size of the image output.
             mapSnapshotOptions.size = CGSize(width: 90, height: 90)
-
-            // Show buildings and Points of Interest on the snapshot
-            mapSnapshotOptions.showsBuildings = true
-            mapSnapshotOptions.showsPointsOfInterest = true
 
             let snapShotter = MKMapSnapshotter(options: mapSnapshotOptions)
             snapShotter.start(completionHandler: { (snapshot, error) in

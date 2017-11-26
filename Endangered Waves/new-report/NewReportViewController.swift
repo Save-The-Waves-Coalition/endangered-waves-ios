@@ -14,10 +14,11 @@ import LocationPickerViewController
 import Firebase
 import ImagePicker
 import Lightbox
+import MapKit
 
 protocol NewReportViewControllerDelegate: class {
     func viewController(_ viewController: NewReportViewController, didTapCancelButton button: UIBarButtonItem)
-    func viewController(_ viewController: NewReportViewController, didTapSaveButton button: UIBarButtonItem)
+    func viewController(_ viewController: NewReportViewController, didTapPostButton button: Any)
     func viewController(_ viewController: NewReportViewController, didTapImageAtIndex index:Int)
     func viewController(_ viewController: NewReportViewController, didTapAddButton button:UIButton)
     func viewController(_ viewController: NewReportViewController, didTapLocation sender: UITapGestureRecognizer)
@@ -74,7 +75,8 @@ class NewReportViewController: UITableViewController {
     }
 
     @IBOutlet weak var locationLabel: UILabel!
-
+    @IBOutlet weak var mapImageView: UIImageView!
+    
     var images: [UIImage]? {
         didSet {
             imageSliderViewController?.images = images
@@ -95,13 +97,33 @@ class NewReportViewController: UITableViewController {
                 locationLabel.text = "\(location.name)\n\(addressString)"
                 locationLabel.textColor = .black
                 locationLabel.font = Style.fontGeorgia(size: 15)
+
+                if let mapImageView = mapImageView {
+                    let coordinate = location.mapItem.placemark.coordinate
+                    let mapSnapshotOptions = MKMapSnapshotOptions()
+
+                    // Set the region of the map that is rendered.
+                    let region = MKCoordinateRegionMakeWithDistance(coordinate, 1000, 1000)
+                    mapSnapshotOptions.region = region
+
+                    // Set the size of the image output.
+                    mapSnapshotOptions.size = CGSize(width: 90, height: 90)
+
+                    let snapShotter = MKMapSnapshotter(options: mapSnapshotOptions)
+                    snapShotter.start(completionHandler: { (snapshot, error) in
+                        mapImageView.alpha = 0
+                        mapImageView.image = snapshot?.image
+                        UIView.animate(withDuration: 0.25, animations: {
+                            mapImageView.alpha = 1.0
+                        })
+                    })
+                }
             }
         }
     }
 
-    @IBAction func saveButtonWasTapped(_ sender: UIBarButtonItem) {
-        // TODO: Save Report
-        delegate?.viewController(self, didTapSaveButton: sender)
+    @IBAction func didTapPostButton(_ sender: Any) {
+        delegate?.viewController(self, didTapPostButton: sender)
     }
 
     @IBAction func cancelButtonWasTapped(_ sender: UIBarButtonItem) {
@@ -123,7 +145,7 @@ class NewReportViewController: UITableViewController {
         descriptionTextView.textContainerInset = .zero
         descriptionTextView.textContainer.lineFragmentPadding = 0
 
-        // Attributed text set in the Storyboard is only working on the simulator, not in builds distributed via Buddybuild
+        // Attributed text set in the Storyboard is only working on the simulator, not in builds distributed via Buddybuild, this fixes that
         categoryTypeCollection.forEach { (button) in
             if let currentAttributedTitle = button.currentAttributedTitle {
                 let style = NSMutableParagraphStyle()
@@ -169,7 +191,7 @@ extension NewReportViewController: UITextViewDelegate {
         UIView.setAnimationsEnabled(false)
         tableView.beginUpdates()
         tableView.endUpdates()
-        let indexPath = IndexPath(row: 1, section: 0)
+        let indexPath = IndexPath(row: 2, section: 0)
         tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
         UIView.setAnimationsEnabled(true)
         // End hack
