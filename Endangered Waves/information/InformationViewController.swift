@@ -96,9 +96,10 @@ extension InformationViewController {
     }
 
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let headerView = view as! UITableViewHeaderFooterView
-        headerView.textLabel?.font = Style.fontBrandonGrotesqueBold(size: 17)
-        headerView.textLabel?.textColor = UIColor.black
+        if let headerView = view as? UITableViewHeaderFooterView {
+            headerView.textLabel?.font = Style.fontBrandonGrotesqueBold(size: 17)
+            headerView.textLabel?.textColor = UIColor.black
+        }
     }
 }
 

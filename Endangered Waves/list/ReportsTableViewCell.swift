@@ -18,7 +18,7 @@ class ReportsTableViewCell: UITableViewCell {
     @IBOutlet weak var typeImageView: UIImageView!
     @IBOutlet weak var typeLabel: UILabel!
 
-    var report:Report! {
+    var report: Report! {
         didSet {
             if let reportImageView = reportImageView, let firstURLString = report.imageURLs.first, let url = URL(string: firstURLString) {
                 reportImageView.sd_setImage(with: url, completed: nil)

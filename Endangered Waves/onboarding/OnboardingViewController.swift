@@ -16,7 +16,10 @@ class OnboardingViewController: UIPageViewController {
 
     weak var onboardingDelegate: OnboardingViewControllerDelegate?
 
-    var pagedViewControllers: [UIViewController] = [OnboardingPageOneViewController.instantiate(), OnboardingPageTwoViewController.instantiate(), OnboardingPageThreeViewController.instantiate(), OnboardingPageFourViewController.instantiate()]
+    var pagedViewControllers: [UIViewController] = [OnboardingPageOneViewController.instantiate(),
+                                                    OnboardingPageTwoViewController.instantiate(),
+                                                    OnboardingPageThreeViewController.instantiate(),
+                                                    OnboardingPageFourViewController.instantiate()]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,9 +91,6 @@ extension OnboardingViewController: StoryboardInstantiable {
     static var storyboardName: String { return "onboarding" }
     static var storyboardIdentifier: String? { return "OnboardingPageComponent" }
 }
-
-
-
 
 class OnboardingPageOneViewController: UIViewController {
 

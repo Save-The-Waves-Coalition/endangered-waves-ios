@@ -48,9 +48,11 @@ class ReportMapAnnotationView: MKAnnotationView {
     //
 
     func createCustomCalloutView() -> ReportMapCalloutView? {
-        if let views = Bundle.main.loadNibNamed("ReportMapCalloutView", owner: self, options: nil) as? [ReportMapCalloutView], views.count > 0 {
+        if let views = Bundle.main.loadNibNamed("ReportMapCalloutView", owner: self, options: nil) as? [ReportMapCalloutView],
+            let reportAnnotation = annotation as? ReportMapAnnotation,
+            views.count > 0 {
+
             let view = views.first!
-            let reportAnnotation = annotation as! ReportMapAnnotation
             view.report = reportAnnotation.report
             var newFrame = view.frame
             newFrame.size.width = 48
@@ -77,10 +79,34 @@ class ReportMapAnnotationView: MKAnnotationView {
 
                 newCustomCalloutView.translatesAutoresizingMaskIntoConstraints = false
 
-                let horizontalConstraint = NSLayoutConstraint(item: newCustomCalloutView, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.left, multiplier: 1, constant: 5)
-                let verticalConstraint = NSLayoutConstraint(item: newCustomCalloutView, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 0)
-                let widthConstraint = NSLayoutConstraint(item: newCustomCalloutView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 200)
-                let heightConstraint = NSLayoutConstraint(item: newCustomCalloutView, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: 48)
+                let horizontalConstraint = NSLayoutConstraint(item: newCustomCalloutView,
+                                                              attribute: NSLayoutAttribute.left,
+                                                              relatedBy: NSLayoutRelation.equal,
+                                                              toItem: self,
+                                                              attribute: NSLayoutAttribute.left,
+                                                              multiplier: 1,
+                                                              constant: 5)
+                let verticalConstraint = NSLayoutConstraint(item: newCustomCalloutView,
+                                                            attribute: NSLayoutAttribute.centerY,
+                                                            relatedBy: NSLayoutRelation.equal,
+                                                            toItem: self,
+                                                            attribute: NSLayoutAttribute.centerY,
+                                                            multiplier: 1,
+                                                            constant: 0)
+                let widthConstraint = NSLayoutConstraint(item: newCustomCalloutView,
+                                                         attribute: NSLayoutAttribute.width,
+                                                         relatedBy: NSLayoutRelation.equal,
+                                                         toItem: nil,
+                                                         attribute: NSLayoutAttribute.notAnAttribute,
+                                                         multiplier: 1,
+                                                         constant: 200)
+                let heightConstraint = NSLayoutConstraint(item: newCustomCalloutView,
+                                                          attribute: NSLayoutAttribute.height,
+                                                          relatedBy: NSLayoutRelation.equal,
+                                                          toItem: nil,
+                                                          attribute: NSLayoutAttribute.notAnAttribute,
+                                                          multiplier: 1,
+                                                          constant: 48)
                 self.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
 
                 if animated {
@@ -114,8 +140,7 @@ class ReportMapAnnotationView: MKAnnotationView {
 
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         // if super passed hit test, return the result
-        if let parentHitView = super.hitTest(point, with: event) { return parentHitView }
-        else { // test in our custom callout.
+        if let parentHitView = super.hitTest(point, with: event) { return parentHitView } else { // test in our custom callout.
             if customCalloutView != nil {
                 return customCalloutView!.hitTest(convert(point, to: customCalloutView!), with: event)
             } else {

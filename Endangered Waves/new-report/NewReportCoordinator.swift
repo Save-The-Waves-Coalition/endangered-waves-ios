@@ -21,7 +21,7 @@ protocol NewReportCoordinatorDelegate: class {
 class NewReportCoordinator: Coordinator {
 
     weak var delegate: NewReportCoordinatorDelegate?
-    
+
     var newReportNavVC: NewReportNavViewController?
     var newReportVC: NewReportViewController?
 
@@ -30,7 +30,7 @@ class NewReportCoordinator: Coordinator {
             newReportVC?.images = images
         }
     }
-    
+
     var reportDescription: String?
 
     var location: LocationItem? {
@@ -59,11 +59,14 @@ class NewReportCoordinator: Coordinator {
     }
 
     func showNewReport() {
-        newReportNavVC = NewReportNavViewController.instantiate()
-        newReportVC = (newReportNavVC!.topViewController as! NewReportViewController)
-        newReportVC!.delegate = self
-        newReportVC!.images = images
-        rootViewController.present(newReportNavVC!, animated: true, completion: nil)
+        let navVC = NewReportNavViewController.instantiate()
+        if let topVC = navVC.topViewController as? NewReportViewController {
+            self.newReportNavVC = navVC
+            self.newReportVC = topVC
+            topVC.delegate = self
+            topVC.images = images
+            rootViewController.present(navVC, animated: true, completion: nil)
+        }
     }
 
     func showLocationPicker(withRootViewController viewController: UIViewController) {
@@ -83,7 +86,7 @@ class NewReportCoordinator: Coordinator {
 }
 
 extension NewReportCoordinator {
-    func lightboxForImages(_ images:[UIImage], withStartIndex index:Int) -> LightboxController? {
+    func lightboxForImages(_ images: [UIImage], withStartIndex index: Int) -> LightboxController? {
         guard images.count > 0 else { return nil }
 
         let lightboxImages = images.map {
@@ -126,22 +129,21 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
         reportDescription = description
     }
 
-
     func viewController(_ viewController: NewReportViewController, didTapReportType sender: STWButton) {
         if let buttonTitleText = sender.titleLabel?.text {
             switch buttonTitleText {
             case "OIL SPILL":
-                reportType = .OilSpill
+                reportType = .oilSpill
             case "SEWAGE":
-                reportType = .Sewage
+                reportType = .sewage
             case "TRASHED":
-                reportType = .Trashed
+                reportType = .trashed
             case "COASTAL\nEROSION":
-                reportType = .CoastalErosion
+                reportType = .coastalErosion
             case "ACCESS\nLOST":
-                reportType = .AccessLost
+                reportType = .accessLost
             case "GENERAL\n ":
-                reportType = .General
+                reportType = .general
             default:
                 assertionFailure("Missing type.")
             }
@@ -198,7 +200,13 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
         let statusString = images.count > 1 ? "Uploading Images" : "Uploading Image"
         SVProgressHUD.showProgress(0, status: statusString)
 
-        APIManager.createNewReport(creationDate: Date(), description: reportDescription, images: images, location: location, type: reportType, user: "matt_is_testing", progressHandler: { (progress: Double) in
+        APIManager.createNewReport(creationDate: Date(),
+                                   description: reportDescription,
+                                   images: images,
+                                   location: location,
+                                   type: reportType,
+                                   user: "matt_is_testing",
+                                   progressHandler: { (progress: Double) in
             SVProgressHUD.showProgress(Float(progress), status: statusString)
         }) { (documentID: String?, error: Error?) in
             if let error = error {

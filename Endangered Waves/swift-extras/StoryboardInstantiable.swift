@@ -23,11 +23,12 @@ extension StoryboardInstantiable {
 
     static func instantiate() -> Self {
         let storyboard = UIStoryboard(name: storyboardName, bundle: storyboardBundle)
-
+// swiftlint:disable force_cast
         if let storyboardIdentifier = storyboardIdentifier {
             return storyboard.instantiateViewController(withIdentifier: storyboardIdentifier) as! Self
         } else {
             return storyboard.instantiateInitialViewController() as! Self
         }
+// swiftlint:enable force_cast
     }
 }

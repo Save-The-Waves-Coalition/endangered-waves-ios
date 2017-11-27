@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return c
     }()
 
-    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
         FirebaseApp.configure()
         BuddyBuildSDK.setup()
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -41,12 +41,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func styleApp() {
         UIBarButtonItem.appearance().setTitleTextAttributes([
             NSAttributedStringKey.font :  Style.fontSFProDisplaySemiBold(),
-            NSAttributedStringKey.foregroundColor : Style.colorSTWBlue,
+            NSAttributedStringKey.foregroundColor : Style.colorSTWBlue
         ], for: .normal)
 
         UINavigationBar.appearance().titleTextAttributes = [
             NSAttributedStringKey.font: Style.fontBrandonGrotesqueBlack(size: 20),
-            NSAttributedStringKey.foregroundColor : UIColor.black,
+            NSAttributedStringKey.foregroundColor : UIColor.black
         ]
 
         UINavigationBar.appearance().backgroundColor = UIColor.white

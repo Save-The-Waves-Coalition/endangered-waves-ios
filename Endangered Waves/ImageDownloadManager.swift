@@ -27,7 +27,7 @@ class ImageDownloadManager: NSObject {
         for url in urls {
             manager.loadImage(with: url, options: [], progress: nil, completed: { (image, data, error, cacheType, finished, imageURL) in
 
-                self.processed = self.processed + 1
+                self.processed += 1
 
                 if let image = image {
                     self.images.append(image)

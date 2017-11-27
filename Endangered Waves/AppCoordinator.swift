@@ -13,7 +13,7 @@ final class UserMananger {
 
     static let shared = UserMananger()
 
-    var user:User?
+    var user: User?
     var handle: AuthStateDidChangeListenerHandle?
 
     init() {
@@ -68,7 +68,7 @@ class AppCoordinator: Coordinator {
     func isFirstLaunch() -> Bool {
         let hasBeenLaunchedBeforeFlag = "hasBeenLaunchedBeforeFlag"
         let isFirstLaunch = !UserDefaults.standard.bool(forKey: hasBeenLaunchedBeforeFlag)
-        if (isFirstLaunch) {
+        if isFirstLaunch {
             UserDefaults.standard.set(true, forKey: hasBeenLaunchedBeforeFlag)
             UserDefaults.standard.synchronize()
         }
@@ -82,7 +82,6 @@ extension AppCoordinator: OnboardingCoordinatorDelegate {
         removeChildCoordinator(coordinator)
     }
 }
-
 
 // MARK: Scratchpad
 

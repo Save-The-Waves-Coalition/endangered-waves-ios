@@ -12,7 +12,14 @@ import LocationPickerViewController
 
 class APIManager {
 
-    static func createNewReport(creationDate: Date, description: String, images: [UIImage], location: LocationItem, type: ReportType, user: String, progressHandler: @escaping (Double) -> (), completionHandler: @escaping (String?, Error?) -> ()) {
+    static func createNewReport(creationDate: Date,
+                                description: String,
+                                images: [UIImage],
+                                location: LocationItem,
+                                type: ReportType,
+                                user: String,
+                                progressHandler: @escaping (Double) -> Void,
+                                completionHandler: @escaping (String?, Error?) -> Void) {
 
         uploadImages(images, progressHandler: { (progress) in
             progressHandler(progress)
@@ -40,7 +47,7 @@ class APIManager {
         } // APIManager.uploadImages
     }
 
-    static func uploadReport(_ report: Report, completionHandler: @escaping (String?, Error?) -> ()) {
+    static func uploadReport(_ report: Report, completionHandler: @escaping (String?, Error?) -> Void) {
         let dataDictionary = report.documentDataDictionary()
         let collection = Firestore.firestore().collection("reports")
         var ref: DocumentReference? = nil
@@ -53,7 +60,7 @@ class APIManager {
         })
     }
 
-    static func uploadImages(_ images : [UIImage], progressHandler: @escaping (Double) -> (), completionHandler: @escaping ([String]?, Error?) -> ()){
+    static func uploadImages(_ images: [UIImage], progressHandler: @escaping (Double) -> Void, completionHandler: @escaping ([String]?, Error?) -> Void) {
 
         let storage = Storage.storage()
 
@@ -65,7 +72,7 @@ class APIManager {
         images.forEach { (image) in
 
             guard let imageData = UIImageJPEGRepresentation(image, 0.8) else {
-                failureUploadCount = failureUploadCount + 1
+                failureUploadCount += 1
                 return
             }
 
@@ -83,7 +90,7 @@ class APIManager {
             uploadTask.observe(.success, handler: { (storageTaskSnapshot) in
 
                 guard let metaData = storageTaskSnapshot.metadata, let downloadURL = metaData.downloadURL() else {
-                    failureUploadCount = failureUploadCount + 1
+                    failureUploadCount += 1
                     if (successfulUploadCount + failureUploadCount) == imagesCount {
                         completionHandler(nil, NSError(domain: "STW", code: 0, userInfo: nil))
                     }
@@ -93,7 +100,7 @@ class APIManager {
                 let downloadURLString = downloadURL.absoluteString
                 uploadedImageURLStrings.append(downloadURLString)
 
-                successfulUploadCount = successfulUploadCount + 1
+                successfulUploadCount += 1
                 progressHandler(Double(successfulUploadCount)/Double(imagesCount))
 
                 if (successfulUploadCount + failureUploadCount) == imagesCount {
@@ -102,7 +109,7 @@ class APIManager {
             })
 
             uploadTask.observe(.failure, handler: { (storageTaskSnapshot) in
-                failureUploadCount = failureUploadCount + 1
+                failureUploadCount += 1
                 if (successfulUploadCount + failureUploadCount) == imagesCount {
                     completionHandler(nil, NSError(domain: "STW", code: 0, userInfo: nil))
                 }

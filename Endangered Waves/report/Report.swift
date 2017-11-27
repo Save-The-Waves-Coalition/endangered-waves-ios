@@ -43,65 +43,65 @@ extension ReportLocation {
 }
 
 enum ReportType: String {
-    case OilSpill
-    case Sewage
-    case Trashed
-    case CoastalErosion
-    case AccessLost
-    case General
+    case oilSpill = "OilSpill"
+    case sewage = "Sewage"
+    case trashed = "Trashed"
+    case coastalErosion = "CoastalErosion"
+    case accessLost = "AccessLost"
+    case general = "General"
     init() {
-        self = .General
+        self = .general
     }
 }
 
 extension ReportType {
     func displayString() -> String {
         switch self {
-        case .OilSpill:
+        case .oilSpill:
             return "Oil Spill"
-        case .Sewage:
+        case .sewage:
             return "Sewage "
-        case .Trashed:
+        case .trashed:
             return "Trashed"
-        case .CoastalErosion:
+        case .coastalErosion:
             return "Coastal Erosion"
-        case .AccessLost:
+        case .accessLost:
             return "Access Lost"
-        case .General:
+        case .general:
             return "General"
         }
     }
 
     func placemarkIcon() -> UIImage {
         switch self {
-        case .OilSpill:
+        case .oilSpill:
             return Style.iconOilPlacemark
-        case .Sewage:
+        case .sewage:
             return Style.iconSewagePlacemark
-        case .Trashed:
+        case .trashed:
             return Style.iconTrashPlacemark
-        case .CoastalErosion:
+        case .coastalErosion:
             return Style.iconCoastalErosionPlacemark
-        case .AccessLost:
+        case .accessLost:
             return Style.iconAccessPlacemark
-        case .General:
+        case .general:
             return Style.iconGeneralPlacemark
         }
     }
 
     func icon() -> UIImage {
         switch self {
-        case .OilSpill:
+        case .oilSpill:
             return Style.iconOil
-        case .Sewage:
+        case .sewage:
             return Style.iconSewage
-        case .Trashed:
+        case .trashed:
             return Style.iconTrash
-        case .CoastalErosion:
+        case .coastalErosion:
             return Style.iconCoastalErosion
-        case .AccessLost:
+        case .accessLost:
             return Style.iconAccess
-        case .General:
+        case .general:
             return Style.iconGeneral
         }
     }

@@ -15,12 +15,12 @@ class NavigationBar: UINavigationBar {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        if (self.frame.origin.y == CGFloat(0)) {
+        if self.frame.origin.y == CGFloat(0) {
             self.frame.origin.y = CGFloat(20)
         }
 
         for subView in self.subviews {
-            if (subView.className == "_UIBarBackground") {
+            if subView.className == "_UIBarBackground" {
                 subView.frame.size.height = 64
                 subView.frame.origin.y = -20
             }

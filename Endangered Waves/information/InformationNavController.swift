@@ -14,4 +14,3 @@ extension InformationNavController: StoryboardInstantiable {
     static var storyboardName: String { return "information" }
     static var storyboardIdentifier: String? { return "InformationNavComponent" }
 }
-

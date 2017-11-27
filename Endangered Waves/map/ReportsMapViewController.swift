@@ -50,9 +50,9 @@ class ReportsMapViewController: UIViewController {
     @IBAction func userLocationButtonWasTapped(_ sender: UIButton) {
         centerMapOnUser()
     }
-    
+
     // Helpers
-    
+
     private func checkLocationAuthorizationStatus() {
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             mapView.showsUserLocation = true
@@ -158,7 +158,10 @@ extension ReportsMapViewController: MKMapViewDelegate {
 //            let endFrame:CGRect = view.frame;
 //
 //            // Move annotation out of view
-//            view.frame = CGRect(origin: CGPoint(x: view.frame.origin.x,y :view.frame.origin.y-self.view.frame.size.height), size: CGSize(width: view.frame.size.width, height: view.frame.size.height))
+//            view.frame = CGRect(origin: CGPoint(x: view.frame.origin.x,
+//    y :view.frame.origin.y-self.view.frame.size.height),
+//    size: CGSize(width: view.frame.size.width,
+//    height: view.frame.size.height))
 //
 //            // Animate drop
 //            let delay = 0.03 * Double(i)

@@ -12,7 +12,7 @@ import MapKit
 
 protocol ReportDetailViewControllerDelegate: class {
     func finishedViewingDetailsViewController(_ viewController: ReportDetailViewController)
-    func viewController(_ viewController: ReportDetailViewController, didTapImages images: [UIImage], atIndex index:Int)
+    func viewController(_ viewController: ReportDetailViewController, didTapImages images: [UIImage], atIndex index: Int)
 }
 
 class ReportDetailViewController: UITableViewController {
@@ -69,8 +69,7 @@ class ReportDetailViewController: UITableViewController {
             typeImageView.image = report.type.placemarkIcon()
         }
 
-
-        let urls:[URL] = report.imageURLs.flatMap({ (urlString) -> URL? in
+        let urls: [URL] = report.imageURLs.flatMap({ (urlString) -> URL? in
             return URL(string: urlString)
         })
 
@@ -78,7 +77,6 @@ class ReportDetailViewController: UITableViewController {
             self.images = images
             self.imageSliderViewController.images = images
         })
-
 
         if let locationLabel = locationLabel {
             locationLabel.text = "\(report.location.name)\n\(report.location.address)"

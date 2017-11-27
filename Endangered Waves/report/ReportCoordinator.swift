@@ -38,8 +38,8 @@ class ReportCoordinator: Coordinator {
         delegate?.coordinatorDidFinishViewingReport(self)
     }
 
-    func showLightboxComponentWithImages(_ images:[UIImage], atIndex index:Int) {
-        if let vc = lightboxForImages(images, withStartIndex: index){
+    func showLightboxComponentWithImages(_ images: [UIImage], atIndex index: Int) {
+        if let vc = lightboxForImages(images, withStartIndex: index) {
             rootViewController.present(vc, animated: true, completion: nil)
         }
     }
@@ -56,7 +56,7 @@ extension ReportCoordinator: ReportDetailViewControllerDelegate {
 }
 
 extension ReportCoordinator {
-    func lightboxForImages(_ images:[UIImage], withStartIndex index:Int) -> LightboxController? {
+    func lightboxForImages(_ images: [UIImage], withStartIndex index: Int) -> LightboxController? {
         guard images.count > 0 else { return nil }
 
         let lightboxImages = images.map {

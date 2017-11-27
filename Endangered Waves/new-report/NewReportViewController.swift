@@ -19,8 +19,8 @@ import MapKit
 protocol NewReportViewControllerDelegate: class {
     func viewController(_ viewController: NewReportViewController, didTapCancelButton button: UIBarButtonItem)
     func viewController(_ viewController: NewReportViewController, didTapPostButton button: Any)
-    func viewController(_ viewController: NewReportViewController, didTapImageAtIndex index:Int)
-    func viewController(_ viewController: NewReportViewController, didTapAddButton button:UIButton)
+    func viewController(_ viewController: NewReportViewController, didTapImageAtIndex index: Int)
+    func viewController(_ viewController: NewReportViewController, didTapAddButton button: UIButton)
     func viewController(_ viewController: NewReportViewController, didTapLocation sender: UITapGestureRecognizer)
     func viewController(_ viewController: NewReportViewController, didTapReportType sender: STWButton)
     func viewController(_ viewController: NewReportViewController, didWriteDescription description: String)
@@ -43,7 +43,6 @@ class NewReportViewController: UITableViewController {
                 button.tintColor = .black
                 button.isSelected = true
                 button.titleLabel?.font = Style.fontBrandonGrotesqueBlack(size: 12)
-
 
                 if let currentAttributedTitle = button.currentAttributedTitle {
                     let style = NSMutableParagraphStyle()
@@ -76,7 +75,7 @@ class NewReportViewController: UITableViewController {
 
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var mapImageView: UIImageView!
-    
+
     var images: [UIImage]? {
         didSet {
             imageSliderViewController?.images = images
@@ -90,7 +89,7 @@ class NewReportViewController: UITableViewController {
             }
         }
     }
-    
+
     var location: LocationItem? {
         didSet {
             if let location = location, let addressString = location.formattedAddressString {
@@ -159,7 +158,7 @@ class NewReportViewController: UITableViewController {
         }
 
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let imageSliderViewController = segue.destination as? ImageSliderViewController {
             imageSliderViewController.images = self.images
@@ -200,7 +199,7 @@ extension NewReportViewController: UITextViewDelegate {
     }
 
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if (textView.text == "Write a description...") {
+        if textView.text == "Write a description..." {
             textView.text = ""
             textView.textColor = .black
             textView.font = Style.fontGeorgia(size: 15)
@@ -209,7 +208,7 @@ extension NewReportViewController: UITextViewDelegate {
     }
 
     func textViewDidEndEditing(_ textView: UITextView) {
-        if (textView.text == "") {
+        if textView.text == "" {
             textView.text = "Write a description..."
             textView.textColor = Style.colorSTWGrey
             textView.font = Style.fontGeorgiaItalic(size: 15)

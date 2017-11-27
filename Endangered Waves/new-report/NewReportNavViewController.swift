@@ -17,4 +17,3 @@ extension NewReportNavViewController: StoryboardInstantiable {
     static var storyboardName: String { return "new-report" }
     static var storyboardIdentifier: String? { return "NewReportNavComponent" }
 }
-

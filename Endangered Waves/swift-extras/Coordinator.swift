@@ -37,7 +37,7 @@ class Coordinator {
         viewController.removeFromParentViewController()
     }
 
-    func addFullScreenSubview(subView: UIView, toView parentView:UIView) {
+    func addFullScreenSubview(subView: UIView, toView parentView: UIView) {
         subView.translatesAutoresizingMaskIntoConstraints = false
         parentView.addSubview(subView)
         var viewBindingsDictionary = [String: AnyObject]()

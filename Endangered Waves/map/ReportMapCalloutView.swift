@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 
 protocol ReportMapCalloutViewDelegate: class {
-    func view(_ view:ReportMapCalloutView, didTapDetailsButton button:UIButton?, forReport report:Report)
+    func view(_ view: ReportMapCalloutView, didTapDetailsButton button: UIButton?, forReport report: Report)
 }
 
 class ReportMapCalloutView: UIView {
@@ -20,7 +20,7 @@ class ReportMapCalloutView: UIView {
             if let reportTypeLabel = reportTypeLabel {
                 reportTypeLabel.text = report.type.displayString().uppercased()
             }
-            
+
             if let dateLabel = dateLabel {
                 dateLabel.text = report.dateDisplayString()
             }

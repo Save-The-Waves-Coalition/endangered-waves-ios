@@ -100,6 +100,7 @@
 		4A321AA11FB7AB17001DA08A /* ReportDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailViewController.swift; sourceTree = "<group>"; };
 		4A321AC51FB8EF17001DA08A /* ReportMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportMapAnnotation.swift; sourceTree = "<group>"; };
 		4A321AC71FB9131D001DA08A /* ReportDetailNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailNavViewController.swift; sourceTree = "<group>"; };
+		4A5931AF1FCC667E00CFBF19 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		4A7FA9161FAA966300C6A2BB /* Endangered Waves.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Endangered Waves.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A7FA9191FAA966300C6A2BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A7FA9201FAA966300C6A2BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -255,6 +256,7 @@
 		4A7FA90D1FAA966300C6A2BB = {
 			isa = PBXGroup;
 			children = (
+				4A5931AF1FCC667E00CFBF19 /* .swiftlint.yml */,
 				4A7FA9181FAA966300C6A2BB /* Endangered Waves */,
 				4A7FA9171FAA966300C6A2BB /* Products */,
 				2D488BFB95E3ADB8405C9CEF /* Pods */,
@@ -363,6 +365,7 @@
 				4A7FA9141FAA966300C6A2BB /* Resources */,
 				C56DF0E158706BB21C8960BD /* [CP] Embed Pods Frameworks */,
 				A79D16838D37122E786B78DB /* [CP] Copy Pods Resources */,
+				4A5931AE1FCC661200CFBF19 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -434,6 +437,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4A5931AE1FCC661200CFBF19 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 		5701E508FA32BA140A6F3B44 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -711,7 +727,7 @@
 				INFOPLIST_FILE = "Endangered Waves/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.savethewavescoalition.endangeredwaves;
+				PRODUCT_BUNDLE_IDENTIFIER = endangeredwaves;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -732,7 +748,7 @@
 				INFOPLIST_FILE = "Endangered Waves/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.savethewavescoalition.endangeredwaves;
+				PRODUCT_BUNDLE_IDENTIFIER = endangeredwaves;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;

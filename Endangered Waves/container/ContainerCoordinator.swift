@@ -14,9 +14,11 @@ class ContainerCoordinator: Coordinator {
 
     lazy var containerNavViewController: ContainerNavViewController = {
         let vc = ContainerNavViewController.instantiate()
-        containerViewController = vc.topViewController as! ContainerViewController
-        containerViewController.delegate = self
-        let _ = containerViewController.view // This forces the view to load: https://stackoverflow.com/a/29322364
+        if let topVC = vc.topViewController as? ContainerViewController {
+            self.containerViewController = topVC
+            containerViewController.delegate = self
+            _ = containerViewController.view // This forces the view to load: https://stackoverflow.com/a/29322364
+        }
         return vc
     }()
     var containerViewController: ContainerViewController!
@@ -78,7 +80,7 @@ class ContainerCoordinator: Coordinator {
         informationCoordinator.start()
     }
 
-    func showReportDetailsComponentForReport(_ report:Report) {
+    func showReportDetailsComponentForReport(_ report: Report) {
         let reportCoordinator = ReportCoordinator(with: containerNavViewController, report: report)
         reportCoordinator.delegate = self
         childCoordinators.append(reportCoordinator)
