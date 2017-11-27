@@ -25,7 +25,7 @@ class ReportsTableViewCell: UITableViewCell {
             }
 
             if let typeImageView = typeImageView, let typeLabel = typeLabel {
-                typeImageView.image = report.type.icon()
+                typeImageView.image = report.type.placemarkIcon()
                 typeLabel.text = report.type.displayString().uppercased()
             }
 

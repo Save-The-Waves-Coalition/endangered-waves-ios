@@ -62,6 +62,7 @@ class ReportsMapViewController: UIViewController {
     private func configureMap() {
         mapView.delegate = self
         mapView.mapType = .standard
+        mapView.showsCompass = false
     }
 
     private func centerMapOnUser() {

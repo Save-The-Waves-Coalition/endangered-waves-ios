@@ -66,7 +66,7 @@ class ReportDetailViewController: UITableViewController {
         title = report.type.displayString().uppercased()
 
         if let typeImageView = typeImageView {
-            typeImageView.image = report.type.icon()
+            typeImageView.image = report.type.placemarkIcon()
         }
 
 
@@ -81,7 +81,7 @@ class ReportDetailViewController: UITableViewController {
 
 
         if let locationLabel = locationLabel {
-            locationLabel.text = report.location.name
+            locationLabel.text = "\(report.location.name)\n\(report.location.address)"
         }
 
         if let mapImageView = mapImageView {
