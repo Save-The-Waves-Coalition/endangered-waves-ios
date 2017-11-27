@@ -27,7 +27,7 @@ class APIManager {
                 return
             }
 
-            let reportLocation = ReportLocation(name: location.name, coordinate: location.mapItem.placemark.coordinate)
+            let reportLocation = ReportLocation(name: location.name, address: location.formattedAddressString ?? "", coordinate: location.mapItem.placemark.coordinate)
             let report = Report(creationDate: Date(), description: description, imageURLs: uploadedImageURLStrings, location: reportLocation, type: type, user: userID)
 
             uploadReport(report, completionHandler: { (documentID, error) in

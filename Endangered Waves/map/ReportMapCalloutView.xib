@@ -64,7 +64,7 @@
                         <constraint firstAttribute="width" constant="48" id="pIx-1N-5M3"/>
                     </constraints>
                 </imageView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beach_trash" translatesAutoresizingMaskIntoConstraints="NO" id="q1G-LI-21S">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q1G-LI-21S">
                     <rect key="frame" x="3.5" y="3.5" width="41" height="41"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="41" id="UYv-50-h0r"/>
@@ -113,7 +113,6 @@
         </view>
     </objects>
     <resources>
-        <image name="beach_trash" width="700" height="525"/>
         <image name="chevron" width="34" height="57"/>
         <image name="oil-placemark" width="48" height="48"/>
         <image name="white-circle48x48" width="48" height="48"/>

@@ -13,18 +13,20 @@ import FirebaseFirestore
 
 struct ReportLocation {
     var name: String
+    var address: String
     var coordinate: CLLocationCoordinate2D
 
-    init(name: String, coordinate: CLLocationCoordinate2D) {
+    init(name: String, address: String, coordinate: CLLocationCoordinate2D) {
         self.name = name
+        self.address = address
         self.coordinate = coordinate
     }
 
     static func createReportLocationWithDictionary(_ dictionary: [String: Any]) -> ReportLocation? {
-        guard let name = dictionary["name"] as? String, let coordinate = dictionary["coordinate"] as? GeoPoint else {
+        guard let name = dictionary["name"] as? String, let address = dictionary["address"] as? String, let coordinate = dictionary["coordinate"] as? GeoPoint else {
             return nil
         }
-        return ReportLocation(name: name, coordinate: CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude))
+        return ReportLocation(name: name, address: address, coordinate: CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude))
     }
 }
 
@@ -35,6 +37,7 @@ extension ReportLocation {
 
     func documentDataDictionary() -> [String: Any] {
         return ["name": name,
+                "address": address,
                 "coordinate": GeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude)]
     }
 }

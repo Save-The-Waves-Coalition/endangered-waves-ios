@@ -18,8 +18,15 @@ class ReportMapAnnotationView: MKAnnotationView {
 
     override var annotation: MKAnnotation? {
         willSet {
-            guard (newValue as?  ReportMapAnnotation) != nil else {return}
+            guard (newValue as?  ReportMapAnnotation) != nil else {
+                return
+            }
             customCalloutView?.removeFromSuperview()
+        }
+        didSet {
+            if let reportMapAnnotation = annotation as? ReportMapAnnotation {
+                image = reportMapAnnotation.report.type.placemarkIcon()
+            }
         }
     }
 
