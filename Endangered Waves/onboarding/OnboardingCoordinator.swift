@@ -18,7 +18,7 @@ class OnboardingCoordinator: Coordinator {
 
     override func start() {
         let onboardingVC = OnboardingViewController.instantiate()
-        onboardingVC.delegate = self
+        onboardingVC.onboardingDelegate = self
         addFullScreenChildViewController(viewController: onboardingVC, toViewController: rootViewController)
     }
 
@@ -28,7 +28,7 @@ class OnboardingCoordinator: Coordinator {
 }
 
 extension OnboardingCoordinator: OnboardingViewControllerDelegate {
-    func controller(_ controller: OnboardingViewController, didTapSkipButton button: UIButton) {
+    func controller(_ controller: OnboardingViewController, didTapSkipButton button: UIButton?) {
         removeChildViewController(viewController: controller, fromViewController: rootViewController)
         stop()
     }
