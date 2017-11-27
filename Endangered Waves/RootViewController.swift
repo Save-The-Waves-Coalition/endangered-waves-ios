@@ -25,8 +25,12 @@ class RootViewController: UIViewController {
 
     override var childViewControllerForStatusBarHidden: UIViewController? {
         for viewController in childViewControllers {
-            if viewController is ContainerViewController {
-                return viewController
+            if viewController is ContainerNavViewController {
+                for childViewController in viewController.childViewControllers {
+                    if childViewController is ContainerViewController {
+                        return childViewController
+                    }
+                }
             }
         }
         return nil
@@ -34,8 +38,12 @@ class RootViewController: UIViewController {
 
     override var childViewControllerForStatusBarStyle: UIViewController? {
         for viewController in childViewControllers {
-            if viewController is ContainerViewController {
-                return viewController
+            if viewController is ContainerNavViewController {
+                for childViewController in viewController.childViewControllers {
+                    if childViewController is ContainerViewController {
+                        return childViewController
+                    }
+                }
             }
         }
         return nil
