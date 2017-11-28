@@ -203,6 +203,7 @@
                     </navigationItem>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
+                        <outlet property="dateLabel" destination="n9n-oJ-m8Q" id="gz7-Ra-app"/>
                         <outlet property="descriptionLabel" destination="tX0-0M-TwC" id="otY-w1-7fp"/>
                         <outlet property="imageLoadingLabel" destination="C33-jj-OX5" id="C0g-4I-K6Q"/>
                         <outlet property="imageSliderContainerView" destination="S1S-cS-x1O" id="77w-Pq-Uh4"/>

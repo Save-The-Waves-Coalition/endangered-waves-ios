@@ -39,6 +39,7 @@ class ReportDetailViewController: UITableViewController {
     @IBOutlet weak var imageSliderContainerView: UIView!
     var imageSliderViewController: ImageSliderViewController!
     @IBOutlet weak var typeImageView: UIImageView!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var mapImageView: UIImageView!
@@ -77,6 +78,10 @@ class ReportDetailViewController: UITableViewController {
             self.images = images
             self.imageSliderViewController.images = images
         })
+
+        if let dateLabel = dateLabel {
+            dateLabel.text = "– \(report.dateDisplayString()) –"
+        }
 
         if let locationLabel = locationLabel {
             locationLabel.text = "\(report.location.name)\n\(report.location.address)"
