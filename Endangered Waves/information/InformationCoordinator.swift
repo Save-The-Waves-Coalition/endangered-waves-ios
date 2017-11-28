@@ -29,9 +29,20 @@ class InformationCoordinator: Coordinator {
     override func stop() {
         delegate?.coordinatorDidFinish(self)
     }
+
+    func showOnboardingWithViewController(_ viewController: UIViewController) {
+        let onboardingCoordinator = OnboardingCoordinator(with: viewController)
+        onboardingCoordinator.delegate = self
+        childCoordinators.append(onboardingCoordinator)
+        onboardingCoordinator.presentWithViewController(viewController)
+    }
 }
 
 extension InformationCoordinator: InformationViewControllerDelegate {
+    func userWantsToViewTutorialWithViewController(_ viewController: InformationViewController) {
+        showOnboardingWithViewController(viewController)
+    }
+
     func viewController(_ viewController: InformationViewController, didTapDoneButton button: UIBarButtonItem) {
         viewController.dismiss(animated: true, completion: nil)
         stop()
@@ -47,5 +58,11 @@ extension InformationCoordinator: InformationViewControllerDelegate {
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
+    }
+}
+
+extension InformationCoordinator: OnboardingCoordinatorDelegate {
+    func coordinatorDidFinishOnboarding(_ coordinator: OnboardingCoordinator) {
+        removeChildCoordinator(coordinator)
     }
 }

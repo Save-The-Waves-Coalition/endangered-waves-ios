@@ -12,6 +12,7 @@ protocol InformationViewControllerDelegate: class {
     func viewController(_ viewController: InformationViewController, didTapDoneButton button: UIBarButtonItem)
     func viewController(_ viewController: InformationViewController, wantsToOpenURL url: URL)
     func viewController(_ viewController: InformationViewController, wantsToLaunchAppWithURL url: URL)
+    func userWantsToViewTutorialWithViewController(_ viewController: InformationViewController)
 }
 
 class InformationViewController: UITableViewController {
@@ -42,7 +43,7 @@ extension InformationViewController {
         case 0:
             switch indexPath.row {
             case 0: // Newsletter
-                let url = URL(string:"https://www.savethewaves.org/")!
+                let url = URL(string: "https://www.savethewaves.org/media/newsletters/newsletter-signup/")!
                 delegate?.viewController(self, wantsToOpenURL: url)
             case 1: // Donation
                 let url  = URL(string: "https://www.savethewaves.org/support-us/donate/")!
@@ -86,6 +87,13 @@ extension InformationViewController {
                 delegate?.viewController(self, wantsToLaunchAppWithURL: url)
             case 2: // Address
                 break
+            default:
+                break
+            }
+        case 3:
+            switch indexPath.row {
+            case 0: // Tutorial
+                delegate?.userWantsToViewTutorialWithViewController(self)
             default:
                 break
             }

@@ -19,7 +19,14 @@ class OnboardingCoordinator: Coordinator {
     override func start() {
         let onboardingVC = OnboardingViewController.instantiate()
         onboardingVC.onboardingDelegate = self
-        addFullScreenChildViewController(viewController: onboardingVC, toViewController: rootViewController)
+        rootViewController.present(onboardingVC, animated: false, completion: nil)
+    }
+
+    // TODO: Deviating from the `start` convention, is this okay
+    func presentWithViewController(_ viewController: UIViewController) {
+        let onboardingVC = OnboardingViewController.instantiate()
+        onboardingVC.onboardingDelegate = self
+        viewController.present(onboardingVC, animated: true, completion: nil)
     }
 
     override func stop() {
@@ -29,7 +36,7 @@ class OnboardingCoordinator: Coordinator {
 
 extension OnboardingCoordinator: OnboardingViewControllerDelegate {
     func controller(_ controller: OnboardingViewController, didTapSkipButton button: UIButton?) {
-        removeChildViewController(viewController: controller, fromViewController: rootViewController)
+        controller.dismiss(animated: true, completion: nil)
         stop()
     }
 }

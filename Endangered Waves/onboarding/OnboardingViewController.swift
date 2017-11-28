@@ -23,12 +23,12 @@ class OnboardingViewController: UIPageViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.dataSource = self // Uncomment to enable user interactions
+        self.dataSource = self // Uncomment to enable user interactions
         self.setViewControllers([pagedViewControllers[0]], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
-        Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.advanceToIndex1), userInfo: nil, repeats: false)
-        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.advanceToIndex2), userInfo: nil, repeats: false)
-        Timer.scheduledTimer(timeInterval: 8, target: self, selector: #selector(self.advanceToIndex3), userInfo: nil, repeats: false)
-        Timer.scheduledTimer(timeInterval: 11, target: self, selector: #selector(self.fadeAway), userInfo: nil, repeats: false)
+//        Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.advanceToIndex1), userInfo: nil, repeats: false)
+//        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.advanceToIndex2), userInfo: nil, repeats: false)
+//        Timer.scheduledTimer(timeInterval: 8, target: self, selector: #selector(self.advanceToIndex3), userInfo: nil, repeats: false)
+//        Timer.scheduledTimer(timeInterval: 11, target: self, selector: #selector(self.fadeAway), userInfo: nil, repeats: false)
     }
 
     @objc func advanceToIndex1() {
