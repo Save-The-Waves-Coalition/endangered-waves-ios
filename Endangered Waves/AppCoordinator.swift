@@ -46,7 +46,7 @@ class AppCoordinator: Coordinator {
         userManager = UserMananger.shared
         showContent()
         if isFirstLaunch() {
-            showOnboarding()
+//            showOnboarding()
         }
     }
 
