@@ -34,6 +34,13 @@ class InformationViewController: UITableViewController {
             appVersionLabel.text = "\(version) (\(build))"
         }
     }
+
+    // Actions
+
+    @IBAction func mjdButtonWasTapped(_ sender: UIButton) {
+        let url = URL(string: "http://mjdinteractive.com/")!
+        delegate?.viewController(self, wantsToOpenURL: url)
+    }
 }
 
 // MARK: UITableViewDelegate
