@@ -12,12 +12,13 @@ import LocationPickerViewController
 
 class APIManager {
 
-    static func createNewReport(creationDate: Date,
+    static func createNewReport(name: String,
+                                address: String,
+                                coordinate: GeoPoint,
+                                creationDate: Date,
                                 description: String,
                                 images: [UIImage],
-                                location: LocationItem,
                                 type: ReportType,
-                                user: String,
                                 progressHandler: @escaping (Double) -> Void,
                                 completionHandler: @escaping (String?, Error?) -> Void) {
 
@@ -34,8 +35,7 @@ class APIManager {
                 return
             }
 
-            let reportLocation = ReportLocation(name: location.name, address: location.formattedAddressString ?? "", coordinate: location.mapItem.placemark.coordinate)
-            let report = Report(creationDate: Date(), description: description, imageURLs: uploadedImageURLStrings, location: reportLocation, type: type, user: userID)
+            let report = Report(name: name, address: address, coordinate: coordinate, creationDate: Date(), description: description, imageURLs: uploadedImageURLStrings, type: type, user: userID)
 
             uploadReport(report, completionHandler: { (documentID, error) in
                 if let error = error {

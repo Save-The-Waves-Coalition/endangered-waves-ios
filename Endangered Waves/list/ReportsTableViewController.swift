@@ -26,8 +26,9 @@ class ReportsTableViewController: UITableViewController {
                 return UITableViewCell()
             }
 
-            let report = Report.createReportWithSnapshot(snapshot)
-            cell.report = report
+            if let report = Report.createReportWithSnapshot(snapshot) {
+                cell.report = report
+            }
             return cell
         })
         return source

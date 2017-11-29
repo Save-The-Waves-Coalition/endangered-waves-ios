@@ -93,7 +93,8 @@ extension ReportsMapViewController: FUIBatchedArrayDelegate {
 
         array.items.forEach { (snapshot) in
             if let report = Report.createReportWithSnapshot(snapshot) {
-                let annotation = ReportMapAnnotation(coordinate: report.location.coordinate, report: report)
+                let coordinate = CLLocationCoordinate2DMake(report.coordinate.latitude, report.coordinate.longitude)
+                let annotation = ReportMapAnnotation(coordinate: coordinate, report: report)
                 mapView.addAnnotation(annotation)
             }
         }

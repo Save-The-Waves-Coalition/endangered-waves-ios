@@ -30,7 +30,7 @@ class ReportsTableViewCell: UITableViewCell {
             }
 
             if let locationNameLabel = locationNameLabel {
-                locationNameLabel.text = report.location.name.uppercased()
+                locationNameLabel.text = report.name.uppercased()
             }
 
             if let dateLabel = dateLabel {

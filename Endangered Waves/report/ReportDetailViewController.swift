@@ -84,11 +84,11 @@ class ReportDetailViewController: UITableViewController {
         }
 
         if let locationLabel = locationLabel {
-            locationLabel.text = "\(report.location.name)\n\(report.location.address)"
+            locationLabel.text = "\(report.name)\n\(report.address)"
         }
 
         if let mapImageView = mapImageView {
-            let coordinate = report.location.coordinate
+            let coordinate = CLLocationCoordinate2DMake(report.coordinate.latitude, report.coordinate.longitude)
             let mapSnapshotOptions = MKMapSnapshotOptions()
 
             // Set the region of the map that is rendered.

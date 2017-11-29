@@ -7,3 +7,7 @@ line_length: 144
 cyclomatic_complexity:
     warning: 10
     error: 30
+
+function_parameter_count:
+    warning: 10
+    error: 20

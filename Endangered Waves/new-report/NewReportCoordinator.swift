@@ -13,6 +13,7 @@ import LocationPickerViewController
 import FirebaseStorage
 import FirebaseFirestore
 import SVProgressHUD
+import CoreLocation
 
 protocol NewReportCoordinatorDelegate: class {
     func coordinatorDidFinishNewReport(_ coordinator: NewReportCoordinator)
@@ -178,6 +179,10 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
             showValidationError(title: "Missing Location", message: "Please select a location.", withViewController: viewController)
             return
         }
+        guard let locationCoordinate = location?.coordinate else {
+            showValidationError(title: "Missing Location", message: "Please select a location.", withViewController: viewController)
+            return
+        }
 
         // validate description
         if (reportDescription ?? "").isEmpty {
@@ -200,14 +205,15 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
         let statusString = images.count > 1 ? "Uploading Images" : "Uploading Image"
         SVProgressHUD.showProgress(0, status: statusString)
 
-        APIManager.createNewReport(creationDate: Date(),
+        let geoPoint = GeoPoint(latitude: locationCoordinate.latitude, longitude: locationCoordinate.longitude)
+        APIManager.createNewReport(name: location.name,
+                                   address: location.formattedAddressString ?? "",
+                                   coordinate: geoPoint, creationDate: Date(),
                                    description: reportDescription,
                                    images: images,
-                                   location: location,
                                    type: reportType,
-                                   user: "matt_is_testing",
-                                   progressHandler: { (progress: Double) in
-            SVProgressHUD.showProgress(Float(progress), status: statusString)
+            progressHandler: { (progress: Double) in
+                SVProgressHUD.showProgress(Float(progress), status: statusString)
         }) { (documentID: String?, error: Error?) in
             if let error = error {
                 print("Error adding document: \(error.localizedDescription)")

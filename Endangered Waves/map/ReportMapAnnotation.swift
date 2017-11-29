@@ -12,7 +12,7 @@ import MapKit
 class ReportMapAnnotation: NSObject, MKAnnotation {
 
     var title: String? {
-        return report.location.name
+        return report.name
     }
     var subtitle: String? {
         return report.description
