@@ -20,18 +20,18 @@ class APIManager {
                                 images: [UIImage],
                                 type: ReportType,
                                 progressHandler: @escaping (Double) -> Void,
-                                completionHandler: @escaping (String?, Error?) -> Void) {
+                                completionHandler: @escaping (String?, Report?, Error?) -> Void) {
 
         uploadImages(images, progressHandler: { (progress) in
             progressHandler(progress)
         }) { (uploadedImageURLStrings, error) in
             guard let uploadedImageURLStrings = uploadedImageURLStrings else {
-                completionHandler(nil, error!)
+                completionHandler(nil, nil, error!)
                 return
             }
 
             guard let userID = UserMananger.shared.user?.uid else {
-                completionHandler(nil, NSError(domain: "STW", code: 0, userInfo: nil))
+                completionHandler(nil, nil, NSError(domain: "STW", code: 0, userInfo: nil))
                 return
             }
 
@@ -39,9 +39,9 @@ class APIManager {
 
             uploadReport(report, completionHandler: { (documentID, error) in
                 if let error = error {
-                    completionHandler(nil, error)
+                    completionHandler(nil, nil, error)
                 } else {
-                    completionHandler(documentID, nil)
+                    completionHandler(documentID, report, nil)
                 }
             }) // APIManager.uploadReport
         } // APIManager.uploadImages

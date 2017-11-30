@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SafariServices
+import SDWebImage
 
 class ContainerCoordinator: Coordinator {
 
@@ -105,6 +107,51 @@ class ContainerCoordinator: Coordinator {
         })
 
     }
+
+    fileprivate func showTakeAction() {
+        let url = URL(string: "http://www.savethewaves.org/endangered-waves/take-action/")!
+        let safariViewController = SFSafariViewController(url: url)
+        safariViewController.preferredControlTintColor = Style.colorSTWBlue
+        self.containerViewController.present(safariViewController, animated: true, completion: nil)
+    }
+
+    fileprivate func showSharingWithReport(_ report: Report) {
+        if let firstImageURLString = report.imageURLs.first, let firstImageURL = URL(string: firstImageURLString) {
+            SDWebImageManager.shared().loadImage(with: firstImageURL, options: [], progress: nil, completed: { (image, data, error, cacheType, finished, imageURL) in
+                if let image = image {
+                    let imageActivity = ImageActivity(image: image)
+                    let shareText = "\(report.description) \(report.type.hashTagString()) #endangeredwaves"
+                    let messageActivity = TextActivity(message: shareText)
+
+                    let activityItems: [Any] = [imageActivity, messageActivity]
+
+                    let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: [])
+                    self.containerViewController.present(activityViewController, animated: true, completion: nil)
+                }
+            })
+        }
+    }
+
+    fileprivate func showSuccessfulSubmissionAlertWithReport(_ report: Report) {
+        let alertViewController = UIAlertController(title: "Thank You 🤙",
+                                                    message: "Thank you for being a part of the solution. We'll make sure the right people see this report. Please help us out by taking action and sharing your report.",
+                                                    preferredStyle: .actionSheet)
+
+        let takeAction = UIAlertAction(title: "Take Action", style: .default, handler: { (_) in
+            self.showTakeAction()
+        })
+        alertViewController.addAction(takeAction)
+
+        let shareAction = UIAlertAction(title: "Share Issue", style: .default, handler: { (_) in
+            self.showSharingWithReport(report)
+        })
+        alertViewController.addAction(shareAction)
+
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertViewController.addAction(okAction)
+
+        self.containerViewController.present(alertViewController, animated: true, completion: nil)
+    }
 }
 
 // MARK: ContainerViewControllerDelegate
@@ -128,8 +175,11 @@ extension ContainerCoordinator: ContainerViewControllerDelegate {
 
 // MARK: NewReportCoordinatorDelegate
 extension ContainerCoordinator: NewReportCoordinatorDelegate {
-    func coordinatorDidFinishNewReport(_ coordinator: NewReportCoordinator) {
+    func coordinator(_ coordinator: NewReportCoordinator, didFinishNewReport report: Report?) {
         removeChildCoordinator(coordinator)
+        if let report = report {
+            showSuccessfulSubmissionAlertWithReport(report)
+        }
     }
 }
 

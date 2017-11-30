@@ -16,7 +16,7 @@ import SVProgressHUD
 import CoreLocation
 
 protocol NewReportCoordinatorDelegate: class {
-    func coordinatorDidFinishNewReport(_ coordinator: NewReportCoordinator)
+    func coordinator(_ coordinator: NewReportCoordinator, didFinishNewReport report: Report?)
 }
 
 class NewReportCoordinator: Coordinator {
@@ -55,8 +55,8 @@ class NewReportCoordinator: Coordinator {
         rootViewController.present(imagePickerController, animated: true, completion: nil)
     }
 
-    override func stop() {
-        delegate?.coordinatorDidFinishNewReport(self)
+    func stopWithReport(_ report: Report?) {
+        delegate?.coordinator(self, didFinishNewReport: report)
     }
 
     func showNewReport() {
@@ -214,14 +214,14 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
                                    type: reportType,
             progressHandler: { (progress: Double) in
                 SVProgressHUD.showProgress(Float(progress), status: statusString)
-        }) { (documentID: String?, error: Error?) in
+        }) { (documentID: String?, report: Report?, error: Error?) in
             if let error = error {
                 print("Error adding document: \(error.localizedDescription)")
                 SVProgressHUD.showError(withStatus: "There was an issue creating your post. Please try again.")
             } else {
-                SVProgressHUD.showSuccess(withStatus: "Thank you 🤙")
+                SVProgressHUD.dismiss()
                 viewController.dismiss(animated: true) {
-                    self.stop()
+                    self.stopWithReport(report)
                 }
             }
         }
