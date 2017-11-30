@@ -35,6 +35,7 @@ class ReportDetailViewController: UITableViewController {
         }
     }
 
+    @IBOutlet weak var shareBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var imageLoadingLabel: UILabel!
     @IBOutlet weak var imageSliderContainerView: UIView!
     var imageSliderViewController: ImageSliderViewController!
@@ -44,6 +45,8 @@ class ReportDetailViewController: UITableViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var mapImageView: UIImageView!
 
+    // View Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         assert(report != nil, "Forgot to set Report dependency")
@@ -51,7 +54,7 @@ class ReportDetailViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated) // TODO: Do we  need this anymore?
         super.viewWillAppear(animated)
     }
 
@@ -74,9 +77,11 @@ class ReportDetailViewController: UITableViewController {
             return URL(string: urlString)
         })
 
+        self.navigationItem.rightBarButtonItem?.isEnabled = false // Disable sharing until the image is loaded
         imageDownloadManager.loadImagesWithURLs(urls, completion: { (images) in
             self.images = images
             self.imageSliderViewController.images = images
+            self.navigationItem.rightBarButtonItem?.isEnabled = true
         })
 
         if let dateLabel = dateLabel {
@@ -113,6 +118,21 @@ class ReportDetailViewController: UITableViewController {
         }
     }
 
+    // Actions
+
+    @IBAction func userTappedActionButton(_ sender: UIBarButtonItem) {
+        if let images = images, let firstImage = images.first {
+            let imageActivity = ImageActivity(image: firstImage)
+            let shareText = "\(report.description) \(report.type.hashTagString()) #endangeredwaves"
+            let messageActivity = TextActivity(message: shareText)
+
+            let activityItems: [Any] = [imageActivity, messageActivity]
+
+            let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: [])
+            present(activityViewController, animated: true, completion: nil)
+        }
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let imageSliderViewController = segue.destination as? ImageSliderViewController {
             imageSliderViewController.imageSliderViewControllerDelegate = self
@@ -142,3 +162,4 @@ extension ReportDetailViewController: StoryboardInstantiable {
     static var storyboardName: String { return "report" }
     static var storyboardIdentifier: String? { return "ReportDetailComponent" }
 }
+

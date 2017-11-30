@@ -39,10 +39,10 @@
             </objects>
             <point key="canvasLocation" x="-238" y="-808"/>
         </scene>
-        <!--REPORT AN ISSUE-->
+        <!--Issue-->
         <scene sceneID="QGa-h9-VyT">
             <objects>
-                <tableViewController storyboardIdentifier="ReportDetailComponent" title="REPORT AN ISSUE" id="6gT-ox-CXr" customClass="ReportDetailViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ReportDetailComponent" title="Issue" id="6gT-ox-CXr" customClass="ReportDetailViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qt1-4V-ObS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -126,14 +126,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWL-RG-GLj">
-                                                    <rect key="frame" x="16" y="31" width="59" height="14"/>
+                                                    <rect key="frame" x="16" y="31" width="60" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
                                                     <color key="textColor" name="STW-Grey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a location..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSi-fo-DRO">
-                                                    <rect key="frame" x="16" y="53" width="241" height="18"/>
-                                                    <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSi-fo-DRO">
+                                                    <rect key="frame" x="16" y="56.5" width="241" height="18"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Choose a location...">
+                                                            <attributes>
+                                                                <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <font key="NSFont" size="15" name="Georgia"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="22.5" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BkY-kU-Kao">
@@ -200,6 +208,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="OIL SPILL" id="Lt8-XD-mxo">
                         <barButtonItem key="backBarButtonItem" title="   " id="5ev-bv-h5T"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="fL3-X9-s86">
+                            <color key="tintColor" name="STW-Blue"/>
+                            <connections>
+                                <action selector="userTappedActionButton:" destination="6gT-ox-CXr" id="PkJ-mq-i9m"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
@@ -209,6 +223,7 @@
                         <outlet property="imageSliderContainerView" destination="S1S-cS-x1O" id="77w-Pq-Uh4"/>
                         <outlet property="locationLabel" destination="QSi-fo-DRO" id="1cl-iq-FV7"/>
                         <outlet property="mapImageView" destination="BkY-kU-Kao" id="w8V-8E-fAe"/>
+                        <outlet property="shareBarButtonItem" destination="fL3-X9-s86" id="ASa-cW-MHO"/>
                         <outlet property="typeImageView" destination="xcZ-Qv-VOe" id="xh9-ma-UM7"/>
                     </connections>
                 </tableViewController>
@@ -227,8 +242,12 @@
     </scenes>
     <resources>
         <image name="oil-placemark" width="48" height="48"/>
+        <namedColor name="STW-Blue">
+            <color red="0.20392156862745098" green="0.69411764705882351" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="STW-Grey">
             <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <color key="tintColor" name="STW-Blue"/>
 </document>

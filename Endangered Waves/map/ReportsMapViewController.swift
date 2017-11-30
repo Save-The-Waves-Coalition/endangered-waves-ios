@@ -112,7 +112,7 @@ extension ReportsMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         guard !didUpdateRegion else { return }
 
-        let span = MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
+        let span = MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25)
         let region = MKCoordinateRegion(center: userLocation.coordinate, span: span)
 
         mapView.setRegion(region, animated: true)

@@ -29,7 +29,7 @@ extension ReportType {
         case .oilSpill:
             return "Oil Spill"
         case .sewage:
-            return "Sewage "
+            return "Sewage"
         case .trashed:
             return "Trashed"
         case .coastalErosion:
@@ -38,6 +38,23 @@ extension ReportType {
             return "Access Lost"
         case .general:
             return "General"
+        }
+    }
+
+    func hashTagString() -> String {
+        switch self {
+        case .oilSpill:
+            return "#oilspill"
+        case .sewage:
+            return "#sewage"
+        case .trashed:
+            return "#trashed"
+        case .coastalErosion:
+            return "#coastalerosion"
+        case .accessLost:
+            return "#accesslost"
+        case .general:
+            return "#general"
         }
     }
 
