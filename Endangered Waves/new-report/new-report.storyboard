@@ -95,110 +95,15 @@
                                             <constraint firstItem="Q39-kE-bpK" firstAttribute="top" secondItem="ezu-mz-W6v" secondAttribute="top" id="kmy-Yf-t9X"/>
                                         </constraints>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="130" id="H4S-Qv-jPB">
-                                        <rect key="frame" x="0.0" y="235" width="375" height="130"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H4S-Qv-jPB" id="Uq3-J3-wd6">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGT-9M-TFg">
-                                                    <rect key="frame" x="16" y="11" width="59" height="17.5"/>
-                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
-                                                    <color key="textColor" name="STW-Grey"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UxH-4M-XEX">
-                                                    <rect key="frame" x="16" y="36.5" width="241" height="17.5"/>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="Choose a location...">
-                                                            <attributes>
-                                                                <color key="NSColor" name="STW-Grey"/>
-                                                                <font key="NSFont" size="15" name="Georgia-Italic"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="15" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WwO-jj-l13">
-                                                    <rect key="frame" x="265" y="11" width="90" height="90"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="90" id="Yge-1R-hnY"/>
-                                                        <constraint firstAttribute="width" constant="90" id="vSw-7j-pGP"/>
-                                                    </constraints>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="WwO-jj-l13" secondAttribute="trailing" constant="20" symbolic="YES" id="63e-ML-pKL"/>
-                                                <constraint firstItem="WGT-9M-TFg" firstAttribute="top" secondItem="Uq3-J3-wd6" secondAttribute="topMargin" id="78r-HX-ypk"/>
-                                                <constraint firstItem="UxH-4M-XEX" firstAttribute="leading" secondItem="WGT-9M-TFg" secondAttribute="leading" id="Qmu-27-tj8"/>
-                                                <constraint firstItem="WGT-9M-TFg" firstAttribute="leading" secondItem="Uq3-J3-wd6" secondAttribute="leadingMargin" id="WPl-zA-wi9"/>
-                                                <constraint firstItem="WwO-jj-l13" firstAttribute="top" secondItem="WGT-9M-TFg" secondAttribute="top" id="X32-df-LOS"/>
-                                                <constraint firstItem="UxH-4M-XEX" firstAttribute="top" secondItem="WGT-9M-TFg" secondAttribute="bottom" constant="8" id="fAv-PD-Lee"/>
-                                                <constraint firstItem="WwO-jj-l13" firstAttribute="leading" secondItem="UxH-4M-XEX" secondAttribute="trailing" constant="8" id="kxv-NZ-6lh"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="WGT-9M-TFg" secondAttribute="bottom" constant="90.5" id="lYp-CX-m5I"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="Qt0-P6-Qnh" appends="YES" id="SYr-je-Tgi"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="lvS-fH-Wkx">
-                                        <rect key="frame" x="0.0" y="365" width="375" height="100"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lvS-fH-Wkx" id="i9j-L6-rQI">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="n1U-hX-tcI">
-                                                    <rect key="frame" x="16" y="0.0" width="339" height="88"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESCRIPTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZ1-sH-e8A">
-                                                            <rect key="frame" x="0.0" y="0.0" width="339" height="14"/>
-                                                            <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
-                                                            <color key="textColor" name="STW-Grey"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2er-Wd-wia">
-                                                            <rect key="frame" x="0.0" y="22" width="339" height="66"/>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="62" id="yXI-rN-0Tq"/>
-                                                            </constraints>
-                                                            <attributedString key="attributedText">
-                                                                <fragment content="Write a description...">
-                                                                    <attributes>
-                                                                        <color key="NSColor" name="STW-Grey"/>
-                                                                        <font key="NSFont" size="15" name="Georgia-Italic"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="15" tighteningFactorForTruncation="0.0"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="n1U-hX-tcI" secondAttribute="trailing" constant="20" symbolic="YES" id="LfD-KO-qBJ"/>
-                                                <constraint firstAttribute="bottom" secondItem="n1U-hX-tcI" secondAttribute="bottom" constant="12" id="Uzf-4w-8Ze"/>
-                                                <constraint firstItem="n1U-hX-tcI" firstAttribute="leading" secondItem="i9j-L6-rQI" secondAttribute="leading" constant="16" id="hSM-8m-zKL"/>
-                                                <constraint firstItem="n1U-hX-tcI" firstAttribute="top" secondItem="i9j-L6-rQI" secondAttribute="top" id="kIX-Go-LXS"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <gestureRecognizers/>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="279" id="gJI-QQ-TdM">
-                                        <rect key="frame" x="0.0" y="465" width="375" height="279"/>
+                                        <rect key="frame" x="0.0" y="235" width="375" height="279"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gJI-QQ-TdM" id="zLT-SQ-F7h">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="279"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CATEGORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06W-gh-CHS">
-                                                    <rect key="frame" x="16" y="11" width="63.5" height="18"/>
+                                                    <rect key="frame" x="16" y="11" width="62" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="GCp-7R-iVE"/>
                                                     </constraints>
@@ -348,7 +253,6 @@ EROSION</string>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
-                                            <color key="backgroundColor" name="STW-White"/>
                                             <constraints>
                                                 <constraint firstItem="06W-gh-CHS" firstAttribute="leading" secondItem="zLT-SQ-F7h" secondAttribute="leadingMargin" id="FgE-f5-TEJ"/>
                                                 <constraint firstItem="hpE-SB-vft" firstAttribute="centerX" secondItem="zLT-SQ-F7h" secondAttribute="centerX" id="dm3-7P-XQ9"/>
@@ -358,8 +262,103 @@ EROSION</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="lvS-fH-Wkx">
+                                        <rect key="frame" x="0.0" y="514" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lvS-fH-Wkx" id="i9j-L6-rQI">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="n1U-hX-tcI">
+                                                    <rect key="frame" x="16" y="0.0" width="339" height="88"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESCRIPTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZ1-sH-e8A">
+                                                            <rect key="frame" x="0.0" y="0.0" width="339" height="17.5"/>
+                                                            <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
+                                                            <color key="textColor" name="STW-Grey"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2er-Wd-wia">
+                                                            <rect key="frame" x="0.0" y="25.5" width="339" height="62.5"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="62" id="yXI-rN-0Tq"/>
+                                                            </constraints>
+                                                            <attributedString key="attributedText">
+                                                                <fragment content="Write a description...">
+                                                                    <attributes>
+                                                                        <color key="NSColor" name="STW-Grey"/>
+                                                                        <font key="NSFont" size="15" name="Georgia-Italic"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="15" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="n1U-hX-tcI" secondAttribute="trailing" constant="20" symbolic="YES" id="LfD-KO-qBJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="n1U-hX-tcI" secondAttribute="bottom" constant="12" id="Uzf-4w-8Ze"/>
+                                                <constraint firstItem="n1U-hX-tcI" firstAttribute="leading" secondItem="i9j-L6-rQI" secondAttribute="leading" constant="16" id="hSM-8m-zKL"/>
+                                                <constraint firstItem="n1U-hX-tcI" firstAttribute="top" secondItem="i9j-L6-rQI" secondAttribute="top" id="kIX-Go-LXS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <gestureRecognizers/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="152" id="H4S-Qv-jPB">
+                                        <rect key="frame" x="0.0" y="614" width="375" height="152"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H4S-Qv-jPB" id="Uq3-J3-wd6">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="152"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGT-9M-TFg">
+                                                    <rect key="frame" x="16" y="11" width="60" height="17.5"/>
+                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
+                                                    <color key="textColor" name="STW-Grey"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UxH-4M-XEX">
+                                                    <rect key="frame" x="16" y="36.5" width="241" height="17.5"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Choose a location...">
+                                                            <attributes>
+                                                                <color key="NSColor" name="STW-Grey"/>
+                                                                <font key="NSFont" size="15" name="Georgia-Italic"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="15" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WwO-jj-l13">
+                                                    <rect key="frame" x="265" y="0.5" width="90" height="90"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="90" id="Yge-1R-hnY"/>
+                                                        <constraint firstAttribute="width" constant="90" id="vSw-7j-pGP"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="WwO-jj-l13" secondAttribute="trailing" constant="20" symbolic="YES" id="63e-ML-pKL"/>
+                                                <constraint firstItem="WGT-9M-TFg" firstAttribute="top" secondItem="Uq3-J3-wd6" secondAttribute="topMargin" id="78r-HX-ypk"/>
+                                                <constraint firstItem="UxH-4M-XEX" firstAttribute="leading" secondItem="WGT-9M-TFg" secondAttribute="leading" id="Qmu-27-tj8"/>
+                                                <constraint firstItem="WGT-9M-TFg" firstAttribute="leading" secondItem="Uq3-J3-wd6" secondAttribute="leadingMargin" id="WPl-zA-wi9"/>
+                                                <constraint firstItem="UxH-4M-XEX" firstAttribute="top" secondItem="WGT-9M-TFg" secondAttribute="bottom" constant="8" id="fAv-PD-Lee"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="WGT-9M-TFg" secondAttribute="bottom" constant="112.5" id="h7K-fO-IyX"/>
+                                                <constraint firstItem="WwO-jj-l13" firstAttribute="centerY" secondItem="UxH-4M-XEX" secondAttribute="centerY" id="hRU-w4-lG0"/>
+                                                <constraint firstItem="WwO-jj-l13" firstAttribute="leading" secondItem="UxH-4M-XEX" secondAttribute="trailing" constant="8" id="kxv-NZ-6lh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Qt0-P6-Qnh" appends="YES" id="SYr-je-Tgi"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="ZBL-yc-0gX">
-                                        <rect key="frame" x="0.0" y="744" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="766" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZBL-yc-0gX" id="ebv-rL-qgM">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -383,7 +382,6 @@ EROSION</string>
                                                 <constraint firstItem="Oi4-2e-yfa" firstAttribute="top" secondItem="ebv-rL-qgM" secondAttribute="top" constant="9" id="hcq-aO-IYe"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="STW-White"/>
                                         <gestureRecognizers/>
                                     </tableViewCell>
                                 </cells>

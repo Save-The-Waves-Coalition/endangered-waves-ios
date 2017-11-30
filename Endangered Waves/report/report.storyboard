@@ -115,55 +115,8 @@
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="132" id="bjX-bW-Cg7">
-                                        <rect key="frame" x="0.0" y="265" width="375" height="132"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bjX-bW-Cg7" id="Qzi-ID-hwZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="132"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWL-RG-GLj">
-                                                    <rect key="frame" x="16" y="31" width="59" height="14"/>
-                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
-                                                    <color key="textColor" name="STW-Grey"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSi-fo-DRO">
-                                                    <rect key="frame" x="16" y="53" width="241" height="18"/>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="Choose a location...">
-                                                            <attributes>
-                                                                <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <font key="NSFont" size="15" name="Georgia"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="15" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BkY-kU-Kao">
-                                                    <rect key="frame" x="265" y="31" width="90" height="90"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="90" id="F2Q-C5-ERn"/>
-                                                        <constraint firstAttribute="height" constant="90" id="t4Z-4d-xCa"/>
-                                                    </constraints>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="BkY-kU-Kao" secondAttribute="trailing" constant="20" symbolic="YES" id="3S8-53-gF2"/>
-                                                <constraint firstItem="QSi-fo-DRO" firstAttribute="leading" secondItem="BWL-RG-GLj" secondAttribute="leading" id="8Sy-DH-FQu"/>
-                                                <constraint firstItem="BWL-RG-GLj" firstAttribute="leading" secondItem="Qzi-ID-hwZ" secondAttribute="leadingMargin" id="GRY-qp-GqJ"/>
-                                                <constraint firstItem="BkY-kU-Kao" firstAttribute="bottom" secondItem="Qzi-ID-hwZ" secondAttribute="bottomMargin" id="Gvf-Kg-Mpw"/>
-                                                <constraint firstItem="BkY-kU-Kao" firstAttribute="leading" secondItem="QSi-fo-DRO" secondAttribute="trailing" constant="8" id="OEN-eZ-oTh"/>
-                                                <constraint firstItem="BkY-kU-Kao" firstAttribute="top" secondItem="Qzi-ID-hwZ" secondAttribute="topMargin" constant="20" id="ae7-vJ-gPq"/>
-                                                <constraint firstItem="QSi-fo-DRO" firstAttribute="top" secondItem="BWL-RG-GLj" secondAttribute="bottom" constant="8" id="ies-Mt-jSb"/>
-                                                <constraint firstItem="BWL-RG-GLj" firstAttribute="top" secondItem="Qzi-ID-hwZ" secondAttribute="topMargin" constant="20" id="qyI-GO-uBs"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <gestureRecognizers/>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="75" id="0sT-Uc-7fc">
-                                        <rect key="frame" x="0.0" y="397" width="375" height="75"/>
+                                        <rect key="frame" x="0.0" y="265" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0sT-Uc-7fc" id="mww-Nd-z5z">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
@@ -199,6 +152,56 @@
                                                 <constraint firstItem="yZ4-cZ-vIs" firstAttribute="top" secondItem="mww-Nd-z5z" secondAttribute="topMargin" id="Vb8-Qh-z3j"/>
                                                 <constraint firstItem="tX0-0M-TwC" firstAttribute="trailing" secondItem="mww-Nd-z5z" secondAttribute="trailingMargin" id="bsg-gf-oH3"/>
                                                 <constraint firstItem="yZ4-cZ-vIs" firstAttribute="leading" secondItem="mww-Nd-z5z" secondAttribute="leadingMargin" id="ubB-9w-22B"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <gestureRecognizers/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="152" id="bjX-bW-Cg7">
+                                        <rect key="frame" x="0.0" y="340" width="375" height="152"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bjX-bW-Cg7" id="Qzi-ID-hwZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="152"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWL-RG-GLj">
+                                                    <rect key="frame" x="16" y="31" width="59" height="17.5"/>
+                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
+                                                    <color key="textColor" name="STW-Grey"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSi-fo-DRO">
+                                                    <rect key="frame" x="16" y="56.5" width="241" height="81.5"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment>
+                                                            <string key="content">Choose a location...
+line 2
+line 3</string>
+                                                            <attributes>
+                                                                <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <font key="NSFont" size="15" name="Georgia"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="15" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BkY-kU-Kao">
+                                                    <rect key="frame" x="265" y="52.5" width="90" height="90"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="F2Q-C5-ERn"/>
+                                                        <constraint firstAttribute="height" constant="90" id="t4Z-4d-xCa"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="BkY-kU-Kao" secondAttribute="trailing" constant="20" symbolic="YES" id="3S8-53-gF2"/>
+                                                <constraint firstItem="QSi-fo-DRO" firstAttribute="leading" secondItem="BWL-RG-GLj" secondAttribute="leading" id="8Sy-DH-FQu"/>
+                                                <constraint firstItem="BWL-RG-GLj" firstAttribute="leading" secondItem="Qzi-ID-hwZ" secondAttribute="leadingMargin" id="GRY-qp-GqJ"/>
+                                                <constraint firstItem="BkY-kU-Kao" firstAttribute="leading" secondItem="QSi-fo-DRO" secondAttribute="trailing" constant="8" id="OEN-eZ-oTh"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="BWL-RG-GLj" secondAttribute="bottom" constant="92.5" id="bJL-2U-KrG"/>
+                                                <constraint firstItem="BkY-kU-Kao" firstAttribute="centerY" secondItem="QSi-fo-DRO" secondAttribute="centerY" id="hrO-fE-zYY"/>
+                                                <constraint firstItem="QSi-fo-DRO" firstAttribute="top" secondItem="BWL-RG-GLj" secondAttribute="bottom" constant="8" id="ies-Mt-jSb"/>
+                                                <constraint firstItem="BWL-RG-GLj" firstAttribute="top" secondItem="Qzi-ID-hwZ" secondAttribute="topMargin" constant="20" id="qyI-GO-uBs"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
