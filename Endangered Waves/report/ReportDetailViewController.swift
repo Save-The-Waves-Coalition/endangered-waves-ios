@@ -89,7 +89,13 @@ class ReportDetailViewController: UITableViewController {
         }
 
         if let locationLabel = locationLabel {
-            locationLabel.text = "\(report.name)\n\(report.address)"
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineSpacing = 15
+            let attributes = [NSAttributedStringKey.foregroundColor: UIColor.black,
+                              NSAttributedStringKey.font: Style.fontGeorgia(size: 15),
+                              NSAttributedStringKey.paragraphStyle: paragraphStyle]
+            let newString = NSMutableAttributedString(string: "\(report.name)\n\(report.address)", attributes: attributes)
+            locationLabel.attributedText = newString
         }
 
         if let mapImageView = mapImageView {
@@ -114,7 +120,13 @@ class ReportDetailViewController: UITableViewController {
         }
 
         if let descriptionLabel = descriptionLabel {
-            descriptionLabel.text = report.description
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineSpacing = 15
+            let attributes = [NSAttributedStringKey.foregroundColor: UIColor.black,
+                              NSAttributedStringKey.font: Style.fontGeorgia(size: 15),
+                              NSAttributedStringKey.paragraphStyle: paragraphStyle]
+            let newString = NSMutableAttributedString(string: report.description, attributes: attributes)
+            descriptionLabel.attributedText = newString
         }
     }
 

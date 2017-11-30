@@ -93,9 +93,14 @@ class NewReportViewController: UITableViewController {
     var location: LocationItem? {
         didSet {
             if let location = location, let addressString = location.formattedAddressString {
-                locationLabel.text = "\(location.name)\n\(addressString)"
-                locationLabel.textColor = .black
-                locationLabel.font = Style.fontGeorgia(size: 15)
+
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.lineSpacing = 15
+                let attributes = [NSAttributedStringKey.foregroundColor: UIColor.black,
+                                  NSAttributedStringKey.font: Style.fontGeorgia(size: 15),
+                                  NSAttributedStringKey.paragraphStyle: paragraphStyle]
+                let newString = NSMutableAttributedString(string: "\(location.name)\n\(addressString)", attributes: attributes)
+                locationLabel.attributedText = newString
 
                 if let mapImageView = mapImageView {
                     let coordinate = location.mapItem.placemark.coordinate
@@ -199,19 +204,28 @@ extension NewReportViewController: UITextViewDelegate {
     }
 
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == "Write a description..." {
+        if textView.attributedText.string == "Write a description..." {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineSpacing = 15
+            let attributes = [NSAttributedStringKey.foregroundColor: UIColor.black,
+                              NSAttributedStringKey.font: Style.fontGeorgia(size: 15),
+                              NSAttributedStringKey.paragraphStyle: paragraphStyle]
+            let newString = NSMutableAttributedString(string: " ", attributes: attributes) // Have to have at least 1 character for the attributes to take
+            textView.attributedText = newString
             textView.text = ""
-            textView.textColor = .black
-            textView.font = Style.fontGeorgia(size: 15)
         }
         textView.becomeFirstResponder() //Optional
     }
 
     func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text == "" {
-            textView.text = "Write a description..."
-            textView.textColor = Style.colorSTWGrey
-            textView.font = Style.fontGeorgiaItalic(size: 15)
+        if textView.attributedText.string == "" {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineSpacing = 15
+            let attributes = [NSAttributedStringKey.foregroundColor: Style.colorSTWGrey,
+                              NSAttributedStringKey.font: Style.fontGeorgiaItalic(size: 15),
+                              NSAttributedStringKey.paragraphStyle: paragraphStyle]
+            let newString = NSMutableAttributedString(string: "Write a description...", attributes: attributes)
+            textView.attributedText = newString
         }
         textView.resignFirstResponder()
     }
