@@ -126,13 +126,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWL-RG-GLj">
-                                                    <rect key="frame" x="16" y="31" width="60" height="17.5"/>
+                                                    <rect key="frame" x="16" y="31" width="59" height="14"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
                                                     <color key="textColor" name="STW-Grey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSi-fo-DRO">
-                                                    <rect key="frame" x="16" y="56.5" width="241" height="18"/>
+                                                    <rect key="frame" x="16" y="53" width="241" height="18"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Choose a location...">
                                                             <attributes>

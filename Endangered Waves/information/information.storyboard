@@ -34,7 +34,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wa3-ZS-i6r">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="243"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="175.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An award winning creation by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRC-eg-wRz">
                                             <rect key="frame" x="75" y="0.0" width="225" height="19.5"/>
@@ -43,7 +43,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0d-cK-MC8">
-                                            <rect key="frame" x="47" y="19.5" width="281" height="203.5"/>
+                                            <rect key="frame" x="94" y="19.5" width="187.5" height="136"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="W0d-cK-MC8" secondAttribute="height" multiplier="600:434" id="Gbz-0a-KUi"/>
                                             </constraints>
@@ -53,7 +53,7 @@
                                             </connections>
                                         </button>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VAG-iX-ySV">
-                                            <rect key="frame" x="118" y="223" width="139.5" height="20"/>
+                                            <rect key="frame" x="118" y="155.5" width="139.5" height="20"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNy-RZ-H5l">
                                                     <rect key="frame" x="0.0" y="0.0" width="63.5" height="20"/>
@@ -79,7 +79,7 @@
                                 <constraint firstAttribute="trailing" secondItem="Wa3-ZS-i6r" secondAttribute="trailing" id="6oE-Tg-NVA"/>
                                 <constraint firstItem="Wa3-ZS-i6r" firstAttribute="top" secondItem="ctY-C9-pUk" secondAttribute="top" id="l5d-Fw-Bka"/>
                                 <constraint firstItem="Wa3-ZS-i6r" firstAttribute="leading" secondItem="ctY-C9-pUk" secondAttribute="leading" id="xh7-fB-aCh"/>
-                                <constraint firstItem="W0d-cK-MC8" firstAttribute="width" secondItem="ctY-C9-pUk" secondAttribute="width" multiplier="0.75" id="yQp-th-x20"/>
+                                <constraint firstItem="W0d-cK-MC8" firstAttribute="width" secondItem="ctY-C9-pUk" secondAttribute="width" multiplier="0.5" id="yQp-th-x20"/>
                             </constraints>
                         </view>
                         <sections>
