@@ -55,6 +55,10 @@ class NewReportCoordinator: Coordinator {
         rootViewController.present(imagePickerController, animated: true, completion: nil)
     }
 
+    override func stop() {
+        stopWithReport(nil)
+    }
+
     func stopWithReport(_ report: Report?) {
         delegate?.coordinator(self, didFinishNewReport: report)
     }
