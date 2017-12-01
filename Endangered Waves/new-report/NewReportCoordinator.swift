@@ -178,13 +178,9 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
             return
         }
 
-        // validate location
-        if location == nil {
-            showValidationError(title: "Missing Location", message: "Please select a location.", withViewController: viewController)
-            return
-        }
-        guard let locationCoordinate = location?.coordinate else {
-            showValidationError(title: "Missing Location", message: "Please select a location.", withViewController: viewController)
+        // Validate type
+        if reportType == nil {
+            showValidationError(title: "Missing Report Type", message: "Please select a report type, such as OIL SPILL.", withViewController: viewController)
             return
         }
 
@@ -194,9 +190,13 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
             return
         }
 
-        // Validate type
-        if reportType == nil {
-            showValidationError(title: "Missing Report Type", message: "Please select a report type, such as OIL SPILL.", withViewController: viewController)
+        // validate location
+        if location == nil {
+            showValidationError(title: "Missing Location", message: "Please select a location.", withViewController: viewController)
+            return
+        }
+        guard let locationCoordinate = location?.coordinate else {
+            showValidationError(title: "Missing Location", message: "Please select a location.", withViewController: viewController)
             return
         }
 
