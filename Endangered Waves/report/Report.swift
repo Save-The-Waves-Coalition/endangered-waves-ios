@@ -46,7 +46,7 @@ extension ReportType {
         case .oilSpill:
             return "#oilspill"
         case .sewage:
-            return "#sewage"
+            return "#sewagespill"
         case .trashed:
             return "#trashed"
         case .coastalErosion:
