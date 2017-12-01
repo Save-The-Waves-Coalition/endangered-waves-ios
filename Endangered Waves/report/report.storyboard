@@ -167,7 +167,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWL-RG-GLj">
-                                                    <rect key="frame" x="16" y="31" width="59" height="17.5"/>
+                                                    <rect key="frame" x="16" y="31" width="60" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
                                                     <color key="textColor" name="STW-Grey"/>
                                                     <nil key="highlightedColor"/>
@@ -217,7 +217,7 @@ line 3</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNw-l4-vsZ">
-                                                    <rect key="frame" x="135" y="36" width="105" height="28"/>
+                                                    <rect key="frame" x="139.5" y="33.5" width="96" height="33"/>
                                                     <color key="backgroundColor" name="STW-Blue"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="17"/>
                                                     <inset key="contentEdgeInsets" minX="8" minY="4" maxX="8" maxY="4"/>
@@ -230,8 +230,9 @@ line 3</string>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="GNw-l4-vsZ" firstAttribute="centerY" secondItem="nMD-Fl-0yC" secondAttribute="centerY" id="ZvO-Kp-VkY"/>
+                                                <constraint firstItem="GNw-l4-vsZ" firstAttribute="top" secondItem="nMD-Fl-0yC" secondAttribute="topMargin" constant="22.5" id="Max-QW-j63"/>
                                                 <constraint firstItem="GNw-l4-vsZ" firstAttribute="centerX" secondItem="nMD-Fl-0yC" secondAttribute="centerX" id="b06-pe-R6D"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="GNw-l4-vsZ" secondAttribute="bottom" constant="22.5" id="g3m-n3-eFu"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>

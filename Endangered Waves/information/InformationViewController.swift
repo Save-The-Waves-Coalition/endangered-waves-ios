@@ -86,13 +86,16 @@ extension InformationViewController {
             }
         case 2:
             switch indexPath.row {
-            case 0: // Email
+            case 0: // App Survey
+                let url  = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSdm8-9apM3KFGuClz5hGwIWTCR0wIbQcQYYuEA0HoHSPIonMw/viewform?c=0&w=1")!
+                delegate?.viewController(self, wantsToOpenURL: url)
+            case 1: // Email
                 let url  = URL(string: "https://www.savethewaves.org/about-us/contact-us/#contactus")!
                 delegate?.viewController(self, wantsToOpenURL: url)
-            case 1: // Telephone
+            case 2: // Telephone
                 let url  = URL(string: "telprompt://8314266169")!
                 delegate?.viewController(self, wantsToLaunchAppWithURL: url)
-            case 2: // Address
+            case 3: // Address
                 break
             default:
                 break
