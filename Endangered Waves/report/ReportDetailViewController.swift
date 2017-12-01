@@ -9,6 +9,7 @@
 import UIKit
 import SDWebImage
 import MapKit
+import SafariServices
 
 protocol ReportDetailViewControllerDelegate: class {
     func finishedViewingDetailsViewController(_ viewController: ReportDetailViewController)
@@ -141,8 +142,16 @@ class ReportDetailViewController: UITableViewController {
             let activityItems: [Any] = [imageActivity, messageActivity]
 
             let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: [])
-            present(activityViewController, animated: true, completion: nil)
+            present(activityViewController, animated: true, completion: nil) // TODO: coordinator should do this
         }
+    }
+
+    @IBAction func userTappedTakeActionButton(_ sender: UIButton) {
+        // TODO: Duplicate code, should keep this dry
+        let url = URL(string: "http://www.savethewaves.org/endangered-waves/take-action/")!
+        let safariViewController = SFSafariViewController(url: url)
+        safariViewController.preferredControlTintColor = Style.colorSTWBlue
+        present(safariViewController, animated: true, completion: nil) // TODO: coordinator should do this
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Brandon_bld.otf">
+            <string>BrandonGrotesque-Bold</string>
+        </array>
         <array key="Brandon_blk.otf">
             <string>BrandonGrotesque-Black</string>
         </array>
@@ -206,6 +209,33 @@ line 3</string>
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="3r9-wd-Gfd">
+                                        <rect key="frame" x="0.0" y="492" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3r9-wd-Gfd" id="nMD-Fl-0yC">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNw-l4-vsZ">
+                                                    <rect key="frame" x="135" y="36" width="105" height="28"/>
+                                                    <color key="backgroundColor" name="STW-Blue"/>
+                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="17"/>
+                                                    <inset key="contentEdgeInsets" minX="8" minY="4" maxX="8" maxY="4"/>
+                                                    <state key="normal" title="Take Action">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="userTappedTakeActionButton:" destination="6gT-ox-CXr" eventType="touchUpInside" id="jaf-EX-ysu"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="GNw-l4-vsZ" firstAttribute="centerY" secondItem="nMD-Fl-0yC" secondAttribute="centerY" id="ZvO-Kp-VkY"/>
+                                                <constraint firstItem="GNw-l4-vsZ" firstAttribute="centerX" secondItem="nMD-Fl-0yC" secondAttribute="centerX" id="b06-pe-R6D"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <gestureRecognizers/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -250,6 +280,9 @@ line 3</string>
     </scenes>
     <resources>
         <image name="oil-placemark" width="48" height="48"/>
+        <namedColor name="STW-Blue">
+            <color red="0.20392156862745098" green="0.69411764705882351" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="STW-Blue">
             <color red="0.20392156862745098" green="0.69411764705882351" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
