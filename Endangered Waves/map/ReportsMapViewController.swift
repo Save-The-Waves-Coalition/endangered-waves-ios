@@ -138,6 +138,23 @@ extension ReportsMapViewController: MKMapViewDelegate {
         return annotationView
     }
 
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        // If custom callout is offscreen recenter map so it is now onscreen
+        if let annotationView = view as? ReportMapAnnotationView,
+            let calloutView = annotationView.customCalloutView,
+            let annotation = annotationView.annotation {
+
+            let mapViewMaxXPostion = mapView.frame.maxX
+            let annotationViewXPostion = annotationView.frame.origin.x
+            let calloutViewWidth = calloutView.bounds.size.width
+            let deltaX = (annotationViewXPostion + calloutViewWidth) - mapViewMaxXPostion
+
+            if deltaX > 0 {
+                mapView.setCenter(annotation.coordinate, animated: true)
+            }
+        }
+    }
+
 // // Animation for the pin drops
 //
 //    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
