@@ -139,19 +139,23 @@ extension ReportsMapViewController: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        // If custom callout is offscreen recenter map so it is now onscreen
-        if let annotationView = view as? ReportMapAnnotationView,
+
+        guard let annotationView = view as? ReportMapAnnotationView,
             let calloutView = annotationView.customCalloutView,
-            let annotation = annotationView.annotation {
+            let annotation = annotationView.annotation else {
+                return
+        }
 
-            let mapViewMaxXPostion = mapView.frame.maxX
-            let annotationViewXPostion = annotationView.frame.origin.x
-            let calloutViewWidth = calloutView.bounds.size.width
-            let deltaX = (annotationViewXPostion + calloutViewWidth) - mapViewMaxXPostion
+        // If custom callout is offscreen recenter map so it is now onscreen
+        let mapViewMaxXPostion = mapView.frame.maxX
+        let annotationViewXPostion = annotationView.frame.origin.x
+        let calloutViewWidth = calloutView.bounds.size.width
+        let deltaX = (annotationViewXPostion + calloutViewWidth) - mapViewMaxXPostion
 
-            if deltaX > 0 {
-                mapView.setCenter(annotation.coordinate, animated: true)
-            }
+        if deltaX > 0 {
+            var newCenter = mapView.centerCoordinate
+            newCenter.longitude = annotation.coordinate.longitude
+            mapView.setCenter(newCenter, animated: true)
         }
     }
 
