@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -195,13 +196,22 @@ line 3</string>
                                                         <constraint firstAttribute="height" constant="90" id="t4Z-4d-xCa"/>
                                                     </constraints>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin-filled" translatesAutoresizingMaskIntoConstraints="NO" id="ge7-92-pRO">
+                                                    <rect key="frame" x="300.5" y="67.5" width="19" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="QFd-yI-Q9Y"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="BkY-kU-Kao" secondAttribute="trailing" constant="20" symbolic="YES" id="3S8-53-gF2"/>
+                                                <constraint firstItem="ge7-92-pRO" firstAttribute="centerX" secondItem="BkY-kU-Kao" secondAttribute="centerX" id="4hI-hg-up2"/>
                                                 <constraint firstItem="QSi-fo-DRO" firstAttribute="leading" secondItem="BWL-RG-GLj" secondAttribute="leading" id="8Sy-DH-FQu"/>
                                                 <constraint firstItem="BWL-RG-GLj" firstAttribute="leading" secondItem="Qzi-ID-hwZ" secondAttribute="leadingMargin" id="GRY-qp-GqJ"/>
                                                 <constraint firstItem="BkY-kU-Kao" firstAttribute="leading" secondItem="QSi-fo-DRO" secondAttribute="trailing" constant="8" id="OEN-eZ-oTh"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="BWL-RG-GLj" secondAttribute="bottom" constant="92.5" id="bJL-2U-KrG"/>
+                                                <constraint firstItem="ge7-92-pRO" firstAttribute="centerY" secondItem="BkY-kU-Kao" secondAttribute="centerY" constant="-15" id="dIz-hr-XEk"/>
+                                                <constraint firstItem="ge7-92-pRO" firstAttribute="width" secondItem="ge7-92-pRO" secondAttribute="height" multiplier="5:8" id="gYy-DJ-Tiv"/>
                                                 <constraint firstItem="BkY-kU-Kao" firstAttribute="centerY" secondItem="QSi-fo-DRO" secondAttribute="centerY" id="hrO-fE-zYY"/>
                                                 <constraint firstItem="QSi-fo-DRO" firstAttribute="top" secondItem="BWL-RG-GLj" secondAttribute="bottom" constant="8" id="ies-Mt-jSb"/>
                                                 <constraint firstItem="BWL-RG-GLj" firstAttribute="top" secondItem="Qzi-ID-hwZ" secondAttribute="topMargin" constant="20" id="qyI-GO-uBs"/>
@@ -262,6 +272,7 @@ line 3</string>
                         <outlet property="imageSliderContainerView" destination="S1S-cS-x1O" id="77w-Pq-Uh4"/>
                         <outlet property="locationLabel" destination="QSi-fo-DRO" id="1cl-iq-FV7"/>
                         <outlet property="mapImageView" destination="BkY-kU-Kao" id="w8V-8E-fAe"/>
+                        <outlet property="mapPinImageView" destination="ge7-92-pRO" id="ZgO-MV-Uxr"/>
                         <outlet property="shareBarButtonItem" destination="fL3-X9-s86" id="ASa-cW-MHO"/>
                         <outlet property="typeImageView" destination="xcZ-Qv-VOe" id="xh9-ma-UM7"/>
                     </connections>
@@ -281,9 +292,7 @@ line 3</string>
     </scenes>
     <resources>
         <image name="oil-placemark" width="48" height="48"/>
-        <namedColor name="STW-Blue">
-            <color red="0.20392156862745098" green="0.69411764705882351" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="pin-filled" width="60" height="96"/>
         <namedColor name="STW-Blue">
             <color red="0.20392156862745098" green="0.69411764705882351" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -45,6 +45,7 @@ class ReportDetailViewController: UITableViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var mapImageView: UIImageView!
+    @IBOutlet weak var mapPinImageView: UIImageView!
 
     // View Lifecycle
 
@@ -107,15 +108,20 @@ class ReportDetailViewController: UITableViewController {
             let region = MKCoordinateRegionMakeWithDistance(coordinate, 1000, 1000)
             mapSnapshotOptions.region = region
 
+            mapSnapshotOptions.showsBuildings = false
+            mapSnapshotOptions.showsPointsOfInterest = false
+
             // Set the size of the image output.
             mapSnapshotOptions.size = CGSize(width: 90, height: 90)
 
             let snapShotter = MKMapSnapshotter(options: mapSnapshotOptions)
             snapShotter.start(completionHandler: { (snapshot, error) in
+                self.mapPinImageView.alpha = 0
                 mapImageView.alpha = 0
                 mapImageView.image = snapshot?.image
                 UIView.animate(withDuration: 0.25, animations: {
                     mapImageView.alpha = 1.0
+                    self.mapPinImageView.alpha = 1.0
                 })
             })
         }

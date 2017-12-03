@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -103,7 +104,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THREAT CATEGORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06W-gh-CHS">
-                                                    <rect key="frame" x="16" y="11" width="108.5" height="18"/>
+                                                    <rect key="frame" x="16" y="11" width="111.5" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="GCp-7R-iVE"/>
                                                     </constraints>
@@ -272,12 +273,12 @@ EROSION</string>
                                                     <rect key="frame" x="16" y="0.0" width="339" height="88"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESCRIPTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZ1-sH-e8A">
-                                                            <rect key="frame" x="0.0" y="0.0" width="339" height="17.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="339" height="14"/>
                                                             <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2er-Wd-wia">
-                                                            <rect key="frame" x="0.0" y="25.5" width="339" height="62.5"/>
+                                                            <rect key="frame" x="0.0" y="22" width="339" height="66"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="62" id="yXI-rN-0Tq"/>
@@ -313,7 +314,7 @@ EROSION</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGT-9M-TFg">
-                                                    <rect key="frame" x="16" y="11" width="60" height="17.5"/>
+                                                    <rect key="frame" x="16" y="11" width="59" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -337,8 +338,17 @@ EROSION</string>
                                                         <constraint firstAttribute="width" constant="90" id="vSw-7j-pGP"/>
                                                     </constraints>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin-filled" translatesAutoresizingMaskIntoConstraints="NO" id="QBO-64-rcU">
+                                                    <rect key="frame" x="300.5" y="15.5" width="19" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="Ghk-em-X3f"/>
+                                                        <constraint firstAttribute="width" secondItem="QBO-64-rcU" secondAttribute="height" multiplier="5:8" id="vBa-7T-fli"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="QBO-64-rcU" firstAttribute="centerX" secondItem="WwO-jj-l13" secondAttribute="centerX" id="1BX-db-YpF"/>
+                                                <constraint firstItem="QBO-64-rcU" firstAttribute="centerY" secondItem="WwO-jj-l13" secondAttribute="centerY" constant="-15" id="5Lk-ov-NLS"/>
                                                 <constraint firstAttribute="trailing" secondItem="WwO-jj-l13" secondAttribute="trailing" constant="20" symbolic="YES" id="63e-ML-pKL"/>
                                                 <constraint firstItem="WGT-9M-TFg" firstAttribute="top" secondItem="Uq3-J3-wd6" secondAttribute="topMargin" id="78r-HX-ypk"/>
                                                 <constraint firstItem="UxH-4M-XEX" firstAttribute="leading" secondItem="WGT-9M-TFg" secondAttribute="leading" id="Qmu-27-tj8"/>
@@ -407,6 +417,7 @@ EROSION</string>
                         <outlet property="imageGallaryContainerView" destination="Q39-kE-bpK" id="NaF-OL-feM"/>
                         <outlet property="locationLabel" destination="UxH-4M-XEX" id="glI-YC-gQo"/>
                         <outlet property="mapImageView" destination="WwO-jj-l13" id="ulf-kW-229"/>
+                        <outlet property="mapPinImageView" destination="QBO-64-rcU" id="Lb6-u0-XEQ"/>
                         <outletCollection property="categoryTypeCollection" destination="w1D-Ug-k45" collectionClass="NSMutableArray" id="asV-7r-YAI"/>
                         <outletCollection property="categoryTypeCollection" destination="vUn-VT-n3g" collectionClass="NSMutableArray" id="F5Q-ET-r6h"/>
                         <outletCollection property="categoryTypeCollection" destination="eeb-Uh-R5w" collectionClass="NSMutableArray" id="mqO-1O-bn2"/>
@@ -430,6 +441,7 @@ EROSION</string>
         <image name="coastal-erosion" width="56" height="56"/>
         <image name="general" width="56" height="56"/>
         <image name="oil" width="56" height="56"/>
+        <image name="pin-filled" width="60" height="96"/>
         <image name="post" width="246" height="246"/>
         <image name="sewage" width="56" height="56"/>
         <image name="stacked-images" width="132" height="132"/>
