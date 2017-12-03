@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4A00E12C1FCF9D1F00E4CEA4 /* UIActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A00E12B1FCF9D1F00E4CEA4 /* UIActivities.swift */; };
+		4A00E12E1FD4A12200E4CEA4 /* GothamSSm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A00E12D1FD4A12200E4CEA4 /* GothamSSm-Medium.otf */; };
 		4A0ABE701FBD2B4F007B06B9 /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A0ABE6F1FBD2B4F007B06B9 /* SF-Pro-Display-Semibold.otf */; };
 		4A0ABE721FBD2D04007B06B9 /* Brandon_bld.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A0ABE711FBD2D04007B06B9 /* Brandon_bld.otf */; };
 		4A0ABE751FBE6E2F007B06B9 /* ImageSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE741FBE6E2F007B06B9 /* ImageSliderViewController.swift */; };
@@ -75,6 +76,7 @@
 
 /* Begin PBXFileReference section */
 		4A00E12B1FCF9D1F00E4CEA4 /* UIActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivities.swift; sourceTree = "<group>"; };
+		4A00E12D1FD4A12200E4CEA4 /* GothamSSm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothamSSm-Medium.otf"; sourceTree = "<group>"; };
 		4A0ABE6F1FBD2B4F007B06B9 /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
 		4A0ABE711FBD2D04007B06B9 /* Brandon_bld.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_bld.otf; sourceTree = "<group>"; };
 		4A0ABE741FBE6E2F007B06B9 /* ImageSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSliderViewController.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 				4AA85B941FBCA3CA009A72E8 /* Brandon_reg.otf */,
 				4A0ABE711FBD2D04007B06B9 /* Brandon_bld.otf */,
 				4A0ABE6F1FBD2B4F007B06B9 /* SF-Pro-Display-Semibold.otf */,
+				4A00E12D1FD4A12200E4CEA4 /* GothamSSm-Medium.otf */,
 			);
 			path = fonts;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				4A321A861FB66ECC001DA08A /* container.storyboard in Resources */,
 				4A321A991FB67E50001DA08A /* new-report.storyboard in Resources */,
 				4A9578C31FBB45E50051837C /* onboarding.storyboard in Resources */,
+				4A00E12E1FD4A12200E4CEA4 /* GothamSSm-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,8 +482,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Endangered Waves/Pods-Endangered Waves-resources.sh",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseFacebookAuthUI.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseFacebookAuthUI.bundle,
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
