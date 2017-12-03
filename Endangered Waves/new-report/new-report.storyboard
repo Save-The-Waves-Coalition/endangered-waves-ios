@@ -340,6 +340,7 @@ EROSION</string>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin-filled" translatesAutoresizingMaskIntoConstraints="NO" id="QBO-64-rcU">
                                                     <rect key="frame" x="300.5" y="15.5" width="19" height="30"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="Ghk-em-X3f"/>
                                                         <constraint firstAttribute="width" secondItem="QBO-64-rcU" secondAttribute="height" multiplier="5:8" id="vBa-7T-fli"/>

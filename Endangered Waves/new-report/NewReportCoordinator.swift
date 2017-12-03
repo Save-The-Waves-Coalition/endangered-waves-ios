@@ -78,7 +78,7 @@ class NewReportCoordinator: Coordinator {
         let locationPicker = LocationPicker()
         locationPicker.title = "LOCATION"
         locationPicker.addBarButtons()
-        locationPicker.pinColor = Style.colorSTWBlue
+        locationPicker.pinColor = UIColor.black
         locationPicker.searchResultLocationIconColor = Style.colorSTWBlue
         locationPicker.currentLocationIconColor = Style.colorSTWBlue
         locationPicker.pickCompletion = { (pickedLocationItem) in
