@@ -86,6 +86,13 @@ extension InformationViewController {
             }
         case 2:
             switch indexPath.row {
+            case 0: // Tutorial
+                delegate?.userWantsToViewTutorialWithViewController(self)
+            default:
+                break
+            }
+        case 3:
+            switch indexPath.row {
             case 0: // App Survey
                 let url  = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSdm8-9apM3KFGuClz5hGwIWTCR0wIbQcQYYuEA0HoHSPIonMw/viewform?usp=sf_link")!
                 delegate?.viewController(self, wantsToOpenURL: url)
@@ -97,13 +104,6 @@ extension InformationViewController {
                 delegate?.viewController(self, wantsToLaunchAppWithURL: url)
             case 3: // Address
                 break
-            default:
-                break
-            }
-        case 3:
-            switch indexPath.row {
-            case 0: // Tutorial
-                delegate?.userWantsToViewTutorialWithViewController(self)
             default:
                 break
             }

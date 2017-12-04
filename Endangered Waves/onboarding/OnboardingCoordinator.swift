@@ -17,12 +17,9 @@ class OnboardingCoordinator: Coordinator {
     weak var delegate: OnboardingCoordinatorDelegate?
 
     override func start() {
-        let onboardingVC = OnboardingViewController.instantiate()
-        onboardingVC.onboardingDelegate = self
-        rootViewController.present(onboardingVC, animated: false, completion: nil)
+        presentWithViewController(rootViewController)
     }
 
-    // TODO: Deviating from the `start` convention, is this okay
     func presentWithViewController(_ viewController: UIViewController) {
         let onboardingVC = OnboardingViewController.instantiate()
         onboardingVC.onboardingDelegate = self

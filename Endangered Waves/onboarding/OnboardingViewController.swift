@@ -12,77 +12,157 @@ protocol OnboardingViewControllerDelegate: class {
     func controller(_ controller: OnboardingViewController, didTapSkipButton button: UIButton?)
 }
 
-class OnboardingViewController: UIPageViewController {
-
+class OnboardingViewController: UIViewController {
     weak var onboardingDelegate: OnboardingViewControllerDelegate?
 
-    var pagedViewControllers: [UIViewController] = [OnboardingPageOneViewController.instantiate(),
-                                                    OnboardingPageTwoViewController.instantiate(),
-                                                    OnboardingPageThreeViewController.instantiate(),
-                                                    OnboardingPageFourViewController.instantiate()]
+    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var skipButton: UIButton!
+
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.isPagingEnabled = true
+        scrollView.delegate = self
+        return scrollView
+    }()
+
+    private var controllers = [UIViewController]()
+
+    var currentPage: Int {
+        let page = Int((scrollView.contentOffset.x / view.bounds.size.width))
+        return page
+    }
+
+    var numberOfPages: Int {
+        return self.controllers.count
+    }
+
+    private var lastViewContraints: [NSLayoutConstraint]?
+
+    // View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.dataSource = self // Uncomment to enable user interactions
-        self.setViewControllers([pagedViewControllers[0]], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
-//        Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.advanceToIndex1), userInfo: nil, repeats: false)
-//        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(self.advanceToIndex2), userInfo: nil, repeats: false)
-//        Timer.scheduledTimer(timeInterval: 8, target: self, selector: #selector(self.advanceToIndex3), userInfo: nil, repeats: false)
-//        Timer.scheduledTimer(timeInterval: 11, target: self, selector: #selector(self.fadeAway), userInfo: nil, repeats: false)
+
+        pageControl.addTarget(self, action: #selector(pageControllerWasTouched), for: .touchUpInside)
+
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        view.insertSubview(scrollView, belowSubview: pageControl)
+
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[scrollview]-0-|",
+                                                           options: [],
+                                                           metrics: nil,
+                                                           views: ["scrollview": scrollView]))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[scrollview]-0-|",
+                                                           options: [],
+                                                           metrics: nil,
+                                                           views: ["scrollview": scrollView]))
+
+        addViewController(OnboardingPageOneViewController.instantiate())
+        addViewController(OnboardingPageTwoViewController.instantiate())
+        addViewController(OnboardingPageThreeViewController.instantiate())
     }
 
-    @objc func advanceToIndex1() {
-        self.setViewControllers([pagedViewControllers[1]], direction: .forward, animated: true, completion: nil)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        pageControl.numberOfPages = self.numberOfPages
+        pageControl.currentPage = 0
     }
 
-    @objc func advanceToIndex2() {
-        self.setViewControllers([pagedViewControllers[2]], direction: .forward, animated: true, completion: nil)
-    }
-
-    @objc func advanceToIndex3() {
-        self.setViewControllers([pagedViewControllers[3]], direction: .forward, animated: true, completion: nil)
-    }
-
-    @objc func fadeAway() {
-        UIView.animate(withDuration: 0.5, animations: {
-            self.view.alpha = 0
-        }) { (finished) in
-            self.onboardingDelegate?.controller(self, didTapSkipButton: nil)
-        }
-    }
+    // Actions
 
     @IBAction func skipButtonWasTapped(_ sender: UIButton) {
         onboardingDelegate?.controller(self, didTapSkipButton: sender)
     }
-}
 
-extension OnboardingViewController: UIPageViewControllerDataSource {
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        if viewController is OnboardingPageOneViewController {
-            return nil
-        } else if viewController is OnboardingPageTwoViewController {
-            return pagedViewControllers[0]
-        } else if viewController is OnboardingPageThreeViewController {
-            return pagedViewControllers[1]
-        } else if viewController is OnboardingPageFourViewController {
-            return pagedViewControllers[2]
+    // Helpers
+
+    func addViewController(_ viewController: UIViewController) {
+        // Add view controller
+        controllers.append(viewController)
+        addChildViewController(viewController)
+
+        // Add view
+        viewController.view.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(viewController.view)
+
+        let metrics = ["w": viewController.view.bounds.size.width, "h": viewController.view.bounds.size.height]
+        viewController.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[view(h)]",
+                                                                          options: [],
+                                                                          metrics: metrics,
+                                                                          views: ["view": viewController.view]))
+        viewController.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[view(w)]",
+                                                                          options: [],
+                                                                          metrics: metrics,
+                                                                          views: ["view": viewController.view]))
+        scrollView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]|",
+                                                                 options: [],
+                                                                 metrics: nil,
+                                                                 views: ["view": viewController.view]))
+
+        if self.numberOfPages == 1 {
+            scrollView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]",
+                                                                     options: [],
+                                                                     metrics: nil,
+                                                                     views: ["view": viewController.view]))
+        } else {
+            let previousVC = controllers[self.numberOfPages - 2]
+            let previousView = previousVC.view!
+
+            scrollView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[previousView]-0-[view]",
+                                                                     options: [],
+                                                                     metrics: nil,
+                                                                     views: ["previousView": previousView, "view": viewController.view]))
+
+            if let constraints = lastViewContraints {
+                scrollView.removeConstraints(constraints)
+            }
+            lastViewContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[view]-0-|",
+                                                                options: [],
+                                                                metrics: nil,
+                                                                views: ["view": viewController.view])
+            if let lastViewConstraints = lastViewContraints {
+                scrollView.addConstraints(lastViewConstraints)
+            }
         }
 
-        return nil
+        // Finish up
+        viewController.didMove(toParentViewController: self)
     }
 
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        if viewController is OnboardingPageOneViewController {
-            return pagedViewControllers[1]
-        } else if viewController is OnboardingPageTwoViewController {
-            return pagedViewControllers[2]
-        } else if viewController is OnboardingPageThreeViewController {
-            return pagedViewControllers[3]
-        } else if viewController is OnboardingPageFourViewController {
-            return nil
-        }
+    @objc func pageControllerWasTouched() {
+        navigateToPage(page: pageControl.currentPage)
+    }
 
-        return nil
+    private func navigateToPage(page: Int) {
+        if page < self.numberOfPages {
+            var frame = scrollView.frame
+            frame.origin.x = CGFloat(page) * frame.size.width
+            scrollView.scrollRectToVisible(frame, animated: true)
+        }
+    }
+
+    private func updateSkipText() {
+        if currentPage == numberOfPages - 1 {
+            skipButton.setTitle("GET STARTED!", for: .normal)
+        } else {
+            skipButton.setTitle("SKIP", for: .normal)
+        }
+    }
+}
+
+// MARK: UIScrollViewDelegate
+extension OnboardingViewController: UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        pageControl.currentPage = currentPage
+        updateSkipText()
+    }
+
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        pageControl.currentPage = currentPage
+        updateSkipText()
     }
 }
 
@@ -117,13 +197,4 @@ class OnboardingPageThreeViewController: UIViewController {
 extension OnboardingPageThreeViewController: StoryboardInstantiable {
     static var storyboardName: String { return "onboarding" }
     static var storyboardIdentifier: String? { return "OnboardingPageThreeComponent" }
-}
-
-class OnboardingPageFourViewController: UIViewController {
-
-}
-// MARK: 📖 StoryboardInstantiable
-extension OnboardingPageFourViewController: StoryboardInstantiable {
-    static var storyboardName: String { return "onboarding" }
-    static var storyboardIdentifier: String? { return "OnboardingPageFourComponent" }
 }

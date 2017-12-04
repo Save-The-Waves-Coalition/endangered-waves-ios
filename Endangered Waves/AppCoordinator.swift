@@ -46,7 +46,7 @@ class AppCoordinator: Coordinator {
         userManager = UserMananger.shared
         showContent()
         if isFirstLaunch() {
-//            showOnboarding()
+            showOnboarding()
         }
     }
 
@@ -82,28 +82,3 @@ extension AppCoordinator: OnboardingCoordinatorDelegate {
         removeChildCoordinator(coordinator)
     }
 }
-
-// MARK: Scratchpad
-
-//lazy var auth = Auth.auth()
-//var authStateListenerHandle: AuthStateDidChangeListenerHandle?
-
-//        authStateListenerHandle = auth.addStateDidChangeListener({ (auth, user) in
-//            if let user = user {
-//                print("User is signed in: \(user)")
-//            } else {
-//                print("User is not signed in")
-//
-//                auth.signInAnonymously(completion: { (user, error) in
-//                    guard let user = user else {
-//                        if let error = error {
-//                            print("⚠️: Couldn't anonymously sign the user in \(error.localizedDescription)")
-//                        }
-//                        return
-//                    }
-//
-//
-//                    print("User is anonymously signed in: \(user)")
-//                })
-//            }
-//        })
