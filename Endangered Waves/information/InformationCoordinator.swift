@@ -20,7 +20,7 @@ class InformationCoordinator: Coordinator {
 
     override func start() {
         let informationNavVC = InformationNavController.instantiate()
-        if let informationVC = informationNavVC.topViewController as? InformationViewController{
+        if let informationVC = informationNavVC.topViewController as? InformationViewController {
             informationVC.delegate = self
             rootViewController.present(informationNavVC, animated: true, completion: nil)
         }

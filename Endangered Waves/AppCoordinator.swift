@@ -19,20 +19,16 @@ final class UserMananger {
     init() {
 
         handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
-            print("Auth State Change")
             guard let user = user else {
                 self.user = nil
                 return
             }
 
             self.user = user
-            print("User: \(user)")
-            print("anonymous: \(user.isAnonymous)")
         })
 
         if user == nil {
             // User doesn't currently exist so log them in anonymously
-            print("Signing in anonymously")
             Auth.auth().signInAnonymously(completion: nil)
         }
     }

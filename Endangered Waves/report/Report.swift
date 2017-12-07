@@ -103,7 +103,14 @@ struct Report {
     var type: ReportType
     var user: String
 
-    init(name: String, address: String, coordinate: GeoPoint, creationDate: Date, description: String, imageURLs: [String], type: ReportType, user: String) {
+    init(name: String,
+         address: String,
+         coordinate: GeoPoint,
+         creationDate: Date,
+         description: String,
+         imageURLs: [String],
+         type: ReportType,
+         user: String) {
         self.name = name
         self.address = address
         self.coordinate = coordinate
@@ -128,7 +135,14 @@ struct Report {
                 return nil
         }
 
-        return Report(name: name, address: address, coordinate: coordinate, creationDate: creationDate, description: description, imageURLs: imageURLs, type: type, user: user)
+        return Report(name: name,
+                      address: address,
+                      coordinate: coordinate,
+                      creationDate: creationDate,
+                      description: description,
+                      imageURLs: imageURLs,
+                      type: type,
+                      user: user)
     }
 }
 

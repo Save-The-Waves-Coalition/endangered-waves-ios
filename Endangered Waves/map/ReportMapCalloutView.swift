@@ -29,7 +29,9 @@ class ReportMapCalloutView: UIView {
                 placemarkImageView.image = report.type.placemarkIcon()
             }
 
-            if let userImageView = userImageView, let firstImageURLString = report.imageURLs.first, let firstImageURL = URL(string: firstImageURLString) {
+            if let userImageView = userImageView,
+                let firstImageURLString = report.imageURLs.first,
+                let firstImageURL = URL(string: firstImageURLString) {
 
                 // TODO: Maybe use storage references instead of URLs for better caching ¯\(°_o)/¯
                 userImageView.sd_setImage(with: firstImageURL, completed: { (image, error, cacheType, url) in

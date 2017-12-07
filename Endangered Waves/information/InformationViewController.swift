@@ -30,7 +30,9 @@ class InformationViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let infoDictionary = Bundle.main.infoDictionary, let version = infoDictionary["CFBundleShortVersionString"] as? String, let build = infoDictionary["CFBundleVersion"] as? String {
+        if let infoDictionary = Bundle.main.infoDictionary,
+            let version = infoDictionary["CFBundleShortVersionString"] as? String,
+            let build = infoDictionary["CFBundleVersion"] as? String {
             appVersionLabel.text = "\(version) (\(build))"
         }
     }
@@ -38,7 +40,7 @@ class InformationViewController: UITableViewController {
     // Actions
 
     @IBAction func mjdButtonWasTapped(_ sender: UIButton) {
-        let url = URL(string: "http://mjdinteractive.com/contact-us/")!
+        let url = URL(string: "http://mjdinteractive.com/")!
         delegate?.viewController(self, wantsToOpenURL: url)
     }
 }

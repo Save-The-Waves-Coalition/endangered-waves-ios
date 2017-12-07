@@ -62,7 +62,8 @@ class ImageSliderViewController: UIPageViewController {
     }
 
     // Pull UIPageControl to the front and put it on top of the images
-    // Sometimes I feel dirty: https://stackoverflow.com/questions/21045630/how-to-put-the-uipagecontrol-element-on-top-of-the-sliding-pages-within-a-uipage
+    // Sometimes I feel dirty:
+    // https://stackoverflow.com/questions/21045630/how-to-put-the-uipagecontrol-element-on-top-of-the-sliding-pages-within-a-uipage
     // This is a hack that will break eventually, mark my words.
     override func viewDidLayoutSubviews() {
         for subView in self.view.subviews {
@@ -84,13 +85,18 @@ class ImageSliderViewController: UIPageViewController {
 
 // MARK: UIPageViewControllerDelegate
 extension ImageSliderViewController: UIPageViewControllerDelegate {
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+    func pageViewController(_ pageViewController: UIPageViewController,
+                            didFinishAnimating finished: Bool,
+                            previousViewControllers: [UIViewController],
+                            transitionCompleted completed: Bool) {
         guard finished else { return }
         currentPageIndex = nextPageIndex
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        if let viewController = pendingViewControllers.first as? ImageViewController, let imageViewControllers = self.imageViewControllers, let index = imageViewControllers.index(of: viewController) {
+        if let viewController = pendingViewControllers.first as? ImageViewController,
+            let imageViewControllers = self.imageViewControllers,
+            let index = imageViewControllers.index(of: viewController) {
             nextPageIndex = index
         }
     }
@@ -98,7 +104,8 @@ extension ImageSliderViewController: UIPageViewControllerDelegate {
 
 // MARK: UIPageViewControllerDataSource
 extension ImageSliderViewController: UIPageViewControllerDataSource {
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController,
+                            viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewController = viewController as? ImageViewController,
             let imageViewControllers = self.imageViewControllers,
             let index = imageViewControllers.index(of: viewController),
@@ -109,7 +116,8 @@ extension ImageSliderViewController: UIPageViewControllerDataSource {
         return imageViewControllers[index - 1]
     }
 
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController,
+                            viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let imageControllers = imageViewControllers,
             let viewController = viewController as? ImageViewController,
             let index = imageControllers.index(of: viewController),

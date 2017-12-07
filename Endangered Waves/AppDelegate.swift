@@ -20,7 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return c
     }()
 
-    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
+    func application(_ application: UIApplication,
+                     willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
         FirebaseApp.configure()
         BuddyBuildSDK.setup()
         window = UIWindow(frame: UIScreen.main.bounds)

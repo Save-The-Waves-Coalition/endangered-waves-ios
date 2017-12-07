@@ -119,7 +119,7 @@ class NewReportViewController: UITableViewController {
 
                     let snapShotter = MKMapSnapshotter(options: mapSnapshotOptions)
                     snapShotter.start(completionHandler: { (snapshot, error) in
-                        
+
                         self.mapPinImageView.alpha = 0
                         mapImageView.alpha = 0
                         mapImageView.image = snapshot?.image
@@ -217,7 +217,8 @@ extension NewReportViewController: UITextViewDelegate {
             let attributes = [NSAttributedStringKey.foregroundColor: UIColor.black,
                               NSAttributedStringKey.font: Style.fontGeorgia(size: 15),
                               NSAttributedStringKey.paragraphStyle: paragraphStyle]
-            let newString = NSMutableAttributedString(string: " ", attributes: attributes) // Have to have at least 1 character for the attributes to take
+            // Have to have at least 1 character for the attributes to take
+            let newString = NSMutableAttributedString(string: " ", attributes: attributes)
             textView.attributedText = newString
             textView.text = ""
         }

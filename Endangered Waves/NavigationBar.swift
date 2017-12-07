@@ -19,11 +19,9 @@ class NavigationBar: UINavigationBar {
             self.frame.origin.y = CGFloat(20)
         }
 
-        for subView in self.subviews {
-            if subView.className == "_UIBarBackground" {
-                subView.frame.size.height = 64
-                subView.frame.origin.y = -20
-            }
+        for subView in self.subviews where subView.className == "_UIBarBackground" {
+            subView.frame.size.height = 64
+            subView.frame.origin.y = -20
         }
     }
 }

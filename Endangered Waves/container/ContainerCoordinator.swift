@@ -117,7 +117,10 @@ class ContainerCoordinator: Coordinator {
 
     fileprivate func showSharingWithReport(_ report: Report) {
         if let firstImageURLString = report.imageURLs.first, let firstImageURL = URL(string: firstImageURLString) {
-            SDWebImageManager.shared().loadImage(with: firstImageURL, options: [], progress: nil, completed: { (image, data, error, cacheType, finished, imageURL) in
+            SDWebImageManager.shared().loadImage(with: firstImageURL,
+                                                 options: [],
+                                                 progress: nil,
+                                                 completed: { (image, data, error, cacheType, finished, imageURL) in
                 if let image = image {
                     let imageActivity = ImageActivity(image: image)
                     let shareText = "\(report.description) \(report.type.hashTagString()) #endangeredwaves"

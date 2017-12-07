@@ -180,7 +180,9 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
 
         // Validate type
         if reportType == nil {
-            showValidationError(title: "Missing Report Type", message: "Please select a report type, such as OIL SPILL.", withViewController: viewController)
+            showValidationError(title: "Missing Report Type",
+                                message: "Please select a report type, such as OIL SPILL.",
+                                withViewController: viewController)
             return
         }
 

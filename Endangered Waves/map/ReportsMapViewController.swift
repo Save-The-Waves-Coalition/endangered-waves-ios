@@ -85,7 +85,8 @@ class ReportsMapViewController: UIViewController {
 extension ReportsMapViewController: FUIBatchedArrayDelegate {
 
     func batchedArray(_ array: FUIBatchedArray, didUpdateWith diff: FUISnapshotArrayDiff<DocumentSnapshot>) {
-        // TODO: Right now just removing all annotations and then adding everything back, we really should be taking addvantage of the array diff
+        // TODO: Right now just removing all annotations and then adding everything back,
+        //       we really should be taking addvantage of the array diff
         // print("ℹ️: Firestore udpated: \(diff)")
 
         let annotations = mapView.annotations

@@ -20,7 +20,8 @@ class ReportsTableViewController: UITableViewController {
 
     lazy var dataSource: FUIFirestoreTableViewDataSource = {
         let query = Firestore.firestore().collection("reports").order(by: "creationDate", descending: true)
-        let source = FUIFirestoreTableViewDataSource(query: query, populateCell: { [unowned self] (tableView, indexPath, snapshot) -> UITableViewCell in
+        let source = FUIFirestoreTableViewDataSource(query: query,
+                                                     populateCell: { [unowned self] (tableView, indexPath, snapshot) -> UITableViewCell in
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath) as? ReportsTableViewCell else {
                 assertionFailure("⚠️: Wrong cell type in use.")
                 return UITableViewCell()
@@ -60,7 +61,9 @@ extension ReportsTableViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         // TODO: Coordinator should take care of this
         let cellPosition = tableView.convert(location, from: previewingContext.sourceView)
-        guard let cellIndexPath = tableView.indexPathForRow(at: cellPosition), let cellView = tableView.cellForRow(at: cellIndexPath) as? ReportsTableViewCell, let report = cellView.report else {
+        guard let cellIndexPath = tableView.indexPathForRow(at: cellPosition),
+            let cellView = tableView.cellForRow(at: cellIndexPath) as? ReportsTableViewCell,
+            let report = cellView.report else {
             return nil
         }
 

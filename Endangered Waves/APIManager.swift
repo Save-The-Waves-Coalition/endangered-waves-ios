@@ -35,7 +35,14 @@ class APIManager {
                 return
             }
 
-            let report = Report(name: name, address: address, coordinate: coordinate, creationDate: Date(), description: description, imageURLs: uploadedImageURLStrings, type: type, user: userID)
+            let report = Report(name: name,
+                                address: address,
+                                coordinate: coordinate,
+                                creationDate: Date(),
+                                description: description,
+                                imageURLs: uploadedImageURLStrings,
+                                type: type,
+                                user: userID)
 
             uploadReport(report, completionHandler: { (documentID, error) in
                 if let error = error {
@@ -60,7 +67,9 @@ class APIManager {
         })
     }
 
-    static func uploadImages(_ images: [UIImage], progressHandler: @escaping (Double) -> Void, completionHandler: @escaping ([String]?, Error?) -> Void) {
+    static func uploadImages(_ images: [UIImage],
+                             progressHandler: @escaping (Double) -> Void,
+                             completionHandler: @escaping ([String]?, Error?) -> Void) {
 
         let storage = Storage.storage()
 
