@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BdA-9h-eYY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BdA-9h-eYY">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -28,10 +28,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="c6a-an-Ijt">
-                                <rect key="frame" x="140.5" y="406" width="39" height="37"/>
+                                <rect key="frame" x="140.5" y="402" width="39" height="37"/>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjy-ns-acA">
-                                <rect key="frame" x="110" y="451" width="100" height="29"/>
+                                <rect key="frame" x="110" y="447" width="100" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Ynd-hB-yf9"/>
                                 </constraints>
@@ -84,7 +84,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRASHED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ok5-mA-Eyn">
-                                <rect key="frame" x="481.5" y="251.5" width="69" height="17.5"/>
+                                <rect key="frame" x="483" y="251.5" width="67.5" height="21.5"/>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -93,7 +93,7 @@
                                 <rect key="frame" x="19.5" y="99.5" width="281" height="281"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muP-Zz-vUu">
-                                <rect key="frame" x="80" y="15.5" width="160.5" height="56"/>
+                                <rect key="frame" x="84.5" y="2.5" width="152" height="69"/>
                                 <string key="text">SEE AN ISSUE
 &amp; REPORT IT</string>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="24"/>
@@ -153,7 +153,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFY-Iy-UHr">
-                                <rect key="frame" x="72" y="15.5" width="175" height="56"/>
+                                <rect key="frame" x="72" y="2.5" width="175" height="69"/>
                                 <string key="text">SHARE IT OUT
 &amp; TAKE ACTION</string>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="24"/>
@@ -176,13 +176,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEWAGE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyD-3o-Npf">
-                                <rect key="frame" x="23.5" y="219.5" width="63" height="17.5"/>
+                                <rect key="frame" x="23.5" y="219.5" width="59.5" height="21.5"/>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OIL SPILL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aqj-o9-RuW">
-                                <rect key="frame" x="199.5" y="427" width="68" height="17.5"/>
+                                <rect key="frame" x="199.5" y="427" width="65.5" height="21.5"/>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -192,13 +192,13 @@
                             <constraint firstItem="wyD-3o-Npf" firstAttribute="top" secondItem="xFH-03-o8L" secondAttribute="bottom" constant="-40" id="16e-7q-nwB"/>
                             <constraint firstItem="Aqj-o9-RuW" firstAttribute="leading" secondItem="Vnj-L7-RLT" secondAttribute="leading" constant="314" id="2uR-LX-ncC"/>
                             <constraint firstItem="ZAx-o3-nK3" firstAttribute="top" secondItem="AHN-lz-Qf9" secondAttribute="top" id="43c-rZ-nkI"/>
-                            <constraint firstItem="xFH-03-o8L" firstAttribute="centerX" secondItem="AHN-lz-Qf9" secondAttribute="centerX" id="6ld-ZW-Odh"/>
                             <constraint firstItem="ZAx-o3-nK3" firstAttribute="trailing" secondItem="QXm-Sb-gdh" secondAttribute="trailing" id="CF0-Ia-B3R"/>
                             <constraint firstItem="Aqj-o9-RuW" firstAttribute="top" secondItem="Vnj-L7-RLT" secondAttribute="bottom" constant="-152" id="CQ1-hj-ViF"/>
                             <constraint firstItem="Vnj-L7-RLT" firstAttribute="top" secondItem="7oE-jM-MZp" secondAttribute="bottom" constant="-120" id="CoD-mR-7yI"/>
                             <constraint firstItem="7oE-jM-MZp" firstAttribute="top" secondItem="nFY-Iy-UHr" secondAttribute="bottom" constant="28" id="Hjg-xJ-bQl"/>
                             <constraint firstItem="Vnj-L7-RLT" firstAttribute="centerX" secondItem="AHN-lz-Qf9" secondAttribute="centerX" constant="20" id="IGQ-Rq-H2I"/>
                             <constraint firstItem="wyD-3o-Npf" firstAttribute="leading" secondItem="xFH-03-o8L" secondAttribute="leading" id="JdZ-Hs-HVx"/>
+                            <constraint firstItem="xFH-03-o8L" firstAttribute="leading" secondItem="QXm-Sb-gdh" secondAttribute="leading" constant="23.5" id="c2c-Xe-fQm"/>
                             <constraint firstItem="7oE-jM-MZp" firstAttribute="centerY" secondItem="AHN-lz-Qf9" secondAttribute="centerY" id="fFX-hT-F2J"/>
                             <constraint firstItem="ZAx-o3-nK3" firstAttribute="leading" secondItem="QXm-Sb-gdh" secondAttribute="leading" id="keq-Df-gwO"/>
                             <constraint firstItem="xFH-03-o8L" firstAttribute="top" secondItem="nFY-Iy-UHr" secondAttribute="bottom" constant="-40" id="pC7-BC-1nW"/>
@@ -225,7 +225,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0K-KZ-a1x">
-                                <rect key="frame" x="73.5" y="15" width="172.5" height="56"/>
+                                <rect key="frame" x="75" y="2" width="169.5" height="69"/>
                                 <string key="text">BE PART OF
 THE SOLUTION</string>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="24"/>
