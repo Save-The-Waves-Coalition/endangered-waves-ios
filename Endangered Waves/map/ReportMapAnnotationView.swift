@@ -85,7 +85,7 @@ class ReportMapAnnotationView: MKAnnotationView {
                                                               toItem: self,
                                                               attribute: NSLayoutAttribute.left,
                                                               multiplier: 1,
-                                                              constant: 5)
+                                                              constant: 0)
                 let verticalConstraint = NSLayoutConstraint(item: newCustomCalloutView,
                                                             attribute: NSLayoutAttribute.centerY,
                                                             relatedBy: NSLayoutRelation.equal,
