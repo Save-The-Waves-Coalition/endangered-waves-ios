@@ -32,14 +32,14 @@ class ReportsTableViewController: UITableViewController {
 
             if let report = Report.createReportWithSnapshot(snapshot) {
                 cell.report = report
+                cell.tag = indexPath.row
 
                 let urls: [URL] = report.imageURLs.flatMap({ (urlString) -> URL? in
                     return URL(string: urlString)
                 })
                 cell.imageDownloadManager.loadImagesWithURLs(urls, completion: { (images) in
                     // when this finishes, we need to make sure we are still the same cell
-                    if let nowCell = tableView.cellForRow(at: indexPath),
-                        nowCell == cell {
+                    if cell.tag == indexPath.row {
                         cell.imageSliderViewController.images = images
                         cell.imageSliderViewController.view.alpha = 1.0
                     }
