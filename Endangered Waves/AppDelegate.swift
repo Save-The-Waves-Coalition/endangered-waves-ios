@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseCore
+import AVFoundation
 import BuddyBuildSDK
 
 @UIApplicationMain
@@ -22,6 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
+
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
+        } catch {}
+
         FirebaseApp.configure()
         BuddyBuildSDK.setup()
         window = UIWindow(frame: UIScreen.main.bounds)
