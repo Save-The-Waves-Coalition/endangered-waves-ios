@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tgp-YU-pu1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tgp-YU-pu1">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -70,7 +70,7 @@
                                                         <constraint firstAttribute="height" constant="213" id="Ub8-TF-UA7"/>
                                                     </constraints>
                                                     <connections>
-                                                        <segue destination="3y9-wN-Gdc" kind="embed" id="Je4-Kb-5EY"/>
+                                                        <segue destination="uAY-aM-Swd" kind="embed" id="ahC-CJ-arj"/>
                                                     </connections>
                                                 </containerView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oil-placemark" translatesAutoresizingMaskIntoConstraints="NO" id="xcZ-Qv-VOe">
@@ -168,7 +168,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWL-RG-GLj">
-                                                    <rect key="frame" x="16" y="31" width="59" height="17.5"/>
+                                                    <rect key="frame" x="16" y="31" width="60" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
                                                     <color key="textColor" name="STW-Grey"/>
                                                     <nil key="highlightedColor"/>
@@ -228,7 +228,7 @@ line 3</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNw-l4-vsZ">
-                                                    <rect key="frame" x="135" y="33.5" width="105" height="33"/>
+                                                    <rect key="frame" x="139.5" y="33.5" width="96" height="33"/>
                                                     <color key="backgroundColor" name="STW-Blue"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="17"/>
                                                     <inset key="contentEdgeInsets" minX="8" minY="4" maxX="8" maxY="4"/>
@@ -282,13 +282,13 @@ line 3</string>
             </objects>
             <point key="canvasLocation" x="789.60000000000002" y="-808.69565217391312"/>
         </scene>
-        <!--Image Slider View Controller-->
-        <scene sceneID="WVV-9R-v3X">
+        <!--ImageSliderViewController-->
+        <scene sceneID="Xh4-od-1cM">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="3y9-wN-Gdc" customClass="ImageSliderViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eMi-Ul-wji" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="image-slider" referencedIdentifier="ImageSliderViewController" id="uAY-aM-Swd" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VIr-vc-fuR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1552" y="-797"/>
+            <point key="canvasLocation" x="1377" y="-809"/>
         </scene>
     </scenes>
     <resources>

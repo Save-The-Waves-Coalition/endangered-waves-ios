@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o7N-oN-T2R">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="o7N-oN-T2R">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -16,14 +16,6 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Image Slider View Controller-->
-        <scene sceneID="ZLA-ob-SG3">
-            <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="vjd-Ja-QDu" customClass="ImageSliderViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="X6o-r1-brG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1052" y="2209"/>
-        </scene>
         <!--New Report Nav View Controller-->
         <scene sceneID="fv9-Ox-3Qu">
             <objects>
@@ -67,7 +59,7 @@
                                                         <constraint firstAttribute="height" constant="213" id="Bq9-cf-eQI"/>
                                                     </constraints>
                                                     <connections>
-                                                        <segue destination="vjd-Ja-QDu" kind="embed" id="WbH-wZ-yJl"/>
+                                                        <segue destination="VCZ-fU-evq" kind="embed" id="VFM-8o-Iqy"/>
                                                     </connections>
                                                 </containerView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEo-wi-9Cl">
@@ -104,7 +96,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THREAT CATEGORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06W-gh-CHS">
-                                                    <rect key="frame" x="16" y="11" width="111.5" height="18"/>
+                                                    <rect key="frame" x="16" y="11" width="108.5" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="GCp-7R-iVE"/>
                                                     </constraints>
@@ -186,7 +178,7 @@
 LOST</string>
                                                                                 <attributes>
                                                                                     <color key="NSColor" name="STW-Grey"/>
-                                                                                    <font key="NSFont" size="12" name="BrandonGrotesque-Black"/>
+                                                                                    <font key="NSFont" metaFont="cellTitle"/>
                                                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                 </attributes>
                                                                             </fragment>
@@ -209,7 +201,7 @@ LOST</string>
  </string>
                                                                                 <attributes>
                                                                                     <color key="NSColor" name="STW-Grey"/>
-                                                                                    <font key="NSFont" size="12" name="BrandonGrotesque-Black"/>
+                                                                                    <font key="NSFont" metaFont="cellTitle"/>
                                                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                 </attributes>
                                                                             </fragment>
@@ -235,7 +227,7 @@ LOST</string>
 EROSION</string>
                                                                                 <attributes>
                                                                                     <color key="NSColor" name="STW-Grey"/>
-                                                                                    <font key="NSFont" size="12" name="BrandonGrotesque-Black"/>
+                                                                                    <font key="NSFont" metaFont="cellTitle"/>
                                                                                     <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                 </attributes>
                                                                             </fragment>
@@ -273,12 +265,12 @@ EROSION</string>
                                                     <rect key="frame" x="16" y="0.0" width="339" height="88"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESCRIPTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZ1-sH-e8A">
-                                                            <rect key="frame" x="0.0" y="0.0" width="339" height="14"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="339" height="17.5"/>
                                                             <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2er-Wd-wia">
-                                                            <rect key="frame" x="0.0" y="22" width="339" height="66"/>
+                                                            <rect key="frame" x="0.0" y="25.5" width="339" height="62.5"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="62" id="yXI-rN-0Tq"/>
@@ -314,7 +306,7 @@ EROSION</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGT-9M-TFg">
-                                                    <rect key="frame" x="16" y="11" width="59" height="17.5"/>
+                                                    <rect key="frame" x="16" y="11" width="60" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -435,6 +427,14 @@ EROSION</string>
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="138.40000000000001" y="2204.7976011994006"/>
+        </scene>
+        <!--ImageSliderViewController-->
+        <scene sceneID="4vt-tT-Cg0">
+            <objects>
+                <viewControllerPlaceholder storyboardName="image-slider" referencedIdentifier="ImageSliderViewController" id="VCZ-fU-evq" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="516-Qa-rfg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="710" y="2205"/>
         </scene>
     </scenes>
     <resources>
