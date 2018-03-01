@@ -18,7 +18,8 @@ class ImageSliderViewController: UIPageViewController {
 
     var images: [UIImage]? {
         didSet {
-            if let images = self.images {
+            if let images = self.images,
+                    images.count > 0 {
                 let imageViewControllers = imageViewControllersForImages(images)
                 currentPageIndex = 0
                 nextPageIndex = 0
