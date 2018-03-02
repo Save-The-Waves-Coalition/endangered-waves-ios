@@ -19,6 +19,7 @@ class InformationViewController: UITableViewController {
 
     weak var delegate: InformationViewControllerDelegate?
 
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var appVersionLabel: UILabel!
 
     @IBAction func didTapDoneButton(_ sender: UIBarButtonItem) {
@@ -42,6 +43,10 @@ class InformationViewController: UITableViewController {
     @IBAction func mjdButtonWasTapped(_ sender: UIButton) {
         let url = URL(string: "http://mjdinteractive.com/")!
         delegate?.viewController(self, wantsToOpenURL: url)
+    }
+
+    func isAddressIndexPath(indexPath: IndexPath) -> Bool {
+        return indexPath.section == 3 && indexPath.row == 3
     }
 }
 
@@ -120,6 +125,31 @@ extension InformationViewController {
             headerView.textLabel?.font = Style.fontBrandonGrotesqueBold(size: 17)
             headerView.textLabel?.textColor = UIColor.black
         }
+    }
+
+    override func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
+        guard isAddressIndexPath(indexPath: indexPath),
+            action == #selector(copy(_:)) else {
+                return false
+        }
+
+        return true
+    }
+
+    override func tableView(_ tableView: UITableView, shouldShowMenuForRowAt indexPath: IndexPath) -> Bool {
+        guard isAddressIndexPath(indexPath: indexPath) else {
+                return false
+        }
+
+        return true
+    }
+
+    override func tableView(_ tableView: UITableView, performAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) {
+        guard action == #selector(copy(_:)) else {
+            return
+        }
+
+        UIPasteboard.general.string = addressLabel.text
     }
 }
 

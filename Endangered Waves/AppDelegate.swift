@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseCore
+import AVFoundation
 import BuddyBuildSDK
 
 @UIApplicationMain
@@ -22,6 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
+
+        // If the user is listening to music, this code makes sure the music does NOT stop when taking a picture
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
+        } catch {}
+
         FirebaseApp.configure()
         BuddyBuildSDK.setup()
         window = UIWindow(frame: UIScreen.main.bounds)

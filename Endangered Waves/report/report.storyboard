@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tgp-YU-pu1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tgp-YU-pu1">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -70,7 +71,7 @@
                                                         <constraint firstAttribute="height" constant="213" id="Ub8-TF-UA7"/>
                                                     </constraints>
                                                     <connections>
-                                                        <segue destination="3y9-wN-Gdc" kind="embed" id="Je4-Kb-5EY"/>
+                                                        <segue destination="JV9-PD-rvV" kind="embed" id="rht-22-1IX"/>
                                                     </connections>
                                                 </containerView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oil-placemark" translatesAutoresizingMaskIntoConstraints="NO" id="xcZ-Qv-VOe">
@@ -168,7 +169,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWL-RG-GLj">
-                                                    <rect key="frame" x="16" y="31" width="59" height="17.5"/>
+                                                    <rect key="frame" x="16" y="31" width="60" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
                                                     <color key="textColor" name="STW-Grey"/>
                                                     <nil key="highlightedColor"/>
@@ -189,15 +190,18 @@ line 3</string>
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BkY-kU-Kao">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43b-x4-8Os">
                                                     <rect key="frame" x="265" y="52.5" width="90" height="90"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="90" id="F2Q-C5-ERn"/>
-                                                        <constraint firstAttribute="height" constant="90" id="t4Z-4d-xCa"/>
+                                                        <constraint firstAttribute="width" constant="90" id="5Hu-ke-6Mq"/>
+                                                        <constraint firstAttribute="height" constant="90" id="vce-4c-zss"/>
                                                     </constraints>
-                                                </imageView>
+                                                    <connections>
+                                                        <action selector="userTappedMapButton:" destination="6gT-ox-CXr" eventType="touchUpInside" id="L4J-FG-96Q"/>
+                                                    </connections>
+                                                </button>
                                                 <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin-filled" translatesAutoresizingMaskIntoConstraints="NO" id="ge7-92-pRO">
-                                                    <rect key="frame" x="300.5" y="67.5" width="19" height="30"/>
+                                                    <rect key="frame" x="300.5" y="97.5" width="19" height="30"/>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="QFd-yI-Q9Y"/>
@@ -205,16 +209,16 @@ line 3</string>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="BkY-kU-Kao" secondAttribute="trailing" constant="20" symbolic="YES" id="3S8-53-gF2"/>
-                                                <constraint firstItem="ge7-92-pRO" firstAttribute="centerX" secondItem="BkY-kU-Kao" secondAttribute="centerX" id="4hI-hg-up2"/>
                                                 <constraint firstItem="QSi-fo-DRO" firstAttribute="leading" secondItem="BWL-RG-GLj" secondAttribute="leading" id="8Sy-DH-FQu"/>
+                                                <constraint firstItem="43b-x4-8Os" firstAttribute="centerY" secondItem="ge7-92-pRO" secondAttribute="centerY" constant="-15" id="Acf-bn-dsq"/>
                                                 <constraint firstItem="BWL-RG-GLj" firstAttribute="leading" secondItem="Qzi-ID-hwZ" secondAttribute="leadingMargin" id="GRY-qp-GqJ"/>
-                                                <constraint firstItem="BkY-kU-Kao" firstAttribute="leading" secondItem="QSi-fo-DRO" secondAttribute="trailing" constant="8" id="OEN-eZ-oTh"/>
+                                                <constraint firstItem="43b-x4-8Os" firstAttribute="centerX" secondItem="ge7-92-pRO" secondAttribute="centerX" id="MUj-po-zWH"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="BWL-RG-GLj" secondAttribute="bottom" constant="92.5" id="bJL-2U-KrG"/>
-                                                <constraint firstItem="ge7-92-pRO" firstAttribute="centerY" secondItem="BkY-kU-Kao" secondAttribute="centerY" constant="-15" id="dIz-hr-XEk"/>
                                                 <constraint firstItem="ge7-92-pRO" firstAttribute="width" secondItem="ge7-92-pRO" secondAttribute="height" multiplier="5:8" id="gYy-DJ-Tiv"/>
-                                                <constraint firstItem="BkY-kU-Kao" firstAttribute="centerY" secondItem="QSi-fo-DRO" secondAttribute="centerY" id="hrO-fE-zYY"/>
                                                 <constraint firstItem="QSi-fo-DRO" firstAttribute="top" secondItem="BWL-RG-GLj" secondAttribute="bottom" constant="8" id="ies-Mt-jSb"/>
+                                                <constraint firstItem="43b-x4-8Os" firstAttribute="centerY" secondItem="QSi-fo-DRO" secondAttribute="centerY" id="mqo-xK-vxD"/>
+                                                <constraint firstItem="43b-x4-8Os" firstAttribute="leading" secondItem="QSi-fo-DRO" secondAttribute="trailing" constant="8" id="mxq-5O-MXf"/>
+                                                <constraint firstAttribute="trailing" secondItem="43b-x4-8Os" secondAttribute="trailing" constant="20" symbolic="YES" id="ojX-an-M55"/>
                                                 <constraint firstItem="BWL-RG-GLj" firstAttribute="top" secondItem="Qzi-ID-hwZ" secondAttribute="topMargin" constant="20" id="qyI-GO-uBs"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -228,7 +232,7 @@ line 3</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNw-l4-vsZ">
-                                                    <rect key="frame" x="135" y="33.5" width="105" height="33"/>
+                                                    <rect key="frame" x="139.5" y="33.5" width="96" height="33"/>
                                                     <color key="backgroundColor" name="STW-Blue"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="17"/>
                                                     <inset key="contentEdgeInsets" minX="8" minY="4" maxX="8" maxY="4"/>
@@ -272,7 +276,7 @@ line 3</string>
                         <outlet property="imageLoadingLabel" destination="C33-jj-OX5" id="C0g-4I-K6Q"/>
                         <outlet property="imageSliderContainerView" destination="S1S-cS-x1O" id="77w-Pq-Uh4"/>
                         <outlet property="locationLabel" destination="QSi-fo-DRO" id="1cl-iq-FV7"/>
-                        <outlet property="mapImageView" destination="BkY-kU-Kao" id="w8V-8E-fAe"/>
+                        <outlet property="mapButton" destination="43b-x4-8Os" id="RJH-QB-oQH"/>
                         <outlet property="mapPinImageView" destination="ge7-92-pRO" id="ZgO-MV-Uxr"/>
                         <outlet property="shareBarButtonItem" destination="fL3-X9-s86" id="ASa-cW-MHO"/>
                         <outlet property="typeImageView" destination="xcZ-Qv-VOe" id="xh9-ma-UM7"/>
@@ -282,13 +286,42 @@ line 3</string>
             </objects>
             <point key="canvasLocation" x="789.60000000000002" y="-808.69565217391312"/>
         </scene>
-        <!--Image Slider View Controller-->
-        <scene sceneID="WVV-9R-v3X">
+        <!--Report Detail Map View Controller-->
+        <scene sceneID="lPL-Ws-o0e">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="3y9-wN-Gdc" customClass="ImageSliderViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eMi-Ul-wji" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="ReportDetailMapViewController" id="lhX-eA-wdD" customClass="ReportDetailMapViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K0E-4R-O4j">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="glJ-tt-0oH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="glJ-tt-0oH" firstAttribute="leading" secondItem="u1v-a4-BNg" secondAttribute="leading" id="1zw-7h-azo"/>
+                            <constraint firstItem="glJ-tt-0oH" firstAttribute="top" secondItem="K0E-4R-O4j" secondAttribute="top" id="9K8-hA-pDa"/>
+                            <constraint firstAttribute="bottom" secondItem="glJ-tt-0oH" secondAttribute="bottom" id="fH9-qR-Dhg"/>
+                            <constraint firstItem="u1v-a4-BNg" firstAttribute="trailing" secondItem="glJ-tt-0oH" secondAttribute="trailing" id="lEy-U9-dQm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="u1v-a4-BNg"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="glJ-tt-0oH" id="MXh-IL-2Mg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H3g-gn-Es3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1552" y="-797"/>
+            <point key="canvasLocation" x="1530" y="-313"/>
+        </scene>
+        <!--ImageSliderViewController-->
+        <scene sceneID="fRR-ca-CbQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="image-slider" referencedIdentifier="ImageSliderViewController" id="JV9-PD-rvV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w9p-HO-QyR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1441" y="-824"/>
         </scene>
     </scenes>
     <resources>

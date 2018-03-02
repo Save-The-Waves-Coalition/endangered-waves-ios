@@ -10,19 +10,38 @@ import UIKit
 //import FirebaseStorage
 import SDWebImage
 
+protocol ReportsTableViewCellProtocol: class {
+    func didTapImage(cell: UITableViewCell)
+}
+
 class ReportsTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var reportImageView: UIImageView!
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var locationNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var typeImageView: UIImageView!
     @IBOutlet weak var typeLabel: UILabel!
 
+    weak var delegate: ReportsTableViewCellProtocol?
+    let imageSliderViewController = ImageSliderViewController.instantiate()
+
+    lazy var imageDownloadManager = ImageDownloadManager()
+
+    override func prepareForReuse() {
+        // need to 'hide' this so the images reset during recycling
+        imageSliderViewController.view.alpha = 0.0
+    }
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        imageSliderViewController.imageSliderViewControllerDelegate = self
+        containerView.addSubview(imageSliderViewController.view)
+        imageSliderViewController.view.pinEdgeAnchorsToView(containerView)
+    }
+
     var report: Report! {
         didSet {
-            if let reportImageView = reportImageView, let firstURLString = report.imageURLs.first, let url = URL(string: firstURLString) {
-                reportImageView.sd_setImage(with: url, completed: nil)
-            }
 
             if let typeImageView = typeImageView, let typeLabel = typeLabel {
                 typeImageView.image = report.type.placemarkIcon()
@@ -38,4 +57,12 @@ class ReportsTableViewCell: UITableViewCell {
             }
         }
     }
+}
+
+extension ReportsTableViewCell: ImageSliderViewControllerDelegate {
+
+    func viewController(_ viewController: ImageSliderViewController, didTapImage image: UIImage, atIndex index: Int) {
+        delegate?.didTapImage(cell: self)
+    }
+
 }

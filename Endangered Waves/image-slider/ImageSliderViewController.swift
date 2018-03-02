@@ -18,7 +18,8 @@ class ImageSliderViewController: UIPageViewController {
 
     var images: [UIImage]? {
         didSet {
-            if let images = self.images {
+            if let images = self.images,
+                    images.count > 0 {
                 let imageViewControllers = imageViewControllersForImages(images)
                 currentPageIndex = 0
                 nextPageIndex = 0
@@ -143,4 +144,10 @@ extension ImageSliderViewController: UIPageViewControllerDataSource {
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return currentPageIndex
     }
+}
+
+// MARK: 📖 StoryboardInstantiable
+extension ImageSliderViewController: StoryboardInstantiable {
+    static var storyboardName: String { return "image-slider" }
+    static var storyboardIdentifier: String? { return "ImageSliderViewController" }
 }
