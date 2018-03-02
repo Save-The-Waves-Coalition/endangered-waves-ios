@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import SafariServices
 
 final class UserMananger {
 
@@ -62,9 +63,18 @@ class AppCoordinator: Coordinator {
     }
 
     func showAppSurveyAlert() {
-        let alert = UIAlertController(title: "Hello!", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Please help improve the app by taking a survey.", message: nil, preferredStyle: .alert)
 
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let noAction = UIAlertAction(title: "No Thanks", style: .cancel, handler: nil)
+        alert.addAction(noAction)
+
+        let okAction = UIAlertAction(title: "Yes", style: .default) { (action) in
+            let url  = URL(string: Constants.appSurveyURL)!
+            let safariViewController = SFSafariViewController(url: url)
+            safariViewController.preferredControlTintColor = Style.colorSTWBlue
+            self.rootViewController.present(safariViewController, animated: true, completion: nil)
+        }
+
         alert.addAction(okAction)
         rootViewController.present(alert, animated: true, completion: nil)
     }

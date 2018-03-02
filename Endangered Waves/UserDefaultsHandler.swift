@@ -17,7 +17,7 @@ struct UserDefaultsHandler {
 
     static func shouldShowSurveryAlert() -> Bool {
         let current = getNumberOfLaunches()
-        return current >= showAlertAfterThisNumberOfLaunches
+        return current == showAlertAfterThisNumberOfLaunches
     }
 
     static func getNumberOfLaunches() -> Int {

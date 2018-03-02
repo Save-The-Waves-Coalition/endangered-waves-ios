@@ -36,8 +36,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window?.makeKeyAndVisible()
         appCoordinator.start()
-        UserDefaultsHandler.incrementNumberOfLaunches()
         return true
+    }
+
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        UserDefaultsHandler.incrementNumberOfLaunches()
     }
 
     private func styleApp() {
