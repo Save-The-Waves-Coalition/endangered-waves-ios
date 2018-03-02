@@ -72,7 +72,72 @@
 		4AF773781FB223F4005BFE50 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773771FB223EE005BFE50 /* SystemConfiguration.framework */; };
 		4AF7737A1FB22407005BFE50 /* BuddyBuildSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773791FB22407005BFE50 /* BuddyBuildSDK.framework */; };
 		5A1CAA72357D10A44CD1E0DD /* Pods_Endangered_Waves.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88BE5F84E4FF6158AE4C63E1 /* Pods_Endangered_Waves.framework */; };
+		8774071C2048B9DA00ED36F1 /* InformationNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC5288E1FC4839B0084E442 /* InformationNavController.swift */; };
+		8774071D2048B9DA00ED36F1 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321A9C1FB79169001DA08A /* Report.swift */; };
+		8774071E2048B9DA00ED36F1 /* ImageSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE741FBE6E2F007B06B9 /* ImageSliderViewController.swift */; };
+		8774071F2048B9DA00ED36F1 /* NewReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF232A41FB0CA8900ADA075 /* NewReportViewController.swift */; };
+		877407202048B9DA00ED36F1 /* ImageDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A29878A1FCA2D3E0061B401 /* ImageDownloadManager.swift */; };
+		877407212048B9DA00ED36F1 /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3027991FBFABC600F5D87D /* UIViewController+Keyboard.swift */; };
+		877407222048B9DA00ED36F1 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8B6A7A1FC3423D005A5989 /* NavigationBar.swift */; };
+		877407232048B9DA00ED36F1 /* ReportCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2987861FC9F4A50061B401 /* ReportCoordinator.swift */; };
+		877407242048B9DA00ED36F1 /* ReportsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321A8F1FB67C1F001DA08A /* ReportsMapViewController.swift */; };
+		877407252048B9DA00ED36F1 /* ReportMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321AC51FB8EF17001DA08A /* ReportMapAnnotation.swift */; };
+		877407262048B9DA00ED36F1 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE771FBE6EF4007B06B9 /* ImageViewController.swift */; };
+		877407272048B9DA00ED36F1 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE7C1FBF48B0007B06B9 /* Style.swift */; };
+		877407282048B9DA00ED36F1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9578CF1FBB9DC30051837C /* Coordinator.swift */; };
+		877407292048B9DA00ED36F1 /* ReportMapCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C345F1FC604F200D94684 /* ReportMapCalloutView.swift */; };
+		8774072A2048B9DA00ED36F1 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9578C91FBB4FF20051837C /* AppCoordinator.swift */; };
+		8774072B2048B9DA00ED36F1 /* NewReportCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA85B901FBBD11D009A72E8 /* NewReportCoordinator.swift */; };
+		8774072C2048B9DA00ED36F1 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB6AA881FC5C84D001C36C2 /* RootViewController.swift */; };
+		8774072D2048B9DA00ED36F1 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9578D41FBBB6730051837C /* NavigationViewController.swift */; };
+		8774072E2048B9DA00ED36F1 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2987801FC74B2A0061B401 /* LocationManager.swift */; };
+		8774072F2048B9DA00ED36F1 /* ReportsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8987671FAE0B4E0098E473 /* ReportsTableViewController.swift */; };
+		877407302048B9DA00ED36F1 /* ContainerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9578CD1FBB98CE0051837C /* ContainerCoordinator.swift */; };
+		877407312048B9DA00ED36F1 /* ReportDetailNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321AC71FB9131D001DA08A /* ReportDetailNavViewController.swift */; };
+		877407322048B9DA00ED36F1 /* ReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321AA11FB7AB17001DA08A /* ReportDetailViewController.swift */; };
+		877407332048B9DA00ED36F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FA9191FAA966300C6A2BB /* AppDelegate.swift */; };
+		877407342048B9DA00ED36F1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9578C51FBB465A0051837C /* OnboardingViewController.swift */; };
+		877407352048B9DA00ED36F1 /* ReportMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2987881FCA08FC0061B401 /* ReportMapAnnotationView.swift */; };
+		877407362048B9DA00ED36F1 /* ContainerNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2987841FC9E22A0061B401 /* ContainerNavViewController.swift */; };
+		877407372048B9DA00ED36F1 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE801FC24587007B06B9 /* APIManager.swift */; };
+		877407382048B9DA00ED36F1 /* NSObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8B6A781FC3421C005A5989 /* NSObjectExtensions.swift */; };
+		877407392048B9DA00ED36F1 /* InformationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC5288A1FC482110084E442 /* InformationCoordinator.swift */; };
+		8774073A2048B9DA00ED36F1 /* StoryboardInstantiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321A8B1FB67308001DA08A /* StoryboardInstantiable.swift */; };
+		8774073B2048B9DA00ED36F1 /* NewReportNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA85B921FBBD61D009A72E8 /* NewReportNavViewController.swift */; };
+		8774073C2048B9DA00ED36F1 /* UIActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A00E12B1FCF9D1F00E4CEA4 /* UIActivities.swift */; };
+		8774073D2048B9DA00ED36F1 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADAE8D91FB20D6B00DAAFFD /* ContainerViewController.swift */; };
+		8774073E2048B9DA00ED36F1 /* ReportsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF232A21FB0C46500ADA075 /* ReportsTableViewCell.swift */; };
+		8774073F2048B9DA00ED36F1 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9578C71FBB4F970051837C /* OnboardingCoordinator.swift */; };
+		877407402048B9DA00ED36F1 /* STWButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE7E1FBF574F007B06B9 /* STWButton.swift */; };
+		877407412048B9DA00ED36F1 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC5288C1FC482900084E442 /* InformationViewController.swift */; };
+		877407432048B9DA00ED36F1 /* BuddyBuildSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773791FB22407005BFE50 /* BuddyBuildSDK.framework */; };
+		877407442048B9DA00ED36F1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773771FB223EE005BFE50 /* SystemConfiguration.framework */; };
+		877407452048B9DA00ED36F1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773751FB223E1005BFE50 /* QuartzCore.framework */; };
+		877407462048B9DA00ED36F1 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773731FB223D3005BFE50 /* CoreVideo.framework */; };
+		877407472048B9DA00ED36F1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773711FB223C3005BFE50 /* AVFoundation.framework */; };
+		877407482048B9DA00ED36F1 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF7736F1FB223B5005BFE50 /* CoreMedia.framework */; };
+		877407492048B9DA00ED36F1 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF7736D1FB223A3005BFE50 /* CoreText.framework */; };
+		8774074A2048B9DA00ED36F1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF7736B1FB22394005BFE50 /* CoreTelephony.framework */; };
+		8774074B2048B9DA00ED36F1 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773691FB22362005BFE50 /* AssetsLibrary.framework */; };
+		8774074C2048B9DA00ED36F1 /* Pods_Endangered_Waves.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88BE5F84E4FF6158AE4C63E1 /* Pods_Endangered_Waves.framework */; };
+		8774074E2048B9DA00ED36F1 /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A0ABE6F1FBD2B4F007B06B9 /* SF-Pro-Display-Semibold.otf */; };
+		8774074F2048B9DA00ED36F1 /* Brandon_blk.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A9578D11FBBAE530051837C /* Brandon_blk.otf */; };
+		877407502048B9DA00ED36F1 /* ReportMapCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AB6AA8A1FC5D655001C36C2 /* ReportMapCalloutView.xib */; };
+		877407512048B9DA00ED36F1 /* Brandon_reg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4AA85B941FBCA3CA009A72E8 /* Brandon_reg.otf */; };
+		877407522048B9DA00ED36F1 /* information.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC528871FC4818A0084E442 /* information.storyboard */; };
+		877407532048B9DA00ED36F1 /* Brandon_bld.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A0ABE711FBD2D04007B06B9 /* Brandon_bld.otf */; };
+		877407542048B9DA00ED36F1 /* image-slider.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A0ABE791FBE6F15007B06B9 /* image-slider.storyboard */; };
+		877407552048B9DA00ED36F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A7FA9221FAA966300C6A2BB /* LaunchScreen.storyboard */; };
+		877407572048B9DA00ED36F1 /* map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A921FB67C3B001DA08A /* map.storyboard */; };
+		877407582048B9DA00ED36F1 /* list.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A891FB672A1001DA08A /* list.storyboard */; };
+		877407592048B9DA00ED36F1 /* report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A9F1FB7A85B001DA08A /* report.storyboard */; };
 		8719337020488544000DD493 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8719336F20488544000DD493 /* Extensions.swift */; };
+		8774075A2048B9DA00ED36F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A7FA9201FAA966300C6A2BB /* Assets.xcassets */; };
+		8774075B2048B9DA00ED36F1 /* container.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A851FB66ECC001DA08A /* container.storyboard */; };
+		8774075C2048B9DA00ED36F1 /* new-report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A981FB67E50001DA08A /* new-report.storyboard */; };
+		8774075D2048B9DA00ED36F1 /* onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A9578C21FBB45E50051837C /* onboarding.storyboard */; };
+		8774075E2048B9DA00ED36F1 /* GothamSSm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A00E12D1FD4A12200E4CEA4 /* GothamSSm-Medium.otf */; };
+		877407692048BCFB00ED36F1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 877407682048BCFB00ED36F1 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,7 +210,10 @@
 		4AF773771FB223EE005BFE50 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4AF773791FB22407005BFE50 /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BuddyBuildSDK.framework; path = Pods/BuddyBuildSDK/BuddyBuildSDK.framework; sourceTree = "<group>"; };
 		4E012A9B083A87390F514C8B /* Pods-Endangered Waves.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Endangered Waves.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Endangered Waves/Pods-Endangered Waves.debug.xcconfig"; sourceTree = "<group>"; };
+		877407652048B9DA00ED36F1 /* Endangered Waves dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Endangered Waves dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		877407662048B9DB00ED36F1 /* Endangered Waves dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Endangered Waves dev.plist"; path = "/Users/jeffreysherin/MJD/endangered-waves/Endangered Waves dev.plist"; sourceTree = "<absolute>"; };
 		8719336F20488544000DD493 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		877407682048BCFB00ED36F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Endangered Waves/Dev/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		88BE5F84E4FF6158AE4C63E1 /* Pods_Endangered_Waves.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Endangered_Waves.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD8FE50085C6E18B24650B9 /* Pods-Endangered Waves.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Endangered Waves.release.xcconfig"; path = "Pods/Target Support Files/Pods-Endangered Waves/Pods-Endangered Waves.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,6 +233,23 @@
 				4AF7736C1FB2239A005BFE50 /* CoreTelephony.framework in Frameworks */,
 				4AF7736A1FB22386005BFE50 /* AssetsLibrary.framework in Frameworks */,
 				5A1CAA72357D10A44CD1E0DD /* Pods_Endangered_Waves.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		877407422048B9DA00ED36F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				877407432048B9DA00ED36F1 /* BuddyBuildSDK.framework in Frameworks */,
+				877407442048B9DA00ED36F1 /* SystemConfiguration.framework in Frameworks */,
+				877407452048B9DA00ED36F1 /* QuartzCore.framework in Frameworks */,
+				877407462048B9DA00ED36F1 /* CoreVideo.framework in Frameworks */,
+				877407472048B9DA00ED36F1 /* AVFoundation.framework in Frameworks */,
+				877407482048B9DA00ED36F1 /* CoreMedia.framework in Frameworks */,
+				877407492048B9DA00ED36F1 /* CoreText.framework in Frameworks */,
+				8774074A2048B9DA00ED36F1 /* CoreTelephony.framework in Frameworks */,
+				8774074B2048B9DA00ED36F1 /* AssetsLibrary.framework in Frameworks */,
+				8774074C2048B9DA00ED36F1 /* Pods_Endangered_Waves.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,11 +348,13 @@
 		4A7FA90D1FAA966300C6A2BB = {
 			isa = PBXGroup;
 			children = (
+				877407672048BCD500ED36F1 /* Dev */,
 				4A5931AF1FCC667E00CFBF19 /* .swiftlint.yml */,
 				4A7FA9181FAA966300C6A2BB /* Endangered Waves */,
 				4A7FA9171FAA966300C6A2BB /* Products */,
 				2D488BFB95E3ADB8405C9CEF /* Pods */,
 				568EA3F3D670EFB352B1386E /* Frameworks */,
+				877407662048B9DB00ED36F1 /* Endangered Waves dev.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -275,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				4A7FA9161FAA966300C6A2BB /* Endangered Waves.app */,
+				877407652048B9DA00ED36F1 /* Endangered Waves dev.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -361,6 +449,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		877407672048BCD500ED36F1 /* Dev */ = {
+			isa = PBXGroup;
+			children = (
+				877407682048BCFB00ED36F1 /* GoogleService-Info.plist */,
+			);
+			path = Dev;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -385,6 +481,27 @@
 			productReference = 4A7FA9161FAA966300C6A2BB /* Endangered Waves.app */;
 			productType = "com.apple.product-type.application";
 		};
+		877407192048B9DA00ED36F1 /* Endangered Waves dev */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 877407622048B9DA00ED36F1 /* Build configuration list for PBXNativeTarget "Endangered Waves dev" */;
+			buildPhases = (
+				8774071A2048B9DA00ED36F1 /* [CP] Check Pods Manifest.lock */,
+				8774071B2048B9DA00ED36F1 /* Sources */,
+				877407422048B9DA00ED36F1 /* Frameworks */,
+				8774074D2048B9DA00ED36F1 /* Resources */,
+				8774075F2048B9DA00ED36F1 /* [CP] Embed Pods Frameworks */,
+				877407602048B9DA00ED36F1 /* [CP] Copy Pods Resources */,
+				877407612048B9DA00ED36F1 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Endangered Waves dev";
+			productName = "Endangered Waves";
+			productReference = 877407652048B9DA00ED36F1 /* Endangered Waves dev.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -397,6 +514,9 @@
 				TargetAttributes = {
 					4A7FA9151FAA966300C6A2BB = {
 						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					877407192048B9DA00ED36F1 = {
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -415,6 +535,7 @@
 			projectRoot = "";
 			targets = (
 				4A7FA9151FAA966300C6A2BB /* Endangered Waves */,
+				877407192048B9DA00ED36F1 /* Endangered Waves dev */,
 			);
 		};
 /* End PBXProject section */
@@ -441,6 +562,30 @@
 				4A321A991FB67E50001DA08A /* new-report.storyboard in Resources */,
 				4A9578C31FBB45E50051837C /* onboarding.storyboard in Resources */,
 				4A00E12E1FD4A12200E4CEA4 /* GothamSSm-Medium.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8774074D2048B9DA00ED36F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8774074E2048B9DA00ED36F1 /* SF-Pro-Display-Semibold.otf in Resources */,
+				8774074F2048B9DA00ED36F1 /* Brandon_blk.otf in Resources */,
+				877407502048B9DA00ED36F1 /* ReportMapCalloutView.xib in Resources */,
+				877407512048B9DA00ED36F1 /* Brandon_reg.otf in Resources */,
+				877407522048B9DA00ED36F1 /* information.storyboard in Resources */,
+				877407532048B9DA00ED36F1 /* Brandon_bld.otf in Resources */,
+				877407542048B9DA00ED36F1 /* image-slider.storyboard in Resources */,
+				877407552048B9DA00ED36F1 /* LaunchScreen.storyboard in Resources */,
+				877407572048B9DA00ED36F1 /* map.storyboard in Resources */,
+				877407582048B9DA00ED36F1 /* list.storyboard in Resources */,
+				877407592048B9DA00ED36F1 /* report.storyboard in Resources */,
+				8774075A2048B9DA00ED36F1 /* Assets.xcassets in Resources */,
+				877407692048BCFB00ED36F1 /* GoogleService-Info.plist in Resources */,
+				8774075B2048B9DA00ED36F1 /* container.storyboard in Resources */,
+				8774075C2048B9DA00ED36F1 /* new-report.storyboard in Resources */,
+				8774075D2048B9DA00ED36F1 /* onboarding.storyboard in Resources */,
+				8774075E2048B9DA00ED36F1 /* GothamSSm-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +622,114 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		8774071A2048B9DA00ED36F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Endangered Waves-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8774075F2048B9DA00ED36F1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Endangered Waves/Pods-Endangered Waves-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Hue/Hue.framework",
+				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/Imaginary/Imaginary.framework",
+				"${BUILT_PRODUCTS_DIR}/Lightbox/Lightbox.framework",
+				"${BUILT_PRODUCTS_DIR}/LocationPickerViewController/LocationPickerViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hue.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Imaginary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lightbox.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LocationPickerViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Endangered Waves/Pods-Endangered Waves-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		877407602048B9DA00ED36F1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Endangered Waves/Pods-Endangered Waves-resources.sh",
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseFacebookAuthUI.bundle,
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Endangered Waves/Pods-Endangered Waves-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		877407612048B9DA00ED36F1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		A79D16838D37122E786B78DB /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -601,6 +854,51 @@
 				4A9578C81FBB4F970051837C /* OnboardingCoordinator.swift in Sources */,
 				4A0ABE7F1FBF574F007B06B9 /* STWButton.swift in Sources */,
 				4AC5288D1FC482900084E442 /* InformationViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8774071B2048B9DA00ED36F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8774071C2048B9DA00ED36F1 /* InformationNavController.swift in Sources */,
+				8774071D2048B9DA00ED36F1 /* Report.swift in Sources */,
+				8774071E2048B9DA00ED36F1 /* ImageSliderViewController.swift in Sources */,
+				8774071F2048B9DA00ED36F1 /* NewReportViewController.swift in Sources */,
+				877407202048B9DA00ED36F1 /* ImageDownloadManager.swift in Sources */,
+				877407212048B9DA00ED36F1 /* UIViewController+Keyboard.swift in Sources */,
+				877407222048B9DA00ED36F1 /* NavigationBar.swift in Sources */,
+				877407232048B9DA00ED36F1 /* ReportCoordinator.swift in Sources */,
+				877407242048B9DA00ED36F1 /* ReportsMapViewController.swift in Sources */,
+				877407252048B9DA00ED36F1 /* ReportMapAnnotation.swift in Sources */,
+				877407262048B9DA00ED36F1 /* ImageViewController.swift in Sources */,
+				877407272048B9DA00ED36F1 /* Style.swift in Sources */,
+				877407282048B9DA00ED36F1 /* Coordinator.swift in Sources */,
+				877407292048B9DA00ED36F1 /* ReportMapCalloutView.swift in Sources */,
+				8774072A2048B9DA00ED36F1 /* AppCoordinator.swift in Sources */,
+				8774072B2048B9DA00ED36F1 /* NewReportCoordinator.swift in Sources */,
+				8774072C2048B9DA00ED36F1 /* RootViewController.swift in Sources */,
+				8774072D2048B9DA00ED36F1 /* NavigationViewController.swift in Sources */,
+				8774072E2048B9DA00ED36F1 /* LocationManager.swift in Sources */,
+				8774072F2048B9DA00ED36F1 /* ReportsTableViewController.swift in Sources */,
+				877407302048B9DA00ED36F1 /* ContainerCoordinator.swift in Sources */,
+				877407312048B9DA00ED36F1 /* ReportDetailNavViewController.swift in Sources */,
+				877407322048B9DA00ED36F1 /* ReportDetailViewController.swift in Sources */,
+				877407332048B9DA00ED36F1 /* AppDelegate.swift in Sources */,
+				877407342048B9DA00ED36F1 /* OnboardingViewController.swift in Sources */,
+				877407352048B9DA00ED36F1 /* ReportMapAnnotationView.swift in Sources */,
+				877407362048B9DA00ED36F1 /* ContainerNavViewController.swift in Sources */,
+				877407372048B9DA00ED36F1 /* APIManager.swift in Sources */,
+				877407382048B9DA00ED36F1 /* NSObjectExtensions.swift in Sources */,
+				877407392048B9DA00ED36F1 /* InformationCoordinator.swift in Sources */,
+				8774073A2048B9DA00ED36F1 /* StoryboardInstantiable.swift in Sources */,
+				8774073B2048B9DA00ED36F1 /* NewReportNavViewController.swift in Sources */,
+				8774073C2048B9DA00ED36F1 /* UIActivities.swift in Sources */,
+				8774073D2048B9DA00ED36F1 /* ContainerViewController.swift in Sources */,
+				8774073E2048B9DA00ED36F1 /* ReportsTableViewCell.swift in Sources */,
+				8774073F2048B9DA00ED36F1 /* OnboardingCoordinator.swift in Sources */,
+				877407402048B9DA00ED36F1 /* STWButton.swift in Sources */,
+				877407412048B9DA00ED36F1 /* InformationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -767,6 +1065,48 @@
 			};
 			name = Release;
 		};
+		877407632048B9DA00ED36F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E012A9B083A87390F514C8B /* Pods-Endangered Waves.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 72RCH6T78N;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/BuddyBuildSDK",
+				);
+				INFOPLIST_FILE = "Endangered Waves dev.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = endangeredwaves.dev;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		877407642048B9DA00ED36F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CD8FE50085C6E18B24650B9 /* Pods-Endangered Waves.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 72RCH6T78N;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/BuddyBuildSDK",
+				);
+				INFOPLIST_FILE = "Endangered Waves dev.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = endangeredwaves.dev;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -784,6 +1124,15 @@
 			buildConfigurations = (
 				4A7FA9291FAA966300C6A2BB /* Debug */,
 				4A7FA92A1FAA966300C6A2BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		877407622048B9DA00ED36F1 /* Build configuration list for PBXNativeTarget "Endangered Waves dev" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				877407632048B9DA00ED36F1 /* Debug */,
+				877407642048B9DA00ED36F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
