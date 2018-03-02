@@ -72,6 +72,7 @@
 		4AF773781FB223F4005BFE50 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773771FB223EE005BFE50 /* SystemConfiguration.framework */; };
 		4AF7737A1FB22407005BFE50 /* BuddyBuildSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773791FB22407005BFE50 /* BuddyBuildSDK.framework */; };
 		5A1CAA72357D10A44CD1E0DD /* Pods_Endangered_Waves.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88BE5F84E4FF6158AE4C63E1 /* Pods_Endangered_Waves.framework */; };
+		8774078C2048D39900ED36F1 /* UserDefaultsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8774078B2048D39900ED36F1 /* UserDefaultsHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,6 +145,7 @@
 		4AF773771FB223EE005BFE50 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4AF773791FB22407005BFE50 /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BuddyBuildSDK.framework; path = Pods/BuddyBuildSDK/BuddyBuildSDK.framework; sourceTree = "<group>"; };
 		4E012A9B083A87390F514C8B /* Pods-Endangered Waves.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Endangered Waves.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Endangered Waves/Pods-Endangered Waves.debug.xcconfig"; sourceTree = "<group>"; };
+		8774078B2048D39900ED36F1 /* UserDefaultsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHandler.swift; sourceTree = "<group>"; };
 		88BE5F84E4FF6158AE4C63E1 /* Pods_Endangered_Waves.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Endangered_Waves.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD8FE50085C6E18B24650B9 /* Pods-Endangered Waves.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Endangered Waves.release.xcconfig"; path = "Pods/Target Support Files/Pods-Endangered Waves/Pods-Endangered Waves.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -281,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				4A7FA9191FAA966300C6A2BB /* AppDelegate.swift */,
+				8774078B2048D39900ED36F1 /* UserDefaultsHandler.swift */,
 				4AB6AA881FC5C84D001C36C2 /* RootViewController.swift */,
 				4A0ABE7C1FBF48B0007B06B9 /* Style.swift */,
 				4A9578C91FBB4FF20051837C /* AppCoordinator.swift */,
@@ -584,6 +587,7 @@
 				4A321AA21FB7AB17001DA08A /* ReportDetailViewController.swift in Sources */,
 				4A7FA91A1FAA966300C6A2BB /* AppDelegate.swift in Sources */,
 				4A9578C61FBB465A0051837C /* OnboardingViewController.swift in Sources */,
+				8774078C2048D39900ED36F1 /* UserDefaultsHandler.swift in Sources */,
 				4A2987891FCA08FC0061B401 /* ReportMapAnnotationView.swift in Sources */,
 				4A2987851FC9E22A0061B401 /* ContainerNavViewController.swift in Sources */,
 				4A0ABE811FC24587007B06B9 /* APIManager.swift in Sources */,

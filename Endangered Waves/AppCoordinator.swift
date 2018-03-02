@@ -43,6 +43,8 @@ class AppCoordinator: Coordinator {
         showContent()
         if isFirstLaunch() {
             showOnboarding()
+        } else if UserDefaultsHandler.shouldShowSurveryAlert() {
+            showAppSurveyAlert()
         }
     }
 
@@ -57,6 +59,14 @@ class AppCoordinator: Coordinator {
         onboardingCoordinator.delegate = self
         childCoordinators.append(onboardingCoordinator)
         onboardingCoordinator.start()
+    }
+
+    func showAppSurveyAlert() {
+        let alert = UIAlertController(title: "Hello!", message: nil, preferredStyle: .alert)
+
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        rootViewController.present(alert, animated: true, completion: nil)
     }
 
     // MARK: Miscellaneous helper functions
