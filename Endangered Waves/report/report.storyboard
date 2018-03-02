@@ -71,7 +71,7 @@
                                                         <constraint firstAttribute="height" constant="213" id="Ub8-TF-UA7"/>
                                                     </constraints>
                                                     <connections>
-                                                        <segue destination="3y9-wN-Gdc" kind="embed" id="Je4-Kb-5EY"/>
+                                                        <segue destination="JV9-PD-rvV" kind="embed" id="rht-22-1IX"/>
                                                     </connections>
                                                 </containerView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oil-placemark" translatesAutoresizingMaskIntoConstraints="NO" id="xcZ-Qv-VOe">
@@ -286,14 +286,6 @@ line 3</string>
             </objects>
             <point key="canvasLocation" x="789.60000000000002" y="-808.69565217391312"/>
         </scene>
-        <!--Image Slider View Controller-->
-        <scene sceneID="WVV-9R-v3X">
-            <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="3y9-wN-Gdc" customClass="ImageSliderViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eMi-Ul-wji" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1545" y="-808"/>
-        </scene>
         <!--Report Detail Map View Controller-->
         <scene sceneID="lPL-Ws-o0e">
             <objects>
@@ -322,6 +314,14 @@ line 3</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H3g-gn-Es3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1530" y="-313"/>
+        </scene>
+        <!--ImageSliderViewController-->
+        <scene sceneID="fRR-ca-CbQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="image-slider" referencedIdentifier="ImageSliderViewController" id="JV9-PD-rvV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w9p-HO-QyR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1441" y="-824"/>
         </scene>
     </scenes>
     <resources>

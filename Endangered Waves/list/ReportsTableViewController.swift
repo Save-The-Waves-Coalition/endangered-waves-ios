@@ -22,13 +22,26 @@ class ReportsTableViewController: UITableViewController {
         let query = Firestore.firestore().collection("reports").order(by: "creationDate", descending: true)
         let source = FUIFirestoreTableViewDataSource(query: query,
                                                      populateCell: { [unowned self] (tableView, indexPath, snapshot) -> UITableViewCell in
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath) as? ReportsTableViewCell else {
-                assertionFailure("⚠️: Wrong cell type in use.")
-                return UITableViewCell()
-            }
+                                                        guard let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath) as? ReportsTableViewCell else {
+                                                            assertionFailure("⚠️: Wrong cell type in use.")
+                                                            return UITableViewCell()
+                                                        }
+                                                        cell.delegate = self
+                                                        cell.tag = indexPath.row
 
-            if let report = Report.createReportWithSnapshot(snapshot) {
-                cell.report = report
+                                                        if let report = Report.createReportWithSnapshot(snapshot) {
+                                                            cell.report = report
+
+                                                            let urls: [URL] = report.imageURLs.flatMap({ (urlString) -> URL? in
+                                                                return URL(string: urlString)
+                                                            })
+                                                            cell.imageDownloadManager.loadImagesWithURLs(urls, completion: { (images) in
+                                                                // when this finishes, we need to make sure we are still the same cell
+                                                                if cell.tag == indexPath.row {
+                                                                    cell.imageSliderViewController.images = images
+                                                                    cell.imageSliderViewController.view.alpha = 1.0
+                                                                }
+                                                            })
             }
             return cell
         })
@@ -78,6 +91,18 @@ extension ReportsTableViewController: UIViewControllerPreviewingDelegate {
         // TODO: Coordinator should take care of this
         navigationController?.pushViewController(viewControllerToCommit, animated: true)
     }
+}
+
+extension ReportsTableViewController: ReportsTableViewCellProtocol {
+
+    func didTapImage(cell: UITableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else {
+            return
+        }
+
+        tableView(tableView, didSelectRowAt: indexPath)
+    }
+
 }
 
 // MARK: 📖 StoryboardInstantiable

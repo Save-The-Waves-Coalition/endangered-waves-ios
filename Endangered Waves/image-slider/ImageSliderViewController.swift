@@ -145,3 +145,9 @@ extension ImageSliderViewController: UIPageViewControllerDataSource {
         return currentPageIndex
     }
 }
+
+// MARK: 📖 StoryboardInstantiable
+extension ImageSliderViewController: StoryboardInstantiable {
+    static var storyboardName: String { return "image-slider" }
+    static var storyboardIdentifier: String? { return "ImageSliderViewController" }
+}
