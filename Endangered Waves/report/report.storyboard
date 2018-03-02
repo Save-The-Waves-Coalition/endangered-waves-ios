@@ -302,8 +302,8 @@ line 3</string>
                         <constraints>
                             <constraint firstItem="glJ-tt-0oH" firstAttribute="leading" secondItem="u1v-a4-BNg" secondAttribute="leading" id="1zw-7h-azo"/>
                             <constraint firstItem="glJ-tt-0oH" firstAttribute="top" secondItem="K0E-4R-O4j" secondAttribute="top" id="9K8-hA-pDa"/>
+                            <constraint firstAttribute="bottom" secondItem="glJ-tt-0oH" secondAttribute="bottom" id="fH9-qR-Dhg"/>
                             <constraint firstItem="u1v-a4-BNg" firstAttribute="trailing" secondItem="glJ-tt-0oH" secondAttribute="trailing" id="lEy-U9-dQm"/>
-                            <constraint firstItem="u1v-a4-BNg" firstAttribute="bottom" secondItem="glJ-tt-0oH" secondAttribute="bottom" id="msp-pe-ZGo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="u1v-a4-BNg"/>
                     </view>
