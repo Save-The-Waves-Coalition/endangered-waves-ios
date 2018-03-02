@@ -53,6 +53,16 @@ extension ReportCoordinator: ReportDetailViewControllerDelegate {
     func finishedViewingDetailsViewController(_ viewController: ReportDetailViewController) {
         stop()
     }
+
+    func showMapDetail() {
+        guard let navVC = rootViewController as? NavigationViewController else {
+            return
+        }
+
+        let mapVC = ReportDetailMapViewController.instantiate()
+        mapVC.report = report
+        navVC.show(mapVC, sender: self)
+    }
 }
 
 extension ReportCoordinator {

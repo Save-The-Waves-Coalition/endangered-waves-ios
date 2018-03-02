@@ -14,6 +14,7 @@ import SafariServices
 protocol ReportDetailViewControllerDelegate: class {
     func finishedViewingDetailsViewController(_ viewController: ReportDetailViewController)
     func viewController(_ viewController: ReportDetailViewController, didTapImages images: [UIImage], atIndex index: Int)
+    func showMapDetail()
 }
 
 class ReportDetailViewController: UITableViewController {
@@ -44,8 +45,8 @@ class ReportDetailViewController: UITableViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var mapImageView: UIImageView!
     @IBOutlet weak var mapPinImageView: UIImageView!
+    @IBOutlet weak var mapButton: UIButton!
 
     // View Lifecycle
 
@@ -100,31 +101,29 @@ class ReportDetailViewController: UITableViewController {
             locationLabel.attributedText = newString
         }
 
-        if let mapImageView = mapImageView {
-            let coordinate = CLLocationCoordinate2DMake(report.coordinate.latitude, report.coordinate.longitude)
-            let mapSnapshotOptions = MKMapSnapshotOptions()
+        let coordinate = CLLocationCoordinate2DMake(report.coordinate.latitude, report.coordinate.longitude)
+        let mapSnapshotOptions = MKMapSnapshotOptions()
 
-            // Set the region of the map that is rendered.
-            let region = MKCoordinateRegionMakeWithDistance(coordinate, 1000, 1000)
-            mapSnapshotOptions.region = region
+        // Set the region of the map that is rendered.
+        let region = MKCoordinateRegionMakeWithDistance(coordinate, 1000, 1000)
+        mapSnapshotOptions.region = region
 
-            mapSnapshotOptions.showsBuildings = false
-            mapSnapshotOptions.showsPointsOfInterest = false
+        mapSnapshotOptions.showsBuildings = false
+        mapSnapshotOptions.showsPointsOfInterest = false
 
-            // Set the size of the image output.
-            mapSnapshotOptions.size = CGSize(width: 90, height: 90)
+        // Set the size of the image output.
+        mapSnapshotOptions.size = CGSize(width: 90, height: 90)
 
-            let snapShotter = MKMapSnapshotter(options: mapSnapshotOptions)
-            snapShotter.start(completionHandler: { (snapshot, error) in
-                self.mapPinImageView.alpha = 0
-                mapImageView.alpha = 0
-                mapImageView.image = snapshot?.image
-                UIView.animate(withDuration: 0.25, animations: {
-                    mapImageView.alpha = 1.0
-                    self.mapPinImageView.alpha = 1.0
-                })
+        let snapShotter = MKMapSnapshotter(options: mapSnapshotOptions)
+        snapShotter.start(completionHandler: { (snapshot, error) in
+            self.mapPinImageView.alpha = 0
+            self.mapButton.alpha = 0
+            self.mapButton.setBackgroundImage(snapshot?.image, for: .normal)
+            UIView.animate(withDuration: 0.25, animations: {
+                self.mapButton.alpha = 1.0
+                self.mapPinImageView.alpha = 1.0
             })
-        }
+        })
 
         if let descriptionLabel = descriptionLabel {
             let paragraphStyle = NSMutableParagraphStyle()
@@ -150,6 +149,9 @@ class ReportDetailViewController: UITableViewController {
             let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: [])
             present(activityViewController, animated: true, completion: nil) // TODO: coordinator should do this
         }
+    }
+    @IBAction func userTappedMapButton(_ sender: UIButton) {
+        delegate?.showMapDetail()
     }
 
     @IBAction func userTappedTakeActionButton(_ sender: UIButton) {
