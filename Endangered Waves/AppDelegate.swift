@@ -46,6 +46,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        UserDefaultsHandler.incrementNumberOfLaunches()
+    }
+
     private func styleApp() {
         UIBarButtonItem.appearance().setTitleTextAttributes([
             NSAttributedStringKey.font: Style.fontSFProDisplaySemiBold(),

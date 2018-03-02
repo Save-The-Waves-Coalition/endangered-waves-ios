@@ -132,8 +132,10 @@
 		877407582048B9DA00ED36F1 /* list.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A891FB672A1001DA08A /* list.storyboard */; };
 		877407592048B9DA00ED36F1 /* report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A9F1FB7A85B001DA08A /* report.storyboard */; };
 		8772FEE62044CCB6007F2E75 /* ReportDetailMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8772FEE52044CCB6007F2E75 /* ReportDetailMapViewController.swift */; };
+		8774078C2048D39900ED36F1 /* UserDefaultsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8774078B2048D39900ED36F1 /* UserDefaultsHandler.swift */; };
 		8719337020488544000DD493 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8719336F20488544000DD493 /* Extensions.swift */; };
 		8774075A2048B9DA00ED36F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A7FA9201FAA966300C6A2BB /* Assets.xcassets */; };
+		8774078E2048D98700ED36F1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8774078D2048D98700ED36F1 /* Constants.swift */; };
 		8774075B2048B9DA00ED36F1 /* container.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A851FB66ECC001DA08A /* container.storyboard */; };
 		8774075C2048B9DA00ED36F1 /* new-report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A321A981FB67E50001DA08A /* new-report.storyboard */; };
 		8774075D2048B9DA00ED36F1 /* onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A9578C21FBB45E50051837C /* onboarding.storyboard */; };
@@ -215,6 +217,8 @@
 		877407662048B9DB00ED36F1 /* Endangered Waves dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Endangered Waves dev.plist"; path = "/Users/jeffreysherin/MJD/endangered-waves/Endangered Waves dev.plist"; sourceTree = "<absolute>"; };
 		8772FEE52044CCB6007F2E75 /* ReportDetailMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailMapViewController.swift; sourceTree = "<group>"; };
 		8719336F20488544000DD493 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		8774078B2048D39900ED36F1 /* UserDefaultsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHandler.swift; sourceTree = "<group>"; };
+		8774078D2048D98700ED36F1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		877407682048BCFB00ED36F1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Endangered Waves/Dev/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		88BE5F84E4FF6158AE4C63E1 /* Pods_Endangered_Waves.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Endangered_Waves.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD8FE50085C6E18B24650B9 /* Pods-Endangered Waves.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Endangered Waves.release.xcconfig"; path = "Pods/Target Support Files/Pods-Endangered Waves/Pods-Endangered Waves.release.xcconfig"; sourceTree = "<group>"; };
@@ -374,7 +378,9 @@
 			isa = PBXGroup;
 			children = (
 				4A7FA9191FAA966300C6A2BB /* AppDelegate.swift */,
+				8774078B2048D39900ED36F1 /* UserDefaultsHandler.swift */,
 				8719336F20488544000DD493 /* Extensions.swift */,
+				8774078D2048D98700ED36F1 /* Constants.swift */,
 				4AB6AA881FC5C84D001C36C2 /* RootViewController.swift */,
 				4A0ABE7C1FBF48B0007B06B9 /* Style.swift */,
 				4A9578C91FBB4FF20051837C /* AppCoordinator.swift */,
@@ -833,6 +839,7 @@
 				4A9578D01FBB9DC30051837C /* Coordinator.swift in Sources */,
 				4A1C34601FC604F200D94684 /* ReportMapCalloutView.swift in Sources */,
 				4A9578CA1FBB4FF20051837C /* AppCoordinator.swift in Sources */,
+				8774078E2048D98700ED36F1 /* Constants.swift in Sources */,
 				4AA85B911FBBD11D009A72E8 /* NewReportCoordinator.swift in Sources */,
 				4AB6AA891FC5C84D001C36C2 /* RootViewController.swift in Sources */,
 				4A9578D51FBBB6730051837C /* NavigationViewController.swift in Sources */,
@@ -844,6 +851,7 @@
 				4A321AA21FB7AB17001DA08A /* ReportDetailViewController.swift in Sources */,
 				4A7FA91A1FAA966300C6A2BB /* AppDelegate.swift in Sources */,
 				4A9578C61FBB465A0051837C /* OnboardingViewController.swift in Sources */,
+				8774078C2048D39900ED36F1 /* UserDefaultsHandler.swift in Sources */,
 				4A2987891FCA08FC0061B401 /* ReportMapAnnotationView.swift in Sources */,
 				4A2987851FC9E22A0061B401 /* ContainerNavViewController.swift in Sources */,
 				4A0ABE811FC24587007B06B9 /* APIManager.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import SafariServices
 
 final class UserMananger {
 
@@ -43,6 +44,8 @@ class AppCoordinator: Coordinator {
         showContent()
         if isFirstLaunch() {
             showOnboarding()
+        } else if UserDefaultsHandler.shouldShowSurveryAlert() {
+            showAppSurveyAlert()
         }
     }
 
@@ -57,6 +60,23 @@ class AppCoordinator: Coordinator {
         onboardingCoordinator.delegate = self
         childCoordinators.append(onboardingCoordinator)
         onboardingCoordinator.start()
+    }
+
+    func showAppSurveyAlert() {
+        let alert = UIAlertController(title: "Please help improve the app by taking a survey.", message: nil, preferredStyle: .alert)
+
+        let noAction = UIAlertAction(title: "No Thanks", style: .cancel, handler: nil)
+        alert.addAction(noAction)
+
+        let okAction = UIAlertAction(title: "Yes", style: .default) { (action) in
+            let url  = URL(string: Constants.appSurveyURL)!
+            let safariViewController = SFSafariViewController(url: url)
+            safariViewController.preferredControlTintColor = Style.colorSTWBlue
+            self.rootViewController.present(safariViewController, animated: true, completion: nil)
+        }
+
+        alert.addAction(okAction)
+        rootViewController.present(alert, animated: true, completion: nil)
     }
 
     // MARK: Miscellaneous helper functions
