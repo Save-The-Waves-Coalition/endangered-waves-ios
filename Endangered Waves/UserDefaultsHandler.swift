@@ -10,7 +10,7 @@ import Foundation
 
 struct UserDefaultsHandler {
 
-    static let showAlertAfterThisNumberOfLaunches = 2
+    static let showAlertAfterThisNumberOfLaunches = 10
 
     private static let hasFiledReport = "HasFiledReport"
     private static let numberOfLaunches = "NumberOfLaunches"
