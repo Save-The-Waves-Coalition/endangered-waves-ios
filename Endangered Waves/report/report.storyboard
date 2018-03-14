@@ -299,6 +299,7 @@ line 3</string>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="STW-Blue"/>
                         <constraints>
                             <constraint firstItem="glJ-tt-0oH" firstAttribute="leading" secondItem="u1v-a4-BNg" secondAttribute="leading" id="1zw-7h-azo"/>
                             <constraint firstItem="glJ-tt-0oH" firstAttribute="top" secondItem="K0E-4R-O4j" secondAttribute="top" id="9K8-hA-pDa"/>
@@ -307,6 +308,7 @@ line 3</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="u1v-a4-BNg"/>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="mapView" destination="glJ-tt-0oH" id="MXh-IL-2Mg"/>
                     </connections>
@@ -327,6 +329,9 @@ line 3</string>
     <resources>
         <image name="oil-placemark" width="48" height="48"/>
         <image name="pin-filled" width="60" height="96"/>
+        <namedColor name="STW-Blue">
+            <color red="0.20392156862745098" green="0.69411764705882351" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="STW-Blue">
             <color red="0.20392156862745098" green="0.69411764705882351" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

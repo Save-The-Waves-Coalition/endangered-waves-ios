@@ -61,7 +61,8 @@ extension ReportCoordinator: ReportDetailViewControllerDelegate {
 
         let mapVC = ReportDetailMapViewController.instantiate()
         mapVC.report = report
-        navVC.show(mapVC, sender: self)
+//        navVC.show(mapVC, sender: self)
+        navVC.pushViewController(mapVC, animated: true)
     }
 }
 

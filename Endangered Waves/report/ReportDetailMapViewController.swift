@@ -22,6 +22,9 @@ class ReportDetailMapViewController: UIViewController {
     }
 
     func updateView() {
+
+//        self.navigationController?.navigationBar.tintColor = Style.colorSTWBlue
+
         title = report.name
 
         let coordinate = CLLocationCoordinate2DMake(report.coordinate.latitude, report.coordinate.longitude)
