@@ -11,7 +11,6 @@ PODS:
   - BoringSSL/Implementation (9.0):
     - BoringSSL/Interface (= 9.0)
   - BoringSSL/Interface (9.0)
-  - BuddyBuildSDK (1.0.16)
   - Cache (4.1.2)
   - FBSDKCoreKit (4.27.1):
     - Bolts (~> 1.7)
@@ -111,7 +110,6 @@ PODS:
   - SVProgressHUD (2.2.2)
 
 DEPENDENCIES:
-  - BuddyBuildSDK
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Firestore
@@ -128,7 +126,6 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   BoringSSL: 19083b821ef3ae0f758fae15482e183003b1e265
-  BuddyBuildSDK: 2c5469eee2981a3365386e46393e97068d75e4f4
   Cache: bd0233fc688b5e83a27bcd87807db7e6f23adcc5
   FBSDKCoreKit: 03365dad5d790249196ffad8be4f6d8a2d98f932
   FBSDKLoginKit: 66ff53b73cffd967ab773e32fac39e90a60e6d46
@@ -149,7 +146,7 @@ SPEC CHECKSUMS:
   Hue: b8fe1e43eef13631331eebecb2198b68e2622f95
   ImagePicker: 973953c25960fe04729a7082a56194321c6762d2
   Imaginary: d675200546110e305d6a26db6267c0622ffe5e6b
-  leveldb-library: 44ef425bfde64f5b41daef86b38db2d13edbbee1
+  leveldb-library: 9e29a1d913f922444127a7d0f28b025a0e2ba053
   Lightbox: b72d18d05b57ba55dbac2eb0d7dafdc934205cf3
   LocationPickerViewController: 76118f58350c66037b72d7a503f069332e6f1b53
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
@@ -157,6 +154,6 @@ SPEC CHECKSUMS:
   SDWebImage: 1fa4c9edf525b744f002db89f3f5a38b3cd4c541
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
 
-PODFILE CHECKSUM: afc8e75d2ac025e1eadaa2311179a26efff86ac0
+PODFILE CHECKSUM: 6b78d06aa09480a0e176fcac454b00cb9aba0b65
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0

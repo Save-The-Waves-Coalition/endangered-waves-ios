@@ -75,7 +75,6 @@
 		4AF773741FB223D9005BFE50 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773731FB223D3005BFE50 /* CoreVideo.framework */; };
 		4AF773761FB223E6005BFE50 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773751FB223E1005BFE50 /* QuartzCore.framework */; };
 		4AF773781FB223F4005BFE50 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773771FB223EE005BFE50 /* SystemConfiguration.framework */; };
-		4AF7737A1FB22407005BFE50 /* BuddyBuildSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773791FB22407005BFE50 /* BuddyBuildSDK.framework */; };
 		5A1CAA72357D10A44CD1E0DD /* Pods_Endangered_Waves.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88BE5F84E4FF6158AE4C63E1 /* Pods_Endangered_Waves.framework */; };
 		8719337020488544000DD493 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8719336F20488544000DD493 /* Extensions.swift */; };
 		8772FEE62044CCB6007F2E75 /* ReportDetailMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8772FEE52044CCB6007F2E75 /* ReportDetailMapViewController.swift */; };
@@ -117,7 +116,6 @@
 		8774073F2048B9DA00ED36F1 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9578C71FBB4F970051837C /* OnboardingCoordinator.swift */; };
 		877407402048B9DA00ED36F1 /* STWButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE7E1FBF574F007B06B9 /* STWButton.swift */; };
 		877407412048B9DA00ED36F1 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC5288C1FC482900084E442 /* InformationViewController.swift */; };
-		877407432048B9DA00ED36F1 /* BuddyBuildSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773791FB22407005BFE50 /* BuddyBuildSDK.framework */; };
 		877407442048B9DA00ED36F1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773771FB223EE005BFE50 /* SystemConfiguration.framework */; };
 		877407452048B9DA00ED36F1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773751FB223E1005BFE50 /* QuartzCore.framework */; };
 		877407462048B9DA00ED36F1 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773731FB223D3005BFE50 /* CoreVideo.framework */; };
@@ -126,7 +124,6 @@
 		877407492048B9DA00ED36F1 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF7736D1FB223A3005BFE50 /* CoreText.framework */; };
 		8774074A2048B9DA00ED36F1 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF7736B1FB22394005BFE50 /* CoreTelephony.framework */; };
 		8774074B2048B9DA00ED36F1 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773691FB22362005BFE50 /* AssetsLibrary.framework */; };
-		8774074C2048B9DA00ED36F1 /* Pods_Endangered_Waves.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88BE5F84E4FF6158AE4C63E1 /* Pods_Endangered_Waves.framework */; };
 		8774074E2048B9DA00ED36F1 /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A0ABE6F1FBD2B4F007B06B9 /* SF-Pro-Display-Semibold.otf */; };
 		8774074F2048B9DA00ED36F1 /* Brandon_blk.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A9578D11FBBAE530051837C /* Brandon_blk.otf */; };
 		877407502048B9DA00ED36F1 /* ReportMapCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AB6AA8A1FC5D655001C36C2 /* ReportMapCalloutView.xib */; };
@@ -145,6 +142,7 @@
 		8774075E2048B9DA00ED36F1 /* GothamSSm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A00E12D1FD4A12200E4CEA4 /* GothamSSm-Medium.otf */; };
 		8774078C2048D39900ED36F1 /* UserDefaultsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8774078B2048D39900ED36F1 /* UserDefaultsHandler.swift */; };
 		8774078E2048D98700ED36F1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8774078D2048D98700ED36F1 /* Constants.swift */; };
+		9DB6582AC94F4A3ED064AC7F /* Pods_Endangered_Waves.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88BE5F84E4FF6158AE4C63E1 /* Pods_Endangered_Waves.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -217,7 +215,8 @@
 		4AF773751FB223E1005BFE50 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4AF773771FB223EE005BFE50 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4AF773791FB22407005BFE50 /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BuddyBuildSDK.framework; path = Pods/BuddyBuildSDK/BuddyBuildSDK.framework; sourceTree = "<group>"; };
-		4E012A9B083A87390F514C8B /* Pods-Endangered Waves.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Endangered Waves.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Endangered Waves/Pods-Endangered Waves.debug.xcconfig"; sourceTree = "<group>"; };
+		7761D366D7B4B07C0C99F5AB /* Pods-Endangered Waves.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Endangered Waves.release.xcconfig"; path = "Pods/Target Support Files/Pods-Endangered Waves/Pods-Endangered Waves.release.xcconfig"; sourceTree = "<group>"; };
+		846CB5D62E834649EBBE9090 /* Pods-Endangered Waves.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Endangered Waves.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Endangered Waves/Pods-Endangered Waves.debug.xcconfig"; sourceTree = "<group>"; };
 		8719336F20488544000DD493 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8772FEE52044CCB6007F2E75 /* ReportDetailMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailMapViewController.swift; sourceTree = "<group>"; };
 		877407652048B9DA00ED36F1 /* Endangered Waves dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Endangered Waves dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -225,7 +224,6 @@
 		8774078B2048D39900ED36F1 /* UserDefaultsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHandler.swift; sourceTree = "<group>"; };
 		8774078D2048D98700ED36F1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		88BE5F84E4FF6158AE4C63E1 /* Pods_Endangered_Waves.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Endangered_Waves.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9CD8FE50085C6E18B24650B9 /* Pods-Endangered Waves.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Endangered Waves.release.xcconfig"; path = "Pods/Target Support Files/Pods-Endangered Waves/Pods-Endangered Waves.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,7 +231,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AF7737A1FB22407005BFE50 /* BuddyBuildSDK.framework in Frameworks */,
 				4AF773781FB223F4005BFE50 /* SystemConfiguration.framework in Frameworks */,
 				4AF773761FB223E6005BFE50 /* QuartzCore.framework in Frameworks */,
 				4AF773741FB223D9005BFE50 /* CoreVideo.framework in Frameworks */,
@@ -243,6 +240,7 @@
 				4AF7736C1FB2239A005BFE50 /* CoreTelephony.framework in Frameworks */,
 				4AF7736A1FB22386005BFE50 /* AssetsLibrary.framework in Frameworks */,
 				5A1CAA72357D10A44CD1E0DD /* Pods_Endangered_Waves.framework in Frameworks */,
+				9DB6582AC94F4A3ED064AC7F /* Pods_Endangered_Waves.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +248,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				877407432048B9DA00ED36F1 /* BuddyBuildSDK.framework in Frameworks */,
 				877407442048B9DA00ED36F1 /* SystemConfiguration.framework in Frameworks */,
 				877407452048B9DA00ED36F1 /* QuartzCore.framework in Frameworks */,
 				877407462048B9DA00ED36F1 /* CoreVideo.framework in Frameworks */,
@@ -259,7 +256,6 @@
 				877407492048B9DA00ED36F1 /* CoreText.framework in Frameworks */,
 				8774074A2048B9DA00ED36F1 /* CoreTelephony.framework in Frameworks */,
 				8774074B2048B9DA00ED36F1 /* AssetsLibrary.framework in Frameworks */,
-				8774074C2048B9DA00ED36F1 /* Pods_Endangered_Waves.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,8 +265,8 @@
 		2D488BFB95E3ADB8405C9CEF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4E012A9B083A87390F514C8B /* Pods-Endangered Waves.debug.xcconfig */,
-				9CD8FE50085C6E18B24650B9 /* Pods-Endangered Waves.release.xcconfig */,
+				846CB5D62E834649EBBE9090 /* Pods-Endangered Waves.debug.xcconfig */,
+				7761D366D7B4B07C0C99F5AB /* Pods-Endangered Waves.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -498,12 +494,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 877407622048B9DA00ED36F1 /* Build configuration list for PBXNativeTarget "Endangered Waves dev" */;
 			buildPhases = (
-				8774071A2048B9DA00ED36F1 /* [CP] Check Pods Manifest.lock */,
 				8774071B2048B9DA00ED36F1 /* Sources */,
 				877407422048B9DA00ED36F1 /* Frameworks */,
 				8774074D2048B9DA00ED36F1 /* Resources */,
-				8774075F2048B9DA00ED36F1 /* [CP] Embed Pods Frameworks */,
-				877407602048B9DA00ED36F1 /* [CP] Copy Pods Resources */,
 				877407612048B9DA00ED36F1 /* ShellScript */,
 			);
 			buildRules = (
@@ -636,101 +629,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8774071A2048B9DA00ED36F1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Endangered Waves-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8774075F2048B9DA00ED36F1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Endangered Waves/Pods-Endangered Waves-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
-				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/Hue/Hue.framework",
-				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
-				"${BUILT_PRODUCTS_DIR}/Imaginary/Imaginary.framework",
-				"${BUILT_PRODUCTS_DIR}/Lightbox/Lightbox.framework",
-				"${BUILT_PRODUCTS_DIR}/LocationPickerViewController/LocationPickerViewController.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hue.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Imaginary.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lightbox.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LocationPickerViewController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Endangered Waves/Pods-Endangered Waves-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		877407602048B9DA00ED36F1 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Endangered Waves/Pods-Endangered Waves-resources.sh",
-				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle,
-				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseFacebookAuthUI.bundle,
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Endangered Waves/Pods-Endangered Waves-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		877407612048B9DA00ED36F1 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -751,12 +649,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Endangered Waves/Pods-Endangered Waves-resources.sh",
-				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle,
-				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseFacebookAuthUI.bundle,
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseFacebookAuthUI.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseFacebookAuthUI.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1045,15 +944,12 @@
 		};
 		4A7FA9291FAA966300C6A2BB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E012A9B083A87390F514C8B /* Pods-Endangered Waves.debug.xcconfig */;
+			baseConfigurationReference = 846CB5D62E834649EBBE9090 /* Pods-Endangered Waves.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72RCH6T78N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/BuddyBuildSDK",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Endangered Waves/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1066,15 +962,12 @@
 		};
 		4A7FA92A1FAA966300C6A2BB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9CD8FE50085C6E18B24650B9 /* Pods-Endangered Waves.release.xcconfig */;
+			baseConfigurationReference = 7761D366D7B4B07C0C99F5AB /* Pods-Endangered Waves.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72RCH6T78N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/BuddyBuildSDK",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Endangered Waves/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1087,15 +980,11 @@
 		};
 		877407632048B9DA00ED36F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E012A9B083A87390F514C8B /* Pods-Endangered Waves.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72RCH6T78N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/BuddyBuildSDK",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Endangered Waves dev.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1108,15 +997,11 @@
 		};
 		877407642048B9DA00ED36F1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9CD8FE50085C6E18B24650B9 /* Pods-Endangered Waves.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72RCH6T78N;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/BuddyBuildSDK",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Endangered Waves dev.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -27,6 +27,5 @@ target 'Endangered Waves' do
   pod 'SVProgressHUD'
 
   # Other
-  pod 'BuddyBuildSDK'
 
 end

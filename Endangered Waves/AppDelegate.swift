@@ -9,7 +9,6 @@
 import UIKit
 import FirebaseCore
 import AVFoundation
-import BuddyBuildSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch {}
 
         FirebaseApp.configure()
-        BuddyBuildSDK.setup()
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = appCoordinator.rootViewController
 
