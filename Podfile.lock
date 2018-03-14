@@ -1,4 +1,12 @@
 PODS:
+  - AppCenter (1.5.0):
+    - AppCenter/Analytics (= 1.5.0)
+    - AppCenter/Crashes (= 1.5.0)
+  - AppCenter/Analytics (1.5.0):
+    - AppCenter/Core
+  - AppCenter/Core (1.5.0)
+  - AppCenter/Crashes (1.5.0):
+    - AppCenter/Core
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -110,6 +118,7 @@ PODS:
   - SVProgressHUD (2.2.2)
 
 DEPENDENCIES:
+  - AppCenter (~> 1.5)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Firestore
@@ -124,6 +133,7 @@ DEPENDENCIES:
   - SVProgressHUD
 
 SPEC CHECKSUMS:
+  AppCenter: 42c293f0de27e173aacd600a55a49da5317cd40e
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   BoringSSL: 19083b821ef3ae0f758fae15482e183003b1e265
   Cache: bd0233fc688b5e83a27bcd87807db7e6f23adcc5
@@ -146,7 +156,7 @@ SPEC CHECKSUMS:
   Hue: b8fe1e43eef13631331eebecb2198b68e2622f95
   ImagePicker: 973953c25960fe04729a7082a56194321c6762d2
   Imaginary: d675200546110e305d6a26db6267c0622ffe5e6b
-  leveldb-library: 9e29a1d913f922444127a7d0f28b025a0e2ba053
+  leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   Lightbox: b72d18d05b57ba55dbac2eb0d7dafdc934205cf3
   LocationPickerViewController: 76118f58350c66037b72d7a503f069332e6f1b53
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
@@ -154,6 +164,6 @@ SPEC CHECKSUMS:
   SDWebImage: 1fa4c9edf525b744f002db89f3f5a38b3cd4c541
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
 
-PODFILE CHECKSUM: 6b78d06aa09480a0e176fcac454b00cb9aba0b65
+PODFILE CHECKSUM: db9cc1825296f710f0fd7f65d299729630aaa7b0
 
 COCOAPODS: 1.4.0

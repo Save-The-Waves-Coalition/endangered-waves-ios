@@ -27,5 +27,6 @@ target 'Endangered Waves' do
   pod 'SVProgressHUD'
 
   # Other
+  pod 'AppCenter', '~> 1.5'
 
 end
