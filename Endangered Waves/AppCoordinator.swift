@@ -74,13 +74,13 @@ class AppCoordinator: Coordinator {
             safariViewController.preferredControlTintColor = Style.colorSTWBlue
             self.rootViewController.present(safariViewController, animated: true, completion: nil)
         }
-
         alert.addAction(okAction)
+
         rootViewController.present(alert, animated: true, completion: nil)
     }
 
     // MARK: Miscellaneous helper functions
-
+    // TODO: move to user defaults helper class
     func isFirstLaunch() -> Bool {
         let hasBeenLaunchedBeforeFlag = "hasBeenLaunchedBeforeFlag"
         let isFirstLaunch = !UserDefaults.standard.bool(forKey: hasBeenLaunchedBeforeFlag)
