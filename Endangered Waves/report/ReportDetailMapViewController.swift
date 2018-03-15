@@ -23,7 +23,7 @@ class ReportDetailMapViewController: UIViewController {
 
     func updateView() {
 
-//        self.navigationController?.navigationBar.tintColor = Style.colorSTWBlue
+        self.navigationController?.navigationBar.tintColor = Style.colorSTWBlue
 
         title = report.name
 
