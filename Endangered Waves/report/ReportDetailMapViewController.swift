@@ -33,6 +33,7 @@ class ReportDetailMapViewController: UIViewController {
         let region = MKCoordinateRegion(center: coordinate, span: span)
 
         mapView.setRegion(region, animated: true)
+
         mapView.delegate = self
 
         let annotation = ReportMapAnnotation(coordinate: coordinate, report: report)
@@ -48,11 +49,13 @@ extension ReportDetailMapViewController: MKMapViewDelegate {
         guard let annotation = annotation as? ReportMapAnnotation else { return nil }
 
         let identifier = "ReportMapAnnotationViewIdentifier"
-        let annotationView = ReportMapAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+
+        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        let pinImage = UIImage(named: "pin-filled")?.mask(with: .black).scaledToSize(newSize: CGSize(width: 19.0, height: 30.0))
+        annotationView.image = pinImage
 
         return annotationView
     }
-
 }
 
 // MARK: 📖 StoryboardInstantiable
