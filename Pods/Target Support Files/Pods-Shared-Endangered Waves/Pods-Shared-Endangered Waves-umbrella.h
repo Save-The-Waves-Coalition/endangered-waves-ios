@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_Endangered_WavesVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_Endangered_WavesVersionString[];
+FOUNDATION_EXPORT double Pods_Shared_Endangered_WavesVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_Shared_Endangered_WavesVersionString[];
 

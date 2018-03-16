@@ -1,6 +1,0 @@
-framework module Pods_Endangered_Waves {
-  umbrella header "Pods-Endangered Waves-umbrella.h"
-
-  export *
-  module * { export * }
-}
