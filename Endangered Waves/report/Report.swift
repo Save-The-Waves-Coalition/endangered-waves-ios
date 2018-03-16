@@ -148,7 +148,8 @@ struct Report {
 
 extension Report {
     static func createReportWithSnapshot(_ snapshot: DocumentSnapshot) -> Report? {
-        return self.createReportWithDictionary(snapshot.data())
+        // TODO: Fix this "!"
+        return self.createReportWithDictionary(snapshot.data()!)
     }
 
     func documentDataDictionary() -> [String: Any] {

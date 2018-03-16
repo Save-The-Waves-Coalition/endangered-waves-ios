@@ -1,41 +1,29 @@
 project 'Endangered Waves.xcodeproj'
 
-platform :ios, '10.0'
+# Uncomment the next line to define a global platform for your project
+platform :ios, '11.0'
 
 # ignore all warnings from all pods
 inhibit_all_warnings!
 
-use_frameworks!
+abstract_target 'shared' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
 
-abstract_target 'Shared' do
-    # Firebase
-    pod 'Firebase/Core'
-    pod 'Firebase/Auth'
-    pod 'Firebase/Storage'
-    pod 'Firebase/Firestore'
-    pod 'FirebaseUI/Storage'
-    pod 'FirebaseUI/Firestore'
-    pod 'FirebaseUI/Auth'
-    pod 'FirebaseUI/Facebook'
+  # Firebase
+  pod 'Firebase', '~> 4.10'
+  pod 'FirebaseUI', '~> 4.5'
 
-    # UI Related
-    pod 'LocationPickerViewController'
-    pod 'ImagePicker'
-    pod 'Lightbox'
-    pod 'SVProgressHUD'
+  # UI Related
+  pod 'LocationPickerViewController', '~> 3.3'
+  pod 'ImagePicker', '~> 3.0'
+  pod 'Lightbox', '~> 2.1'
+  pod 'SVProgressHUD', '~> 2.2'
 
-    # Other
-    pod 'AppCenter', '~> 1.5'
+  # Other
+  pod 'AppCenter', '~> 1.5'
 
-
-    # Targets
-    target 'Endangered Waves' do
-
-    end
-
-    target 'Endangered Waves dev' do
-
-    end
+  # Target
+  target 'Endangered Waves'
+  target 'Endangered Waves dev'
 end
-
-

@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-@interface PodsDummy_Pods_Shared_Endangered_Waves : NSObject
+@interface PodsDummy_Pods_shared_Endangered_Waves : NSObject
 @end
-@implementation PodsDummy_Pods_Shared_Endangered_Waves
+@implementation PodsDummy_Pods_shared_Endangered_Waves
 @end
