@@ -13,6 +13,7 @@ abstract_target 'shared' do
   # Firebase
   pod 'Firebase', '~> 4.10'
   pod 'FirebaseUI', '~> 4.5'
+  pod 'Crashlytics', '~> 3.10'
 
   # UI Related
   pod 'LocationPickerViewController', '~> 3.3'
