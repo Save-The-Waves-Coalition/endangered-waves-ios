@@ -23,6 +23,7 @@ abstract_target 'shared' do
 
   # Other
   pod 'AppCenter', '~> 1.5'
+  pod 'SwiftLint'
 
   # Target
   target 'Endangered Waves'

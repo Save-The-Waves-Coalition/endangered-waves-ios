@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     var appCoordinator: AppCoordinator = {
-        let c = AppCoordinator(with: RootViewController())
-        return c
+        let coordinator = AppCoordinator(with: RootViewController())
+        return coordinator
     }()
 
     func application(_ application: UIApplication,
