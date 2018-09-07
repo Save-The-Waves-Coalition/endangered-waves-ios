@@ -10,6 +10,11 @@ import UIKit
 import FirebaseAuth
 import SafariServices
 
+
+// TODO: remove me when i get the comp stuff out of here
+import FirebaseFirestore
+
+
 final class UserMananger {
 
     static let shared = UserMananger()
@@ -47,6 +52,10 @@ class AppCoordinator: Coordinator {
         } else if UserDefaultsHandler.shouldShowSurveryAlert() {
             showAppSurveyAlert()
         }
+
+        // TODO: Don't show survey alert if showing a competition
+        showCompetitionInfo()
+
     }
 
     func showContent() {
@@ -79,6 +88,40 @@ class AppCoordinator: Coordinator {
         rootViewController.present(alert, animated: true, completion: nil)
     }
 
+    func showCompetitionInfo() {
+
+        let query = Firestore.firestore().collection("competitions").order(by: "startDate", descending: true)
+        query.getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+
+                    if let competition = Competition.createCompetitionWithSnapshot(document) {
+
+                        print("Title: \(competition.title)")
+                        let rightNow = Date()
+                        if rightNow.isBetween(competition.startDate, and: competition.endDate) {
+                            print("Comp is on boyz!!!!")
+
+                            let competitionCoordinator = CompetitionCoordinator(with: self.rootViewController)
+                            competitionCoordinator.delegate = self
+                            self.childCoordinators.append(competitionCoordinator)
+                            competitionCoordinator.start()
+                        }
+
+
+
+                    }
+                    
+                }
+            }
+        }
+
+
+    }
+
     // MARK: Miscellaneous helper functions
     // TODO: move to user defaults helper class
     func isFirstLaunch() -> Bool {
@@ -95,6 +138,13 @@ class AppCoordinator: Coordinator {
 // MARK: OnboardingCoordinatorDelegate
 extension AppCoordinator: OnboardingCoordinatorDelegate {
     func coordinatorDidFinishOnboarding(_ coordinator: OnboardingCoordinator) {
+        removeChildCoordinator(coordinator)
+    }
+}
+
+// MARK: CompetitionCoordinatorDelegate
+extension AppCoordinator: CompetitionCoordinatorDelegate {
+    func coordinatorDidFinishShowingCompetition(_ coordinator: CompetitionCoordinator) {
         removeChildCoordinator(coordinator)
     }
 }
