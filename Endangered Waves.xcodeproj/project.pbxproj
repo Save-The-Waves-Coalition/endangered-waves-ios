@@ -511,7 +511,7 @@
 				4A7FA9121FAA966300C6A2BB /* Sources */,
 				4A7FA9131FAA966300C6A2BB /* Frameworks */,
 				4A7FA9141FAA966300C6A2BB /* Resources */,
-				4A5931AE1FCC661200CFBF19 /* ShellScript */,
+				4A5931AE1FCC661200CFBF19 /* SwiftLint */,
 				10D8B5D975C39ECE166590C6 /* [CP] Embed Pods Frameworks */,
 				2344FE36BEAC3BDD8CC588D9 /* [CP] Copy Pods Resources */,
 				4AC820BF205F094B00EC7BAD /* Crashlytics */,
@@ -533,7 +533,7 @@
 				8774071B2048B9DA00ED36F1 /* Sources */,
 				877407422048B9DA00ED36F1 /* Frameworks */,
 				8774074D2048B9DA00ED36F1 /* Resources */,
-				877407612048B9DA00ED36F1 /* ShellScript */,
+				877407612048B9DA00ED36F1 /* SwiftLint */,
 				68783CF201D0D737F7FC662F /* [CP] Embed Pods Frameworks */,
 				37CFB4763D5F402DD776DF62 /* [CP] Copy Pods Resources */,
 			);
@@ -553,7 +553,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Save The Waves";
 				TargetAttributes = {
 					4A7FA9151FAA966300C6A2BB = {
@@ -766,18 +766,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-shared-Endangered Waves dev/Pods-shared-Endangered Waves dev-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4A5931AE1FCC661200CFBF19 /* ShellScript */ = {
+		4A5931AE1FCC661200CFBF19 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = SwiftLint;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint";
+			shellScript = "\"${PODS_ROOT}\"/SwiftLint/swiftlint";
 		};
 		4AC820BF205F094B00EC7BAD /* Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -875,18 +876,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-shared-Endangered Waves dev/Pods-shared-Endangered Waves dev-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		877407612048B9DA00ED36F1 /* ShellScript */ = {
+		877407612048B9DA00ED36F1 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = SwiftLint;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint";
+			shellScript = "\"${PODS_ROOT}\"/SwiftLint/swiftlint";
 		};
 		9C1CDB2922997461A4D0C97A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1043,6 +1045,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1050,6 +1053,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1100,6 +1104,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1107,6 +1112,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
