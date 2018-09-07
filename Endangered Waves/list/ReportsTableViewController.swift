@@ -32,7 +32,7 @@ class ReportsTableViewController: UITableViewController {
                                                         if let report = Report.createReportWithSnapshot(snapshot) {
                                                             cell.report = report
 
-                                                            let urls: [URL] = report.imageURLs.flatMap({ (urlString) -> URL? in
+                                                            let urls: [URL] = report.imageURLs.compactMap({ (urlString) -> URL? in
                                                                 return URL(string: urlString)
                                                             })
                                                             cell.imageDownloadManager.loadImagesWithURLs(urls, completion: { (images) in

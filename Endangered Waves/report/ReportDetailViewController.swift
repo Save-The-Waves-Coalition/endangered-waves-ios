@@ -76,7 +76,7 @@ class ReportDetailViewController: UITableViewController {
             typeImageView.image = report.type.placemarkIcon()
         }
 
-        let urls: [URL] = report.imageURLs.flatMap({ (urlString) -> URL? in
+        let urls: [URL] = report.imageURLs.compactMap({ (urlString) -> URL? in
             return URL(string: urlString)
         })
 
