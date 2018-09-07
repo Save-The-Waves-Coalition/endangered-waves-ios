@@ -37,7 +37,8 @@ extension CompetitionViewController: StoryboardInstantiable {
 
 extension CompetitionViewController: UIViewControllerTransitioningDelegate {
 
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?,
+                                source: UIViewController) -> UIPresentationController? {
         return HalfSizePresentationController(presentedViewController: presented, presenting: presenting)
     }
 

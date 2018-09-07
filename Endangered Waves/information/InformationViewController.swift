@@ -127,7 +127,8 @@ extension InformationViewController {
         }
     }
 
-    override func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
+    override func tableView(_ tableView: UITableView, canPerformAction action: Selector,
+                            forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
         guard isAddressIndexPath(indexPath: indexPath),
             action == #selector(copy(_:)) else {
                 return false
