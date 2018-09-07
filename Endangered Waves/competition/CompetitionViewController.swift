@@ -16,16 +16,6 @@ class CompetitionViewController: UIViewController {
 
     weak var competitionDelegate: CompetitionViewControllerDelegate?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
-        view.addGestureRecognizer(tap)
-    }
-
-    @objc func handleTap(_ sender: UITapGestureRecognizer) {
-        print("Tapped Model!!!")
-    }
 }
 
 // MARK: 📖 StoryboardInstantiable
@@ -34,7 +24,7 @@ extension CompetitionViewController: StoryboardInstantiable {
     static var storyboardIdentifier: String? { return "CompetitionPageComponent" }
 }
 
-
+// MARK: UIViewControllerTransitioningDelegate
 extension CompetitionViewController: UIViewControllerTransitioningDelegate {
 
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?,
@@ -44,20 +34,28 @@ extension CompetitionViewController: UIViewControllerTransitioningDelegate {
 
 }
 
+// MARK: UIPresentationController
 class HalfSizePresentationController: UIPresentationController {
+    var touchForwardingView: PSPDFTouchForwardingView!
+
     override var frameOfPresentedViewInContainerView: CGRect {
-        get {
-            guard let theView = containerView else {
-                return CGRect.zero
-            }
 
-            let height =  theView.bounds.height * 0.6
-            let width = theView.bounds.width * 0.9
-
-            let xCord = (theView.bounds.width - width) / 2
-            let yCord = (theView.bounds.height - height) / 2
-
-            return CGRect(x: xCord, y: yCord, width: width, height: height)
+        guard let theView = containerView else {
+            return CGRect.zero
         }
+
+        let height =  theView.bounds.height * 0.6
+        let width = theView.bounds.width * 0.9
+        let xCord = (theView.bounds.width - width) / 2
+        let yCord = (theView.bounds.height - height) / 2
+
+        return CGRect(x: xCord, y: yCord, width: width, height: height)
+    }
+
+    override func presentationTransitionWillBegin() {
+        super.presentationTransitionWillBegin()
+        touchForwardingView = PSPDFTouchForwardingView(frame: containerView!.bounds)
+        touchForwardingView.passthroughViews = [presentingViewController.view]
+        containerView?.insertSubview(touchForwardingView, at: 0)
     }
 }

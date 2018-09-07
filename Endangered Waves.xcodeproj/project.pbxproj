@@ -72,6 +72,8 @@
 		4AA85B951FBCA3CA009A72E8 /* Brandon_reg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4AA85B941FBCA3CA009A72E8 /* Brandon_reg.otf */; };
 		4AB6AA891FC5C84D001C36C2 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB6AA881FC5C84D001C36C2 /* RootViewController.swift */; };
 		4AB6AA8B1FC5D655001C36C2 /* ReportMapCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AB6AA8A1FC5D655001C36C2 /* ReportMapCalloutView.xib */; };
+		4ABD25DD214322BF00F7706B /* PSPDFTouchForwardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABD25DC214322BF00F7706B /* PSPDFTouchForwardingView.swift */; };
+		4ABD25DE214322BF00F7706B /* PSPDFTouchForwardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABD25DC214322BF00F7706B /* PSPDFTouchForwardingView.swift */; };
 		4AC528881FC4818A0084E442 /* information.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC528871FC4818A0084E442 /* information.storyboard */; };
 		4AC5288B1FC482110084E442 /* InformationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC5288A1FC482110084E442 /* InformationCoordinator.swift */; };
 		4AC5288D1FC482900084E442 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC5288C1FC482900084E442 /* InformationViewController.swift */; };
@@ -217,6 +219,7 @@
 		4AA85B941FBCA3CA009A72E8 /* Brandon_reg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_reg.otf; sourceTree = "<group>"; };
 		4AB6AA881FC5C84D001C36C2 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		4AB6AA8A1FC5D655001C36C2 /* ReportMapCalloutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportMapCalloutView.xib; sourceTree = "<group>"; };
+		4ABD25DC214322BF00F7706B /* PSPDFTouchForwardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSPDFTouchForwardingView.swift; sourceTree = "<group>"; };
 		4AC528871FC4818A0084E442 /* information.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = information.storyboard; sourceTree = "<group>"; };
 		4AC5288A1FC482110084E442 /* InformationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCoordinator.swift; sourceTree = "<group>"; };
 		4AC5288C1FC482900084E442 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
@@ -345,6 +348,7 @@
 				4A3027991FBFABC600F5D87D /* UIViewController+Keyboard.swift */,
 				4A8B6A781FC3421C005A5989 /* NSObjectExtensions.swift */,
 				4A00E12B1FCF9D1F00E4CEA4 /* UIActivities.swift */,
+				4ABD25DC214322BF00F7706B /* PSPDFTouchForwardingView.swift */,
 			);
 			path = "swift-extras";
 			sourceTree = "<group>";
@@ -918,6 +922,7 @@
 				4AC5288F1FC4839B0084E442 /* InformationNavController.swift in Sources */,
 				4A321A9D1FB79169001DA08A /* Report.swift in Sources */,
 				4A0ABE751FBE6E2F007B06B9 /* ImageSliderViewController.swift in Sources */,
+				4ABD25DD214322BF00F7706B /* PSPDFTouchForwardingView.swift in Sources */,
 				4AF232A51FB0CA8900ADA075 /* NewReportViewController.swift in Sources */,
 				4A29878B1FCA2D3E0061B401 /* ImageDownloadManager.swift in Sources */,
 				4A30279A1FBFABC600F5D87D /* UIViewController+Keyboard.swift in Sources */,
@@ -971,6 +976,7 @@
 				8774071C2048B9DA00ED36F1 /* InformationNavController.swift in Sources */,
 				8774071D2048B9DA00ED36F1 /* Report.swift in Sources */,
 				8774071E2048B9DA00ED36F1 /* ImageSliderViewController.swift in Sources */,
+				4ABD25DE214322BF00F7706B /* PSPDFTouchForwardingView.swift in Sources */,
 				8774071F2048B9DA00ED36F1 /* NewReportViewController.swift in Sources */,
 				877407202048B9DA00ED36F1 /* ImageDownloadManager.swift in Sources */,
 				4A7F5B9420597B13003FA075 /* UserDefaultsHandler.swift in Sources */,
