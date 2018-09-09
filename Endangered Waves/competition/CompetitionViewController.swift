@@ -19,10 +19,17 @@ class CompetitionViewController: UIViewController {
     var competition: Competition!
 
     @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var offModalView: UIView!
+
+    private var contentLoaded = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         assert(competition != nil, "Forgot to set competition dependency")
+
+        offModalView.alpha = 0
+        webView.alpha = 0
+
 
         // TODO: Remove this!!! After testing
         // TODO: Remove this!!! After testing
@@ -46,6 +53,10 @@ class CompetitionViewController: UIViewController {
         }.resume()
     }
 
+    @IBAction func didTap(_ sender: UITapGestureRecognizer) {
+        competitionDelegate?.finishedViewingCompetitionViewController(self, andShowNewReport: false)
+    }
+
     func clearWebViewCache() {
         let websiteDataTypes: Set = [WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache]
         let date = Date(timeIntervalSince1970: 0)
@@ -55,12 +66,15 @@ class CompetitionViewController: UIViewController {
 
 // MARK: WKNavigationDelegate
 extension CompetitionViewController: WKNavigationDelegate {
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    }
-
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+        if !contentLoaded {
+            UIView.animate(withDuration: 0.25, animations: {
+                self.offModalView.alpha = 0.35
+                self.webView.alpha = 1.0
+            }, completion: { (finished) in
+                self.contentLoaded = true
+            })
+        }
     }
 
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction,

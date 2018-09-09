@@ -61,7 +61,7 @@ class AppCoordinator: Coordinator {
         // TODO: Don't show survey alert if showing a competition
         // TODO: Don't show survey alert if showing a competition
         // TODO: Don't show survey alert if showing a competition
-        showCompetitionInfo()
+        showCompetitionInfoIfAvailable()
     }
 
     func showContent() {
@@ -93,38 +93,25 @@ class AppCoordinator: Coordinator {
         rootViewController.present(alert, animated: true, completion: nil)
     }
 
-    func showCompetitionInfo() {
-
+    func showCompetitionInfoIfAvailable() {
         let query = Firestore.firestore().collection("competitions").order(by: "startDate", descending: true)
         query.getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
-
                     if let competition = Competition.createCompetitionWithSnapshot(document) {
-
-                        print("Title: \(competition.title)")
                         let rightNow = Date()
                         if rightNow.isBetween(competition.startDate, and: competition.endDate) {
-                            print("Comp is on boyz!!!!")
-
                             let competitionCoordinator = CompetitionCoordinator(with: self.rootViewController, competition: competition)
                             competitionCoordinator.delegate = self
                             self.childCoordinators.append(competitionCoordinator)
                             competitionCoordinator.start()
                         }
-
-
-
                     }
-                    
                 }
             }
         }
-
-
     }
 
     // MARK: Miscellaneous helper functions

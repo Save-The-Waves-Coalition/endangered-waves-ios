@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,38 +18,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Va-NA-zES">
-                                <rect key="frame" x="166" y="323" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lQW-S7-U3K">
+                            <view alpha="0.34999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0qA-DR-W37">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" name="STW-Grey"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ic0-oQ-Alw" appends="YES" id="pp7-sr-sgK"/>
+                                </connections>
+                            </view>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MDf-eG-tWw">
+                                <rect key="frame" x="20" y="80" width="335" height="487"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="lQW-S7-U3K" firstAttribute="bottom" secondItem="7k0-BF-17f" secondAttribute="bottom" id="BMa-Dv-fFm"/>
-                            <constraint firstItem="0Va-NA-zES" firstAttribute="centerX" secondItem="7k0-BF-17f" secondAttribute="centerX" id="CyU-HM-CpY"/>
-                            <constraint firstItem="0Va-NA-zES" firstAttribute="centerY" secondItem="7k0-BF-17f" secondAttribute="centerY" id="fqy-78-Br3"/>
-                            <constraint firstItem="lQW-S7-U3K" firstAttribute="top" secondItem="7k0-BF-17f" secondAttribute="top" id="kU9-Wg-6f7"/>
-                            <constraint firstItem="lQW-S7-U3K" firstAttribute="trailing" secondItem="7k0-BF-17f" secondAttribute="trailing" id="kp5-Sw-QPZ"/>
-                            <constraint firstItem="lQW-S7-U3K" firstAttribute="leading" secondItem="7k0-BF-17f" secondAttribute="leading" id="r9f-Av-rCt"/>
+                            <constraint firstItem="0qA-DR-W37" firstAttribute="top" secondItem="7k0-BF-17f" secondAttribute="top" id="2cv-VZ-tBh"/>
+                            <constraint firstAttribute="trailing" secondItem="0qA-DR-W37" secondAttribute="trailing" id="QqR-73-Sw5"/>
+                            <constraint firstAttribute="bottom" secondItem="0qA-DR-W37" secondAttribute="bottom" id="RMA-32-Z3s"/>
+                            <constraint firstItem="MDf-eG-tWw" firstAttribute="top" secondItem="k3E-GI-y5x" secondAttribute="top" constant="60" id="UxH-Xs-Opb"/>
+                            <constraint firstItem="k3E-GI-y5x" firstAttribute="bottom" secondItem="MDf-eG-tWw" secondAttribute="bottom" constant="100" id="aaJ-xm-Hvd"/>
+                            <constraint firstItem="MDf-eG-tWw" firstAttribute="leading" secondItem="k3E-GI-y5x" secondAttribute="leading" constant="20" id="j1z-w3-Vz1"/>
+                            <constraint firstItem="0qA-DR-W37" firstAttribute="leading" secondItem="7k0-BF-17f" secondAttribute="leading" id="u87-UE-Z0R"/>
+                            <constraint firstItem="k3E-GI-y5x" firstAttribute="trailing" secondItem="MDf-eG-tWw" secondAttribute="trailing" constant="20" id="w4f-II-idC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="k3E-GI-y5x"/>
                     </view>
                     <connections>
-                        <outlet property="webView" destination="lQW-S7-U3K" id="D2f-JH-IjH"/>
+                        <outlet property="offModalView" destination="0qA-DR-W37" id="fQD-F9-Ulx"/>
+                        <outlet property="webView" destination="MDf-eG-tWw" id="kcr-p7-8n0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mgf-F2-j0U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ic0-oQ-Alw">
+                    <connections>
+                        <action selector="didTap:" destination="QEN-lW-b6B" id="r2Z-8G-Qgd"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-143.19999999999999" y="169.56521739130437"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="STW-Grey">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
