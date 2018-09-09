@@ -44,6 +44,11 @@ class AppCoordinator: Coordinator {
 
     var userManager: UserMananger!
 
+    private lazy var containerCoordinator: ContainerCoordinator = {
+        let containerCoordinator = ContainerCoordinator(with: rootViewController)
+        return containerCoordinator
+    }()
+
     override func start() {
         userManager = UserMananger.shared
         showContent()
@@ -54,12 +59,12 @@ class AppCoordinator: Coordinator {
         }
 
         // TODO: Don't show survey alert if showing a competition
+        // TODO: Don't show survey alert if showing a competition
+        // TODO: Don't show survey alert if showing a competition
         showCompetitionInfo()
-
     }
 
     func showContent() {
-        let containerCoordinator = ContainerCoordinator(with: rootViewController)
         childCoordinators.append(containerCoordinator)
         containerCoordinator.start()
     }
@@ -105,7 +110,7 @@ class AppCoordinator: Coordinator {
                         if rightNow.isBetween(competition.startDate, and: competition.endDate) {
                             print("Comp is on boyz!!!!")
 
-                            let competitionCoordinator = CompetitionCoordinator(with: self.rootViewController)
+                            let competitionCoordinator = CompetitionCoordinator(with: self.rootViewController, competition: competition)
                             competitionCoordinator.delegate = self
                             self.childCoordinators.append(competitionCoordinator)
                             competitionCoordinator.start()
@@ -144,7 +149,10 @@ extension AppCoordinator: OnboardingCoordinatorDelegate {
 
 // MARK: CompetitionCoordinatorDelegate
 extension AppCoordinator: CompetitionCoordinatorDelegate {
-    func coordinatorDidFinishShowingCompetition(_ coordinator: CompetitionCoordinator) {
+    func coordinatorDidFinishShowingCompetition(_ coordinator: CompetitionCoordinator, andShowNewReport: Bool) {
         removeChildCoordinator(coordinator)
+        if andShowNewReport {
+            containerCoordinator.showAddComponent()
+        }
     }
 }

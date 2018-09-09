@@ -23,18 +23,32 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lQW-S7-U3K">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="lQW-S7-U3K" firstAttribute="bottom" secondItem="7k0-BF-17f" secondAttribute="bottom" id="BMa-Dv-fFm"/>
                             <constraint firstItem="0Va-NA-zES" firstAttribute="centerX" secondItem="7k0-BF-17f" secondAttribute="centerX" id="CyU-HM-CpY"/>
                             <constraint firstItem="0Va-NA-zES" firstAttribute="centerY" secondItem="7k0-BF-17f" secondAttribute="centerY" id="fqy-78-Br3"/>
+                            <constraint firstItem="lQW-S7-U3K" firstAttribute="top" secondItem="7k0-BF-17f" secondAttribute="top" id="kU9-Wg-6f7"/>
+                            <constraint firstItem="lQW-S7-U3K" firstAttribute="trailing" secondItem="7k0-BF-17f" secondAttribute="trailing" id="kp5-Sw-QPZ"/>
+                            <constraint firstItem="lQW-S7-U3K" firstAttribute="leading" secondItem="7k0-BF-17f" secondAttribute="leading" id="r9f-Av-rCt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="k3E-GI-y5x"/>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="lQW-S7-U3K" id="D2f-JH-IjH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mgf-F2-j0U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-142" y="170"/>
+            <point key="canvasLocation" x="-143.19999999999999" y="169.56521739130437"/>
         </scene>
     </scenes>
 </document>

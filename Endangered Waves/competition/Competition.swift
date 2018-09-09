@@ -15,10 +15,12 @@ struct Competition {
     var endDate: Date
     var title: String
     var description: String
+    var introPageURL: URL
 
-    init(title: String, description: String, startDate: Date, endDate: Date) {
+    init(title: String, description: String, introPageURL: URL, startDate: Date, endDate: Date) {
         self.title = title
         self.description = description
+        self.introPageURL = introPageURL
         self.startDate = startDate
         self.endDate = endDate
     }
@@ -26,12 +28,14 @@ struct Competition {
     static func createCompetitionWithDictionary(_ dictionary: [String: Any]) -> Competition? {
         guard let title = dictionary["title"] as? String,
             let description = dictionary["description"] as? String,
+            let introPageURLString = dictionary["introPageURL"] as? String,
+            let introPageURL = URL(string: introPageURLString),
             let startDate = dictionary["startDate"] as? Date,
             let endDate = dictionary["endDate"] as? Date
             else {
                 return nil
         }
-        return Competition(title: title, description: description, startDate: startDate, endDate: endDate)
+        return Competition(title: title, description: description, introPageURL: introPageURL, startDate: startDate, endDate: endDate)
     }
 }
 
@@ -45,6 +49,7 @@ extension Competition {
         return [
             "title": title,
             "description": description,
+            "introPageURL": introPageURL.absoluteString,
             "startDate": startDate,
             "endDate": endDate]
     }
