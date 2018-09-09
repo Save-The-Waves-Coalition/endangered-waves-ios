@@ -135,6 +135,11 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
     }
 
     func viewController(_ viewController: NewReportViewController, didTapReportType sender: STWButton) {
+        if sender.currentImage == Style.iconCompetition {
+            reportType = .competition
+            return
+        }
+
         if let buttonTitleText = sender.titleLabel?.text {
             switch buttonTitleText {
             case "OIL SPILL":
@@ -220,7 +225,7 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
                                    type: reportType,
             progressHandler: { (progress: Double) in
                 SVProgressHUD.showProgress(Float(progress), status: statusString)
-        }) { (documentID: String?, report: Report?, error: Error?) in
+        }, completionHandler: { (documentID: String?, report: Report?, error: Error?) in
             if let error = error {
                 print("Error adding document: \(error.localizedDescription)")
                 SVProgressHUD.showError(withStatus: "There was an issue creating your post. Please try again.")
@@ -230,7 +235,7 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
                     self.stopWithReport(report)
                 }
             }
-        }
+        })
     } // func
 
     func viewController(_ viewController: NewReportViewController, didTapAddButton button: UIButton) {

@@ -14,7 +14,7 @@ class STWButton: UIButton {
         super.init(coder: aDecoder)
     }
 
-    // Hack to put the tech under the image on a UIButton
+    // Hack to put the text under the image on a UIButton
     override func layoutSubviews() {
 
         let spacing: CGFloat = 6.0

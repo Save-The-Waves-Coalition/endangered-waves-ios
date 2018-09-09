@@ -99,6 +99,7 @@ class AppCoordinator: Coordinator {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
+                // Find the first valid competition and show it
                 for document in querySnapshot!.documents {
                     if let competition = Competition.createCompetitionWithSnapshot(document) {
                         let rightNow = Date()
@@ -107,6 +108,7 @@ class AppCoordinator: Coordinator {
                             competitionCoordinator.delegate = self
                             self.childCoordinators.append(competitionCoordinator)
                             competitionCoordinator.start()
+                            return
                         }
                     }
                 }

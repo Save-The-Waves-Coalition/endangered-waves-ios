@@ -54,3 +54,12 @@ extension Competition {
             "endDate": endDate]
     }
 }
+
+extension Competition {
+    func dateDisplayString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        let dateString = "\(formatter.string(from: startDate)) to \(formatter.string(from: endDate))"
+        return dateString
+    }
+}

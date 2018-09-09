@@ -35,6 +35,12 @@ class NewReportViewController: UITableViewController {
 
     @IBOutlet weak var descriptionTextView: UITextView!
 
+    @IBOutlet weak var competitionStackView: UIStackView!
+    @IBOutlet weak var competitionTitleLabel: UILabel!
+    @IBOutlet weak var competitionDateLabel: UILabel!
+    @IBOutlet weak var competitionButton: STWButton!
+    @IBOutlet weak var competitionHeightConstraint: NSLayoutConstraint!
+
     @IBOutlet var categoryTypeCollection: [STWButton]!
 
     @IBAction func categoryTypeButtonTapped(_ sender: STWButton) {
@@ -54,6 +60,12 @@ class NewReportViewController: UITableViewController {
                     button.setAttributedTitle(attributedString, for: .normal)
                 }
 
+                // Competition button
+                if button === self.competitionButton {
+                    self.competitionTitleLabel.textColor = .black
+                    self.competitionDateLabel.textColor = .black
+                }
+
             } else {
                 button.tintColor = Style.colorSTWGrey
                 button.isSelected = false
@@ -67,6 +79,12 @@ class NewReportViewController: UITableViewController {
                                       NSAttributedStringKey.paragraphStyle: style]
                     let attributedString = NSAttributedString(string: currentAttributedTitle.string, attributes: attributes)
                     button.setAttributedTitle(attributedString, for: .normal)
+                }
+
+                // Competition button
+                if button === self.competitionButton {
+                    self.competitionTitleLabel.textColor = Style.colorSTWGrey
+                    self.competitionDateLabel.textColor = Style.colorSTWGrey
                 }
             }
         }
@@ -149,6 +167,10 @@ class NewReportViewController: UITableViewController {
         delegate?.viewController(self, didTapLocation: sender)
     }
 
+    @IBAction func competitionTextWasTapped(_ sender: UITapGestureRecognizer) {
+        categoryTypeButtonTapped(competitionButton)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -166,6 +188,40 @@ class NewReportViewController: UITableViewController {
                                   NSAttributedStringKey.paragraphStyle: style]
                 let attributedString = NSAttributedString(string: currentAttributedTitle.string, attributes: attributes)
                 button.setAttributedTitle(attributedString, for: .normal)
+            }
+        }
+
+        // Is there current a competition running?
+        let query = Firestore.firestore().collection("competitions").order(by: "startDate", descending: true)
+        query.getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    if let competition = Competition.createCompetitionWithSnapshot(document) {
+                        let rightNow = Date()
+                        if rightNow.isBetween(competition.startDate, and: competition.endDate) {
+                            self.competitionStackView.isHidden = false
+                            self.competitionTitleLabel.text = competition.title.uppercased()
+                            self.competitionDateLabel.text = competition.dateDisplayString()
+                            self.categoryTypeButtonTapped(self.competitionButton)
+                            self.tableView.reloadData()
+
+                            // Hack to make the auto expanding cell animation look nice
+//                            UIView.setAnimationsEnabled(false)
+//                            tableView.beginUpdates()
+//                            tableView.endUpdates()
+//                            UIView.setAnimationsEnabled(true)
+                            // End hack
+//                            self.competitionConstraint.constant = 320
+                            return
+                        } else {
+                            self.competitionStackView.isHidden = true
+                            self.tableView.reloadData()
+//                        self.competitionHeightConstraint.constant = 200
+                        }
+                    }
+                }
             }
         }
 
