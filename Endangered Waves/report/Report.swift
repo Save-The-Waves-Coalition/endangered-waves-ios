@@ -98,7 +98,7 @@ extension ReportType {
         case .general:
             return Style.iconGeneral
         case .competition:
-            return Style.iconCompetition // TODO
+            return Style.iconCompetition
         }
     }
 }
@@ -112,6 +112,7 @@ struct Report {
     var imageURLs: [String]
     var type: ReportType
     var user: String
+    var userEmail: String?
 
     init(name: String,
          address: String,
@@ -163,7 +164,7 @@ extension Report {
     }
 
     func documentDataDictionary() -> [String: Any] {
-        return [
+        var dataDictionary:[String: Any] = [
             "name": name,
             "address": address,
             "coordinate": coordinate,
@@ -172,6 +173,10 @@ extension Report {
             "imageURLs": imageURLs,
             "type": type.rawValue,
             "user": user]
+        if let userEmail = userEmail {
+            dataDictionary["userEmail"] = userEmail
+        }
+        return dataDictionary
     }
 }
 

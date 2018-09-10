@@ -429,8 +429,52 @@ date</string>
                                             <outletCollection property="gestureRecognizers" destination="Qt0-P6-Qnh" appends="YES" id="SYr-je-Tgi"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="ZBL-yc-0gX">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="p6L-Ry-ons">
                                         <rect key="frame" x="0.0" y="717" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p6L-Ry-ons" id="c1U-wV-oXl">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MCg-XP-5CY">
+                                                    <rect key="frame" x="16" y="0.0" width="339" height="88"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTACT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWL-Wk-UBn">
+                                                            <rect key="frame" x="0.0" y="0.0" width="339" height="17.5"/>
+                                                            <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qDm-YF-Rhn">
+                                                            <rect key="frame" x="0.0" y="25.5" width="339" height="62.5"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="62" id="28j-LF-ehi"/>
+                                                            </constraints>
+                                                            <attributedString key="attributedText">
+                                                                <fragment content="Email address...">
+                                                                    <attributes>
+                                                                        <color key="NSColor" name="STW-Grey"/>
+                                                                        <font key="NSFont" size="15" name="Georgia-Italic"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="15" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                            <textInputTraits key="textInputTraits" textContentType="email"/>
+                                                        </textView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="MCg-XP-5CY" firstAttribute="leading" secondItem="c1U-wV-oXl" secondAttribute="leading" constant="16" id="c7N-Lm-hVV"/>
+                                                <constraint firstAttribute="trailing" secondItem="MCg-XP-5CY" secondAttribute="trailing" constant="20" symbolic="YES" id="idm-Ca-89X"/>
+                                                <constraint firstAttribute="bottom" secondItem="MCg-XP-5CY" secondAttribute="bottom" constant="12" id="jRA-sc-ad9"/>
+                                                <constraint firstItem="MCg-XP-5CY" firstAttribute="top" secondItem="c1U-wV-oXl" secondAttribute="top" id="lca-uW-pKW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <gestureRecognizers/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="ZBL-yc-0gX">
+                                        <rect key="frame" x="0.0" y="817" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZBL-yc-0gX" id="ebv-rL-qgM">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -483,6 +527,7 @@ date</string>
                         <outlet property="competitionStackView" destination="eJt-nG-zHt" id="mnB-wq-jcw"/>
                         <outlet property="competitionTitleLabel" destination="4ZL-xG-Snj" id="enT-M8-9ly"/>
                         <outlet property="descriptionTextView" destination="2er-Wd-wia" id="vrX-6h-3x7"/>
+                        <outlet property="emailTextView" destination="qDm-YF-Rhn" id="ZsP-CO-Qfd"/>
                         <outlet property="imageGallaryContainerView" destination="Q39-kE-bpK" id="NaF-OL-feM"/>
                         <outlet property="locationLabel" destination="UxH-4M-XEX" id="glI-YC-gQo"/>
                         <outlet property="mapImageView" destination="WwO-jj-l13" id="ulf-kW-229"/>

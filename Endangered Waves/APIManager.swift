@@ -17,6 +17,7 @@ class APIManager {
                                 coordinate: GeoPoint,
                                 creationDate: Date,
                                 description: String,
+                                emailAddress: String,
                                 images: [UIImage],
                                 type: ReportType,
                                 progressHandler: @escaping (Double) -> Void,
@@ -35,7 +36,7 @@ class APIManager {
                 return
             }
 
-            let report = Report(name: name,
+            var report = Report(name: name,
                                 address: address,
                                 coordinate: coordinate,
                                 creationDate: Date(),
@@ -43,6 +44,7 @@ class APIManager {
                                 imageURLs: uploadedImageURLStrings,
                                 type: type,
                                 user: userID)
+            //            report.userEmail = emailAddress // TODO: Store email in seperate collection
 
             uploadReport(report, completionHandler: { (documentID, error) in
                 if let error = error {

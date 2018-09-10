@@ -34,6 +34,8 @@ class NewReportCoordinator: Coordinator {
 
     var reportDescription: String?
 
+    var reportEmailAddress: String?
+
     var location: LocationItem? {
         didSet {
             newReportVC?.location = location
@@ -134,6 +136,10 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
         reportDescription = description
     }
 
+    func viewController(_ viewController: NewReportViewController, didWriteEmailAddress email: String) {
+        reportEmailAddress = email
+    }
+
     func viewController(_ viewController: NewReportViewController, didTapReportType sender: STWButton) {
         if sender.currentImage == Style.iconCompetition {
             reportType = .competition
@@ -207,7 +213,20 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
             return
         }
 
-        guard let reportDescription = reportDescription, let location = location, let reportType = reportType else {
+        // validate email address
+        if (reportEmailAddress ?? "").isEmpty {
+            showValidationError(title: "Missing Email Address", message: "Please enter a valid email address.",
+                                withViewController: viewController)
+            return
+        }
+        if let reportEmailAddress = reportEmailAddress, !reportEmailAddress.isValidEmail() {
+            showValidationError(title: "Invalid Email Address", message: "Please enter a valid email address.",
+                                withViewController: viewController)
+            return
+        }
+
+        guard let reportDescription = reportDescription, let location = location,
+            let reportType = reportType, let reportEmailAddress = reportEmailAddress else {
             // TODO: what to do here? This should never happen, show error
             return
         }
@@ -221,6 +240,7 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
                                    address: location.formattedAddressString ?? "",
                                    coordinate: geoPoint, creationDate: Date(),
                                    description: reportDescription,
+                                   emailAddress: reportEmailAddress,
                                    images: images,
                                    type: reportType,
             progressHandler: { (progress: Double) in

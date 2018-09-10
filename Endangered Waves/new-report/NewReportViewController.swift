@@ -24,6 +24,7 @@ protocol NewReportViewControllerDelegate: class {
     func viewController(_ viewController: NewReportViewController, didTapLocation sender: UITapGestureRecognizer)
     func viewController(_ viewController: NewReportViewController, didTapReportType sender: STWButton)
     func viewController(_ viewController: NewReportViewController, didWriteDescription description: String)
+    func viewController(_ viewController: NewReportViewController, didWriteEmailAddress email: String)
 }
 
 class NewReportViewController: UITableViewController {
@@ -35,11 +36,12 @@ class NewReportViewController: UITableViewController {
 
     @IBOutlet weak var descriptionTextView: UITextView!
 
+    @IBOutlet weak var emailTextView: UITextView!
+
     @IBOutlet weak var competitionStackView: UIStackView!
     @IBOutlet weak var competitionTitleLabel: UILabel!
     @IBOutlet weak var competitionDateLabel: UILabel!
     @IBOutlet weak var competitionButton: STWButton!
-    @IBOutlet weak var competitionHeightConstraint: NSLayoutConstraint!
 
     @IBOutlet var categoryTypeCollection: [STWButton]!
 
@@ -105,6 +107,14 @@ class NewReportViewController: UITableViewController {
         didSet {
             if let reportDescription = reportDescription, let descriptionTextView = descriptionTextView {
                 descriptionTextView.text = reportDescription
+            }
+        }
+    }
+
+    var emailAddress: String? {
+        didSet {
+            if let emailAddress = emailAddress, let emailTextView = emailTextView {
+                emailTextView.text = emailAddress
             }
         }
     }
@@ -178,6 +188,10 @@ class NewReportViewController: UITableViewController {
         descriptionTextView.textContainerInset = .zero
         descriptionTextView.textContainer.lineFragmentPadding = 0
 
+        emailTextView.delegate = self
+        emailTextView.textContainerInset = .zero
+        emailTextView.textContainer.lineFragmentPadding = 0
+
         // Attributed text set in the Storyboard is only working on the simulator, not in builds distributed via Buddybuild, this fixes that
         categoryTypeCollection.forEach { (button) in
             if let currentAttributedTitle = button.currentAttributedTitle {
@@ -206,19 +220,10 @@ class NewReportViewController: UITableViewController {
                             self.competitionDateLabel.text = competition.dateDisplayString()
                             self.categoryTypeButtonTapped(self.competitionButton)
                             self.tableView.reloadData()
-
-                            // Hack to make the auto expanding cell animation look nice
-//                            UIView.setAnimationsEnabled(false)
-//                            tableView.beginUpdates()
-//                            tableView.endUpdates()
-//                            UIView.setAnimationsEnabled(true)
-                            // End hack
-//                            self.competitionConstraint.constant = 320
                             return
                         } else {
                             self.competitionStackView.isHidden = true
                             self.tableView.reloadData()
-//                        self.competitionHeightConstraint.constant = 200
                         }
                     }
                 }
@@ -263,7 +268,13 @@ extension NewReportViewController: UITextViewDelegate {
         UIView.setAnimationsEnabled(true)
         // End hack
 
-        delegate?.viewController(self, didWriteDescription: textView.text)
+        if textView === descriptionTextView {
+            delegate?.viewController(self, didWriteDescription: textView.text)
+        }
+
+        if textView === emailTextView {
+            delegate?.viewController(self, didWriteEmailAddress: textView.text)
+        }
     }
 
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -278,17 +289,40 @@ extension NewReportViewController: UITextViewDelegate {
             textView.attributedText = newString
             textView.text = ""
         }
+
+        if textView.attributedText.string == "Email address..." {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineSpacing = 15
+            let attributes = [NSAttributedStringKey.foregroundColor: UIColor.black,
+                              NSAttributedStringKey.font: Style.fontGeorgia(size: 15),
+                              NSAttributedStringKey.paragraphStyle: paragraphStyle]
+            // Have to have at least 1 character for the attributes to take
+            let newString = NSMutableAttributedString(string: " ", attributes: attributes)
+            textView.attributedText = newString
+            textView.text = ""
+        }
+
         textView.becomeFirstResponder() //Optional
     }
 
     func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.attributedText.string == "" {
+        if textView === descriptionTextView && textView.attributedText.string == "" {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineSpacing = 15
             let attributes = [NSAttributedStringKey.foregroundColor: Style.colorSTWGrey,
                               NSAttributedStringKey.font: Style.fontGeorgiaItalic(size: 15),
                               NSAttributedStringKey.paragraphStyle: paragraphStyle]
             let newString = NSMutableAttributedString(string: "Write a description...", attributes: attributes)
+            textView.attributedText = newString
+        }
+
+        if textView === emailTextView && textView.attributedText.string == "" {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineSpacing = 15
+            let attributes = [NSAttributedStringKey.foregroundColor: Style.colorSTWGrey,
+                              NSAttributedStringKey.font: Style.fontGeorgiaItalic(size: 15),
+                              NSAttributedStringKey.paragraphStyle: paragraphStyle]
+            let newString = NSMutableAttributedString(string: "Email address...", attributes: attributes)
             textView.attributedText = newString
         }
         textView.resignFirstResponder()

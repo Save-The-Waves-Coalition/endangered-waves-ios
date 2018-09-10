@@ -74,6 +74,8 @@
 		4AB6AA8B1FC5D655001C36C2 /* ReportMapCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AB6AA8A1FC5D655001C36C2 /* ReportMapCalloutView.xib */; };
 		4ABD25DD214322BF00F7706B /* PSPDFTouchForwardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABD25DC214322BF00F7706B /* PSPDFTouchForwardingView.swift */; };
 		4ABD25DE214322BF00F7706B /* PSPDFTouchForwardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABD25DC214322BF00F7706B /* PSPDFTouchForwardingView.swift */; };
+		4ABD25E12146A29800F7706B /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABD25E02146A29800F7706B /* StringExtensions.swift */; };
+		4ABD25E22146A29800F7706B /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABD25E02146A29800F7706B /* StringExtensions.swift */; };
 		4AC528881FC4818A0084E442 /* information.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC528871FC4818A0084E442 /* information.storyboard */; };
 		4AC5288B1FC482110084E442 /* InformationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC5288A1FC482110084E442 /* InformationCoordinator.swift */; };
 		4AC5288D1FC482900084E442 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC5288C1FC482900084E442 /* InformationViewController.swift */; };
@@ -220,6 +222,7 @@
 		4AB6AA881FC5C84D001C36C2 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		4AB6AA8A1FC5D655001C36C2 /* ReportMapCalloutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportMapCalloutView.xib; sourceTree = "<group>"; };
 		4ABD25DC214322BF00F7706B /* PSPDFTouchForwardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSPDFTouchForwardingView.swift; sourceTree = "<group>"; };
+		4ABD25E02146A29800F7706B /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		4AC528871FC4818A0084E442 /* information.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = information.storyboard; sourceTree = "<group>"; };
 		4AC5288A1FC482110084E442 /* InformationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCoordinator.swift; sourceTree = "<group>"; };
 		4AC5288C1FC482900084E442 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
@@ -342,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				8719336F20488544000DD493 /* Extensions.swift */,
+				4ABD25E02146A29800F7706B /* StringExtensions.swift */,
 				4A119F602141A198006E75B5 /* DateExtensions.swift */,
 				4A321A8B1FB67308001DA08A /* StoryboardInstantiable.swift */,
 				4A9578CF1FBB9DC30051837C /* Coordinator.swift */,
@@ -943,6 +947,7 @@
 				4A9578D51FBBB6730051837C /* NavigationViewController.swift in Sources */,
 				4A2987811FC74B2A0061B401 /* LocationManager.swift in Sources */,
 				4A8987681FAE0B4E0098E473 /* ReportsTableViewController.swift in Sources */,
+				4ABD25E12146A29800F7706B /* StringExtensions.swift in Sources */,
 				4A119F612141A198006E75B5 /* DateExtensions.swift in Sources */,
 				4A9578CE1FBB98CE0051837C /* ContainerCoordinator.swift in Sources */,
 				8772FEE62044CCB6007F2E75 /* ReportDetailMapViewController.swift in Sources */,
@@ -997,6 +1002,7 @@
 				8774072C2048B9DA00ED36F1 /* RootViewController.swift in Sources */,
 				8774072D2048B9DA00ED36F1 /* NavigationViewController.swift in Sources */,
 				8774072E2048B9DA00ED36F1 /* LocationManager.swift in Sources */,
+				4ABD25E22146A29800F7706B /* StringExtensions.swift in Sources */,
 				4A119F622141A198006E75B5 /* DateExtensions.swift in Sources */,
 				8774072F2048B9DA00ED36F1 /* ReportsTableViewController.swift in Sources */,
 				877407302048B9DA00ED36F1 /* ContainerCoordinator.swift in Sources */,
