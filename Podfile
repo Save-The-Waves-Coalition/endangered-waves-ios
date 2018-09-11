@@ -22,7 +22,6 @@ abstract_target 'shared' do
   pod 'SVProgressHUD', '~> 2.2'
 
   # Other
-  pod 'AppCenter', '~> 1.5'
   pod 'SwiftLint'
 
   # Target
