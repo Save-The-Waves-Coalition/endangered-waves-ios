@@ -9,8 +9,95 @@
 import Foundation
 import Firebase
 import LocationPickerViewController
+import WebKit
 
 class APIManager {
+
+    func clearWebViewCache() {
+        let websiteDataTypes: Set = [WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache]
+        let date = Date(timeIntervalSince1970: 0)
+        WKWebsiteDataStore.default().removeData(ofTypes: websiteDataTypes, modifiedSince: date, completionHandler: {})
+    }
+
+    static func getActiveCompetition(completionHandler: @escaping (Competition?, Error?) -> Void) {
+
+//        clearWebViewCache()
+
+        // Check Firebase for all competitions
+        let rightNow = Date()
+        let query = Firestore.firestore().collection("competitions")
+            .whereField("endDate", isGreaterThanOrEqualTo: rightNow)
+            .order(by: "endDate", descending: false)
+            .limit(to: 1)
+
+        query.getDocuments { (querySnapshot, err) in
+
+            if let err = err {
+                // Firebase Error
+                completionHandler(nil, err)
+                return
+            } else {
+
+                guard let querySnapshot = querySnapshot else {
+                    // Firebase error, should never happen
+                    let userInfoDictionary = ["description": "Firebase Firestore issue."]
+                    completionHandler(nil, NSError(domain: "STW", code: 0, userInfo: userInfoDictionary))
+                    return
+                }
+
+                guard let document = querySnapshot.documents.first else {
+                    // Firebase error, should never happen
+                    let userInfoDictionary = ["description": "Firebase Firestore issue."]
+                    completionHandler(nil, NSError(domain: "STW", code: 1, userInfo: userInfoDictionary))
+                    return
+                }
+
+                guard var competition = Competition.createCompetitionWithSnapshot(document) else {
+                    // Issue with the record on Firebase
+                    let userInfoDictionary = ["description": "Issue with Firebase Firestore record."]
+                    completionHandler(nil, NSError(domain: "STW", code: 2, userInfo: userInfoDictionary))
+                    return
+                }
+
+                if rightNow.isBetween(competition.startDate, and: competition.endDate) {
+                    // Comp is active, download the HTML
+                    let task = URLSession.shared.downloadTask(with: competition.introPageURL) { (localURL, urlResponse, error) in
+
+                        if let error = error {
+                            // URL Session Error
+                            completionHandler(nil, error)
+                            return
+                        } else {
+                            guard let localURL = localURL else {
+                                // Issue saving the HTML locally
+                                let userInfoDictionary = ["description": "HTML was not saved locally."]
+                                completionHandler(nil, NSError(domain: "STW", code: 3, userInfo: userInfoDictionary))
+                                return
+                            }
+
+                            do {
+                                let htmlString = try String(contentsOf: localURL)
+                                competition.introPageHTML = htmlString
+                                completionHandler(competition, nil)
+                            } catch {
+                                // Issue making an HTML string
+                                let userInfoDictionary = ["description": "HTML could not be turned into a string."]
+                                completionHandler(nil, NSError(domain: "STW", code: 4, userInfo: userInfoDictionary))
+                                return
+                            }
+
+                        }
+                    }
+                    task.resume()
+                } else { // if rightNow.isBetween ....
+                    // No active competitions
+                    let userInfoDictionary = ["description": "No active competitions."]
+                    completionHandler(nil, NSError(domain: "STW", code: 5, userInfo: userInfoDictionary))
+                    return
+                }
+            }
+        }
+    }
 
     static func createNewReport(name: String,
                                 address: String,
@@ -36,7 +123,7 @@ class APIManager {
                 return
             }
 
-            var report = Report(name: name,
+            let report = Report(name: name,
                                 address: address,
                                 coordinate: coordinate,
                                 creationDate: Date(),

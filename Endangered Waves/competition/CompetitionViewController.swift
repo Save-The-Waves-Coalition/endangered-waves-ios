@@ -30,37 +30,16 @@ class CompetitionViewController: UIViewController {
         offModalView.alpha = 0
         webView.alpha = 0
 
-
-        // TODO: Remove this!!! After testing
-        // TODO: Remove this!!! After testing
-        // TODO: Remove this!!! After testing
-        clearWebViewCache()
-        // TODO: Remove this!!! After testing
-        // TODO: Remove this!!! After testing
-        // TODO: Remove this!!! After testing
-
         webView.navigationDelegate = self
 
-        _ = URLSession.shared.downloadTask(with: competition.introPageURL) { (localURL, urlResponse, error) in
-            if let localURL = localURL {
-                if let htmlString = try? String(contentsOf: localURL) {
-                    let bundleURL = URL(fileURLWithPath: Bundle.main.bundlePath)
-                    DispatchQueue.main.async {
-                        self.webView.loadHTMLString(htmlString, baseURL: bundleURL)
-                    }
-                }
-            }
-        }.resume()
+        if let introPageHTML = competition.introPageHTML {
+            let bundleURL = URL(fileURLWithPath: Bundle.main.bundlePath)
+            webView.loadHTMLString(introPageHTML, baseURL: bundleURL)
+        }
     }
 
     @IBAction func didTap(_ sender: UITapGestureRecognizer) {
         competitionDelegate?.finishedViewingCompetitionViewController(self, andShowNewReport: false)
-    }
-
-    func clearWebViewCache() {
-        let websiteDataTypes: Set = [WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache]
-        let date = Date(timeIntervalSince1970: 0)
-        WKWebsiteDataStore.default().removeData(ofTypes: websiteDataTypes, modifiedSince: date, completionHandler: {})
     }
 }
 

@@ -16,6 +16,7 @@ struct Competition {
     var title: String
     var description: String
     var introPageURL: URL
+    var introPageHTML: String?
 
     init(title: String, description: String, introPageURL: URL, startDate: Date, endDate: Date) {
         self.title = title
@@ -43,6 +44,13 @@ extension Competition {
     static func createCompetitionWithSnapshot(_ snapshot: DocumentSnapshot) -> Competition? {
         // TODO: Fix this "!"
         return self.createCompetitionWithDictionary(snapshot.data()!)
+    }
+
+    static func createCompetitionWithSnapshot(_ snapshot: DocumentSnapshot, introPageHTML: String) -> Competition? {
+        // TODO: Fix this "!"
+        var competition = self.createCompetitionWithDictionary(snapshot.data()!)
+        competition?.introPageHTML = introPageHTML
+        return competition
     }
 
     func documentDataDictionary() -> [String: Any] {

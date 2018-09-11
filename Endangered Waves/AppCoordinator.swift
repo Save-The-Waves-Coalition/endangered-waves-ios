@@ -52,16 +52,15 @@ class AppCoordinator: Coordinator {
     override func start() {
         userManager = UserMananger.shared
         showContent()
+
+        // If it's the user's first launch we show the onboarding screens on top of the dashboard/map
         if isFirstLaunch() {
             showOnboarding()
         } else if UserDefaultsHandler.shouldShowSurveryAlert() {
             showAppSurveyAlert()
+        } else {
+            showCompetitionInfoIfAvailable()
         }
-
-        // TODO: Don't show survey alert if showing a competition
-        // TODO: Don't show survey alert if showing a competition
-        // TODO: Don't show survey alert if showing a competition
-        showCompetitionInfoIfAvailable()
     }
 
     func showContent() {
@@ -94,25 +93,29 @@ class AppCoordinator: Coordinator {
     }
 
     func showCompetitionInfoIfAvailable() {
-        let query = Firestore.firestore().collection("competitions").order(by: "startDate", descending: true)
-        query.getDocuments { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
+        APIManager.getActiveCompetition { (competition, error) in
+            if let error = error {
+                print("Error: \(error)")
             } else {
-                // Find the first valid competition and show it
-                for document in querySnapshot!.documents {
-                    if let competition = Competition.createCompetitionWithSnapshot(document) {
-                        let rightNow = Date()
-                        if rightNow.isBetween(competition.startDate, and: competition.endDate) {
-                            let competitionCoordinator = CompetitionCoordinator(with: self.rootViewController, competition: competition)
-                            competitionCoordinator.delegate = self
-                            self.childCoordinators.append(competitionCoordinator)
-                            competitionCoordinator.start()
-                            return
-                        }
-                    }
+                guard let competition = competition else {
+                    print("Error: competition is nil.")
+                    return
+                }
+
+                DispatchQueue.main.async {
+                    self.showCompetitionInfoWithCompetition(competition)
                 }
             }
+        }
+    }
+
+    func showCompetitionInfoWithCompetition(_ competition: Competition) {
+        // If competition has valid HTML intro show it
+        if competition.introPageHTML != nil {
+            let competitionCoordinator = CompetitionCoordinator(with: self.rootViewController, competition: competition)
+            competitionCoordinator.delegate = self
+            self.childCoordinators.append(competitionCoordinator)
+            competitionCoordinator.start()
         }
     }
 
