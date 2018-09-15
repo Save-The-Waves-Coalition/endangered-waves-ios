@@ -205,31 +205,25 @@ class NewReportViewController: UITableViewController {
             }
         }
 
-        // Is there current a competition running?
-        let query = Firestore.firestore().collection("competitions").order(by: "startDate", descending: true)
-        query.getDocuments { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
+        // Show or hide competition UI
+        APIManager.getActiveCompetition { (competition, error) in
+            if let error = error {
+                print("Error: \(error)")
+                DispatchQueue.main.async {
+                    self.competitionStackView.isHidden = true
+                    self.tableView.reloadData()
+                }
             } else {
-                for document in querySnapshot!.documents {
-                    if let competition = Competition.createCompetitionWithSnapshot(document) {
-                        let rightNow = Date()
-                        if rightNow.isBetween(competition.startDate, and: competition.endDate) {
-                            self.competitionStackView.isHidden = false
-                            self.competitionTitleLabel.text = competition.title.uppercased()
-                            self.competitionDateLabel.text = competition.dateDisplayString()
-                            self.categoryTypeButtonTapped(self.competitionButton)
-                            self.tableView.reloadData()
-                            return
-                        } else {
-                            self.competitionStackView.isHidden = true
-                            self.tableView.reloadData()
-                        }
-                    }
+                DispatchQueue.main.async {
+                    self.competitionStackView.isHidden = false
+                    self.competitionTitleLabel.text = competition!.title.uppercased()
+                    self.competitionDateLabel.text = competition!.dateDisplayString()
+                    self.categoryTypeButtonTapped(self.competitionButton)
+                    self.tableView.reloadData()
+                    return
                 }
             }
         }
-
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

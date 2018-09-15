@@ -21,23 +21,18 @@ class APIManager {
 
     static func getActiveCompetition(completionHandler: @escaping (Competition?, Error?) -> Void) {
 
-//        clearWebViewCache()
-
+//        clearWebViewCache() // Used during html development
         // Check Firebase for all competitions
         let rightNow = Date()
         let query = Firestore.firestore().collection("competitions")
             .whereField("endDate", isGreaterThanOrEqualTo: rightNow)
             .order(by: "endDate", descending: false)
-            .limit(to: 1)
-
         query.getDocuments { (querySnapshot, err) in
-
             if let err = err {
                 // Firebase Error
                 completionHandler(nil, err)
                 return
             } else {
-
                 guard let querySnapshot = querySnapshot else {
                     // Firebase error, should never happen
                     let userInfoDictionary = ["description": "Firebase Firestore issue."]
@@ -45,24 +40,23 @@ class APIManager {
                     return
                 }
 
-                guard let document = querySnapshot.documents.first else {
-                    // Firebase error, should never happen
-                    let userInfoDictionary = ["description": "Firebase Firestore issue."]
-                    completionHandler(nil, NSError(domain: "STW", code: 1, userInfo: userInfoDictionary))
-                    return
-                }
+                var activeCompetition: Competition? = nil
+                for document in querySnapshot.documents where activeCompetition == nil {
+                    guard let competition = Competition.createCompetitionWithSnapshot(document) else {
+                        // Issue with the record on Firebase, go to the next document
+                        continue
+                    }
 
-                guard var competition = Competition.createCompetitionWithSnapshot(document) else {
-                    // Issue with the record on Firebase
-                    let userInfoDictionary = ["description": "Issue with Firebase Firestore record."]
-                    completionHandler(nil, NSError(domain: "STW", code: 2, userInfo: userInfoDictionary))
-                    return
-                }
+                    if rightNow.isBetween(competition.startDate, and: competition.endDate) {
+                        // Set activeCompetition
+                        activeCompetition = competition
+                        break
+                    } // if rightNow.isBetween
+                } // for document in querySnapshot.documents {
 
-                if rightNow.isBetween(competition.startDate, and: competition.endDate) {
+                if var activeCompetition = activeCompetition {
                     // Comp is active, download the HTML
-                    let task = URLSession.shared.downloadTask(with: competition.introPageURL) { (localURL, urlResponse, error) in
-
+                    let task = URLSession.shared.downloadTask(with: activeCompetition.introPageURL) { (localURL, urlResponse, error) in
                         if let error = error {
                             // URL Session Error
                             completionHandler(nil, error)
@@ -71,33 +65,33 @@ class APIManager {
                             guard let localURL = localURL else {
                                 // Issue saving the HTML locally
                                 let userInfoDictionary = ["description": "HTML was not saved locally."]
-                                completionHandler(nil, NSError(domain: "STW", code: 3, userInfo: userInfoDictionary))
+                                completionHandler(nil, NSError(domain: "STW", code: 1, userInfo: userInfoDictionary))
                                 return
                             }
 
                             do {
                                 let htmlString = try String(contentsOf: localURL)
-                                competition.introPageHTML = htmlString
-                                completionHandler(competition, nil)
+                                activeCompetition.introPageHTML = htmlString
+                                completionHandler(activeCompetition, nil)
+                                return
                             } catch {
                                 // Issue making an HTML string
                                 let userInfoDictionary = ["description": "HTML could not be turned into a string."]
-                                completionHandler(nil, NSError(domain: "STW", code: 4, userInfo: userInfoDictionary))
+                                completionHandler(nil, NSError(domain: "STW", code: 2, userInfo: userInfoDictionary))
                                 return
                             }
-
                         }
                     }
                     task.resume()
-                } else { // if rightNow.isBetween ....
+                } else {
                     // No active competitions
                     let userInfoDictionary = ["description": "No active competitions."]
-                    completionHandler(nil, NSError(domain: "STW", code: 5, userInfo: userInfoDictionary))
+                    completionHandler(nil, NSError(domain: "STW", code: 3, userInfo: userInfoDictionary))
                     return
                 }
-            }
-        }
-    }
+            } // else
+        } // query.getDocuments { (querySnapshot, err) in
+    } // getActiveCompetition
 
     static func createNewReport(name: String,
                                 address: String,
@@ -136,15 +130,18 @@ class APIManager {
                 if let error = error {
                     completionHandler(nil, nil, error)
                 } else {
-
-                    let competitionEntry = CompetitionEntry(reportReference: reportReference!, emailAddress: emailAddress)
-                    uploadCompetitionEntry(competitionEntry, completionHandler: { (documentID, error) in
-                        if let error = error {
-                            completionHandler(nil, nil, error)
-                        } else {
-                            completionHandler(documentID!, report, nil)
-                        }
-                    }) // APIManager.uploadCompetitionEntry
+                    if report.type == .competition {
+                        let competitionEntry = CompetitionEntry(reportReference: reportReference!, emailAddress: emailAddress)
+                        uploadCompetitionEntry(competitionEntry, completionHandler: { (documentID, error) in
+                            if let error = error {
+                                completionHandler(nil, nil, error)
+                            } else {
+                                completionHandler(documentID!, report, nil)
+                            }
+                        }) // APIManager.uploadCompetitionEntry
+                    } else {
+                        completionHandler(reportReference!.documentID, report, nil)
+                    }
                 }
             }) // APIManager.uploadReport
         }) // APIManager.uploadImages
