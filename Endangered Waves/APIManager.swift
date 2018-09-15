@@ -112,7 +112,7 @@ class APIManager {
 
         uploadImages(images, progressHandler: { (progress) in
             progressHandler(progress)
-        }) { (uploadedImageURLStrings, error) in
+        }, completionHandler: { (uploadedImageURLStrings, error) in
             guard let uploadedImageURLStrings = uploadedImageURLStrings else {
                 completionHandler(nil, nil, error!)
                 return
@@ -140,7 +140,7 @@ class APIManager {
                     completionHandler(documentID, report, nil)
                 }
             }) // APIManager.uploadReport
-        } // APIManager.uploadImages
+        }) // APIManager.uploadImages
     }
 
     static func uploadReport(_ report: Report, completionHandler: @escaping (String?, Error?) -> Void) {

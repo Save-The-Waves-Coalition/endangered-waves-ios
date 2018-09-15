@@ -23,7 +23,7 @@ class ReportsTableViewController: UITableViewController {
         let source = FUIFirestoreTableViewDataSource(query: query,
                                                      populateCell: { [unowned self] (tableView, indexPath, snapshot) -> UITableViewCell in
                                                         guard let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell",
-                                                                                                       for: indexPath) as? ReportsTableViewCell else {
+                                                                                           for: indexPath) as? ReportsTableViewCell else {
                                                             assertionFailure("⚠️: Wrong cell type in use.")
                                                             return UITableViewCell()
                                                         }

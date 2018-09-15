@@ -10,11 +10,6 @@ import UIKit
 import FirebaseAuth
 import SafariServices
 
-
-// TODO: remove me when i get the comp stuff out of here
-import FirebaseFirestore
-
-
 final class UserMananger {
 
     static let shared = UserMananger()

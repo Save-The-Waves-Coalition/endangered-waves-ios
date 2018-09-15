@@ -28,10 +28,10 @@ class ReportCoordinator: Coordinator {
         guard let navVC = rootViewController as? NavigationViewController else {
             return
         }
-        let vc = ReportDetailViewController.instantiate()
-        vc.delegate = self
-        vc.report = report
-        navVC.pushViewController(vc, animated: true)
+        let viewController = ReportDetailViewController.instantiate()
+        viewController.delegate = self
+        viewController.report = report
+        navVC.pushViewController(viewController, animated: true)
     }
 
     override func stop() {
@@ -39,8 +39,8 @@ class ReportCoordinator: Coordinator {
     }
 
     func showLightboxComponentWithImages(_ images: [UIImage], atIndex index: Int) {
-        if let vc = lightboxForImages(images, withStartIndex: index) {
-            rootViewController.present(vc, animated: true, completion: nil)
+        if let viewController = lightboxForImages(images, withStartIndex: index) {
+            rootViewController.present(viewController, animated: true, completion: nil)
         }
     }
 }

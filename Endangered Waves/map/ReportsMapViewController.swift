@@ -75,9 +75,9 @@ class ReportsMapViewController: UIViewController {
 
     private func viewController(for annotation: ReportMapAnnotation) -> ReportDetailViewController {
         // TODO: Coordinator should take care of this
-        let vc = ReportDetailViewController.instantiate()
-        vc.report = annotation.report
-        return vc
+        let viewController = ReportDetailViewController.instantiate()
+        viewController.report = annotation.report
+        return viewController
     }
 }
 
@@ -224,8 +224,8 @@ extension ReportsMapViewController: UIViewControllerPreviewingDelegate {
             previewingContext.sourceRect = popoverFrame
         }
 
-        let vc = viewController(for: annotation)
-        return vc
+        let viewControllerForLocation = viewController(for: annotation)
+        return viewControllerForLocation
     }
 
     /*

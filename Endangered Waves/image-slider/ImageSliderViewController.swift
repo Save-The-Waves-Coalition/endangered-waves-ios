@@ -52,8 +52,7 @@ class ImageSliderViewController: UIPageViewController {
 
     func imageViewControllersForImages(_ images: [UIImage]) -> [ImageViewController] {
 
-        let imageViewControllers: [ImageViewController] = images.map({
-            (image: UIImage) -> ImageViewController in
+        let imageViewControllers: [ImageViewController] = images.map({(image: UIImage) -> ImageViewController in
             let imageViewController = ImageViewController.instantiate()
             imageViewController.image = image
             return imageViewController

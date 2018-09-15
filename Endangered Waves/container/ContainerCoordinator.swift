@@ -15,26 +15,26 @@ class ContainerCoordinator: Coordinator {
     weak var currentViewController: UIViewController?
 
     lazy var containerNavViewController: ContainerNavViewController = {
-        let vc = ContainerNavViewController.instantiate()
-        if let topVC = vc.topViewController as? ContainerViewController {
+        let viewController = ContainerNavViewController.instantiate()
+        if let topVC = viewController.topViewController as? ContainerViewController {
             self.containerViewController = topVC
             containerViewController.delegate = self
             _ = containerViewController.view // This forces the view to load: https://stackoverflow.com/a/29322364
         }
-        return vc
+        return viewController
     }()
     var containerViewController: ContainerViewController!
 
     lazy var mapViewController: ReportsMapViewController = {
-        let vc = ReportsMapViewController.instantiate()
-        vc.delegate = self
-        return vc
+        let viewController = ReportsMapViewController.instantiate()
+        viewController.delegate = self
+        return viewController
     }()
 
     lazy var listViewController: ReportsTableViewController = {
-        let vc = ReportsTableViewController.instantiate()
-        vc.delegate = self
-        return vc
+        let viewController = ReportsTableViewController.instantiate()
+        viewController.delegate = self
+        return viewController
     }()
 
     override func start() {
