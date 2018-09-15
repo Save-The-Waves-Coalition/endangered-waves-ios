@@ -136,8 +136,20 @@ class ContainerCoordinator: Coordinator {
     }
 
     fileprivate func showSuccessfulSubmissionAlertWithReport(_ report: Report) {
+
+        // swiftlint:disable line_length
+        var message = """
+            Thank you for being a part of the solution. We'll make sure the right people see this report. Please help us out by taking action and sharing your report.
+            """
+        if report.type == .competition {
+            message = """
+            Thank you for being a part of the solution. We'll announce the winner of the Challenge shortly after the end of the challenge. Please help us out by taking action and sharing your report.
+            """
+        }
+        // swiftlint:enable line_length
+
         let alertViewController = UIAlertController(title: "Thank You 🤙",
-                                                    message: "Thank you for being a part of the solution. We'll make sure the right people see this report. Please help us out by taking action and sharing your report.",
+                                                    message: message,
                                                     preferredStyle: .actionSheet)
 
         let takeAction = UIAlertAction(title: "Take Action", style: .default, handler: { (_) in
