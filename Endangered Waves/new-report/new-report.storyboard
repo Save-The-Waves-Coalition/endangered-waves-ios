@@ -436,7 +436,7 @@ date</string>
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MCg-XP-5CY">
+                                                <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MCg-XP-5CY">
                                                     <rect key="frame" x="16" y="0.0" width="339" height="88"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTACT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWL-Wk-UBn">
@@ -526,6 +526,7 @@ date</string>
                         <outlet property="competitionDateLabel" destination="Wyk-fs-kHd" id="Ecv-Zo-N8Z"/>
                         <outlet property="competitionStackView" destination="eJt-nG-zHt" id="mnB-wq-jcw"/>
                         <outlet property="competitionTitleLabel" destination="4ZL-xG-Snj" id="enT-M8-9ly"/>
+                        <outlet property="contactInfoStackView" destination="MCg-XP-5CY" id="fo5-jG-pRe"/>
                         <outlet property="descriptionTextView" destination="2er-Wd-wia" id="vrX-6h-3x7"/>
                         <outlet property="emailTextView" destination="qDm-YF-Rhn" id="ZsP-CO-Qfd"/>
                         <outlet property="imageGallaryContainerView" destination="Q39-kE-bpK" id="NaF-OL-feM"/>
@@ -575,9 +576,6 @@ date</string>
         <image name="sewage" width="56" height="56"/>
         <image name="stacked-images" width="132" height="132"/>
         <image name="trash" width="56" height="56"/>
-        <namedColor name="STW-Grey">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="STW-Grey">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

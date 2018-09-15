@@ -213,16 +213,20 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
             return
         }
 
-        // validate email address
-        if (reportEmailAddress ?? "").isEmpty {
-            showValidationError(title: "Missing Email Address", message: "Please enter a valid email address.",
-                                withViewController: viewController)
-            return
-        }
-        if let reportEmailAddress = reportEmailAddress, !reportEmailAddress.isValidEmail() {
-            showValidationError(title: "Invalid Email Address", message: "Please enter a valid email address.",
-                                withViewController: viewController)
-            return
+        // validate email address if type is competition
+        if reportType == .competition {
+            if (reportEmailAddress ?? "").isEmpty {
+                showValidationError(title: "Missing Email Address", message: "Please enter a valid email address.",
+                                    withViewController: viewController)
+                return
+            }
+            if let reportEmailAddress = reportEmailAddress, !reportEmailAddress.isValidEmail() {
+                showValidationError(title: "Invalid Email Address", message: "Please enter a valid email address.",
+                                    withViewController: viewController)
+                return
+            }
+        } else {
+            reportEmailAddress = ""
         }
 
         guard let reportDescription = reportDescription, let location = location,

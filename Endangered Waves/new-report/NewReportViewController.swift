@@ -43,6 +43,8 @@ class NewReportViewController: UITableViewController {
     @IBOutlet weak var competitionDateLabel: UILabel!
     @IBOutlet weak var competitionButton: STWButton!
 
+    @IBOutlet weak var contactInfoStackView: UIStackView!
+
     @IBOutlet var categoryTypeCollection: [STWButton]!
 
     @IBAction func categoryTypeButtonTapped(_ sender: STWButton) {
@@ -211,6 +213,7 @@ class NewReportViewController: UITableViewController {
                 print("Error: \(error)")
                 DispatchQueue.main.async {
                     self.competitionStackView.isHidden = true
+                    self.contactInfoStackView.isHidden = true
                     self.tableView.reloadData()
                 }
             } else {
@@ -219,6 +222,7 @@ class NewReportViewController: UITableViewController {
                     self.competitionTitleLabel.text = competition!.title.uppercased()
                     self.competitionDateLabel.text = competition!.dateDisplayString()
                     self.categoryTypeButtonTapped(self.competitionButton)
+                    self.contactInfoStackView.isHidden = false
                     self.tableView.reloadData()
                     return
                 }
