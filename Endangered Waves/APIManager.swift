@@ -131,21 +131,41 @@ class APIManager {
                                 imageURLs: uploadedImageURLStrings,
                                 type: type,
                                 user: userID)
-            //            report.userEmail = emailAddress // TODO: Store email in seperate collection
 
-            uploadReport(report, completionHandler: { (documentID, error) in
+            uploadReport(report, completionHandler: { (reportReference, error) in
                 if let error = error {
                     completionHandler(nil, nil, error)
                 } else {
-                    completionHandler(documentID, report, nil)
+
+                    let competitionEntry = CompetitionEntry(reportReference: reportReference!, emailAddress: emailAddress)
+                    uploadCompetitionEntry(competitionEntry, completionHandler: { (documentID, error) in
+                        if let error = error {
+                            completionHandler(nil, nil, error)
+                        } else {
+                            completionHandler(documentID!, report, nil)
+                        }
+                    }) // APIManager.uploadCompetitionEntry
                 }
             }) // APIManager.uploadReport
         }) // APIManager.uploadImages
     }
 
-    static func uploadReport(_ report: Report, completionHandler: @escaping (String?, Error?) -> Void) {
+    static func uploadReport(_ report: Report, completionHandler: @escaping (DocumentReference?, Error?) -> Void) {
         let dataDictionary = report.documentDataDictionary()
         let collection = Firestore.firestore().collection("reports")
+        var ref: DocumentReference? = nil
+        ref = collection.addDocument(data: dataDictionary, completion: { (error) in
+            if let error = error {
+                completionHandler(nil, error)
+            } else {
+                completionHandler(ref!, nil)
+            }
+        })
+    }
+
+    static func uploadCompetitionEntry(_ competitionEntry: CompetitionEntry, completionHandler: @escaping (String?, Error?) -> Void) {
+        let dataDictionary = competitionEntry.documentDataDictionary()
+        let collection = Firestore.firestore().collection("competitionEntries")
         var ref: DocumentReference? = nil
         ref = collection.addDocument(data: dataDictionary, completion: { (error) in
             if let error = error {
