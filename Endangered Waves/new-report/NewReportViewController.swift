@@ -57,9 +57,9 @@ class NewReportViewController: UITableViewController {
                 if let currentAttributedTitle = button.currentAttributedTitle {
                     let style = NSMutableParagraphStyle()
                     style.alignment = .center
-                    let attributes = [NSAttributedStringKey.font: Style.fontBrandonGrotesqueBlack(size: 12),
-                                      NSAttributedStringKey.foregroundColor: UIColor.black,
-                                      NSAttributedStringKey.paragraphStyle: style]
+                    let attributes = [NSAttributedString.Key.font: Style.fontBrandonGrotesqueBlack(size: 12),
+                                      NSAttributedString.Key.foregroundColor: UIColor.black,
+                                      NSAttributedString.Key.paragraphStyle: style]
                     let attributedString = NSAttributedString(string: currentAttributedTitle.string, attributes: attributes)
                     button.setAttributedTitle(attributedString, for: .normal)
                 }
@@ -78,9 +78,9 @@ class NewReportViewController: UITableViewController {
                 if let currentAttributedTitle = button.currentAttributedTitle {
                     let style = NSMutableParagraphStyle()
                     style.alignment = .center
-                    let attributes = [NSAttributedStringKey.font: Style.fontBrandonGrotesqueBlack(size: 12),
-                                      NSAttributedStringKey.foregroundColor: Style.colorSTWGrey,
-                                      NSAttributedStringKey.paragraphStyle: style]
+                    let attributes = [NSAttributedString.Key.font: Style.fontBrandonGrotesqueBlack(size: 12),
+                                      NSAttributedString.Key.foregroundColor: Style.colorSTWGrey,
+                                      NSAttributedString.Key.paragraphStyle: style]
                     let attributedString = NSAttributedString(string: currentAttributedTitle.string, attributes: attributes)
                     button.setAttributedTitle(attributedString, for: .normal)
                 }
@@ -127,18 +127,18 @@ class NewReportViewController: UITableViewController {
 
                 let paragraphStyle = NSMutableParagraphStyle()
                 paragraphStyle.lineSpacing = 15
-                let attributes = [NSAttributedStringKey.foregroundColor: UIColor.black,
-                                  NSAttributedStringKey.font: Style.fontGeorgia(size: 15),
-                                  NSAttributedStringKey.paragraphStyle: paragraphStyle]
+                let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
+                                  NSAttributedString.Key.font: Style.fontGeorgia(size: 15),
+                                  NSAttributedString.Key.paragraphStyle: paragraphStyle]
                 let newString = NSMutableAttributedString(string: "\(location.name)\n\(addressString)", attributes: attributes)
                 locationLabel.attributedText = newString
 
                 if let mapImageView = mapImageView {
                     let coordinate = location.mapItem.placemark.coordinate
-                    let mapSnapshotOptions = MKMapSnapshotOptions()
+                    let mapSnapshotOptions = MKMapSnapshotter.Options()
 
                     // Set the region of the map that is rendered.
-                    let region = MKCoordinateRegionMakeWithDistance(coordinate, 1000, 1000)
+                    let region = MKCoordinateRegion.init(center: coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
                     mapSnapshotOptions.region = region
 
                     mapSnapshotOptions.showsBuildings = false
@@ -199,9 +199,9 @@ class NewReportViewController: UITableViewController {
             if let currentAttributedTitle = button.currentAttributedTitle {
                 let style = NSMutableParagraphStyle()
                 style.alignment = .center
-                let attributes = [NSAttributedStringKey.font: Style.fontBrandonGrotesqueBlack(size: 12),
-                                  NSAttributedStringKey.foregroundColor: Style.colorSTWGrey,
-                                  NSAttributedStringKey.paragraphStyle: style]
+                let attributes = [NSAttributedString.Key.font: Style.fontBrandonGrotesqueBlack(size: 12),
+                                  NSAttributedString.Key.foregroundColor: Style.colorSTWGrey,
+                                  NSAttributedString.Key.paragraphStyle: style]
                 let attributedString = NSAttributedString(string: currentAttributedTitle.string, attributes: attributes)
                 button.setAttributedTitle(attributedString, for: .normal)
             }
@@ -249,7 +249,7 @@ extension NewReportViewController: ImageSliderViewControllerDelegate {
 // MARK: UITableViewDelegate
 extension NewReportViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return UITableView.automaticDimension
     }
 }
 
@@ -279,9 +279,9 @@ extension NewReportViewController: UITextViewDelegate {
         if textView.attributedText.string == "Write a description..." {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineSpacing = 15
-            let attributes = [NSAttributedStringKey.foregroundColor: UIColor.black,
-                              NSAttributedStringKey.font: Style.fontGeorgia(size: 15),
-                              NSAttributedStringKey.paragraphStyle: paragraphStyle]
+            let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
+                              NSAttributedString.Key.font: Style.fontGeorgia(size: 15),
+                              NSAttributedString.Key.paragraphStyle: paragraphStyle]
             // Have to have at least 1 character for the attributes to take
             let newString = NSMutableAttributedString(string: " ", attributes: attributes)
             textView.attributedText = newString
@@ -291,9 +291,9 @@ extension NewReportViewController: UITextViewDelegate {
         if textView.attributedText.string == "Email address..." {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineSpacing = 15
-            let attributes = [NSAttributedStringKey.foregroundColor: UIColor.black,
-                              NSAttributedStringKey.font: Style.fontGeorgia(size: 15),
-                              NSAttributedStringKey.paragraphStyle: paragraphStyle]
+            let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
+                              NSAttributedString.Key.font: Style.fontGeorgia(size: 15),
+                              NSAttributedString.Key.paragraphStyle: paragraphStyle]
             // Have to have at least 1 character for the attributes to take
             let newString = NSMutableAttributedString(string: " ", attributes: attributes)
             textView.attributedText = newString
@@ -307,9 +307,9 @@ extension NewReportViewController: UITextViewDelegate {
         if textView === descriptionTextView && textView.attributedText.string == "" {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineSpacing = 15
-            let attributes = [NSAttributedStringKey.foregroundColor: Style.colorSTWGrey,
-                              NSAttributedStringKey.font: Style.fontGeorgiaItalic(size: 15),
-                              NSAttributedStringKey.paragraphStyle: paragraphStyle]
+            let attributes = [NSAttributedString.Key.foregroundColor: Style.colorSTWGrey,
+                              NSAttributedString.Key.font: Style.fontGeorgiaItalic(size: 15),
+                              NSAttributedString.Key.paragraphStyle: paragraphStyle]
             let newString = NSMutableAttributedString(string: "Write a description...", attributes: attributes)
             textView.attributedText = newString
         }
@@ -317,9 +317,9 @@ extension NewReportViewController: UITextViewDelegate {
         if textView === emailTextView && textView.attributedText.string == "" {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineSpacing = 15
-            let attributes = [NSAttributedStringKey.foregroundColor: Style.colorSTWGrey,
-                              NSAttributedStringKey.font: Style.fontGeorgiaItalic(size: 15),
-                              NSAttributedStringKey.paragraphStyle: paragraphStyle]
+            let attributes = [NSAttributedString.Key.foregroundColor: Style.colorSTWGrey,
+                              NSAttributedString.Key.font: Style.fontGeorgiaItalic(size: 15),
+                              NSAttributedString.Key.paragraphStyle: paragraphStyle]
             let newString = NSMutableAttributedString(string: "Email address...", attributes: attributes)
             textView.attributedText = newString
         }

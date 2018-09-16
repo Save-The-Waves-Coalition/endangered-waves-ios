@@ -32,7 +32,7 @@ class STWButton: UIButton {
         //  above the text
         var imageEdgeInsets = UIEdgeInsets.zero
         if let text = self.titleLabel?.text, let font = self.titleLabel?.font {
-            let attributes = [NSAttributedStringKey.font: font]
+            let attributes = [NSAttributedString.Key.font: font]
             let titleSize = text.size(withAttributes: attributes)
             imageEdgeInsets.top = -(titleSize.height + spacing)
             imageEdgeInsets.right = -titleSize.width

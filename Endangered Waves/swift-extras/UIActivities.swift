@@ -20,7 +20,7 @@ class TextActivity: NSObject, UIActivityItemSource {
         return NSObject()
     }
 
-    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivityType?) -> Any? {
+    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
         if activityType == .postToTwitter || activityType == .postToFacebook {
             return message
         }
@@ -40,7 +40,7 @@ class ImageActivity: NSObject, UIActivityItemSource {
         return image
     }
 
-    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivityType?) -> Any? {
+    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
         return image
     }
 }

@@ -56,7 +56,7 @@ extension InformationCoordinator: InformationViewControllerDelegate {
 
     func viewController(_ viewController: InformationViewController, wantsToLaunchAppWithURL url: URL) {
         if UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
         }
     }
 }
@@ -65,4 +65,9 @@ extension InformationCoordinator: OnboardingCoordinatorDelegate {
     func coordinatorDidFinishOnboarding(_ coordinator: OnboardingCoordinator) {
         removeChildCoordinator(coordinator)
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

@@ -26,15 +26,15 @@ class Coordinator {
     }
 
     func addFullScreenChildViewController(viewController: UIViewController, toViewController parentViewController: UIViewController) {
-        parentViewController.addChildViewController(viewController)
+        parentViewController.addChild(viewController)
         addFullScreenSubview(subView: viewController.view, toView: parentViewController.view)
-        viewController.didMove(toParentViewController: parentViewController)
+        viewController.didMove(toParent: parentViewController)
     }
 
     func removeChildViewController(viewController: UIViewController, fromViewController parentViewController: UIViewController) {
-        viewController.willMove(toParentViewController: nil)
+        viewController.willMove(toParent: nil)
         viewController.view.removeFromSuperview()
-        viewController.removeFromParentViewController()
+        viewController.removeFromParent()
     }
 
     func addFullScreenSubview(subView: UIView, toView parentView: UIView) {

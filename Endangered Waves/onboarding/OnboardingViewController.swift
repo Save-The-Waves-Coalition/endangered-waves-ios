@@ -82,7 +82,7 @@ class OnboardingViewController: UIViewController {
     func addViewController(_ viewController: UIViewController) {
         // Add view controller
         controllers.append(viewController)
-        addChildViewController(viewController)
+        addChild(viewController)
 
         // Add view
         viewController.view.translatesAutoresizingMaskIntoConstraints = false
@@ -129,7 +129,7 @@ class OnboardingViewController: UIViewController {
         }
 
         // Finish up
-        viewController.didMove(toParentViewController: self)
+        viewController.didMove(toParent: self)
     }
 
     @objc func pageControllerWasTouched() {

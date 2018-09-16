@@ -80,31 +80,31 @@ class ReportMapAnnotationView: MKAnnotationView {
                 newCustomCalloutView.translatesAutoresizingMaskIntoConstraints = false
 
                 let horizontalConstraint = NSLayoutConstraint(item: newCustomCalloutView,
-                                                              attribute: NSLayoutAttribute.left,
-                                                              relatedBy: NSLayoutRelation.equal,
+                                                              attribute: NSLayoutConstraint.Attribute.left,
+                                                              relatedBy: NSLayoutConstraint.Relation.equal,
                                                               toItem: self,
-                                                              attribute: NSLayoutAttribute.left,
+                                                              attribute: NSLayoutConstraint.Attribute.left,
                                                               multiplier: 1,
                                                               constant: 0)
                 let verticalConstraint = NSLayoutConstraint(item: newCustomCalloutView,
-                                                            attribute: NSLayoutAttribute.centerY,
-                                                            relatedBy: NSLayoutRelation.equal,
+                                                            attribute: NSLayoutConstraint.Attribute.centerY,
+                                                            relatedBy: NSLayoutConstraint.Relation.equal,
                                                             toItem: self,
-                                                            attribute: NSLayoutAttribute.centerY,
+                                                            attribute: NSLayoutConstraint.Attribute.centerY,
                                                             multiplier: 1,
                                                             constant: 0)
                 let widthConstraint = NSLayoutConstraint(item: newCustomCalloutView,
-                                                         attribute: NSLayoutAttribute.width,
-                                                         relatedBy: NSLayoutRelation.equal,
+                                                         attribute: NSLayoutConstraint.Attribute.width,
+                                                         relatedBy: NSLayoutConstraint.Relation.equal,
                                                          toItem: nil,
-                                                         attribute: NSLayoutAttribute.notAnAttribute,
+                                                         attribute: NSLayoutConstraint.Attribute.notAnAttribute,
                                                          multiplier: 1,
                                                          constant: 200)
                 let heightConstraint = NSLayoutConstraint(item: newCustomCalloutView,
-                                                          attribute: NSLayoutAttribute.height,
-                                                          relatedBy: NSLayoutRelation.equal,
+                                                          attribute: NSLayoutConstraint.Attribute.height,
+                                                          relatedBy: NSLayoutConstraint.Relation.equal,
                                                           toItem: nil,
-                                                          attribute: NSLayoutAttribute.notAnAttribute,
+                                                          attribute: NSLayoutConstraint.Attribute.notAnAttribute,
                                                           multiplier: 1,
                                                           constant: 48)
                 self.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])

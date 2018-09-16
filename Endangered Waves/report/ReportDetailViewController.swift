@@ -63,7 +63,7 @@ class ReportDetailViewController: UITableViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if self.isMovingFromParentViewController {
+        if self.isMovingFromParent {
             delegate?.finishedViewingDetailsViewController(self)
         }
     }
@@ -94,18 +94,18 @@ class ReportDetailViewController: UITableViewController {
         if let locationLabel = locationLabel {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineSpacing = 15
-            let attributes = [NSAttributedStringKey.foregroundColor: UIColor.black,
-                              NSAttributedStringKey.font: Style.fontGeorgia(size: 15),
-                              NSAttributedStringKey.paragraphStyle: paragraphStyle]
+            let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
+                              NSAttributedString.Key.font: Style.fontGeorgia(size: 15),
+                              NSAttributedString.Key.paragraphStyle: paragraphStyle]
             let newString = NSMutableAttributedString(string: "\(report.name)\n\(report.address)", attributes: attributes)
             locationLabel.attributedText = newString
         }
 
         let coordinate = CLLocationCoordinate2DMake(report.coordinate.latitude, report.coordinate.longitude)
-        let mapSnapshotOptions = MKMapSnapshotOptions()
+        let mapSnapshotOptions = MKMapSnapshotter.Options()
 
         // Set the region of the map that is rendered.
-        let region = MKCoordinateRegionMakeWithDistance(coordinate, 1000, 1000)
+        let region = MKCoordinateRegion.init(center: coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
         mapSnapshotOptions.region = region
 
         mapSnapshotOptions.showsBuildings = false
@@ -128,9 +128,9 @@ class ReportDetailViewController: UITableViewController {
         if let descriptionLabel = descriptionLabel {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineSpacing = 15
-            let attributes = [NSAttributedStringKey.foregroundColor: UIColor.black,
-                              NSAttributedStringKey.font: Style.fontGeorgia(size: 15),
-                              NSAttributedStringKey.paragraphStyle: paragraphStyle]
+            let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
+                              NSAttributedString.Key.font: Style.fontGeorgia(size: 15),
+                              NSAttributedString.Key.paragraphStyle: paragraphStyle]
             let newString = NSMutableAttributedString(string: report.description, attributes: attributes)
             descriptionLabel.attributedText = newString
         }
@@ -182,7 +182,7 @@ extension ReportDetailViewController: ImageSliderViewControllerDelegate {
 // MARK: UITableViewDelegate
 extension ReportDetailViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension // Required for description text to auto size
+        return UITableView.automaticDimension // Required for description text to auto size
     }
 }
 

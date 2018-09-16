@@ -42,9 +42,9 @@ class ContainerCoordinator: Coordinator {
         addFullScreenChildViewController(viewController: containerNavViewController, toViewController: rootViewController)
 
         // Add map to container
-        containerViewController.addChildViewController(mapViewController)
+        containerViewController.addChild(mapViewController)
         addFullScreenSubview(subView: mapViewController.view, toView: containerViewController.containerView)
-        mapViewController.didMove(toParentViewController: containerViewController)
+        mapViewController.didMove(toParent: containerViewController)
 
         // Set map as the currently shown controller
         currentViewController = mapViewController
@@ -91,8 +91,8 @@ class ContainerCoordinator: Coordinator {
 
     func cycleFromViewController(oldViewController: UIViewController, toViewController newViewController: UIViewController) {
 
-        oldViewController.willMove(toParentViewController: nil)
-        containerViewController.addChildViewController(newViewController)
+        oldViewController.willMove(toParent: nil)
+        containerViewController.addChild(newViewController)
         addFullScreenSubview(subView: newViewController.view, toView: containerViewController.containerView)
         newViewController.view.alpha = 0
         newViewController.view.layoutIfNeeded()
@@ -102,8 +102,8 @@ class ContainerCoordinator: Coordinator {
         },
                        completion: { finished in
                         oldViewController.view.removeFromSuperview()
-                        oldViewController.removeFromParentViewController()
-                        newViewController.didMove(toParentViewController: self.containerViewController)
+                        oldViewController.removeFromParent()
+                        newViewController.didMove(toParent: self.containerViewController)
         })
 
     }

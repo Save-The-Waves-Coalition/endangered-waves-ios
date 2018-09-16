@@ -186,7 +186,7 @@ class APIManager {
 
         images.forEach { (image) in
 
-            guard let imageData = UIImageJPEGRepresentation(image, 0.8) else {
+            guard let imageData = image.jpegData(compressionQuality: 0.8) else {
                 failureUploadCount += 1
                 return
             }
