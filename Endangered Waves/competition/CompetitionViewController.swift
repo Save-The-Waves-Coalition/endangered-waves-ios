@@ -59,31 +59,33 @@ extension CompetitionViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction,
                  decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         guard let url = navigationAction.request.url else {
-            decisionHandler(.allow)
+            decisionHandler(.cancel)
             return
         }
 
-        // Is it the actual comp URL?
-        if url == competition.introPageURL {
-            decisionHandler(.allow)
-            return
-        }
-
-        // Is it the special New Report anchor link?
-        if let fragment = url.fragment, fragment == "new_report" {
-            decisionHandler(.allow)
-            competitionDelegate?.finishedViewingCompetitionViewController(self, andShowNewReport: true)
-            return
-        }
-
-        // Is it a local file?
+        // Is it a local file? This implies that it's the comp intro page modal so show it
         if url.isFileURL {
             decisionHandler(.allow)
             return
         }
 
+        // Is it the actual comp URL then show it and return early, this should not be needed anymore but is fine to leave
+        if url == competition.introPageURL {
+            decisionHandler(.allow)
+            return
+        }
+
+        // Is it the special New Report link then cancel web navication and show the new report workflow
+        if url.lastPathComponent == "new_report" {
+            decisionHandler(.cancel)
+            competitionDelegate?.finishedViewingCompetitionViewController(self, andShowNewReport: true)
+            return
+        }
+
+        // If it's anyting else don't show it in the web view
         decisionHandler(.cancel)
 
+        // Instead let SFSafariViewController handle it
         let safariViewController = SFSafariViewController(url: url)
         safariViewController.preferredControlTintColor = Style.colorSTWBlue
         present(safariViewController, animated: true, completion: nil)
