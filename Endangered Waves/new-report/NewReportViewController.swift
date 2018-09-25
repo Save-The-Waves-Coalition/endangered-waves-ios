@@ -213,7 +213,6 @@ class NewReportViewController: UITableViewController {
                 print("Error: \(error)")
                 DispatchQueue.main.async {
                     self.competitionStackView.isHidden = true
-                    self.contactInfoStackView.isHidden = true
                     self.tableView.reloadData()
                 }
             } else {
@@ -222,7 +221,6 @@ class NewReportViewController: UITableViewController {
                     self.competitionTitleLabel.text = competition!.title.uppercased()
                     self.competitionDateLabel.text = competition!.dateDisplayString()
                     self.categoryTypeButtonTapped(self.competitionButton)
-                    self.contactInfoStackView.isHidden = false
                     self.tableView.reloadData()
                     return
                 }
@@ -288,7 +286,7 @@ extension NewReportViewController: UITextViewDelegate {
             textView.text = ""
         }
 
-        if textView.attributedText.string == "Email address..." {
+        if textView.attributedText.string == "Enter email address..." {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineSpacing = 15
             let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
@@ -320,7 +318,7 @@ extension NewReportViewController: UITextViewDelegate {
             let attributes = [NSAttributedString.Key.foregroundColor: Style.colorSTWGrey,
                               NSAttributedString.Key.font: Style.fontGeorgiaItalic(size: 15),
                               NSAttributedString.Key.paragraphStyle: paragraphStyle]
-            let newString = NSMutableAttributedString(string: "Email address...", attributes: attributes)
+            let newString = NSMutableAttributedString(string: "Enter email address...", attributes: attributes)
             textView.attributedText = newString
         }
         textView.resignFirstResponder()
