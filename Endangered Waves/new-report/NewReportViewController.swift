@@ -338,6 +338,7 @@ extension NewReportViewController: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if textView === emailTextView && text == "\n" {
             textView.resignFirstResponder()
+            textView.text = textView.text.trimmingCharacters(in: .whitespacesAndNewlines) // remove any extra trailing whitespace
             return false
         }
         return true
