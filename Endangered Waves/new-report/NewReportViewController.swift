@@ -193,6 +193,8 @@ class NewReportViewController: UITableViewController {
         emailTextView.delegate = self
         emailTextView.textContainerInset = .zero
         emailTextView.textContainer.lineFragmentPadding = 0
+        emailTextView.textContainer.maximumNumberOfLines = 1
+        emailTextView.textContainer.lineBreakMode = .byTruncatingTail
 
         // Attributed text set in the Storyboard is only working on the simulator, not in builds distributed via Buddybuild, this fixes that
         categoryTypeCollection.forEach { (button) in
@@ -321,6 +323,15 @@ extension NewReportViewController: UITextViewDelegate {
             textView.attributedText = newString
         }
         textView.resignFirstResponder()
+    }
+
+    // If user hits return/done on keyboard dismiss keyboard
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if textView === emailTextView && text == "\n" {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
     }
 }
 
