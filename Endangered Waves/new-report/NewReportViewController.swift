@@ -220,7 +220,6 @@ class NewReportViewController: UITableViewController {
                     self.competitionStackView.isHidden = false
                     self.competitionTitleLabel.text = competition!.title.uppercased()
                     self.competitionDateLabel.text = competition!.dateDisplayString()
-                    self.categoryTypeButtonTapped(self.competitionButton)
                     self.tableView.reloadData()
                     return
                 }
