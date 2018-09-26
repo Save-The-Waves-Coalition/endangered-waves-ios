@@ -163,7 +163,7 @@ extension Report {
     }
 
     func documentDataDictionary() -> [String: Any] {
-        var dataDictionary:[String: Any] = [
+        let dataDictionary:[String: Any] = [
             "name": name,
             "address": address,
             "coordinate": coordinate,
