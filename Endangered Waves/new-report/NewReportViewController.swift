@@ -195,6 +195,15 @@ class NewReportViewController: UITableViewController {
         emailTextView.textContainer.lineFragmentPadding = 0
         emailTextView.textContainer.maximumNumberOfLines = 1
         emailTextView.textContainer.lineBreakMode = .byTruncatingTail
+        if let emailAddress = UserDefaultsHandler.getUserEmailAddress() {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.lineSpacing = 15
+            let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
+                              NSAttributedString.Key.font: Style.fontGeorgia(size: 15),
+                              NSAttributedString.Key.paragraphStyle: paragraphStyle]
+            let newString = NSMutableAttributedString(string: emailAddress, attributes: attributes)
+            emailTextView.attributedText = newString
+        }
 
         // Attributed text set in the Storyboard is only working on the simulator, not in builds distributed via Buddybuild, this fixes that
         categoryTypeCollection.forEach { (button) in

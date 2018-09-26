@@ -137,6 +137,7 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
     }
 
     func viewController(_ viewController: NewReportViewController, didWriteEmailAddress email: String) {
+        UserDefaultsHandler.setUserEmailAddress(email)
         reportEmailAddress = email
     }
 
