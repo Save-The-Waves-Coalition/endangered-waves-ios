@@ -1,5 +1,5 @@
 //
-//  CompetitionEntry.swift
+//  ReportEntry.swift
 //  Endangered Waves
 //
 //  Created by Matthew Morey on 9/15/18.
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import FirebaseFirestore
 
-struct CompetitionEntry {
+struct ReportEntry {
     var reportReference: DocumentReference
     var emailAddress: String
 
@@ -19,16 +19,16 @@ struct CompetitionEntry {
         self.emailAddress = emailAddress
     }
 
-    static func createUserSTWWithDictionary(_ dictionary: [String: Any]) -> CompetitionEntry? {
+    static func createUserSTWWithDictionary(_ dictionary: [String: Any]) -> ReportEntry? {
         guard let reportReference = dictionary["reportReference"] as? DocumentReference, let emailAddress = dictionary["emailAddress"] as? String else {
             return nil
         }
-        return CompetitionEntry(reportReference: reportReference, emailAddress: emailAddress)
+        return ReportEntry(reportReference: reportReference, emailAddress: emailAddress)
     }
 }
 
-extension CompetitionEntry {
-    static func createUserSTWWithSnapshot(_ snapshot: DocumentSnapshot) -> CompetitionEntry? {
+extension ReportEntry {
+    static func createUserSTWWithSnapshot(_ snapshot: DocumentSnapshot) -> ReportEntry? {
         return self.createUserSTWWithDictionary(snapshot.data()!)
     }
 

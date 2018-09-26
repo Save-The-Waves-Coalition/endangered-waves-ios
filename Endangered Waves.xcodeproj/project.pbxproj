@@ -47,8 +47,8 @@
 		4A321AA21FB7AB17001DA08A /* ReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321AA11FB7AB17001DA08A /* ReportDetailViewController.swift */; };
 		4A321AC61FB8EF17001DA08A /* ReportMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321AC51FB8EF17001DA08A /* ReportMapAnnotation.swift */; };
 		4A321AC81FB9131D001DA08A /* ReportDetailNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321AC71FB9131D001DA08A /* ReportDetailNavViewController.swift */; };
-		4A7704FB214D91C100EEB34E /* CompetitionEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7704FA214D91C100EEB34E /* CompetitionEntry.swift */; };
-		4A7704FC214D91C100EEB34E /* CompetitionEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7704FA214D91C100EEB34E /* CompetitionEntry.swift */; };
+		4A7704FB214D91C100EEB34E /* ReportEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7704FA214D91C100EEB34E /* ReportEntry.swift */; };
+		4A7704FC214D91C100EEB34E /* ReportEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7704FA214D91C100EEB34E /* ReportEntry.swift */; };
 		4A7F5B91205979C2003FA075 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A7F5B90205979C2003FA075 /* GoogleService-Info.plist */; };
 		4A7F5B9220597ABA003FA075 /* ReportDetailMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8772FEE52044CCB6007F2E75 /* ReportDetailMapViewController.swift */; };
 		4A7F5B9320597AE1003FA075 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8719336F20488544000DD493 /* Extensions.swift */; };
@@ -200,7 +200,7 @@
 		4A321AC51FB8EF17001DA08A /* ReportMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportMapAnnotation.swift; sourceTree = "<group>"; };
 		4A321AC71FB9131D001DA08A /* ReportDetailNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailNavViewController.swift; sourceTree = "<group>"; };
 		4A5931AF1FCC667E00CFBF19 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
-		4A7704FA214D91C100EEB34E /* CompetitionEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionEntry.swift; sourceTree = "<group>"; };
+		4A7704FA214D91C100EEB34E /* ReportEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportEntry.swift; sourceTree = "<group>"; };
 		4A7F5B90205979C2003FA075 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4A7FA9161FAA966300C6A2BB /* Endangered Waves.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Endangered Waves.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A7FA9191FAA966300C6A2BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -385,12 +385,12 @@
 			path = report;
 			sourceTree = "<group>";
 		};
-		4A7704F9214D91A000EEB34E /* competition-entry */ = {
+		4A7704F9214D91A000EEB34E /* report-entry */ = {
 			isa = PBXGroup;
 			children = (
-				4A7704FA214D91C100EEB34E /* CompetitionEntry.swift */,
+				4A7704FA214D91C100EEB34E /* ReportEntry.swift */,
 			);
-			path = "competition-entry";
+			path = "report-entry";
 			sourceTree = "<group>";
 		};
 		4A7F5B8F205979C2003FA075 /* development */ = {
@@ -442,7 +442,7 @@
 				4AC528891FC481EC0084E442 /* information */,
 				4A321A881FB67288001DA08A /* list */,
 				4A321A911FB67C28001DA08A /* map */,
-				4A7704F9214D91A000EEB34E /* competition-entry */,
+				4A7704F9214D91A000EEB34E /* report-entry */,
 				4A321A9E1FB7A847001DA08A /* report */,
 				4A321A971FB67E10001DA08A /* new-report */,
 				4A0ABE761FBE6EC9007B06B9 /* image-slider */,
@@ -943,7 +943,7 @@
 				4AF232A51FB0CA8900ADA075 /* NewReportViewController.swift in Sources */,
 				4A29878B1FCA2D3E0061B401 /* ImageDownloadManager.swift in Sources */,
 				4A30279A1FBFABC600F5D87D /* UIViewController+Keyboard.swift in Sources */,
-				4A7704FB214D91C100EEB34E /* CompetitionEntry.swift in Sources */,
+				4A7704FB214D91C100EEB34E /* ReportEntry.swift in Sources */,
 				4A8B6A7B1FC3423D005A5989 /* NavigationBar.swift in Sources */,
 				4A2987871FC9F4A50061B401 /* ReportCoordinator.swift in Sources */,
 				4A321A901FB67C1F001DA08A /* ReportsMapViewController.swift in Sources */,
@@ -999,7 +999,7 @@
 				8774071F2048B9DA00ED36F1 /* NewReportViewController.swift in Sources */,
 				877407202048B9DA00ED36F1 /* ImageDownloadManager.swift in Sources */,
 				4A7F5B9420597B13003FA075 /* UserDefaultsHandler.swift in Sources */,
-				4A7704FC214D91C100EEB34E /* CompetitionEntry.swift in Sources */,
+				4A7704FC214D91C100EEB34E /* ReportEntry.swift in Sources */,
 				877407212048B9DA00ED36F1 /* UIViewController+Keyboard.swift in Sources */,
 				877407222048B9DA00ED36F1 /* NavigationBar.swift in Sources */,
 				877407232048B9DA00ED36F1 /* ReportCoordinator.swift in Sources */,
