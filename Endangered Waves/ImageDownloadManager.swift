@@ -23,7 +23,7 @@ class ImageDownloadManager: NSObject {
         images = [UIImage]()
         processed = 0
         total = urls.count
-    
+
         for url in urls {
             manager.loadImage(with: url, options: [], progress: nil, completed: { (image, data, error, cacheType, finished, imageURL) in
 

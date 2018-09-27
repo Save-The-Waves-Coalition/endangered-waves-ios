@@ -20,7 +20,8 @@ struct ReportEntry {
     }
 
     static func createUserSTWWithDictionary(_ dictionary: [String: Any]) -> ReportEntry? {
-        guard let reportReference = dictionary["reportReference"] as? DocumentReference, let emailAddress = dictionary["emailAddress"] as? String else {
+        guard let reportReference = dictionary["reportReference"] as? DocumentReference,
+            let emailAddress = dictionary["emailAddress"] as? String else {
             return nil
         }
         return ReportEntry(reportReference: reportReference, emailAddress: emailAddress)
