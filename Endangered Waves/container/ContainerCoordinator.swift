@@ -37,6 +37,8 @@ class ContainerCoordinator: Coordinator {
         return viewController
     }()
 
+    var competition: Competition?
+
     override func start() {
         // Add container to root
         addFullScreenChildViewController(viewController: containerNavViewController, toViewController: rootViewController)
@@ -69,7 +71,14 @@ class ContainerCoordinator: Coordinator {
     }
 
     func showAddComponent() {
-        let newReportCoordinator = NewReportCoordinator(with: rootViewController)
+        let newReportCoordinator = NewReportCoordinator(with: rootViewController, andCompetition: competition)
+        newReportCoordinator.delegate = self
+        childCoordinators.append(newReportCoordinator)
+        newReportCoordinator.start()
+    }
+
+    func showAddComponentWithCompetition(_ competition: Competition) {
+        let newReportCoordinator = NewReportCoordinator(with: rootViewController, andCompetition: competition)
         newReportCoordinator.delegate = self
         childCoordinators.append(newReportCoordinator)
         newReportCoordinator.start()

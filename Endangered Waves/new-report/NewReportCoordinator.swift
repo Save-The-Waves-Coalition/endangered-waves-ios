@@ -26,6 +26,8 @@ class NewReportCoordinator: Coordinator {
     var newReportNavVC: NewReportNavViewController?
     var newReportVC: NewReportViewController?
 
+    var competition: Competition?
+
     var images: [UIImage]? {
         didSet {
             newReportVC?.images = images
@@ -53,6 +55,11 @@ class NewReportCoordinator: Coordinator {
         return imagePicker
     }()
 
+    init(with rootViewController: UIViewController, andCompetition competition: Competition?) {
+        super.init(with: rootViewController)
+        self.competition = competition
+    }
+
     override func start() {
         rootViewController.present(imagePickerController, animated: true, completion: nil)
     }
@@ -72,6 +79,7 @@ class NewReportCoordinator: Coordinator {
             self.newReportVC = topVC
             topVC.delegate = self
             topVC.images = images
+            topVC.competition = competition
             rootViewController.present(navVC, animated: true, completion: nil)
         }
     }

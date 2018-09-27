@@ -33,6 +33,26 @@ struct Style {
         return UIFont(name: "Georgia", size: size)!
     }
 
+    static func userInputAttributedStringForString(_ string: String) -> NSMutableAttributedString {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 15
+        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
+                          NSAttributedString.Key.font: Style.fontGeorgia(size: 15),
+                          NSAttributedString.Key.paragraphStyle: paragraphStyle]
+        let newString = NSMutableAttributedString(string: string, attributes: attributes)
+        return newString
+    }
+
+    static func userInputPlaceholderAttributedStringForString(_ string: String) -> NSMutableAttributedString {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 15
+        let attributes = [NSAttributedString.Key.foregroundColor: Style.colorSTWGrey,
+                          NSAttributedString.Key.font: Style.fontGeorgiaItalic(size: 15),
+                          NSAttributedString.Key.paragraphStyle: paragraphStyle]
+        let newString = NSMutableAttributedString(string: string, attributes: attributes)
+        return newString
+    }
+
     static let colorSTWBlue = UIColor(named: "STW-Blue")!
     static let colorSTWGrey = UIColor(named: "STW-Grey")!
 

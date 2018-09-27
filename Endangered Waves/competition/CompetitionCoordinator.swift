@@ -10,7 +10,7 @@ import UIKit
 import SafariServices
 
 protocol CompetitionCoordinatorDelegate: class {
-    func coordinatorDidFinishShowingCompetition(_ coordinator: CompetitionCoordinator, andShowNewReport: Bool)
+    func coordinatorDidFinishShowingCompetition(_ coordinator: CompetitionCoordinator, competition: Competition, andShowNewReport: Bool)
 }
 
 class CompetitionCoordinator: Coordinator {
@@ -44,13 +44,12 @@ class CompetitionCoordinator: Coordinator {
     }
 
     func stop(andShowNewReport: Bool) {
-        delegate?.coordinatorDidFinishShowingCompetition(self, andShowNewReport: andShowNewReport)
+        delegate?.coordinatorDidFinishShowingCompetition(self, competition: competition, andShowNewReport: andShowNewReport)
     }
 
     func removeViewControllers() {
         removeChildViewController(viewController: competitionVC, fromViewController: rootViewController)
     }
-
 }
 
 extension CompetitionCoordinator: CompetitionViewControllerDelegate {

@@ -97,6 +97,7 @@ class AppCoordinator: Coordinator {
                     return
                 }
 
+                self.containerCoordinator.competition = competition
                 DispatchQueue.main.async {
                     self.showCompetitionInfoWithCompetition(competition)
                 }
@@ -136,10 +137,10 @@ extension AppCoordinator: OnboardingCoordinatorDelegate {
 
 // MARK: CompetitionCoordinatorDelegate
 extension AppCoordinator: CompetitionCoordinatorDelegate {
-    func coordinatorDidFinishShowingCompetition(_ coordinator: CompetitionCoordinator, andShowNewReport: Bool) {
+    func coordinatorDidFinishShowingCompetition(_ coordinator: CompetitionCoordinator, competition: Competition, andShowNewReport: Bool) {
         removeChildCoordinator(coordinator)
         if andShowNewReport {
-            containerCoordinator.showAddComponent()
+            containerCoordinator.showAddComponentWithCompetition(competition)
         }
     }
 }

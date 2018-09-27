@@ -31,6 +31,8 @@ class NewReportViewController: UITableViewController {
 
     weak var delegate: NewReportViewControllerDelegate?
 
+    var competition: Competition?
+
     @IBOutlet weak var imageGallaryContainerView: UIView!
     var imageSliderViewController: ImageSliderViewController?
 
@@ -125,13 +127,7 @@ class NewReportViewController: UITableViewController {
         didSet {
             if let location = location, let addressString = location.formattedAddressString {
 
-                let paragraphStyle = NSMutableParagraphStyle()
-                paragraphStyle.lineSpacing = 15
-                let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
-                                  NSAttributedString.Key.font: Style.fontGeorgia(size: 15),
-                                  NSAttributedString.Key.paragraphStyle: paragraphStyle]
-                let newString = NSMutableAttributedString(string: "\(location.name)\n\(addressString)", attributes: attributes)
-                locationLabel.attributedText = newString
+                locationLabel.attributedText = Style.userInputAttributedStringForString("\(location.name)\n\(addressString)")
 
                 if let mapImageView = mapImageView {
                     let coordinate = location.mapItem.placemark.coordinate
@@ -196,13 +192,7 @@ class NewReportViewController: UITableViewController {
         emailTextView.textContainer.maximumNumberOfLines = 1
         emailTextView.textContainer.lineBreakMode = .byTruncatingTail
         if let emailAddress = UserDefaultsHandler.getUserEmailAddress() {
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineSpacing = 15
-            let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
-                              NSAttributedString.Key.font: Style.fontGeorgia(size: 15),
-                              NSAttributedString.Key.paragraphStyle: paragraphStyle]
-            let newString = NSMutableAttributedString(string: emailAddress, attributes: attributes)
-            emailTextView.attributedText = newString
+            emailTextView.attributedText = Style.userInputAttributedStringForString(emailAddress)
         }
 
         // Attributed text set in the Storyboard is only working on the simulator, not in builds distributed via Buddybuild, this fixes that
@@ -219,22 +209,14 @@ class NewReportViewController: UITableViewController {
         }
 
         // Show or hide competition UI
-        APIManager.getActiveCompetition { (competition, error) in
-            if let error = error {
-                print("Error: \(error)")
-                DispatchQueue.main.async {
-                    self.competitionStackView.isHidden = true
-                    self.tableView.reloadData()
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.competitionStackView.isHidden = false
-                    self.competitionTitleLabel.text = competition!.title.uppercased()
-                    self.competitionDateLabel.text = competition!.dateDisplayString()
-                    self.tableView.reloadData()
-                    return
-                }
-            }
+        if let competition = competition {
+            self.competitionStackView.isHidden = false
+            self.competitionTitleLabel.text = competition.title.uppercased()
+            self.competitionDateLabel.text = competition.dateDisplayString()
+            self.tableView.reloadData()
+        } else {
+            self.competitionStackView.isHidden = true
+            self.tableView.reloadData()
         }
     }
 
@@ -269,72 +251,42 @@ extension NewReportViewController: UITextViewDelegate {
         UIView.setAnimationsEnabled(false)
         tableView.beginUpdates()
         tableView.endUpdates()
-        let indexPath = IndexPath(row: 2, section: 0)
+        let indexPath: IndexPath
+        if textView === descriptionTextView {
+            indexPath = IndexPath(row: 2, section: 0) // descriptionTextView is actually row 1 but we scroll to the next row as it looks better
+        } else {
+            indexPath = IndexPath(row: 4, section: 0) // row after emailTextView
+        }
         tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
         UIView.setAnimationsEnabled(true)
         // End hack
 
         if textView === descriptionTextView {
             delegate?.viewController(self, didWriteDescription: textView.text)
-        }
-
-        if textView === emailTextView {
+        } else if textView === emailTextView {
             delegate?.viewController(self, didWriteEmailAddress: textView.text)
         }
     }
 
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.attributedText.string == "Write a description..." {
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineSpacing = 15
-            let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
-                              NSAttributedString.Key.font: Style.fontGeorgia(size: 15),
-                              NSAttributedString.Key.paragraphStyle: paragraphStyle]
+        if textView.attributedText.string == "Write a description..." || textView.attributedText.string == "Enter email address..." {
             // Have to have at least 1 character for the attributes to take
-            let newString = NSMutableAttributedString(string: " ", attributes: attributes)
-            textView.attributedText = newString
+            textView.attributedText = Style.userInputAttributedStringForString(" ")
             textView.text = ""
         }
-
-        if textView.attributedText.string == "Enter email address..." {
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineSpacing = 15
-            let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
-                              NSAttributedString.Key.font: Style.fontGeorgia(size: 15),
-                              NSAttributedString.Key.paragraphStyle: paragraphStyle]
-            // Have to have at least 1 character for the attributes to take
-            let newString = NSMutableAttributedString(string: " ", attributes: attributes)
-            textView.attributedText = newString
-            textView.text = ""
-        }
-
-        textView.becomeFirstResponder() //Optional
+        textView.becomeFirstResponder() // Optional
     }
 
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView === descriptionTextView && textView.attributedText.string == "" {
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineSpacing = 15
-            let attributes = [NSAttributedString.Key.foregroundColor: Style.colorSTWGrey,
-                              NSAttributedString.Key.font: Style.fontGeorgiaItalic(size: 15),
-                              NSAttributedString.Key.paragraphStyle: paragraphStyle]
-            let newString = NSMutableAttributedString(string: "Write a description...", attributes: attributes)
-            textView.attributedText = newString
-        }
-
-        if textView === emailTextView && textView.attributedText.string == "" {
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineSpacing = 15
-            let attributes = [NSAttributedString.Key.foregroundColor: Style.colorSTWGrey,
-                              NSAttributedString.Key.font: Style.fontGeorgiaItalic(size: 15),
-                              NSAttributedString.Key.paragraphStyle: paragraphStyle]
-            let newString = NSMutableAttributedString(string: "Enter email address...", attributes: attributes)
-            textView.attributedText = newString
+            textView.attributedText = Style.userInputPlaceholderAttributedStringForString("Write a description...")
+        } else if textView === emailTextView && textView.attributedText.string == "" {
+            textView.attributedText = Style.userInputPlaceholderAttributedStringForString("Enter email address...")
         }
         textView.resignFirstResponder()
     }
 
-    // If user hits return/done on keyboard dismiss keyboard
+    // If user hits return/done on keyboard while editing their email address dismiss keyboard
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if textView === emailTextView && text == "\n" {
             textView.resignFirstResponder()
