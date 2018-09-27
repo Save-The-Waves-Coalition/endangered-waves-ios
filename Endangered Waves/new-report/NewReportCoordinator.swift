@@ -145,7 +145,6 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
     }
 
     func viewController(_ viewController: NewReportViewController, didWriteEmailAddress email: String) {
-        UserDefaultsHandler.setUserEmailAddress(email)
         reportEmailAddress = email
     }
 
@@ -259,6 +258,8 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
                 print("Error adding document: \(error.localizedDescription)")
                 SVProgressHUD.showError(withStatus: "There was an issue creating your post. Please try again.")
             } else {
+                // Success
+                UserDefaultsHandler.setUserEmailAddress(reportEmailAddress)
                 SVProgressHUD.dismiss()
                 viewController.dismiss(animated: true) {
                     self.stopWithReport(report)

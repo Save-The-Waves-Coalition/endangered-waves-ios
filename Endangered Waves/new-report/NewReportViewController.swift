@@ -193,6 +193,7 @@ class NewReportViewController: UITableViewController {
         emailTextView.textContainer.lineBreakMode = .byTruncatingTail
         if let emailAddress = UserDefaultsHandler.getUserEmailAddress() {
             emailTextView.attributedText = Style.userInputAttributedStringForString(emailAddress)
+            delegate?.viewController(self, didWriteEmailAddress: emailAddress)
         }
 
         // Attributed text set in the Storyboard is only working on the simulator, not in builds distributed via Buddybuild, this fixes that

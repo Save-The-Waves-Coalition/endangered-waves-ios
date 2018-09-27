@@ -151,9 +151,15 @@ class ContainerCoordinator: Coordinator {
             Thank you for being a part of the solution. We'll make sure the right people see this report. Please help us out by taking action and sharing your report.
             """
         if report.type == .competition {
-            message = """
-            Thank you for being a part of the solution. We'll announce the winner of the Challenge shortly after the end of the challenge. Please help us out by taking action and sharing your report.
-            """
+            if let competition = competition {
+                message = """
+                Thank you for being a part of the solution. We'll announce the winner of the \(competition.title) shortly after the end of the challenge. Please help us out by taking action and sharing your report.
+                """
+            } else {
+                message = """
+                Thank you for being a part of the solution. We'll announce the winner of the Challenge shortly after the end of the challenge. Please help us out by taking action and sharing your report.
+                """
+            }
         }
         // swiftlint:enable line_length
 

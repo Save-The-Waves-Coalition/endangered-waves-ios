@@ -36,7 +36,7 @@ struct UserDefaultsHandler {
     }
 
     static func setUserEmailAddress(_ emailAddress: String) {
-        UserDefaults.standard.set(emailAddress, forKey: userEmailAddress)
+        UserDefaults.standard.set(emailAddress.trimmingCharacters(in: .whitespacesAndNewlines), forKey: userEmailAddress)
         UserDefaults.standard.synchronize()
     }
 
