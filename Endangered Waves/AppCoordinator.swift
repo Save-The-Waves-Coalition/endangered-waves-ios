@@ -53,9 +53,9 @@ class AppCoordinator: Coordinator {
             showOnboarding()
         } else if UserDefaultsHandler.shouldShowSurveryAlert() {
             showAppSurveyAlert()
-        } else {
-            showCompetitionInfoIfAvailable()
         }
+
+        showCompetitionInfoIfAvailable()
     }
 
     func showContent() {
