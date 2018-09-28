@@ -265,7 +265,7 @@ extension NewReportViewController: UITextViewDelegate {
         if textView === descriptionTextView {
             delegate?.viewController(self, didWriteDescription: textView.text)
         } else if textView === emailTextView {
-            delegate?.viewController(self, didWriteEmailAddress: textView.text)
+            delegate?.viewController(self, didWriteEmailAddress: textView.text.trimmingCharacters(in: .whitespacesAndNewlines)) // remove any extra trailing whitespace
         }
     }
 
