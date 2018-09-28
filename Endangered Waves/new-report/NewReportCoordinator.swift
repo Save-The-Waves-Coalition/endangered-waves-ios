@@ -98,8 +98,25 @@ class NewReportCoordinator: Coordinator {
         let locationNavVC = NavigationViewController(rootViewController: locationPicker)
         viewController.present(locationNavVC, animated: true, completion: nil)
     }
+
+    func showCompetitionInfoModal(withRootViewController viewController: UIViewController) {
+        if let competition = self.competition, competition.introPageHTML != nil {
+            let competitionCoordinator = CompetitionCoordinator(with: viewController, competition: competition)
+            competitionCoordinator.delegate = self
+            self.childCoordinators.append(competitionCoordinator)
+            competitionCoordinator.start()
+        }
+    }
 }
 
+// MARK: CompetitionCoordinatorDelegate
+extension NewReportCoordinator: CompetitionCoordinatorDelegate {
+    func coordinatorDidFinishShowingCompetition(_ coordinator: CompetitionCoordinator, competition: Competition, andShowNewReport: Bool) {
+        removeChildCoordinator(coordinator)
+    }
+}
+
+// MARK:
 extension NewReportCoordinator {
     func lightboxForImages(_ images: [UIImage], withStartIndex index: Int) -> LightboxController? {
         guard images.count > 0 else { return nil }
@@ -140,6 +157,10 @@ extension NewReportCoordinator: ImagePickerDelegate {
 
 // MARK: NewReportViewControllerDelegate
 extension NewReportCoordinator: NewReportViewControllerDelegate {
+    func viewControllerDidTapCompetitionInfoButton(viewController: NewReportViewController) {
+        showCompetitionInfoModal(withRootViewController: rootViewController)
+    }
+
     func viewController(_ viewController: NewReportViewController, didWriteDescription description: String) {
         reportDescription = description
     }
@@ -149,11 +170,6 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
     }
 
     func viewController(_ viewController: NewReportViewController, didTapReportType sender: STWButton) {
-        if sender.currentImage == Style.iconCompetition {
-            reportType = .competition
-            return
-        }
-
         if let buttonTitleText = sender.titleLabel?.text {
             switch buttonTitleText {
             case "OIL SPILL":
@@ -172,6 +188,10 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
                 assertionFailure("Missing type.")
             }
         }
+    }
+
+    func viewControllerDidTapCompetition(viewController: NewReportViewController) {
+        reportType = .competition
     }
 
     func viewController(_ viewController: NewReportViewController, didTapLocation sender: UITapGestureRecognizer) {

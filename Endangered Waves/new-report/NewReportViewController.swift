@@ -23,6 +23,8 @@ protocol NewReportViewControllerDelegate: class {
     func viewController(_ viewController: NewReportViewController, didTapAddButton button: UIButton)
     func viewController(_ viewController: NewReportViewController, didTapLocation sender: UITapGestureRecognizer)
     func viewController(_ viewController: NewReportViewController, didTapReportType sender: STWButton)
+    func viewControllerDidTapCompetition(viewController: NewReportViewController)
+    func viewControllerDidTapCompetitionInfoButton(viewController: NewReportViewController)
     func viewController(_ viewController: NewReportViewController, didWriteDescription description: String)
     func viewController(_ viewController: NewReportViewController, didWriteEmailAddress email: String)
 }
@@ -32,6 +34,10 @@ class NewReportViewController: UITableViewController {
     weak var delegate: NewReportViewControllerDelegate?
 
     var competition: Competition?
+    @IBOutlet weak var competitionTrophyImageView: UIImageView!
+    @IBOutlet weak var competitionTitleLabel: UILabel!
+    @IBOutlet weak var competitionDateLabel: UILabel!
+    @IBOutlet weak var competitionInfoButton: UIButton!
 
     @IBOutlet weak var imageGallaryContainerView: UIView!
     var imageSliderViewController: ImageSliderViewController?
@@ -40,14 +46,25 @@ class NewReportViewController: UITableViewController {
 
     @IBOutlet weak var emailTextView: UITextView!
 
-    @IBOutlet weak var competitionStackView: UIStackView!
-    @IBOutlet weak var competitionTitleLabel: UILabel!
-    @IBOutlet weak var competitionDateLabel: UILabel!
-    @IBOutlet weak var competitionButton: STWButton!
-
     @IBOutlet weak var contactInfoStackView: UIStackView!
 
     @IBOutlet var categoryTypeCollection: [STWButton]!
+
+    fileprivate func enableInActiveStateForButton(_ button: (STWButton)) {
+        button.tintColor = Style.colorSTWGrey
+        button.isSelected = false
+        button.titleLabel?.font = Style.fontBrandonGrotesqueBlack(size: 12)
+
+        if let currentAttributedTitle = button.currentAttributedTitle {
+            let style = NSMutableParagraphStyle()
+            style.alignment = .center
+            let attributes = [NSAttributedString.Key.font: Style.fontBrandonGrotesqueBlack(size: 12),
+                              NSAttributedString.Key.foregroundColor: Style.colorSTWGrey,
+                              NSAttributedString.Key.paragraphStyle: style]
+            let attributedString = NSAttributedString(string: currentAttributedTitle.string, attributes: attributes)
+            button.setAttributedTitle(attributedString, for: .normal)
+        }
+    }
 
     @IBAction func categoryTypeButtonTapped(_ sender: STWButton) {
         categoryTypeCollection.forEach { (button) in
@@ -65,35 +82,16 @@ class NewReportViewController: UITableViewController {
                     let attributedString = NSAttributedString(string: currentAttributedTitle.string, attributes: attributes)
                     button.setAttributedTitle(attributedString, for: .normal)
                 }
-
-                // Competition button
-                if button === self.competitionButton {
-                    self.competitionTitleLabel.textColor = .black
-                    self.competitionDateLabel.textColor = .black
-                }
-
             } else {
-                button.tintColor = Style.colorSTWGrey
-                button.isSelected = false
-                button.titleLabel?.font = Style.fontBrandonGrotesqueBlack(size: 12)
-
-                if let currentAttributedTitle = button.currentAttributedTitle {
-                    let style = NSMutableParagraphStyle()
-                    style.alignment = .center
-                    let attributes = [NSAttributedString.Key.font: Style.fontBrandonGrotesqueBlack(size: 12),
-                                      NSAttributedString.Key.foregroundColor: Style.colorSTWGrey,
-                                      NSAttributedString.Key.paragraphStyle: style]
-                    let attributedString = NSAttributedString(string: currentAttributedTitle.string, attributes: attributes)
-                    button.setAttributedTitle(attributedString, for: .normal)
-                }
-
-                // Competition button
-                if button === self.competitionButton {
-                    self.competitionTitleLabel.textColor = Style.colorSTWGrey
-                    self.competitionDateLabel.textColor = Style.colorSTWGrey
-                }
+                enableInActiveStateForButton(button)
             }
         }
+
+        // Set competition to inactive state if a normal threat category is selected
+        competitionTitleLabel.textColor = Style.colorSTWGrey
+        competitionDateLabel.textColor = Style.colorSTWGrey
+        competitionTrophyImageView.image = UIImage(named: "grey-trophy")
+
         delegate?.viewController(self, didTapReportType: sender)
     }
 
@@ -159,6 +157,50 @@ class NewReportViewController: UITableViewController {
         }
     }
 
+    // MARK: View Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // TODO: Info button should show the competition modal
+        competitionInfoButton.isHidden = true
+
+        // Set up description text view
+        descriptionTextView.delegate = self
+        descriptionTextView.textContainerInset = .zero
+        descriptionTextView.textContainer.lineFragmentPadding = 0
+
+        // Set up email text view
+        emailTextView.delegate = self
+        emailTextView.textContainerInset = .zero
+        emailTextView.textContainer.lineFragmentPadding = 0
+        emailTextView.textContainer.maximumNumberOfLines = 1
+        emailTextView.textContainer.lineBreakMode = .byTruncatingTail
+        if let emailAddress = UserDefaultsHandler.getUserEmailAddress() {
+            emailTextView.attributedText = Style.userInputAttributedStringForString(emailAddress)
+            delegate?.viewController(self, didWriteEmailAddress: emailAddress)
+        }
+
+        // Set up competition info if one is active
+        if let competition = self.competition {
+            competitionTitleLabel.text = competition.title.uppercased()
+            competitionDateLabel.text = competition.dateDisplayString().uppercased()
+        }
+
+        // Attributed text set in the Storyboard is only working on the simulator, not in builds distributed via Buddybuild, this fixes that
+        categoryTypeCollection.forEach { (button) in
+            if let currentAttributedTitle = button.currentAttributedTitle {
+                let style = NSMutableParagraphStyle()
+                style.alignment = .center
+                let attributes = [NSAttributedString.Key.font: Style.fontBrandonGrotesqueBlack(size: 12),
+                                  NSAttributedString.Key.foregroundColor: Style.colorSTWGrey,
+                                  NSAttributedString.Key.paragraphStyle: style]
+                let attributedString = NSAttributedString(string: currentAttributedTitle.string, attributes: attributes)
+                button.setAttributedTitle(attributedString, for: .normal)
+            }
+        }
+    }
+
+    // MARK: IBActions
     @IBAction func didTapPostButton(_ sender: Any) {
         delegate?.viewController(self, didTapPostButton: sender)
     }
@@ -175,52 +217,26 @@ class NewReportViewController: UITableViewController {
         delegate?.viewController(self, didTapLocation: sender)
     }
 
-    @IBAction func competitionTextWasTapped(_ sender: UITapGestureRecognizer) {
-        categoryTypeButtonTapped(competitionButton)
+    @IBAction func competitionInfoButtonWasTapped(_ sender: UIButton) {
+        delegate?.viewControllerDidTapCompetitionInfoButton(viewController: self)
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @IBAction func competitionAreaWasTapped(_ sender: UITapGestureRecognizer) {
+        // Set competition area to active state
+        competitionDateLabel.textColor = .black
+        competitionTitleLabel.textColor = .black
+        competitionTrophyImageView.image = UIImage(named: "golden-trophy")
 
-        descriptionTextView.delegate = self
-        descriptionTextView.textContainerInset = .zero
-        descriptionTextView.textContainer.lineFragmentPadding = 0
-
-        emailTextView.delegate = self
-        emailTextView.textContainerInset = .zero
-        emailTextView.textContainer.lineFragmentPadding = 0
-        emailTextView.textContainer.maximumNumberOfLines = 1
-        emailTextView.textContainer.lineBreakMode = .byTruncatingTail
-        if let emailAddress = UserDefaultsHandler.getUserEmailAddress() {
-            emailTextView.attributedText = Style.userInputAttributedStringForString(emailAddress)
-            delegate?.viewController(self, didWriteEmailAddress: emailAddress)
-        }
-
-        // Attributed text set in the Storyboard is only working on the simulator, not in builds distributed via Buddybuild, this fixes that
+        // Set other report types to inactive state
         categoryTypeCollection.forEach { (button) in
-            if let currentAttributedTitle = button.currentAttributedTitle {
-                let style = NSMutableParagraphStyle()
-                style.alignment = .center
-                let attributes = [NSAttributedString.Key.font: Style.fontBrandonGrotesqueBlack(size: 12),
-                                  NSAttributedString.Key.foregroundColor: Style.colorSTWGrey,
-                                  NSAttributedString.Key.paragraphStyle: style]
-                let attributedString = NSAttributedString(string: currentAttributedTitle.string, attributes: attributes)
-                button.setAttributedTitle(attributedString, for: .normal)
-            }
+            enableInActiveStateForButton(button)
         }
 
-        // Show or hide competition UI
-        if let competition = competition {
-            self.competitionStackView.isHidden = false
-            self.competitionTitleLabel.text = competition.title.uppercased()
-            self.competitionDateLabel.text = competition.dateDisplayString()
-            self.tableView.reloadData()
-        } else {
-            self.competitionStackView.isHidden = true
-            self.tableView.reloadData()
-        }
+        // Let the delegate know
+        delegate?.viewControllerDidTapCompetition(viewController: self)
     }
 
+    // MARK: Segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let imageSliderViewController = segue.destination as? ImageSliderViewController {
             imageSliderViewController.images = self.images
@@ -240,6 +256,11 @@ extension NewReportViewController: ImageSliderViewControllerDelegate {
 // MARK: UITableViewDelegate
 extension NewReportViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        // If there is no active competition, hide the row
+        if self.competition == nil && indexPath.row == 2 {
+            return 0.0
+        }
+
         return UITableView.automaticDimension
     }
 }
@@ -254,9 +275,9 @@ extension NewReportViewController: UITextViewDelegate {
         tableView.endUpdates()
         let indexPath: IndexPath
         if textView === descriptionTextView {
-            indexPath = IndexPath(row: 2, section: 0) // descriptionTextView is actually row 1 but we scroll to the next row as it looks better
+            indexPath = IndexPath(row: 3, section: 0)
         } else {
-            indexPath = IndexPath(row: 4, section: 0) // row after emailTextView
+            indexPath = IndexPath(row: 5, section: 0)
         }
         tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
         UIView.setAnimationsEnabled(true)
@@ -265,7 +286,8 @@ extension NewReportViewController: UITextViewDelegate {
         if textView === descriptionTextView {
             delegate?.viewController(self, didWriteDescription: textView.text)
         } else if textView === emailTextView {
-            delegate?.viewController(self, didWriteEmailAddress: textView.text.trimmingCharacters(in: .whitespacesAndNewlines)) // remove any extra trailing whitespace
+            delegate?.viewController(self,
+                                     didWriteEmailAddress: textView.text.trimmingCharacters(in: .whitespacesAndNewlines))
         }
     }
 

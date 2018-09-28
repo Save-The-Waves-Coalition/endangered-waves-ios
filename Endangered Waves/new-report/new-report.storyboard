@@ -87,7 +87,7 @@
                                             <constraint firstItem="Q39-kE-bpK" firstAttribute="top" secondItem="ezu-mz-W6v" secondAttribute="top" id="kmy-Yf-t9X"/>
                                         </constraints>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="230" id="gJI-QQ-TdM">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="230" id="gJI-QQ-TdM" userLabel="Threat Category">
                                         <rect key="frame" x="0.0" y="235" width="375" height="230"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gJI-QQ-TdM" id="zLT-SQ-F7h">
@@ -241,75 +241,6 @@ EROSION</string>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJt-nG-zHt">
-                                                            <rect key="frame" x="0.0" y="200" width="220" height="100"/>
-                                                            <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="apd-bI-wc8" userLabel="COMPETITION" customClass="STWButton" customModule="Endangered_Waves" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="100"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="60" id="Qls-eE-7hv"/>
-                                                                        <constraint firstAttribute="height" constant="100" id="inX-AH-U60"/>
-                                                                    </constraints>
-                                                                    <state key="normal" image="competition">
-                                                                        <attributedString key="attributedTitle"/>
-                                                                    </state>
-                                                                    <state key="selected">
-                                                                        <attributedString key="attributedTitle"/>
-                                                                    </state>
-                                                                    <connections>
-                                                                        <action selector="categoryTypeButtonTapped:" destination="QT1-n4-6Zb" eventType="touchUpInside" id="poX-52-CGv"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0jW-SL-xfU">
-                                                                    <rect key="frame" x="60" y="0.0" width="160" height="100"/>
-                                                                    <subviews>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R1u-Fu-JhO">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="160" height="100"/>
-                                                                            <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZL-xG-Snj" userLabel="Title">
-                                                                                    <rect key="frame" x="0.0" y="10" width="160" height="45"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="height" constant="45" id="vdd-PE-JqI"/>
-                                                                                    </constraints>
-                                                                                    <string key="text">Competition
-Title</string>
-                                                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="15"/>
-                                                                                    <color key="textColor" name="STW-Grey"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wyk-fs-kHd" userLabel="Date">
-                                                                                    <rect key="frame" x="0.0" y="55" width="160" height="35"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="height" constant="35" id="nf2-k0-cyH"/>
-                                                                                    </constraints>
-                                                                                    <string key="text">date
-date</string>
-                                                                                    <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="12"/>
-                                                                                    <color key="textColor" name="STW-Grey"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                </label>
-                                                                            </subviews>
-                                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <gestureRecognizers/>
-                                                                            <constraints>
-                                                                                <constraint firstItem="Wyk-fs-kHd" firstAttribute="centerX" secondItem="R1u-Fu-JhO" secondAttribute="centerX" id="LUl-mG-Mdo"/>
-                                                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Wyk-fs-kHd" secondAttribute="bottom" constant="10" id="NPJ-n6-K1g"/>
-                                                                                <constraint firstAttribute="width" constant="160" id="O8f-ln-Pn8"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="4ZL-xG-Snj" secondAttribute="trailing" id="dWG-5z-pn8"/>
-                                                                                <constraint firstItem="4ZL-xG-Snj" firstAttribute="leading" secondItem="R1u-Fu-JhO" secondAttribute="leading" id="fov-Vv-Jkt"/>
-                                                                                <constraint firstItem="Wyk-fs-kHd" firstAttribute="leading" secondItem="R1u-Fu-JhO" secondAttribute="leading" id="hQC-ew-3Sw"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="Wyk-fs-kHd" secondAttribute="trailing" id="iNc-0X-f0H"/>
-                                                                                <constraint firstItem="Wyk-fs-kHd" firstAttribute="top" secondItem="4ZL-xG-Snj" secondAttribute="bottom" id="o9I-d6-Ham"/>
-                                                                                <constraint firstItem="4ZL-xG-Snj" firstAttribute="top" secondItem="R1u-Fu-JhO" secondAttribute="top" constant="10" id="tZE-80-reL"/>
-                                                                            </constraints>
-                                                                            <connections>
-                                                                                <outletCollection property="gestureRecognizers" destination="E57-3v-6qr" appends="YES" id="iSx-eA-sFy"/>
-                                                                            </connections>
-                                                                        </view>
-                                                                    </subviews>
-                                                                </stackView>
-                                                            </subviews>
-                                                        </stackView>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="G22-xH-M83"/>
@@ -325,8 +256,90 @@ date</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="lvS-fH-Wkx">
-                                        <rect key="frame" x="0.0" y="465" width="375" height="100"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="180" id="nzT-gz-tJw" userLabel="Challenge">
+                                        <rect key="frame" x="0.0" y="465" width="375" height="180"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nzT-gz-tJw" id="L2M-hP-dIH">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9jI-5x-4Sh" userLabel="Grey Background">
+                                                    <rect key="frame" x="30" y="0.0" width="315" height="160"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3NV-r4-BJM">
+                                                            <rect key="frame" x="10" y="20" width="295" height="120"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="grey-trophy" translatesAutoresizingMaskIntoConstraints="NO" id="ehr-qM-qqu">
+                                                                    <rect key="frame" x="121" y="0.0" width="53" height="60"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="60" id="0j3-RQ-2di"/>
+                                                                        <constraint firstAttribute="width" secondItem="ehr-qM-qqu" secondAttribute="height" multiplier="278:317" id="X7T-YZ-WAz"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DIRTY WAVE CHALLENGE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKb-H6-EjI">
+                                                                    <rect key="frame" x="41.5" y="70" width="212.5" height="20"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="20" id="LJm-lm-LYf"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="18"/>
+                                                                    <color key="textColor" name="STW-Grey"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OCTOBER 20TH TO NOVEMBER 20TH, 2018" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU1-ez-API">
+                                                                    <rect key="frame" x="39" y="100" width="217.5" height="20"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="20" id="kkZ-os-YD0"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="11"/>
+                                                                    <color key="textColor" name="STW-Grey"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="szX-fD-42b" userLabel="View To Hold Gesture">
+                                                            <rect key="frame" x="0.0" y="0.0" width="315" height="160"/>
+                                                            <color key="backgroundColor" white="1" alpha="0.01" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <gestureRecognizers/>
+                                                            <connections>
+                                                                <outletCollection property="gestureRecognizers" destination="kUk-lF-xpE" appends="YES" id="BWY-7Q-KBt"/>
+                                                            </connections>
+                                                        </view>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3m-bz-5ay" userLabel="Info Button">
+                                                            <rect key="frame" x="285" y="8" width="22" height="22"/>
+                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <state key="normal" image="information">
+                                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="competitionInfoButtonWasTapped:" destination="QT1-n4-6Zb" eventType="touchUpInside" id="3qx-SP-wkI"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="3NV-r4-BJM" secondAttribute="trailing" constant="10" id="3hx-FT-5AV"/>
+                                                        <constraint firstItem="3NV-r4-BJM" firstAttribute="centerY" secondItem="9jI-5x-4Sh" secondAttribute="centerY" id="BbT-xJ-V9D"/>
+                                                        <constraint firstAttribute="trailing" secondItem="o3m-bz-5ay" secondAttribute="trailing" constant="8" id="Vg6-et-LdD"/>
+                                                        <constraint firstAttribute="height" constant="160" id="eh2-eY-dw4"/>
+                                                        <constraint firstItem="3NV-r4-BJM" firstAttribute="leading" secondItem="9jI-5x-4Sh" secondAttribute="leading" constant="10" id="ihK-5m-ALH"/>
+                                                        <constraint firstItem="szX-fD-42b" firstAttribute="leading" secondItem="9jI-5x-4Sh" secondAttribute="leading" id="nKm-HF-CNM"/>
+                                                        <constraint firstAttribute="trailing" secondItem="szX-fD-42b" secondAttribute="trailing" id="pAt-Mj-q0s"/>
+                                                        <constraint firstItem="szX-fD-42b" firstAttribute="top" secondItem="9jI-5x-4Sh" secondAttribute="top" id="pFf-iY-BI2"/>
+                                                        <constraint firstItem="o3m-bz-5ay" firstAttribute="top" secondItem="9jI-5x-4Sh" secondAttribute="top" constant="8" id="vMR-71-3e6"/>
+                                                        <constraint firstAttribute="bottom" secondItem="szX-fD-42b" secondAttribute="bottom" id="xgt-MJ-IEN"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="9jI-5x-4Sh" secondAttribute="bottom" constant="20" id="7el-xO-hdI"/>
+                                                <constraint firstAttribute="trailing" secondItem="9jI-5x-4Sh" secondAttribute="trailing" constant="30" id="JKa-Tp-2qo"/>
+                                                <constraint firstItem="9jI-5x-4Sh" firstAttribute="top" secondItem="L2M-hP-dIH" secondAttribute="top" id="Om2-fq-6rB"/>
+                                                <constraint firstItem="9jI-5x-4Sh" firstAttribute="leading" secondItem="L2M-hP-dIH" secondAttribute="leading" constant="30" id="yAQ-qX-RUG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="lvS-fH-Wkx" userLabel="Description">
+                                        <rect key="frame" x="0.0" y="645" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lvS-fH-Wkx" id="i9j-L6-rQI">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -370,7 +383,7 @@ date</string>
                                         <gestureRecognizers/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="152" id="H4S-Qv-jPB">
-                                        <rect key="frame" x="0.0" y="565" width="375" height="152"/>
+                                        <rect key="frame" x="0.0" y="745" width="375" height="152"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H4S-Qv-jPB" id="Uq3-J3-wd6">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="152"/>
@@ -429,7 +442,7 @@ date</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="p6L-Ry-ons">
-                                        <rect key="frame" x="0.0" y="717" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="897" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p6L-Ry-ons" id="c1U-wV-oXl">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -473,7 +486,7 @@ date</string>
                                         <gestureRecognizers/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="ZBL-yc-0gX">
-                                        <rect key="frame" x="0.0" y="817" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="997" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZBL-yc-0gX" id="ebv-rL-qgM">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -521,10 +534,10 @@ date</string>
                     </navigationItem>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
-                        <outlet property="competitionButton" destination="apd-bI-wc8" id="s2R-5N-HA8"/>
-                        <outlet property="competitionDateLabel" destination="Wyk-fs-kHd" id="Ecv-Zo-N8Z"/>
-                        <outlet property="competitionStackView" destination="eJt-nG-zHt" id="mnB-wq-jcw"/>
-                        <outlet property="competitionTitleLabel" destination="4ZL-xG-Snj" id="enT-M8-9ly"/>
+                        <outlet property="competitionDateLabel" destination="OU1-ez-API" id="y2A-S6-QjU"/>
+                        <outlet property="competitionInfoButton" destination="o3m-bz-5ay" id="eID-Zf-HM2"/>
+                        <outlet property="competitionTitleLabel" destination="AKb-H6-EjI" id="D6k-Pg-Tr2"/>
+                        <outlet property="competitionTrophyImageView" destination="ehr-qM-qqu" id="ux9-Mb-Xld"/>
                         <outlet property="contactInfoStackView" destination="MCg-XP-5CY" id="fo5-jG-pRe"/>
                         <outlet property="descriptionTextView" destination="2er-Wd-wia" id="vrX-6h-3x7"/>
                         <outlet property="emailTextView" destination="qDm-YF-Rhn" id="ZsP-CO-Qfd"/>
@@ -538,7 +551,6 @@ date</string>
                         <outletCollection property="categoryTypeCollection" destination="tjA-cE-tep" collectionClass="NSMutableArray" id="sIA-oF-87g"/>
                         <outletCollection property="categoryTypeCollection" destination="2Id-7h-Qt5" collectionClass="NSMutableArray" id="7Ha-7P-JKa"/>
                         <outletCollection property="categoryTypeCollection" destination="2kH-NJ-OTQ" collectionClass="NSMutableArray" id="THI-uY-FL2"/>
-                        <outletCollection property="categoryTypeCollection" destination="apd-bI-wc8" collectionClass="NSMutableArray" id="J5z-yi-map"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IqA-TC-mE3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -547,9 +559,9 @@ date</string>
                         <action selector="locationWasTapped:" destination="QT1-n4-6Zb" id="vq5-Ej-Ujc"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="E57-3v-6qr">
+                <tapGestureRecognizer id="kUk-lF-xpE">
                     <connections>
-                        <action selector="competitionTextWasTapped:" destination="QT1-n4-6Zb" id="yyp-VB-Uwu"/>
+                        <action selector="competitionAreaWasTapped:" destination="QT1-n4-6Zb" id="Rxm-Ho-Qo6"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -567,8 +579,9 @@ date</string>
     <resources>
         <image name="access" width="56" height="56"/>
         <image name="coastal-erosion" width="56" height="56"/>
-        <image name="competition" width="68" height="60"/>
         <image name="general" width="56" height="56"/>
+        <image name="grey-trophy" width="278" height="317"/>
+        <image name="information" width="22" height="22"/>
         <image name="oil" width="56" height="56"/>
         <image name="pin-filled" width="60" height="96"/>
         <image name="post" width="246" height="246"/>
