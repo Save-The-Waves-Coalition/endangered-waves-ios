@@ -13,7 +13,7 @@ import WebKit
 
 class APIManager {
 
-    func clearWebViewCache() {
+    static func clearWebViewCache() {
         let websiteDataTypes: Set = [WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache]
         let date = Date(timeIntervalSince1970: 0)
         WKWebsiteDataStore.default().removeData(ofTypes: websiteDataTypes, modifiedSince: date, completionHandler: {})
@@ -21,7 +21,7 @@ class APIManager {
 
     static func getActiveCompetition(completionHandler: @escaping (Competition?, Error?) -> Void) {
 
-//        clearWebViewCache() // Used during html development
+//        APIManager.clearWebViewCache() // Used during html development
         // Check Firebase for all competitions
         let rightNow = Date()
         let query = Firestore.firestore().collection("competitions")
