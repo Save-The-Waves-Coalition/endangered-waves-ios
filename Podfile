@@ -16,7 +16,7 @@ abstract_target 'shared' do
   pod 'Crashlytics', '~> 3.10'
 
   # UI Related
-  pod 'LocationPickerViewController', :git => 'https://github.com/zhuorantan/LocationPicker.git', :branch => 'master', :commit => '15d9bae350e8ffd6bf3640afc423a8350ea2b523'
+  pod 'LocationPickerViewController', '~> 3.3'
   pod 'ImagePicker', '~> 3.0'
   pod 'Lightbox', '~> 2.1'
   pod 'SVProgressHUD', '~> 2.2'

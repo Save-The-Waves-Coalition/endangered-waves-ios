@@ -614,7 +614,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-shared-Endangered Waves/Pods-shared-Endangered Waves-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-shared-Endangered Waves/Pods-shared-Endangered Waves-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
@@ -669,7 +669,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-shared-Endangered Waves/Pods-shared-Endangered Waves-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-shared-Endangered Waves/Pods-shared-Endangered Waves-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2344FE36BEAC3BDD8CC588D9 /* [CP] Copy Pods Resources */ = {
@@ -678,7 +678,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-shared-Endangered Waves/Pods-shared-Endangered Waves-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-shared-Endangered Waves/Pods-shared-Endangered Waves-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseFacebookAuthUI.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
@@ -701,7 +701,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-shared-Endangered Waves/Pods-shared-Endangered Waves-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-shared-Endangered Waves/Pods-shared-Endangered Waves-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		37CFB4763D5F402DD776DF62 /* [CP] Copy Pods Resources */ = {
@@ -710,7 +710,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-shared-Endangered Waves dev/Pods-shared-Endangered Waves dev-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-shared-Endangered Waves dev/Pods-shared-Endangered Waves dev-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseFacebookAuthUI.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
@@ -733,7 +733,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-shared-Endangered Waves dev/Pods-shared-Endangered Waves dev-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-shared-Endangered Waves dev/Pods-shared-Endangered Waves dev-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4A5931AE1FCC661200CFBF19 /* ShellScript */ = {
@@ -787,7 +787,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-shared-Endangered Waves dev/Pods-shared-Endangered Waves dev-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-shared-Endangered Waves dev/Pods-shared-Endangered Waves dev-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
@@ -842,7 +842,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-shared-Endangered Waves dev/Pods-shared-Endangered Waves dev-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-shared-Endangered Waves dev/Pods-shared-Endangered Waves dev-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		877407612048B9DA00ED36F1 /* ShellScript */ = {
