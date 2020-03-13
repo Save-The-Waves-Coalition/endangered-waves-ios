@@ -39,18 +39,26 @@ class AppCoordinator: Coordinator {
 
     var userManager: UserMananger!
 
+    private lazy var containerCoordinator: ContainerCoordinator = {
+        let containerCoordinator = ContainerCoordinator(with: rootViewController)
+        return containerCoordinator
+    }()
+
     override func start() {
         userManager = UserMananger.shared
         showContent()
+
+        // If it's the user's first launch we show the onboarding screens on top of the dashboard/map
         if isFirstLaunch() {
             showOnboarding()
         } else if UserDefaultsHandler.shouldShowSurveryAlert() {
             showAppSurveyAlert()
         }
+
+        showCompetitionInfoIfAvailable()
     }
 
     func showContent() {
-        let containerCoordinator = ContainerCoordinator(with: rootViewController)
         childCoordinators.append(containerCoordinator)
         containerCoordinator.start()
     }
@@ -79,6 +87,34 @@ class AppCoordinator: Coordinator {
         rootViewController.present(alert, animated: true, completion: nil)
     }
 
+    func showCompetitionInfoIfAvailable() {
+        APIManager.getActiveCompetition { (competition, error) in
+            if let error = error {
+                print("Error: \(error)")
+            } else {
+                guard let competition = competition else {
+                    print("Error: competition is nil.")
+                    return
+                }
+
+                self.containerCoordinator.competition = competition
+                DispatchQueue.main.async {
+                    self.showCompetitionInfoWithCompetition(competition)
+                }
+            }
+        }
+    }
+
+    func showCompetitionInfoWithCompetition(_ competition: Competition) {
+        // If competition has valid HTML intro show it
+        if competition.introPageHTML != nil {
+            let competitionCoordinator = CompetitionCoordinator(with: self.rootViewController, competition: competition)
+            competitionCoordinator.delegate = self
+            self.childCoordinators.append(competitionCoordinator)
+            competitionCoordinator.start()
+        }
+    }
+
     // MARK: Miscellaneous helper functions
     // TODO: move to user defaults helper class
     func isFirstLaunch() -> Bool {
@@ -96,5 +132,15 @@ class AppCoordinator: Coordinator {
 extension AppCoordinator: OnboardingCoordinatorDelegate {
     func coordinatorDidFinishOnboarding(_ coordinator: OnboardingCoordinator) {
         removeChildCoordinator(coordinator)
+    }
+}
+
+// MARK: CompetitionCoordinatorDelegate
+extension AppCoordinator: CompetitionCoordinatorDelegate {
+    func coordinatorDidFinishShowingCompetition(_ coordinator: CompetitionCoordinator, competition: Competition, andShowNewReport: Bool) {
+        removeChildCoordinator(coordinator)
+        if andShowNewReport {
+            containerCoordinator.showAddComponentWithCompetition(competition)
+        }
     }
 }

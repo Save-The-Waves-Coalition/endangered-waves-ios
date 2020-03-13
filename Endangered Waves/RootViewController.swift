@@ -23,18 +23,18 @@ class RootViewController: UIViewController {
         return .slide
     }
 
-    override var childViewControllerForStatusBarHidden: UIViewController? {
-        for viewController in childViewControllers where viewController is ContainerNavViewController {
-            for childViewController in viewController.childViewControllers where childViewController is ContainerViewController {
+    override var childForStatusBarHidden: UIViewController? {
+        for viewController in children where viewController is ContainerNavViewController {
+            for childViewController in viewController.children where childViewController is ContainerViewController {
                 return childViewController
             }
         }
         return nil
     }
 
-    override var childViewControllerForStatusBarStyle: UIViewController? {
-        for viewController in childViewControllers where viewController is ContainerNavViewController {
-            for childViewController in viewController.childViewControllers where childViewController is ContainerViewController {
+    override var childForStatusBarStyle: UIViewController? {
+        for viewController in children where viewController is ContainerNavViewController {
+            for childViewController in viewController.children where childViewController is ContainerViewController {
                 return childViewController
             }
         }

@@ -18,6 +18,7 @@ enum ReportType: String {
     case coastalErosion = "CoastalErosion"
     case accessLost = "AccessLost"
     case general = "General"
+    case competition = "Competition"
     init() {
         self = .general
     }
@@ -38,7 +39,10 @@ extension ReportType {
             return "Access Lost"
         case .general:
             return "General"
+        case .competition:
+            return "Competition"
         }
+
     }
 
     func hashTagString() -> String {
@@ -55,6 +59,8 @@ extension ReportType {
             return "#accesslost"
         case .general:
             return "#general"
+        case .competition:
+            return "#competition"
         }
     }
 
@@ -72,6 +78,8 @@ extension ReportType {
             return Style.iconAccessPlacemark
         case .general:
             return Style.iconGeneralPlacemark
+        case .competition:
+            return Style.iconCompetitionPlacemark
         }
     }
 
@@ -89,6 +97,8 @@ extension ReportType {
             return Style.iconAccess
         case .general:
             return Style.iconGeneral
+        case .competition:
+            return Style.iconCompetition
         }
     }
 }
@@ -153,7 +163,7 @@ extension Report {
     }
 
     func documentDataDictionary() -> [String: Any] {
-        return [
+        let dataDictionary: [String: Any] = [
             "name": name,
             "address": address,
             "coordinate": coordinate,
@@ -162,6 +172,7 @@ extension Report {
             "imageURLs": imageURLs,
             "type": type.rawValue,
             "user": user]
+        return dataDictionary
     }
 }
 

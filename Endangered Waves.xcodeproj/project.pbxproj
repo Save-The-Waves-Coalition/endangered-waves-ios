@@ -19,6 +19,16 @@
 		4A0ABE7D1FBF48B0007B06B9 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE7C1FBF48B0007B06B9 /* Style.swift */; };
 		4A0ABE7F1FBF574F007B06B9 /* STWButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE7E1FBF574F007B06B9 /* STWButton.swift */; };
 		4A0ABE811FC24587007B06B9 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0ABE801FC24587007B06B9 /* APIManager.swift */; };
+		4A119F5E2141998F006E75B5 /* Competition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A119F5D2141998F006E75B5 /* Competition.swift */; };
+		4A119F5F2141998F006E75B5 /* Competition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A119F5D2141998F006E75B5 /* Competition.swift */; };
+		4A119F612141A198006E75B5 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A119F602141A198006E75B5 /* DateExtensions.swift */; };
+		4A119F622141A198006E75B5 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A119F602141A198006E75B5 /* DateExtensions.swift */; };
+		4A119F642141A58D006E75B5 /* CompetitionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A119F632141A58D006E75B5 /* CompetitionCoordinator.swift */; };
+		4A119F652141A58D006E75B5 /* CompetitionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A119F632141A58D006E75B5 /* CompetitionCoordinator.swift */; };
+		4A119F672141A6CB006E75B5 /* competition.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A119F662141A6CB006E75B5 /* competition.storyboard */; };
+		4A119F682141A6CB006E75B5 /* competition.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A119F662141A6CB006E75B5 /* competition.storyboard */; };
+		4A119F6A2141A71A006E75B5 /* CompetitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A119F692141A71A006E75B5 /* CompetitionViewController.swift */; };
+		4A119F6B2141A71A006E75B5 /* CompetitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A119F692141A71A006E75B5 /* CompetitionViewController.swift */; };
 		4A1C34601FC604F200D94684 /* ReportMapCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1C345F1FC604F200D94684 /* ReportMapCalloutView.swift */; };
 		4A2987811FC74B2A0061B401 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2987801FC74B2A0061B401 /* LocationManager.swift */; };
 		4A2987851FC9E22A0061B401 /* ContainerNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2987841FC9E22A0061B401 /* ContainerNavViewController.swift */; };
@@ -37,6 +47,8 @@
 		4A321AA21FB7AB17001DA08A /* ReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321AA11FB7AB17001DA08A /* ReportDetailViewController.swift */; };
 		4A321AC61FB8EF17001DA08A /* ReportMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321AC51FB8EF17001DA08A /* ReportMapAnnotation.swift */; };
 		4A321AC81FB9131D001DA08A /* ReportDetailNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321AC71FB9131D001DA08A /* ReportDetailNavViewController.swift */; };
+		4A7704FB214D91C100EEB34E /* ReportEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7704FA214D91C100EEB34E /* ReportEntry.swift */; };
+		4A7704FC214D91C100EEB34E /* ReportEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7704FA214D91C100EEB34E /* ReportEntry.swift */; };
 		4A7F5B91205979C2003FA075 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A7F5B90205979C2003FA075 /* GoogleService-Info.plist */; };
 		4A7F5B9220597ABA003FA075 /* ReportDetailMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8772FEE52044CCB6007F2E75 /* ReportDetailMapViewController.swift */; };
 		4A7F5B9320597AE1003FA075 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8719336F20488544000DD493 /* Extensions.swift */; };
@@ -62,6 +74,10 @@
 		4AA85B951FBCA3CA009A72E8 /* Brandon_reg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4AA85B941FBCA3CA009A72E8 /* Brandon_reg.otf */; };
 		4AB6AA891FC5C84D001C36C2 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB6AA881FC5C84D001C36C2 /* RootViewController.swift */; };
 		4AB6AA8B1FC5D655001C36C2 /* ReportMapCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AB6AA8A1FC5D655001C36C2 /* ReportMapCalloutView.xib */; };
+		4ABD25DD214322BF00F7706B /* PSPDFTouchForwardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABD25DC214322BF00F7706B /* PSPDFTouchForwardingView.swift */; };
+		4ABD25DE214322BF00F7706B /* PSPDFTouchForwardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABD25DC214322BF00F7706B /* PSPDFTouchForwardingView.swift */; };
+		4ABD25E12146A29800F7706B /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABD25E02146A29800F7706B /* StringExtensions.swift */; };
+		4ABD25E22146A29800F7706B /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABD25E02146A29800F7706B /* StringExtensions.swift */; };
 		4AC528881FC4818A0084E442 /* information.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AC528871FC4818A0084E442 /* information.storyboard */; };
 		4AC5288B1FC482110084E442 /* InformationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC5288A1FC482110084E442 /* InformationCoordinator.swift */; };
 		4AC5288D1FC482900084E442 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC5288C1FC482900084E442 /* InformationViewController.swift */; };
@@ -158,6 +174,11 @@
 		4A0ABE7C1FBF48B0007B06B9 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		4A0ABE7E1FBF574F007B06B9 /* STWButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STWButton.swift; sourceTree = "<group>"; };
 		4A0ABE801FC24587007B06B9 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		4A119F5D2141998F006E75B5 /* Competition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Competition.swift; sourceTree = "<group>"; };
+		4A119F602141A198006E75B5 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		4A119F632141A58D006E75B5 /* CompetitionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionCoordinator.swift; sourceTree = "<group>"; };
+		4A119F662141A6CB006E75B5 /* competition.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = competition.storyboard; sourceTree = "<group>"; };
+		4A119F692141A71A006E75B5 /* CompetitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionViewController.swift; sourceTree = "<group>"; };
 		4A13593F205C339600A0F3AE /* Endangered Waves dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Endangered Waves dev.plist"; sourceTree = "<group>"; };
 		4A1C345F1FC604F200D94684 /* ReportMapCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportMapCalloutView.swift; sourceTree = "<group>"; };
 		4A2987801FC74B2A0061B401 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -179,6 +200,7 @@
 		4A321AC51FB8EF17001DA08A /* ReportMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportMapAnnotation.swift; sourceTree = "<group>"; };
 		4A321AC71FB9131D001DA08A /* ReportDetailNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailNavViewController.swift; sourceTree = "<group>"; };
 		4A5931AF1FCC667E00CFBF19 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		4A7704FA214D91C100EEB34E /* ReportEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportEntry.swift; sourceTree = "<group>"; };
 		4A7F5B90205979C2003FA075 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4A7FA9161FAA966300C6A2BB /* Endangered Waves.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Endangered Waves.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A7FA9191FAA966300C6A2BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -202,6 +224,8 @@
 		4AA85B941FBCA3CA009A72E8 /* Brandon_reg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_reg.otf; sourceTree = "<group>"; };
 		4AB6AA881FC5C84D001C36C2 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		4AB6AA8A1FC5D655001C36C2 /* ReportMapCalloutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportMapCalloutView.xib; sourceTree = "<group>"; };
+		4ABD25DC214322BF00F7706B /* PSPDFTouchForwardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSPDFTouchForwardingView.swift; sourceTree = "<group>"; };
+		4ABD25E02146A29800F7706B /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		4AC528871FC4818A0084E442 /* information.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = information.storyboard; sourceTree = "<group>"; };
 		4AC5288A1FC482110084E442 /* InformationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCoordinator.swift; sourceTree = "<group>"; };
 		4AC5288C1FC482900084E442 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
@@ -275,6 +299,17 @@
 			path = "image-slider";
 			sourceTree = "<group>";
 		};
+		4A119F5C21419948006E75B5 /* competition */ = {
+			isa = PBXGroup;
+			children = (
+				4A119F5D2141998F006E75B5 /* Competition.swift */,
+				4A119F632141A58D006E75B5 /* CompetitionCoordinator.swift */,
+				4A119F662141A6CB006E75B5 /* competition.storyboard */,
+				4A119F692141A71A006E75B5 /* CompetitionViewController.swift */,
+			);
+			path = competition;
+			sourceTree = "<group>";
+		};
 		4A321A871FB67145001DA08A /* container */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,11 +348,14 @@
 			isa = PBXGroup;
 			children = (
 				8719336F20488544000DD493 /* Extensions.swift */,
+				4ABD25E02146A29800F7706B /* StringExtensions.swift */,
+				4A119F602141A198006E75B5 /* DateExtensions.swift */,
 				4A321A8B1FB67308001DA08A /* StoryboardInstantiable.swift */,
 				4A9578CF1FBB9DC30051837C /* Coordinator.swift */,
 				4A3027991FBFABC600F5D87D /* UIViewController+Keyboard.swift */,
 				4A8B6A781FC3421C005A5989 /* NSObjectExtensions.swift */,
 				4A00E12B1FCF9D1F00E4CEA4 /* UIActivities.swift */,
+				4ABD25DC214322BF00F7706B /* PSPDFTouchForwardingView.swift */,
 			);
 			path = "swift-extras";
 			sourceTree = "<group>";
@@ -345,6 +383,14 @@
 				4A321A9F1FB7A85B001DA08A /* report.storyboard */,
 			);
 			path = report;
+			sourceTree = "<group>";
+		};
+		4A7704F9214D91A000EEB34E /* report-entry */ = {
+			isa = PBXGroup;
+			children = (
+				4A7704FA214D91C100EEB34E /* ReportEntry.swift */,
+			);
+			path = "report-entry";
 			sourceTree = "<group>";
 		};
 		4A7F5B8F205979C2003FA075 /* development */ = {
@@ -392,9 +438,11 @@
 				4A321A961FB67DF8001DA08A /* swift-extras */,
 				4A321A871FB67145001DA08A /* container */,
 				4A9578C41FBB46250051837C /* onboarding */,
+				4A119F5C21419948006E75B5 /* competition */,
 				4AC528891FC481EC0084E442 /* information */,
 				4A321A881FB67288001DA08A /* list */,
 				4A321A911FB67C28001DA08A /* map */,
+				4A7704F9214D91A000EEB34E /* report-entry */,
 				4A321A9E1FB7A847001DA08A /* report */,
 				4A321A971FB67E10001DA08A /* new-report */,
 				4A0ABE761FBE6EC9007B06B9 /* image-slider */,
@@ -483,7 +531,7 @@
 				4A7FA9121FAA966300C6A2BB /* Sources */,
 				4A7FA9131FAA966300C6A2BB /* Frameworks */,
 				4A7FA9141FAA966300C6A2BB /* Resources */,
-				4A5931AE1FCC661200CFBF19 /* ShellScript */,
+				4A5931AE1FCC661200CFBF19 /* SwiftLint */,
 				10D8B5D975C39ECE166590C6 /* [CP] Embed Pods Frameworks */,
 				2344FE36BEAC3BDD8CC588D9 /* [CP] Copy Pods Resources */,
 				4AC820BF205F094B00EC7BAD /* Crashlytics */,
@@ -505,7 +553,7 @@
 				8774071B2048B9DA00ED36F1 /* Sources */,
 				877407422048B9DA00ED36F1 /* Frameworks */,
 				8774074D2048B9DA00ED36F1 /* Resources */,
-				877407612048B9DA00ED36F1 /* ShellScript */,
+				877407612048B9DA00ED36F1 /* SwiftLint */,
 				68783CF201D0D737F7FC662F /* [CP] Embed Pods Frameworks */,
 				37CFB4763D5F402DD776DF62 /* [CP] Copy Pods Resources */,
 			);
@@ -525,11 +573,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Save The Waves";
 				TargetAttributes = {
 					4A7FA9151FAA966300C6A2BB = {
 						CreatedOnToolsVersion = 9.1;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					877407192048B9DA00ED36F1 = {
@@ -567,6 +616,7 @@
 				4AA85B951FBCA3CA009A72E8 /* Brandon_reg.otf in Resources */,
 				4AC528881FC4818A0084E442 /* information.storyboard in Resources */,
 				4A0ABE721FBD2D04007B06B9 /* Brandon_bld.otf in Resources */,
+				4A119F672141A6CB006E75B5 /* competition.storyboard in Resources */,
 				4A0ABE7A1FBE6F15007B06B9 /* image-slider.storyboard in Resources */,
 				4A7FA9241FAA966300C6A2BB /* LaunchScreen.storyboard in Resources */,
 				4A7FA92C1FAA96ED00C6A2BB /* GoogleService-Info.plist in Resources */,
@@ -591,6 +641,7 @@
 				877407512048B9DA00ED36F1 /* Brandon_reg.otf in Resources */,
 				877407522048B9DA00ED36F1 /* information.storyboard in Resources */,
 				877407532048B9DA00ED36F1 /* Brandon_bld.otf in Resources */,
+				4A119F682141A6CB006E75B5 /* competition.storyboard in Resources */,
 				877407542048B9DA00ED36F1 /* image-slider.storyboard in Resources */,
 				877407552048B9DA00ED36F1 /* LaunchScreen.storyboard in Resources */,
 				877407572048B9DA00ED36F1 /* map.storyboard in Resources */,
@@ -736,18 +787,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-shared-Endangered Waves dev/Pods-shared-Endangered Waves dev-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4A5931AE1FCC661200CFBF19 /* ShellScript */ = {
+		4A5931AE1FCC661200CFBF19 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = SwiftLint;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "\"${PODS_ROOT}\"/SwiftLint/swiftlint";
 		};
 		4AC820BF205F094B00EC7BAD /* Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -845,18 +897,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-shared-Endangered Waves dev/Pods-shared-Endangered Waves dev-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		877407612048B9DA00ED36F1 /* ShellScript */ = {
+		877407612048B9DA00ED36F1 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = SwiftLint;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "\"${PODS_ROOT}\"/SwiftLint/swiftlint";
 		};
 		9C1CDB2922997461A4D0C97A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -886,16 +939,20 @@
 				4AC5288F1FC4839B0084E442 /* InformationNavController.swift in Sources */,
 				4A321A9D1FB79169001DA08A /* Report.swift in Sources */,
 				4A0ABE751FBE6E2F007B06B9 /* ImageSliderViewController.swift in Sources */,
+				4ABD25DD214322BF00F7706B /* PSPDFTouchForwardingView.swift in Sources */,
 				4AF232A51FB0CA8900ADA075 /* NewReportViewController.swift in Sources */,
 				4A29878B1FCA2D3E0061B401 /* ImageDownloadManager.swift in Sources */,
 				4A30279A1FBFABC600F5D87D /* UIViewController+Keyboard.swift in Sources */,
+				4A7704FB214D91C100EEB34E /* ReportEntry.swift in Sources */,
 				4A8B6A7B1FC3423D005A5989 /* NavigationBar.swift in Sources */,
 				4A2987871FC9F4A50061B401 /* ReportCoordinator.swift in Sources */,
 				4A321A901FB67C1F001DA08A /* ReportsMapViewController.swift in Sources */,
 				4A321AC61FB8EF17001DA08A /* ReportMapAnnotation.swift in Sources */,
 				4A0ABE781FBE6EF4007B06B9 /* ImageViewController.swift in Sources */,
 				4A0ABE7D1FBF48B0007B06B9 /* Style.swift in Sources */,
+				4A119F6A2141A71A006E75B5 /* CompetitionViewController.swift in Sources */,
 				4A9578D01FBB9DC30051837C /* Coordinator.swift in Sources */,
+				4A119F5E2141998F006E75B5 /* Competition.swift in Sources */,
 				4A1C34601FC604F200D94684 /* ReportMapCalloutView.swift in Sources */,
 				4A9578CA1FBB4FF20051837C /* AppCoordinator.swift in Sources */,
 				8774078E2048D98700ED36F1 /* Constants.swift in Sources */,
@@ -904,6 +961,8 @@
 				4A9578D51FBBB6730051837C /* NavigationViewController.swift in Sources */,
 				4A2987811FC74B2A0061B401 /* LocationManager.swift in Sources */,
 				4A8987681FAE0B4E0098E473 /* ReportsTableViewController.swift in Sources */,
+				4ABD25E12146A29800F7706B /* StringExtensions.swift in Sources */,
+				4A119F612141A198006E75B5 /* DateExtensions.swift in Sources */,
 				4A9578CE1FBB98CE0051837C /* ContainerCoordinator.swift in Sources */,
 				8772FEE62044CCB6007F2E75 /* ReportDetailMapViewController.swift in Sources */,
 				4A321AC81FB9131D001DA08A /* ReportDetailNavViewController.swift in Sources */,
@@ -921,6 +980,7 @@
 				4A00E12C1FCF9D1F00E4CEA4 /* UIActivities.swift in Sources */,
 				4ADAE8DA1FB20D6B00DAAFFD /* ContainerViewController.swift in Sources */,
 				8719337020488544000DD493 /* Extensions.swift in Sources */,
+				4A119F642141A58D006E75B5 /* CompetitionCoordinator.swift in Sources */,
 				4AF232A31FB0C46500ADA075 /* ReportsTableViewCell.swift in Sources */,
 				4A9578C81FBB4F970051837C /* OnboardingCoordinator.swift in Sources */,
 				4A0ABE7F1FBF574F007B06B9 /* STWButton.swift in Sources */,
@@ -935,16 +995,20 @@
 				8774071C2048B9DA00ED36F1 /* InformationNavController.swift in Sources */,
 				8774071D2048B9DA00ED36F1 /* Report.swift in Sources */,
 				8774071E2048B9DA00ED36F1 /* ImageSliderViewController.swift in Sources */,
+				4ABD25DE214322BF00F7706B /* PSPDFTouchForwardingView.swift in Sources */,
 				8774071F2048B9DA00ED36F1 /* NewReportViewController.swift in Sources */,
 				877407202048B9DA00ED36F1 /* ImageDownloadManager.swift in Sources */,
 				4A7F5B9420597B13003FA075 /* UserDefaultsHandler.swift in Sources */,
+				4A7704FC214D91C100EEB34E /* ReportEntry.swift in Sources */,
 				877407212048B9DA00ED36F1 /* UIViewController+Keyboard.swift in Sources */,
 				877407222048B9DA00ED36F1 /* NavigationBar.swift in Sources */,
 				877407232048B9DA00ED36F1 /* ReportCoordinator.swift in Sources */,
 				877407242048B9DA00ED36F1 /* ReportsMapViewController.swift in Sources */,
 				877407252048B9DA00ED36F1 /* ReportMapAnnotation.swift in Sources */,
 				4A7F5B9520597B2C003FA075 /* Constants.swift in Sources */,
+				4A119F6B2141A71A006E75B5 /* CompetitionViewController.swift in Sources */,
 				877407262048B9DA00ED36F1 /* ImageViewController.swift in Sources */,
+				4A119F5F2141998F006E75B5 /* Competition.swift in Sources */,
 				877407272048B9DA00ED36F1 /* Style.swift in Sources */,
 				877407282048B9DA00ED36F1 /* Coordinator.swift in Sources */,
 				877407292048B9DA00ED36F1 /* ReportMapCalloutView.swift in Sources */,
@@ -953,6 +1017,8 @@
 				8774072C2048B9DA00ED36F1 /* RootViewController.swift in Sources */,
 				8774072D2048B9DA00ED36F1 /* NavigationViewController.swift in Sources */,
 				8774072E2048B9DA00ED36F1 /* LocationManager.swift in Sources */,
+				4ABD25E22146A29800F7706B /* StringExtensions.swift in Sources */,
+				4A119F622141A198006E75B5 /* DateExtensions.swift in Sources */,
 				8774072F2048B9DA00ED36F1 /* ReportsTableViewController.swift in Sources */,
 				877407302048B9DA00ED36F1 /* ContainerCoordinator.swift in Sources */,
 				4A7F5B9220597ABA003FA075 /* ReportDetailMapViewController.swift in Sources */,
@@ -970,6 +1036,7 @@
 				8774073C2048B9DA00ED36F1 /* UIActivities.swift in Sources */,
 				8774073D2048B9DA00ED36F1 /* ContainerViewController.swift in Sources */,
 				4A7F5B9320597AE1003FA075 /* Extensions.swift in Sources */,
+				4A119F652141A58D006E75B5 /* CompetitionCoordinator.swift in Sources */,
 				8774073E2048B9DA00ED36F1 /* ReportsTableViewCell.swift in Sources */,
 				8774073F2048B9DA00ED36F1 /* OnboardingCoordinator.swift in Sources */,
 				877407402048B9DA00ED36F1 /* STWButton.swift in Sources */,
@@ -1005,6 +1072,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1012,6 +1080,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1062,6 +1131,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1069,6 +1139,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1114,7 +1185,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1135,7 +1206,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -1155,7 +1226,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = endangeredwaves.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1175,7 +1246,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = endangeredwaves.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

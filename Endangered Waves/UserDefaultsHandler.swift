@@ -14,6 +14,7 @@ struct UserDefaultsHandler {
 
     private static let hasFiledReport = "HasFiledReport"
     private static let numberOfLaunches = "NumberOfLaunches"
+    private static let userEmailAddress = "UserEmailAddress"
 
     static func shouldShowSurveryAlert() -> Bool {
         let current = getNumberOfLaunches()
@@ -27,6 +28,15 @@ struct UserDefaultsHandler {
     static func incrementNumberOfLaunches() {
         let current = getNumberOfLaunches()
         UserDefaults.standard.set(current + 1, forKey: numberOfLaunches)
+        UserDefaults.standard.synchronize()
+    }
+
+    static func getUserEmailAddress() -> String? {
+        return UserDefaults.standard.string(forKey: userEmailAddress)
+    }
+
+    static func setUserEmailAddress(_ emailAddress: String) {
+        UserDefaults.standard.set(emailAddress.trimmingCharacters(in: .whitespacesAndNewlines), forKey: userEmailAddress)
         UserDefaults.standard.synchronize()
     }
 

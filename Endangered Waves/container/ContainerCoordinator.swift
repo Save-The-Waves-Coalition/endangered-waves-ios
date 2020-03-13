@@ -15,36 +15,38 @@ class ContainerCoordinator: Coordinator {
     weak var currentViewController: UIViewController?
 
     lazy var containerNavViewController: ContainerNavViewController = {
-        let vc = ContainerNavViewController.instantiate()
-        if let topVC = vc.topViewController as? ContainerViewController {
+        let viewController = ContainerNavViewController.instantiate()
+        if let topVC = viewController.topViewController as? ContainerViewController {
             self.containerViewController = topVC
             containerViewController.delegate = self
             _ = containerViewController.view // This forces the view to load: https://stackoverflow.com/a/29322364
         }
-        return vc
+        return viewController
     }()
     var containerViewController: ContainerViewController!
 
     lazy var mapViewController: ReportsMapViewController = {
-        let vc = ReportsMapViewController.instantiate()
-        vc.delegate = self
-        return vc
+        let viewController = ReportsMapViewController.instantiate()
+        viewController.delegate = self
+        return viewController
     }()
 
     lazy var listViewController: ReportsTableViewController = {
-        let vc = ReportsTableViewController.instantiate()
-        vc.delegate = self
-        return vc
+        let viewController = ReportsTableViewController.instantiate()
+        viewController.delegate = self
+        return viewController
     }()
+
+    var competition: Competition?
 
     override func start() {
         // Add container to root
         addFullScreenChildViewController(viewController: containerNavViewController, toViewController: rootViewController)
 
         // Add map to container
-        containerViewController.addChildViewController(mapViewController)
+        containerViewController.addChild(mapViewController)
         addFullScreenSubview(subView: mapViewController.view, toView: containerViewController.containerView)
-        mapViewController.didMove(toParentViewController: containerViewController)
+        mapViewController.didMove(toParent: containerViewController)
 
         // Set map as the currently shown controller
         currentViewController = mapViewController
@@ -69,7 +71,14 @@ class ContainerCoordinator: Coordinator {
     }
 
     func showAddComponent() {
-        let newReportCoordinator = NewReportCoordinator(with: rootViewController)
+        let newReportCoordinator = NewReportCoordinator(with: rootViewController, andCompetition: competition)
+        newReportCoordinator.delegate = self
+        childCoordinators.append(newReportCoordinator)
+        newReportCoordinator.start()
+    }
+
+    func showAddComponentWithCompetition(_ competition: Competition) {
+        let newReportCoordinator = NewReportCoordinator(with: rootViewController, andCompetition: competition)
         newReportCoordinator.delegate = self
         childCoordinators.append(newReportCoordinator)
         newReportCoordinator.start()
@@ -91,8 +100,8 @@ class ContainerCoordinator: Coordinator {
 
     func cycleFromViewController(oldViewController: UIViewController, toViewController newViewController: UIViewController) {
 
-        oldViewController.willMove(toParentViewController: nil)
-        containerViewController.addChildViewController(newViewController)
+        oldViewController.willMove(toParent: nil)
+        containerViewController.addChild(newViewController)
         addFullScreenSubview(subView: newViewController.view, toView: containerViewController.containerView)
         newViewController.view.alpha = 0
         newViewController.view.layoutIfNeeded()
@@ -102,8 +111,8 @@ class ContainerCoordinator: Coordinator {
         },
                        completion: { finished in
                         oldViewController.view.removeFromSuperview()
-                        oldViewController.removeFromParentViewController()
-                        newViewController.didMove(toParentViewController: self.containerViewController)
+                        oldViewController.removeFromParent()
+                        newViewController.didMove(toParent: self.containerViewController)
         })
 
     }
@@ -136,8 +145,26 @@ class ContainerCoordinator: Coordinator {
     }
 
     fileprivate func showSuccessfulSubmissionAlertWithReport(_ report: Report) {
+
+        // swiftlint:disable line_length
+        var message = """
+            Thank you for being a part of the solution. We'll make sure the right people see this report. Please help us out by taking action and sharing your report.
+            """
+        if report.type == .competition {
+            if let competition = competition {
+                message = """
+                Thank you for being a part of the solution. We'll announce the winner of the \(competition.title) shortly after the end of the challenge. Please help us out by taking action and sharing your report.
+                """
+            } else {
+                message = """
+                Thank you for being a part of the solution. We'll announce the winner of the Challenge shortly after the end of the challenge. Please help us out by taking action and sharing your report.
+                """
+            }
+        }
+        // swiftlint:enable line_length
+
         let alertViewController = UIAlertController(title: "Thank You 🤙",
-                                                    message: "Thank you for being a part of the solution. We'll make sure the right people see this report. Please help us out by taking action and sharing your report.",
+                                                    message: message,
                                                     preferredStyle: .actionSheet)
 
         let takeAction = UIAlertAction(title: "Take Action", style: .default, handler: { (_) in

@@ -26,6 +26,8 @@ class NewReportCoordinator: Coordinator {
     var newReportNavVC: NewReportNavViewController?
     var newReportVC: NewReportViewController?
 
+    var competition: Competition?
+
     var images: [UIImage]? {
         didSet {
             newReportVC?.images = images
@@ -33,6 +35,8 @@ class NewReportCoordinator: Coordinator {
     }
 
     var reportDescription: String?
+
+    var reportEmailAddress: String?
 
     var location: LocationItem? {
         didSet {
@@ -50,6 +54,11 @@ class NewReportCoordinator: Coordinator {
         imagePicker.delegate = self
         return imagePicker
     }()
+
+    init(with rootViewController: UIViewController, andCompetition competition: Competition?) {
+        super.init(with: rootViewController)
+        self.competition = competition
+    }
 
     override func start() {
         rootViewController.present(imagePickerController, animated: true, completion: nil)
@@ -70,6 +79,7 @@ class NewReportCoordinator: Coordinator {
             self.newReportVC = topVC
             topVC.delegate = self
             topVC.images = images
+            topVC.competition = competition
             rootViewController.present(navVC, animated: true, completion: nil)
         }
     }
@@ -88,8 +98,25 @@ class NewReportCoordinator: Coordinator {
         let locationNavVC = NavigationViewController(rootViewController: locationPicker)
         viewController.present(locationNavVC, animated: true, completion: nil)
     }
+
+    func showCompetitionInfoModal(withRootViewController viewController: UIViewController) {
+        if let competition = self.competition, competition.introPageHTML != nil {
+            let competitionCoordinator = CompetitionCoordinator(with: viewController, competition: competition)
+            competitionCoordinator.delegate = self
+            self.childCoordinators.append(competitionCoordinator)
+            competitionCoordinator.start()
+        }
+    }
 }
 
+// MARK: CompetitionCoordinatorDelegate
+extension NewReportCoordinator: CompetitionCoordinatorDelegate {
+    func coordinatorDidFinishShowingCompetition(_ coordinator: CompetitionCoordinator, competition: Competition, andShowNewReport: Bool) {
+        removeChildCoordinator(coordinator)
+    }
+}
+
+// MARK:
 extension NewReportCoordinator {
     func lightboxForImages(_ images: [UIImage], withStartIndex index: Int) -> LightboxController? {
         guard images.count > 0 else { return nil }
@@ -130,8 +157,16 @@ extension NewReportCoordinator: ImagePickerDelegate {
 
 // MARK: NewReportViewControllerDelegate
 extension NewReportCoordinator: NewReportViewControllerDelegate {
+    func viewControllerDidTapCompetitionInfoButton(viewController: NewReportViewController) {
+        showCompetitionInfoModal(withRootViewController: rootViewController)
+    }
+
     func viewController(_ viewController: NewReportViewController, didWriteDescription description: String) {
         reportDescription = description
+    }
+
+    func viewController(_ viewController: NewReportViewController, didWriteEmailAddress email: String) {
+        reportEmailAddress = email
     }
 
     func viewController(_ viewController: NewReportViewController, didTapReportType sender: STWButton) {
@@ -153,6 +188,10 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
                 assertionFailure("Missing type.")
             }
         }
+    }
+
+    func viewControllerDidTapCompetition(viewController: NewReportViewController) {
+        reportType = .competition
     }
 
     func viewController(_ viewController: NewReportViewController, didTapLocation sender: UITapGestureRecognizer) {
@@ -180,8 +219,8 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
 
         // Validate type
         if reportType == nil {
-            showValidationError(title: "Missing Report Type",
-                                message: "Please select a report type, such as OIL SPILL.",
+            showValidationError(title: "Missing Threat Category",
+                                message: "Please select a Threat Category, such as OIL SPILL.",
                                 withViewController: viewController)
             return
         }
@@ -202,7 +241,20 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
             return
         }
 
-        guard let reportDescription = reportDescription, let location = location, let reportType = reportType else {
+        // validate email address
+        if (reportEmailAddress ?? "").isEmpty {
+            showValidationError(title: "Missing Email Address", message: "Please enter a valid email address.",
+                                withViewController: viewController)
+            return
+        }
+        if let reportEmailAddress = reportEmailAddress, !reportEmailAddress.isValidEmail() {
+            showValidationError(title: "Invalid Email Address", message: "Please enter a valid email address.",
+                                withViewController: viewController)
+            return
+        }
+
+        guard let reportDescription = reportDescription, let location = location,
+            let reportType = reportType, let reportEmailAddress = reportEmailAddress else {
             // TODO: what to do here? This should never happen, show error
             return
         }
@@ -216,21 +268,24 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
                                    address: location.formattedAddressString ?? "",
                                    coordinate: geoPoint, creationDate: Date(),
                                    description: reportDescription,
+                                   emailAddress: reportEmailAddress,
                                    images: images,
                                    type: reportType,
             progressHandler: { (progress: Double) in
                 SVProgressHUD.showProgress(Float(progress), status: statusString)
-        }) { (documentID: String?, report: Report?, error: Error?) in
+        }, completionHandler: { (documentID: String?, report: Report?, error: Error?) in
             if let error = error {
                 print("Error adding document: \(error.localizedDescription)")
                 SVProgressHUD.showError(withStatus: "There was an issue creating your post. Please try again.")
             } else {
+                // Success
+                UserDefaultsHandler.setUserEmailAddress(reportEmailAddress)
                 SVProgressHUD.dismiss()
                 viewController.dismiss(animated: true) {
                     self.stopWithReport(report)
                 }
             }
-        }
+        })
     } // func
 
     func viewController(_ viewController: NewReportViewController, didTapAddButton button: UIButton) {

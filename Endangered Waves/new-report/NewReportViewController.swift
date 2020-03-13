@@ -23,19 +23,48 @@ protocol NewReportViewControllerDelegate: class {
     func viewController(_ viewController: NewReportViewController, didTapAddButton button: UIButton)
     func viewController(_ viewController: NewReportViewController, didTapLocation sender: UITapGestureRecognizer)
     func viewController(_ viewController: NewReportViewController, didTapReportType sender: STWButton)
+    func viewControllerDidTapCompetition(viewController: NewReportViewController)
+    func viewControllerDidTapCompetitionInfoButton(viewController: NewReportViewController)
     func viewController(_ viewController: NewReportViewController, didWriteDescription description: String)
+    func viewController(_ viewController: NewReportViewController, didWriteEmailAddress email: String)
 }
 
 class NewReportViewController: UITableViewController {
 
     weak var delegate: NewReportViewControllerDelegate?
 
+    var competition: Competition?
+    @IBOutlet weak var competitionTrophyImageView: UIImageView!
+    @IBOutlet weak var competitionTitleLabel: UILabel!
+    @IBOutlet weak var competitionDateLabel: UILabel!
+    @IBOutlet weak var competitionInfoButton: UIButton!
+
     @IBOutlet weak var imageGallaryContainerView: UIView!
     var imageSliderViewController: ImageSliderViewController?
 
     @IBOutlet weak var descriptionTextView: UITextView!
 
+    @IBOutlet weak var emailTextView: UITextView!
+
+    @IBOutlet weak var contactInfoStackView: UIStackView!
+
     @IBOutlet var categoryTypeCollection: [STWButton]!
+
+    fileprivate func enableInActiveStateForButton(_ button: (STWButton)) {
+        button.tintColor = Style.colorSTWGrey
+        button.isSelected = false
+        button.titleLabel?.font = Style.fontBrandonGrotesqueBlack(size: 12)
+
+        if let currentAttributedTitle = button.currentAttributedTitle {
+            let style = NSMutableParagraphStyle()
+            style.alignment = .center
+            let attributes = [NSAttributedString.Key.font: Style.fontBrandonGrotesqueBlack(size: 12),
+                              NSAttributedString.Key.foregroundColor: Style.colorSTWGrey,
+                              NSAttributedString.Key.paragraphStyle: style]
+            let attributedString = NSAttributedString(string: currentAttributedTitle.string, attributes: attributes)
+            button.setAttributedTitle(attributedString, for: .normal)
+        }
+    }
 
     @IBAction func categoryTypeButtonTapped(_ sender: STWButton) {
         categoryTypeCollection.forEach { (button) in
@@ -47,29 +76,22 @@ class NewReportViewController: UITableViewController {
                 if let currentAttributedTitle = button.currentAttributedTitle {
                     let style = NSMutableParagraphStyle()
                     style.alignment = .center
-                    let attributes = [NSAttributedStringKey.font: Style.fontBrandonGrotesqueBlack(size: 12),
-                                      NSAttributedStringKey.foregroundColor: UIColor.black,
-                                      NSAttributedStringKey.paragraphStyle: style]
+                    let attributes = [NSAttributedString.Key.font: Style.fontBrandonGrotesqueBlack(size: 12),
+                                      NSAttributedString.Key.foregroundColor: UIColor.black,
+                                      NSAttributedString.Key.paragraphStyle: style]
                     let attributedString = NSAttributedString(string: currentAttributedTitle.string, attributes: attributes)
                     button.setAttributedTitle(attributedString, for: .normal)
                 }
-
             } else {
-                button.tintColor = Style.colorSTWGrey
-                button.isSelected = false
-                button.titleLabel?.font = Style.fontBrandonGrotesqueBlack(size: 12)
-
-                if let currentAttributedTitle = button.currentAttributedTitle {
-                    let style = NSMutableParagraphStyle()
-                    style.alignment = .center
-                    let attributes = [NSAttributedStringKey.font: Style.fontBrandonGrotesqueBlack(size: 12),
-                                      NSAttributedStringKey.foregroundColor: Style.colorSTWGrey,
-                                      NSAttributedStringKey.paragraphStyle: style]
-                    let attributedString = NSAttributedString(string: currentAttributedTitle.string, attributes: attributes)
-                    button.setAttributedTitle(attributedString, for: .normal)
-                }
+                enableInActiveStateForButton(button)
             }
         }
+
+        // Set competition to inactive state if a normal threat category is selected
+        competitionTitleLabel.textColor = Style.colorSTWGrey
+        competitionDateLabel.textColor = Style.colorSTWGrey
+        competitionTrophyImageView.image = UIImage(named: "grey-trophy")
+
         delegate?.viewController(self, didTapReportType: sender)
     }
 
@@ -91,24 +113,26 @@ class NewReportViewController: UITableViewController {
         }
     }
 
+    var emailAddress: String? {
+        didSet {
+            if let emailAddress = emailAddress, let emailTextView = emailTextView {
+                emailTextView.text = emailAddress
+            }
+        }
+    }
+
     var location: LocationItem? {
         didSet {
             if let location = location, let addressString = location.formattedAddressString {
 
-                let paragraphStyle = NSMutableParagraphStyle()
-                paragraphStyle.lineSpacing = 15
-                let attributes = [NSAttributedStringKey.foregroundColor: UIColor.black,
-                                  NSAttributedStringKey.font: Style.fontGeorgia(size: 15),
-                                  NSAttributedStringKey.paragraphStyle: paragraphStyle]
-                let newString = NSMutableAttributedString(string: "\(location.name)\n\(addressString)", attributes: attributes)
-                locationLabel.attributedText = newString
+                locationLabel.attributedText = Style.userInputAttributedStringForString("\(location.name)\n\(addressString)")
 
                 if let mapImageView = mapImageView {
                     let coordinate = location.mapItem.placemark.coordinate
-                    let mapSnapshotOptions = MKMapSnapshotOptions()
+                    let mapSnapshotOptions = MKMapSnapshotter.Options()
 
                     // Set the region of the map that is rendered.
-                    let region = MKCoordinateRegionMakeWithDistance(coordinate, 1000, 1000)
+                    let region = MKCoordinateRegion.init(center: coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
                     mapSnapshotOptions.region = region
 
                     mapSnapshotOptions.showsBuildings = false
@@ -133,6 +157,50 @@ class NewReportViewController: UITableViewController {
         }
     }
 
+    // MARK: View Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // TODO: Info button should show the competition modal
+        competitionInfoButton.isHidden = true
+
+        // Set up description text view
+        descriptionTextView.delegate = self
+        descriptionTextView.textContainerInset = .zero
+        descriptionTextView.textContainer.lineFragmentPadding = 0
+
+        // Set up email text view
+        emailTextView.delegate = self
+        emailTextView.textContainerInset = .zero
+        emailTextView.textContainer.lineFragmentPadding = 0
+        emailTextView.textContainer.maximumNumberOfLines = 1
+        emailTextView.textContainer.lineBreakMode = .byTruncatingTail
+        if let emailAddress = UserDefaultsHandler.getUserEmailAddress() {
+            emailTextView.attributedText = Style.userInputAttributedStringForString(emailAddress)
+            delegate?.viewController(self, didWriteEmailAddress: emailAddress)
+        }
+
+        // Set up competition info if one is active
+        if let competition = self.competition {
+            competitionTitleLabel.text = competition.title.uppercased()
+            competitionDateLabel.text = competition.dateDisplayString().uppercased()
+        }
+
+        // Attributed text set in the Storyboard is only working on the simulator, not in builds distributed via Buddybuild, this fixes that
+        categoryTypeCollection.forEach { (button) in
+            if let currentAttributedTitle = button.currentAttributedTitle {
+                let style = NSMutableParagraphStyle()
+                style.alignment = .center
+                let attributes = [NSAttributedString.Key.font: Style.fontBrandonGrotesqueBlack(size: 12),
+                                  NSAttributedString.Key.foregroundColor: Style.colorSTWGrey,
+                                  NSAttributedString.Key.paragraphStyle: style]
+                let attributedString = NSAttributedString(string: currentAttributedTitle.string, attributes: attributes)
+                button.setAttributedTitle(attributedString, for: .normal)
+            }
+        }
+    }
+
+    // MARK: IBActions
     @IBAction func didTapPostButton(_ sender: Any) {
         delegate?.viewController(self, didTapPostButton: sender)
     }
@@ -149,28 +217,26 @@ class NewReportViewController: UITableViewController {
         delegate?.viewController(self, didTapLocation: sender)
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        descriptionTextView.delegate = self
-        descriptionTextView.textContainerInset = .zero
-        descriptionTextView.textContainer.lineFragmentPadding = 0
-
-        // Attributed text set in the Storyboard is only working on the simulator, not in builds distributed via Buddybuild, this fixes that
-        categoryTypeCollection.forEach { (button) in
-            if let currentAttributedTitle = button.currentAttributedTitle {
-                let style = NSMutableParagraphStyle()
-                style.alignment = .center
-                let attributes = [NSAttributedStringKey.font: Style.fontBrandonGrotesqueBlack(size: 12),
-                                  NSAttributedStringKey.foregroundColor: Style.colorSTWGrey,
-                                  NSAttributedStringKey.paragraphStyle: style]
-                let attributedString = NSAttributedString(string: currentAttributedTitle.string, attributes: attributes)
-                button.setAttributedTitle(attributedString, for: .normal)
-            }
-        }
-
+    @IBAction func competitionInfoButtonWasTapped(_ sender: UIButton) {
+        delegate?.viewControllerDidTapCompetitionInfoButton(viewController: self)
     }
 
+    @IBAction func competitionAreaWasTapped(_ sender: UITapGestureRecognizer) {
+        // Set competition area to active state
+        competitionDateLabel.textColor = .black
+        competitionTitleLabel.textColor = .black
+        competitionTrophyImageView.image = UIImage(named: "golden-trophy")
+
+        // Set other report types to inactive state
+        categoryTypeCollection.forEach { (button) in
+            enableInActiveStateForButton(button)
+        }
+
+        // Let the delegate know
+        delegate?.viewControllerDidTapCompetition(viewController: self)
+    }
+
+    // MARK: Segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let imageSliderViewController = segue.destination as? ImageSliderViewController {
             imageSliderViewController.images = self.images
@@ -190,7 +256,12 @@ extension NewReportViewController: ImageSliderViewControllerDelegate {
 // MARK: UITableViewDelegate
 extension NewReportViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        // If there is no active competition, hide the row
+        if self.competition == nil && indexPath.row == 2 {
+            return 0.0
+        }
+
+        return UITableView.automaticDimension
     }
 }
 
@@ -202,40 +273,50 @@ extension NewReportViewController: UITextViewDelegate {
         UIView.setAnimationsEnabled(false)
         tableView.beginUpdates()
         tableView.endUpdates()
-        let indexPath = IndexPath(row: 2, section: 0)
+        let indexPath: IndexPath
+        if textView === descriptionTextView {
+            indexPath = IndexPath(row: 3, section: 0)
+        } else {
+            indexPath = IndexPath(row: 5, section: 0)
+        }
         tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
         UIView.setAnimationsEnabled(true)
         // End hack
 
-        delegate?.viewController(self, didWriteDescription: textView.text)
+        if textView === descriptionTextView {
+            delegate?.viewController(self, didWriteDescription: textView.text)
+        } else if textView === emailTextView {
+            delegate?.viewController(self,
+                                     didWriteEmailAddress: textView.text.trimmingCharacters(in: .whitespacesAndNewlines))
+        }
     }
 
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.attributedText.string == "Write a description..." {
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineSpacing = 15
-            let attributes = [NSAttributedStringKey.foregroundColor: UIColor.black,
-                              NSAttributedStringKey.font: Style.fontGeorgia(size: 15),
-                              NSAttributedStringKey.paragraphStyle: paragraphStyle]
+        if textView.attributedText.string == "Write a description..." || textView.attributedText.string == "Enter email address..." {
             // Have to have at least 1 character for the attributes to take
-            let newString = NSMutableAttributedString(string: " ", attributes: attributes)
-            textView.attributedText = newString
+            textView.attributedText = Style.userInputAttributedStringForString(" ")
             textView.text = ""
         }
-        textView.becomeFirstResponder() //Optional
+        textView.becomeFirstResponder() // Optional
     }
 
     func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.attributedText.string == "" {
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineSpacing = 15
-            let attributes = [NSAttributedStringKey.foregroundColor: Style.colorSTWGrey,
-                              NSAttributedStringKey.font: Style.fontGeorgiaItalic(size: 15),
-                              NSAttributedStringKey.paragraphStyle: paragraphStyle]
-            let newString = NSMutableAttributedString(string: "Write a description...", attributes: attributes)
-            textView.attributedText = newString
+        if textView === descriptionTextView && textView.attributedText.string == "" {
+            textView.attributedText = Style.userInputPlaceholderAttributedStringForString("Write a description...")
+        } else if textView === emailTextView && textView.attributedText.string == "" {
+            textView.attributedText = Style.userInputPlaceholderAttributedStringForString("Enter email address...")
         }
         textView.resignFirstResponder()
+    }
+
+    // If user hits return/done on keyboard while editing their email address dismiss keyboard
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if textView === emailTextView && text == "\n" {
+            textView.resignFirstResponder()
+            textView.text = textView.text.trimmingCharacters(in: .whitespacesAndNewlines) // remove any extra trailing whitespace
+            return false
+        }
+        return true
     }
 }
 

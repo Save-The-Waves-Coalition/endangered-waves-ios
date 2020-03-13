@@ -22,7 +22,8 @@ class ReportsTableViewController: UITableViewController {
         let query = Firestore.firestore().collection("reports").order(by: "creationDate", descending: true)
         let source = FUIFirestoreTableViewDataSource(query: query,
                                                      populateCell: { [unowned self] (tableView, indexPath, snapshot) -> UITableViewCell in
-                                                        guard let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath) as? ReportsTableViewCell else {
+                                                        guard let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell",
+                                                                                           for: indexPath) as? ReportsTableViewCell else {
                                                             assertionFailure("⚠️: Wrong cell type in use.")
                                                             return UITableViewCell()
                                                         }
@@ -32,7 +33,7 @@ class ReportsTableViewController: UITableViewController {
                                                         if let report = Report.createReportWithSnapshot(snapshot) {
                                                             cell.report = report
 
-                                                            let urls: [URL] = report.imageURLs.flatMap({ (urlString) -> URL? in
+                                                            let urls: [URL] = report.imageURLs.compactMap({ (urlString) -> URL? in
                                                                 return URL(string: urlString)
                                                             })
                                                             cell.imageDownloadManager.loadImagesWithURLs(urls, completion: { (images) in

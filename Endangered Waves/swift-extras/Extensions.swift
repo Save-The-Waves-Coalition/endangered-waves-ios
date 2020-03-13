@@ -22,7 +22,6 @@ public extension UIView {
     }
 }
 
-
 public extension UIImage {
     func mask(with color: UIColor) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)

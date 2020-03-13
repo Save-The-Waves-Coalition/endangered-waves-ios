@@ -41,7 +41,7 @@ class InformationViewController: UITableViewController {
     // Actions
 
     @IBAction func mjdButtonWasTapped(_ sender: UIButton) {
-        let url = URL(string: "http://mjdinteractive.com/")!
+        let url = URL(string: "https://www.mjdinteractive.com/")!
         delegate?.viewController(self, wantsToOpenURL: url)
     }
 
@@ -95,6 +95,9 @@ extension InformationViewController {
             switch indexPath.row {
             case 0: // Tutorial
                 delegate?.userWantsToViewTutorialWithViewController(self)
+            case 1: // Privacy Policy
+                let url  = URL(string: "https://www.savethewaves.org/about-us/privacy-policy/")!
+                delegate?.viewController(self, wantsToOpenURL: url)
             default:
                 break
             }
@@ -127,7 +130,8 @@ extension InformationViewController {
         }
     }
 
-    override func tableView(_ tableView: UITableView, canPerformAction action: Selector, forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
+    override func tableView(_ tableView: UITableView, canPerformAction action: Selector,
+                            forRowAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
         guard isAddressIndexPath(indexPath: indexPath),
             action == #selector(copy(_:)) else {
                 return false

@@ -9,9 +9,6 @@
 import UIKit
 import FirebaseCore
 import AVFoundation
-//import AppCenter
-//import AppCenterAnalytics
-//import AppCenterCrashes
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,16 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     var appCoordinator: AppCoordinator = {
-        let c = AppCoordinator(with: RootViewController())
-        return c
+        let coordinator = AppCoordinator(with: RootViewController())
+        return coordinator
     }()
 
     func application(_ application: UIApplication,
-                     willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]? = nil) -> Bool {
+                     willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
 
         // If the user is listening to music, this code makes sure the music does NOT stop when taking a picture
         do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
+            try AVAudioSession.sharedInstance().setCategory(.ambient, mode: .default)
         } catch {}
 
         FirebaseApp.configure()
@@ -41,10 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
-//        MSAppCenter.start("b42edac2-68db-4452-b96f-1a04cd02c8c5", withServices:[])
-
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window?.makeKeyAndVisible()
         appCoordinator.start()
         return true
@@ -56,13 +51,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func styleApp() {
         UIBarButtonItem.appearance().setTitleTextAttributes([
-            NSAttributedStringKey.font: Style.fontSFProDisplaySemiBold(),
-            NSAttributedStringKey.foregroundColor: Style.colorSTWBlue
+            NSAttributedString.Key.font: Style.fontSFProDisplaySemiBold(),
+            NSAttributedString.Key.foregroundColor: Style.colorSTWBlue
         ], for: .normal)
 
         UINavigationBar.appearance().titleTextAttributes = [
-            NSAttributedStringKey.font: Style.fontBrandonGrotesqueBlack(size: 20),
-            NSAttributedStringKey.foregroundColor: UIColor.black
+            NSAttributedString.Key.font: Style.fontBrandonGrotesqueBlack(size: 20),
+            NSAttributedString.Key.foregroundColor: UIColor.black
         ]
 
         UINavigationBar.appearance().backgroundColor = UIColor.white

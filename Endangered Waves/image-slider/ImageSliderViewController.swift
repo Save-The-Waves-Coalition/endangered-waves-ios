@@ -52,8 +52,7 @@ class ImageSliderViewController: UIPageViewController {
 
     func imageViewControllersForImages(_ images: [UIImage]) -> [ImageViewController] {
 
-        let imageViewControllers: [ImageViewController] = images.map({
-            (image: UIImage) -> ImageViewController in
+        let imageViewControllers: [ImageViewController] = images.map({(image: UIImage) -> ImageViewController in
             let imageViewController = ImageViewController.instantiate()
             imageViewController.image = image
             return imageViewController
@@ -71,7 +70,7 @@ class ImageSliderViewController: UIPageViewController {
             if subView is UIScrollView {
                 subView.frame = self.view.bounds
             } else if subView is UIPageControl {
-                self.view.bringSubview(toFront: subView)
+                self.view.bringSubviewToFront(subView)
 
                 if let imageControllers = self.imageViewControllers, imageControllers.count > 1 {
                     subView.isHidden = false
