@@ -196,21 +196,10 @@ class APIManager {
             let metadata = StorageMetadata()
             metadata.contentType = "image/jpeg"
 
-            let uploadTask = imageRef.putData(imageData, metadata: metadata)
+            let uploadTask = imageRef.putData(imageData, metadata: metadata) { (storageMetadata, error) in
 
-            uploadTask.observe(.success, handler: { (storageTaskSnapshot) in
-
-                // TODO: Fix this URL change
-
-//                guard let metaData = storageTaskSnapshot.metadata, let downloadURL = metaData.downloadURL() else {
-//                    failureUploadCount += 1
-//                    if (successfulUploadCount + failureUploadCount) == imagesCount {
-//                        completionHandler(nil, NSError(domain: "STW", code: 0, userInfo: nil))
-//                    }
-//                    return
-//                }
-
-                guard let metaData = storageTaskSnapshot.metadata else {
+                guard storageMetadata != nil else {
+                    // An Error occured!
                     failureUploadCount += 1
                     if (successfulUploadCount + failureUploadCount) == imagesCount {
                         completionHandler(nil, NSError(domain: "STW", code: 0, userInfo: nil))
@@ -218,20 +207,29 @@ class APIManager {
                     return
                 }
 
-                // TODO
-                let downloadURL = NSURL(string: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fco3xHOqmyDU%2Fmaxresdefault.jpg&f=1&nofb=1")!
+                // Download URL becomes available after upload
+                imageRef.downloadURL { (url, error) in
 
-                // TODO
-                let downloadURLString = downloadURL.absoluteString!
-                uploadedImageURLStrings.append(downloadURLString)
+                    guard let downloadURL = url else {
+                        // An Error occured!
+                        failureUploadCount += 1
+                        if (successfulUploadCount + failureUploadCount) == imagesCount {
+                            completionHandler(nil, NSError(domain: "STW", code: 0, userInfo: nil))
+                        }
+                        return
+                    }
 
-                successfulUploadCount += 1
-                progressHandler(Double(successfulUploadCount)/Double(imagesCount))
+                    let downloadURLString = downloadURL.absoluteString
+                    uploadedImageURLStrings.append(downloadURLString)
 
-                if (successfulUploadCount + failureUploadCount) == imagesCount {
-                    completionHandler(uploadedImageURLStrings, nil)
+                    successfulUploadCount += 1
+                    progressHandler(Double(successfulUploadCount)/Double(imagesCount))
+
+                    if (successfulUploadCount + failureUploadCount) == imagesCount {
+                        completionHandler(uploadedImageURLStrings, nil)
+                    }
                 }
-            })
+            }
 
             uploadTask.observe(.failure, handler: { (storageTaskSnapshot) in
                 failureUploadCount += 1

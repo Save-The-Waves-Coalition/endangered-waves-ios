@@ -132,25 +132,62 @@ struct Report {
     }
 
     static func createReportWithDictionary(_ dictionary: [String: Any]) -> Report? {
-        guard let name = dictionary["name"] as? String,
-            let address = dictionary["address"] as? String,
-            let coordinate = dictionary["coordinate"] as? GeoPoint,
-            let creationDate = dictionary["creationDate"] as? Date,
-            let description = dictionary["description"] as? String,
-            let imageURLs = dictionary["imageURLs"] as? [String],
-            let typeString = dictionary["type"] as? String,
-            let type = ReportType(rawValue: typeString),
-            let user = dictionary["user"] as? String
-        else {
-                return nil
+
+        guard let name = dictionary["name"] as? String else {
+            assertionFailure("⚠️: Name for Report not found")
+            return nil
+        }
+
+        guard let address = dictionary["address"] as? String else {
+            assertionFailure("⚠️: Address for Report not found")
+            return nil
+        }
+
+        guard let coordinate = dictionary["coordinate"] as? GeoPoint else {
+            assertionFailure("⚠️: Coordinate for Report not found")
+            return nil
+        }
+
+        // TODO: Should we be using Firebase Timestamp type instead of Swift Date?
+        guard let creationDate = dictionary["creationDate"] as? Timestamp else {
+            assertionFailure("⚠️: CreationDate for Report not found")
+            return nil
+        }
+
+        guard let description = dictionary["description"] as? String else {
+            assertionFailure("⚠️: Description for Report not found")
+            return nil
+        }
+
+        guard let imageURLs = dictionary["imageURLs"] as? [String?] else {
+            assertionFailure("⚠️: ImageURLs for Report not found")
+            return nil
+        }
+
+        guard let typeString = dictionary["type"] as? String else {
+            assertionFailure("⚠️: TypeString for Report not found")
+            return nil
+        }
+
+        // TODO: 2020-03-14 MDM We need to define what the various types are, it matters for iOS currently,
+        //                      we could just make it fall back to general and be done with it ¯\(°_o)/¯
+        let type = ReportType(rawValue: typeString) ?? ReportType.general
+//        guard let type = ReportType(rawValue: typeString) else {
+//            assertionFailure("⚠️: Type for Report not found")
+//            return nil
+//        }
+
+        guard let user = dictionary["user"] as? String else {
+            assertionFailure("⚠️: User for Report not found")
+            return nil
         }
 
         return Report(name: name,
                       address: address,
                       coordinate: coordinate,
-                      creationDate: creationDate,
+                      creationDate: creationDate.dateValue(),
                       description: description,
-                      imageURLs: imageURLs,
+                      imageURLs: imageURLs.compactMap { $0 }, // new array with all values unwrapped and all nil's filtered away
                       type: type,
                       user: user)
     }

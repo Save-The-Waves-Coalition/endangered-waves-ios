@@ -85,7 +85,7 @@ class ReportsMapViewController: UIViewController {
 extension ReportsMapViewController: FUIBatchedArrayDelegate {
 
     func batchedArray(_ array: FUIBatchedArray, willUpdateWith diff: FUISnapshotArrayDiff<DocumentSnapshot>) {
-        //TODO
+        // Not used but required by the compilier
     }
 
     func batchedArray(_ array: FUIBatchedArray, didUpdateWith diff: FUISnapshotArrayDiff<DocumentSnapshot>) {

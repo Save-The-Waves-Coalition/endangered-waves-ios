@@ -51,7 +51,7 @@ class NewReportCoordinator: Coordinator {
         configuration.allowVideoSelection = false
         configuration.recordLocation = true
         let imagePicker = ImagePickerController(configuration: configuration)
-//        imagePicker.delegate = self // TODO
+//        imagePicker.delegate = self // TODO: 2020-03-14 MDM temp commenting out to get this to build, imagePicker has to be replaced by new pod
         return imagePicker
     }()
 
@@ -116,7 +116,7 @@ extension NewReportCoordinator: CompetitionCoordinatorDelegate {
     }
 }
 
-// MARK:
+// MARK: NewReportCoordinator
 extension NewReportCoordinator {
     func lightboxForImages(_ images: [UIImage], withStartIndex index: Int) -> LightboxController? {
         guard images.count > 0 else { return nil }
