@@ -51,7 +51,7 @@ class NewReportCoordinator: Coordinator {
         configuration.allowVideoSelection = false
         configuration.recordLocation = true
         let imagePicker = ImagePickerController(configuration: configuration)
-        imagePicker.delegate = self
+//        imagePicker.delegate = self // TODO
         return imagePicker
     }()
 
@@ -131,29 +131,30 @@ extension NewReportCoordinator {
 }
 
 // MARK: 📸 ImagePickerDelegate
-extension NewReportCoordinator: ImagePickerDelegate {
-    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        if let lightbox = lightboxForImages(images, withStartIndex: 0) {
-            imagePicker.present(lightbox, animated: true, completion: nil)
-        }
-    }
-
-    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        self.images = images
-        let presentingViewController = imagePicker.presentingViewController
-        imagePicker.dismiss(animated: true) {
-            if let presentingViewController = presentingViewController, !(presentingViewController is NewReportNavViewController) {
-                self.showNewReport()
-            }
-        }
-    }
-
-    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
-        imagePicker.dismiss(animated: true) {
-            self.stop()
-        }
-    }
-}
+// TODO
+//extension NewReportCoordinator: ImagePickerDelegate {
+//    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+//        if let lightbox = lightboxForImages(images, withStartIndex: 0) {
+//            imagePicker.present(lightbox, animated: true, completion: nil)
+//        }
+//    }
+//
+//    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+//        self.images = images
+//        let presentingViewController = imagePicker.presentingViewController
+//        imagePicker.dismiss(animated: true) {
+//            if let presentingViewController = presentingViewController, !(presentingViewController is NewReportNavViewController) {
+//                self.showNewReport()
+//            }
+//        }
+//    }
+//
+//    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
+//        imagePicker.dismiss(animated: true) {
+//            self.stop()
+//        }
+//    }
+//}
 
 // MARK: NewReportViewControllerDelegate
 extension NewReportCoordinator: NewReportViewControllerDelegate {
