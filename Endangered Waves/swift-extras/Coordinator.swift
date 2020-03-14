@@ -49,7 +49,7 @@ class Coordinator {
     }
 
     func removeChildCoordinator(_ coordinator: Coordinator) {
-        if let index = childCoordinators.index(where: { (item) -> Bool in
+        if let index = childCoordinators.firstIndex(where: { (item) -> Bool in
             return item === coordinator }) {
             childCoordinators.remove(at: index)
         } else {

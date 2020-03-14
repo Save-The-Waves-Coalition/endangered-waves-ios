@@ -96,7 +96,7 @@ extension ImageSliderViewController: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
         if let viewController = pendingViewControllers.first as? ImageViewController,
             let imageViewControllers = self.imageViewControllers,
-            let index = imageViewControllers.index(of: viewController) {
+            let index = imageViewControllers.firstIndex(of: viewController) {
             nextPageIndex = index
         }
     }
@@ -108,7 +108,7 @@ extension ImageSliderViewController: UIPageViewControllerDataSource {
                             viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewController = viewController as? ImageViewController,
             let imageViewControllers = self.imageViewControllers,
-            let index = imageViewControllers.index(of: viewController),
+            let index = imageViewControllers.firstIndex(of: viewController),
             index > 0 else {
                 return nil
         }
@@ -120,7 +120,7 @@ extension ImageSliderViewController: UIPageViewControllerDataSource {
                             viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let imageControllers = imageViewControllers,
             let viewController = viewController as? ImageViewController,
-            let index = imageControllers.index(of: viewController),
+            let index = imageControllers.firstIndex(of: viewController),
             index < (imageControllers.count - 1) else {
             return nil
         }
