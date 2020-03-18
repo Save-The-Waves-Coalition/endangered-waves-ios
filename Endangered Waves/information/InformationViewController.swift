@@ -53,7 +53,7 @@ class InformationViewController: UITableViewController {
 // MARK: UITableViewDelegate
 extension InformationViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.section {
+        switch indexPath.section {      
         case 0:
             switch indexPath.row {
             case 0: // Newsletter
