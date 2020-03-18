@@ -38,6 +38,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0d-cK-MC8">
                                             <rect key="frame" x="65" y="46" width="225" height="43.5"/>
                                             <constraints>
+                                                <constraint firstAttribute="width" secondItem="W0d-cK-MC8" secondAttribute="height" multiplier="225:43" id="0ve-FK-3a0"/>
                                                 <constraint firstAttribute="height" constant="43.5" id="QBY-pu-i0H"/>
                                             </constraints>
                                             <state key="normal" image="ValtechLogo"/>

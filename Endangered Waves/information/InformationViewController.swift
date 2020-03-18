@@ -41,7 +41,7 @@ class InformationViewController: UITableViewController {
     // Actions
 
     @IBAction func mjdButtonWasTapped(_ sender: UIButton) {
-        let url = URL(string: "https://www.mjdinteractive.com/")!
+        let url = URL(string: "https://www.valtech.com/")!
         delegate?.viewController(self, wantsToOpenURL: url)
     }
 
