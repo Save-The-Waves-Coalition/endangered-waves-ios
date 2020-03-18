@@ -36,7 +36,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0d-cK-MC8">
-                                            <rect key="frame" x="65" y="46" width="225" height="43.5"/>
+                                            <rect key="frame" x="63.5" y="46" width="228" height="43.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="W0d-cK-MC8" secondAttribute="height" multiplier="225:43" id="0ve-FK-3a0"/>
                                                 <constraint firstAttribute="height" constant="43.5" id="QBY-pu-i0H"/>
@@ -105,10 +105,6 @@
                                             </subviews>
                                         </stackView>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="VAG-iX-ySV" firstAttribute="top" secondItem="3Tu-3W-b1F" secondAttribute="bottom" constant="27" id="Yho-pa-3px"/>
-                                        <constraint firstItem="W0d-cK-MC8" firstAttribute="leading" secondItem="Wa3-ZS-i6r" secondAttribute="leading" constant="65" id="uGG-vw-VMr"/>
-                                    </constraints>
                                 </stackView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
