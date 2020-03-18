@@ -170,6 +170,9 @@ PODS:
     - BoringSSL-GRPC/Interface (= 0.0.3)
   - BoringSSL-GRPC/Interface (0.0.3)
   - Cache (5.2.0)
+  - Crashlytics (3.14.0):
+    - Fabric (~> 1.10.2)
+  - Fabric (1.10.2)
   - FBSDKCoreKit (5.15.1):
     - FBSDKCoreKit/Basics (= 5.15.1)
     - FBSDKCoreKit/Core (= 5.15.1)
@@ -363,6 +366,8 @@ PODS:
   - SwiftLint (0.39.1)
 
 DEPENDENCIES:
+  - Crashlytics
+  - Fabric
   - Firebase
   - FirebaseUI
   - ImagePicker (from `https://github.com/sameh0/ImagePicker`, branch `master`)
@@ -377,6 +382,8 @@ SPEC REPOS:
     - AppAuth
     - BoringSSL-GRPC
     - Cache
+    - Crashlytics
+    - Fabric
     - FBSDKCoreKit
     - FBSDKLoginKit
     - Firebase
@@ -430,6 +437,8 @@ SPEC CHECKSUMS:
   AppAuth: 73574f3013a1e65b9601a3ddc8b3158cce68c09d
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
   Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
+  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
+  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   FBSDKCoreKit: 1d5acf7c9d7a2f92bb1a242dc60cae5b7adb91df
   FBSDKLoginKit: f1ea8026a58b52d30c9f2e6a58ca7d813619fb83
   Firebase: d55ddb0e0bb3207166cddc028647833d8a1b5b6f
@@ -464,6 +473,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
 
-PODFILE CHECKSUM: e478471325cd5b2dd07e8d5274ca6ce123fe83d7
+PODFILE CHECKSUM: 4c8b5613a2448691e13115e999a08d6f03ba4ebe
 
 COCOAPODS: 1.9.1

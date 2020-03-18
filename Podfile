@@ -13,10 +13,8 @@ abstract_target 'shared' do
   # Firebase
   pod 'Firebase'
   pod 'FirebaseUI'
-  
-  # pod 'Firebase', '~> 4.10'
-  # pod 'FirebaseUI', '~> 4.5'
-  # pod 'Crashlytics', '~> 3.10'
+  pod 'Fabric'
+  pod 'Crashlytics'
 
   # UI Related
   pod 'LocationPickerViewController', :git => 'https://github.com/zhuorantan/LocationPicker.git', :commit => '15d9bae350e8ffd6bf3640afc423a8350ea2b523'
