@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-import FirebaseFirestoreUI
+import FirebaseUI
 
 protocol ReportsTableViewControllerDelegate: class {
     func viewController(_ viewController: ReportsTableViewController, didRequestDetailsForReport report: Report)

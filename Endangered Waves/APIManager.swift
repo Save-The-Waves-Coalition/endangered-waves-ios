@@ -196,11 +196,10 @@ class APIManager {
             let metadata = StorageMetadata()
             metadata.contentType = "image/jpeg"
 
-            let uploadTask = imageRef.putData(imageData, metadata: metadata)
+            let uploadTask = imageRef.putData(imageData, metadata: metadata) { (storageMetadata, error) in
 
-            uploadTask.observe(.success, handler: { (storageTaskSnapshot) in
-
-                guard let metaData = storageTaskSnapshot.metadata, let downloadURL = metaData.downloadURL() else {
+                guard storageMetadata != nil else {
+                    // An Error occured!
                     failureUploadCount += 1
                     if (successfulUploadCount + failureUploadCount) == imagesCount {
                         completionHandler(nil, NSError(domain: "STW", code: 0, userInfo: nil))
@@ -208,16 +207,29 @@ class APIManager {
                     return
                 }
 
-                let downloadURLString = downloadURL.absoluteString
-                uploadedImageURLStrings.append(downloadURLString)
+                // Download URL becomes available after upload
+                imageRef.downloadURL { (url, error) in
 
-                successfulUploadCount += 1
-                progressHandler(Double(successfulUploadCount)/Double(imagesCount))
+                    guard let downloadURL = url else {
+                        // An Error occured!
+                        failureUploadCount += 1
+                        if (successfulUploadCount + failureUploadCount) == imagesCount {
+                            completionHandler(nil, NSError(domain: "STW", code: 0, userInfo: nil))
+                        }
+                        return
+                    }
 
-                if (successfulUploadCount + failureUploadCount) == imagesCount {
-                    completionHandler(uploadedImageURLStrings, nil)
+                    let downloadURLString = downloadURL.absoluteString
+                    uploadedImageURLStrings.append(downloadURLString)
+
+                    successfulUploadCount += 1
+                    progressHandler(Double(successfulUploadCount)/Double(imagesCount))
+
+                    if (successfulUploadCount + failureUploadCount) == imagesCount {
+                        completionHandler(uploadedImageURLStrings, nil)
+                    }
                 }
-            })
+            }
 
             uploadTask.observe(.failure, handler: { (storageTaskSnapshot) in
                 failureUploadCount += 1

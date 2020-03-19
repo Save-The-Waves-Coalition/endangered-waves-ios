@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BdA-9h-eYY">
-    <device id="retina3_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BdA-9h-eYY">
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,10 +25,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="c6a-an-Ijt">
-                                <rect key="frame" x="140.5" y="402" width="39" height="37"/>
+                                <rect key="frame" x="140.5" y="406" width="39" height="37"/>
                             </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjy-ns-acA">
-                                <rect key="frame" x="110" y="447" width="100" height="33"/>
+                                <rect key="frame" x="110" y="451" width="100" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Ynd-hB-yf9"/>
                                 </constraints>
@@ -78,22 +75,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-trashed" translatesAutoresizingMaskIntoConstraints="NO" id="Dnc-cH-naa">
-                                <rect key="frame" x="200.5" y="20.5" width="346" height="296"/>
+                                <rect key="frame" x="341" y="161" width="692" height="592"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Dnc-cH-naa" secondAttribute="height" multiplier="173:148" id="S4d-A9-08c"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRASHED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ok5-mA-Eyn">
-                                <rect key="frame" x="483" y="251.5" width="67.5" height="21.5"/>
+                                <rect key="frame" x="622" y="688" width="69" height="17.5"/>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-large-circle" translatesAutoresizingMaskIntoConstraints="NO" id="ggn-wq-Ha9">
-                                <rect key="frame" x="19.5" y="99.5" width="281" height="281"/>
+                                <rect key="frame" x="-121" y="-41" width="562" height="562"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muP-Zz-vUu">
-                                <rect key="frame" x="84.5" y="2.5" width="152" height="69"/>
+                                <rect key="frame" x="80" y="-125" width="160.5" height="56"/>
                                 <string key="text">SEE AN ISSUE
 &amp; REPORT IT</string>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="24"/>
@@ -101,7 +98,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xlv-vM-jpf">
-                                <rect key="frame" x="135" y="350.5" width="50" height="50"/>
+                                <rect key="frame" x="135" y="491" width="50" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Fvd-ss-LUO"/>
@@ -109,7 +106,7 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus-sign-radiate" translatesAutoresizingMaskIntoConstraints="NO" id="bjN-pM-yWj">
-                                <rect key="frame" x="100" y="315.5" width="120" height="120"/>
+                                <rect key="frame" x="100" y="456" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="bjN-pM-yWj" secondAttribute="height" multiplier="1:1" id="585-5Z-Qsc"/>
                                     <constraint firstAttribute="height" constant="120" id="NK5-hW-dmF"/>
@@ -153,7 +150,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFY-Iy-UHr">
-                                <rect key="frame" x="72" y="2.5" width="175" height="69"/>
+                                <rect key="frame" x="72.5" y="-125" width="175" height="56"/>
                                 <string key="text">SHARE IT OUT
 &amp; TAKE ACTION</string>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="24"/>
@@ -161,28 +158,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-large-circle" translatesAutoresizingMaskIntoConstraints="NO" id="7oE-jM-MZp">
-                                <rect key="frame" x="19" y="99.5" width="281" height="281"/>
+                                <rect key="frame" x="-121" y="-41" width="562" height="562"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-oil-spill" translatesAutoresizingMaskIntoConstraints="NO" id="Vnj-L7-RLT">
-                                <rect key="frame" x="-114.5" y="260.5" width="589" height="318.5"/>
+                                <rect key="frame" x="-409.5" y="401" width="1179" height="637.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Vnj-L7-RLT" secondAttribute="height" multiplier="590:319" id="4Sd-HR-hat"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-sewage" translatesAutoresizingMaskIntoConstraints="NO" id="xFH-03-o8L">
-                                <rect key="frame" x="23.5" y="31.5" width="273" height="228"/>
+                                <rect key="frame" x="23.5" y="-109" width="546" height="456"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="xFH-03-o8L" secondAttribute="height" multiplier="91:76" id="7f7-OO-e8R"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEWAGE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyD-3o-Npf">
-                                <rect key="frame" x="23.5" y="219.5" width="59.5" height="21.5"/>
+                                <rect key="frame" x="23.5" y="307" width="63" height="17.5"/>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OIL SPILL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aqj-o9-RuW">
-                                <rect key="frame" x="199.5" y="427" width="65.5" height="21.5"/>
+                                <rect key="frame" x="-95.5" y="886.5" width="68" height="17.5"/>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -225,7 +222,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0K-KZ-a1x">
-                                <rect key="frame" x="75" y="2" width="169.5" height="69"/>
+                                <rect key="frame" x="74" y="-125" width="172.5" height="56"/>
                                 <string key="text">BE PART OF
 THE SOLUTION</string>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="24"/>
@@ -233,7 +230,7 @@ THE SOLUTION</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-large-circle" translatesAutoresizingMaskIntoConstraints="NO" id="Bft-De-smb">
-                                <rect key="frame" x="19" y="99" width="281" height="281"/>
+                                <rect key="frame" x="-121" y="-41" width="562" height="562"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vertical-logo" translatesAutoresizingMaskIntoConstraints="NO" id="71R-va-Bbt">
                                 <rect key="frame" x="48" y="151.5" width="224" height="177"/>
@@ -265,9 +262,9 @@ THE SOLUTION</string>
     </scenes>
     <resources>
         <image name="onboarding-large-circle" width="281" height="281"/>
-        <image name="onboarding-oil-spill" width="589" height="318"/>
-        <image name="onboarding-sewage" width="273" height="227"/>
-        <image name="onboarding-trashed" width="345" height="296"/>
+        <image name="onboarding-oil-spill" width="589.5" height="318.5"/>
+        <image name="onboarding-sewage" width="273" height="227.5"/>
+        <image name="onboarding-trashed" width="345.5" height="296"/>
         <image name="plus-sign-radiate" width="82" height="82"/>
         <image name="stock01" width="1499" height="2332"/>
         <image name="vertical-logo" width="717" height="567"/>

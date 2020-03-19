@@ -41,7 +41,7 @@ class InformationViewController: UITableViewController {
     // Actions
 
     @IBAction func mjdButtonWasTapped(_ sender: UIButton) {
-        let url = URL(string: "https://www.mjdinteractive.com/")!
+        let url = URL(string: "https://www.valtech.com/")!
         delegate?.viewController(self, wantsToOpenURL: url)
     }
 
@@ -53,7 +53,7 @@ class InformationViewController: UITableViewController {
 // MARK: UITableViewDelegate
 extension InformationViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.section {
+        switch indexPath.section {      
         case 0:
             switch indexPath.row {
             case 0: // Newsletter

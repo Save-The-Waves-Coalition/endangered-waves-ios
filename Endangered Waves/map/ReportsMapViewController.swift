@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import FirebaseFirestore
-import FirebaseFirestoreUI
+import FirebaseUI
 
 protocol ReportsMapViewControllerDelegate: class {
     func viewController(_ viewController: ReportsMapViewController, didRequestDetailsForReport report: Report)
@@ -83,6 +83,10 @@ class ReportsMapViewController: UIViewController {
 
 // MARK: 🔥 FUIBatchedArrayDelegate
 extension ReportsMapViewController: FUIBatchedArrayDelegate {
+
+    func batchedArray(_ array: FUIBatchedArray, willUpdateWith diff: FUISnapshotArrayDiff<DocumentSnapshot>) {
+        // Not used but required by the compilier
+    }
 
     func batchedArray(_ array: FUIBatchedArray, didUpdateWith diff: FUISnapshotArrayDiff<DocumentSnapshot>) {
         // TODO: Right now just removing all annotations and then adding everything back,

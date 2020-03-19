@@ -1,7 +1,7 @@
 project 'Endangered Waves.xcodeproj'
 
 # Uncomment the next line to define a global platform for your project
-platform :ios, '11.0'
+platform :ios, '12.1'
 
 # ignore all warnings from all pods
 inhibit_all_warnings!
@@ -11,13 +11,14 @@ abstract_target 'shared' do
   use_frameworks!
 
   # Firebase
-  pod 'Firebase', '~> 4.10'
-  pod 'FirebaseUI', '~> 4.5'
-  pod 'Crashlytics', '~> 3.10'
+  pod 'Firebase'
+  pod 'FirebaseUI'
+  pod 'Fabric'
+  pod 'Crashlytics'
 
   # UI Related
-  pod 'LocationPickerViewController', '~> 3.3'
-  pod 'ImagePicker', '~> 3.0'
+  pod 'LocationPickerViewController', :git => 'https://github.com/zhuorantan/LocationPicker.git', :commit => '15d9bae350e8ffd6bf3640afc423a8350ea2b523'
+  pod 'ImagePicker' , :git => 'https://github.com/sameh0/ImagePicker' , :branch => 'master'
   pod 'Lightbox', '~> 2.1'
   pod 'SVProgressHUD', '~> 2.2'
 
@@ -30,23 +31,23 @@ abstract_target 'shared' do
 end
 
 # See https://www.cerebralgardens.com/blog/entry/2017/10/04/mix-and-match-swift-3-swift-4-libraries-with-cocoapods
-post_install do |installer|
-    print "Setting the default SWIFT_VERSION to 4.2\n"
-    installer.pods_project.build_configurations.each do |config|
-        config.build_settings['SWIFT_VERSION'] = '4.2'
-    end
-
-    installer.pods_project.targets.each do |target|
-        if ['LocationPickerViewController'].include? "#{target}"
-            print "Setting #{target}'s SWIFT_VERSION to 3.0\n"
-            target.build_configurations.each do |config|
-                config.build_settings['SWIFT_VERSION'] = '3.0'
-            end
-            else
-            print "Setting #{target}'s SWIFT_VERSION to Undefined (Xcode will automatically resolve)\n"
-            target.build_configurations.each do |config|
-                config.build_settings.delete('SWIFT_VERSION')
-            end
-        end
-    end
-end
+# post_install do |installer|
+#     print "Setting the default SWIFT_VERSION to 4.2\n"
+#     installer.pods_project.build_configurations.each do |config|
+#         config.build_settings['SWIFT_VERSION'] = '4.2'
+#     end
+#
+#     installer.pods_project.targets.each do |target|
+#         if ['LocationPickerViewController'].include? "#{target}"
+#             print "Setting #{target}'s SWIFT_VERSION to 3.0\n"
+#             target.build_configurations.each do |config|
+#                 config.build_settings['SWIFT_VERSION'] = '3.0'
+#             end
+#             else
+#             print "Setting #{target}'s SWIFT_VERSION to Undefined (Xcode will automatically resolve)\n"
+#             target.build_configurations.each do |config|
+#                 config.build_settings.delete('SWIFT_VERSION')
+#             end
+#         end
+#     end
+# end

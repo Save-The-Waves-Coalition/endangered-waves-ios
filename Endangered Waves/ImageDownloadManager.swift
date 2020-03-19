@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 
 class ImageDownloadManager: NSObject {
-    let manager = SDWebImageManager.shared()
+    let manager = SDWebImageManager.shared
     private var images: [UIImage] = [UIImage]()
     private var processed: Int = 0
     private var total: Int = 0

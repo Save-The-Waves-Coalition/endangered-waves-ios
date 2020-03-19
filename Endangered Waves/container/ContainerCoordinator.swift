@@ -126,7 +126,7 @@ class ContainerCoordinator: Coordinator {
 
     fileprivate func showSharingWithReport(_ report: Report) {
         if let firstImageURLString = report.imageURLs.first, let firstImageURL = URL(string: firstImageURLString) {
-            SDWebImageManager.shared().loadImage(with: firstImageURL,
+            SDWebImageManager.shared.loadImage(with: firstImageURL,
                                                  options: [],
                                                  progress: nil,
                                                  completed: { (image, data, error, cacheType, finished, imageURL) in
