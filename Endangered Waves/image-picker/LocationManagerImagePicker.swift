@@ -1,7 +1,7 @@
 import Foundation
 import CoreLocation
 
-class LocationManager: NSObject, CLLocationManagerDelegate {
+class LocationManagerImagePicker: NSObject, CLLocationManagerDelegate {
   var locationManager = CLLocationManager()
   var latestLocation: CLLocation?
 

@@ -134,8 +134,9 @@ open class ImageGalleryView: UIView {
     let collectionFrame = frame.height == Dimensions.galleryBarHeight ? 100 + Dimensions.galleryBarHeight : frame.height
     topSeparator.frame = CGRect(x: 0, y: 0, width: totalWidth, height: Dimensions.galleryBarHeight)
     topSeparator.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin, .flexibleWidth]
-    configuration.indicatorView.frame = CGRect(x: (totalWidth - configuration.indicatorWidth) / 2, y: (topSeparator.frame.height - configuration.indicatorHeight) / 2,
-      width: configuration.indicatorWidth, height: configuration.indicatorHeight)
+    configuration.indicatorView.frame = CGRect(x: (totalWidth - configuration.indicatorWidth) / 2,
+                                               y: (topSeparator.frame.height - configuration.indicatorHeight) / 2,
+                                               width: configuration.indicatorWidth, height: configuration.indicatorHeight)
     collectionView.frame = CGRect(x: 0, y: topSeparator.frame.height, width: totalWidth, height: collectionFrame - topSeparator.frame.height)
     collectionSize = CGSize(width: collectionView.frame.height, height: collectionView.frame.height)
     noImagesLabel.center = CGPoint(x: bounds.width / 2, y: (bounds.height + Dimensions.galleryBarHeight) / 2)
@@ -232,7 +233,8 @@ extension ImageGalleryView: UICollectionViewDelegate {
 
     let asset = assets[(indexPath as NSIndexPath).row]
 
-    AssetManager.resolveAsset(asset, size: CGSize(width: 100, height: 100), shouldPreferLowRes: configuration.useLowResolutionPreviewImage) { image in
+    AssetManager.resolveAsset(asset, size: CGSize(width: 100, height: 100),
+                              shouldPreferLowRes: configuration.useLowResolutionPreviewImage) { image in
       guard image != nil else { return }
 
       if cell.selectedImageView.image != nil {

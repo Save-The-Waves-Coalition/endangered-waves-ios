@@ -112,7 +112,7 @@ extension ImagePickerController {
     }
 
     for attribute: NSLayoutConstraint.Attribute in [.left, .top, .width] {
-      view.addConstraint(NSLayoutConstraint(item: cameraController.view, attribute: attribute,
+      view.addConstraint(NSLayoutConstraint(item: cameraController.view ?? UIView(), attribute: attribute,
         relatedBy: .equal, toItem: view, attribute: attribute,
         multiplier: 1, constant: 0))
     }
@@ -134,7 +134,7 @@ extension ImagePickerController {
                                             attribute: .top,
                                             multiplier: 1, constant: 0))
     }
-    
+
     if #available(iOS 11.0, *) {
       let heightPadding = UIApplication.shared.keyWindow!.safeAreaInsets.bottom
       view.addConstraint(NSLayoutConstraint(item: bottomContainer, attribute: .height,
@@ -154,7 +154,7 @@ extension ImagePickerController {
       relatedBy: .equal, toItem: nil, attribute: .notAnAttribute,
       multiplier: 1, constant: TopView.Dimensions.height))
 
-    view.addConstraint(NSLayoutConstraint(item: cameraController.view, attribute: .height,
+    view.addConstraint(NSLayoutConstraint(item: cameraController.view ?? UIView(), attribute: .height,
       relatedBy: .equal, toItem: view, attribute: .height,
       multiplier: 1, constant: -BottomContainerView.Dimensions.height))
   }

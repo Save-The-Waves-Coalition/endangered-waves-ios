@@ -346,7 +346,6 @@ PODS:
   - GTMSessionFetcher/Core (1.3.1)
   - GTMSessionFetcher/Full (1.3.1):
     - GTMSessionFetcher/Core (= 1.3.1)
-  - ImagePicker (3.2.0)
   - Imaginary (4.2.0):
     - Cache (~> 5.0)
   - leveldb-library (1.22)
@@ -370,7 +369,6 @@ DEPENDENCIES:
   - Fabric
   - Firebase
   - FirebaseUI
-  - ImagePicker (from `https://github.com/sameh0/ImagePicker`, branch `master`)
   - Lightbox (~> 2.1)
   - LocationPickerViewController (from `https://github.com/zhuorantan/LocationPicker.git`, commit `15d9bae350e8ffd6bf3640afc423a8350ea2b523`)
   - SVProgressHUD (~> 2.2)
@@ -417,17 +415,11 @@ SPEC REPOS:
     - SwiftLint
 
 EXTERNAL SOURCES:
-  ImagePicker:
-    :branch: master
-    :git: https://github.com/sameh0/ImagePicker
   LocationPickerViewController:
     :commit: 15d9bae350e8ffd6bf3640afc423a8350ea2b523
     :git: https://github.com/zhuorantan/LocationPicker.git
 
 CHECKOUT OPTIONS:
-  ImagePicker:
-    :commit: 47a28a08e6e41999ed660eea21667149a5a60172
-    :git: https://github.com/sameh0/ImagePicker
   LocationPickerViewController:
     :commit: 15d9bae350e8ffd6bf3640afc423a8350ea2b523
     :git: https://github.com/zhuorantan/LocationPicker.git
@@ -462,7 +454,6 @@ SPEC CHECKSUMS:
   gRPC-Core: c9aef9a261a1247e881b18059b84d597293c9947
   GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
   GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
-  ImagePicker: 456b7fab7022f1f7d8adad42b43d20963c9b5cea
   Imaginary: dae33d06dbc2ada22f98afef5eb45cc061311a2c
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   Lightbox: d317750e4132bfb871a5307cfe0a2c7d6a583c65
@@ -473,6 +464,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
 
-PODFILE CHECKSUM: 4c8b5613a2448691e13115e999a08d6f03ba4ebe
+PODFILE CHECKSUM: 2478b42d53848bbd5a0c9dc04462c00cd82957fe
 
 COCOAPODS: 1.9.1

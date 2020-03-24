@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ImagePicker
 import Lightbox
 import LocationPickerViewController
 import FirebaseStorage
@@ -51,7 +50,7 @@ class NewReportCoordinator: Coordinator {
         configuration.allowVideoSelection = false
         configuration.recordLocation = true
         let imagePicker = ImagePickerController(configuration: configuration)
-//        imagePicker.delegate = self // TODO: 2020-03-14 MDM temp commenting out to get this to build, imagePicker has to be replaced by new pod
+        imagePicker.delegate = self
         return imagePicker
     }()
 
@@ -61,7 +60,9 @@ class NewReportCoordinator: Coordinator {
     }
 
     override func start() {
-        rootViewController.present(imagePickerController, animated: true, completion: nil)
+        let viewController = imagePickerController
+        viewController.modalPresentationStyle = .fullScreen
+        rootViewController.present(viewController, animated: true, completion: nil)
     }
 
     override func stop() {
@@ -131,30 +132,29 @@ extension NewReportCoordinator {
 }
 
 // MARK: 📸 ImagePickerDelegate
-// TODO
-//extension NewReportCoordinator: ImagePickerDelegate {
-//    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-//        if let lightbox = lightboxForImages(images, withStartIndex: 0) {
-//            imagePicker.present(lightbox, animated: true, completion: nil)
-//        }
-//    }
-//
-//    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-//        self.images = images
-//        let presentingViewController = imagePicker.presentingViewController
-//        imagePicker.dismiss(animated: true) {
-//            if let presentingViewController = presentingViewController, !(presentingViewController is NewReportNavViewController) {
-//                self.showNewReport()
-//            }
-//        }
-//    }
-//
-//    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
-//        imagePicker.dismiss(animated: true) {
-//            self.stop()
-//        }
-//    }
-//}
+extension NewReportCoordinator: ImagePickerDelegate {
+    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        if let lightbox = lightboxForImages(images, withStartIndex: 0) {
+            imagePicker.present(lightbox, animated: true, completion: nil)
+        }
+    }
+
+    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        self.images = images
+        let presentingViewController = imagePicker.presentingViewController
+        imagePicker.dismiss(animated: true) {
+            if let presentingViewController = presentingViewController, !(presentingViewController is NewReportNavViewController) {
+                self.showNewReport()
+            }
+        }
+    }
+
+    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
+        imagePicker.dismiss(animated: true) {
+            self.stop()
+        }
+    }
+}
 
 // MARK: NewReportViewControllerDelegate
 extension NewReportCoordinator: NewReportViewControllerDelegate {
@@ -290,7 +290,9 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
     } // func
 
     func viewController(_ viewController: NewReportViewController, didTapAddButton button: UIButton) {
-        viewController.present(imagePickerController, animated: true, completion: nil)
+        let viewController = imagePickerController
+        viewController.modalPresentationStyle = .fullScreen
+        viewController.present(viewController, animated: true, completion: nil)
     }
 }
 
