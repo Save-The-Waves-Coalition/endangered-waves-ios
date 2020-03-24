@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Lightbox
+import LightboxV2
 import LocationPickerViewController
 import FirebaseStorage
 import FirebaseFirestore
@@ -304,4 +304,16 @@ extension NewReportCoordinator {
         alertViewController.addAction(okAction)
         viewController.present(alertViewController, animated: true, completion: nil)
     }
+}
+extension NewReportCoordinator: LightboxControllerPageDelegate {
+
+  func lightboxController(_ controller: LightboxController, didMoveToPage page: Int) {
+    print(page)
+  }
+}
+extension NewReportCoordinator: LightboxControllerDismissalDelegate {
+
+  func lightboxControllerWillDismiss(_ controller: LightboxController) {
+    // ...
+  }
 }

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Lightbox
+import LightboxV2
 
 protocol ReportCoordinatorDelegate: class {
     func coordinatorDidFinishViewingReport(_ coordinator: ReportCoordinator)

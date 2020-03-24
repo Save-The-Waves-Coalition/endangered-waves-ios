@@ -158,6 +158,9 @@ PODS:
     - abseil/base/base_internal
     - abseil/base/config
     - abseil/meta/type_traits
+  - Alamofire (5.0.5)
+  - AlamofireImage (4.0.3):
+    - Alamofire (< 6.0.0, >= 5.0.2)
   - AppAuth (1.3.0):
     - AppAuth/Core (= 1.3.0)
     - AppAuth/ExternalUserAgent (= 1.3.0)
@@ -169,7 +172,6 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.3):
     - BoringSSL-GRPC/Interface (= 0.0.3)
   - BoringSSL-GRPC/Interface (0.0.3)
-  - Cache (5.2.0)
   - Crashlytics (3.14.0):
     - Fabric (~> 1.10.2)
   - Fabric (1.10.2)
@@ -346,11 +348,9 @@ PODS:
   - GTMSessionFetcher/Core (1.3.1)
   - GTMSessionFetcher/Full (1.3.1):
     - GTMSessionFetcher/Core (= 1.3.1)
-  - Imaginary (4.2.0):
-    - Cache (~> 5.0)
   - leveldb-library (1.22)
-  - Lightbox (2.3.0):
-    - Imaginary (~> 4.0)
+  - LightboxV2 (2.5.3):
+    - AlamofireImage (~> 4.0.0-beta.5)
   - LocationPickerViewController (3.4)
   - nanopb (0.3.9011):
     - nanopb/decode (= 0.3.9011)
@@ -369,7 +369,7 @@ DEPENDENCIES:
   - Fabric
   - Firebase
   - FirebaseUI
-  - Lightbox (~> 2.1)
+  - LightboxV2
   - LocationPickerViewController (from `https://github.com/zhuorantan/LocationPicker.git`, commit `15d9bae350e8ffd6bf3640afc423a8350ea2b523`)
   - SVProgressHUD (~> 2.2)
   - SwiftLint
@@ -377,9 +377,10 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - abseil
+    - Alamofire
+    - AlamofireImage
     - AppAuth
     - BoringSSL-GRPC
-    - Cache
     - Crashlytics
     - Fabric
     - FBSDKCoreKit
@@ -405,9 +406,8 @@ SPEC REPOS:
     - gRPC-Core
     - GTMAppAuth
     - GTMSessionFetcher
-    - Imaginary
     - leveldb-library
-    - Lightbox
+    - LightboxV2
     - nanopb
     - PromisesObjC
     - SDWebImage
@@ -426,9 +426,10 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
+  Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
+  AlamofireImage: 3d1a2010519e58675318735580eb856e88840ff7
   AppAuth: 73574f3013a1e65b9601a3ddc8b3158cce68c09d
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
-  Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
   Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
   FBSDKCoreKit: 1d5acf7c9d7a2f92bb1a242dc60cae5b7adb91df
@@ -454,9 +455,8 @@ SPEC CHECKSUMS:
   gRPC-Core: c9aef9a261a1247e881b18059b84d597293c9947
   GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
   GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
-  Imaginary: dae33d06dbc2ada22f98afef5eb45cc061311a2c
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
-  Lightbox: d317750e4132bfb871a5307cfe0a2c7d6a583c65
+  LightboxV2: 805d276b5d99ba6e0ec5c9792823193040c98551
   LocationPickerViewController: 63c1156c81fa0d65a54c948e99ea98fd61cd9899
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
@@ -464,6 +464,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
 
-PODFILE CHECKSUM: 2478b42d53848bbd5a0c9dc04462c00cd82957fe
+PODFILE CHECKSUM: 87584438ab9902750f46c2b5a4edd1296d564f81
 
 COCOAPODS: 1.9.1
