@@ -45,6 +45,56 @@
 		4A321AA21FB7AB17001DA08A /* ReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321AA11FB7AB17001DA08A /* ReportDetailViewController.swift */; };
 		4A321AC61FB8EF17001DA08A /* ReportMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321AC51FB8EF17001DA08A /* ReportMapAnnotation.swift */; };
 		4A321AC81FB9131D001DA08A /* ReportDetailNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321AC71FB9131D001DA08A /* ReportDetailNavViewController.swift */; };
+		4A47A746242A58230052CA2C /* CameraMan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A728242A58230052CA2C /* CameraMan.swift */; };
+		4A47A747242A58230052CA2C /* CameraMan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A728242A58230052CA2C /* CameraMan.swift */; };
+		4A47A748242A58230052CA2C /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A729242A58230052CA2C /* CameraView.swift */; };
+		4A47A749242A58230052CA2C /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A729242A58230052CA2C /* CameraView.swift */; };
+		4A47A74A242A58230052CA2C /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A72A242A58230052CA2C /* ImagePickerController.swift */; };
+		4A47A74B242A58230052CA2C /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A72A242A58230052CA2C /* ImagePickerController.swift */; };
+		4A47A74C242A58230052CA2C /* selectedImageGallery@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A47A72C242A58230052CA2C /* selectedImageGallery@3x.png */; };
+		4A47A74D242A58230052CA2C /* selectedImageGallery@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A47A72C242A58230052CA2C /* selectedImageGallery@3x.png */; };
+		4A47A74E242A58230052CA2C /* focusIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A47A72D242A58230052CA2C /* focusIcon@3x.png */; };
+		4A47A74F242A58230052CA2C /* focusIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A47A72D242A58230052CA2C /* focusIcon@3x.png */; };
+		4A47A750242A58230052CA2C /* ON@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A47A72E242A58230052CA2C /* ON@3x.png */; };
+		4A47A751242A58230052CA2C /* ON@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A47A72E242A58230052CA2C /* ON@3x.png */; };
+		4A47A752242A58230052CA2C /* OFF@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A47A72F242A58230052CA2C /* OFF@3x.png */; };
+		4A47A753242A58230052CA2C /* OFF@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A47A72F242A58230052CA2C /* OFF@3x.png */; };
+		4A47A754242A58230052CA2C /* AUTO@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A47A730242A58230052CA2C /* AUTO@3x.png */; };
+		4A47A755242A58230052CA2C /* AUTO@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A47A730242A58230052CA2C /* AUTO@3x.png */; };
+		4A47A756242A58230052CA2C /* video@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A47A731242A58230052CA2C /* video@3x.png */; };
+		4A47A757242A58230052CA2C /* video@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A47A731242A58230052CA2C /* video@3x.png */; };
+		4A47A758242A58230052CA2C /* cameraIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A47A732242A58230052CA2C /* cameraIcon@3x.png */; };
+		4A47A759242A58230052CA2C /* cameraIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A47A732242A58230052CA2C /* cameraIcon@3x.png */; };
+		4A47A75A242A58230052CA2C /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A734242A58230052CA2C /* TopView.swift */; };
+		4A47A75B242A58230052CA2C /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A734242A58230052CA2C /* TopView.swift */; };
+		4A47A75C242A58230052CA2C /* ConstraintsSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A736242A58230052CA2C /* ConstraintsSetup.swift */; };
+		4A47A75D242A58230052CA2C /* ConstraintsSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A736242A58230052CA2C /* ConstraintsSetup.swift */; };
+		4A47A75E242A58230052CA2C /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A738242A58230052CA2C /* StackView.swift */; };
+		4A47A75F242A58230052CA2C /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A738242A58230052CA2C /* StackView.swift */; };
+		4A47A760242A58230052CA2C /* ButtonPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A739242A58230052CA2C /* ButtonPicker.swift */; };
+		4A47A761242A58230052CA2C /* ButtonPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A739242A58230052CA2C /* ButtonPicker.swift */; };
+		4A47A762242A58230052CA2C /* ImageStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A73A242A58230052CA2C /* ImageStack.swift */; };
+		4A47A763242A58230052CA2C /* ImageStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A73A242A58230052CA2C /* ImageStack.swift */; };
+		4A47A764242A58230052CA2C /* BottomContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A73B242A58230052CA2C /* BottomContainerView.swift */; };
+		4A47A765242A58230052CA2C /* BottomContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A73B242A58230052CA2C /* BottomContainerView.swift */; };
+		4A47A766242A58230052CA2C /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A73C242A58230052CA2C /* AssetManager.swift */; };
+		4A47A767242A58230052CA2C /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A73C242A58230052CA2C /* AssetManager.swift */; };
+		4A47A768242A58230052CA2C /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A73D242A58230052CA2C /* Helper.swift */; };
+		4A47A769242A58230052CA2C /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A73D242A58230052CA2C /* Helper.swift */; };
+		4A47A76A242A58230052CA2C /* ImageGalleryViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A73F242A58230052CA2C /* ImageGalleryViewDataSource.swift */; };
+		4A47A76B242A58230052CA2C /* ImageGalleryViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A73F242A58230052CA2C /* ImageGalleryViewDataSource.swift */; };
+		4A47A76C242A58230052CA2C /* ImageGalleryLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A740242A58230052CA2C /* ImageGalleryLayout.swift */; };
+		4A47A76D242A58230052CA2C /* ImageGalleryLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A740242A58230052CA2C /* ImageGalleryLayout.swift */; };
+		4A47A76E242A58230052CA2C /* ImageGalleryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A741242A58230052CA2C /* ImageGalleryViewCell.swift */; };
+		4A47A76F242A58230052CA2C /* ImageGalleryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A741242A58230052CA2C /* ImageGalleryViewCell.swift */; };
+		4A47A770242A58230052CA2C /* ImageGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A742242A58230052CA2C /* ImageGalleryView.swift */; };
+		4A47A771242A58230052CA2C /* ImageGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A742242A58230052CA2C /* ImageGalleryView.swift */; };
+		4A47A772242A58230052CA2C /* VideoInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A743242A58230052CA2C /* VideoInfoView.swift */; };
+		4A47A773242A58230052CA2C /* VideoInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A743242A58230052CA2C /* VideoInfoView.swift */; };
+		4A47A774242A58230052CA2C /* LocationManagerImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A744242A58230052CA2C /* LocationManagerImagePicker.swift */; };
+		4A47A775242A58230052CA2C /* LocationManagerImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A744242A58230052CA2C /* LocationManagerImagePicker.swift */; };
+		4A47A776242A58230052CA2C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A745242A58230052CA2C /* Configuration.swift */; };
+		4A47A777242A58230052CA2C /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A47A745242A58230052CA2C /* Configuration.swift */; };
 		4A7704FB214D91C100EEB34E /* ReportEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7704FA214D91C100EEB34E /* ReportEntry.swift */; };
 		4A7704FC214D91C100EEB34E /* ReportEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7704FA214D91C100EEB34E /* ReportEntry.swift */; };
 		4A7F5B91205979C2003FA075 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A7F5B90205979C2003FA075 /* GoogleService-Info.plist */; };
@@ -198,6 +248,31 @@
 		4A321AA11FB7AB17001DA08A /* ReportDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailViewController.swift; sourceTree = "<group>"; };
 		4A321AC51FB8EF17001DA08A /* ReportMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportMapAnnotation.swift; sourceTree = "<group>"; };
 		4A321AC71FB9131D001DA08A /* ReportDetailNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailNavViewController.swift; sourceTree = "<group>"; };
+		4A47A728242A58230052CA2C /* CameraMan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraMan.swift; sourceTree = "<group>"; };
+		4A47A729242A58230052CA2C /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		4A47A72A242A58230052CA2C /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
+		4A47A72C242A58230052CA2C /* selectedImageGallery@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selectedImageGallery@3x.png"; sourceTree = "<group>"; };
+		4A47A72D242A58230052CA2C /* focusIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "focusIcon@3x.png"; sourceTree = "<group>"; };
+		4A47A72E242A58230052CA2C /* ON@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ON@3x.png"; sourceTree = "<group>"; };
+		4A47A72F242A58230052CA2C /* OFF@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OFF@3x.png"; sourceTree = "<group>"; };
+		4A47A730242A58230052CA2C /* AUTO@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AUTO@3x.png"; sourceTree = "<group>"; };
+		4A47A731242A58230052CA2C /* video@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video@3x.png"; sourceTree = "<group>"; };
+		4A47A732242A58230052CA2C /* cameraIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cameraIcon@3x.png"; sourceTree = "<group>"; };
+		4A47A734242A58230052CA2C /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		4A47A736242A58230052CA2C /* ConstraintsSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintsSetup.swift; sourceTree = "<group>"; };
+		4A47A738242A58230052CA2C /* StackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
+		4A47A739242A58230052CA2C /* ButtonPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonPicker.swift; sourceTree = "<group>"; };
+		4A47A73A242A58230052CA2C /* ImageStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStack.swift; sourceTree = "<group>"; };
+		4A47A73B242A58230052CA2C /* BottomContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomContainerView.swift; sourceTree = "<group>"; };
+		4A47A73C242A58230052CA2C /* AssetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetManager.swift; sourceTree = "<group>"; };
+		4A47A73D242A58230052CA2C /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		4A47A73F242A58230052CA2C /* ImageGalleryViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleryViewDataSource.swift; sourceTree = "<group>"; };
+		4A47A740242A58230052CA2C /* ImageGalleryLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleryLayout.swift; sourceTree = "<group>"; };
+		4A47A741242A58230052CA2C /* ImageGalleryViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleryViewCell.swift; sourceTree = "<group>"; };
+		4A47A742242A58230052CA2C /* ImageGalleryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageGalleryView.swift; sourceTree = "<group>"; };
+		4A47A743242A58230052CA2C /* VideoInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoInfoView.swift; sourceTree = "<group>"; };
+		4A47A744242A58230052CA2C /* LocationManagerImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManagerImagePicker.swift; sourceTree = "<group>"; };
+		4A47A745242A58230052CA2C /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		4A5931AF1FCC667E00CFBF19 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		4A7704FA214D91C100EEB34E /* ReportEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportEntry.swift; sourceTree = "<group>"; };
 		4A7F5B90205979C2003FA075 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -385,6 +460,86 @@
 			path = report;
 			sourceTree = "<group>";
 		};
+		4A47A726242A58230052CA2C /* image-picker */ = {
+			isa = PBXGroup;
+			children = (
+				4A47A727242A58230052CA2C /* CameraView */,
+				4A47A72A242A58230052CA2C /* ImagePickerController.swift */,
+				4A47A72B242A58230052CA2C /* Images */,
+				4A47A733242A58230052CA2C /* TopView */,
+				4A47A735242A58230052CA2C /* Extensions */,
+				4A47A737242A58230052CA2C /* BottomView */,
+				4A47A73C242A58230052CA2C /* AssetManager.swift */,
+				4A47A73D242A58230052CA2C /* Helper.swift */,
+				4A47A73E242A58230052CA2C /* ImageGallery */,
+				4A47A744242A58230052CA2C /* LocationManagerImagePicker.swift */,
+				4A47A745242A58230052CA2C /* Configuration.swift */,
+			);
+			path = "image-picker";
+			sourceTree = "<group>";
+		};
+		4A47A727242A58230052CA2C /* CameraView */ = {
+			isa = PBXGroup;
+			children = (
+				4A47A728242A58230052CA2C /* CameraMan.swift */,
+				4A47A729242A58230052CA2C /* CameraView.swift */,
+			);
+			path = CameraView;
+			sourceTree = "<group>";
+		};
+		4A47A72B242A58230052CA2C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				4A47A72C242A58230052CA2C /* selectedImageGallery@3x.png */,
+				4A47A72D242A58230052CA2C /* focusIcon@3x.png */,
+				4A47A72E242A58230052CA2C /* ON@3x.png */,
+				4A47A72F242A58230052CA2C /* OFF@3x.png */,
+				4A47A730242A58230052CA2C /* AUTO@3x.png */,
+				4A47A731242A58230052CA2C /* video@3x.png */,
+				4A47A732242A58230052CA2C /* cameraIcon@3x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		4A47A733242A58230052CA2C /* TopView */ = {
+			isa = PBXGroup;
+			children = (
+				4A47A734242A58230052CA2C /* TopView.swift */,
+			);
+			path = TopView;
+			sourceTree = "<group>";
+		};
+		4A47A735242A58230052CA2C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4A47A736242A58230052CA2C /* ConstraintsSetup.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4A47A737242A58230052CA2C /* BottomView */ = {
+			isa = PBXGroup;
+			children = (
+				4A47A738242A58230052CA2C /* StackView.swift */,
+				4A47A739242A58230052CA2C /* ButtonPicker.swift */,
+				4A47A73A242A58230052CA2C /* ImageStack.swift */,
+				4A47A73B242A58230052CA2C /* BottomContainerView.swift */,
+			);
+			path = BottomView;
+			sourceTree = "<group>";
+		};
+		4A47A73E242A58230052CA2C /* ImageGallery */ = {
+			isa = PBXGroup;
+			children = (
+				4A47A73F242A58230052CA2C /* ImageGalleryViewDataSource.swift */,
+				4A47A740242A58230052CA2C /* ImageGalleryLayout.swift */,
+				4A47A741242A58230052CA2C /* ImageGalleryViewCell.swift */,
+				4A47A742242A58230052CA2C /* ImageGalleryView.swift */,
+				4A47A743242A58230052CA2C /* VideoInfoView.swift */,
+			);
+			path = ImageGallery;
+			sourceTree = "<group>";
+		};
 		4A7704F9214D91A000EEB34E /* report-entry */ = {
 			isa = PBXGroup;
 			children = (
@@ -446,6 +601,7 @@
 				4A321A9E1FB7A847001DA08A /* report */,
 				4A321A971FB67E10001DA08A /* new-report */,
 				4A0ABE761FBE6EC9007B06B9 /* image-slider */,
+				4A47A726242A58230052CA2C /* image-picker */,
 				4A7FA9201FAA966300C6A2BB /* Assets.xcassets */,
 				4A7FA9221FAA966300C6A2BB /* LaunchScreen.storyboard */,
 				4A9578D31FBBAE5C0051837C /* fonts */,
@@ -615,9 +771,12 @@
 				4A0ABE701FBD2B4F007B06B9 /* SF-Pro-Display-Semibold.otf in Resources */,
 				4A9578D21FBBAE540051837C /* Brandon_blk.otf in Resources */,
 				4AB6AA8B1FC5D655001C36C2 /* ReportMapCalloutView.xib in Resources */,
+				4A47A752242A58230052CA2C /* OFF@3x.png in Resources */,
 				4AA85B951FBCA3CA009A72E8 /* Brandon_reg.otf in Resources */,
 				4AC528881FC4818A0084E442 /* information.storyboard in Resources */,
 				4A0ABE721FBD2D04007B06B9 /* Brandon_bld.otf in Resources */,
+				4A47A74C242A58230052CA2C /* selectedImageGallery@3x.png in Resources */,
+				4A47A74E242A58230052CA2C /* focusIcon@3x.png in Resources */,
 				4A119F672141A6CB006E75B5 /* competition.storyboard in Resources */,
 				4A0ABE7A1FBE6F15007B06B9 /* image-slider.storyboard in Resources */,
 				4A7FA9241FAA966300C6A2BB /* LaunchScreen.storyboard in Resources */,
@@ -626,9 +785,13 @@
 				4A321A8A1FB672A1001DA08A /* list.storyboard in Resources */,
 				4A321AA01FB7A85B001DA08A /* report.storyboard in Resources */,
 				4A7FA9211FAA966300C6A2BB /* Assets.xcassets in Resources */,
+				4A47A758242A58230052CA2C /* cameraIcon@3x.png in Resources */,
+				4A47A756242A58230052CA2C /* video@3x.png in Resources */,
 				4A321A861FB66ECC001DA08A /* container.storyboard in Resources */,
 				4A321A991FB67E50001DA08A /* new-report.storyboard in Resources */,
+				4A47A750242A58230052CA2C /* ON@3x.png in Resources */,
 				4A9578C31FBB45E50051837C /* onboarding.storyboard in Resources */,
+				4A47A754242A58230052CA2C /* AUTO@3x.png in Resources */,
 				4A00E12E1FD4A12200E4CEA4 /* GothamSSm-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -640,9 +803,12 @@
 				8774074E2048B9DA00ED36F1 /* SF-Pro-Display-Semibold.otf in Resources */,
 				8774074F2048B9DA00ED36F1 /* Brandon_blk.otf in Resources */,
 				877407502048B9DA00ED36F1 /* ReportMapCalloutView.xib in Resources */,
+				4A47A753242A58230052CA2C /* OFF@3x.png in Resources */,
 				877407512048B9DA00ED36F1 /* Brandon_reg.otf in Resources */,
 				877407522048B9DA00ED36F1 /* information.storyboard in Resources */,
 				877407532048B9DA00ED36F1 /* Brandon_bld.otf in Resources */,
+				4A47A74D242A58230052CA2C /* selectedImageGallery@3x.png in Resources */,
+				4A47A74F242A58230052CA2C /* focusIcon@3x.png in Resources */,
 				4A119F682141A6CB006E75B5 /* competition.storyboard in Resources */,
 				877407542048B9DA00ED36F1 /* image-slider.storyboard in Resources */,
 				877407552048B9DA00ED36F1 /* LaunchScreen.storyboard in Resources */,
@@ -651,9 +817,13 @@
 				877407592048B9DA00ED36F1 /* report.storyboard in Resources */,
 				8774075A2048B9DA00ED36F1 /* Assets.xcassets in Resources */,
 				4A7F5B91205979C2003FA075 /* GoogleService-Info.plist in Resources */,
+				4A47A759242A58230052CA2C /* cameraIcon@3x.png in Resources */,
+				4A47A757242A58230052CA2C /* video@3x.png in Resources */,
 				8774075B2048B9DA00ED36F1 /* container.storyboard in Resources */,
 				8774075C2048B9DA00ED36F1 /* new-report.storyboard in Resources */,
+				4A47A751242A58230052CA2C /* ON@3x.png in Resources */,
 				8774075D2048B9DA00ED36F1 /* onboarding.storyboard in Resources */,
+				4A47A755242A58230052CA2C /* AUTO@3x.png in Resources */,
 				8774075E2048B9DA00ED36F1 /* GothamSSm-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -794,7 +964,6 @@
 				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/Imaginary/Imaginary.framework",
 				"${BUILT_PRODUCTS_DIR}/Lightbox/Lightbox.framework",
 				"${BUILT_PRODUCTS_DIR}/LocationPickerViewController/LocationPickerViewController.framework",
@@ -817,7 +986,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMAppAuth.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Imaginary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lightbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LocationPickerViewController.framework",
@@ -872,7 +1040,6 @@
 				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/Imaginary/Imaginary.framework",
 				"${BUILT_PRODUCTS_DIR}/Lightbox/Lightbox.framework",
 				"${BUILT_PRODUCTS_DIR}/LocationPickerViewController/LocationPickerViewController.framework",
@@ -895,7 +1062,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMAppAuth.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Imaginary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lightbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LocationPickerViewController.framework",
@@ -954,21 +1120,27 @@
 			files = (
 				4AC5288F1FC4839B0084E442 /* InformationNavController.swift in Sources */,
 				4A321A9D1FB79169001DA08A /* Report.swift in Sources */,
+				4A47A76A242A58230052CA2C /* ImageGalleryViewDataSource.swift in Sources */,
 				4A0ABE751FBE6E2F007B06B9 /* ImageSliderViewController.swift in Sources */,
 				4ABD25DD214322BF00F7706B /* PSPDFTouchForwardingView.swift in Sources */,
+				4A47A766242A58230052CA2C /* AssetManager.swift in Sources */,
 				4AF232A51FB0CA8900ADA075 /* NewReportViewController.swift in Sources */,
 				4A29878B1FCA2D3E0061B401 /* ImageDownloadManager.swift in Sources */,
 				4A30279A1FBFABC600F5D87D /* UIViewController+Keyboard.swift in Sources */,
 				4A7704FB214D91C100EEB34E /* ReportEntry.swift in Sources */,
+				4A47A75C242A58230052CA2C /* ConstraintsSetup.swift in Sources */,
 				4A8B6A7B1FC3423D005A5989 /* NavigationBar.swift in Sources */,
 				4A2987871FC9F4A50061B401 /* ReportCoordinator.swift in Sources */,
 				4A321A901FB67C1F001DA08A /* ReportsMapViewController.swift in Sources */,
+				4A47A774242A58230052CA2C /* LocationManagerImagePicker.swift in Sources */,
 				4A321AC61FB8EF17001DA08A /* ReportMapAnnotation.swift in Sources */,
+				4A47A748242A58230052CA2C /* CameraView.swift in Sources */,
 				4A0ABE781FBE6EF4007B06B9 /* ImageViewController.swift in Sources */,
 				4A0ABE7D1FBF48B0007B06B9 /* Style.swift in Sources */,
 				4A119F6A2141A71A006E75B5 /* CompetitionViewController.swift in Sources */,
 				4A9578D01FBB9DC30051837C /* Coordinator.swift in Sources */,
 				4A119F5E2141998F006E75B5 /* Competition.swift in Sources */,
+				4A47A75A242A58230052CA2C /* TopView.swift in Sources */,
 				4A1C34601FC604F200D94684 /* ReportMapCalloutView.swift in Sources */,
 				4A9578CA1FBB4FF20051837C /* AppCoordinator.swift in Sources */,
 				8774078E2048D98700ED36F1 /* Constants.swift in Sources */,
@@ -978,29 +1150,41 @@
 				4A2987811FC74B2A0061B401 /* LocationManager.swift in Sources */,
 				4A8987681FAE0B4E0098E473 /* ReportsTableViewController.swift in Sources */,
 				4ABD25E12146A29800F7706B /* StringExtensions.swift in Sources */,
+				4A47A762242A58230052CA2C /* ImageStack.swift in Sources */,
 				4A119F612141A198006E75B5 /* DateExtensions.swift in Sources */,
+				4A47A746242A58230052CA2C /* CameraMan.swift in Sources */,
 				4A9578CE1FBB98CE0051837C /* ContainerCoordinator.swift in Sources */,
 				8772FEE62044CCB6007F2E75 /* ReportDetailMapViewController.swift in Sources */,
+				4A47A74A242A58230052CA2C /* ImagePickerController.swift in Sources */,
+				4A47A75E242A58230052CA2C /* StackView.swift in Sources */,
 				4A321AC81FB9131D001DA08A /* ReportDetailNavViewController.swift in Sources */,
+				4A47A764242A58230052CA2C /* BottomContainerView.swift in Sources */,
 				4A321AA21FB7AB17001DA08A /* ReportDetailViewController.swift in Sources */,
 				4A7FA91A1FAA966300C6A2BB /* AppDelegate.swift in Sources */,
 				4A9578C61FBB465A0051837C /* OnboardingViewController.swift in Sources */,
+				4A47A776242A58230052CA2C /* Configuration.swift in Sources */,
 				8774078C2048D39900ED36F1 /* UserDefaultsHandler.swift in Sources */,
 				4A2987891FCA08FC0061B401 /* ReportMapAnnotationView.swift in Sources */,
 				4A2987851FC9E22A0061B401 /* ContainerNavViewController.swift in Sources */,
 				4A0ABE811FC24587007B06B9 /* APIManager.swift in Sources */,
 				4A8B6A791FC3421C005A5989 /* NSObjectExtensions.swift in Sources */,
+				4A47A768242A58230052CA2C /* Helper.swift in Sources */,
 				4AC5288B1FC482110084E442 /* InformationCoordinator.swift in Sources */,
 				4A321A8C1FB67308001DA08A /* StoryboardInstantiable.swift in Sources */,
 				4AA85B931FBBD61D009A72E8 /* NewReportNavViewController.swift in Sources */,
+				4A47A772242A58230052CA2C /* VideoInfoView.swift in Sources */,
 				4A00E12C1FCF9D1F00E4CEA4 /* UIActivities.swift in Sources */,
 				4ADAE8DA1FB20D6B00DAAFFD /* ContainerViewController.swift in Sources */,
+				4A47A76C242A58230052CA2C /* ImageGalleryLayout.swift in Sources */,
 				8719337020488544000DD493 /* Extensions.swift in Sources */,
 				4A119F642141A58D006E75B5 /* CompetitionCoordinator.swift in Sources */,
 				4AF232A31FB0C46500ADA075 /* ReportsTableViewCell.swift in Sources */,
+				4A47A76E242A58230052CA2C /* ImageGalleryViewCell.swift in Sources */,
 				4A9578C81FBB4F970051837C /* OnboardingCoordinator.swift in Sources */,
 				4A0ABE7F1FBF574F007B06B9 /* STWButton.swift in Sources */,
 				4AC5288D1FC482900084E442 /* InformationViewController.swift in Sources */,
+				4A47A760242A58230052CA2C /* ButtonPicker.swift in Sources */,
+				4A47A770242A58230052CA2C /* ImageGalleryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1010,21 +1194,27 @@
 			files = (
 				8774071C2048B9DA00ED36F1 /* InformationNavController.swift in Sources */,
 				8774071D2048B9DA00ED36F1 /* Report.swift in Sources */,
+				4A47A76B242A58230052CA2C /* ImageGalleryViewDataSource.swift in Sources */,
 				8774071E2048B9DA00ED36F1 /* ImageSliderViewController.swift in Sources */,
 				4ABD25DE214322BF00F7706B /* PSPDFTouchForwardingView.swift in Sources */,
+				4A47A767242A58230052CA2C /* AssetManager.swift in Sources */,
 				8774071F2048B9DA00ED36F1 /* NewReportViewController.swift in Sources */,
 				877407202048B9DA00ED36F1 /* ImageDownloadManager.swift in Sources */,
 				4A7F5B9420597B13003FA075 /* UserDefaultsHandler.swift in Sources */,
 				4A7704FC214D91C100EEB34E /* ReportEntry.swift in Sources */,
+				4A47A75D242A58230052CA2C /* ConstraintsSetup.swift in Sources */,
 				877407212048B9DA00ED36F1 /* UIViewController+Keyboard.swift in Sources */,
 				877407222048B9DA00ED36F1 /* NavigationBar.swift in Sources */,
 				877407232048B9DA00ED36F1 /* ReportCoordinator.swift in Sources */,
+				4A47A775242A58230052CA2C /* LocationManagerImagePicker.swift in Sources */,
 				877407242048B9DA00ED36F1 /* ReportsMapViewController.swift in Sources */,
+				4A47A749242A58230052CA2C /* CameraView.swift in Sources */,
 				877407252048B9DA00ED36F1 /* ReportMapAnnotation.swift in Sources */,
 				4A7F5B9520597B2C003FA075 /* Constants.swift in Sources */,
 				4A119F6B2141A71A006E75B5 /* CompetitionViewController.swift in Sources */,
 				877407262048B9DA00ED36F1 /* ImageViewController.swift in Sources */,
 				4A119F5F2141998F006E75B5 /* Competition.swift in Sources */,
+				4A47A75B242A58230052CA2C /* TopView.swift in Sources */,
 				877407272048B9DA00ED36F1 /* Style.swift in Sources */,
 				877407282048B9DA00ED36F1 /* Coordinator.swift in Sources */,
 				877407292048B9DA00ED36F1 /* ReportMapCalloutView.swift in Sources */,
@@ -1034,29 +1224,41 @@
 				8774072D2048B9DA00ED36F1 /* NavigationViewController.swift in Sources */,
 				8774072E2048B9DA00ED36F1 /* LocationManager.swift in Sources */,
 				4ABD25E22146A29800F7706B /* StringExtensions.swift in Sources */,
+				4A47A763242A58230052CA2C /* ImageStack.swift in Sources */,
 				4A119F622141A198006E75B5 /* DateExtensions.swift in Sources */,
+				4A47A747242A58230052CA2C /* CameraMan.swift in Sources */,
 				8774072F2048B9DA00ED36F1 /* ReportsTableViewController.swift in Sources */,
 				877407302048B9DA00ED36F1 /* ContainerCoordinator.swift in Sources */,
+				4A47A74B242A58230052CA2C /* ImagePickerController.swift in Sources */,
+				4A47A75F242A58230052CA2C /* StackView.swift in Sources */,
 				4A7F5B9220597ABA003FA075 /* ReportDetailMapViewController.swift in Sources */,
+				4A47A765242A58230052CA2C /* BottomContainerView.swift in Sources */,
 				877407312048B9DA00ED36F1 /* ReportDetailNavViewController.swift in Sources */,
 				877407322048B9DA00ED36F1 /* ReportDetailViewController.swift in Sources */,
 				877407332048B9DA00ED36F1 /* AppDelegate.swift in Sources */,
+				4A47A777242A58230052CA2C /* Configuration.swift in Sources */,
 				877407342048B9DA00ED36F1 /* OnboardingViewController.swift in Sources */,
 				877407352048B9DA00ED36F1 /* ReportMapAnnotationView.swift in Sources */,
 				877407362048B9DA00ED36F1 /* ContainerNavViewController.swift in Sources */,
 				877407372048B9DA00ED36F1 /* APIManager.swift in Sources */,
 				877407382048B9DA00ED36F1 /* NSObjectExtensions.swift in Sources */,
+				4A47A769242A58230052CA2C /* Helper.swift in Sources */,
 				877407392048B9DA00ED36F1 /* InformationCoordinator.swift in Sources */,
 				8774073A2048B9DA00ED36F1 /* StoryboardInstantiable.swift in Sources */,
 				8774073B2048B9DA00ED36F1 /* NewReportNavViewController.swift in Sources */,
+				4A47A773242A58230052CA2C /* VideoInfoView.swift in Sources */,
 				8774073C2048B9DA00ED36F1 /* UIActivities.swift in Sources */,
 				8774073D2048B9DA00ED36F1 /* ContainerViewController.swift in Sources */,
+				4A47A76D242A58230052CA2C /* ImageGalleryLayout.swift in Sources */,
 				4A7F5B9320597AE1003FA075 /* Extensions.swift in Sources */,
 				4A119F652141A58D006E75B5 /* CompetitionCoordinator.swift in Sources */,
 				8774073E2048B9DA00ED36F1 /* ReportsTableViewCell.swift in Sources */,
+				4A47A76F242A58230052CA2C /* ImageGalleryViewCell.swift in Sources */,
 				8774073F2048B9DA00ED36F1 /* OnboardingCoordinator.swift in Sources */,
 				877407402048B9DA00ED36F1 /* STWButton.swift in Sources */,
 				877407412048B9DA00ED36F1 /* InformationViewController.swift in Sources */,
+				4A47A761242A58230052CA2C /* ButtonPicker.swift in Sources */,
+				4A47A771242A58230052CA2C /* ImageGalleryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

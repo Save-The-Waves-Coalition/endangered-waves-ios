@@ -93,7 +93,7 @@ class CameraView: UIViewController, CLLocationManagerDelegate, CameraManDelegate
   var previewLayer: AVCaptureVideoPreviewLayer?
   weak var delegate: CameraViewDelegate?
   var animationTimer: Timer?
-  var locationManager: LocationManager?
+  var locationManager: LocationManagerImagePicker?
   var startOnFrontCamera: Bool = false
 
   private let minimumZoomFactor: CGFloat = 1.0
@@ -117,7 +117,7 @@ class CameraView: UIViewController, CLLocationManagerDelegate, CameraManDelegate
     super.viewDidLoad()
 
     if configuration.recordLocation {
-      locationManager = LocationManager()
+      locationManager = LocationManagerImagePicker()
     }
 
     view.backgroundColor = configuration.mainColor
@@ -228,8 +228,8 @@ class CameraView: UIViewController, CLLocationManagerDelegate, CameraManDelegate
     })
 
     cameraMan.takePhoto(previewLayer, location: locationManager?.latestLocation) {
-      completion()
-      self.delegate?.imageToLibrary()
+        completion()
+        self.delegate?.imageToLibrary()
     }
   }
 
