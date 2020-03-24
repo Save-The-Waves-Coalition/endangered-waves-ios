@@ -90,7 +90,6 @@ open class ImagePickerController: UIViewController {
   }
 
   // MARK: - Initialization
-
   @objc public required init(configuration: Configuration = Configuration()) {
     self.configuration = configuration
     super.init(nibName: nil, bundle: nil)
@@ -100,14 +99,13 @@ open class ImagePickerController: UIViewController {
     self.configuration = Configuration()
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
   }
-  
+
   public required init?(coder aDecoder: NSCoder) {
     self.configuration = Configuration()
     super.init(coder: aDecoder)
   }
 
   // MARK: - View lifecycle
-
   open override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -162,7 +160,7 @@ open class ImagePickerController: UIViewController {
     applyOrientationTransforms()
 
     UIAccessibility.post(notification: UIAccessibility.Notification.screenChanged,
-                         argument: bottomContainer);
+                         argument: bottomContainer)
   }
 
   open func resetAssets() {
@@ -187,11 +185,12 @@ open class ImagePickerController: UIViewController {
   }
 
   func presentAskPermissionAlert() {
-    let alertController = UIAlertController(title: configuration.requestPermissionTitle, message: configuration.requestPermissionMessage, preferredStyle: .alert)
+    let alertController = UIAlertController(title: configuration.requestPermissionTitle,
+                                            message: configuration.requestPermissionMessage, preferredStyle: .alert)
 
     let alertAction = UIAlertAction(title: configuration.OKButtonTitle, style: .default) { _ in
       if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
-        UIApplication.shared.openURL(settingsURL)
+        UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
       }
     }
 
@@ -215,7 +214,6 @@ open class ImagePickerController: UIViewController {
   }
 
   // MARK: - Notifications
-
   deinit {
     if configuration.managesAudioSession {
       _ = try? AVAudioSession.sharedInstance().setActive(false)
@@ -234,7 +232,7 @@ open class ImagePickerController: UIViewController {
       selector: #selector(adjustButtonTitle(_:)),
       name: NSNotification.Name(rawValue: ImageStack.Notifications.imageDidDrop),
       object: nil)
-    
+
     NotificationCenter.default.addObserver(self,
                                            selector: #selector(dismissIfNeeded),
                                            name: NSNotification.Name(rawValue: ImageStack.Notifications.imageDidDrop),
@@ -266,7 +264,8 @@ open class ImagePickerController: UIViewController {
     guard configuration.allowVolumeButtonsToTakePicture,
       let slider = volumeView.subviews.filter({ $0 is UISlider }).first as? UISlider,
       let userInfo = (notification as NSNotification).userInfo,
-      let changeReason = userInfo["AVSystemController_AudioVolumeChangeReasonNotificationParameter"] as? String, changeReason == "ExplicitVolumeChange" else { return }
+      let changeReason = userInfo["AVSystemController_AudioVolumeChangeReasonNotificationParameter"] as? String,
+        changeReason == "ExplicitVolumeChange" else { return }
 
     slider.setValue(volume, animated: false)
     takePicture()
@@ -279,7 +278,7 @@ open class ImagePickerController: UIViewController {
       configuration.doneButtonTitle : configuration.cancelButtonTitle
     bottomContainer.doneButton.setTitle(title, for: UIControl.State())
   }
-  
+
   @objc func dismissIfNeeded() {
     // If only one image is requested and a push occures, automatically dismiss the ImagePicker
     if imageLimit == 1 {
@@ -288,7 +287,6 @@ open class ImagePickerController: UIViewController {
   }
 
   // MARK: - Helpers
-
   open override var prefersStatusBarHidden: Bool {
     return statusBarHidden
   }
@@ -319,7 +317,8 @@ open class ImagePickerController: UIViewController {
     UIView.animate(withDuration: 0.3, animations: {
       self.updateGalleryViewFrames(GestureConstants.maximumHeight)
 
-      let scale = (GestureConstants.maximumHeight - ImageGalleryView.Dimensions.galleryBarHeight) / (GestureConstants.minimumHeight - ImageGalleryView.Dimensions.galleryBarHeight)
+      let scale = (GestureConstants.maximumHeight - ImageGalleryView.Dimensions.galleryBarHeight) /
+        (GestureConstants.minimumHeight - ImageGalleryView.Dimensions.galleryBarHeight)
       self.galleryView.collectionView.transform = CGAffineTransform(scaleX: scale, y: scale)
 
       let value = self.view.frame.width * (scale - 1) / scale
@@ -363,7 +362,6 @@ open class ImagePickerController: UIViewController {
 }
 
 // MARK: - Action methods
-
 extension ImagePickerController: BottomContainerViewDelegate {
 
   func pickerButtonDidPress() {
@@ -433,7 +431,6 @@ extension ImagePickerController: CameraViewDelegate {
   }
 
   // MARK: - Rotation
-
   open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
     return .portrait
   }
@@ -466,7 +463,6 @@ extension ImagePickerController: CameraViewDelegate {
 }
 
 // MARK: - TopView delegate methods
-
 extension ImagePickerController: TopViewDelegate {
 
   func flashButtonDidPress(_ title: String) {
@@ -479,7 +475,6 @@ extension ImagePickerController: TopViewDelegate {
 }
 
 // MARK: - Pan gesture handler
-
 extension ImagePickerController: ImageGalleryPanGestureDelegate {
 
   func panGestureDidStart() {
@@ -513,7 +508,8 @@ extension ImagePickerController: ImageGalleryPanGestureDelegate {
     if galleryHeight <= ImageGalleryView.Dimensions.galleryBarHeight {
       updateGalleryViewFrames(ImageGalleryView.Dimensions.galleryBarHeight)
     } else if galleryHeight >= GestureConstants.minimumHeight {
-      let scale = (galleryHeight - ImageGalleryView.Dimensions.galleryBarHeight) / (GestureConstants.minimumHeight - ImageGalleryView.Dimensions.galleryBarHeight)
+      let scale = (galleryHeight - ImageGalleryView.Dimensions.galleryBarHeight) /
+        (GestureConstants.minimumHeight - ImageGalleryView.Dimensions.galleryBarHeight)
       galleryView.collectionView.transform = CGAffineTransform(scaleX: scale, y: scale)
       galleryView.frame.origin.y = initialFrame.origin.y + translation.y
       galleryView.frame.size.height = initialFrame.height - translation.y

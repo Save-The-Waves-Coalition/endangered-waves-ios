@@ -233,7 +233,8 @@ class CameraMan {
 
   func configurePreset(_ input: AVCaptureDeviceInput) {
     for asset in preferredPresets() {
-      if input.device.supportsSessionPreset(AVCaptureSession.Preset(rawValue: asset)) && self.session.canSetSessionPreset(AVCaptureSession.Preset(rawValue: asset)) {
+      if input.device.supportsSessionPreset(AVCaptureSession.Preset(rawValue: asset)) &&
+          self.session.canSetSessionPreset(AVCaptureSession.Preset(rawValue: asset)) {
         self.session.sessionPreset = AVCaptureSession.Preset(rawValue: asset)
         return
       }
