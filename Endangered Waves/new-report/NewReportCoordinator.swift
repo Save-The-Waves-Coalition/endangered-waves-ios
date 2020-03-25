@@ -301,8 +301,9 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
     } // func
 
     func viewController(_ viewController: NewReportViewController, didTapAddButton button: UIButton) {
-        let viewController = imagePickerController
-        viewController.present(viewController, animated: true, completion: nil)
+        let imagePickerViewController = imagePickerController
+        imagePickerViewController.modalPresentationStyle = .fullScreen
+        viewController.present(imagePickerViewController, animated: true, completion: nil)
     }
 }
 
