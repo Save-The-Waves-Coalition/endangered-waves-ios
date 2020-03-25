@@ -312,6 +312,14 @@ extension NewReportCoordinator: UIAdaptivePresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         stop()
     }
+    func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
+        if case let reportDescription?.count >= 1 {
+            print(reportDescription.count)
+        }
+          // 2) if yes, show action sheet
+          // 3) if no, just dismiss, return True
+//          return false
+    }
 }
 
 // MARK: Error Handling
