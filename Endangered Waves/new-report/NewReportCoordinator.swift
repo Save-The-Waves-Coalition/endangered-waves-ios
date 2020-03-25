@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Lightbox
 import LocationPickerViewController
 import FirebaseStorage
 import FirebaseFirestore
@@ -81,6 +80,7 @@ class NewReportCoordinator: Coordinator {
             topVC.delegate = self
             topVC.images = images
             topVC.competition = competition
+            navVC.presentationController?.delegate = self
             rootViewController.present(navVC, animated: true, completion: nil)
         }
     }
@@ -129,13 +129,24 @@ extension NewReportCoordinator {
         let lightbox = LightboxController(images: lightboxImages, startIndex: index)
         return lightbox
     }
+
+    func lightboxWithNavigationViewControllerForImages(_ images: [UIImage], withStartIndex index: Int) -> UINavigationController? {
+        if let lightbox = lightboxForImages(images, withStartIndex: index) {
+            let navigationViewController = NavigationViewController(rootViewController: lightbox)
+            navigationViewController.isNavigationBarHidden = true
+            navigationViewController.modalPresentationStyle = .fullScreen
+            lightbox.dynamicBackground = true
+            return navigationViewController
+        }
+        return nil
+    }
 }
 
 // MARK: 📸 ImagePickerDelegate
 extension NewReportCoordinator: ImagePickerDelegate {
     func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        if let lightbox = lightboxForImages(images, withStartIndex: 0) {
-            imagePicker.present(lightbox, animated: true, completion: nil)
+        if let lightboxNavigationController = lightboxWithNavigationViewControllerForImages(images, withStartIndex: 0) {
+            imagePicker.present(lightboxNavigationController, animated: true, completion: nil)
         }
     }
 
@@ -200,8 +211,8 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
     }
 
     func viewController(_ viewController: NewReportViewController, didTapImageAtIndex index: Int) {
-        if let images = images, let lightbox = lightboxForImages(images, withStartIndex: index) {
-            viewController.present(lightbox, animated: true, completion: nil)
+        if let images = images, let lightboxNavigationController = lightboxWithNavigationViewControllerForImages(images, withStartIndex: index) {
+            viewController.present(lightboxNavigationController, animated: true, completion: nil)
         }
     }
 
@@ -291,11 +302,18 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
 
     func viewController(_ viewController: NewReportViewController, didTapAddButton button: UIButton) {
         let viewController = imagePickerController
-        viewController.modalPresentationStyle = .fullScreen
         viewController.present(viewController, animated: true, completion: nil)
     }
 }
 
+// MARK: UIAdaptivePresentationControllerDelegate
+extension NewReportCoordinator: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        stop()
+    }
+}
+
+// MARK: Error Handling
 extension NewReportCoordinator {
     func showValidationError(title: String, message: String, withViewController viewController: UIViewController) {
         let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .alert)

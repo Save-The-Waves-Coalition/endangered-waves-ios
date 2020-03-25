@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Lightbox
 
 protocol ReportCoordinatorDelegate: class {
     func coordinatorDidFinishViewingReport(_ coordinator: ReportCoordinator)
@@ -39,7 +38,7 @@ class ReportCoordinator: Coordinator {
     }
 
     func showLightboxComponentWithImages(_ images: [UIImage], atIndex index: Int) {
-        if let viewController = lightboxForImages(images, withStartIndex: index) {
+        if let viewController = lightboxWithNavigationViewControllerForImages(images, withStartIndex: index) {
             rootViewController.present(viewController, animated: true, completion: nil)
         }
     }
@@ -76,5 +75,16 @@ extension ReportCoordinator {
 
         let lightbox = LightboxController(images: lightboxImages, startIndex: index)
         return lightbox
+    }
+
+    func lightboxWithNavigationViewControllerForImages(_ images: [UIImage], withStartIndex index: Int) -> UINavigationController? {
+        if let lightbox = lightboxForImages(images, withStartIndex: index) {
+            let navigationViewController = NavigationViewController(rootViewController: lightbox)
+            navigationViewController.isNavigationBarHidden = true
+            navigationViewController.modalPresentationStyle = .fullScreen
+            lightbox.dynamicBackground = true
+            return navigationViewController
+        }
+        return nil
     }
 }

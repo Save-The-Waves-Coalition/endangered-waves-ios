@@ -131,6 +131,36 @@
 		4AC5288D1FC482900084E442 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC5288C1FC482900084E442 /* InformationViewController.swift */; };
 		4AC5288F1FC4839B0084E442 /* InformationNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC5288E1FC4839B0084E442 /* InformationNavController.swift */; };
 		4ADAE8DA1FB20D6B00DAAFFD /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADAE8D91FB20D6B00DAAFFD /* ContainerViewController.swift */; };
+		4AE137CD242BB0F200107085 /* LightboxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137BD242BB0F200107085 /* LightboxController.swift */; };
+		4AE137CE242BB0F200107085 /* LightboxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137BD242BB0F200107085 /* LightboxController.swift */; };
+		4AE137CF242BB0F200107085 /* LayoutConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137BF242BB0F200107085 /* LayoutConfigurable.swift */; };
+		4AE137D0242BB0F200107085 /* LayoutConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137BF242BB0F200107085 /* LayoutConfigurable.swift */; };
+		4AE137D1242BB0F200107085 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137C0242BB0F200107085 /* UIView+Gradient.swift */; };
+		4AE137D2242BB0F200107085 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137C0242BB0F200107085 /* UIView+Gradient.swift */; };
+		4AE137D3242BB0F200107085 /* LightboxTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137C1242BB0F200107085 /* LightboxTransition.swift */; };
+		4AE137D4242BB0F200107085 /* LightboxTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137C1242BB0F200107085 /* LightboxTransition.swift */; };
+		4AE137D5242BB0F200107085 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137C2242BB0F200107085 /* Color+Extensions.swift */; };
+		4AE137D6242BB0F200107085 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137C2242BB0F200107085 /* Color+Extensions.swift */; };
+		4AE137D7242BB0F200107085 /* LightboxImageStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137C3242BB0F200107085 /* LightboxImageStub.swift */; };
+		4AE137D8242BB0F200107085 /* LightboxImageStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137C3242BB0F200107085 /* LightboxImageStub.swift */; };
+		4AE137D9242BB0F200107085 /* LightboxConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137C4242BB0F200107085 /* LightboxConfig.swift */; };
+		4AE137DA242BB0F200107085 /* LightboxConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137C4242BB0F200107085 /* LightboxConfig.swift */; };
+		4AE137DB242BB0F200107085 /* AssetManagerLightbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137C5242BB0F200107085 /* AssetManagerLightbox.swift */; };
+		4AE137DC242BB0F200107085 /* AssetManagerLightbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137C5242BB0F200107085 /* AssetManagerLightbox.swift */; };
+		4AE137DD242BB0F200107085 /* LightboxImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137C6242BB0F200107085 /* LightboxImage.swift */; };
+		4AE137DE242BB0F200107085 /* LightboxImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137C6242BB0F200107085 /* LightboxImage.swift */; };
+		4AE137DF242BB0F200107085 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137C8242BB0F200107085 /* FooterView.swift */; };
+		4AE137E0242BB0F200107085 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137C8242BB0F200107085 /* FooterView.swift */; };
+		4AE137E1242BB0F200107085 /* InfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137C9242BB0F200107085 /* InfoLabel.swift */; };
+		4AE137E2242BB0F200107085 /* InfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137C9242BB0F200107085 /* InfoLabel.swift */; };
+		4AE137E3242BB0F200107085 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137CA242BB0F200107085 /* HeaderView.swift */; };
+		4AE137E4242BB0F200107085 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137CA242BB0F200107085 /* HeaderView.swift */; };
+		4AE137E5242BB0F200107085 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137CB242BB0F200107085 /* LoadingIndicator.swift */; };
+		4AE137E6242BB0F200107085 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137CB242BB0F200107085 /* LoadingIndicator.swift */; };
+		4AE137E7242BB0F200107085 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137CC242BB0F200107085 /* PageView.swift */; };
+		4AE137E8242BB0F200107085 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE137CC242BB0F200107085 /* PageView.swift */; };
+		4AE137EA242BB41F00107085 /* Lightbox.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4AE137E9242BB41F00107085 /* Lightbox.bundle */; };
+		4AE137EB242BB41F00107085 /* Lightbox.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4AE137E9242BB41F00107085 /* Lightbox.bundle */; };
 		4AF232A31FB0C46500ADA075 /* ReportsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF232A21FB0C46500ADA075 /* ReportsTableViewCell.swift */; };
 		4AF232A51FB0CA8900ADA075 /* NewReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF232A41FB0CA8900ADA075 /* NewReportViewController.swift */; };
 		4AF7736A1FB22386005BFE50 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773691FB22362005BFE50 /* AssetsLibrary.framework */; };
@@ -305,6 +335,21 @@
 		4AC5288C1FC482900084E442 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		4AC5288E1FC4839B0084E442 /* InformationNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationNavController.swift; sourceTree = "<group>"; };
 		4ADAE8D91FB20D6B00DAAFFD /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		4AE137BD242BB0F200107085 /* LightboxController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightboxController.swift; sourceTree = "<group>"; };
+		4AE137BF242BB0F200107085 /* LayoutConfigurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConfigurable.swift; sourceTree = "<group>"; };
+		4AE137C0242BB0F200107085 /* UIView+Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
+		4AE137C1242BB0F200107085 /* LightboxTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightboxTransition.swift; sourceTree = "<group>"; };
+		4AE137C2242BB0F200107085 /* Color+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		4AE137C3242BB0F200107085 /* LightboxImageStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightboxImageStub.swift; sourceTree = "<group>"; };
+		4AE137C4242BB0F200107085 /* LightboxConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightboxConfig.swift; sourceTree = "<group>"; };
+		4AE137C5242BB0F200107085 /* AssetManagerLightbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetManagerLightbox.swift; sourceTree = "<group>"; };
+		4AE137C6242BB0F200107085 /* LightboxImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightboxImage.swift; sourceTree = "<group>"; };
+		4AE137C8242BB0F200107085 /* FooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		4AE137C9242BB0F200107085 /* InfoLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoLabel.swift; sourceTree = "<group>"; };
+		4AE137CA242BB0F200107085 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		4AE137CB242BB0F200107085 /* LoadingIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
+		4AE137CC242BB0F200107085 /* PageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		4AE137E9242BB41F00107085 /* Lightbox.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Lightbox.bundle; sourceTree = "<group>"; };
 		4AF232A21FB0C46500ADA075 /* ReportsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsTableViewCell.swift; sourceTree = "<group>"; };
 		4AF232A41FB0CA8900ADA075 /* NewReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewReportViewController.swift; sourceTree = "<group>"; };
 		4AF773691FB22362005BFE50 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -602,6 +647,7 @@
 				4A321A971FB67E10001DA08A /* new-report */,
 				4A0ABE761FBE6EC9007B06B9 /* image-slider */,
 				4A47A726242A58230052CA2C /* image-picker */,
+				4AE137BC242BB0F200107085 /* lightbox */,
 				4A7FA9201FAA966300C6A2BB /* Assets.xcassets */,
 				4A7FA9221FAA966300C6A2BB /* LaunchScreen.storyboard */,
 				4A9578D31FBBAE5C0051837C /* fonts */,
@@ -645,6 +691,44 @@
 				4AC5288E1FC4839B0084E442 /* InformationNavController.swift */,
 			);
 			path = information;
+			sourceTree = "<group>";
+		};
+		4AE137BC242BB0F200107085 /* lightbox */ = {
+			isa = PBXGroup;
+			children = (
+				4AE137E9242BB41F00107085 /* Lightbox.bundle */,
+				4AE137BD242BB0F200107085 /* LightboxController.swift */,
+				4AE137BE242BB0F200107085 /* Library */,
+				4AE137C3242BB0F200107085 /* LightboxImageStub.swift */,
+				4AE137C4242BB0F200107085 /* LightboxConfig.swift */,
+				4AE137C5242BB0F200107085 /* AssetManagerLightbox.swift */,
+				4AE137C6242BB0F200107085 /* LightboxImage.swift */,
+				4AE137C7242BB0F200107085 /* Views */,
+			);
+			path = lightbox;
+			sourceTree = "<group>";
+		};
+		4AE137BE242BB0F200107085 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				4AE137BF242BB0F200107085 /* LayoutConfigurable.swift */,
+				4AE137C0242BB0F200107085 /* UIView+Gradient.swift */,
+				4AE137C1242BB0F200107085 /* LightboxTransition.swift */,
+				4AE137C2242BB0F200107085 /* Color+Extensions.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		4AE137C7242BB0F200107085 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4AE137C8242BB0F200107085 /* FooterView.swift */,
+				4AE137C9242BB0F200107085 /* InfoLabel.swift */,
+				4AE137CA242BB0F200107085 /* HeaderView.swift */,
+				4AE137CB242BB0F200107085 /* LoadingIndicator.swift */,
+				4AE137CC242BB0F200107085 /* PageView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		568EA3F3D670EFB352B1386E /* Frameworks */ = {
@@ -770,6 +854,7 @@
 			files = (
 				4A0ABE701FBD2B4F007B06B9 /* SF-Pro-Display-Semibold.otf in Resources */,
 				4A9578D21FBBAE540051837C /* Brandon_blk.otf in Resources */,
+				4AE137EA242BB41F00107085 /* Lightbox.bundle in Resources */,
 				4AB6AA8B1FC5D655001C36C2 /* ReportMapCalloutView.xib in Resources */,
 				4A47A752242A58230052CA2C /* OFF@3x.png in Resources */,
 				4AA85B951FBCA3CA009A72E8 /* Brandon_reg.otf in Resources */,
@@ -802,6 +887,7 @@
 			files = (
 				8774074E2048B9DA00ED36F1 /* SF-Pro-Display-Semibold.otf in Resources */,
 				8774074F2048B9DA00ED36F1 /* Brandon_blk.otf in Resources */,
+				4AE137EB242BB41F00107085 /* Lightbox.bundle in Resources */,
 				877407502048B9DA00ED36F1 /* ReportMapCalloutView.xib in Resources */,
 				4A47A753242A58230052CA2C /* OFF@3x.png in Resources */,
 				877407512048B9DA00ED36F1 /* Brandon_reg.otf in Resources */,
@@ -958,14 +1044,11 @@
 				"${PODS_ROOT}/Target Support Files/Pods-shared-Endangered Waves dev/Pods-shared-Endangered Waves dev-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Imaginary/Imaginary.framework",
-				"${BUILT_PRODUCTS_DIR}/Lightbox/Lightbox.framework",
 				"${BUILT_PRODUCTS_DIR}/LocationPickerViewController/LocationPickerViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -980,14 +1063,11 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMAppAuth.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Imaginary.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lightbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LocationPickerViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -1034,14 +1114,11 @@
 				"${PODS_ROOT}/Target Support Files/Pods-shared-Endangered Waves/Pods-shared-Endangered Waves-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Imaginary/Imaginary.framework",
-				"${BUILT_PRODUCTS_DIR}/Lightbox/Lightbox.framework",
 				"${BUILT_PRODUCTS_DIR}/LocationPickerViewController/LocationPickerViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -1056,14 +1133,11 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMAppAuth.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Imaginary.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lightbox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LocationPickerViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -1128,24 +1202,33 @@
 				4A29878B1FCA2D3E0061B401 /* ImageDownloadManager.swift in Sources */,
 				4A30279A1FBFABC600F5D87D /* UIViewController+Keyboard.swift in Sources */,
 				4A7704FB214D91C100EEB34E /* ReportEntry.swift in Sources */,
+				4AE137DD242BB0F200107085 /* LightboxImage.swift in Sources */,
 				4A47A75C242A58230052CA2C /* ConstraintsSetup.swift in Sources */,
+				4AE137E5242BB0F200107085 /* LoadingIndicator.swift in Sources */,
+				4AE137D5242BB0F200107085 /* Color+Extensions.swift in Sources */,
 				4A8B6A7B1FC3423D005A5989 /* NavigationBar.swift in Sources */,
 				4A2987871FC9F4A50061B401 /* ReportCoordinator.swift in Sources */,
 				4A321A901FB67C1F001DA08A /* ReportsMapViewController.swift in Sources */,
 				4A47A774242A58230052CA2C /* LocationManagerImagePicker.swift in Sources */,
 				4A321AC61FB8EF17001DA08A /* ReportMapAnnotation.swift in Sources */,
 				4A47A748242A58230052CA2C /* CameraView.swift in Sources */,
+				4AE137D9242BB0F200107085 /* LightboxConfig.swift in Sources */,
 				4A0ABE781FBE6EF4007B06B9 /* ImageViewController.swift in Sources */,
 				4A0ABE7D1FBF48B0007B06B9 /* Style.swift in Sources */,
 				4A119F6A2141A71A006E75B5 /* CompetitionViewController.swift in Sources */,
+				4AE137CD242BB0F200107085 /* LightboxController.swift in Sources */,
 				4A9578D01FBB9DC30051837C /* Coordinator.swift in Sources */,
 				4A119F5E2141998F006E75B5 /* Competition.swift in Sources */,
 				4A47A75A242A58230052CA2C /* TopView.swift in Sources */,
 				4A1C34601FC604F200D94684 /* ReportMapCalloutView.swift in Sources */,
+				4AE137D3242BB0F200107085 /* LightboxTransition.swift in Sources */,
 				4A9578CA1FBB4FF20051837C /* AppCoordinator.swift in Sources */,
 				8774078E2048D98700ED36F1 /* Constants.swift in Sources */,
 				4AA85B911FBBD11D009A72E8 /* NewReportCoordinator.swift in Sources */,
+				4AE137D1242BB0F200107085 /* UIView+Gradient.swift in Sources */,
+				4AE137E7242BB0F200107085 /* PageView.swift in Sources */,
 				4AB6AA891FC5C84D001C36C2 /* RootViewController.swift in Sources */,
+				4AE137D7242BB0F200107085 /* LightboxImageStub.swift in Sources */,
 				4A9578D51FBBB6730051837C /* NavigationViewController.swift in Sources */,
 				4A2987811FC74B2A0061B401 /* LocationManager.swift in Sources */,
 				4A8987681FAE0B4E0098E473 /* ReportsTableViewController.swift in Sources */,
@@ -1161,6 +1244,8 @@
 				4A47A764242A58230052CA2C /* BottomContainerView.swift in Sources */,
 				4A321AA21FB7AB17001DA08A /* ReportDetailViewController.swift in Sources */,
 				4A7FA91A1FAA966300C6A2BB /* AppDelegate.swift in Sources */,
+				4AE137DF242BB0F200107085 /* FooterView.swift in Sources */,
+				4AE137E3242BB0F200107085 /* HeaderView.swift in Sources */,
 				4A9578C61FBB465A0051837C /* OnboardingViewController.swift in Sources */,
 				4A47A776242A58230052CA2C /* Configuration.swift in Sources */,
 				8774078C2048D39900ED36F1 /* UserDefaultsHandler.swift in Sources */,
@@ -1176,14 +1261,17 @@
 				4A00E12C1FCF9D1F00E4CEA4 /* UIActivities.swift in Sources */,
 				4ADAE8DA1FB20D6B00DAAFFD /* ContainerViewController.swift in Sources */,
 				4A47A76C242A58230052CA2C /* ImageGalleryLayout.swift in Sources */,
+				4AE137E1242BB0F200107085 /* InfoLabel.swift in Sources */,
 				8719337020488544000DD493 /* Extensions.swift in Sources */,
 				4A119F642141A58D006E75B5 /* CompetitionCoordinator.swift in Sources */,
 				4AF232A31FB0C46500ADA075 /* ReportsTableViewCell.swift in Sources */,
 				4A47A76E242A58230052CA2C /* ImageGalleryViewCell.swift in Sources */,
 				4A9578C81FBB4F970051837C /* OnboardingCoordinator.swift in Sources */,
+				4AE137CF242BB0F200107085 /* LayoutConfigurable.swift in Sources */,
 				4A0ABE7F1FBF574F007B06B9 /* STWButton.swift in Sources */,
 				4AC5288D1FC482900084E442 /* InformationViewController.swift in Sources */,
 				4A47A760242A58230052CA2C /* ButtonPicker.swift in Sources */,
+				4AE137DB242BB0F200107085 /* AssetManagerLightbox.swift in Sources */,
 				4A47A770242A58230052CA2C /* ImageGalleryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1202,24 +1290,33 @@
 				877407202048B9DA00ED36F1 /* ImageDownloadManager.swift in Sources */,
 				4A7F5B9420597B13003FA075 /* UserDefaultsHandler.swift in Sources */,
 				4A7704FC214D91C100EEB34E /* ReportEntry.swift in Sources */,
+				4AE137DE242BB0F200107085 /* LightboxImage.swift in Sources */,
 				4A47A75D242A58230052CA2C /* ConstraintsSetup.swift in Sources */,
+				4AE137E6242BB0F200107085 /* LoadingIndicator.swift in Sources */,
+				4AE137D6242BB0F200107085 /* Color+Extensions.swift in Sources */,
 				877407212048B9DA00ED36F1 /* UIViewController+Keyboard.swift in Sources */,
 				877407222048B9DA00ED36F1 /* NavigationBar.swift in Sources */,
 				877407232048B9DA00ED36F1 /* ReportCoordinator.swift in Sources */,
 				4A47A775242A58230052CA2C /* LocationManagerImagePicker.swift in Sources */,
 				877407242048B9DA00ED36F1 /* ReportsMapViewController.swift in Sources */,
 				4A47A749242A58230052CA2C /* CameraView.swift in Sources */,
+				4AE137DA242BB0F200107085 /* LightboxConfig.swift in Sources */,
 				877407252048B9DA00ED36F1 /* ReportMapAnnotation.swift in Sources */,
 				4A7F5B9520597B2C003FA075 /* Constants.swift in Sources */,
 				4A119F6B2141A71A006E75B5 /* CompetitionViewController.swift in Sources */,
+				4AE137CE242BB0F200107085 /* LightboxController.swift in Sources */,
 				877407262048B9DA00ED36F1 /* ImageViewController.swift in Sources */,
 				4A119F5F2141998F006E75B5 /* Competition.swift in Sources */,
 				4A47A75B242A58230052CA2C /* TopView.swift in Sources */,
 				877407272048B9DA00ED36F1 /* Style.swift in Sources */,
+				4AE137D4242BB0F200107085 /* LightboxTransition.swift in Sources */,
 				877407282048B9DA00ED36F1 /* Coordinator.swift in Sources */,
 				877407292048B9DA00ED36F1 /* ReportMapCalloutView.swift in Sources */,
 				8774072A2048B9DA00ED36F1 /* AppCoordinator.swift in Sources */,
+				4AE137D2242BB0F200107085 /* UIView+Gradient.swift in Sources */,
+				4AE137E8242BB0F200107085 /* PageView.swift in Sources */,
 				8774072B2048B9DA00ED36F1 /* NewReportCoordinator.swift in Sources */,
+				4AE137D8242BB0F200107085 /* LightboxImageStub.swift in Sources */,
 				8774072C2048B9DA00ED36F1 /* RootViewController.swift in Sources */,
 				8774072D2048B9DA00ED36F1 /* NavigationViewController.swift in Sources */,
 				8774072E2048B9DA00ED36F1 /* LocationManager.swift in Sources */,
@@ -1235,6 +1332,8 @@
 				4A47A765242A58230052CA2C /* BottomContainerView.swift in Sources */,
 				877407312048B9DA00ED36F1 /* ReportDetailNavViewController.swift in Sources */,
 				877407322048B9DA00ED36F1 /* ReportDetailViewController.swift in Sources */,
+				4AE137E0242BB0F200107085 /* FooterView.swift in Sources */,
+				4AE137E4242BB0F200107085 /* HeaderView.swift in Sources */,
 				877407332048B9DA00ED36F1 /* AppDelegate.swift in Sources */,
 				4A47A777242A58230052CA2C /* Configuration.swift in Sources */,
 				877407342048B9DA00ED36F1 /* OnboardingViewController.swift in Sources */,
@@ -1250,14 +1349,17 @@
 				8774073C2048B9DA00ED36F1 /* UIActivities.swift in Sources */,
 				8774073D2048B9DA00ED36F1 /* ContainerViewController.swift in Sources */,
 				4A47A76D242A58230052CA2C /* ImageGalleryLayout.swift in Sources */,
+				4AE137E2242BB0F200107085 /* InfoLabel.swift in Sources */,
 				4A7F5B9320597AE1003FA075 /* Extensions.swift in Sources */,
 				4A119F652141A58D006E75B5 /* CompetitionCoordinator.swift in Sources */,
 				8774073E2048B9DA00ED36F1 /* ReportsTableViewCell.swift in Sources */,
 				4A47A76F242A58230052CA2C /* ImageGalleryViewCell.swift in Sources */,
 				8774073F2048B9DA00ED36F1 /* OnboardingCoordinator.swift in Sources */,
+				4AE137D0242BB0F200107085 /* LayoutConfigurable.swift in Sources */,
 				877407402048B9DA00ED36F1 /* STWButton.swift in Sources */,
 				877407412048B9DA00ED36F1 /* InformationViewController.swift in Sources */,
 				4A47A761242A58230052CA2C /* ButtonPicker.swift in Sources */,
+				4AE137DC242BB0F200107085 /* AssetManagerLightbox.swift in Sources */,
 				4A47A771242A58230052CA2C /* ImageGalleryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1330,7 +1432,7 @@
 					"\"${PODS_ROOT}/Headers/Public/Facebook-iOS-SDK\\\" \"${PODS_ROOT}/Headers/Public/Facebook-iOS-SDK/FacebookSDK\\\"",
 					"\"${PODS_ROOT}/Headers/Public/FBSDKCoreKit\\\" \"${PODS_ROOT}/Headers/Public/FBSDKCoreKit/FBSDKCoreKit\\\"",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1388,7 +1490,7 @@
 					"\"${PODS_ROOT}/Headers/Public/Facebook-iOS-SDK\\\" \"${PODS_ROOT}/Headers/Public/Facebook-iOS-SDK/FacebookSDK\\\"",
 					"\"${PODS_ROOT}/Headers/Public/FBSDKCoreKit\\\" \"${PODS_ROOT}/Headers/Public/FBSDKCoreKit/FBSDKCoreKit\\\"",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1407,7 +1509,7 @@
 				DEVELOPMENT_TEAM = 72RCH6T78N;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Endangered Waves/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = endangeredwaves;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1428,7 +1530,7 @@
 				DEVELOPMENT_TEAM = 72RCH6T78N;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Endangered Waves/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = endangeredwaves;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1450,7 +1552,7 @@
 				DEVELOPMENT_TEAM = 72RCH6T78N;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Endangered Waves/Endangered Waves dev.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = endangeredwaves.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1470,7 +1572,7 @@
 				DEVELOPMENT_TEAM = 72RCH6T78N;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Endangered Waves/Endangered Waves dev.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = endangeredwaves.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
