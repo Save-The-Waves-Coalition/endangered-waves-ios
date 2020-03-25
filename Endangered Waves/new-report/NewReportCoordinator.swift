@@ -317,7 +317,6 @@ extension NewReportCoordinator: UIAdaptivePresentationControllerDelegate {
         if let descriptionString = reportDescription {
             if descriptionString.count > 15 {
                 if let reportVC = newReportVC {
-                    //show  action sheet
                     let discardReportAlert = UIAlertController(title: nil,
                                                                message: "Discard report or continue editing?", preferredStyle: .actionSheet)
                     let editAction = UIAlertAction(title: "Edit", style: .default)
