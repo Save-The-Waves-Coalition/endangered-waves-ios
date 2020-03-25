@@ -246,8 +246,8 @@ open class LightboxController: UIViewController {
         
         let preloadIndicies = calculatePreloadIndicies()
         
-        for i in 0..<images.count {
-            let pageView = PageView(image: preloadIndicies.contains(i) ? images[i] : LightboxImageStub())
+        for iCounter in 0..<images.count {
+            let pageView = PageView(image: preloadIndicies.contains(iCounter) ? images[iCounter] : LightboxImageStub())
             pageView.pageViewDelegate = self
             
             scrollView.addSubview(pageView)
@@ -260,11 +260,11 @@ open class LightboxController: UIViewController {
     func reconfigurePagesForPreload() {
         let preloadIndicies = calculatePreloadIndicies()
         
-        for i in 0..<initialImages.count {
-            let pageView = pageViews[i]
-            if preloadIndicies.contains(i) {
+        for iCounter in 0..<initialImages.count {
+            let pageView = pageViews[iCounter]
+            if preloadIndicies.contains(iCounter) {
                 if type(of: pageView.image) == LightboxImageStub.self {
-                    pageView.update(with: initialImages[i])
+                    pageView.update(with: initialImages[iCounter])
                 }
             } else {
                 if type(of: pageView.image) != LightboxImageStub.self {
@@ -352,8 +352,8 @@ open class LightboxController: UIViewController {
         if preload > 0 {
             let lb = max(0, currentPage - preload)
             let rb = min(initialImages.count, currentPage + preload)
-            for i in lb..<rb {
-                preloadIndicies.append(i)
+            for iCounter in lb..<rb {
+                preloadIndicies.append(iCounter)
             }
         } else {
             preloadIndicies = [Int](0..<initialImages.count)
@@ -374,18 +374,18 @@ extension LightboxController: UIScrollViewDelegate {
         }
         
         let pageWidth = scrollView.bounds.width + spacing
-        var x = scrollView.contentOffset.x + speed * 60.0
+        var xValue = scrollView.contentOffset.x + speed * 60.0
         
         if speed > 0 {
-            x = ceil(x / pageWidth) * pageWidth
+            xValue = ceil(xValue / pageWidth) * pageWidth
         } else if speed < -0 {
-            x = floor(x / pageWidth) * pageWidth
+            xValue = floor(xValue / pageWidth) * pageWidth
         } else {
-            x = round(x / pageWidth) * pageWidth
+            xValue = round(xValue / pageWidth) * pageWidth
         }
         
-        targetContentOffset.pointee.x = x
-        currentPage = Int(x / pageWidth)
+        targetContentOffset.pointee.x = xValue
+        currentPage = Int(xValue / pageWidth)
     }
 }
 

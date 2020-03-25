@@ -31,7 +31,7 @@ class PageView: UIScrollView {
   lazy var playButton: UIButton = {
     let button = UIButton(type: .custom)
     button.frame.size = CGSize(width: 60, height: 60)
-    button.setBackgroundImage(AssetManager.image("lightbox_play"), for: UIControl.State())
+    button.setBackgroundImage(AssetManagerLightbox.image("lightbox_play"), for: UIControl.State())
     button.addTarget(self, action: #selector(playButtonTouched(_:)), for: .touchUpInside)
 
     button.layer.shadowOffset = CGSize(width: 1, height: 1)
@@ -168,10 +168,10 @@ class PageView: UIScrollView {
 
     let width = contentFrame.size.width / newZoomScale
     let height = contentFrame.size.height / newZoomScale
-    let x = pointInView.x - (width / 2.0)
-    let y = pointInView.y - (height / 2.0)
+    let xValue = pointInView.x - (width / 2.0)
+    let yValue = pointInView.y - (height / 2.0)
 
-    let rectToZoomTo = CGRect(x: x, y: y, width: width, height: height)
+    let rectToZoomTo = CGRect(x: xValue, y: yValue, width: width, height: height)
 
     zoom(to: rectToZoomTo, animated: true)
   }
@@ -272,7 +272,7 @@ extension PageView: LayoutConfigurable {
     zoomScale = minimumZoomScale
 
     webView.frame = frame
-    webView.frame.origin.y = webView.frame.origin.y + 40
+    webView.frame.origin.y += 40
     configureImageView()
     configureWeb()
   }

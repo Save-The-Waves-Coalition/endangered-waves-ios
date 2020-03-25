@@ -18,7 +18,6 @@ abstract_target 'shared' do
 
   # UI Related
   pod 'LocationPickerViewController', :git => 'https://github.com/zhuorantan/LocationPicker.git', :commit => '15d9bae350e8ffd6bf3640afc423a8350ea2b523'
-  pod 'LightboxV2'
   pod 'SVProgressHUD', '~> 2.2'
 
   # Other

@@ -1,8 +1,8 @@
 import UIKit
 import AVKit
 import AVFoundation
-import Alamofire
-import AlamofireImage
+//import Alamofire
+//import AlamofireImage
 import WebKit
 
 public class LightboxConfig {
@@ -27,11 +27,12 @@ public class LightboxConfig {
         if(imgView == nil){
             imgView = UIImageView.init()
         }
-        imgView!.af_setImage(withURL: urlRequest.url!) { (response) in
-            if let completion = completion{
-                completion(response.value!)
-            }
-        }
+        // TODO MDM
+//        imgView!.af_setImage(withURL: urlRequest.url!) { (response) in
+//            if let completion = completion{
+//                completion(response.value!)
+//            }
+//        }
     }
     
     /// How to load pdf, word , excel onto webView

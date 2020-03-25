@@ -158,9 +158,6 @@ PODS:
     - abseil/base/base_internal
     - abseil/base/config
     - abseil/meta/type_traits
-  - Alamofire (5.0.5)
-  - AlamofireImage (4.0.3):
-    - Alamofire (< 6.0.0, >= 5.0.2)
   - AppAuth (1.3.0):
     - AppAuth/Core (= 1.3.0)
     - AppAuth/ExternalUserAgent (= 1.3.0)
@@ -349,8 +346,6 @@ PODS:
   - GTMSessionFetcher/Full (1.3.1):
     - GTMSessionFetcher/Core (= 1.3.1)
   - leveldb-library (1.22)
-  - LightboxV2 (2.5.3):
-    - AlamofireImage (~> 4.0.0-beta.5)
   - LocationPickerViewController (3.4)
   - nanopb (0.3.9011):
     - nanopb/decode (= 0.3.9011)
@@ -369,7 +364,6 @@ DEPENDENCIES:
   - Fabric
   - Firebase
   - FirebaseUI
-  - LightboxV2
   - LocationPickerViewController (from `https://github.com/zhuorantan/LocationPicker.git`, commit `15d9bae350e8ffd6bf3640afc423a8350ea2b523`)
   - SVProgressHUD (~> 2.2)
   - SwiftLint
@@ -377,8 +371,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - abseil
-    - Alamofire
-    - AlamofireImage
     - AppAuth
     - BoringSSL-GRPC
     - Crashlytics
@@ -407,7 +399,6 @@ SPEC REPOS:
     - GTMAppAuth
     - GTMSessionFetcher
     - leveldb-library
-    - LightboxV2
     - nanopb
     - PromisesObjC
     - SDWebImage
@@ -426,8 +417,6 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
-  Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
-  AlamofireImage: 3d1a2010519e58675318735580eb856e88840ff7
   AppAuth: 73574f3013a1e65b9601a3ddc8b3158cce68c09d
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
   Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
@@ -456,7 +445,6 @@ SPEC CHECKSUMS:
   GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
   GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
-  LightboxV2: 805d276b5d99ba6e0ec5c9792823193040c98551
   LocationPickerViewController: 63c1156c81fa0d65a54c948e99ea98fd61cd9899
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
@@ -464,6 +452,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
 
-PODFILE CHECKSUM: 87584438ab9902750f46c2b5a4edd1296d564f81
+PODFILE CHECKSUM: 135299d1fe9427f14889d0cac0d617d0a5a218b8
 
 COCOAPODS: 1.9.1

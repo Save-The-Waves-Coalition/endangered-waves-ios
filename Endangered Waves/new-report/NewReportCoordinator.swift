@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import LightboxV2
 import LocationPickerViewController
 import FirebaseStorage
 import FirebaseFirestore
@@ -130,14 +129,24 @@ extension NewReportCoordinator {
         let lightbox = LightboxController(images: lightboxImages, startIndex: index)
         return lightbox
     }
+
+    func lightboxWithNavigationViewControllerForImages(_ images: [UIImage], withStartIndex index: Int) -> UINavigationController? {
+        if let lightbox = lightboxForImages(images, withStartIndex: index) {
+            let navigationViewController = NavigationViewController(rootViewController: lightbox)
+            navigationViewController.isNavigationBarHidden = true
+            navigationViewController.modalPresentationStyle = .fullScreen
+            lightbox.dynamicBackground = true
+            return navigationViewController
+        }
+        return nil
+    }
 }
 
 // MARK: 📸 ImagePickerDelegate
 extension NewReportCoordinator: ImagePickerDelegate {
     func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        if let lightbox = lightboxForImages(images, withStartIndex: 0) {
-//            imagePicker.modalPresentationStyle = .fullScreen // TODO MDM 20200325 fix this
-            imagePicker.present(lightbox, animated: true, completion: nil)
+        if let lightboxNavigationController = lightboxWithNavigationViewControllerForImages(images, withStartIndex: 0) {
+            imagePicker.present(lightboxNavigationController, animated: true, completion: nil)
         }
     }
 
@@ -202,18 +211,8 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
     }
 
     func viewController(_ viewController: NewReportViewController, didTapImageAtIndex index: Int) {
-        LightboxConfig.EditButton.enabled = false
-        LightboxConfig.DeleteButton.enabled = false
-        LightboxConfig.EditButton.text = "WTF"
-        
-        if let images = images, let lightbox = lightboxForImages(images, withStartIndex: index) {
-            let navigationViewController = NavigationViewController(rootViewController: lightbox)
-            navigationViewController.isNavigationBarHidden = true
-            navigationViewController.modalPresentationStyle = .fullScreen
-            lightbox.dynamicBackground = true
-            lightbox.headerView.editButton.isHidden = true
-            lightbox.headerView.deleteButton.isHidden = true
-            viewController.present(navigationViewController, animated: true, completion: nil)
+        if let images = images, let lightboxNavigationController = lightboxWithNavigationViewControllerForImages(images, withStartIndex: index) {
+            viewController.present(lightboxNavigationController, animated: true, completion: nil)
         }
     }
 

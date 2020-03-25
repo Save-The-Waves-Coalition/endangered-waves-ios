@@ -1,7 +1,7 @@
 import UIKit
 
 /// Used to load assets from Lightbox bundle
-class AssetManager {
+class AssetManagerLightbox {
 
   static func image(_ named: String) -> UIImage? {
     let bundle = Bundle(for: AssetManager.self)

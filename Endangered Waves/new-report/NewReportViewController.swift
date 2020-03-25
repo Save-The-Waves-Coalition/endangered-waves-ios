@@ -12,7 +12,6 @@ import Photos
 import CoreLocation
 import LocationPickerViewController
 import Firebase
-import LightboxV2
 import MapKit
 
 protocol NewReportViewControllerDelegate: class {

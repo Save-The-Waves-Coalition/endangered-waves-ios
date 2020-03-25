@@ -96,8 +96,10 @@ open class HeaderView: UIView {
         super.init(frame: CGRect.zero)
         
         backgroundColor = UIColor.clear
-        
-        [closeButton, deleteButton, editButton].forEach { addSubview($0) }
+
+        // MDM 20200325 - Remove Delete and Edit Buttons because the `enabled` property isn't working
+//        [closeButton, deleteButton, editButton].forEach { addSubview($0) }
+        [closeButton].forEach { addSubview($0) }
     }
     
     public required init?(coder aDecoder: NSCoder) {

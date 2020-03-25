@@ -1,6 +1,0 @@
-framework module LightboxV2 {
-  umbrella header "LightboxV2-umbrella.h"
-
-  export *
-  module * { export * }
-}
