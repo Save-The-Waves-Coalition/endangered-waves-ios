@@ -18,10 +18,10 @@ internal extension UIColor {
                 hex.insert(char, at: hex.index(hex.startIndex, offsetBy: index * 2))
             }
         }
-        
+
         self.init(
-            red:   CGFloat((Int(hex, radix: 16)! >> 16) & 0xFF) / 255.0,
+            red: CGFloat((Int(hex, radix: 16)! >> 16) & 0xFF) / 255.0,
             green: CGFloat((Int(hex, radix: 16)! >> 8) & 0xFF) / 255.0,
-            blue:  CGFloat((Int(hex, radix: 16)!) & 0xFF) / 255.0, alpha: 1.0)
+            blue: CGFloat((Int(hex, radix: 16)!) & 0xFF) / 255.0, alpha: 1.0)
     }
 }

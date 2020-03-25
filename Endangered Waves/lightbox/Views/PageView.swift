@@ -19,7 +19,7 @@ class PageView: UIScrollView {
 
     return imageView
   }()
-    
+
     lazy var webView: WKWebView = {
         let webView = WKWebView()
         webView.contentMode = .scaleAspectFit
@@ -58,12 +58,12 @@ class PageView: UIScrollView {
     self.image = image
     super.init(frame: CGRect.zero)
 
-    if(image.otherFileURL != nil){
+    if image.otherFileURL != nil {
         configureWeb()
         addSubview(webView)
         imageView.removeFromSuperview()
         webView.load(URLRequest(url: image.otherFileURL!))
-    }else{
+    } else {
         configure()
         webView.removeFromSuperview()
         fetchImage()
@@ -100,9 +100,9 @@ class PageView: UIScrollView {
 
     tapRecognizer.require(toFail: doubleTapRecognizer)
   }
-    
+
     // MARK: - Configuration
-    
+
     func configureWeb() {
         addSubview(loadingIndicator)
         delegate = self
@@ -111,17 +111,17 @@ class PageView: UIScrollView {
         maximumZoomScale = LightboxConfig.Zoom.maximumScale
         showsHorizontalScrollIndicator = false
         showsVerticalScrollIndicator = false
-        
+
         let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(scrollViewDoubleTapped(_:)))
         doubleTapRecognizer.numberOfTapsRequired = 2
         doubleTapRecognizer.numberOfTouchesRequired = 1
         addGestureRecognizer(doubleTapRecognizer)
-        
+
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
         addGestureRecognizer(tapRecognizer)
-        
+
         tapRecognizer.require(toFail: doubleTapRecognizer)
-        
+
         centerWebView()
     }
 
@@ -213,7 +213,7 @@ class PageView: UIScrollView {
 
     centerImageView()
   }
-    
+
   func centerImageView() {
     let boundsSize = contentFrame.size
     var imageViewFrame = imageView.frame
@@ -232,23 +232,23 @@ class PageView: UIScrollView {
 
     imageView.frame = imageViewFrame
   }
-    
+
     func centerWebView() {
         let boundsSize = contentFrame.size
         var webViewFrame = webView.frame
-        
+
         if webViewFrame.size.width < boundsSize.width {
             webViewFrame.origin.x = (boundsSize.width - webViewFrame.size.width) / 2.0
         } else {
             webViewFrame.origin.x = 0.0
         }
-        
+
         if webViewFrame.size.height < boundsSize.height {
             webViewFrame.origin.y = (boundsSize.height - webViewFrame.size.height) / 2.0
         } else {
             webViewFrame.origin.y = 80
         }
-        
+
         webView.frame = webViewFrame
     }
 

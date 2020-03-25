@@ -19,7 +19,8 @@ open class LightboxImage {
     self.text = text
   }
 
-    public init(image: UIImage, text: String = "", videoURL: URL? = nil, indexPath: IndexPath? = nil, otherFileURL: URL? = nil, isEditable: Bool = true) {
+    public init(image: UIImage, text: String = "", videoURL: URL? = nil,
+                indexPath: IndexPath? = nil, otherFileURL: URL? = nil, isEditable: Bool = true) {
     self.image = image
     self.text = text
     self.videoURL = videoURL
@@ -28,7 +29,8 @@ open class LightboxImage {
     self.isEditable = isEditable
   }
 
-  public init(imageURL: URL, text: String = "", videoURL: URL? = nil, indexPath: IndexPath? = nil, otherFileURL: URL? = nil, isEditable: Bool = true) {
+  public init(imageURL: URL, text: String = "", videoURL: URL? = nil,
+              indexPath: IndexPath? = nil, otherFileURL: URL? = nil, isEditable: Bool = true) {
     self.imageURL = imageURL
     self.text = text
     self.videoURL = videoURL
@@ -60,7 +62,7 @@ open class LightboxImage {
       completion?(nil)
     }
   }
-    
+
     open func addWebViewTo(_ webView: WKWebView) {
         if let otherFileURL = otherFileURL {
             LightboxConfig.loadOtherFiles(url: otherFileURL, webView: webView)

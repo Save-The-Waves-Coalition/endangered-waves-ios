@@ -20,37 +20,38 @@ public class LightboxConfig {
   }
 
     /// How to load image onto UIImageView
-    static func loadImage(url: URL?, imageView: UIImageView?, completion:((_ image: UIImage) ->())?){
-        guard let nsurl = url else { return }
-        var imgView = imageView
-        let urlRequest = URLRequest(url: nsurl, cachePolicy: .reloadIgnoringCacheData)
-        if(imgView == nil){
-            imgView = UIImageView.init()
-        }
-        // TODO MDM
+    static func loadImage(url: URL?, imageView: UIImageView?, completion:((_ image: UIImage) -> Void)?) {
+// MDM 20200325 - Not utilizing this features so commenting out as we don't need to include Alamofire
+//        guard let nsurl = url else { return }
+//        var imgView = imageView
+//        let urlRequest = URLRequest(url: nsurl, cachePolicy: .reloadIgnoringCacheData)
+//        if imgView == nil {
+//            imgView = UIImageView.init()
+//        }
+
 //        imgView!.af_setImage(withURL: urlRequest.url!) { (response) in
 //            if let completion = completion{
 //                completion(response.value!)
 //            }
 //        }
     }
-    
+
     /// How to load pdf, word , excel onto webView
-    static func loadOtherFiles(url: URL?, webView: WKWebView?){
+    static func loadOtherFiles(url: URL?, webView: WKWebView?) {
         guard let nsurl = url else { return }
         var webView = webView
-        if(webView == nil){
+        if webView == nil {
             webView = WKWebView.init()
         }
-        
-        if(FileManager.init().fileExists(atPath: url!.absoluteString)){
+
+        if FileManager.init().fileExists(atPath: url!.absoluteString) {
             let documentDirUrl = nsurl.deletingLastPathComponent()
             webView!.loadFileURL(nsurl, allowingReadAccessTo: documentDirUrl)
-        }else{
+        } else {
             let urlRequest = URLRequest(url: nsurl, cachePolicy: .reloadIgnoringCacheData)
             webView!.load(urlRequest)
         }
-        
+
     }
 
   /// Indicator is used to show while image is being fetched
@@ -94,13 +95,13 @@ public class LightboxConfig {
       }()
     ]
   }
-    
+
     public struct EditButton {
         public static var enabled = true
         public static var size: CGSize?
         public static var text = NSLocalizedString("Edit", comment: "")
         public static var image: UIImage?
-        
+
         public static var textAttributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.boldSystemFont(ofSize: 16),
             .foregroundColor: UIColor.white,

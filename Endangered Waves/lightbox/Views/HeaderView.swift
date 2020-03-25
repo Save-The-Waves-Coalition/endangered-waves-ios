@@ -11,29 +11,29 @@ open class HeaderView: UIView {
         let title = NSAttributedString(
             string: LightboxConfig.CloseButton.text,
             attributes: LightboxConfig.CloseButton.textAttributes)
-        
+
         let button = UIButton(type: .system)
-        
+
         button.setAttributedTitle(title, for: UIControl.State())
-        
+
         if let size = LightboxConfig.CloseButton.size {
             button.frame.size = size
         } else {
             button.sizeToFit()
         }
-        
+
         button.addTarget(self, action: #selector(closeButtonDidPress(_:)),
                          for: .touchUpInside)
-        
+
         if let image = LightboxConfig.CloseButton.image {
             button.setBackgroundImage(image, for: UIControl.State())
         }
-        
+
         button.isHidden = !LightboxConfig.CloseButton.enabled
-        
+
         return button
         }()
-    
+
     open fileprivate(set) lazy var deleteButton: UIButton = { [unowned self] in
         let title = NSAttributedString(
             string: LightboxConfig.DeleteButton.text,
@@ -60,62 +60,62 @@ open class HeaderView: UIView {
 
         return button
         }()
-    
+
     open fileprivate(set) lazy var editButton: UIButton = { [unowned self] in
         let title = NSAttributedString(
             string: LightboxConfig.EditButton.text,
             attributes: LightboxConfig.EditButton.textAttributes)
-        
+
         let button = UIButton(type: .system)
-        
+
         button.setAttributedTitle(title, for: UIControl.State())
-        
+
         if let size = LightboxConfig.EditButton.size {
             button.frame.size = size
         } else {
             button.sizeToFit()
         }
-        
+
         button.addTarget(self, action: #selector(editButtonDidPress(_:)),
                          for: .touchUpInside)
-        
+
         if let image = LightboxConfig.EditButton.image {
             button.setBackgroundImage(image, for: UIControl.State())
         }
-        
+
         button.isHidden = !LightboxConfig.EditButton.enabled
-        
+
         return button
         }()
-    
+
     weak var delegate: HeaderViewDelegate?
-    
+
     // MARK: - Initializers
-    
+
     public init() {
         super.init(frame: CGRect.zero)
-        
+
         backgroundColor = UIColor.clear
 
         // MDM 20200325 - Remove Delete and Edit Buttons because the `enabled` property isn't working
 //        [closeButton, deleteButton, editButton].forEach { addSubview($0) }
         [closeButton].forEach { addSubview($0) }
     }
-    
+
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     // MARK: - Actions
-    
+
     @objc func deleteButtonDidPress(_ button: UIButton) {
         delegate?.headerView(self, didPressDeleteButton: button)
     }
-    
+
     @objc func closeButtonDidPress(_ button: UIButton) {
         delegate?.headerView(self, didPressCloseButton: button)
     }
-    
+
     @objc func editButtonDidPress(_ button: UIButton) {
         delegate?.headerView(self, didPressEditButton: button)
     }
@@ -124,26 +124,26 @@ open class HeaderView: UIView {
 // MARK: - LayoutConfigurable
 
 extension HeaderView: LayoutConfigurable {
-    
+
     @objc public func configureLayout() {
         let topPadding: CGFloat
-        
+
         if #available(iOS 11, *) {
             topPadding = safeAreaInsets.top
         } else {
             topPadding = 0
         }
-        
+
         closeButton.frame.origin = CGPoint(
             x: bounds.width - closeButton.frame.width - 17,
             y: topPadding
         )
-        
+
         deleteButton.frame.origin = CGPoint(
             x: 17,
             y: topPadding
         )
-        
+
         editButton.frame.origin = CGPoint(
             x: deleteButton.frame.width + 30,
             y: topPadding
