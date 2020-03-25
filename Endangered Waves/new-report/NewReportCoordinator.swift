@@ -312,16 +312,30 @@ extension NewReportCoordinator: UIAdaptivePresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         stop()
     }
+
     func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
-        if case let reportDescription?.count >= 1 {
-            print(reportDescription.count)
+        if let descriptionString = reportDescription {
+            if descriptionString.count > 15 {
+                if let reportVC = newReportVC {
+                    //show  action sheet
+                    let optionMenu = UIAlertController(title: nil, message: "Choose Option", preferredStyle: .actionSheet)
+                let editAction = UIAlertAction(title: "Edit", style: .default, handler: {action in
+                    optionMenu.dismiss(animated: true, completion: nil)
+                })
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {action in
+                        reportVC.dismiss(animated: true, completion: nil)
+                    })
+                    optionMenu.addAction(editAction)
+                    optionMenu.addAction(cancelAction)
+                    reportVC.present(optionMenu, animated: true, completion: nil)
+                }
+            }
         }
-          // 2) if yes, show action sheet
-          // 3) if no, just dismiss, return True
-//          return false
+        // 2) if yes, show action sheet
+        // 3) if no, just dismiss, return True
+        return false
     }
 }
-
 // MARK: Error Handling
 extension NewReportCoordinator {
     func showValidationError(title: String, message: String, withViewController viewController: UIViewController) {
