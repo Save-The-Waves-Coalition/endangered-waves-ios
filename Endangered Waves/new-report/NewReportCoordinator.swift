@@ -81,6 +81,7 @@ class NewReportCoordinator: Coordinator {
             topVC.delegate = self
             topVC.images = images
             topVC.competition = competition
+            navVC.presentationController?.delegate = self
             rootViewController.present(navVC, animated: true, completion: nil)
         }
     }
@@ -135,6 +136,7 @@ extension NewReportCoordinator {
 extension NewReportCoordinator: ImagePickerDelegate {
     func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
         if let lightbox = lightboxForImages(images, withStartIndex: 0) {
+//            imagePicker.modalPresentationStyle = .fullScreen // TODO MDM 20200325 fix this
             imagePicker.present(lightbox, animated: true, completion: nil)
         }
     }
@@ -200,8 +202,18 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
     }
 
     func viewController(_ viewController: NewReportViewController, didTapImageAtIndex index: Int) {
+        LightboxConfig.EditButton.enabled = false
+        LightboxConfig.DeleteButton.enabled = false
+        LightboxConfig.EditButton.text = "WTF"
+        
         if let images = images, let lightbox = lightboxForImages(images, withStartIndex: index) {
-            viewController.present(lightbox, animated: true, completion: nil)
+            let navigationViewController = NavigationViewController(rootViewController: lightbox)
+            navigationViewController.isNavigationBarHidden = true
+            navigationViewController.modalPresentationStyle = .fullScreen
+            lightbox.dynamicBackground = true
+            lightbox.headerView.editButton.isHidden = true
+            lightbox.headerView.deleteButton.isHidden = true
+            viewController.present(navigationViewController, animated: true, completion: nil)
         }
     }
 
@@ -291,11 +303,18 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
 
     func viewController(_ viewController: NewReportViewController, didTapAddButton button: UIButton) {
         let viewController = imagePickerController
-        viewController.modalPresentationStyle = .fullScreen
         viewController.present(viewController, animated: true, completion: nil)
     }
 }
 
+// MARK: UIAdaptivePresentationControllerDelegate
+extension NewReportCoordinator: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        stop()
+    }
+}
+
+// MARK: Error Handling
 extension NewReportCoordinator {
     func showValidationError(title: String, message: String, withViewController viewController: UIViewController) {
         let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -304,16 +323,4 @@ extension NewReportCoordinator {
         alertViewController.addAction(okAction)
         viewController.present(alertViewController, animated: true, completion: nil)
     }
-}
-extension NewReportCoordinator: LightboxControllerPageDelegate {
-
-  func lightboxController(_ controller: LightboxController, didMoveToPage page: Int) {
-    print(page)
-  }
-}
-extension NewReportCoordinator: LightboxControllerDismissalDelegate {
-
-  func lightboxControllerWillDismiss(_ controller: LightboxController) {
-    // ...
-  }
 }

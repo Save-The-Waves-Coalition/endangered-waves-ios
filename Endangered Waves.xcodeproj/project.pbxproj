@@ -1330,7 +1330,7 @@
 					"\"${PODS_ROOT}/Headers/Public/Facebook-iOS-SDK\\\" \"${PODS_ROOT}/Headers/Public/Facebook-iOS-SDK/FacebookSDK\\\"",
 					"\"${PODS_ROOT}/Headers/Public/FBSDKCoreKit\\\" \"${PODS_ROOT}/Headers/Public/FBSDKCoreKit/FBSDKCoreKit\\\"",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1388,7 +1388,7 @@
 					"\"${PODS_ROOT}/Headers/Public/Facebook-iOS-SDK\\\" \"${PODS_ROOT}/Headers/Public/Facebook-iOS-SDK/FacebookSDK\\\"",
 					"\"${PODS_ROOT}/Headers/Public/FBSDKCoreKit\\\" \"${PODS_ROOT}/Headers/Public/FBSDKCoreKit/FBSDKCoreKit\\\"",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -1407,7 +1407,7 @@
 				DEVELOPMENT_TEAM = 72RCH6T78N;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Endangered Waves/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = endangeredwaves;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1428,7 +1428,7 @@
 				DEVELOPMENT_TEAM = 72RCH6T78N;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Endangered Waves/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = endangeredwaves;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1450,7 +1450,7 @@
 				DEVELOPMENT_TEAM = 72RCH6T78N;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Endangered Waves/Endangered Waves dev.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = endangeredwaves.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1470,7 +1470,7 @@
 				DEVELOPMENT_TEAM = 72RCH6T78N;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Endangered Waves/Endangered Waves dev.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = endangeredwaves.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
