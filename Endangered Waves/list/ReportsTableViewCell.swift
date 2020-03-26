@@ -47,7 +47,13 @@ class ReportsTableViewCell: UITableViewCell {
                 typeImageView.image = report.type.placemarkIcon()
                 typeLabel.text = report.type.displayString().uppercased()
             }
-
+            
+            //TODO is this necessary kimberly 032620
+//            if let wsrImageView = wsrImageView, let typeLabel = typeLabel {
+//                wsrImageView.image = report.type.placemarkIcon()
+//                typeLabel.text = report.type.displayString().uppercased()
+//            }
+            
             if let locationNameLabel = locationNameLabel {
                 locationNameLabel.text = report.name.uppercased()
             }

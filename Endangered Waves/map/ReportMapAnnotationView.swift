@@ -27,6 +27,11 @@ class ReportMapAnnotationView: MKAnnotationView {
             if let reportMapAnnotation = annotation as? ReportMapAnnotation {
                 image = reportMapAnnotation.report.type.placemarkIcon()
             }
+            
+            if let wsrMapAnnotation = annotation as? WsrReportMapAnnotation {
+                print("wsr icon")
+                image = wsrMapAnnotation.report.type.placemarkIcon()
+            }
         }
     }
 
@@ -37,6 +42,10 @@ class ReportMapAnnotationView: MKAnnotationView {
         if let reportMapAnnotation = annotation as? ReportMapAnnotation {
             image = reportMapAnnotation.report.type.placemarkIcon()
         }
+        if let wsrMapAnnotation = annotation as? WsrReportMapAnnotation {
+            image = wsrMapAnnotation.report.type.placemarkIcon()
+            print("override init WSR")
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -45,7 +54,6 @@ class ReportMapAnnotationView: MKAnnotationView {
         self.image = Style.iconGeneralPlacemark
     }
 
-    //
 
     func createCustomCalloutView() -> ReportMapCalloutView? {
         if let views = Bundle.main.loadNibNamed("ReportMapCalloutView", owner: self, options: nil) as? [ReportMapCalloutView],
