@@ -137,7 +137,6 @@ extension ReportsMapViewController: MKMapViewDelegate {
         } else {
             annotationView = ReportMapAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView.calloutViewDelegate = self
-            registerForPreviewing(with: self, sourceView: annotationView)
         }
 
         return annotationView
@@ -214,57 +213,6 @@ extension ReportsMapViewController: MKMapViewDelegate {
 extension ReportsMapViewController: ReportMapCalloutViewDelegate {
     func view(_ view: ReportMapCalloutView, didTapDetailsButton button: UIButton?, forReport report: Report) {
         delegate?.viewController(self, didRequestDetailsForReport: report)
-    }
-}
-
-// MARK: 🎑 UIViewControllerPreviewingDelegate
-extension ReportsMapViewController: UIViewControllerPreviewingDelegate {
-
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        guard let annotationView = previewingContext.sourceView as? ReportMapAnnotationView,
-            let annotation = annotationView.annotation as? ReportMapAnnotation else { return nil}
-
-        if let popoverFrame = rectForAnnotationViewWithPopover(view: annotationView) {
-            previewingContext.sourceRect = popoverFrame
-        }
-
-        let viewControllerForLocation = viewController(for: annotation)
-        return viewControllerForLocation
-    }
-
-    /*
-     If the annotation view has a popover, we need to get the rect
-     of the popover *and* the annotation view for the sourceRect.
-     You could also not add the annotation view height, if you
-     would just like the popover to not blur.
-     */
-    func rectForAnnotationViewWithPopover(view: MKAnnotationView) -> CGRect? {
-
-        var popover: UIView?
-
-        for view in view.subviews {
-            for view in view.subviews {
-                for view in view.subviews {
-                    popover = view
-                }
-            }
-        }
-
-        if let popover = popover, let frame = popover.superview?.convert(popover.frame, to: view) {
-            return CGRect(
-                x: frame.origin.x,
-                y: frame.origin.y,
-                width: frame.width,
-                height: frame.height + view.frame.height
-            )
-        }
-
-        return nil
-    }
-
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        // TODO: Coordinator should take care of this
-        navigationController?.pushViewController(viewControllerToCommit, animated: true)
     }
 }
 

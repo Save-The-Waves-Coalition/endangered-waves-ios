@@ -54,10 +54,6 @@ class ReportsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource.bind(to: tableView)
-        if traitCollection.forceTouchCapability == .available {
-            // TODO: Coordinator should take care of this
-            registerForPreviewing(with: self, sourceView: view)
-        }
     }
 }
 
@@ -67,30 +63,6 @@ extension ReportsTableViewController {
         if let cellVC = tableView.cellForRow(at: indexPath) as? ReportsTableViewCell {
             delegate?.viewController(self, didRequestDetailsForReport: cellVC.report)
         }
-    }
-}
-
-// MARK: 🎑 UIViewControllerPreviewingDelegate
-extension ReportsTableViewController: UIViewControllerPreviewingDelegate {
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        // TODO: Coordinator should take care of this
-        let cellPosition = tableView.convert(location, from: previewingContext.sourceView)
-        guard let cellIndexPath = tableView.indexPathForRow(at: cellPosition),
-            let cellView = tableView.cellForRow(at: cellIndexPath) as? ReportsTableViewCell,
-            let report = cellView.report else {
-            return nil
-        }
-
-        let detailVC = ReportDetailViewController.instantiate()
-        detailVC.report = report
-        previewingContext.sourceRect = cellView.frame
-
-        return detailVC
-    }
-
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        // TODO: Coordinator should take care of this
-        navigationController?.pushViewController(viewControllerToCommit, animated: true)
     }
 }
 
