@@ -12,9 +12,12 @@ abstract_target 'shared' do
 
   # Firebase
   pod 'Firebase', '~> 6.19.0'
-  pod 'FirebaseUI', '~> 8.4.2'
+  pod 'FirebaseUI/Firestore', '~> 8.4.2'
+  pod 'FirebaseUI/Auth', '~> 8.4.2'
+  pod 'FirebaseUI/Storage', '~> 8.4.2'
   pod 'Fabric', '~> 1.10.2'
   pod 'Crashlytics', '~> 3.14.0'
+  pod 'SDWebImage', '~> 5.6.1'
 
   # UI Related
   pod 'LocationPickerViewController', :git => 'https://github.com/zhuorantan/LocationPicker.git', :commit => '15d9bae350e8ffd6bf3640afc423a8350ea2b523'

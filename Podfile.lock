@@ -158,11 +158,6 @@ PODS:
     - abseil/base/base_internal
     - abseil/base/config
     - abseil/meta/type_traits
-  - AppAuth (1.3.0):
-    - AppAuth/Core (= 1.3.0)
-    - AppAuth/ExternalUserAgent (= 1.3.0)
-  - AppAuth/Core (1.3.0)
-  - AppAuth/ExternalUserAgent (1.3.0)
   - BoringSSL-GRPC (0.0.3):
     - BoringSSL-GRPC/Implementation (= 0.0.3)
     - BoringSSL-GRPC/Interface (= 0.0.3)
@@ -172,16 +167,6 @@ PODS:
   - Crashlytics (3.14.0):
     - Fabric (~> 1.10.2)
   - Fabric (1.10.2)
-  - FBSDKCoreKit (5.15.1):
-    - FBSDKCoreKit/Basics (= 5.15.1)
-    - FBSDKCoreKit/Core (= 5.15.1)
-  - FBSDKCoreKit/Basics (5.15.1)
-  - FBSDKCoreKit/Core (5.15.1):
-    - FBSDKCoreKit/Basics
-  - FBSDKLoginKit (5.15.1):
-    - FBSDKLoginKit/Login (= 5.15.1)
-  - FBSDKLoginKit/Login (5.15.1):
-    - FBSDKCoreKit (~> 5.0)
   - Firebase (6.19.0):
     - Firebase/Core (= 6.19.0)
   - Firebase/Auth (6.19.0):
@@ -192,9 +177,6 @@ PODS:
     - FirebaseAnalytics (= 6.3.1)
   - Firebase/CoreOnly (6.19.0):
     - FirebaseCore (= 6.6.4)
-  - Firebase/Database (6.19.0):
-    - Firebase/CoreOnly
-    - FirebaseDatabase (~> 6.1.4)
   - Firebase/Firestore (6.19.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 1.11.1)
@@ -229,10 +211,6 @@ PODS:
     - GoogleUtilities/Logger (~> 6.5)
     - nanopb (~> 0.3.901)
   - FirebaseCoreDiagnosticsInterop (1.2.0)
-  - FirebaseDatabase (6.1.4):
-    - FirebaseAuthInterop (~> 1.0)
-    - FirebaseCore (~> 6.0)
-    - leveldb-library (~> 1.22)
   - FirebaseFirestore (1.11.2):
     - abseil/algorithm (= 0.20190808)
     - abseil/base (= 0.20190808)
@@ -254,38 +232,11 @@ PODS:
     - FirebaseAuthInterop (~> 1.1)
     - FirebaseCore (~> 6.6)
     - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseUI (8.4.2):
-    - FirebaseUI/Anonymous (= 8.4.2)
-    - FirebaseUI/Auth (= 8.4.2)
-    - FirebaseUI/Database (= 8.4.2)
-    - FirebaseUI/Email (= 8.4.2)
-    - FirebaseUI/Facebook (= 8.4.2)
-    - FirebaseUI/Firestore (= 8.4.2)
-    - FirebaseUI/Google (= 8.4.2)
-    - FirebaseUI/OAuth (= 8.4.2)
-    - FirebaseUI/Phone (= 8.4.2)
-    - FirebaseUI/Storage (= 8.4.2)
-  - FirebaseUI/Anonymous (8.4.2):
-    - FirebaseUI/Auth
   - FirebaseUI/Auth (8.4.2):
     - Firebase/Auth (~> 6.0)
     - GoogleUtilities/UserDefaults
-  - FirebaseUI/Database (8.4.2):
-    - Firebase/Database (~> 6.0)
-  - FirebaseUI/Email (8.4.2):
-    - FirebaseUI/Auth
-  - FirebaseUI/Facebook (8.4.2):
-    - FBSDKLoginKit (~> 5.0)
-    - FirebaseUI/Auth
   - FirebaseUI/Firestore (8.4.2):
     - Firebase/Firestore
-  - FirebaseUI/Google (8.4.2):
-    - FirebaseUI/Auth
-    - GoogleSignIn (~> 5.0)
-  - FirebaseUI/OAuth (8.4.2):
-    - FirebaseUI/Auth
-  - FirebaseUI/Phone (8.4.2):
-    - FirebaseUI/Auth
   - FirebaseUI/Storage (8.4.2):
     - Firebase/Storage (~> 6.0)
     - SDWebImage (~> 5.0)
@@ -299,10 +250,6 @@ PODS:
   - GoogleDataTransportCCTSupport (2.0.0):
     - GoogleDataTransport (~> 5.0)
     - nanopb (~> 0.3.901)
-  - GoogleSignIn (5.0.2):
-    - AppAuth (~> 1.2)
-    - GTMAppAuth (~> 1.0)
-    - GTMSessionFetcher/Core (~> 1.1)
   - GoogleUtilities/AppDelegateSwizzler (6.5.1):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -337,14 +284,7 @@ PODS:
     - gRPC-Core/Interface (= 1.21.0)
     - nanopb (~> 0.3)
   - gRPC-Core/Interface (1.21.0)
-  - GTMAppAuth (1.0.0):
-    - AppAuth/Core (~> 1.0)
-    - GTMSessionFetcher (~> 1.1)
-  - GTMSessionFetcher (1.3.1):
-    - GTMSessionFetcher/Full (= 1.3.1)
   - GTMSessionFetcher/Core (1.3.1)
-  - GTMSessionFetcher/Full (1.3.1):
-    - GTMSessionFetcher/Core (= 1.3.1)
   - leveldb-library (1.22)
   - LocationPickerViewController (3.4)
   - nanopb (0.3.9011):
@@ -363,20 +303,20 @@ DEPENDENCIES:
   - Crashlytics (~> 3.14.0)
   - Fabric (~> 1.10.2)
   - Firebase (~> 6.19.0)
-  - FirebaseUI (~> 8.4.2)
+  - FirebaseUI/Auth (~> 8.4.2)
+  - FirebaseUI/Firestore (~> 8.4.2)
+  - FirebaseUI/Storage (~> 8.4.2)
   - LocationPickerViewController (from `https://github.com/zhuorantan/LocationPicker.git`, commit `15d9bae350e8ffd6bf3640afc423a8350ea2b523`)
+  - SDWebImage (~> 5.6.1)
   - SVProgressHUD (~> 2.2)
   - SwiftLint
 
 SPEC REPOS:
   trunk:
     - abseil
-    - AppAuth
     - BoringSSL-GRPC
     - Crashlytics
     - Fabric
-    - FBSDKCoreKit
-    - FBSDKLoginKit
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -384,7 +324,6 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseCoreDiagnosticsInterop
-    - FirebaseDatabase
     - FirebaseFirestore
     - FirebaseInstallations
     - FirebaseStorage
@@ -392,11 +331,9 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
-    - GoogleSignIn
     - GoogleUtilities
     - "gRPC-C++"
     - gRPC-Core
-    - GTMAppAuth
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
@@ -417,12 +354,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
-  AppAuth: 73574f3013a1e65b9601a3ddc8b3158cce68c09d
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
   Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
-  FBSDKCoreKit: 1d5acf7c9d7a2f92bb1a242dc60cae5b7adb91df
-  FBSDKLoginKit: f1ea8026a58b52d30c9f2e6a58ca7d813619fb83
   Firebase: d55ddb0e0bb3207166cddc028647833d8a1b5b6f
   FirebaseAnalytics: 572e467f3d977825266e8ccd52674aa3e6f47eac
   FirebaseAuth: 5ce2b03a3d7fe56b7a6e4c5ec7ff1522890b1d6f
@@ -430,7 +364,6 @@ SPEC CHECKSUMS:
   FirebaseCore: ed0a24c758a57c2b88c5efa8e6a8195e868af589
   FirebaseCoreDiagnostics: e9b4cd8ba60dee0f2d13347332e4b7898cca5b61
   FirebaseCoreDiagnosticsInterop: 296e2c5f5314500a850ad0b83e9e7c10b011a850
-  FirebaseDatabase: 0144e0706a4761f1b0e8679572eba8095ddb59be
   FirebaseFirestore: 71925e62a5d1cbfaff46aa4d5107e525cc48356a
   FirebaseInstallations: 575cd32f2aec0feeb0e44f5d0110a09e5e60b47b
   FirebaseStorage: b43ee271294227e1a3225544b073f3b49b427f46
@@ -438,11 +371,9 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: c29d405ff76e18551b5d158eaba6753fda8c7542
   GoogleDataTransport: a857c6a002d201b524dd4bc2ed7e7355ed07e785
   GoogleDataTransportCCTSupport: 32f75fbe904c82772fcbb6b6bd4525bfb6f2a862
-  GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
   GoogleUtilities: 06eb53bb579efe7099152735900dd04bf09e7275
   "gRPC-C++": 9dfe7b44821e7b3e44aacad2af29d2c21f7cde83
   gRPC-Core: c9aef9a261a1247e881b18059b84d597293c9947
-  GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
   GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   LocationPickerViewController: 63c1156c81fa0d65a54c948e99ea98fd61cd9899
@@ -452,6 +383,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
 
-PODFILE CHECKSUM: db667919ec942ef35520d9240eef7ac68c82265a
+PODFILE CHECKSUM: f0874fdc1f8c11e248e783f2fb68143c2c835805
 
 COCOAPODS: 1.9.1
