@@ -37,6 +37,7 @@ class ReportsMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureMap()
+//     todo   getWsr()
         batchedArray.observeQuery()
     }
 
@@ -58,6 +59,25 @@ class ReportsMapViewController: UIViewController {
             mapView.showsUserLocation = true
         }
     }
+ 
+    //todo
+//    fileprivate lazy var wsrArray: FUIArray = {
+//        let wsrQuery = Firestore.firestore().collection("wsr").getDocuments()
+//        let wsrArray = FUIArray(query: query, delegate: self)
+//    }
+    
+//    private func getWsr() {
+//        print("getmultiple called")
+//        let wsrQuery= Firestore.firestore().collection("wsr").getDocuments() { (querySnapshot, err) in
+//                if let err = err {
+//                    print("Error getting documents: \(err)")
+//                } else {
+//                    for document in querySnapshot!.documents {
+//                        print("/(document.type) world surf")
+//                    }
+//                }
+//        }
+//    }
 
     private func configureMap() {
         mapView.delegate = self

@@ -63,6 +63,7 @@ struct Style {
     static let iconTrash = UIImage(named: "trash")!
     static let iconAccess = UIImage(named: "access")!
     static let iconCompetition = UIImage(named: "competition")!
+    static let iconWsr = UIImage(named: "wsr")!
 
     // Map annotation icons
     static let iconOilPlacemark = UIImage(named: "oil-placemark")!
@@ -72,4 +73,5 @@ struct Style {
     static let iconTrashPlacemark = UIImage(named: "trash-placemark")!
     static let iconAccessPlacemark = UIImage(named: "access-placemark")!
     static let iconCompetitionPlacemark = UIImage(named: "competition-placemark")!
+    static let iconWsrPlacemark = UIImage(named: "wsr-placemark")!
 }
