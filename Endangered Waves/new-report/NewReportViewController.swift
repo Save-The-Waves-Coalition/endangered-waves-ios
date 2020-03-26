@@ -16,7 +16,7 @@ import MapKit
 
 protocol NewReportViewControllerDelegate: class {
     func viewController(_ viewController: NewReportViewController, didTapCancelButton button: UIBarButtonItem)
-    func viewController(_ viewController: NewReportViewController, didTapPostButton button: Any)
+    func viewController(_ viewController: NewReportViewController, didTapPostButton button: Any?)
     func viewController(_ viewController: NewReportViewController, didTapImageAtIndex index: Int)
     func viewController(_ viewController: NewReportViewController, didTapAddButton button: UIButton)
     func viewController(_ viewController: NewReportViewController, didTapLocation sender: UITapGestureRecognizer)
