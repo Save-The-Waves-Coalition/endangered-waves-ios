@@ -211,7 +211,8 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
     }
 
     func viewController(_ viewController: NewReportViewController, didTapImageAtIndex index: Int) {
-        if let images = images, let lightboxNavigationController = lightboxWithNavigationViewControllerForImages(images, withStartIndex: index) {
+        if let images = images, let lightboxNavigationController =
+            lightboxWithNavigationViewControllerForImages(images, withStartIndex: index) {
             viewController.present(lightboxNavigationController, animated: true, completion: nil)
         }
     }
