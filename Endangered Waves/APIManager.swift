@@ -40,7 +40,7 @@ class APIManager {
                     return
                 }
 
-                var activeCompetition: Competition? = nil
+                var activeCompetition: Competition?
                 for document in querySnapshot.documents where activeCompetition == nil {
                     guard let competition = Competition.createCompetitionWithSnapshot(document) else {
                         // Issue with the record on Firebase, go to the next document
@@ -146,7 +146,7 @@ class APIManager {
     static func uploadReport(_ report: Report, completionHandler: @escaping (DocumentReference?, Error?) -> Void) {
         let dataDictionary = report.documentDataDictionary()
         let collection = Firestore.firestore().collection("reports")
-        var ref: DocumentReference? = nil
+        var ref: DocumentReference?
         ref = collection.addDocument(data: dataDictionary, completion: { (error) in
             if let error = error {
                 completionHandler(nil, error)
@@ -159,7 +159,7 @@ class APIManager {
     static func uploadReportEntry(_ reportEntry: ReportEntry, completionHandler: @escaping (String?, Error?) -> Void) {
         let dataDictionary = reportEntry.documentDataDictionary()
         let collection = Firestore.firestore().collection("reportEntries")
-        var ref: DocumentReference? = nil
+        var ref: DocumentReference?
         ref = collection.addDocument(data: dataDictionary, completion: { (error) in
             if let error = error {
                 completionHandler(nil, error)

@@ -23,7 +23,7 @@ class OnboardingCoordinator: Coordinator {
     func presentWithViewController(_ viewController: UIViewController) {
         let onboardingVC = OnboardingViewController.instantiate()
         onboardingVC.onboardingDelegate = self
-        onboardingVC.modalPresentationStyle = .fullScreen 
+        onboardingVC.modalPresentationStyle = .fullScreen
         viewController.present(onboardingVC, animated: true, completion: nil)
     }
 

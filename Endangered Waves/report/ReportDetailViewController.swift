@@ -109,7 +109,7 @@ class ReportDetailViewController: UITableViewController {
         mapSnapshotOptions.region = region
 
         mapSnapshotOptions.showsBuildings = false
-        mapSnapshotOptions.showsPointsOfInterest = false
+        mapSnapshotOptions.pointOfInterestFilter = .excludingAll
 
         // Set the size of the image output.
         mapSnapshotOptions.size = CGSize(width: 90, height: 90)
