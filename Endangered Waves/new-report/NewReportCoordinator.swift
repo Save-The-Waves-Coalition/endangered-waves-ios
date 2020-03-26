@@ -222,7 +222,7 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
         }
     }
 
-    func viewController(_ viewController: NewReportViewController, didTapPostButton button: Any) {
+    func viewController(_ viewController: NewReportViewController, didTapPostButton button: Any?) {
         // validate picture
         guard let images = images else {
             showValidationError(title: "Missing Images", message: "Please select at least 1 image.", withViewController: viewController)
@@ -315,16 +315,23 @@ extension NewReportCoordinator: UIAdaptivePresentationControllerDelegate {
 
     func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
         if let descriptionString = reportDescription {
-            if descriptionString.count > 15 {
+            if descriptionString.count > 15 { // MDM 20200326 - 15 was arbitrarly determined, seems right
                 if let reportVC = newReportVC {
-                    let discardReportAlert = UIAlertController(title: nil,
-                                                               message: "Discard report or continue editing?", preferredStyle: .actionSheet)
-                    let editAction = UIAlertAction(title: "Edit", style: .default)
-                    let discardAction = UIAlertAction(title: "Discard", style: .cancel, handler: {action in
-                        reportVC.dismiss(animated: true, completion: nil)
+                    let discardReportAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                    let postAction = UIAlertAction(title: "Post", style: .default, handler: { action in
+                        if let newReportVC = self.newReportVC {
+                            self.viewController(newReportVC, didTapPostButton: nil)
+                        }
                     })
-                    discardReportAlert.addAction(editAction)
+                    let discardAction = UIAlertAction(title: "Discard", style: .destructive, handler: { action in
+                        reportVC.dismiss(animated: true) {
+                            self.stop()
+                        }
+                    })
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+                    discardReportAlert.addAction(postAction)
                     discardReportAlert.addAction(discardAction)
+                    discardReportAlert.addAction(cancelAction)
                     reportVC.present(discardReportAlert, animated: true, completion: nil)
                 }
                 return false
