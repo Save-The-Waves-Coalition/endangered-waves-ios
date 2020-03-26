@@ -272,7 +272,6 @@ struct WsrReport {
             assertionFailure("⚠️: URL for World Surfing Reserve  not found")
             return nil
         }
-        
         return WsrReport(address: address,
                       coordinate: coordinate,
                       dedicated: dedicated.dateValue(),
@@ -327,6 +326,7 @@ extension WsrReport {
             "imageURLs": imageURLs,
             "type": type.rawValue,
             "url": url]
+        print(dataDictionary)
         return dataDictionary
     }
 }

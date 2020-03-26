@@ -37,7 +37,6 @@ class ReportsMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureMap()
-//     todo   getWsr()
         batchedArray.observeQuery()
     }
 
@@ -59,26 +58,32 @@ class ReportsMapViewController: UIViewController {
             mapView.showsUserLocation = true
         }
     }
- 
+
     //todo
 //    fileprivate lazy var wsrArray: FUIArray = {
 //        let wsrQuery = Firestore.firestore().collection("wsr").getDocuments()
 //        let wsrArray = FUIArray(query: query, delegate: self)
 //    }
-    
-//    private func getWsr() {
-//        print("getmultiple called")
-//        let wsrQuery= Firestore.firestore().collection("wsr").getDocuments() { (querySnapshot, err) in
-//                if let err = err {
-//                    print("Error getting documents: \(err)")
-//                } else {
-//                    for document in querySnapshot!.documents {
-//                        print("/(document.type) world surf")
-//                    }
-//                }
-//        }
-//    }
 
+    private func addWsrReports() {
+        print("addWsrReports called")
+        Firestore.firestore().collection("wsr")
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+//                        print("\(document.documentID) => \(document.data())")
+                        if let wsrReport = WsrReport.createWsrWithSnapshot(document) {
+                            let coordinate = CLLocationCoordinate2DMake(wsrReport.coordinate.latitude, wsrReport.coordinate.longitude)
+                            let annotation = WsrReportMapAnnotation(coordinate: coordinate, report: wsrReport)
+                            self.mapView.addAnnotation(annotation)
+                        }
+                    }
+                }
+        }
+    }
+    
     private func configureMap() {
         mapView.delegate = self
         mapView.mapType = .standard
@@ -115,6 +120,7 @@ extension ReportsMapViewController: FUIBatchedArrayDelegate {
 
         let annotations = mapView.annotations
         mapView.removeAnnotations(annotations)
+        addWsrReports()
 
         array.items.forEach { (snapshot) in
             if let report = Report.createReportWithSnapshot(snapshot) {

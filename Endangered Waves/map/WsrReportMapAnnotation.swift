@@ -1,26 +1,26 @@
 //
-//  ReportMapAnnotation.swift
+//  WsrReportMapAnnotation.swift
 //  Endangered Waves
 //
-//  Created by Matthew Morey on 11/12/17.
-//  Copyright © 2017 Save The Waves. All rights reserved.
-//
+//  Created by Erik Parr on 3/26/20.
+//  Copyright © 2020 Save The Waves. All rights reserved.
+//  Heavily inspired by Matt Morey
 
 import Foundation
 import MapKit
 
-class ReportMapAnnotation: NSObject, MKAnnotation {
+class WsrReportMapAnnotation: NSObject, MKAnnotation {
 
     var title: String? {
-        return report.name
+        return "World Surfing Reserve"
     }
     var subtitle: String? {
         return report.description
     }
     let coordinate: CLLocationCoordinate2D
-    let report: Report
+    let report: WsrReport
 
-    init(coordinate: CLLocationCoordinate2D, report: Report) {
+    init(coordinate: CLLocationCoordinate2D, report: WsrReport) {
         self.coordinate = coordinate
         self.report = report
         super.init()
