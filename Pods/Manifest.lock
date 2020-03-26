@@ -360,10 +360,10 @@ PODS:
   - SwiftLint (0.39.1)
 
 DEPENDENCIES:
-  - Crashlytics
-  - Fabric
-  - Firebase
-  - FirebaseUI
+  - Crashlytics (~> 3.14.0)
+  - Fabric (~> 1.10.2)
+  - Firebase (~> 6.19.0)
+  - FirebaseUI (~> 8.4.2)
   - LocationPickerViewController (from `https://github.com/zhuorantan/LocationPicker.git`, commit `15d9bae350e8ffd6bf3640afc423a8350ea2b523`)
   - SVProgressHUD (~> 2.2)
   - SwiftLint
@@ -452,6 +452,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
 
-PODFILE CHECKSUM: 135299d1fe9427f14889d0cac0d617d0a5a218b8
+PODFILE CHECKSUM: db667919ec942ef35520d9240eef7ac68c82265a
 
 COCOAPODS: 1.9.1
