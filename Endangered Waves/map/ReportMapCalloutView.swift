@@ -16,41 +16,41 @@ protocol ReportMapCalloutViewDelegate: class {
 class ReportMapCalloutView: UIView {
 
     var report: Report! {
-        didSet {
-            if let reportTypeLabel = reportTypeLabel {
-                reportTypeLabel.text = report.type.displayString().uppercased()
-            }
+          didSet {
+              if let reportTypeLabel = reportTypeLabel {
+                  reportTypeLabel.text = report.type.displayString().uppercased()
+              }
 
-            if let dateLabel = dateLabel {
-                dateLabel.text = report.dateDisplayString()
-            }
+              if let dateLabel = dateLabel {
+                  dateLabel.text = report.dateDisplayString()
+              }
 
-            if let placemarkImageView = placemarkImageView {
-                placemarkImageView.image = report.type.placemarkIcon()
-            }
+              if let placemarkImageView = placemarkImageView {
+                  placemarkImageView.image = report.type.placemarkIcon()
+              }
 
-            if let userImageView = userImageView,
-                let firstImageURLString = report.imageURLs.first,
-                let firstImageURL = URL(string: firstImageURLString) {
+              if let userImageView = userImageView,
+                  let firstImageURLString = report.imageURLs.first,
+                  let firstImageURL = URL(string: firstImageURLString) {
 
-                // TODO: Maybe use storage references instead of URLs for better caching ¯\(°_o)/¯
-                userImageView.sd_setImage(with: firstImageURL, completed: { (image, error, cacheType, url) in
-                    if image == nil {
-                        return
-                    }
+                  // TODO: Maybe use storage references instead of URLs for better caching ¯\(°_o)/¯
+                  userImageView.sd_setImage(with: firstImageURL, completed: { (image, error, cacheType, url) in
+                      if image == nil {
+                          return
+                      }
 
-                    if cacheType == SDImageCacheType.none {
-                        UIView.animate(withDuration: 0.25, animations: {
-                            userImageView.alpha = 1.0
-                        })
-                    } else {
-                        userImageView.alpha = 1.0
-                    }
-                })
+                      if cacheType == SDImageCacheType.none {
+                          UIView.animate(withDuration: 0.25, animations: {
+                              userImageView.alpha = 1.0
+                          })
+                      } else {
+                          userImageView.alpha = 1.0
+                      }
+                  })
 
-            }
-        }
-    }
+              }
+          }
+      }
 
     weak var delegate: ReportMapCalloutViewDelegate?
 

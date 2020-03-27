@@ -1,31 +1,32 @@
 //
-//  ReportMapAnnotationView.swift
+//  WsrReportMapAnnotationView.swift
 //  Endangered Waves
 //
-//  Created by Matthew Morey on 11/25/17.
-//  Copyright © 2017 Save The Waves. All rights reserved.
+//  Created by Erik Parr on 3/27/20.
+//  Copyright © 2020 Save The Waves. All rights reserved.
 //
+
 
 import UIKit
 import MapKit
 
 // Inspired by https://github.com/DigitalLeaves/YourPersonalWishlist/blob/master/CustomPinsMap/PersonWishListAnnotationView.swift
 
-class ReportMapAnnotationView: MKAnnotationView {
+class WsrReportMapAnnotationView: MKAnnotationView {
 
     weak var customCalloutView: ReportMapCalloutView?
     weak var calloutViewDelegate: ReportMapCalloutViewDelegate?
 
     override var annotation: MKAnnotation? {
         willSet {
-            guard (newValue as?  ReportMapAnnotation) != nil else {
+            guard (newValue as?  WsrReportMapAnnotation) != nil else {
                 return
             }
             customCalloutView?.removeFromSuperview()
         }
         didSet {
-            if let reportMapAnnotation = annotation as? ReportMapAnnotation {
-                image = reportMapAnnotation.report.type.placemarkIcon()
+            if let wsrMapAnnotation = annotation as? WsrReportMapAnnotation {
+                image = wsrMapAnnotation.report.type.placemarkIcon()
             }
         }
     }
@@ -34,33 +35,33 @@ class ReportMapAnnotationView: MKAnnotationView {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         self.canShowCallout = false // Showing custom callout thus turn off default one
 
-        if let reportMapAnnotation = annotation as? ReportMapAnnotation {
-            image = reportMapAnnotation.report.type.placemarkIcon()
+        if let wsrMapAnnotation = annotation as? WsrReportMapAnnotation {
+            image = wsrMapAnnotation.report.type.placemarkIcon()
         }
     }
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.canShowCallout = false // Showing custom callout thus turn off default one
-        self.image = Style.iconGeneralPlacemark
+        self.image = Style.iconWsrPlacemark
     }
 
 
     func createCustomCalloutView() -> ReportMapCalloutView? {
         if let views = Bundle.main.loadNibNamed("ReportMapCalloutView", owner: self, options: nil) as? [ReportMapCalloutView],
-            let reportAnnotation = annotation as? ReportMapAnnotation,
+            let wsrReportAnnotation = annotation as? WsrReportMapAnnotation,
             views.count > 0 {
 
-            let view = views.first!
-            view.report = reportAnnotation.report
-            var newFrame = view.frame
-            newFrame.size.width = 48
-            newFrame.size.height = 48
-            view.frame = newFrame
-            view.clipsToBounds = true
-            view.autoresizesSubviews = false
-            view.delegate = self.calloutViewDelegate
-            return view
+//            let view = views.first!
+//            view.report = reportAnnotation.report
+//            var newFrame = view.frame
+//            newFrame.size.width = 48
+//            newFrame.size.height = 48
+//            view.frame = newFrame
+//            view.clipsToBounds = true
+//            view.autoresizesSubviews = false
+//            view.delegate = self.calloutViewDelegate
+//            return view
         }
         return nil
     }

@@ -26,8 +26,14 @@ class ReportsMapViewController: UIViewController {
 
     fileprivate var didUpdateRegion = false
 
-    fileprivate lazy var batchedArray: FUIBatchedArray = {
+    fileprivate lazy var batchedArrayForReports: FUIBatchedArray = {
         let query = Firestore.firestore().collection("reports").order(by: "creationDate", descending: true)
+        let array = FUIBatchedArray(query: query, delegate: self)
+        return array
+    }()
+
+    fileprivate lazy var batchedArrayForWSR: FUIBatchedArray = {
+        let query = Firestore.firestore().collection("wsr")
         let array = FUIBatchedArray(query: query, delegate: self)
         return array
     }()
@@ -37,7 +43,8 @@ class ReportsMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureMap()
-        batchedArray.observeQuery()
+        batchedArrayForReports.observeQuery()
+        batchedArrayForWSR.observeQuery()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -117,20 +124,28 @@ extension ReportsMapViewController: FUIBatchedArrayDelegate {
         // TODO: Right now just removing all annotations and then adding everything back,
         //       we really should be taking addvantage of the array diff
         // print("ℹ️: Firestore udpated: \(diff)")
-
-        let annotations = mapView.annotations
-        mapView.removeAnnotations(annotations)
-        addWsrReports()
-
-        array.items.forEach { (snapshot) in
-            if let report = Report.createReportWithSnapshot(snapshot) {
-                let coordinate = CLLocationCoordinate2DMake(report.coordinate.latitude, report.coordinate.longitude)
-                let annotation = ReportMapAnnotation(coordinate: coordinate, report: report)
-                mapView.addAnnotation(annotation)
+        if array == batchedArrayForWSR{
+            array.items.forEach{ (snapshot) in
+                if let wsrReport = WsrReport.createWsrWithSnapshot(snapshot) {
+                    let coordinate = CLLocationCoordinate2DMake(wsrReport.coordinate.latitude, wsrReport.coordinate.longitude)
+                    let annotation = WsrReportMapAnnotation(coordinate: coordinate, report: wsrReport)
+                    self.mapView.addAnnotation(annotation)
+                }
+            }
+        } else if array == batchedArrayForReports{
+            let annotations = mapView.annotations
+            mapView.removeAnnotations(annotations)
+            
+            array.items.forEach { (snapshot) in
+                if let report = Report.createReportWithSnapshot(snapshot) {
+                    let coordinate = CLLocationCoordinate2DMake(report.coordinate.latitude, report.coordinate.longitude)
+                    let annotation = ReportMapAnnotation(coordinate: coordinate, report: report)
+                    mapView.addAnnotation(annotation)
+                }
             }
         }
     }
-
+    
     func batchedArray(_ array: FUIBatchedArray, queryDidFailWithError error: Error) {
         assertionFailure("⚠️: \(error.localizedDescription)")
         // TODO: Log this error
@@ -152,21 +167,33 @@ extension ReportsMapViewController: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard let annotation = annotation as? ReportMapAnnotation else { return nil }
-
-        let identifier = "ReportMapAnnotationViewIdentifier"
-        var annotationView: ReportMapAnnotationView
-
-        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? ReportMapAnnotationView {
-            dequeuedView.annotation = annotation
-            annotationView = dequeuedView
+        if let annotation = annotation as? ReportMapAnnotation {
+            let identifier = "ReportMapAnnotationViewIdentifier"
+            var annotationView: ReportMapAnnotationView
+            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? ReportMapAnnotationView {
+                dequeuedView.annotation = annotation
+                annotationView = dequeuedView
+            } else {
+                annotationView = ReportMapAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                annotationView.calloutViewDelegate = self
+                registerForPreviewing(with: self, sourceView: annotationView)
+            }
+            return annotationView
+        } else if let annotation = annotation as? WsrReportMapAnnotation {
+            let identifier = "WsrReportMapAnnotationView"
+            var annotationView: WsrReportMapAnnotationView
+            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? WsrReportMapAnnotationView {
+                dequeuedView.annotation = annotation
+                annotationView = dequeuedView
+            } else {
+                annotationView = WsrReportMapAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                annotationView.calloutViewDelegate = self
+                registerForPreviewing(with: self, sourceView: annotationView)
+            }
+            return annotationView
         } else {
-            annotationView = ReportMapAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            annotationView.calloutViewDelegate = self
-            registerForPreviewing(with: self, sourceView: annotationView)
+            return nil
         }
-
-        return annotationView
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
