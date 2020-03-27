@@ -12,47 +12,88 @@ import SDWebImage
 protocol ReportMapCalloutViewDelegate: class {
     func view(_ view: ReportMapCalloutView, didTapDetailsButton button: UIButton?, forReport report: Report)
 }
+protocol WSRMapCalloutViewDelegate: class {
+    func view(_ view: ReportMapCalloutView, didTapDetailsButton button: UIButton?, forReport report: WsrReport)
+}
 
 class ReportMapCalloutView: UIView {
 
     var report: Report! {
-          didSet {
-              if let reportTypeLabel = reportTypeLabel {
-                  reportTypeLabel.text = report.type.displayString().uppercased()
-              }
+        didSet {
+            if let reportTypeLabel = reportTypeLabel {
+                reportTypeLabel.text = report.type.displayString().uppercased()
+            }
 
-              if let dateLabel = dateLabel {
-                  dateLabel.text = report.dateDisplayString()
-              }
+            if let dateLabel = dateLabel {
+                dateLabel.text = report.dateDisplayString()
+            }
 
-              if let placemarkImageView = placemarkImageView {
-                  placemarkImageView.image = report.type.placemarkIcon()
-              }
+            if let placemarkImageView = placemarkImageView {
+                placemarkImageView.image = report.type.placemarkIcon()
+            }
 
-              if let userImageView = userImageView,
-                  let firstImageURLString = report.imageURLs.first,
-                  let firstImageURL = URL(string: firstImageURLString) {
+            if let userImageView = userImageView,
+                let firstImageURLString = report.imageURLs.first,
+                let firstImageURL = URL(string: firstImageURLString) {
 
-                  // TODO: Maybe use storage references instead of URLs for better caching ¯\(°_o)/¯
-                  userImageView.sd_setImage(with: firstImageURL, completed: { (image, error, cacheType, url) in
-                      if image == nil {
-                          return
-                      }
+                // TODO: Maybe use storage references instead of URLs for better caching ¯\(°_o)/¯
+                userImageView.sd_setImage(with: firstImageURL, completed: { (image, error, cacheType, url) in
+                    if image == nil {
+                        return
+                    }
 
-                      if cacheType == SDImageCacheType.none {
-                          UIView.animate(withDuration: 0.25, animations: {
-                              userImageView.alpha = 1.0
-                          })
-                      } else {
-                          userImageView.alpha = 1.0
-                      }
-                  })
+                    if cacheType == SDImageCacheType.none {
+                        UIView.animate(withDuration: 0.25, animations: {
+                            userImageView.alpha = 1.0
+                        })
+                    } else {
+                        userImageView.alpha = 1.0
+                    }
+                })
 
-              }
-          }
-      }
+            }
+        }
+    }
+
+    var wsr: WsrReport! {
+        didSet {
+            if let reportTypeLabel = reportTypeLabel {
+                reportTypeLabel.text = wsr.type.displayString().uppercased()
+            }
+
+            if let dateLabel = dateLabel {
+                dateLabel.text = wsr.dateDisplayString()
+            }
+
+            if let placemarkImageView = placemarkImageView {
+                placemarkImageView.image = wsr.type.placemarkIcon()
+            }
+
+            if let userImageView = userImageView,
+                let firstImageURLString = wsr.imageURLs.first,
+                let firstImageURL = URL(string: firstImageURLString) {
+
+                // TODO: Maybe use storage references instead of URLs for better caching ¯\(°_o)/¯
+                userImageView.sd_setImage(with: firstImageURL, completed: { (image, error, cacheType, url) in
+                    if image == nil {
+                        return
+                    }
+
+                    if cacheType == SDImageCacheType.none {
+                        UIView.animate(withDuration: 0.25, animations: {
+                            userImageView.alpha = 1.0
+                        })
+                    } else {
+                        userImageView.alpha = 1.0
+                    }
+                })
+
+            }
+        }
+    }
 
     weak var delegate: ReportMapCalloutViewDelegate?
+    weak var wsrDelegate: WSRMapCalloutViewDelegate?
 
     @IBOutlet weak var whiteCircleImageView: UIImageView!
     @IBOutlet weak var mainView: UIView!
@@ -64,7 +105,12 @@ class ReportMapCalloutView: UIView {
     @IBOutlet weak var userImageView: UIImageView!
 
     @IBAction func userDidTapDetailsButton(_ sender: UIButton) {
-        delegate?.view(self, didTapDetailsButton: sender, forReport: report)
+        if let reportType = report{
+            delegate?.view(self, didTapDetailsButton: sender, forReport: report)
+        }else if let reportType = wsr{
+            wsrDelegate?.view(self, didTapDetailsButton: sender, forReport: wsr)
+        }
+        
     }
 
     override func awakeFromNib() {
@@ -77,7 +123,11 @@ class ReportMapCalloutView: UIView {
     }
 
     @objc func userTapped() {
-        delegate?.view(self, didTapDetailsButton: nil, forReport: report)
+        if let reportType = report{
+            delegate?.view(self, didTapDetailsButton: nil, forReport: report)
+        }else if let reportType = wsr{
+            wsrDelegate?.view(self, didTapDetailsButton: nil, forReport: wsr)
+        }
     }
 
     // MARK: - Hit test. We need to override this to detect hits in our custom callout. Is this really needed ¯\(°_o)/¯

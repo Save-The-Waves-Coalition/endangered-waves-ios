@@ -98,6 +98,13 @@ class ContainerCoordinator: Coordinator {
         reportCoordinator.start()
     }
 
+    func showReportDetailsComponentForWSR(_ wsr: WsrReport) {
+        let reportCoordinator = ReportCoordinator(with: containerNavViewController, wsr: wsr)
+        reportCoordinator.delegate = self
+        childCoordinators.append(reportCoordinator)
+        reportCoordinator.start()
+    }
+
     func cycleFromViewController(oldViewController: UIViewController, toViewController newViewController: UIViewController) {
 
         oldViewController.willMove(toParent: nil)
@@ -217,6 +224,13 @@ extension ContainerCoordinator: NewReportCoordinatorDelegate {
 extension ContainerCoordinator: ReportsMapViewControllerDelegate {
     func viewController(_ viewController: ReportsMapViewController, didRequestDetailsForReport report: Report) {
         showReportDetailsComponentForReport(report)
+    }
+}
+
+// MARK: ReportsMapViewControllerDelegate
+extension ContainerCoordinator: WsrMapViewControllerDelegate {
+    func viewController(_ viewController: ReportsMapViewController, didRequestDetailsForReport report: WsrReport) {
+        showReportDetailsComponentForWSR(report)
     }
 }
 

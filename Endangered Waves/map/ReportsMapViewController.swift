@@ -16,9 +16,15 @@ protocol ReportsMapViewControllerDelegate: class {
     func viewController(_ viewController: ReportsMapViewController, didRequestDetailsForReport report: Report)
 }
 
+protocol WsrMapViewControllerDelegate: class {
+    func viewController(_ viewController: ReportsMapViewController, didRequestDetailsForReport report: WsrReport)
+}
+
 class ReportsMapViewController: UIViewController {
 
     weak var delegate: ReportsMapViewControllerDelegate?
+
+    weak var wsrDelegate: WsrMapViewControllerDelegate?
 
     @IBOutlet weak var mapView: MKMapView!
 
@@ -198,23 +204,38 @@ extension ReportsMapViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
 
-        guard let annotationView = view as? ReportMapAnnotationView,
-            let calloutView = annotationView.customCalloutView,
-            let annotation = annotationView.annotation else {
+        if let annotationView = view as? ReportMapAnnotationView {
+            let calloutView = annotationView.customCalloutView
+            let annotation = annotationView.annotation
+            // If custom callout is offscreen recenter map so it is now onscreen
+            let mapViewMaxXPostion = mapView.frame.maxX
+            let annotationViewXPostion = annotationView.frame.origin.x
+            let calloutViewWidth = calloutView!.bounds.size.width
+            let deltaX = (annotationViewXPostion + calloutViewWidth) - mapViewMaxXPostion
+
+            if deltaX > 0 {
+                var newCenter = mapView.centerCoordinate
+                newCenter.longitude = annotation!.coordinate.longitude
+                mapView.setCenter(newCenter, animated: true)
+            }
+        }else if let annotationView = view as? WsrReportMapAnnotationView {
+            let calloutView = annotationView.customCalloutView
+            let annotation = annotationView.annotation
+            // If custom callout is offscreen recenter map so it is now onscreen
+            let mapViewMaxXPostion = mapView.frame.maxX
+            let annotationViewXPostion = annotationView.frame.origin.x
+            let calloutViewWidth = calloutView!.bounds.size.width
+            let deltaX = (annotationViewXPostion + calloutViewWidth) - mapViewMaxXPostion
+
+            if deltaX > 0 {
+                var newCenter = mapView.centerCoordinate
+                newCenter.longitude = (annotation?.coordinate.longitude)!
+                mapView.setCenter(newCenter, animated: true)
+            }
+        } else {
                 return
         }
 
-        // If custom callout is offscreen recenter map so it is now onscreen
-        let mapViewMaxXPostion = mapView.frame.maxX
-        let annotationViewXPostion = annotationView.frame.origin.x
-        let calloutViewWidth = calloutView.bounds.size.width
-        let deltaX = (annotationViewXPostion + calloutViewWidth) - mapViewMaxXPostion
-
-        if deltaX > 0 {
-            var newCenter = mapView.centerCoordinate
-            newCenter.longitude = annotation.coordinate.longitude
-            mapView.setCenter(newCenter, animated: true)
-        }
     }
 
 // // Animation for the pin drops
@@ -270,13 +291,21 @@ extension ReportsMapViewController: ReportMapCalloutViewDelegate {
     }
 }
 
+extension ReportsMapViewController: WSRMapCalloutViewDelegate {
+    func view(_ view: ReportMapCalloutView, didTapDetailsButton button: UIButton?, forReport report: WsrReport) {
+        wsrDelegate?.viewController(self, didRequestDetailsForReport: report)
+    }
+}
+
 // MARK: 🎑 UIViewControllerPreviewingDelegate
 extension ReportsMapViewController: UIViewControllerPreviewingDelegate {
 
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
         guard let annotationView = previewingContext.sourceView as? ReportMapAnnotationView,
             let annotation = annotationView.annotation as? ReportMapAnnotation else { return nil}
 
+        
         if let popoverFrame = rectForAnnotationViewWithPopover(view: annotationView) {
             previewingContext.sourceRect = popoverFrame
         }

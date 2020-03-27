@@ -52,16 +52,16 @@ class WsrReportMapAnnotationView: MKAnnotationView {
             let wsrReportAnnotation = annotation as? WsrReportMapAnnotation,
             views.count > 0 {
 
-//            let view = views.first!
-//            view.report = reportAnnotation.report
-//            var newFrame = view.frame
-//            newFrame.size.width = 48
-//            newFrame.size.height = 48
-//            view.frame = newFrame
-//            view.clipsToBounds = true
-//            view.autoresizesSubviews = false
-//            view.delegate = self.calloutViewDelegate
-//            return view
+            let view = views.first!
+            view.wsr = wsrReportAnnotation.report
+            var newFrame = view.frame
+            newFrame.size.width = 48
+            newFrame.size.height = 48
+            view.frame = newFrame
+            view.clipsToBounds = true
+            view.autoresizesSubviews = false
+            view.delegate = self.calloutViewDelegate
+            return view
         }
         return nil
     }
