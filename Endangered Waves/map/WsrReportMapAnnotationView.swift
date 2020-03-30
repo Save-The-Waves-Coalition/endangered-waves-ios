@@ -15,7 +15,7 @@ import MapKit
 class WsrReportMapAnnotationView: MKAnnotationView {
 
     weak var customCalloutView: ReportMapCalloutView?
-    weak var calloutViewDelegate: ReportMapCalloutViewDelegate?
+    weak var calloutViewDelegate: WSRMapCalloutViewDelegate?
 
     override var annotation: MKAnnotation? {
         willSet {
@@ -59,7 +59,7 @@ class WsrReportMapAnnotationView: MKAnnotationView {
             view.frame = newFrame
             view.clipsToBounds = true
             view.autoresizesSubviews = false
-            view.delegate = self.calloutViewDelegate
+            view.wsrDelegate = self.calloutViewDelegate
             return view
         }
         return nil

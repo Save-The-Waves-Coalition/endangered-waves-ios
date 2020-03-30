@@ -141,7 +141,6 @@ class ReportDetailViewController: UITableViewController {
                 descriptionLabel.attributedText = newString
             }
         }else if let report = report as? WsrReport{
-
             title = report.type.displayString().uppercased()
 
             if let typeImageView = typeImageView {

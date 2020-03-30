@@ -110,7 +110,6 @@ class ReportMapCalloutView: UIView {
         }else if let reportType = wsr{
             wsrDelegate?.view(self, didTapDetailsButton: sender, forReport: wsr)
         }
-        
     }
 
     override func awakeFromNib() {

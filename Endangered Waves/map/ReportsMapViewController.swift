@@ -116,6 +116,14 @@ class ReportsMapViewController: UIViewController {
         viewController.report = annotation.report
         return viewController
     }
+    
+    private func viewController(for annotation: WsrReportMapAnnotation) -> ReportDetailViewController {
+        // TODO: Coordinator should take care of this
+        let viewController = ReportDetailViewController.instantiate()
+        viewController.report = annotation.report
+        return viewController
+    }
+
 }
 
 // MARK: 🔥 FUIBatchedArrayDelegate
@@ -286,12 +294,14 @@ extension ReportsMapViewController: MKMapViewDelegate {
 // MARK: ReportMapCalloutViewDelegate
 extension ReportsMapViewController: ReportMapCalloutViewDelegate {
     func view(_ view: ReportMapCalloutView, didTapDetailsButton button: UIButton?, forReport report: Report) {
+        print("ReportMapCalloutViewDelegate view")
         delegate?.viewController(self, didRequestDetailsForReport: report)
     }
 }
 
 extension ReportsMapViewController: WSRMapCalloutViewDelegate {
     func view(_ view: ReportMapCalloutView, didTapDetailsButton button: UIButton?, forReport report: WsrReport) {
+        print("WSRMapCalloutViewDelegate view")
         wsrDelegate?.viewController(self, didRequestDetailsForReport: report)
     }
 }
@@ -300,17 +310,16 @@ extension ReportsMapViewController: WSRMapCalloutViewDelegate {
 extension ReportsMapViewController: UIViewControllerPreviewingDelegate {
 
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        
-        guard let annotationView = previewingContext.sourceView as? ReportMapAnnotationView,
-            let annotation = annotationView.annotation as? ReportMapAnnotation else { return nil}
-
-        
-        if let popoverFrame = rectForAnnotationViewWithPopover(view: annotationView) {
-            previewingContext.sourceRect = popoverFrame
+        if let annotationView = previewingContext.sourceView as? ReportMapAnnotationView,
+            let annotation = annotationView.annotation as? ReportMapAnnotation {
+            let viewControllerForLocation = viewController(for: annotation)
+            return viewControllerForLocation
+        } else if let  annotationView = previewingContext.sourceView as? WsrReportMapAnnotationView,
+            let annotation = annotationView.annotation as? WsrReportMapAnnotation {
+            let viewControllerForLocation = viewController(for: annotation)
+            return viewControllerForLocation
         }
-
-        let viewControllerForLocation = viewController(for: annotation)
-        return viewControllerForLocation
+        return nil
     }
 
     /*
