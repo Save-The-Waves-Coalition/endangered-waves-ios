@@ -17,19 +17,24 @@ protocol ReportDetailViewControllerDelegate: class {
     func showMapDetail()
 }
 
+protocol DetailReport {}
+extension Report: DetailReport { }
+extension WsrReport: DetailReport { }
+
 class ReportDetailViewController: UITableViewController {
 
     weak var delegate: ReportDetailViewControllerDelegate?
 
     fileprivate lazy var imageDownloadManager = ImageDownloadManager()
 
-    var report: Report! {
+    var report: DetailReport! {
         didSet {
             if isViewLoaded {
                 updateView()
             }
         }
     }
+    
 
     var images: [UIImage]? {
         didSet {
@@ -69,76 +74,148 @@ class ReportDetailViewController: UITableViewController {
     }
 
     func updateView() {
+        if let report = report as? Report{
 
-        title = report.type.displayString().uppercased()
+            title = report.type.displayString().uppercased()
 
-        if let typeImageView = typeImageView {
-            typeImageView.image = report.type.placemarkIcon()
-        }
+            if let typeImageView = typeImageView {
+                typeImageView.image = report.type.placemarkIcon()
+            }
 
-        let urls: [URL] = report.imageURLs.compactMap({ (urlString) -> URL? in
-            return URL(string: urlString)
-        })
-
-        self.navigationItem.rightBarButtonItem?.isEnabled = false // Disable sharing until the image is loaded
-        imageDownloadManager.loadImagesWithURLs(urls, completion: { (images) in
-            self.images = images
-            self.imageSliderViewController.images = images
-            self.navigationItem.rightBarButtonItem?.isEnabled = true
-        })
-
-        if let dateLabel = dateLabel {
-            dateLabel.text = "– \(report.dateDisplayString()) –"
-        }
-
-        if let locationLabel = locationLabel {
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineSpacing = 15
-            let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
-                              NSAttributedString.Key.font: Style.fontGeorgia(size: 15),
-                              NSAttributedString.Key.paragraphStyle: paragraphStyle]
-            let newString = NSMutableAttributedString(string: "\(report.name)\n\(report.address)", attributes: attributes)
-            locationLabel.attributedText = newString
-        }
-
-        let coordinate = CLLocationCoordinate2DMake(report.coordinate.latitude, report.coordinate.longitude)
-        let mapSnapshotOptions = MKMapSnapshotter.Options()
-
-        // Set the region of the map that is rendered.
-        let region = MKCoordinateRegion.init(center: coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
-        mapSnapshotOptions.region = region
-
-        mapSnapshotOptions.showsBuildings = false
-        mapSnapshotOptions.pointOfInterestFilter = .excludingAll
-
-        // Set the size of the image output.
-        mapSnapshotOptions.size = CGSize(width: 90, height: 90)
-
-        let snapShotter = MKMapSnapshotter(options: mapSnapshotOptions)
-        snapShotter.start(completionHandler: { (snapshot, error) in
-            self.mapPinImageView.alpha = 0
-            self.mapButton.alpha = 0
-            self.mapButton.setBackgroundImage(snapshot?.image, for: .normal)
-            UIView.animate(withDuration: 0.25, animations: {
-                self.mapButton.alpha = 1.0
-                self.mapPinImageView.alpha = 1.0
+            let urls: [URL] = report.imageURLs.compactMap({ (urlString) -> URL? in
+                return URL(string: urlString)
             })
-        })
 
-        if let descriptionLabel = descriptionLabel {
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineSpacing = 15
-            let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
-                              NSAttributedString.Key.font: Style.fontGeorgia(size: 15),
-                              NSAttributedString.Key.paragraphStyle: paragraphStyle]
-            let newString = NSMutableAttributedString(string: report.description, attributes: attributes)
-            descriptionLabel.attributedText = newString
+            self.navigationItem.rightBarButtonItem?.isEnabled = false // Disable sharing until the image is loaded
+            imageDownloadManager.loadImagesWithURLs(urls, completion: { (images) in
+                self.images = images
+                self.imageSliderViewController.images = images
+                self.navigationItem.rightBarButtonItem?.isEnabled = true
+            })
+
+            if let dateLabel = dateLabel {
+                dateLabel.text = "– \(report.dateDisplayString()) –"
+            }
+
+            if let locationLabel = locationLabel {
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.lineSpacing = 15
+                let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
+                                  NSAttributedString.Key.font: Style.fontGeorgia(size: 15),
+                                  NSAttributedString.Key.paragraphStyle: paragraphStyle]
+                let newString = NSMutableAttributedString(string: "\(report.name)\n\(report.address)", attributes: attributes)
+                locationLabel.attributedText = newString
+            }
+
+            let coordinate = CLLocationCoordinate2DMake(report.coordinate.latitude, report.coordinate.longitude)
+            let mapSnapshotOptions = MKMapSnapshotter.Options()
+
+            // Set the region of the map that is rendered.
+            let region = MKCoordinateRegion.init(center: coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+            mapSnapshotOptions.region = region
+
+            mapSnapshotOptions.showsBuildings = false
+            mapSnapshotOptions.pointOfInterestFilter = .excludingAll
+
+            // Set the size of the image output.
+            mapSnapshotOptions.size = CGSize(width: 90, height: 90)
+
+            let snapShotter = MKMapSnapshotter(options: mapSnapshotOptions)
+            snapShotter.start(completionHandler: { (snapshot, error) in
+                self.mapPinImageView.alpha = 0
+                self.mapButton.alpha = 0
+                self.mapButton.setBackgroundImage(snapshot?.image, for: .normal)
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.mapButton.alpha = 1.0
+                    self.mapPinImageView.alpha = 1.0
+                })
+            })
+
+            if let descriptionLabel = descriptionLabel {
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.lineSpacing = 15
+                let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
+                                  NSAttributedString.Key.font: Style.fontGeorgia(size: 15),
+                                  NSAttributedString.Key.paragraphStyle: paragraphStyle]
+                let newString = NSMutableAttributedString(string: report.description, attributes: attributes)
+                descriptionLabel.attributedText = newString
+            }
+        }else if let report = report as? WsrReport{
+
+            title = report.type.displayString().uppercased()
+
+            if let typeImageView = typeImageView {
+                typeImageView.image = report.type.placemarkIcon()
+            }
+
+            let urls: [URL] = report.imageURLs.compactMap({ (urlString) -> URL? in
+                return URL(string: urlString)
+            })
+
+            self.navigationItem.rightBarButtonItem?.isEnabled = false // Disable sharing until the image is loaded
+            imageDownloadManager.loadImagesWithURLs(urls, completion: { (images) in
+                self.images = images
+                self.imageSliderViewController.images = images
+                self.navigationItem.rightBarButtonItem?.isEnabled = true
+            })
+
+            if let dateLabel = dateLabel {
+                dateLabel.text = "– \(report.dateDisplayString()) –"
+            }
+
+            if let locationLabel = locationLabel {
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.lineSpacing = 15
+                let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
+                                  NSAttributedString.Key.font: Style.fontGeorgia(size: 15),
+                                  NSAttributedString.Key.paragraphStyle: paragraphStyle]
+                //TODO: add WSR name back ERIK
+                let newString = NSMutableAttributedString(string: "\n\(report.address)", attributes: attributes)
+                locationLabel.attributedText = newString
+            }
+
+            let coordinate = CLLocationCoordinate2DMake(report.coordinate.latitude, report.coordinate.longitude)
+            let mapSnapshotOptions = MKMapSnapshotter.Options()
+
+            // Set the region of the map that is rendered.
+            let region = MKCoordinateRegion.init(center: coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+            mapSnapshotOptions.region = region
+
+            mapSnapshotOptions.showsBuildings = false
+            mapSnapshotOptions.pointOfInterestFilter = .excludingAll
+
+            // Set the size of the image output.
+            mapSnapshotOptions.size = CGSize(width: 90, height: 90)
+
+            let snapShotter = MKMapSnapshotter(options: mapSnapshotOptions)
+            snapShotter.start(completionHandler: { (snapshot, error) in
+                self.mapPinImageView.alpha = 0
+                self.mapButton.alpha = 0
+                self.mapButton.setBackgroundImage(snapshot?.image, for: .normal)
+                UIView.animate(withDuration: 0.25, animations: {
+                    self.mapButton.alpha = 1.0
+                    self.mapPinImageView.alpha = 1.0
+                })
+            })
+
+            if let descriptionLabel = descriptionLabel {
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.lineSpacing = 15
+                let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
+                                  NSAttributedString.Key.font: Style.fontGeorgia(size: 15),
+                                  NSAttributedString.Key.paragraphStyle: paragraphStyle]
+                let newString = NSMutableAttributedString(string: report.description, attributes: attributes)
+                descriptionLabel.attributedText = newString
+            }
         }
+
     }
 
     // Actions
 
     @IBAction func userTappedActionButton(_ sender: UIBarButtonItem) {
+        if let report = report as? Report{
+
         if let images = images, let firstImage = images.first {
             let imageActivity = ImageActivity(image: firstImage)
             let shareText = "\(report.description) \(report.type.hashTagString()) #endangeredwaves"
@@ -148,6 +225,19 @@ class ReportDetailViewController: UITableViewController {
 
             let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: [])
             present(activityViewController, animated: true, completion: nil) // TODO: coordinator should do this
+        }
+        }else if let report = report as? WsrReport{
+            if let images = images, let firstImage = images.first {
+                let imageActivity = ImageActivity(image: firstImage)
+                let shareText = "\(report.description) \(report.type.hashTagString()) #endangeredwaves"
+                let messageActivity = TextActivity(message: shareText)
+
+                let activityItems: [Any] = [imageActivity, messageActivity]
+
+                let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: [])
+                present(activityViewController, animated: true, completion: nil) // TODO: coordinator should do this
+            }
+
         }
     }
     @IBAction func userTappedMapButton(_ sender: UIButton) {

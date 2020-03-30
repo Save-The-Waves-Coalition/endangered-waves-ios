@@ -46,7 +46,6 @@ class WsrReportMapAnnotationView: MKAnnotationView {
         self.image = Style.iconWsrPlacemark
     }
 
-
     func createCustomCalloutView() -> ReportMapCalloutView? {
         if let views = Bundle.main.loadNibNamed("ReportMapCalloutView", owner: self, options: nil) as? [ReportMapCalloutView],
             let wsrReportAnnotation = annotation as? WsrReportMapAnnotation,

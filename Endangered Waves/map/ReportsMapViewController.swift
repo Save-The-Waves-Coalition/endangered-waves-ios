@@ -79,7 +79,6 @@ class ReportsMapViewController: UIViewController {
 //    }
 
     private func addWsrReports() {
-        print("addWsrReports called")
         Firestore.firestore().collection("wsr")
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
