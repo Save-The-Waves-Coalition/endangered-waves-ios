@@ -34,7 +34,6 @@ class ReportDetailViewController: UITableViewController {
             }
         }
     }
-    
 
     var images: [UIImage]? {
         didSet {
