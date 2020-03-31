@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F788D43242D60F100F4B40E /* WsrReportMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F788D42242D60F100F4B40E /* WsrReportMapAnnotation.swift */; };
-		3F788D44242D60F100F4B40E /* WsrReportMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F788D42242D60F100F4B40E /* WsrReportMapAnnotation.swift */; };
-		3FF81B9A242E66D800E2DD18 /* WsrReportMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF81B99242E66D800E2DD18 /* WsrReportMapAnnotationView.swift */; };
-		3FF81B9B242E66D800E2DD18 /* WsrReportMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF81B99242E66D800E2DD18 /* WsrReportMapAnnotationView.swift */; };
 		4A00E12C1FCF9D1F00E4CEA4 /* UIActivities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A00E12B1FCF9D1F00E4CEA4 /* UIActivities.swift */; };
 		4A00E12E1FD4A12200E4CEA4 /* GothamSSm-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A00E12D1FD4A12200E4CEA4 /* GothamSSm-Medium.otf */; };
 		4A0ABE701FBD2B4F007B06B9 /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4A0ABE6F1FBD2B4F007B06B9 /* SF-Pro-Display-Semibold.otf */; };
@@ -247,8 +243,6 @@
 
 /* Begin PBXFileReference section */
 		162BDD7CF1791545CEDCFE40 /* Pods-shared-Endangered Waves.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shared-Endangered Waves.debug.xcconfig"; path = "Target Support Files/Pods-shared-Endangered Waves/Pods-shared-Endangered Waves.debug.xcconfig"; sourceTree = "<group>"; };
-		3F788D42242D60F100F4B40E /* WsrReportMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WsrReportMapAnnotation.swift; sourceTree = "<group>"; };
-		3FF81B99242E66D800E2DD18 /* WsrReportMapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WsrReportMapAnnotationView.swift; sourceTree = "<group>"; };
 		3FF81B9C242E695A00E2DD18 /* Bahia Todos Santos.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Bahia Todos Santos.gpx"; sourceTree = "<group>"; };
 		4A00E12B1FCF9D1F00E4CEA4 /* UIActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivities.swift; sourceTree = "<group>"; };
 		4A00E12D1FD4A12200E4CEA4 /* GothamSSm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothamSSm-Medium.otf"; sourceTree = "<group>"; };
@@ -463,9 +457,7 @@
 			children = (
 				4A321A8F1FB67C1F001DA08A /* ReportsMapViewController.swift */,
 				4A321AC51FB8EF17001DA08A /* ReportMapAnnotation.swift */,
-				3F788D42242D60F100F4B40E /* WsrReportMapAnnotation.swift */,
 				4A2987881FCA08FC0061B401 /* ReportMapAnnotationView.swift */,
-				3FF81B99242E66D800E2DD18 /* WsrReportMapAnnotationView.swift */,
 				4A1C345F1FC604F200D94684 /* ReportMapCalloutView.swift */,
 				4AB6AA8A1FC5D655001C36C2 /* ReportMapCalloutView.xib */,
 				4A321A921FB67C3B001DA08A /* map.storyboard */,
@@ -1216,12 +1208,10 @@
 				4A47A776242A58230052CA2C /* Configuration.swift in Sources */,
 				8774078C2048D39900ED36F1 /* UserDefaultsHandler.swift in Sources */,
 				4A2987891FCA08FC0061B401 /* ReportMapAnnotationView.swift in Sources */,
-				3FF81B9A242E66D800E2DD18 /* WsrReportMapAnnotationView.swift in Sources */,
 				4A2987851FC9E22A0061B401 /* ContainerNavViewController.swift in Sources */,
 				4A0ABE811FC24587007B06B9 /* APIManager.swift in Sources */,
 				4A8B6A791FC3421C005A5989 /* NSObjectExtensions.swift in Sources */,
 				4A47A768242A58230052CA2C /* Helper.swift in Sources */,
-				3F788D43242D60F100F4B40E /* WsrReportMapAnnotation.swift in Sources */,
 				4AC5288B1FC482110084E442 /* InformationCoordinator.swift in Sources */,
 				4A321A8C1FB67308001DA08A /* StoryboardInstantiable.swift in Sources */,
 				4AA85B931FBBD61D009A72E8 /* NewReportNavViewController.swift in Sources */,
@@ -1306,12 +1296,10 @@
 				4A47A777242A58230052CA2C /* Configuration.swift in Sources */,
 				877407342048B9DA00ED36F1 /* OnboardingViewController.swift in Sources */,
 				877407352048B9DA00ED36F1 /* ReportMapAnnotationView.swift in Sources */,
-				3FF81B9B242E66D800E2DD18 /* WsrReportMapAnnotationView.swift in Sources */,
 				877407362048B9DA00ED36F1 /* ContainerNavViewController.swift in Sources */,
 				877407372048B9DA00ED36F1 /* APIManager.swift in Sources */,
 				877407382048B9DA00ED36F1 /* NSObjectExtensions.swift in Sources */,
 				4A47A769242A58230052CA2C /* Helper.swift in Sources */,
-				3F788D44242D60F100F4B40E /* WsrReportMapAnnotation.swift in Sources */,
 				877407392048B9DA00ED36F1 /* InformationCoordinator.swift in Sources */,
 				8774073A2048B9DA00ED36F1 /* StoryboardInstantiable.swift in Sources */,
 				8774073B2048B9DA00ED36F1 /* NewReportNavViewController.swift in Sources */,

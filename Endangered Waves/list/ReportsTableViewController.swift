@@ -11,7 +11,7 @@ import Firebase
 import FirebaseUI
 
 protocol ReportsTableViewControllerDelegate: class {
-    func viewController(_ viewController: ReportsTableViewController, didRequestDetailsForReport report: Report)
+    func viewController(_ viewController: ReportsTableViewController, didRequestDetailsForReport report: STWDataType)
 }
 
 class ReportsTableViewController: UITableViewController {

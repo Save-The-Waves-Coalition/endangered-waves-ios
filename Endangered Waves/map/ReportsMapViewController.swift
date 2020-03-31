@@ -13,18 +13,12 @@ import FirebaseFirestore
 import FirebaseUI
 
 protocol ReportsMapViewControllerDelegate: class {
-    func viewController(_ viewController: ReportsMapViewController, didRequestDetailsForReport report: Report)
-}
-
-protocol WsrMapViewControllerDelegate: class {
-    func viewController(_ viewController: ReportsMapViewController, didRequestDetailsForReport report: WsrReport)
+    func viewController(_ viewController: ReportsMapViewController, didRequestDetailsForReport report: STWDataType)
 }
 
 class ReportsMapViewController: UIViewController {
 
     weak var delegate: ReportsMapViewControllerDelegate?
-
-    weak var wsrDelegate: WsrMapViewControllerDelegate?
 
     @IBOutlet weak var mapView: MKMapView!
 
@@ -81,7 +75,7 @@ class ReportsMapViewController: UIViewController {
                     for document in querySnapshot!.documents {
                         if let wsrReport = WsrReport.createWsrWithSnapshot(document) {
                             let coordinate = CLLocationCoordinate2DMake(wsrReport.coordinate.latitude, wsrReport.coordinate.longitude)
-                            let annotation = WsrReportMapAnnotation(coordinate: coordinate, report: wsrReport)
+                            let annotation = ReportMapAnnotation(coordinate: coordinate, report: wsrReport)
                             self.mapView.addAnnotation(annotation)
                         }
                     }
@@ -110,13 +104,6 @@ class ReportsMapViewController: UIViewController {
         return viewController
     }
     
-    private func viewController(for annotation: WsrReportMapAnnotation) -> ReportDetailViewController {
-        // TODO: Coordinator should take care of this
-        let viewController = ReportDetailViewController.instantiate()
-        viewController.report = annotation.report
-        return viewController
-    }
-
 }
 
 // MARK: 🔥 FUIBatchedArrayDelegate
@@ -134,7 +121,7 @@ extension ReportsMapViewController: FUIBatchedArrayDelegate {
             array.items.forEach{ (snapshot) in
                 if let wsrReport = WsrReport.createWsrWithSnapshot(snapshot) {
                     let coordinate = CLLocationCoordinate2DMake(wsrReport.coordinate.latitude, wsrReport.coordinate.longitude)
-                    let annotation = WsrReportMapAnnotation(coordinate: coordinate, report: wsrReport)
+                    let annotation = ReportMapAnnotation(coordinate: coordinate, report: wsrReport)
                     self.mapView.addAnnotation(annotation)
                 }
             }
@@ -185,18 +172,6 @@ extension ReportsMapViewController: MKMapViewDelegate {
                 registerForPreviewing(with: self, sourceView: annotationView)
             }
             return annotationView
-        } else if let annotation = annotation as? WsrReportMapAnnotation {
-            let identifier = "WsrReportMapAnnotationView"
-            var annotationView: WsrReportMapAnnotationView
-            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? WsrReportMapAnnotationView {
-                dequeuedView.annotation = annotation
-                annotationView = dequeuedView
-            } else {
-                annotationView = WsrReportMapAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                annotationView.calloutViewDelegate = self
-                registerForPreviewing(with: self, sourceView: annotationView)
-            }
-            return annotationView
         } else {
             return nil
         }
@@ -216,20 +191,6 @@ extension ReportsMapViewController: MKMapViewDelegate {
             if deltaX > 0 {
                 var newCenter = mapView.centerCoordinate
                 newCenter.longitude = annotation!.coordinate.longitude
-                mapView.setCenter(newCenter, animated: true)
-            }
-        }else if let annotationView = view as? WsrReportMapAnnotationView {
-            let calloutView = annotationView.customCalloutView
-            let annotation = annotationView.annotation
-            // If custom callout is offscreen recenter map so it is now onscreen
-            let mapViewMaxXPostion = mapView.frame.maxX
-            let annotationViewXPostion = annotationView.frame.origin.x
-            let calloutViewWidth = calloutView!.bounds.size.width
-            let deltaX = (annotationViewXPostion + calloutViewWidth) - mapViewMaxXPostion
-
-            if deltaX > 0 {
-                var newCenter = mapView.centerCoordinate
-                newCenter.longitude = (annotation?.coordinate.longitude)!
                 mapView.setCenter(newCenter, animated: true)
             }
         } else {
@@ -286,16 +247,9 @@ extension ReportsMapViewController: MKMapViewDelegate {
 
 // MARK: ReportMapCalloutViewDelegate
 extension ReportsMapViewController: ReportMapCalloutViewDelegate {
-    func view(_ view: ReportMapCalloutView, didTapDetailsButton button: UIButton?, forReport report: Report) {
+    func view(_ view: ReportMapCalloutView, didTapDetailsButton button: UIButton?, forReport report: STWDataType) {
         print("ReportMapCalloutViewDelegate view")
         delegate?.viewController(self, didRequestDetailsForReport: report)
-    }
-}
-
-extension ReportsMapViewController: WSRMapCalloutViewDelegate {
-    func view(_ view: ReportMapCalloutView, didTapDetailsButton button: UIButton?, forReport report: WsrReport) {
-        print("WSRMapCalloutViewDelegate view")
-        wsrDelegate?.viewController(self, didRequestDetailsForReport: report)
     }
 }
 
@@ -307,12 +261,9 @@ extension ReportsMapViewController: UIViewControllerPreviewingDelegate {
             let annotation = annotationView.annotation as? ReportMapAnnotation {
             let viewControllerForLocation = viewController(for: annotation)
             return viewControllerForLocation
-        } else if let  annotationView = previewingContext.sourceView as? WsrReportMapAnnotationView,
-            let annotation = annotationView.annotation as? WsrReportMapAnnotation {
-            let viewControllerForLocation = viewController(for: annotation)
-            return viewControllerForLocation
-        }
+        } else {
         return nil
+        }
     }
 
     /*

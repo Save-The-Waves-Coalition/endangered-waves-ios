@@ -17,9 +17,6 @@ protocol ReportDetailViewControllerDelegate: class {
     func showMapDetail()
 }
 
-protocol DetailReport {}
-extension Report: DetailReport { }
-extension WsrReport: DetailReport { }
 
 class ReportDetailViewController: UITableViewController {
 
@@ -27,7 +24,7 @@ class ReportDetailViewController: UITableViewController {
 
     fileprivate lazy var imageDownloadManager = ImageDownloadManager()
 
-    var report: DetailReport! {
+    var report: STWDataType! {
         didSet {
             if isViewLoaded {
                 updateView()

@@ -16,17 +16,11 @@ class ReportCoordinator: Coordinator {
 
     weak var delegate: ReportCoordinatorDelegate?
 
-    var report: Report?
-    var wsr: WsrReport?
+    var report: STWDataType?
 
-    init(with rootViewController: UIViewController, report: Report?) {
+    init(with rootViewController: UIViewController, report: STWDataType?) {
         super.init(with: rootViewController)
         self.report = report
-    }
-
-    init(with rootViewController: UIViewController, wsr: WsrReport?) {
-        super.init(with: rootViewController)
-        self.wsr = wsr
     }
 
     override func start() {

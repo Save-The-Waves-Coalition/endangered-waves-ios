@@ -12,7 +12,7 @@ import MapKit
 class ReportDetailMapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
-    var report: Report!
+    var report: STWDataType!
 
     override func viewDidLoad() {
         super.viewDidLoad()

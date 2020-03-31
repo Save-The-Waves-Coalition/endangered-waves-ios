@@ -10,15 +10,12 @@ import UIKit
 import SDWebImage
 
 protocol ReportMapCalloutViewDelegate: class {
-    func view(_ view: ReportMapCalloutView, didTapDetailsButton button: UIButton?, forReport report: Report)
-}
-protocol WSRMapCalloutViewDelegate: class {
-    func view(_ view: ReportMapCalloutView, didTapDetailsButton button: UIButton?, forReport report: WsrReport)
+    func view(_ view: ReportMapCalloutView, didTapDetailsButton button: UIButton?, forReport report: STWDataType)
 }
 
 class ReportMapCalloutView: UIView {
 
-    var report: Report! {
+    var report: STWDataType! {
         didSet {
             if let reportTypeLabel = reportTypeLabel {
                 reportTypeLabel.text = report.type.displayString().uppercased()
@@ -93,7 +90,6 @@ class ReportMapCalloutView: UIView {
     }
 
     weak var delegate: ReportMapCalloutViewDelegate?
-    weak var wsrDelegate: WSRMapCalloutViewDelegate?
 
     @IBOutlet weak var whiteCircleImageView: UIImageView!
     @IBOutlet weak var mainView: UIView!
@@ -107,8 +103,6 @@ class ReportMapCalloutView: UIView {
     @IBAction func userDidTapDetailsButton(_ sender: UIButton) {
         if let reportType = report{
             delegate?.view(self, didTapDetailsButton: sender, forReport: report)
-        }else if let reportType = wsr{
-            wsrDelegate?.view(self, didTapDetailsButton: sender, forReport: wsr)
         }
     }
 
@@ -122,11 +116,7 @@ class ReportMapCalloutView: UIView {
     }
 
     @objc func userTapped() {
-        if let reportType = report{
-            delegate?.view(self, didTapDetailsButton: nil, forReport: report)
-        }else if let reportType = wsr{
-            wsrDelegate?.view(self, didTapDetailsButton: nil, forReport: wsr)
-        }
+        delegate?.view(self, didTapDetailsButton: nil, forReport: report)
     }
 
     // MARK: - Hit test. We need to override this to detect hits in our custom callout. Is this really needed ¯\(°_o)/¯

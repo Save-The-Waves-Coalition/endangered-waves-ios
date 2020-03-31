@@ -113,15 +113,31 @@ extension ReportType {
     }
 }
 
-struct Report {
+protocol STWDataType {
+    var name: String {get set}
+    var coordinate: GeoPoint {get set}
+    var description: String {get set}
+    var imageURLs: [String] {get set}
+    var type: ReportType {get set}
+    var address: String? {get set}
+    var creationDate: Date? {get set}
+    var user: String? {get set}
+    var dedicated: Date? {get set}
+    var url: String? {get set}
+
+}
+
+struct Report: STWDataType {
     var name: String
-    var address: String
     var coordinate: GeoPoint
-    var creationDate: Date
     var description: String
     var imageURLs: [String]
     var type: ReportType
-    var user: String
+    var address: String?
+    var creationDate: Date?
+    var user: String?
+    var dedicated: Date?
+    var url: String?
 
     init(name: String,
          address: String,
@@ -203,15 +219,18 @@ struct Report {
     }
 }
 
-struct WsrReport {
+struct WsrReport: STWDataType {
     var name: String
     var coordinate: GeoPoint
-    var dedicated: Date
     var description: String
     var imageURLs: [String]
     var type: ReportType
-    var url: String
-    
+    var creationDate: Date?
+    var address: String?
+    var user: String?
+    var dedicated: Date?
+    var url: String?
+
     init(name: String,
          coordinate: GeoPoint,
          dedicated: Date,
@@ -298,12 +317,17 @@ extension Report {
     }
 }
 
-extension Report {
+extension STWDataType {
     func dateDisplayString() -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .long
-        let dateString = formatter.string(from: creationDate)
-        return dateString
+        if let creationDate = creationDate{
+            let formatter = DateFormatter()
+            formatter.dateStyle = .long
+            let dateString = formatter.string(from: creationDate)
+            return dateString
+        }else{
+            print("creationDate not found in World Surfing Report")
+            return ""
+        }
     }
 }
 
@@ -329,10 +353,15 @@ extension WsrReport {
 
 extension WsrReport {
     func dateDisplayString() -> String {
+        if let dedicated = dedicated{
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         let dateString = formatter.string(from: dedicated)
         return dateString
+        }else{
+            print("Dedication Date for World Surfing Reserve not found")
+            return ""
+        }
     }
 }
 
