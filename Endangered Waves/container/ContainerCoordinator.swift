@@ -92,7 +92,6 @@ class ContainerCoordinator: Coordinator {
     }
 
     func showReportDetailsComponentForReport(_ report: STWDataType) {
-        print("showReportDetailsComponentForReport")
         let reportCoordinator = ReportCoordinator(with: containerNavViewController, report: report)
         reportCoordinator.delegate = self
         childCoordinators.append(reportCoordinator)
@@ -217,7 +216,6 @@ extension ContainerCoordinator: NewReportCoordinatorDelegate {
 // MARK: ReportsMapViewControllerDelegate
 extension ContainerCoordinator: ReportsMapViewControllerDelegate {
     func viewController(_ viewController: ReportsMapViewController, didRequestDetailsForReport report: STWDataType) {
-        print("ReportsMapViewControllerDelegate")
         showReportDetailsComponentForReport(report)
     }
 }

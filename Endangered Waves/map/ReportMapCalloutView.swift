@@ -52,42 +52,7 @@ class ReportMapCalloutView: UIView {
         }
     }
 
-    var wsr: WsrReport! {
-        didSet {
-            if let reportTypeLabel = reportTypeLabel {
-                reportTypeLabel.text = wsr.type.displayString().uppercased()
-            }
 
-            if let dateLabel = dateLabel {
-                dateLabel.text = wsr.dateDisplayString()
-            }
-
-            if let placemarkImageView = placemarkImageView {
-                placemarkImageView.image = wsr.type.placemarkIcon()
-            }
-
-            if let userImageView = userImageView,
-                let firstImageURLString = wsr.imageURLs.first,
-                let firstImageURL = URL(string: firstImageURLString) {
-
-                // TODO: Maybe use storage references instead of URLs for better caching ¯\(°_o)/¯
-                userImageView.sd_setImage(with: firstImageURL, completed: { (image, error, cacheType, url) in
-                    if image == nil {
-                        return
-                    }
-
-                    if cacheType == SDImageCacheType.none {
-                        UIView.animate(withDuration: 0.25, animations: {
-                            userImageView.alpha = 1.0
-                        })
-                    } else {
-                        userImageView.alpha = 1.0
-                    }
-                })
-
-            }
-        }
-    }
 
     weak var delegate: ReportMapCalloutViewDelegate?
 
@@ -101,9 +66,7 @@ class ReportMapCalloutView: UIView {
     @IBOutlet weak var userImageView: UIImageView!
 
     @IBAction func userDidTapDetailsButton(_ sender: UIButton) {
-        if let reportType = report{
             delegate?.view(self, didTapDetailsButton: sender, forReport: report)
-        }
     }
 
     override func awakeFromNib() {

@@ -24,7 +24,6 @@ class ReportCoordinator: Coordinator {
     }
 
     override func start() {
-        print("reportCoordinator start")
         guard let navVC = rootViewController as? NavigationViewController else {
             return
         }

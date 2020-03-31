@@ -113,6 +113,7 @@ extension ReportType {
     }
 }
 
+
 protocol STWDataType {
     var name: String {get set}
     var coordinate: GeoPoint {get set}
@@ -219,7 +220,7 @@ struct Report: STWDataType {
     }
 }
 
-struct WsrReport: STWDataType {
+struct WorldSurfingReserve: STWDataType {
     var name: String
     var coordinate: GeoPoint
     var description: String
@@ -246,7 +247,7 @@ struct WsrReport: STWDataType {
         self.type = type
         self.url = url
     }
-    static func createWsrWithDictionary(_ dictionary: [String: Any]) -> WsrReport? {
+    static func createWsrWithDictionary(_ dictionary: [String: Any]) -> WorldSurfingReserve? {
         
         guard let name = dictionary["name"] as? String else {
             assertionFailure("⚠️: Name of World Surfing Reserve not found")
@@ -287,7 +288,7 @@ struct WsrReport: STWDataType {
             assertionFailure("⚠️: URL for World Surfing Reserve  not found")
             return nil
         }
-        return WsrReport(name: name,
+        return WorldSurfingReserve(name: name,
                       coordinate: coordinate,
                       dedicated: dedicated.dateValue(),
                       description: description,
@@ -325,14 +326,13 @@ extension STWDataType {
             let dateString = formatter.string(from: creationDate)
             return dateString
         }else{
-            print("creationDate not found in World Surfing Report")
             return ""
         }
     }
 }
 
-extension WsrReport {
-    static func createWsrWithSnapshot(_ snapshot: DocumentSnapshot) -> WsrReport? {
+extension WorldSurfingReserve {
+    static func createWsrWithSnapshot(_ snapshot: DocumentSnapshot) -> WorldSurfingReserve? {
         // TODO: Fix this "!"
         return self.createWsrWithDictionary(snapshot.data()!)
     }
@@ -346,12 +346,11 @@ extension WsrReport {
             "imageURLs": imageURLs,
             "type": type.rawValue,
             "url": url]
-        print(dataDictionary)
         return dataDictionary
     }
 }
 
-extension WsrReport {
+extension WorldSurfingReserve {
     func dateDisplayString() -> String {
         if let dedicated = dedicated{
         let formatter = DateFormatter()

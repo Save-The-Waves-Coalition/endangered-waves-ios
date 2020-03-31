@@ -66,16 +66,16 @@ class ReportsMapViewController: UIViewController {
         }
     }
 
-    private func addWsrReports() {
+    private func addWorldSurfingReserves() {
         Firestore.firestore().collection("wsr")
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
                     for document in querySnapshot!.documents {
-                        if let wsrReport = WsrReport.createWsrWithSnapshot(document) {
-                            let coordinate = CLLocationCoordinate2DMake(wsrReport.coordinate.latitude, wsrReport.coordinate.longitude)
-                            let annotation = ReportMapAnnotation(coordinate: coordinate, report: wsrReport)
+                        if let wsr = WorldSurfingReserve.createWsrWithSnapshot(document) {
+                            let coordinate = CLLocationCoordinate2DMake(wsr.coordinate.latitude, wsr.coordinate.longitude)
+                            let annotation = ReportMapAnnotation(coordinate: coordinate, report: wsr)
                             self.mapView.addAnnotation(annotation)
                         }
                     }
@@ -119,9 +119,9 @@ extension ReportsMapViewController: FUIBatchedArrayDelegate {
         // print("ℹ️: Firestore udpated: \(diff)")
         if array == batchedArrayForWSR{
             array.items.forEach{ (snapshot) in
-                if let wsrReport = WsrReport.createWsrWithSnapshot(snapshot) {
-                    let coordinate = CLLocationCoordinate2DMake(wsrReport.coordinate.latitude, wsrReport.coordinate.longitude)
-                    let annotation = ReportMapAnnotation(coordinate: coordinate, report: wsrReport)
+                if let wsr = WorldSurfingReserve.createWsrWithSnapshot(snapshot) {
+                    let coordinate = CLLocationCoordinate2DMake(wsr.coordinate.latitude, wsr.coordinate.longitude)
+                    let annotation = ReportMapAnnotation(coordinate: coordinate, report: wsr)
                     self.mapView.addAnnotation(annotation)
                 }
             }
@@ -248,7 +248,6 @@ extension ReportsMapViewController: MKMapViewDelegate {
 // MARK: ReportMapCalloutViewDelegate
 extension ReportsMapViewController: ReportMapCalloutViewDelegate {
     func view(_ view: ReportMapCalloutView, didTapDetailsButton button: UIButton?, forReport report: STWDataType) {
-        print("ReportMapCalloutViewDelegate view")
         delegate?.viewController(self, didRequestDetailsForReport: report)
     }
 }
