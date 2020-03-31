@@ -60,6 +60,7 @@ class WsrReportMapAnnotationView: MKAnnotationView {
             view.clipsToBounds = true
             view.autoresizesSubviews = false
             view.wsrDelegate = self.calloutViewDelegate
+            print("wsr createCustomCalloutView")
             return view
         }
         return nil
