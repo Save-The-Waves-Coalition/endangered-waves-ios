@@ -204,7 +204,7 @@ struct Report {
 }
 
 struct WsrReport {
-    var address: String
+    var name: String
     var coordinate: GeoPoint
     var dedicated: Date
     var description: String
@@ -212,14 +212,14 @@ struct WsrReport {
     var type: ReportType
     var url: String
     
-    init(address: String,
+    init(name: String,
          coordinate: GeoPoint,
          dedicated: Date,
          description: String,
          imageURLs: [String],
          type: ReportType,
          url: String) {
-        self.address = address
+        self.name = name
         self.coordinate = coordinate
         self.dedicated = dedicated
         self.description = description
@@ -229,8 +229,8 @@ struct WsrReport {
     }
     static func createWsrWithDictionary(_ dictionary: [String: Any]) -> WsrReport? {
         
-        guard let address = dictionary["address"] as? String else {
-            assertionFailure("⚠️: Address for World Surfing Reserve not found")
+        guard let name = dictionary["name"] as? String else {
+            assertionFailure("⚠️: Name of World Surfing Reserve not found")
             return nil
         }
         
@@ -254,25 +254,21 @@ struct WsrReport {
             assertionFailure("⚠️: ImageURLs for World Surfing Reserve  not found")
             return nil
         }
-        
+
         guard let typeString = dictionary["type"] as? String else {
             assertionFailure("⚠️: TypeString for World Surfing Reserve not found")
             return nil
         }
-        
-        // TODO: 2020-03-14 MDM We need to define what the various types are, it matters for iOS currently,
-        //                      we could just make it fall back to general and be done with it ¯\(°_o)/¯
+
+
         let type = ReportType(rawValue: typeString) ?? ReportType.general
-        //        guard let type = ReportType(rawValue: typeString) else {
-        //            assertionFailure("⚠️: Type for Report not found")
-        //            return nil
-        //        }
+
         
         guard let url = dictionary["url"] as? String else {
             assertionFailure("⚠️: URL for World Surfing Reserve  not found")
             return nil
         }
-        return WsrReport(address: address,
+        return WsrReport(name: name,
                       coordinate: coordinate,
                       dedicated: dedicated.dateValue(),
                       description: description,
@@ -319,7 +315,7 @@ extension WsrReport {
 
     func documentDataDictionary() -> [String: Any] {
         let dataDictionary: [String: Any] = [
-            "address": address,
+            "name": name,
             "coordinate": coordinate,
             "dedicated": dedicated,
             "description": description,

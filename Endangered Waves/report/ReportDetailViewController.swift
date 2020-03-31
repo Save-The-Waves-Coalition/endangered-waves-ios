@@ -35,7 +35,6 @@ class ReportDetailViewController: UITableViewController {
         }
     }
     
-
     var images: [UIImage]? {
         didSet {
             imageSliderViewController?.images = images
