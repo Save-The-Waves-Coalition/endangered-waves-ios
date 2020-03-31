@@ -168,7 +168,7 @@ class ReportDetailViewController: UITableViewController {
                                   NSAttributedString.Key.font: Style.fontGeorgia(size: 15),
                                   NSAttributedString.Key.paragraphStyle: paragraphStyle]
                 //TODO: add WSR name back ERIK
-                let newString = NSMutableAttributedString(string: "\n\(report.address)", attributes: attributes)
+                let newString = NSMutableAttributedString(string: "\n\(report.name)", attributes: attributes)
                 locationLabel.attributedText = newString
             }
 

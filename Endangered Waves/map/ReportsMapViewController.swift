@@ -72,12 +72,6 @@ class ReportsMapViewController: UIViewController {
         }
     }
 
-    //todo
-//    fileprivate lazy var wsrArray: FUIArray = {
-//        let wsrQuery = Firestore.firestore().collection("wsr").getDocuments()
-//        let wsrArray = FUIArray(query: query, delegate: self)
-//    }
-
     private func addWsrReports() {
         Firestore.firestore().collection("wsr")
             .getDocuments() { (querySnapshot, err) in
@@ -85,7 +79,6 @@ class ReportsMapViewController: UIViewController {
                     print("Error getting documents: \(err)")
                 } else {
                     for document in querySnapshot!.documents {
-//                        print("\(document.documentID) => \(document.data())")
                         if let wsrReport = WsrReport.createWsrWithSnapshot(document) {
                             let coordinate = CLLocationCoordinate2DMake(wsrReport.coordinate.latitude, wsrReport.coordinate.longitude)
                             let annotation = WsrReportMapAnnotation(coordinate: coordinate, report: wsrReport)
@@ -145,7 +138,7 @@ extension ReportsMapViewController: FUIBatchedArrayDelegate {
                     self.mapView.addAnnotation(annotation)
                 }
             }
-        } else if array == batchedArrayForReports{
+        } else if array == batchedArrayForReports {
             let annotations = mapView.annotations
             mapView.removeAnnotations(annotations)
             
@@ -158,7 +151,7 @@ extension ReportsMapViewController: FUIBatchedArrayDelegate {
             }
         }
     }
-    
+
     func batchedArray(_ array: FUIBatchedArray, queryDidFailWithError error: Error) {
         assertionFailure("⚠️: \(error.localizedDescription)")
         // TODO: Log this error
