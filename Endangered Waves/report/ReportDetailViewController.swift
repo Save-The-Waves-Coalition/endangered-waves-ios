@@ -106,7 +106,7 @@ class ReportDetailViewController: UITableViewController {
                 newString = NSMutableAttributedString(string: "\(report.name)\n\(report.address)", attributes: attributes)
                 locationLabel.attributedText = newString
             } else if let report = report as? WorldSurfingReserve {
-                newString = NSMutableAttributedString(string: "\(report.name)", attributes: attributes)
+                newString = NSMutableAttributedString(string: "\(report.address)", attributes: attributes)
                 locationLabel.attributedText = newString
             }
         }
@@ -156,7 +156,7 @@ class ReportDetailViewController: UITableViewController {
             if let wsrNameLabel = wsrNameLabel {
                 let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
                                   NSAttributedString.Key.font: Style.fontBrandonGrotesqueBold(size: 17)]
-                let wsrNameString = NSMutableAttributedString(string: report.address.uppercased(), attributes: attributes)
+                let wsrNameString = NSMutableAttributedString(string: report.name.uppercased(), attributes: attributes)
                 wsrNameLabel.attributedText = wsrNameString
             }
         }
