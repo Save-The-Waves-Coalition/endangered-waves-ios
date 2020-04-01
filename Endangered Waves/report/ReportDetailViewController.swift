@@ -38,12 +38,14 @@ class ReportDetailViewController: UITableViewController {
         }
     }
 
+    
     @IBOutlet weak var shareBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var imageLoadingLabel: UILabel!
     @IBOutlet weak var imageSliderContainerView: UIView!
     var imageSliderViewController: ImageSliderViewController!
     @IBOutlet weak var typeImageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var wsrNameLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var mapPinImageView: UIImageView!
@@ -56,7 +58,7 @@ class ReportDetailViewController: UITableViewController {
         super.viewDidLoad()
         assert(report != nil, "Forgot to set Report dependency")
         updateView()
-        updateActionButton()
+        updateWSRDetailView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -88,7 +90,7 @@ class ReportDetailViewController: UITableViewController {
             self.imageSliderViewController.images = images
             self.navigationItem.rightBarButtonItem?.isEnabled = true
         })
-        
+    
         if let dateLabel = dateLabel {
             dateLabel.text = "– \(report.dateDisplayString()) –"
         }
@@ -133,6 +135,7 @@ class ReportDetailViewController: UITableViewController {
             })
         })
 
+
         if let descriptionLabel = descriptionLabel {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineSpacing = 15
@@ -144,9 +147,22 @@ class ReportDetailViewController: UITableViewController {
         }
     }
 
-    func updateActionButton() {
-        if let report = report as? WorldSurfingReserve{
+    func updateWSRDetailView() {
+        self.wsrNameLabel.isHidden = true
+        if let report = report as? WorldSurfingReserve {
             self.actionButton.setTitle("Learn More", for: .normal)
+            self.dateLabel.isHidden = true
+            self.wsrNameLabel.isHidden = false
+            if let wsrNameLabel = wsrNameLabel {
+//                wsrNameLabel.attributedText = Style.userInputAttributedStringForString("\(report.name.uppercased())")
+                let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
+                                  NSAttributedString.Key.font: Style.fontBrandonGrotesqueBold(size: 17)]
+//                    ,
+//                                  NSAttributedString.Key.paragraphStyle: paragraphStyle]
+                let wsrNameString = NSMutableAttributedString(string: report.name.uppercased(), attributes: attributes)
+                wsrNameLabel.attributedText = wsrNameString
+            }
+                
         }
     }
 
