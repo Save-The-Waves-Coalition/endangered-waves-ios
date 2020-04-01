@@ -26,13 +26,11 @@ class ReportMapAnnotationView: MKAnnotationView {
         didSet {
             if let reportMapAnnotation = annotation as? ReportMapAnnotation {
                 image = reportMapAnnotation.report.type.placemarkIcon()
-                print("reportMapAnnotation.report.type ", reportMapAnnotation.report.type)
                 if reportMapAnnotation.report.type == .wsr {
-                        let firstWord = reportMapAnnotation.report.name.components(separatedBy: " ").first
-                        if let firstWord = firstWord {
-                            print("firstWord: " + firstWord)
-                            image = reportMapAnnotation.report.type.wsrPlacemarkIcon(key: firstWord)
-                        }
+                    let firstWord = reportMapAnnotation.report.name.components(separatedBy: " ").first
+                    if let firstWord = firstWord {
+                        image = reportMapAnnotation.report.type.wsrPlacemarkIcon(key: firstWord)
+                    }
                 }
             }
         }
@@ -51,10 +49,6 @@ class ReportMapAnnotationView: MKAnnotationView {
         super.init(coder: aDecoder)
         self.canShowCallout = false // Showing custom callout thus turn off default one
         self.image = Style.iconGeneralPlacemark
-    }
-
-    func setWsrIcon(){
-        
     }
 
     func createCustomCalloutView() -> ReportMapCalloutView? {

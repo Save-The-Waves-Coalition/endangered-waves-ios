@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <array key="Brandon_blk.otf">
             <string>BrandonGrotesque-Black</string>
-        </array>
-        <array key="GeorgiaItalic.ttf">
-            <string>Georgia-Italic</string>
         </array>
     </customFonts>
     <objects>
@@ -34,16 +29,16 @@
                     <rect key="frame" x="24" y="0.0" width="152" height="48"/>
                     <subviews>
                         <stackView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="9cn-zv-Rlh">
-                            <rect key="frame" x="25" y="10.5" width="113.5" height="28"/>
+                            <rect key="frame" x="25" y="8.5" width="113.5" height="31.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OIL SPILL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxA-w1-a41">
-                                    <rect key="frame" x="0.0" y="0.0" width="54.5" height="14"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="52.5" height="17.5"/>
                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="November 12th, 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxE-Mg-IFT">
-                                    <rect key="frame" x="0.0" y="14" width="113.5" height="14"/>
+                                    <rect key="frame" x="0.0" y="17.5" width="113.5" height="14"/>
                                     <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="12"/>
                                     <color key="textColor" red="0.48697981238365173" green="0.48235568404197693" blue="0.48245593905448914" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <nil key="highlightedColor"/>
@@ -110,6 +105,7 @@
                 <outlet property="userImageView" destination="q1G-LI-21S" id="avL-Uz-d93"/>
                 <outlet property="whiteCircleImageView" destination="q23-Ay-xPJ" id="Qz4-HW-MNq"/>
             </connections>
+            <point key="canvasLocation" x="129.59999999999999" y="153.82308845577214"/>
         </view>
     </objects>
     <resources>

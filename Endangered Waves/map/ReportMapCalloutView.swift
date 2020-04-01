@@ -36,26 +36,40 @@ class ReportMapCalloutView: UIView {
 
             if let placemarkImageView = placemarkImageView {
                 placemarkImageView.image = report.type.placemarkIcon()
+                if report.type == .wsr {
+                    let firstWord = report.name.components(separatedBy: " ").first
+                    if let firstWord = firstWord {
+                        placemarkImageView.image = report.type.wsrPlacemarkIcon(key: firstWord)
+                    }
+                }
             }
 
             if let userImageView = userImageView,
                 let firstImageURLString = report.imageURLs.first,
                 let firstImageURL = URL(string: firstImageURLString) {
 
-                // TODO: Maybe use storage references instead of URLs for better caching ¯\(°_o)/¯
-                userImageView.sd_setImage(with: firstImageURL, completed: { (image, error, cacheType, url) in
-                    if image == nil {
-                        return
+                if report.type == .wsr {
+                    let firstWord = report.name.components(separatedBy: " ").first
+                    if let firstWord = firstWord {
+                        userImageView.image = report.type.wsrPlacemarkIcon(key: firstWord)
                     }
+                } else {
 
-                    if cacheType == SDImageCacheType.none {
-                        UIView.animate(withDuration: 0.25, animations: {
+                    // TODO: Maybe use storage references instead of URLs for better caching ¯\(°_o)/¯
+                    userImageView.sd_setImage(with: firstImageURL, completed: { (image, error, cacheType, url) in
+                        if image == nil {
+                            return
+                        }
+
+                        if cacheType == SDImageCacheType.none {
+                            UIView.animate(withDuration: 0.25, animations: {
+                                userImageView.alpha = 1.0
+                            })
+                        } else {
                             userImageView.alpha = 1.0
-                        })
-                    } else {
-                        userImageView.alpha = 1.0
-                    }
-                })
+                        }
+                    })
+                }
             }
         }
     }
