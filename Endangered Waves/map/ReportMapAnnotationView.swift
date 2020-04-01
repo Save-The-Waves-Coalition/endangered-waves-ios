@@ -12,10 +12,10 @@ import MapKit
 // Inspired by https://github.com/DigitalLeaves/YourPersonalWishlist/blob/master/CustomPinsMap/PersonWishListAnnotationView.swift
 
 class ReportMapAnnotationView: MKAnnotationView {
-
+    
     weak var customCalloutView: ReportMapCalloutView?
     weak var calloutViewDelegate: ReportMapCalloutViewDelegate?
-
+    
     override var annotation: MKAnnotation? {
         willSet {
             guard (newValue as?  ReportMapAnnotation) != nil else {
@@ -26,6 +26,14 @@ class ReportMapAnnotationView: MKAnnotationView {
         didSet {
             if let reportMapAnnotation = annotation as? ReportMapAnnotation {
                 image = reportMapAnnotation.report.type.placemarkIcon()
+                print("reportMapAnnotation.report.type ", reportMapAnnotation.report.type)
+                if reportMapAnnotation.report.type == .wsr {
+                        let firstWord = reportMapAnnotation.report.name.components(separatedBy: " ").first
+                        if let firstWord = firstWord {
+                            print("firstWord: " + firstWord)
+                            image = reportMapAnnotation.report.type.wsrPlacemarkIcon(key: firstWord)
+                        }
+                }
             }
         }
     }
@@ -45,6 +53,9 @@ class ReportMapAnnotationView: MKAnnotationView {
         self.image = Style.iconGeneralPlacemark
     }
 
+    func setWsrIcon(){
+        
+    }
 
     func createCustomCalloutView() -> ReportMapCalloutView? {
         if let views = Bundle.main.loadNibNamed("ReportMapCalloutView", owner: self, options: nil) as? [ReportMapCalloutView],

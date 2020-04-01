@@ -88,7 +88,15 @@ extension ReportType {
         case .wsr:
             return Style.iconWsrPlacemark
         }
-        
+    }
+    
+    func wsrPlacemarkIcon(key: String) -> UIImage{
+        print(key)
+        if let placemarker = Style.wsrPlacemarkers[key]{
+            return placemarker
+        }else{
+        return Style.iconWsrPlacemark
+        }
     }
 
     func icon() -> UIImage {
