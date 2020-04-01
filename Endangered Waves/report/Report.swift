@@ -45,7 +45,6 @@ extension ReportType {
         case .wsr:
             return "World Surfing Reserve"
         }
-
     }
 
     func hashTagString() -> String {
@@ -120,7 +119,7 @@ protocol STWDataType {
     var description: String {get set}
     var imageURLs: [String] {get set}
     var type: ReportType {get set}
-    var address: String? {get set}
+    var address: String {get set}
     var creationDate: Date? {get set}
     var user: String? {get set}
     var dedicated: Date? {get set}
@@ -134,7 +133,7 @@ struct Report: STWDataType {
     var description: String
     var imageURLs: [String]
     var type: ReportType
-    var address: String?
+    var address: String
     var creationDate: Date?
     var user: String?
     var dedicated: Date?
@@ -227,12 +226,13 @@ struct WorldSurfingReserve: STWDataType {
     var imageURLs: [String]
     var type: ReportType
     var creationDate: Date?
-    var address: String?
+    var address: String
     var user: String?
     var dedicated: Date?
     var url: String?
 
     init(name: String,
+         address: String,
          coordinate: GeoPoint,
          dedicated: Date,
          description: String,
@@ -240,6 +240,7 @@ struct WorldSurfingReserve: STWDataType {
          type: ReportType,
          url: String) {
         self.name = name
+        self.address = address
         self.coordinate = coordinate
         self.dedicated = dedicated
         self.description = description
@@ -253,6 +254,11 @@ struct WorldSurfingReserve: STWDataType {
             assertionFailure("⚠️: Name of World Surfing Reserve not found")
             return nil
         }
+        
+        guard let address = dictionary["address"] as? String else {
+                   assertionFailure("⚠️: Name Address of World Surfing Reserve not found")
+                   return nil
+               }
         
         guard let coordinate = dictionary["coordinate"] as? GeoPoint else {
             assertionFailure("⚠️: Coordinate for World Surfing Reserve  not found")
@@ -289,6 +295,7 @@ struct WorldSurfingReserve: STWDataType {
             return nil
         }
         return WorldSurfingReserve(name: name,
+                                   address: address,
                       coordinate: coordinate,
                       dedicated: dedicated.dateValue(),
                       description: description,
@@ -320,12 +327,12 @@ extension Report {
 
 extension STWDataType {
     func dateDisplayString() -> String {
-        if let creationDate = creationDate{
+        if let creationDate = creationDate {
             let formatter = DateFormatter()
             formatter.dateStyle = .long
             let dateString = formatter.string(from: creationDate)
             return dateString
-        }else{
+        } else {
             return ""
         }
     }
@@ -340,6 +347,7 @@ extension WorldSurfingReserve {
     func documentDataDictionary() -> [String: Any] {
         let dataDictionary: [String: Any] = [
             "name": name,
+            "address": address,
             "coordinate": coordinate,
             "dedicated": dedicated,
             "description": description,

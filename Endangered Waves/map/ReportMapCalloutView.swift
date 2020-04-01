@@ -17,12 +17,21 @@ class ReportMapCalloutView: UIView {
 
     var report: STWDataType! {
         didSet {
-            if let reportTypeLabel = reportTypeLabel {
-                reportTypeLabel.text = report.type.displayString().uppercased()
+            if let report = report as? Report {
+                if let reportTypeLabel = reportTypeLabel {
+                    reportTypeLabel.text = report.type.displayString().uppercased()
+                }
+                if let dateLabel = dateLabel {
+                    dateLabel.text = report.dateDisplayString()
+                }
             }
-
-            if let dateLabel = dateLabel {
-                dateLabel.text = report.dateDisplayString()
+            if let report = report as? WorldSurfingReserve {
+                if let reportTypeLabel = reportTypeLabel {
+                    reportTypeLabel.text = report.name.uppercased()
+                }
+                if let dateLabel = dateLabel {
+                    dateLabel.text = report.type.displayString()
+                }
             }
 
             if let placemarkImageView = placemarkImageView {
@@ -47,7 +56,6 @@ class ReportMapCalloutView: UIView {
                         userImageView.alpha = 1.0
                     }
                 })
-
             }
         }
     }

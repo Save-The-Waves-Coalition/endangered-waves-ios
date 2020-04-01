@@ -154,15 +154,11 @@ class ReportDetailViewController: UITableViewController {
             self.dateLabel.isHidden = true
             self.wsrNameLabel.isHidden = false
             if let wsrNameLabel = wsrNameLabel {
-//                wsrNameLabel.attributedText = Style.userInputAttributedStringForString("\(report.name.uppercased())")
                 let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
                                   NSAttributedString.Key.font: Style.fontBrandonGrotesqueBold(size: 17)]
-//                    ,
-//                                  NSAttributedString.Key.paragraphStyle: paragraphStyle]
-                let wsrNameString = NSMutableAttributedString(string: report.name.uppercased(), attributes: attributes)
+                let wsrNameString = NSMutableAttributedString(string: report.address.uppercased(), attributes: attributes)
                 wsrNameLabel.attributedText = wsrNameString
             }
-                
         }
     }
 
