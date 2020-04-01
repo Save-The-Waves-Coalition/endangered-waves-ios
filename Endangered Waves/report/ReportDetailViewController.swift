@@ -106,7 +106,7 @@ class ReportDetailViewController: UITableViewController {
                 newString = NSMutableAttributedString(string: "\(report.name)\n\(report.address)", attributes: attributes)
                 locationLabel.attributedText = newString
             } else if let report = report as? WorldSurfingReserve {
-                newString = NSMutableAttributedString(string: "\(report.name)", attributes: attributes)
+                newString = NSMutableAttributedString(string: "\(report.address)", attributes: attributes)
                 locationLabel.attributedText = newString
             }
         }
@@ -154,15 +154,11 @@ class ReportDetailViewController: UITableViewController {
             self.dateLabel.isHidden = true
             self.wsrNameLabel.isHidden = false
             if let wsrNameLabel = wsrNameLabel {
-//                wsrNameLabel.attributedText = Style.userInputAttributedStringForString("\(report.name.uppercased())")
                 let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
                                   NSAttributedString.Key.font: Style.fontBrandonGrotesqueBold(size: 17)]
-//                    ,
-//                                  NSAttributedString.Key.paragraphStyle: paragraphStyle]
                 let wsrNameString = NSMutableAttributedString(string: report.name.uppercased(), attributes: attributes)
                 wsrNameLabel.attributedText = wsrNameString
             }
-                
         }
     }
 

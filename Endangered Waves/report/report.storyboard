@@ -98,9 +98,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WorldSurfingReserveNameLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0U-MR-TKH">
-                                                    <rect key="frame" x="16" y="4" width="348" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="WorldSurfingReserveNameLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0U-MR-TKH">
+                                                    <rect key="frame" x="12.760083782732181" y="4" width="348.00000000000028" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -115,7 +114,11 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="n9n-oJ-m8Q" secondAttribute="bottom" constant="5" id="C6F-8m-mTm"/>
                                                 <constraint firstItem="n9n-oJ-m8Q" firstAttribute="top" secondItem="G5P-pD-VXn" secondAttribute="topMargin" id="CV4-qo-PgG"/>
+                                                <constraint firstItem="t0U-MR-TKH" firstAttribute="centerX" secondItem="n9n-oJ-m8Q" secondAttribute="centerX" id="G5v-CA-HoC"/>
+                                                <constraint firstItem="t0U-MR-TKH" firstAttribute="centerY" secondItem="G5P-pD-VXn" secondAttribute="centerY" id="N2t-p4-pvi"/>
                                                 <constraint firstItem="n9n-oJ-m8Q" firstAttribute="centerX" secondItem="G5P-pD-VXn" secondAttribute="centerX" id="bHd-Wx-y3Q"/>
+                                                <constraint firstItem="t0U-MR-TKH" firstAttribute="bottom" secondItem="n9n-oJ-m8Q" secondAttribute="bottom" id="cTc-uO-3Kn"/>
+                                                <constraint firstItem="t0U-MR-TKH" firstAttribute="leading" secondItem="G5P-pD-VXn" secondAttribute="leadingMargin" constant="-3.2399162172678189" id="gwA-yo-FGm"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
@@ -169,7 +172,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWL-RG-GLj">
-                                                    <rect key="frame" x="16" y="31" width="60" height="17.5"/>
+                                                    <rect key="frame" x="16" y="31" width="59" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
                                                     <color key="textColor" name="STW-Grey"/>
                                                     <nil key="highlightedColor"/>
@@ -232,7 +235,7 @@ line 3</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNw-l4-vsZ">
-                                                    <rect key="frame" x="139.5" y="33.5" width="96" height="33"/>
+                                                    <rect key="frame" x="135" y="33.5" width="105" height="33"/>
                                                     <color key="backgroundColor" name="STW-Blue"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="17"/>
                                                     <inset key="contentEdgeInsets" minX="8" minY="4" maxX="8" maxY="4"/>
