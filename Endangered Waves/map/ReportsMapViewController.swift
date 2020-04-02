@@ -252,55 +252,6 @@ extension ReportsMapViewController: ReportMapCalloutViewDelegate {
     }
 }
 
-// MARK: 🎑 UIViewControllerPreviewingDelegate
-extension ReportsMapViewController: UIViewControllerPreviewingDelegate {
-
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        if let annotationView = previewingContext.sourceView as? ReportMapAnnotationView,
-            let annotation = annotationView.annotation as? ReportMapAnnotation {
-            let viewControllerForLocation = viewController(for: annotation)
-            return viewControllerForLocation
-        } else {
-        return nil
-        }
-    }
-
-    /*
-     If the annotation view has a popover, we need to get the rect
-     of the popover *and* the annotation view for the sourceRect.
-     You could also not add the annotation view height, if you
-     would just like the popover to not blur.
-     */
-    func rectForAnnotationViewWithPopover(view: MKAnnotationView) -> CGRect? {
-
-        var popover: UIView?
-
-        for view in view.subviews {
-            for view in view.subviews {
-                for view in view.subviews {
-                    popover = view
-                }
-            }
-        }
-
-        if let popover = popover, let frame = popover.superview?.convert(popover.frame, to: view) {
-            return CGRect(
-                x: frame.origin.x,
-                y: frame.origin.y,
-                width: frame.width,
-                height: frame.height + view.frame.height
-            )
-        }
-
-        return nil
-    }
-
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        // TODO: Coordinator should take care of this
-        navigationController?.pushViewController(viewControllerToCommit, animated: true)
-    }
-}
-
 // MARK: 📖 StoryboardInstantiable
 extension ReportsMapViewController: StoryboardInstantiable {
     static var storyboardName: String { return "map" }
