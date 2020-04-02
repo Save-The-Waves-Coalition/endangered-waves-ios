@@ -60,7 +60,7 @@
          </BuildableReference>
       </BuildableProductRunnable>
       <LocationScenarioReference
-         identifier = "../Endangered Waves/Bahia Todos Santos.gpx"
+         identifier = "../Endangered Waves/Black&apos;s Beach.gpx"
          referenceType = "0">
       </LocationScenarioReference>
    </LaunchAction>
