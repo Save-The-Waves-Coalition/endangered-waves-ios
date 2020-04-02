@@ -169,7 +169,6 @@ extension ReportsMapViewController: MKMapViewDelegate {
             } else {
                 annotationView = ReportMapAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 annotationView.calloutViewDelegate = self
-                registerForPreviewing(with: self, sourceView: annotationView)
             }
             return annotationView
         } else {
