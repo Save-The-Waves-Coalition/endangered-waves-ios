@@ -27,10 +27,7 @@ class ReportMapAnnotationView: MKAnnotationView {
             if let reportMapAnnotation = annotation as? ReportMapAnnotation {
                 image = reportMapAnnotation.report.type.placemarkIcon()
                 if reportMapAnnotation.report.type == .wsr {
-                    let firstWord = reportMapAnnotation.report.name.components(separatedBy: " ").first
-                    if let firstWord = firstWord {
-                        image = reportMapAnnotation.report.type.wsrPlacemarkIcon(key: firstWord)
-                    }
+                    image = reportMapAnnotation.report.type.wsrPlacemarkIcon(key: reportMapAnnotation.report.name)
                 }
             }
         }

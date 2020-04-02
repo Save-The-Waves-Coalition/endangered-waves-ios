@@ -79,10 +79,7 @@ class ReportDetailViewController: UITableViewController {
         if let typeImageView = typeImageView {
             typeImageView.image = report.type.placemarkIcon()
             if report.type == .wsr {
-                let firstWord = report.name.components(separatedBy: " ").first
-                if let firstWord = firstWord {
-                    typeImageView.image = report.type.wsrPlacemarkIcon(key: firstWord)
-                }
+                typeImageView.image = report.type.wsrPlacemarkIcon(key: report.name)
             }
         }
         

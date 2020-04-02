@@ -37,10 +37,7 @@ class ReportMapCalloutView: UIView {
             if let placemarkImageView = placemarkImageView {
                 placemarkImageView.image = report.type.placemarkIcon()
                 if report.type == .wsr {
-                    let firstWord = report.name.components(separatedBy: " ").first
-                    if let firstWord = firstWord {
-                        placemarkImageView.image = report.type.wsrPlacemarkIcon(key: firstWord)
-                    }
+                    userImageView.image = report.type.wsrPlacemarkIcon(key: report.name)
                 }
             }
 //causing bug? TODO find bug
@@ -48,11 +45,8 @@ class ReportMapCalloutView: UIView {
                 let firstImageURLString = report.imageURLs.first,
                 let firstImageURL = URL(string: firstImageURLString) {
 
-                if report.type == .wsr {
-                    let firstWord = report.name.components(separatedBy: " ").first
-                    if let firstWord = firstWord {
-                        userImageView.image = report.type.wsrPlacemarkIcon(key: firstWord)
-                    }
+                            if report.type == .wsr {
+                    userImageView.image = report.type.wsrPlacemarkIcon(key: report.name)
                 } else {
 
                     // TODO: Maybe use storage references instead of URLs for better caching ¯\(°_o)/¯
