@@ -78,7 +78,7 @@ struct Style {
         ["Bahía": UIImage(named: "bahia-placemark")!,
          "Noosa": UIImage(named: "noosa-placemark")!,
          "Gold": UIImage(named: "gold-placemark")!,
-         "Huanchacho": UIImage(named: "huanchacho-placemark")!,
+         "Huanchaco": UIImage(named: "huanchaco-placemark")!,
          "Manly": UIImage(named: "manly-placemark")!,
 //         "Guarda": UIImage(named: "guarda-placemark")!,
          "Punta": UIImage(named: "punta-placemark")!,
