@@ -79,7 +79,7 @@ struct Style {
          "Noosa, Queensland": UIImage(named: "noosa-placemark")!,
          "Gold Coast: Snapper": UIImage(named: "gold-placemark")!,
          "Gold Coast: Burleigh": UIImage(named: "gold-placemark")!,
-         "Huanchaco": UIImage(named: "huanchacho-placemark")!,
+         "Huanchaco": UIImage(named: "huanchaco-placemark")!,
          "Manly Beach": UIImage(named: "manly-placemark")!,
          "Guarda do Embaú": UIImage(named: "guarda-placemark")!,
          "Punta de Lobos": UIImage(named: "punta-placemark")!,
