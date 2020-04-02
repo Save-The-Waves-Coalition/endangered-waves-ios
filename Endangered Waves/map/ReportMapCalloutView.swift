@@ -43,7 +43,7 @@ class ReportMapCalloutView: UIView {
                     }
                 }
             }
-
+//causing bug? TODO find bug
             if let userImageView = userImageView,
                 let firstImageURLString = report.imageURLs.first,
                 let firstImageURL = URL(string: firstImageURLString) {

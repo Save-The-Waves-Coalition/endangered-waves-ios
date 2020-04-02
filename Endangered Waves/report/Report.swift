@@ -93,6 +93,7 @@ extension ReportType {
         if let placemarker = Style.wsrPlacemarkers[key] {
             return placemarker
         } else {
+            print("placemarker icon not found for:", key)
             return Style.iconWsrPlacemark
         }
     }
@@ -118,7 +119,6 @@ extension ReportType {
         }
     }
 }
-
 
 protocol STWDataType {
     var name: String {get set}
@@ -367,12 +367,12 @@ extension WorldSurfingReserve {
 
 extension WorldSurfingReserve {
     func dateDisplayString() -> String {
-        if let dedicated = dedicated{
+        if let dedicated = dedicated {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         let dateString = formatter.string(from: dedicated)
         return dateString
-        }else{
+        } else {
             print("Dedication Date for World Surfing Reserve not found")
             return ""
         }

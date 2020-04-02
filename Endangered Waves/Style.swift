@@ -80,11 +80,10 @@ struct Style {
          "Gold": UIImage(named: "gold-placemark")!,
          "Huanchacho": UIImage(named: "huanchacho-placemark")!,
          "Manly": UIImage(named: "manly-placemark")!,
-         "Guarda": UIImage(named: "guarda-placemark")!,
+//         "Guarda": UIImage(named: "guarda-placemark")!,
          "Punta": UIImage(named: "punta-placemark")!,
          "Malibu": UIImage(named: "malibu-placemark")!,
          "Santa": UIImage(named: "santa-placemark")!,
-         "Ericeira": UIImage(named: "ericeira-placemark")!]
-
-    
+         "Ericeira": UIImage(named: "ericeira-placemark")!
+    ]
 }
