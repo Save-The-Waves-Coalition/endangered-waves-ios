@@ -29,16 +29,16 @@
                     <rect key="frame" x="24" y="0.0" width="152" height="48"/>
                     <subviews>
                         <stackView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="9cn-zv-Rlh">
-                            <rect key="frame" x="25" y="8.5" width="113.5" height="31.5"/>
+                            <rect key="frame" x="25" y="10" width="113.5" height="28"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OIL SPILL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxA-w1-a41">
-                                    <rect key="frame" x="0.0" y="0.0" width="52.5" height="17.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="54.5" height="14"/>
                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="November 12th, 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxE-Mg-IFT">
-                                    <rect key="frame" x="0.0" y="17.5" width="113.5" height="14"/>
+                                    <rect key="frame" x="0.0" y="14" width="113.5" height="14"/>
                                     <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="12"/>
                                     <color key="textColor" red="0.48697981238365173" green="0.48235568404197693" blue="0.48245593905448914" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <nil key="highlightedColor"/>

@@ -33,28 +33,28 @@ class ReportMapCalloutView: UIView {
                     dateLabel.text = report.type.displayString()
                 }
             }
-
+            
             if let placemarkImageView = placemarkImageView {
-                placemarkImageView.image = report.type.placemarkIcon()
                 if report.type == .wsr {
-                    userImageView.image = report.type.wsrPlacemarkIcon(key: report.name)
+                    placemarkImageView.image = report.type.wsrPlacemarkIcon(key: report.name)
+                } else {
+                    placemarkImageView.image = report.type.placemarkIcon()
                 }
             }
-//causing bug? TODO find bug
             if let userImageView = userImageView,
                 let firstImageURLString = report.imageURLs.first,
                 let firstImageURL = URL(string: firstImageURLString) {
-
-                            if report.type == .wsr {
+                
+                if report.type == .wsr {
                     userImageView.image = report.type.wsrPlacemarkIcon(key: report.name)
                 } else {
-
+                    
                     // TODO: Maybe use storage references instead of URLs for better caching ¯\(°_o)/¯
                     userImageView.sd_setImage(with: firstImageURL, completed: { (image, error, cacheType, url) in
                         if image == nil {
                             return
                         }
-
+                        
                         if cacheType == SDImageCacheType.none {
                             UIView.animate(withDuration: 0.25, animations: {
                                 userImageView.alpha = 1.0
