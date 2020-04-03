@@ -68,7 +68,7 @@ class ReportsMapViewController: UIViewController {
 
     private func addWorldSurfingReserves() {
         Firestore.firestore().collection("wsr")
-            .getDocuments() { (querySnapshot, err) in
+            .getDocuments { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
@@ -82,7 +82,7 @@ class ReportsMapViewController: UIViewController {
                 }
         }
     }
-    
+
     private func configureMap() {
         mapView.delegate = self
         mapView.mapType = .standard
@@ -103,7 +103,7 @@ class ReportsMapViewController: UIViewController {
         viewController.report = annotation.report
         return viewController
     }
-    
+
 }
 
 // MARK: 🔥 FUIBatchedArrayDelegate
@@ -117,8 +117,8 @@ extension ReportsMapViewController: FUIBatchedArrayDelegate {
         // TODO: Right now just removing all annotations and then adding everything back,
         //       we really should be taking addvantage of the array diff
         // print("ℹ️: Firestore udpated: \(diff)")
-        if array == batchedArrayForWSR{
-            array.items.forEach{ (snapshot) in
+        if array == batchedArrayForWSR {
+            array.items.forEach { (snapshot) in
                 if let wsr = WorldSurfingReserve.createWsrWithSnapshot(snapshot) {
                     let coordinate = CLLocationCoordinate2DMake(wsr.coordinate.latitude, wsr.coordinate.longitude)
                     let annotation = ReportMapAnnotation(coordinate: coordinate, report: wsr)
@@ -128,7 +128,7 @@ extension ReportsMapViewController: FUIBatchedArrayDelegate {
         } else if array == batchedArrayForReports {
             let annotations = mapView.annotations
             mapView.removeAnnotations(annotations)
-            
+
             array.items.forEach { (snapshot) in
                 if let report = Report.createReportWithSnapshot(snapshot) {
                     let coordinate = CLLocationCoordinate2DMake(report.coordinate.latitude, report.coordinate.longitude)

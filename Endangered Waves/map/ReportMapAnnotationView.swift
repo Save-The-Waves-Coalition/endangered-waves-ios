@@ -12,10 +12,10 @@ import MapKit
 // Inspired by https://github.com/DigitalLeaves/YourPersonalWishlist/blob/master/CustomPinsMap/PersonWishListAnnotationView.swift
 
 class ReportMapAnnotationView: MKAnnotationView {
-    
+
     weak var customCalloutView: ReportMapCalloutView?
     weak var calloutViewDelegate: ReportMapCalloutViewDelegate?
-    
+
     override var annotation: MKAnnotation? {
         willSet {
             guard (newValue as?  ReportMapAnnotation) != nil else {

@@ -256,33 +256,33 @@ struct WorldSurfingReserve: STWDataType {
         self.url = url
     }
     static func createWsrWithDictionary(_ dictionary: [String: Any]) -> WorldSurfingReserve? {
-        
+
         guard let name = dictionary["name"] as? String else {
             assertionFailure("⚠️: Name of World Surfing Reserve not found")
             return nil
         }
-        
+
         guard let address = dictionary["address"] as? String else {
                    assertionFailure("⚠️: Name Address of World Surfing Reserve not found")
                    return nil
                }
-        
+
         guard let coordinate = dictionary["coordinate"] as? GeoPoint else {
             assertionFailure("⚠️: Coordinate for World Surfing Reserve  not found")
             return nil
         }
-        
+
         // TODO: Should we be using Firebase Timestamp type instead of Swift Date?
         guard let dedicated = dictionary["dedicated"] as? Timestamp else {
             assertionFailure("⚠️: Dedication Date for World Surfing Reserve  not found")
             return nil
         }
-        
+
         guard let description = dictionary["description"] as? String else {
             assertionFailure("⚠️: Description for World Surfing Reserve  not found")
             return nil
         }
-        
+
         guard let imageURLs = dictionary["imageURLs"] as? [String?] else {
             assertionFailure("⚠️: ImageURLs for World Surfing Reserve  not found")
             return nil
@@ -293,10 +293,8 @@ struct WorldSurfingReserve: STWDataType {
             return nil
         }
 
-
         let type = ReportType(rawValue: typeString) ?? ReportType.general
 
-        
         guard let url = dictionary["url"] as? String else {
             assertionFailure("⚠️: URL for World Surfing Reserve  not found")
             return nil
@@ -378,4 +376,3 @@ extension WorldSurfingReserve {
         }
     }
 }
-

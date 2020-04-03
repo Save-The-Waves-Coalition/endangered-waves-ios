@@ -17,7 +17,6 @@ protocol ReportDetailViewControllerDelegate: class {
     func showMapDetail()
 }
 
-
 class ReportDetailViewController: UITableViewController {
 
     weak var delegate: ReportDetailViewControllerDelegate?
@@ -38,7 +37,6 @@ class ReportDetailViewController: UITableViewController {
         }
     }
 
-    
     @IBOutlet weak var shareBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var imageLoadingLabel: UILabel!
     @IBOutlet weak var imageSliderContainerView: UIView!
@@ -51,7 +49,7 @@ class ReportDetailViewController: UITableViewController {
     @IBOutlet weak var mapPinImageView: UIImageView!
     @IBOutlet weak var mapButton: UIButton!
     @IBOutlet weak var actionButton: UIButton!
-    
+
     // View Lifecycle
 
     override func viewDidLoad() {
@@ -75,29 +73,29 @@ class ReportDetailViewController: UITableViewController {
 
     func updateView() {
         title = report.type.displayString().uppercased()
-        
+
         if let typeImageView = typeImageView {
             typeImageView.image = report.type.placemarkIcon()
             if report.type == .wsr {
                 typeImageView.image = report.type.wsrPlacemarkIcon(key: report.name)
             }
         }
-        
+
         let urls: [URL] = report.imageURLs.compactMap({ (urlString) -> URL? in
             return URL(string: urlString)
         })
-        
+
         self.navigationItem.rightBarButtonItem?.isEnabled = false // Disable sharing until the image is loaded
         imageDownloadManager.loadImagesWithURLs(urls, completion: { (images) in
             self.images = images
             self.imageSliderViewController.images = images
             self.navigationItem.rightBarButtonItem?.isEnabled = true
         })
-    
+
         if let dateLabel = dateLabel {
             dateLabel.text = "– \(report.dateDisplayString()) –"
         }
-        
+
         if let locationLabel = locationLabel {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineSpacing = 15
@@ -113,20 +111,20 @@ class ReportDetailViewController: UITableViewController {
                 locationLabel.attributedText = newString
             }
         }
-        
+
         let coordinate = CLLocationCoordinate2DMake(report.coordinate.latitude, report.coordinate.longitude)
         let mapSnapshotOptions = MKMapSnapshotter.Options()
-        
+
         // Set the region of the map that is rendered.
         let region = MKCoordinateRegion.init(center: coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
         mapSnapshotOptions.region = region
-        
+
         mapSnapshotOptions.showsBuildings = false
         mapSnapshotOptions.pointOfInterestFilter = .excludingAll
-        
+
         // Set the size of the image output.
         mapSnapshotOptions.size = CGSize(width: 90, height: 90)
-        
+
         let snapShotter = MKMapSnapshotter(options: mapSnapshotOptions)
         snapShotter.start(completionHandler: { (snapshot, error) in
             self.mapPinImageView.alpha = 0
@@ -137,7 +135,6 @@ class ReportDetailViewController: UITableViewController {
                 self.mapPinImageView.alpha = 1.0
             })
         })
-
 
         if let descriptionLabel = descriptionLabel {
             let paragraphStyle = NSMutableParagraphStyle()
@@ -190,7 +187,7 @@ class ReportDetailViewController: UITableViewController {
             let safariViewController = SFSafariViewController(url: url)
             safariViewController.preferredControlTintColor = Style.colorSTWBlue
             present(safariViewController, animated: true, completion: nil) // TODO: coordinator should do this
-        }else if let report = report as? WorldSurfingReserve,
+        } else if let report = report as? WorldSurfingReserve,
             let reportUrl = report.url {
             let url = URL(string: reportUrl)!
             let safariViewController = SFSafariViewController(url: url)
@@ -198,7 +195,7 @@ class ReportDetailViewController: UITableViewController {
             present(safariViewController, animated: true, completion: nil) // TODO: coordinator should do this
         }
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let imageSliderViewController = segue.destination as? ImageSliderViewController {
             imageSliderViewController.imageSliderViewControllerDelegate = self
