@@ -773,7 +773,6 @@
 				4A7FA9141FAA966300C6A2BB /* Resources */,
 				4A5931AE1FCC661200CFBF19 /* SwiftLint */,
 				E973D5758A81192B2AA47C4C /* [CP] Embed Pods Frameworks */,
-				4A18AF352422DE1000B2C34E /* Crashlytics */,
 				542222A4A9355FA370FB41FE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -795,7 +794,6 @@
 				8774074D2048B9DA00ED36F1 /* Resources */,
 				877407612048B9DA00ED36F1 /* SwiftLint */,
 				C98A65FF43BE96C3AFE0DF01 /* [CP] Embed Pods Frameworks */,
-				4A18AF342422CE6300B2C34E /* Crashlytics */,
 				A7C282ACC48F292B2A09A275 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -938,42 +936,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
-		};
-		4A18AF342422CE6300B2C34E /* Crashlytics */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = Crashlytics;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
-		};
-		4A18AF352422DE1000B2C34E /* Crashlytics */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = Crashlytics;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
 		};
 		4A5931AE1FCC661200CFBF19 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1463,6 +1425,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72RCH6T78N;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Endangered Waves/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1484,6 +1447,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72RCH6T78N;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Endangered Waves/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1506,6 +1470,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 72RCH6T78N;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Endangered Waves/Endangered Waves dev.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1526,6 +1491,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72RCH6T78N;
+				"EXCLUDED_ARCHS[sdk=*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Endangered Waves/Endangered Waves dev.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
