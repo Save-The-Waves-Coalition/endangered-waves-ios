@@ -69,8 +69,11 @@ class ReportDetailViewController: UITableViewController {
     }
 
     func updateView() {
-
-        title = report.type.displayString().uppercased()
+        let label = UILabel()
+        label.text = report.type.displayString().uppercased()
+        label.adjustsFontSizeToFitWidth = true
+        label.font = Style.fontBrandonGrotesqueBlack(size: 20)
+        self.navigationItem.titleView = label
 
         if let typeImageView = typeImageView {
             typeImageView.image = report.type.placemarkIcon()

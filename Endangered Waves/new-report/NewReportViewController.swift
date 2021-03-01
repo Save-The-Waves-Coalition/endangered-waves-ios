@@ -20,7 +20,7 @@ protocol NewReportViewControllerDelegate: class {
     func viewController(_ viewController: NewReportViewController, didTapImageAtIndex index: Int)
     func viewController(_ viewController: NewReportViewController, didTapAddButton button: UIButton)
     func viewController(_ viewController: NewReportViewController, didTapLocation sender: UITapGestureRecognizer)
-    func viewController(_ viewController: NewReportViewController, didTapReportType sender: STWButton)
+    func viewController(_ viewController: NewReportViewController, didSelectThreatCategory category: String)
     func viewControllerDidTapCompetition(viewController: NewReportViewController)
     func viewControllerDidTapCompetitionInfoButton(viewController: NewReportViewController)
     func viewController(_ viewController: NewReportViewController, didWriteDescription description: String)
@@ -30,6 +30,9 @@ protocol NewReportViewControllerDelegate: class {
 class NewReportViewController: UITableViewController {
 
     weak var delegate: NewReportViewControllerDelegate?
+
+    @IBOutlet weak var selectThreatCategoryButton: UIButton!
+    @IBOutlet weak var selectedThreatCategoryIconButton: UIButton!
 
     var competition: Competition?
     @IBOutlet weak var competitionTrophyImageView: UIImageView!
@@ -45,53 +48,6 @@ class NewReportViewController: UITableViewController {
     @IBOutlet weak var emailTextView: UITextView!
 
     @IBOutlet weak var contactInfoStackView: UIStackView!
-
-    @IBOutlet var categoryTypeCollection: [STWButton]!
-
-    fileprivate func enableInActiveStateForButton(_ button: (STWButton)) {
-        button.tintColor = Style.colorSTWGrey
-        button.isSelected = false
-        button.titleLabel?.font = Style.fontBrandonGrotesqueBlack(size: 12)
-
-        if let currentAttributedTitle = button.currentAttributedTitle {
-            let style = NSMutableParagraphStyle()
-            style.alignment = .center
-            let attributes = [NSAttributedString.Key.font: Style.fontBrandonGrotesqueBlack(size: 12),
-                              NSAttributedString.Key.foregroundColor: Style.colorSTWGrey,
-                              NSAttributedString.Key.paragraphStyle: style]
-            let attributedString = NSAttributedString(string: currentAttributedTitle.string, attributes: attributes)
-            button.setAttributedTitle(attributedString, for: .normal)
-        }
-    }
-
-    @IBAction func categoryTypeButtonTapped(_ sender: STWButton) {
-        categoryTypeCollection.forEach { (button) in
-            if button === sender {
-                button.tintColor = .black
-                button.isSelected = true
-                button.titleLabel?.font = Style.fontBrandonGrotesqueBlack(size: 12)
-
-                if let currentAttributedTitle = button.currentAttributedTitle {
-                    let style = NSMutableParagraphStyle()
-                    style.alignment = .center
-                    let attributes = [NSAttributedString.Key.font: Style.fontBrandonGrotesqueBlack(size: 12),
-                                      NSAttributedString.Key.foregroundColor: UIColor.black,
-                                      NSAttributedString.Key.paragraphStyle: style]
-                    let attributedString = NSAttributedString(string: currentAttributedTitle.string, attributes: attributes)
-                    button.setAttributedTitle(attributedString, for: .normal)
-                }
-            } else {
-                enableInActiveStateForButton(button)
-            }
-        }
-
-        // Set competition to inactive state if a normal threat category is selected
-        competitionTitleLabel.textColor = Style.colorSTWGrey
-        competitionDateLabel.textColor = Style.colorSTWGrey
-        competitionTrophyImageView.image = UIImage(named: "grey-trophy")
-
-        delegate?.viewController(self, didTapReportType: sender)
-    }
 
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var mapImageView: UIImageView!
@@ -110,6 +66,8 @@ class NewReportViewController: UITableViewController {
             }
         }
     }
+
+    var reportThreatCategory: String?
 
     var emailAddress: String? {
         didSet {
@@ -183,19 +141,6 @@ class NewReportViewController: UITableViewController {
             competitionTitleLabel.text = competition.title.uppercased()
             competitionDateLabel.text = competition.dateDisplayString().uppercased()
         }
-
-        // Attributed text set in the Storyboard is only working on the simulator, not in builds distributed via Buddybuild, this fixes that
-        categoryTypeCollection.forEach { (button) in
-            if let currentAttributedTitle = button.currentAttributedTitle {
-                let style = NSMutableParagraphStyle()
-                style.alignment = .center
-                let attributes = [NSAttributedString.Key.font: Style.fontBrandonGrotesqueBlack(size: 12),
-                                  NSAttributedString.Key.foregroundColor: Style.colorSTWGrey,
-                                  NSAttributedString.Key.paragraphStyle: style]
-                let attributedString = NSAttributedString(string: currentAttributedTitle.string, attributes: attributes)
-                button.setAttributedTitle(attributedString, for: .normal)
-            }
-        }
     }
 
     // MARK: IBActions
@@ -225,9 +170,12 @@ class NewReportViewController: UITableViewController {
         competitionTitleLabel.textColor = .black
         competitionTrophyImageView.image = UIImage(named: "golden-trophy")
 
-        // Set other report types to inactive state
-        categoryTypeCollection.forEach { (button) in
-            enableInActiveStateForButton(button)
+        // Remove any previously selected category
+        if reportThreatCategory != nil {
+            let selectThreatCategoryButtonDefaultText = Style.userInputPlaceholderAttributedStringForString("Select a threat category...")
+            selectThreatCategoryButton.setAttributedTitle(selectThreatCategoryButtonDefaultText, for: .normal)
+            selectedThreatCategoryIconButton.setImage(nil, for: .normal)
+            reportThreatCategory = nil
         }
 
         // Let the delegate know
@@ -240,6 +188,12 @@ class NewReportViewController: UITableViewController {
             imageSliderViewController.images = self.images
             imageSliderViewController.imageSliderViewControllerDelegate = self
             self.imageSliderViewController = imageSliderViewController
+        }
+        if let threatCategoryNavigationController = segue.destination as? ThreatCategorySelectionNavController {
+            if let threatCategoryTableViewController = threatCategoryNavigationController.topViewController as? ThreatCategoryTableViewController {
+                threatCategoryTableViewController.threatCategorySelectionDelegate = self
+                threatCategoryTableViewController.selectedThreatCategory = reportThreatCategory
+            }
         }
     }
 }
@@ -318,8 +272,90 @@ extension NewReportViewController: UITextViewDelegate {
     }
 }
 
+// MARK: ThreatCategoryTableViewControllerDelegate
+extension NewReportViewController: ThreatCategoryTableViewControllerDelegate {
+    func viewController(_ viewController: ThreatCategoryTableViewController, didSelectThreatCategory category: String) {
+        reportThreatCategory = category
+        let attributedString = Style.userInputAttributedStringForString(category)
+        selectThreatCategoryButton.setAttributedTitle(attributedString, for: .normal)
+        delegate?.viewController(self, didSelectThreatCategory: category)
+
+        // Set icon
+        let threatCategory = typeFromThreatSelectionTableString(category)
+        selectedThreatCategoryIconButton.setImage(threatCategory.icon(), for: .normal)
+
+        // Set competition to inactive state
+        if competitionDateLabel.textColor != Style.colorSTWGrey {
+            competitionDateLabel.textColor = Style.colorSTWGrey
+            competitionTitleLabel.textColor = Style.colorSTWGrey
+            competitionTrophyImageView.image = UIImage(named: "grey-trophy")
+        }
+    }
+}
+
 // MARK: 📖 StoryboardInstantiable
 extension NewReportViewController: StoryboardInstantiable {
     static var storyboardName: String { return "new-report" }
     static var storyboardIdentifier: String? { return "NewReportComponent" }
+}
+
+// MARK: Miscellaneous helpers
+extension NewReportViewController {
+    func typeFromThreatSelectionTableString(_ displayString: String) -> ReportType {
+        switch displayString {
+        case "Oil Spill":
+            return .oilSpill
+        case "Sewage Spill":
+            return .sewage
+        case "Other Trash Threat":
+            return .trashed
+        case "Coastal Erosion":
+            return .coastalErosion
+        case "Beach Access":
+            return .accessLost
+        case "General Alert":
+            return .general
+        case "Competition":
+            return .competition
+        case "Runoff":
+            return .runoff
+        case "Algal Bloom":
+            return .algalBloom
+        case "Other Water Quality Threat":
+            return .waterQuality
+        case "Plastic Packaging":
+            return .plasticPackaging
+        case "Micro-plastics":
+            return .microPlastics
+        case "Fishing Gear":
+            return .fishingGear
+        case "Seawall":
+            return .seawall
+        case "Hard Armoring":
+            return .hardArmoring
+        case "Beachfront Construction":
+            return .beachfrontConstruction
+        case "Jetty":
+            return .jetty
+        case "Harbor":
+            return .harbor
+        case "Other Coastal Development Threat":
+            return .coastalDevelopment
+        case "King Tides":
+            return .kingTides
+        case "Other Sea-Level or Flooding Threat":
+            return .seaLevelRiseOrFlooding
+        case "Destructive Fishing":
+            return .destructiveFishing
+        case "Bleaching":
+            return .bleaching
+        case "Infrastructure":
+            return .infrastructure
+        case "Other Coral Reef Impact Threat":
+            return .coralReefImpacts
+        default:
+            assertionFailure("Received a non-existent report type Display String")
+            return .general
+        }
+    }
 }

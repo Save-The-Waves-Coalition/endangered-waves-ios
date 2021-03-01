@@ -63,6 +63,11 @@ struct Style {
     static let iconTrash = UIImage(named: "trash")!
     static let iconAccess = UIImage(named: "access")!
     static let iconCompetition = UIImage(named: "competition")!
+    static let iconAlgalBloom = UIImage(named: "algae_blooms")!
+    static let iconWaterQuality = UIImage(named: "water_quality")!
+    static let iconCoastalDevelopment = UIImage(named: "coastal_development")!
+    static let iconSeaLevelRiseOrFlooding = UIImage(named: "sea_level_rise")!
+    static let iconCoralReefImpacts = UIImage(named: "coral-reef")!
 
     // Map annotation icons
     static let iconOilPlacemark = UIImage(named: "oil-placemark")!
