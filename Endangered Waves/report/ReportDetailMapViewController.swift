@@ -16,7 +16,7 @@ class ReportDetailMapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("ReportDetailMapViewController")
+
         assert(report != nil, "Forgot to set Report dependency")
         updateView()
     }
