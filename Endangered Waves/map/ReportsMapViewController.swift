@@ -66,23 +66,6 @@ class ReportsMapViewController: UIViewController {
         }
     }
 
-    private func addWorldSurfingReserves() {
-        Firestore.firestore().collection("wsr")
-            .getDocuments { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    for document in querySnapshot!.documents {
-                        if let wsr = WorldSurfingReserve.createWsrWithSnapshot(document) {
-                            let coordinate = CLLocationCoordinate2DMake(wsr.coordinate.latitude, wsr.coordinate.longitude)
-                            let annotation = ReportMapAnnotation(coordinate: coordinate, report: wsr)
-                            self.mapView.addAnnotation(annotation)
-                        }
-                    }
-                }
-        }
-    }
-
     private func configureMap() {
         mapView.delegate = self
         mapView.mapType = .standard
