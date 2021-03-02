@@ -124,7 +124,7 @@ extension ReportsMapViewController: FUIBatchedArrayDelegate {
                     return false
                 }
 
-                return annotation.report.type.displayString() == "World Surfing Reserve"
+                return annotation.report.type == .wsr
             }
             mapView.removeAnnotations(currentWSRAnnotations)
 
@@ -142,7 +142,7 @@ extension ReportsMapViewController: FUIBatchedArrayDelegate {
                     return false
                 }
 
-                return annotation.report.type.displayString() != "World Surfing Reserve"
+                return annotation.report.type != .wsr
             }
             mapView.removeAnnotations(currentReportAnnotations)
 
