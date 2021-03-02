@@ -118,6 +118,16 @@ extension ReportsMapViewController: FUIBatchedArrayDelegate {
         //       we really should be taking addvantage of the array diff
         // print("ℹ️: Firestore udpated: \(diff)")
         if array == batchedArrayForWSR {
+            // Only remove WSRs before re-adding them
+            let currentWSRAnnotations = mapView.annotations.filter { annotation in
+                guard let annotation = annotation as? ReportMapAnnotation else {
+                    return false
+                }
+
+                return annotation.report.type.displayString() == "World Surfing Reserve"
+            }
+            mapView.removeAnnotations(currentWSRAnnotations)
+
             array.items.forEach { (snapshot) in
                 if let wsr = WorldSurfingReserve.createWsrWithSnapshot(snapshot) {
                     let coordinate = CLLocationCoordinate2DMake(wsr.coordinate.latitude, wsr.coordinate.longitude)
@@ -126,8 +136,15 @@ extension ReportsMapViewController: FUIBatchedArrayDelegate {
                 }
             }
         } else if array == batchedArrayForReports {
-            let annotations = mapView.annotations
-            mapView.removeAnnotations(annotations)
+            // Only remove reports before re-adding them
+            let currentReportAnnotations = mapView.annotations.filter { annotation in
+                guard let annotation = annotation as? ReportMapAnnotation else {
+                    return false
+                }
+
+                return annotation.report.type.displayString() != "World Surfing Reserve"
+            }
+            mapView.removeAnnotations(currentReportAnnotations)
 
             array.items.forEach { (snapshot) in
                 if let report = Report.createReportWithSnapshot(snapshot) {
