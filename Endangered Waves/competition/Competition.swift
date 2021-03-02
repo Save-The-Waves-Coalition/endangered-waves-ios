@@ -31,11 +31,15 @@ struct Competition {
             let description = dictionary["description"] as? String,
             let introPageURLString = dictionary["introPageURL"] as? String,
             let introPageURL = URL(string: introPageURLString),
-            let startDate = dictionary["startDate"] as? Date,
-            let endDate = dictionary["endDate"] as? Date
+            let startDateTimestamp = dictionary["startDate"] as? Timestamp,
+            let endDateTimestamp = dictionary["endDate"] as? Timestamp
             else {
                 return nil
         }
+
+        let startDate = startDateTimestamp.dateValue()
+        let endDate = endDateTimestamp.dateValue()
+
         return Competition(title: title, description: description, introPageURL: introPageURL, startDate: startDate, endDate: endDate)
     }
 }

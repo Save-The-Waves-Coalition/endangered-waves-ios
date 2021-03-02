@@ -11,6 +11,7 @@ import UIKit
 import MapKit
 import FirebaseFirestore
 
+// Never edit the strings here because they are stored in Firebase and you could break existing records
 enum ReportType: String {
     case oilSpill = "OilSpill"
     case sewage = "Sewage"
@@ -20,6 +21,24 @@ enum ReportType: String {
     case general = "General"
     case competition = "Competition"
     case wsr = "World Surfing Reserve"
+    case runoff = "Runoff"
+    case algalBloom = "AlgalBloom"
+    case waterQuality = "WaterQuality"
+    case plasticPackaging = "PlasticPackaging"
+    case microPlastics = "MicroPlastics"
+    case fishingGear = "FishingGear"
+    case seawall = "Seawall"
+    case hardArmoring = "HardArmoring"
+    case beachfrontConstruction = "BeachfrontConstruction"
+    case jetty = "Jetty"
+    case harbor = "Harbor"
+    case coastalDevelopment = "CoastalDevelopment"
+    case kingTides = "KingTides"
+    case seaLevelRiseOrFlooding = "SeaLevelRiseOrFlooding"
+    case destructiveFishing = "DestructiveFishing"
+    case bleaching = "Bleaching"
+    case infrastructure = "Infrastructure"
+    case coralReefImpacts = "CoralReefImpacts"
     init() {
         self = .general
     }
@@ -31,19 +50,55 @@ extension ReportType {
         case .oilSpill:
             return "Oil Spill"
         case .sewage:
-            return "Sewage"
+            return "Sewage Spill"
         case .trashed:
-            return "Trashed"
+            return "Trash"
         case .coastalErosion:
             return "Coastal Erosion"
         case .accessLost:
-            return "Access Lost"
+            return "Beach Access"
         case .general:
-            return "General"
+            return "General Alert"
         case .competition:
             return "Competition"
         case .wsr:
             return "World Surfing Reserve"
+        case .runoff:
+            return "Runoff"
+        case .algalBloom:
+            return "Algal Bloom"
+        case .waterQuality:
+            return "Water Quality"
+        case .plasticPackaging:
+            return "Plastic Packaging"
+        case .microPlastics:
+            return "Micro-plastics"
+        case .fishingGear:
+            return "Fishing Gear"
+        case .seawall:
+            return "Seawall"
+        case .hardArmoring:
+            return "Hard Armoring"
+        case .beachfrontConstruction:
+            return "Beachfront Construction"
+        case .jetty:
+            return "Jetty"
+        case .harbor:
+            return "Harbor"
+        case .coastalDevelopment:
+            return "Coastal Development"
+        case .kingTides:
+            return "King Tides"
+        case .seaLevelRiseOrFlooding:
+            return "Sea Level Rise or Flooding"
+        case .destructiveFishing:
+            return "Destructive Fishing"
+        case .bleaching:
+            return "Bleaching"
+        case .infrastructure:
+            return "Infrastructure"
+        case .coralReefImpacts:
+            return "Coral Reef Impacts"
         }
     }
 
@@ -65,6 +120,42 @@ extension ReportType {
             return "#competition"
         case .wsr:
             return "#worldsurfingreserve"
+        case .runoff:
+            return "#runoff"
+        case .algalBloom:
+            return "#algalbloom"
+        case .waterQuality:
+            return "#waterquality"
+        case .plasticPackaging:
+            return "#plasticpackaging"
+        case .microPlastics:
+            return "#microplastics"
+        case .fishingGear:
+            return "#fishinggear"
+        case .seawall:
+            return "#seawall"
+        case .hardArmoring:
+            return "#hardarmoring"
+        case .beachfrontConstruction:
+            return "#beachfrontconstruction"
+        case .jetty:
+            return "#jetty"
+        case .harbor:
+            return "#harbor"
+        case .coastalDevelopment:
+            return "#coastaldevelopment"
+        case .kingTides:
+            return "#kingtides"
+        case .seaLevelRiseOrFlooding:
+            return "#sealevelriseorflooding"
+        case .destructiveFishing:
+            return "#destructivefishing"
+        case .bleaching:
+            return "#bleaching"
+        case .infrastructure:
+            return "#infrastructure"
+        case .coralReefImpacts:
+            return "#coralreefimpacts"
         }
     }
 
@@ -86,6 +177,42 @@ extension ReportType {
             return Style.iconCompetitionPlacemark
         case .wsr:
             return Style.iconWsrPlacemark
+        case .runoff:
+            return Style.iconGeneralPlacemark
+        case .algalBloom:
+            return Style.iconGeneralPlacemark
+        case .waterQuality:
+            return Style.iconGeneralPlacemark
+        case .plasticPackaging:
+            return Style.iconGeneralPlacemark
+        case .microPlastics:
+            return Style.iconGeneralPlacemark
+        case .fishingGear:
+            return Style.iconGeneralPlacemark
+        case .seawall:
+            return Style.iconGeneralPlacemark
+        case .hardArmoring:
+            return Style.iconGeneralPlacemark
+        case .beachfrontConstruction:
+            return Style.iconGeneralPlacemark
+        case .jetty:
+            return Style.iconGeneralPlacemark
+        case .harbor:
+            return Style.iconGeneralPlacemark
+        case .coastalDevelopment:
+            return Style.iconGeneralPlacemark
+        case .kingTides:
+            return Style.iconGeneralPlacemark
+        case .seaLevelRiseOrFlooding:
+            return Style.iconGeneralPlacemark
+        case .destructiveFishing:
+            return Style.iconGeneralPlacemark
+        case .bleaching:
+            return Style.iconGeneralPlacemark
+        case .infrastructure:
+            return Style.iconGeneralPlacemark
+        case .coralReefImpacts:
+            return Style.iconGeneralPlacemark
         }
     }
 
@@ -116,6 +243,42 @@ extension ReportType {
             return Style.iconCompetition
         case .wsr:
             return Style.iconWsr
+        case .runoff:
+            return Style.iconGeneral
+        case .algalBloom:
+            return Style.iconAlgalBloom
+        case .waterQuality:
+            return Style.iconWaterQuality
+        case .plasticPackaging:
+            return Style.iconGeneral
+        case .microPlastics:
+            return Style.iconGeneral
+        case .fishingGear:
+            return Style.iconGeneral
+        case .seawall:
+            return Style.iconGeneral
+        case .hardArmoring:
+            return Style.iconGeneral
+        case .beachfrontConstruction:
+            return Style.iconGeneral
+        case .jetty:
+            return Style.iconGeneral
+        case .harbor:
+            return Style.iconGeneral
+        case .coastalDevelopment:
+            return Style.iconCoastalDevelopment
+        case .kingTides:
+            return Style.iconGeneral
+        case .seaLevelRiseOrFlooding:
+            return Style.iconSeaLevelRiseOrFlooding
+        case .destructiveFishing:
+            return Style.iconGeneral
+        case .bleaching:
+            return Style.iconGeneral
+        case .infrastructure:
+            return Style.iconGeneral
+        case .coralReefImpacts:
+            return Style.iconCoralReefImpacts
         }
     }
 }

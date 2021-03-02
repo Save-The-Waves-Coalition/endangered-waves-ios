@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,16 +29,16 @@
                     <rect key="frame" x="24" y="0.0" width="152" height="48"/>
                     <subviews>
                         <stackView autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="9cn-zv-Rlh">
-                            <rect key="frame" x="25" y="10" width="113.5" height="28"/>
+                            <rect key="frame" x="25" y="8.5" width="113" height="31.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OIL SPILL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxA-w1-a41">
-                                    <rect key="frame" x="0.0" y="0.0" width="54.5" height="14"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="52.5" height="17.5"/>
                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="November 12th, 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxE-Mg-IFT">
-                                    <rect key="frame" x="0.0" y="14" width="113.5" height="14"/>
+                                    <rect key="frame" x="0.0" y="17.5" width="113" height="14"/>
                                     <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="12"/>
                                     <color key="textColor" red="0.48697981238365173" green="0.48235568404197693" blue="0.48245593905448914" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <nil key="highlightedColor"/>
@@ -79,6 +79,7 @@
                     </connections>
                 </button>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="q23-Ay-xPJ" secondAttribute="trailing" id="1iP-oa-zd8"/>
                 <constraint firstItem="ir7-RS-RID" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="AmR-hy-Zot"/>
@@ -91,10 +92,10 @@
                 <constraint firstItem="aYn-ef-Rwq" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="eZJ-EI-igN"/>
                 <constraint firstItem="y4f-Zm-eCO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="gev-qe-a9P"/>
                 <constraint firstItem="ir7-RS-RID" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="t6k-KP-crc"/>
+                <constraint firstItem="aYn-ef-Rwq" firstAttribute="leading" secondItem="9cn-zv-Rlh" secondAttribute="trailing" constant="-6" id="tRl-jR-brK"/>
                 <constraint firstItem="q1G-LI-21S" firstAttribute="centerX" secondItem="y4f-Zm-eCO" secondAttribute="centerX" id="tWf-Vv-dQa"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="dateLabel" destination="oxE-Mg-IFT" id="jfA-kV-Az8"/>
                 <outlet property="detailButton" destination="aYn-ef-Rwq" id="lKc-SP-p9g"/>
@@ -105,7 +106,7 @@
                 <outlet property="userImageView" destination="q1G-LI-21S" id="avL-Uz-d93"/>
                 <outlet property="whiteCircleImageView" destination="q23-Ay-xPJ" id="Qz4-HW-MNq"/>
             </connections>
-            <point key="canvasLocation" x="129.59999999999999" y="153.82308845577214"/>
+            <point key="canvasLocation" x="141" y="155"/>
         </view>
     </objects>
     <resources>

@@ -181,24 +181,60 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
         reportEmailAddress = email
     }
 
-    func viewController(_ viewController: NewReportViewController, didTapReportType sender: STWButton) {
-        if let buttonTitleText = sender.titleLabel?.text {
-            switch buttonTitleText {
-            case "OIL SPILL":
-                reportType = .oilSpill
-            case "SEWAGE":
-                reportType = .sewage
-            case "TRASHED":
-                reportType = .trashed
-            case "COASTAL\nEROSION":
-                reportType = .coastalErosion
-            case "ACCESS\nLOST":
-                reportType = .accessLost
-            case "GENERAL\n ":
-                reportType = .general
-            default:
-                assertionFailure("Missing type.")
-            }
+    func viewController(_ viewController: NewReportViewController, didSelectThreatCategory category: String) {
+        switch category {
+        case "Oil Spill":
+            reportType = .oilSpill
+        case "Sewage Spill":
+            reportType = .sewage
+        case "Other Trash Threat":
+            reportType = .trashed
+        case "Coastal Erosion":
+            reportType = .coastalErosion
+        case "Beach Access":
+            reportType = .accessLost
+        case "General Alert":
+            reportType = .general
+        case "Competition":
+            reportType = .competition
+        case "Runoff":
+            reportType = .runoff
+        case "Algal Bloom":
+            reportType = .algalBloom
+        case "Other Water Quality Threat":
+            reportType = .waterQuality
+        case "Plastic Packaging":
+            reportType = .plasticPackaging
+        case "Micro-plastics":
+            reportType = .microPlastics
+        case "Fishing Gear":
+            reportType = .fishingGear
+        case "Seawall":
+            reportType = .seawall
+        case "Hard Armoring":
+            reportType = .hardArmoring
+        case "Beachfront Construction":
+            reportType = .beachfrontConstruction
+        case "Jetty":
+            reportType = .jetty
+        case "Harbor":
+            reportType = .harbor
+        case "Other Coastal Development Threat":
+            reportType = .coastalDevelopment
+        case "King Tides":
+            reportType = .kingTides
+        case "Other Sea-Level or Flooding Threat":
+            reportType = .seaLevelRiseOrFlooding
+        case "Destructive Fishing":
+            reportType = .destructiveFishing
+        case "Bleaching":
+            reportType = .bleaching
+        case "Infrastructure":
+            reportType = .infrastructure
+        case "Other Coral Reef Impact Threat":
+            reportType = .coralReefImpacts
+        default:
+            assertionFailure("Missing type.")
         }
     }
 
