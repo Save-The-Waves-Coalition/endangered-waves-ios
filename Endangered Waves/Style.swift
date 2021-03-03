@@ -79,18 +79,4 @@ struct Style {
     static let iconAccessPlacemark = UIImage(named: "access-placemark")!
     static let iconCompetitionPlacemark = UIImage(named: "competition-placemark")!
     static let iconWsrPlacemark = UIImage(named: "wsr-placemark")!
-    static let wsrPlacemarkers =
-        ["Bahía Todos Santos": UIImage(named: "bahia-placemark")!,
-         "Noosa, Queensland": UIImage(named: "noosa-placemark")!,
-         "Gold Coast: Snapper": UIImage(named: "gold-placemark")!,
-         "Gold Coast: Burleigh": UIImage(named: "gold-placemark")!,
-         "Huanchaco": UIImage(named: "huanchaco-placemark")!,
-         "Manly Beach": UIImage(named: "manly-placemark")!,
-         "Guarda do Embaú": UIImage(named: "guarda-placemark")!,
-         "Punta de Lobos": UIImage(named: "punta-placemark")!,
-         "Punta Borinquen": UIImage(named: "punta-placemark")!,
-         "Malibu, California": UIImage(named: "malibu-placemark")!,
-         "Santa Cruz, California": UIImage(named: "santa-placemark")!,
-         "Ericeira": UIImage(named: "ericeira-placemark")!
-    ]
 }

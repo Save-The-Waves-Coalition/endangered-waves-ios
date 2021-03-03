@@ -36,7 +36,26 @@ class ReportMapCalloutView: UIView {
 
             if let placemarkImageView = placemarkImageView {
                 if report.type == .wsr {
-                    placemarkImageView.image = report.type.wsrPlacemarkIcon(key: report.name)
+                    guard let wsrReport = report as? WorldSurfingReserve else {
+                        return
+                    }
+
+                    placemarkImageView.image = UIImage(named: "wsr-placemark")
+
+                    // TODO: Maybe use Firebase storage references instead of URLs for better caching ¯\(°_o)/¯
+                    placemarkImageView.sd_setImage(with: URL(string: wsrReport.iconURL), completed: { (image, error, cacheType, url) in
+                        if image == nil {
+                            return
+                        }
+
+                        if cacheType == SDImageCacheType.none {
+                            UIView.animate(withDuration: 0.25, animations: {
+                                placemarkImageView.alpha = 1.0
+                            })
+                        } else {
+                            placemarkImageView.alpha = 1.0
+                        }
+                    })
                 } else {
                     placemarkImageView.image = report.type.placemarkIcon()
                 }
@@ -46,10 +65,9 @@ class ReportMapCalloutView: UIView {
                 let firstImageURL = URL(string: firstImageURLString) {
 
                 if report.type == .wsr {
-                    userImageView.image = report.type.wsrPlacemarkIcon(key: report.name)
+                    userImageView.image = UIImage(named: "wsr-placemark")
                 } else {
-
-                    // TODO: Maybe use storage references instead of URLs for better caching ¯\(°_o)/¯
+                    // TODO: Maybe use Firebase storage references instead of URLs for better caching ¯\(°_o)/¯
                     userImageView.sd_setImage(with: firstImageURL, completed: { (image, error, cacheType, url) in
                         if image == nil {
                             return

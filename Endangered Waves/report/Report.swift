@@ -216,15 +216,6 @@ extension ReportType {
         }
     }
 
-    func wsrPlacemarkIcon(key: String) -> UIImage {
-        if let placemarker = Style.wsrPlacemarkers[key] {
-            return placemarker
-        } else {
-            print("placemarker icon not found for:", key)
-            return Style.iconWsrPlacemark
-        }
-    }
-
     func icon() -> UIImage {
         switch self {
         case .oilSpill:
@@ -294,7 +285,7 @@ protocol STWDataType {
     var user: String? {get set}
     var dedicated: Date? {get set}
     var url: String? {get set}
-
+    // TODO: Investigate why "dedicated" is here.  The protocol should probably only have things that are shared by Report/WorldSurfingReserve
 }
 
 struct Report: STWDataType {
@@ -394,6 +385,7 @@ struct WorldSurfingReserve: STWDataType {
     var coordinate: GeoPoint
     var description: String
     var imageURLs: [String]
+    var iconURL: String
     var type: ReportType
     var creationDate: Date?
     var address: String
@@ -407,6 +399,7 @@ struct WorldSurfingReserve: STWDataType {
          dedicated: Date,
          description: String,
          imageURLs: [String],
+         iconURL: String,
          type: ReportType,
          url: String) {
         self.name = name
@@ -415,6 +408,7 @@ struct WorldSurfingReserve: STWDataType {
         self.dedicated = dedicated
         self.description = description
         self.imageURLs = imageURLs
+        self.iconURL = iconURL
         self.type = type
         self.url = url
     }
@@ -431,23 +425,28 @@ struct WorldSurfingReserve: STWDataType {
                }
 
         guard let coordinate = dictionary["coordinate"] as? GeoPoint else {
-            assertionFailure("⚠️: Coordinate for World Surfing Reserve  not found")
+            assertionFailure("⚠️: Coordinate for World Surfing Reserve not found")
             return nil
         }
 
-        // TODO: Should we be using Firebase Timestamp type instead of Swift Date?
-        guard let dedicated = dictionary["dedicated"] as? Timestamp else {
-            assertionFailure("⚠️: Dedication Date for World Surfing Reserve  not found")
+        guard let dedicatedTimestamp = dictionary["dedicated"] as? Timestamp else {
+            assertionFailure("⚠️: Dedication Date for World Surfing Reserve not found")
             return nil
         }
+        let dedicated = dedicatedTimestamp.dateValue()
 
         guard let description = dictionary["description"] as? String else {
-            assertionFailure("⚠️: Description for World Surfing Reserve  not found")
+            assertionFailure("⚠️: Description for World Surfing Reserve not found")
             return nil
         }
-
+        
         guard let imageURLs = dictionary["imageURLs"] as? [String?] else {
-            assertionFailure("⚠️: ImageURLs for World Surfing Reserve  not found")
+            assertionFailure("⚠️: ImageURLs for World Surfing Reserve not found")
+            return nil
+        }
+        
+        guard let iconURL = dictionary["iconURL"] as? String else {
+            assertionFailure("⚠️: IconURL for World Surfing Reserve not found")
             return nil
         }
 
@@ -459,15 +458,16 @@ struct WorldSurfingReserve: STWDataType {
         let type = ReportType(rawValue: typeString) ?? ReportType.general
 
         guard let url = dictionary["url"] as? String else {
-            assertionFailure("⚠️: URL for World Surfing Reserve  not found")
+            assertionFailure("⚠️: URL for World Surfing Reserve not found")
             return nil
         }
         return WorldSurfingReserve(name: name,
                                    address: address,
                       coordinate: coordinate,
-                      dedicated: dedicated.dateValue(),
+                      dedicated: dedicated,
                       description: description,
                       imageURLs: imageURLs.compactMap { $0 }, // new array with all values unwrapped and all nil's filtered away
+                      iconURL: iconURL,
                       type: type,
                       url: url)
     }
@@ -520,6 +520,7 @@ extension WorldSurfingReserve {
             "dedicated": dedicated,
             "description": description,
             "imageURLs": imageURLs,
+            "iconURL": iconURL,
             "type": type.rawValue,
             "url": url]
         return dataDictionary

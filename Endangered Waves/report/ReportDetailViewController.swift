@@ -81,7 +81,7 @@ class ReportDetailViewController: UITableViewController {
         if let typeImageView = typeImageView {
             typeImageView.image = report.type.placemarkIcon()
             if report.type == .wsr {
-                typeImageView.image = report.type.wsrPlacemarkIcon(key: report.name)
+                typeImageView.image = UIImage(named: "wsr-placemark")
             }
         }
 

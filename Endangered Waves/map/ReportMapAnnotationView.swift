@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import SDWebImage
 
 // Inspired by https://github.com/DigitalLeaves/YourPersonalWishlist/blob/master/CustomPinsMap/PersonWishListAnnotationView.swift
 
@@ -25,9 +26,27 @@ class ReportMapAnnotationView: MKAnnotationView {
         }
         didSet {
             if let reportMapAnnotation = annotation as? ReportMapAnnotation {
-                image = reportMapAnnotation.report.type.placemarkIcon()
                 if reportMapAnnotation.report.type == .wsr {
-                    image = reportMapAnnotation.report.type.wsrPlacemarkIcon(key: reportMapAnnotation.report.name)
+                    image = UIImage(named: "wsr-placemark")
+
+                    guard let wsrReport = reportMapAnnotation.report as? WorldSurfingReserve else {
+                        return
+                    }
+
+                    // TODO: Maybe use Firebase storage references instead of URLs for better caching ¯\(°_o)/¯
+                    SDWebImageManager.shared.loadImage(with: URL(string: wsrReport.iconURL), options: [], progress: nil) { (loadedImage, data, error, cacheType, finished, imageURL) in
+                        if !finished {
+                            return
+                        }
+
+                        if loadedImage == nil {
+                            return
+                        }
+
+                        self.image = loadedImage
+                    }
+                } else {
+                    image = reportMapAnnotation.report.type.placemarkIcon()
                 }
             }
         }
