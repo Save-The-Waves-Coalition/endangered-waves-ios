@@ -27,7 +27,7 @@ class ReportMapAnnotationView: MKAnnotationView {
         didSet {
             if let reportMapAnnotation = annotation as? ReportMapAnnotation {
                 if reportMapAnnotation.report.type == .wsr {
-                    image = UIImage(named: "wsr-placemark")
+                    image = Style.iconWsrPlacemark
 
                     guard let wsrReport = reportMapAnnotation.report as? WorldSurfingReserve else {
                         return

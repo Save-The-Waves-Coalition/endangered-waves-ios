@@ -40,7 +40,7 @@ class ReportMapCalloutView: UIView {
                         return
                     }
 
-                    placemarkImageView.image = UIImage(named: "wsr-placemark")
+                    placemarkImageView.image = Style.iconWsrPlacemark
 
                     // TODO: Maybe use Firebase storage references instead of URLs for better caching ¯\(°_o)/¯
                     placemarkImageView.sd_setImage(with: URL(string: wsrReport.iconURL), completed: { (image, error, cacheType, url) in
@@ -65,7 +65,7 @@ class ReportMapCalloutView: UIView {
                 let firstImageURL = URL(string: firstImageURLString) {
 
                 if report.type == .wsr {
-                    userImageView.image = UIImage(named: "wsr-placemark")
+                    userImageView.image = Style.iconWsrPlacemark
                 } else {
                     // TODO: Maybe use Firebase storage references instead of URLs for better caching ¯\(°_o)/¯
                     userImageView.sd_setImage(with: firstImageURL, completed: { (image, error, cacheType, url) in

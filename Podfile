@@ -25,6 +25,9 @@ abstract_target 'shared' do
   pod 'LocationPickerViewController', :git => 'https://github.com/zhuorantan/LocationPicker.git', :commit => '15d9bae350e8ffd6bf3640afc423a8350ea2b523'
   pod 'SVProgressHUD', '~> 2.2'
 
+  # KML parser for WSR map polygons
+  pod 'Kml.swift', '~> 0.3.2'
+
   # Other
   pod 'SwiftLint'
 

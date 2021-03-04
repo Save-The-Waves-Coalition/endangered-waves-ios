@@ -158,6 +158,7 @@ PODS:
     - abseil/base/base_internal
     - abseil/base/config
     - abseil/meta/type_traits
+  - AEXML (4.3.3)
   - BoringSSL-GRPC (0.0.3):
     - BoringSSL-GRPC/Implementation (= 0.0.3)
     - BoringSSL-GRPC/Interface (= 0.0.3)
@@ -282,6 +283,8 @@ PODS:
     - nanopb (~> 0.3)
   - gRPC-Core/Interface (1.21.0)
   - GTMSessionFetcher/Core (1.3.1)
+  - Kml.swift (0.3.2):
+    - AEXML (~> 4.3.0)
   - leveldb-library (1.22)
   - LocationPickerViewController (3.4)
   - nanopb (0.3.9011):
@@ -301,6 +304,7 @@ DEPENDENCIES:
   - FirebaseUI/Auth (~> 8.4.2)
   - FirebaseUI/Firestore (~> 8.4.2)
   - FirebaseUI/Storage (~> 8.4.2)
+  - Kml.swift (~> 0.3.2)
   - LocationPickerViewController (from `https://github.com/zhuorantan/LocationPicker.git`, commit `15d9bae350e8ffd6bf3640afc423a8350ea2b523`)
   - SDWebImage (~> 5.6.1)
   - SVProgressHUD (~> 2.2)
@@ -309,6 +313,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - abseil
+    - AEXML
     - BoringSSL-GRPC
     - Firebase
     - FirebaseAnalytics
@@ -328,6 +333,7 @@ SPEC REPOS:
     - "gRPC-C++"
     - gRPC-Core
     - GTMSessionFetcher
+    - Kml.swift
     - leveldb-library
     - nanopb
     - PromisesObjC
@@ -347,6 +353,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
+  AEXML: 601f41fcaa7bda7605cad153b0f43db9ec006c0f
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
   Firebase: d55ddb0e0bb3207166cddc028647833d8a1b5b6f
   FirebaseAnalytics: 572e467f3d977825266e8ccd52674aa3e6f47eac
@@ -366,6 +373,7 @@ SPEC CHECKSUMS:
   "gRPC-C++": 9dfe7b44821e7b3e44aacad2af29d2c21f7cde83
   gRPC-Core: c9aef9a261a1247e881b18059b84d597293c9947
   GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
+  Kml.swift: 45c685520a3567021f6529212a90e938db8a7589
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   LocationPickerViewController: 63c1156c81fa0d65a54c948e99ea98fd61cd9899
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
@@ -374,6 +382,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
 
-PODFILE CHECKSUM: 339d79c0e644a3c4d2f3ee99cd630c8fc89dd880
+PODFILE CHECKSUM: 170f983b37e05bf2f3c376ef9badee890b514dcf
 
 COCOAPODS: 1.10.1

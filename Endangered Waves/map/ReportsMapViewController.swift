@@ -11,6 +11,7 @@ import MapKit
 import CoreLocation
 import FirebaseFirestore
 import FirebaseUI
+import Kml_swift
 
 protocol ReportsMapViewControllerDelegate: class {
     func viewController(_ viewController: ReportsMapViewController, didRequestDetailsForReport report: STWDataType)
@@ -111,11 +112,25 @@ extension ReportsMapViewController: FUIBatchedArrayDelegate {
             }
             mapView.removeAnnotations(currentWSRAnnotations)
 
+            // Only remove WSR overlays before re-adding them
+            let currentWSROverlays = mapView.overlays.filter { overlay in
+                return overlay is KMLOverlayPolygon
+            }
+            mapView.removeOverlays(currentWSROverlays)
+
             array.items.forEach { (snapshot) in
                 if let wsr = WorldSurfingReserve.createWsrWithSnapshot(snapshot) {
                     let coordinate = CLLocationCoordinate2DMake(wsr.coordinate.latitude, wsr.coordinate.longitude)
                     let annotation = ReportMapAnnotation(coordinate: coordinate, report: wsr)
                     self.mapView.addAnnotation(annotation)
+
+                    if let kmlURL = wsr.kmlURL,
+                       let url = URL(string: kmlURL) {
+
+                        KMLDocument.parse(url: url, callback: { [unowned self] (kml) in
+                            self.mapView.addOverlays(kml.overlays)
+                        })
+                    }
                 }
             }
         } else if array == batchedArrayForReports {
@@ -255,4 +270,19 @@ extension ReportsMapViewController: ReportMapCalloutViewDelegate {
 extension ReportsMapViewController: StoryboardInstantiable {
     static var storyboardName: String { return "map" }
     static var storyboardIdentifier: String? { return "ReportsMapComponent" }
+}
+
+// MARK: WSR polygon styling
+extension ReportsMapViewController {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if let wsrOverlay = overlay as? MKPolygon {
+            let renderer = MKPolygonRenderer(overlay: wsrOverlay)
+            renderer.alpha = 0.6
+            renderer.fillColor = Style.colorSTWBlue
+
+            return renderer
+        }
+
+        return MKOverlayRenderer()
+    }
 }

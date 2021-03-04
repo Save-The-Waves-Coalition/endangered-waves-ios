@@ -331,11 +331,11 @@ struct Report: STWDataType {
             return nil
         }
 
-        // TODO: Should we be using Firebase Timestamp type instead of Swift Date?
-        guard let creationDate = dictionary["creationDate"] as? Timestamp else {
+        guard let creation = dictionary["creationDate"] as? Timestamp else {
             assertionFailure("⚠️: CreationDate for Report not found")
             return nil
         }
+        let creationDate = creation.dateValue()
 
         guard let description = dictionary["description"] as? String else {
             assertionFailure("⚠️: Description for Report not found")
@@ -368,7 +368,7 @@ struct Report: STWDataType {
         return Report(name: name,
                       address: address,
                       coordinate: coordinate,
-                      creationDate: creationDate.dateValue(),
+                      creationDate: creationDate,
                       description: description,
                       imageURLs: imageURLs.compactMap { $0 }, // new array with all values unwrapped and all nil's filtered away
                       type: type,
@@ -382,6 +382,7 @@ struct WorldSurfingReserve: STWDataType {
     var description: String
     var imageURLs: [String]
     var iconURL: String
+    var kmlURL: String?
     var type: ReportType
     var creationDate: Date?
     var address: String
@@ -395,6 +396,7 @@ struct WorldSurfingReserve: STWDataType {
          description: String,
          imageURLs: [String],
          iconURL: String,
+         kmlURL: String?,
          type: ReportType,
          url: String) {
         self.name = name
@@ -404,6 +406,7 @@ struct WorldSurfingReserve: STWDataType {
         self.description = description
         self.imageURLs = imageURLs
         self.iconURL = iconURL
+        self.kmlURL = kmlURL
         self.type = type
         self.url = url
     }
@@ -445,6 +448,8 @@ struct WorldSurfingReserve: STWDataType {
             return nil
         }
 
+        let kmlURL = dictionary["kmlURL"] as? String
+
         guard let typeString = dictionary["type"] as? String else {
             assertionFailure("⚠️: TypeString for World Surfing Reserve not found")
             return nil
@@ -463,6 +468,7 @@ struct WorldSurfingReserve: STWDataType {
                       description: description,
                       imageURLs: imageURLs.compactMap { $0 }, // new array with all values unwrapped and all nil's filtered away
                       iconURL: iconURL,
+                      kmlURL: kmlURL,
                       type: type,
                       url: url)
     }
