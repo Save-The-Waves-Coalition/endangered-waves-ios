@@ -282,10 +282,7 @@ protocol STWDataType {
     var type: ReportType {get set}
     var address: String {get set}
     var creationDate: Date? {get set}
-    var user: String? {get set}
-    var dedicated: Date? {get set}
     var url: String? {get set}
-    // TODO: Investigate why "dedicated" is here.  The protocol should probably only have things that are shared by Report/WorldSurfingReserve
 }
 
 struct Report: STWDataType {
@@ -297,7 +294,6 @@ struct Report: STWDataType {
     var address: String
     var creationDate: Date?
     var user: String?
-    var dedicated: Date?
     var url: String?
 
     init(name: String,
@@ -389,7 +385,6 @@ struct WorldSurfingReserve: STWDataType {
     var type: ReportType
     var creationDate: Date?
     var address: String
-    var user: String?
     var dedicated: Date?
     var url: String?
 
@@ -439,12 +434,12 @@ struct WorldSurfingReserve: STWDataType {
             assertionFailure("⚠️: Description for World Surfing Reserve not found")
             return nil
         }
-        
+
         guard let imageURLs = dictionary["imageURLs"] as? [String?] else {
             assertionFailure("⚠️: ImageURLs for World Surfing Reserve not found")
             return nil
         }
-        
+
         guard let iconURL = dictionary["iconURL"] as? String else {
             assertionFailure("⚠️: IconURL for World Surfing Reserve not found")
             return nil
