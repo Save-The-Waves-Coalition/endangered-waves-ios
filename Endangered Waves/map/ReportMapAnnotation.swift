@@ -18,9 +18,9 @@ class ReportMapAnnotation: NSObject, MKAnnotation {
         return report.description
     }
     let coordinate: CLLocationCoordinate2D
-    let report: Report
+    let report: STWDataType
 
-    init(coordinate: CLLocationCoordinate2D, report: Report) {
+    init(coordinate: CLLocationCoordinate2D, report: STWDataType) {
         self.coordinate = coordinate
         self.report = report
         super.init()

@@ -20,6 +20,7 @@ enum ReportType: String {
     case accessLost = "AccessLost"
     case general = "General"
     case competition = "Competition"
+    case wsr = "World Surfing Reserve"
     case runoff = "Runoff"
     case algalBloom = "AlgalBloom"
     case waterQuality = "WaterQuality"
@@ -60,6 +61,8 @@ extension ReportType {
             return "General Alert"
         case .competition:
             return "Competition"
+        case .wsr:
+            return "World Surfing Reserve"
         case .runoff:
             return "Runoff"
         case .algalBloom:
@@ -97,7 +100,6 @@ extension ReportType {
         case .coralReefImpacts:
             return "Coral Reef Impacts"
         }
-
     }
 
     func hashTagString() -> String {
@@ -116,6 +118,8 @@ extension ReportType {
             return "#general"
         case .competition:
             return "#competition"
+        case .wsr:
+            return "#worldsurfingreserve"
         case .runoff:
             return "#runoff"
         case .algalBloom:
@@ -171,6 +175,8 @@ extension ReportType {
             return Style.iconGeneralPlacemark
         case .competition:
             return Style.iconCompetitionPlacemark
+        case .wsr:
+            return Style.iconWsrPlacemark
         case .runoff:
             return Style.iconGeneralPlacemark
         case .algalBloom:
@@ -226,6 +232,8 @@ extension ReportType {
             return Style.iconGeneral
         case .competition:
             return Style.iconCompetition
+        case .wsr:
+            return Style.iconWsr
         case .runoff:
             return Style.iconGeneral
         case .algalBloom:
@@ -266,15 +274,24 @@ extension ReportType {
     }
 }
 
-struct Report {
+protocol STWDataType {
+    var name: String {get set}
+    var coordinate: GeoPoint {get set}
+    var description: String {get set}
+    var imageURLs: [String] {get set}
+    var type: ReportType {get set}
+    var address: String {get set}
+}
+
+struct Report: STWDataType {
     var name: String
-    var address: String
     var coordinate: GeoPoint
-    var creationDate: Date
     var description: String
     var imageURLs: [String]
     var type: ReportType
-    var user: String
+    var address: String
+    var creationDate: Date?
+    var user: String?
 
     init(name: String,
          address: String,
@@ -311,11 +328,11 @@ struct Report {
             return nil
         }
 
-        // TODO: Should we be using Firebase Timestamp type instead of Swift Date?
-        guard let creationDate = dictionary["creationDate"] as? Timestamp else {
+        guard let creation = dictionary["creationDate"] as? Timestamp else {
             assertionFailure("⚠️: CreationDate for Report not found")
             return nil
         }
+        let creationDate = creation.dateValue()
 
         guard let description = dictionary["description"] as? String else {
             assertionFailure("⚠️: Description for Report not found")
@@ -348,11 +365,109 @@ struct Report {
         return Report(name: name,
                       address: address,
                       coordinate: coordinate,
-                      creationDate: creationDate.dateValue(),
+                      creationDate: creationDate,
                       description: description,
                       imageURLs: imageURLs.compactMap { $0 }, // new array with all values unwrapped and all nil's filtered away
                       type: type,
                       user: user)
+    }
+}
+
+struct WorldSurfingReserve: STWDataType {
+    var name: String
+    var coordinate: GeoPoint
+    var description: String
+    var imageURLs: [String]
+    var iconURL: String
+    var kmlURL: String?
+    var type: ReportType
+    var creationDate: Date?
+    var address: String
+    var dedicated: Date?
+    var url: String?
+
+    init(name: String,
+         address: String,
+         coordinate: GeoPoint,
+         dedicated: Date,
+         description: String,
+         imageURLs: [String],
+         iconURL: String,
+         kmlURL: String?,
+         type: ReportType,
+         url: String) {
+        self.name = name
+        self.address = address
+        self.coordinate = coordinate
+        self.dedicated = dedicated
+        self.description = description
+        self.imageURLs = imageURLs
+        self.iconURL = iconURL
+        self.kmlURL = kmlURL
+        self.type = type
+        self.url = url
+    }
+    static func createWsrWithDictionary(_ dictionary: [String: Any]) -> WorldSurfingReserve? {
+
+        guard let name = dictionary["name"] as? String else {
+            assertionFailure("⚠️: Name of World Surfing Reserve not found")
+            return nil
+        }
+
+        guard let address = dictionary["address"] as? String else {
+                   assertionFailure("⚠️: Name Address of World Surfing Reserve not found")
+                   return nil
+               }
+
+        guard let coordinate = dictionary["coordinate"] as? GeoPoint else {
+            assertionFailure("⚠️: Coordinate for World Surfing Reserve not found")
+            return nil
+        }
+
+        guard let dedicatedTimestamp = dictionary["dedicated"] as? Timestamp else {
+            assertionFailure("⚠️: Dedication Date for World Surfing Reserve not found")
+            return nil
+        }
+        let dedicated = dedicatedTimestamp.dateValue()
+
+        guard let description = dictionary["description"] as? String else {
+            assertionFailure("⚠️: Description for World Surfing Reserve not found")
+            return nil
+        }
+
+        guard let imageURLs = dictionary["imageURLs"] as? [String?] else {
+            assertionFailure("⚠️: ImageURLs for World Surfing Reserve not found")
+            return nil
+        }
+
+        guard let iconURL = dictionary["iconURL"] as? String else {
+            assertionFailure("⚠️: IconURL for World Surfing Reserve not found")
+            return nil
+        }
+
+        let kmlURL = dictionary["kmlURL"] as? String
+
+        guard let typeString = dictionary["type"] as? String else {
+            assertionFailure("⚠️: TypeString for World Surfing Reserve not found")
+            return nil
+        }
+
+        let type = ReportType(rawValue: typeString) ?? ReportType.general
+
+        guard let url = dictionary["url"] as? String else {
+            assertionFailure("⚠️: URL for World Surfing Reserve not found")
+            return nil
+        }
+        return WorldSurfingReserve(name: name,
+                                   address: address,
+                      coordinate: coordinate,
+                      dedicated: dedicated,
+                      description: description,
+                      imageURLs: imageURLs.compactMap { $0 }, // new array with all values unwrapped and all nil's filtered away
+                      iconURL: iconURL,
+                      kmlURL: kmlURL,
+                      type: type,
+                      url: url)
     }
 }
 
@@ -374,13 +489,50 @@ extension Report {
             "user": user]
         return dataDictionary
     }
+
+    func dateDisplayString() -> String {
+        if let creationDate = creationDate {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .long
+            let dateString = formatter.string(from: creationDate)
+            return dateString
+        } else {
+            return ""
+        }
+    }
 }
 
-extension Report {
+extension WorldSurfingReserve {
+    static func createWsrWithSnapshot(_ snapshot: DocumentSnapshot) -> WorldSurfingReserve? {
+        // TODO: Fix this "!"
+        return self.createWsrWithDictionary(snapshot.data()!)
+    }
+
+    func documentDataDictionary() -> [String: Any] {
+        let dataDictionary: [String: Any] = [
+            "name": name,
+            "address": address,
+            "coordinate": coordinate,
+            "dedicated": dedicated,
+            "description": description,
+            "imageURLs": imageURLs,
+            "iconURL": iconURL,
+            "type": type.rawValue,
+            "url": url]
+        return dataDictionary
+    }
+}
+
+extension WorldSurfingReserve {
     func dateDisplayString() -> String {
+        if let dedicated = dedicated {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
-        let dateString = formatter.string(from: creationDate)
+        let dateString = formatter.string(from: dedicated)
         return dateString
+        } else {
+            print("Dedication Date for World Surfing Reserve not found")
+            return ""
+        }
     }
 }

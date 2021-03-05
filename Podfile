@@ -25,6 +25,9 @@ abstract_target 'shared' do
   pod 'LocationPickerViewController', :git => 'https://github.com/zhuorantan/LocationPicker.git', :commit => '15d9bae350e8ffd6bf3640afc423a8350ea2b523'
   pod 'SVProgressHUD', '~> 2.2'
 
+  # KML parser for WSR map polygons
+  pod 'Kml.swift', '~> 0.3.2'
+
   # Other
   pod 'SwiftLint'
 
@@ -37,5 +40,10 @@ end
 post_install do |installer|
   installer.pods_project.build_configurations.each do |config|
     config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+  end
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET'
+    end
   end
 end

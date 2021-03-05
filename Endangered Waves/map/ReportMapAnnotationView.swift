@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import SDWebImage
 
 // Inspired by https://github.com/DigitalLeaves/YourPersonalWishlist/blob/master/CustomPinsMap/PersonWishListAnnotationView.swift
 
@@ -25,7 +26,28 @@ class ReportMapAnnotationView: MKAnnotationView {
         }
         didSet {
             if let reportMapAnnotation = annotation as? ReportMapAnnotation {
-                image = reportMapAnnotation.report.type.placemarkIcon()
+                if reportMapAnnotation.report.type == .wsr {
+                    image = Style.iconWsrPlacemark
+
+                    guard let wsrReport = reportMapAnnotation.report as? WorldSurfingReserve else {
+                        return
+                    }
+
+                    // TODO: Maybe use Firebase storage references instead of URLs for better caching ¯\(°_o)/¯
+                    SDWebImageManager.shared.loadImage(with: URL(string: wsrReport.iconURL), options: [], progress: nil) { (loadedImage, data, error, cacheType, finished, imageURL) in
+                        if !finished {
+                            return
+                        }
+
+                        if loadedImage == nil {
+                            return
+                        }
+
+                        self.image = loadedImage
+                    }
+                } else {
+                    image = reportMapAnnotation.report.type.placemarkIcon()
+                }
             }
         }
     }
@@ -44,8 +66,6 @@ class ReportMapAnnotationView: MKAnnotationView {
         self.canShowCallout = false // Showing custom callout thus turn off default one
         self.image = Style.iconGeneralPlacemark
     }
-
-    //
 
     func createCustomCalloutView() -> ReportMapCalloutView? {
         if let views = Bundle.main.loadNibNamed("ReportMapCalloutView", owner: self, options: nil) as? [ReportMapCalloutView],
@@ -99,7 +119,7 @@ class ReportMapAnnotationView: MKAnnotationView {
                                                          toItem: nil,
                                                          attribute: NSLayoutConstraint.Attribute.notAnAttribute,
                                                          multiplier: 1,
-                                                         constant: 200)
+                                                         constant: 210)
                 let heightConstraint = NSLayoutConstraint(item: newCustomCalloutView,
                                                           attribute: NSLayoutConstraint.Attribute.height,
                                                           relatedBy: NSLayoutConstraint.Relation.equal,

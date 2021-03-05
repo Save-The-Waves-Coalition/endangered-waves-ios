@@ -14,7 +14,7 @@ import SVProgressHUD
 import CoreLocation
 
 protocol NewReportCoordinatorDelegate: class {
-    func coordinator(_ coordinator: NewReportCoordinator, didFinishNewReport report: Report?)
+func coordinator(_ coordinator: NewReportCoordinator, didFinishNewReport report: STWDataType?)
 }
 
 class NewReportCoordinator: Coordinator {

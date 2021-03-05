@@ -91,7 +91,7 @@ class ContainerCoordinator: Coordinator {
         informationCoordinator.start()
     }
 
-    func showReportDetailsComponentForReport(_ report: Report) {
+    func showReportDetailsComponentForReport(_ report: STWDataType) {
         let reportCoordinator = ReportCoordinator(with: containerNavViewController, report: report)
         reportCoordinator.delegate = self
         childCoordinators.append(reportCoordinator)
@@ -124,7 +124,7 @@ class ContainerCoordinator: Coordinator {
         self.containerViewController.present(safariViewController, animated: true, completion: nil)
     }
 
-    fileprivate func showSharingWithReport(_ report: Report) {
+    fileprivate func showSharingWithReport(_ report: STWDataType) {
         if let firstImageURLString = report.imageURLs.first, let firstImageURL = URL(string: firstImageURLString) {
             SDWebImageManager.shared.loadImage(with: firstImageURL,
                                                  options: [],
@@ -144,7 +144,7 @@ class ContainerCoordinator: Coordinator {
         }
     }
 
-    fileprivate func showSuccessfulSubmissionAlertWithReport(_ report: Report) {
+    fileprivate func showSuccessfulSubmissionAlertWithReport(_ report: STWDataType) {
 
         // swiftlint:disable line_length
         var message = """
@@ -205,7 +205,7 @@ extension ContainerCoordinator: ContainerViewControllerDelegate {
 
 // MARK: NewReportCoordinatorDelegate
 extension ContainerCoordinator: NewReportCoordinatorDelegate {
-    func coordinator(_ coordinator: NewReportCoordinator, didFinishNewReport report: Report?) {
+    func coordinator(_ coordinator: NewReportCoordinator, didFinishNewReport report: STWDataType?) {
         removeChildCoordinator(coordinator)
         if let report = report {
             showSuccessfulSubmissionAlertWithReport(report)
@@ -215,14 +215,14 @@ extension ContainerCoordinator: NewReportCoordinatorDelegate {
 
 // MARK: ReportsMapViewControllerDelegate
 extension ContainerCoordinator: ReportsMapViewControllerDelegate {
-    func viewController(_ viewController: ReportsMapViewController, didRequestDetailsForReport report: Report) {
+    func viewController(_ viewController: ReportsMapViewController, didRequestDetailsForReport report: STWDataType) {
         showReportDetailsComponentForReport(report)
     }
 }
 
 // MARK: ReportsTableViewControllerDelegate
 extension ContainerCoordinator: ReportsTableViewControllerDelegate {
-    func viewController(_ viewController: ReportsTableViewController, didRequestDetailsForReport report: Report) {
+    func viewController(_ viewController: ReportsTableViewController, didRequestDetailsForReport report: STWDataType) {
         showReportDetailsComponentForReport(report)
     }
 }

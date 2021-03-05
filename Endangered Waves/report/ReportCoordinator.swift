@@ -16,9 +16,9 @@ class ReportCoordinator: Coordinator {
 
     weak var delegate: ReportCoordinatorDelegate?
 
-    var report: Report!
+    var report: STWDataType?
 
-    init(with rootViewController: UIViewController, report: Report) {
+    init(with rootViewController: UIViewController, report: STWDataType?) {
         super.init(with: rootViewController)
         self.report = report
     }

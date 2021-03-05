@@ -37,7 +37,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="November 12th, 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxE-Mg-IFT">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="November 12th, 2017" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxE-Mg-IFT">
                                     <rect key="frame" x="0.0" y="17.5" width="113" height="14"/>
                                     <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="12"/>
                                     <color key="textColor" red="0.48697981238365173" green="0.48235568404197693" blue="0.48245593905448914" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

@@ -49,7 +49,7 @@ class ThreatCategoryTableViewController: UITableViewController {
               let headerLabel = header.textLabel else {
             return
         }
-        
+
         headerLabel.font = Style.fontBrandonGrotesqueBlack(size: 12)
     }
 }

@@ -98,6 +98,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="WorldSurfingReserveNameLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0U-MR-TKH">
+                                                    <rect key="frame" x="12.760083782732181" y="4" width="348.00000000000028" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="– November 12th, 2017 –" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9n-oJ-m8Q">
                                                     <rect key="frame" x="120.5" y="11" width="134.5" height="14"/>
                                                     <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="12"/>
@@ -108,7 +114,11 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="n9n-oJ-m8Q" secondAttribute="bottom" constant="5" id="C6F-8m-mTm"/>
                                                 <constraint firstItem="n9n-oJ-m8Q" firstAttribute="top" secondItem="G5P-pD-VXn" secondAttribute="topMargin" id="CV4-qo-PgG"/>
+                                                <constraint firstItem="t0U-MR-TKH" firstAttribute="centerX" secondItem="n9n-oJ-m8Q" secondAttribute="centerX" id="G5v-CA-HoC"/>
+                                                <constraint firstItem="t0U-MR-TKH" firstAttribute="centerY" secondItem="G5P-pD-VXn" secondAttribute="centerY" id="N2t-p4-pvi"/>
                                                 <constraint firstItem="n9n-oJ-m8Q" firstAttribute="centerX" secondItem="G5P-pD-VXn" secondAttribute="centerX" id="bHd-Wx-y3Q"/>
+                                                <constraint firstItem="t0U-MR-TKH" firstAttribute="bottom" secondItem="n9n-oJ-m8Q" secondAttribute="bottom" id="cTc-uO-3Kn"/>
+                                                <constraint firstItem="t0U-MR-TKH" firstAttribute="leading" secondItem="G5P-pD-VXn" secondAttribute="leadingMargin" constant="-3.2399162172678189" id="gwA-yo-FGm"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
@@ -264,6 +274,7 @@ line 3</string>
                     </navigationItem>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
+                        <outlet property="actionButton" destination="GNw-l4-vsZ" id="4MX-UE-EEK"/>
                         <outlet property="dateLabel" destination="n9n-oJ-m8Q" id="gz7-Ra-app"/>
                         <outlet property="descriptionLabel" destination="tX0-0M-TwC" id="otY-w1-7fp"/>
                         <outlet property="imageLoadingLabel" destination="C33-jj-OX5" id="C0g-4I-K6Q"/>
@@ -273,11 +284,12 @@ line 3</string>
                         <outlet property="mapPinImageView" destination="ge7-92-pRO" id="ZgO-MV-Uxr"/>
                         <outlet property="shareBarButtonItem" destination="fL3-X9-s86" id="ASa-cW-MHO"/>
                         <outlet property="typeImageView" destination="xcZ-Qv-VOe" id="xh9-ma-UM7"/>
+                        <outlet property="wsrNameLabel" destination="t0U-MR-TKH" id="WxJ-We-X4K"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NFn-q2-iye" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="721" y="-825"/>
+            <point key="canvasLocation" x="720.79999999999995" y="-825.78710644677665"/>
         </scene>
         <!--Report Detail Map View Controller-->
         <scene sceneID="lPL-Ws-o0e">
