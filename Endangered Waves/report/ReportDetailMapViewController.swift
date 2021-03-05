@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Kml_swift
 
 class ReportDetailMapViewController: UIViewController {
 
@@ -22,6 +23,14 @@ class ReportDetailMapViewController: UIViewController {
     }
 
     func updateView() {
+        if let wsrReport = report as? WorldSurfingReserve,
+           let kmlURL = wsrReport.kmlURL,
+           let url = URL(string: kmlURL) {
+
+            KMLDocument.parse(url: url, callback: { [unowned self] (kml) in
+                mapView.addOverlays(kml.overlays)
+            })
+        }
 
         self.navigationController?.navigationBar.tintColor = Style.colorSTWBlue
 
@@ -62,4 +71,19 @@ extension ReportDetailMapViewController: MKMapViewDelegate {
 extension ReportDetailMapViewController: StoryboardInstantiable {
     static var storyboardName: String { return "report" }
     static var storyboardIdentifier: String? { return "ReportDetailMapViewController" }
+}
+
+// MARK: WSR polygon styling
+extension ReportDetailMapViewController {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if let wsrOverlay = overlay as? MKPolygon {
+            let renderer = MKPolygonRenderer(overlay: wsrOverlay)
+            renderer.alpha = 0.6
+            renderer.fillColor = Style.colorSTWBlue
+
+            return renderer
+        }
+
+        return MKOverlayRenderer()
+    }
 }

@@ -281,8 +281,6 @@ protocol STWDataType {
     var imageURLs: [String] {get set}
     var type: ReportType {get set}
     var address: String {get set}
-    var creationDate: Date? {get set}
-    var url: String? {get set}
 }
 
 struct Report: STWDataType {
@@ -294,7 +292,6 @@ struct Report: STWDataType {
     var address: String
     var creationDate: Date?
     var user: String?
-    var url: String?
 
     init(name: String,
          address: String,
@@ -492,9 +489,7 @@ extension Report {
             "user": user]
         return dataDictionary
     }
-}
 
-extension STWDataType {
     func dateDisplayString() -> String {
         if let creationDate = creationDate {
             let formatter = DateFormatter()

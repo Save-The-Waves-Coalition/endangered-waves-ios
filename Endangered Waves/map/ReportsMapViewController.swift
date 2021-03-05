@@ -122,13 +122,13 @@ extension ReportsMapViewController: FUIBatchedArrayDelegate {
                 if let wsr = WorldSurfingReserve.createWsrWithSnapshot(snapshot) {
                     let coordinate = CLLocationCoordinate2DMake(wsr.coordinate.latitude, wsr.coordinate.longitude)
                     let annotation = ReportMapAnnotation(coordinate: coordinate, report: wsr)
-                    self.mapView.addAnnotation(annotation)
+                    mapView.addAnnotation(annotation)
 
                     if let kmlURL = wsr.kmlURL,
                        let url = URL(string: kmlURL) {
 
                         KMLDocument.parse(url: url, callback: { [unowned self] (kml) in
-                            self.mapView.addOverlays(kml.overlays)
+                            mapView.addOverlays(kml.overlays)
                         })
                     }
                 }

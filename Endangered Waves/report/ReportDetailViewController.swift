@@ -56,7 +56,7 @@ class ReportDetailViewController: UITableViewController {
         super.viewDidLoad()
         assert(report != nil, "Forgot to set Report dependency")
         updateView()
-        updateWSRDetailView()
+        ifWSRupdateDetailView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -81,7 +81,26 @@ class ReportDetailViewController: UITableViewController {
         if let typeImageView = typeImageView {
             typeImageView.image = report.type.placemarkIcon()
             if report.type == .wsr {
+                guard let wsrReport = report as? WorldSurfingReserve else {
+                    return
+                }
+
                 typeImageView.image = Style.iconWsrPlacemark
+
+                // TODO: Maybe use Firebase storage references instead of URLs for better caching ¯\(°_o)/¯
+                typeImageView.sd_setImage(with: URL(string: wsrReport.iconURL), completed: { (image, error, cacheType, url) in
+                    if image == nil {
+                        return
+                    }
+
+                    if cacheType == SDImageCacheType.none {
+                        UIView.animate(withDuration: 0.25, animations: {
+                            typeImageView.alpha = 1.0
+                        })
+                    } else {
+                        typeImageView.alpha = 1.0
+                    }
+                })
             }
         }
 
@@ -96,7 +115,8 @@ class ReportDetailViewController: UITableViewController {
             self.navigationItem.rightBarButtonItem?.isEnabled = true
         })
 
-        if let dateLabel = dateLabel {
+        if let report = report as? Report,
+           let dateLabel = dateLabel {
             dateLabel.text = "– \(report.dateDisplayString()) –"
         }
 
@@ -151,7 +171,7 @@ class ReportDetailViewController: UITableViewController {
         }
     }
 
-    func updateWSRDetailView() {
+    func ifWSRupdateDetailView() {
         self.wsrNameLabel.isHidden = true
         if let report = report as? WorldSurfingReserve {
             self.actionButton.setTitle("Learn More", for: .normal)
