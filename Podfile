@@ -14,9 +14,15 @@ abstract_target 'shared' do
   use_frameworks!
 
   # Firebase
-  pod 'Firebase', '~> 7.7'
-  # pod 'Fabric', '~> 1.10.2' removed my Matt on 2021-02-15 as they no long work/exist
-  # pod 'Crashlytics', '~> 3.14.0' removed my Matt on 2021-02-15 as they no long work/exist
+  pod 'Firebase/Auth', '~> 7.7'
+  pod 'Firebase/Crashlytics', '~> 7.7'
+  pod 'Firebase/Firestore', '~> 7.7'
+  pod 'Firebase/Storage', '~> 7.7'
+  
+  # UI Bindings for Firebase
+  pod 'FirebaseUI/Firestore', '~> 10.0'
+  pod 'FirebaseUI/Auth', '~> 10.0'
+  pod 'FirebaseUI/Storage', '~> 10.0'
   
   # UI Bindings for Firebase
   pod 'FirebaseUI/Firestore', '~> 10.0'
