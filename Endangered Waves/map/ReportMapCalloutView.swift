@@ -42,7 +42,7 @@ class ReportMapCalloutView: UIView {
 
                     placemarkImageView.image = Style.iconWsrPlacemark
 
-                    // TODO: Maybe use Firebase storage references instead of URLs for better caching ¯\(°_o)/¯
+                    // Could use Firebase storage references instead of URLs for better caching ¯\(°_o)/¯
                     placemarkImageView.sd_setImage(with: URL(string: wsrReport.iconURL), completed: { (image, error, cacheType, url) in
                         if image == nil {
                             return
@@ -67,7 +67,7 @@ class ReportMapCalloutView: UIView {
                 if report.type == .wsr {
                     userImageView.image = Style.iconWsrPlacemark
                 } else {
-                    // TODO: Maybe use Firebase storage references instead of URLs for better caching ¯\(°_o)/¯
+                    // Could use Firebase storage references instead of URLs for better caching ¯\(°_o)/¯
                     userImageView.sd_setImage(with: firstImageURL, completed: { (image, error, cacheType, url) in
                         if image == nil {
                             return
@@ -114,7 +114,7 @@ class ReportMapCalloutView: UIView {
         delegate?.view(self, didTapDetailsButton: nil, forReport: report)
     }
 
-    // MARK: - Hit test. We need to override this to detect hits in our custom callout. Is this really needed ¯\(°_o)/¯
+    // Hit test. We need to override this to detect hits in our custom callout. Is this really needed ¯\(°_o)/¯
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
 
         // Check if it hit our annotation detail view components.

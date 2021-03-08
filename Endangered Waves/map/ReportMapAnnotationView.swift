@@ -33,8 +33,10 @@ class ReportMapAnnotationView: MKAnnotationView {
                         return
                     }
 
-                    // TODO: Maybe use Firebase storage references instead of URLs for better caching ¯\(°_o)/¯
-                    SDWebImageManager.shared.loadImage(with: URL(string: wsrReport.iconURL), options: [], progress: nil) { (loadedImage, data, error, cacheType, finished, imageURL) in
+                    // Could use Firebase storage references instead of URLs for better caching ¯\(°_o)/¯
+                    SDWebImageManager.shared.loadImage(with: URL(string: wsrReport.iconURL),
+                                                       options: [],
+                                                       progress: nil) {(loadedImage, data, error, cacheType, finished, imageURL) in
                         if !finished {
                             return
                         }

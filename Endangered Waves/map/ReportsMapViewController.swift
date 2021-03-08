@@ -39,7 +39,7 @@ class ReportsMapViewController: UIViewController {
         return array
     }()
 
-    // View lifecycle
+    // MARK: View lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,14 +80,6 @@ class ReportsMapViewController: UIViewController {
             self.mapView.setRegion(region, animated: true)
         }
     }
-
-    private func viewController(for annotation: ReportMapAnnotation) -> ReportDetailViewController {
-        // TODO: Coordinator should take care of this
-        let viewController = ReportDetailViewController.instantiate()
-        viewController.report = annotation.report
-        return viewController
-    }
-
 }
 
 // MARK: 🔥 FUIBatchedArrayDelegate
@@ -98,9 +90,10 @@ extension ReportsMapViewController: FUIBatchedArrayDelegate {
     }
 
     func batchedArray(_ array: FUIBatchedArray, didUpdateWith diff: FUISnapshotArrayDiff<DocumentSnapshot>) {
-        // TODO: Right now just removing all annotations and then adding everything back,
-        //       we really should be taking addvantage of the array diff
-        // print("ℹ️: Firestore udpated: \(diff)")
+        // Right now just removing all annotations and then adding everything back,
+        //  we really should be taking addvantage of the array diff, but so far
+        //  not seeing a performance hit
+
         if array == batchedArrayForWSR {
             // Only remove WSRs before re-adding them
             let currentWSRAnnotations = mapView.annotations.filter { annotation in
@@ -128,7 +121,7 @@ extension ReportsMapViewController: FUIBatchedArrayDelegate {
                        let url = URL(string: kmlURL) {
 
                         KMLDocument.parse(url: url, callback: { [unowned self] (kml) in
-                            mapView.addOverlays(kml.overlays)
+                            self.mapView.addOverlays(kml.overlays)
                         })
                     }
                 }
@@ -156,7 +149,7 @@ extension ReportsMapViewController: FUIBatchedArrayDelegate {
 
     func batchedArray(_ array: FUIBatchedArray, queryDidFailWithError error: Error) {
         assertionFailure("⚠️: \(error.localizedDescription)")
-        // TODO: Log this error
+        // TODO: Log this error to Crashlytics
     }
 }
 
@@ -213,6 +206,7 @@ extension ReportsMapViewController: MKMapViewDelegate {
 
     }
 
+// Would be cool to animate the pin drops but couldn't quite get this working
 // // Animation for the pin drops
 //
 //    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {

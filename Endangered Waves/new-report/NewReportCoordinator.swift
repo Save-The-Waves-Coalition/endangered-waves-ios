@@ -93,7 +93,6 @@ class NewReportCoordinator: Coordinator {
         locationPicker.searchResultLocationIconColor = Style.colorSTWBlue
         locationPicker.currentLocationIconColor = Style.colorSTWBlue
         locationPicker.pickCompletion = { (pickedLocationItem) in
-            // TODO: Should this be an unowned self
             self.location = pickedLocationItem
         }
         let locationNavVC = NavigationViewController(rootViewController: locationPicker)
@@ -181,6 +180,7 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
         reportEmailAddress = email
     }
 
+    // swiftlint:disable cyclomatic_complexity
     func viewController(_ viewController: NewReportViewController, didSelectThreatCategory category: String) {
         switch category {
         case "Oil Spill":
@@ -237,6 +237,7 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
             assertionFailure("Missing type.")
         }
     }
+    // swiftlint:enable cyclomatic_complexity
 
     func viewControllerDidTapCompetition(viewController: NewReportViewController) {
         reportType = .competition
@@ -304,7 +305,10 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
 
         guard let reportDescription = reportDescription, let location = location,
             let reportType = reportType, let reportEmailAddress = reportEmailAddress else {
-            // TODO: what to do here? This should never happen, show error
+            assertionFailure("⚠️: Missing Field")
+            showValidationError(title: "Invalid Field", message: "Please make sure all fields have been filled out properly.",
+                                withViewController: viewController)
+            // TODO: Log to Crashlytics
             return
         }
 

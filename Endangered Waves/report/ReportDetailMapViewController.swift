@@ -28,7 +28,7 @@ class ReportDetailMapViewController: UIViewController {
            let url = URL(string: kmlURL) {
 
             KMLDocument.parse(url: url, callback: { [unowned self] (kml) in
-                mapView.addOverlays(kml.overlays)
+                self.mapView.addOverlays(kml.overlays)
             })
         }
 

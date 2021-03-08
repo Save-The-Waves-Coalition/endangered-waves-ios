@@ -190,7 +190,8 @@ class NewReportViewController: UITableViewController {
             self.imageSliderViewController = imageSliderViewController
         }
         if let threatCategoryNavigationController = segue.destination as? ThreatCategorySelectionNavController {
-            if let threatCategoryTableViewController = threatCategoryNavigationController.topViewController as? ThreatCategoryTableViewController {
+            if let threatCategoryTableViewController = threatCategoryNavigationController.topViewController as?
+                ThreatCategoryTableViewController {
                 threatCategoryTableViewController.threatCategorySelectionDelegate = self
                 threatCategoryTableViewController.selectedThreatCategory = reportThreatCategory
             }
@@ -300,6 +301,7 @@ extension NewReportViewController: StoryboardInstantiable {
 }
 
 // MARK: Miscellaneous helpers
+// swiftlint:disable cyclomatic_complexity
 extension NewReportViewController {
     func typeFromThreatSelectionTableString(_ displayString: String) -> ReportType {
         switch displayString {
@@ -358,4 +360,5 @@ extension NewReportViewController {
             return .general
         }
     }
+    // swiftlint:enable cyclomatic_complexity
 }

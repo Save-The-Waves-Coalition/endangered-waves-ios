@@ -67,6 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIPageControl.appearance().backgroundColor = UIColor.clear
     }
 
+    // Helper function used during debugging
     private func listOutFonts() {
         for family: String in UIFont.familyNames {
             print("\(family)")

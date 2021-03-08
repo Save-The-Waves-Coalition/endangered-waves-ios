@@ -46,15 +46,10 @@ struct Competition {
 
 extension Competition {
     static func createCompetitionWithSnapshot(_ snapshot: DocumentSnapshot) -> Competition? {
-        // TODO: Fix this "!"
-        return self.createCompetitionWithDictionary(snapshot.data()!)
-    }
-
-    static func createCompetitionWithSnapshot(_ snapshot: DocumentSnapshot, introPageHTML: String) -> Competition? {
-        // TODO: Fix this "!"
-        var competition = self.createCompetitionWithDictionary(snapshot.data()!)
-        competition?.introPageHTML = introPageHTML
-        return competition
+        guard let data = snapshot.data() else {
+            return nil
+        }
+        return self.createCompetitionWithDictionary(data)
     }
 
     func documentDataDictionary() -> [String: Any] {

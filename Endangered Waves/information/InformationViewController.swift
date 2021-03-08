@@ -52,6 +52,7 @@ class InformationViewController: UITableViewController {
 
 // MARK: UITableViewDelegate
 extension InformationViewController {
+    // swiftlint:disable cyclomatic_complexity function_body_length
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
@@ -122,6 +123,7 @@ extension InformationViewController {
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    // swiftlint:enable cyclomatic_complexity function_body_length
 
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let headerView = view as? UITableViewHeaderFooterView {

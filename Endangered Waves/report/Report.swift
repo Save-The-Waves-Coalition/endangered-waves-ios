@@ -44,6 +44,7 @@ enum ReportType: String {
     }
 }
 
+// swiftlint:disable cyclomatic_complexity
 extension ReportType {
     func displayString() -> String {
         switch self {
@@ -273,6 +274,7 @@ extension ReportType {
         }
     }
 }
+// swiftlint:enable cyclomatic_complexity
 
 protocol STWDataType {
     var name: String {get set}
@@ -283,6 +285,8 @@ protocol STWDataType {
     var address: String {get set}
 }
 
+// MARK: 📝 Report
+
 struct Report: STWDataType {
     var name: String
     var coordinate: GeoPoint
@@ -290,8 +294,8 @@ struct Report: STWDataType {
     var imageURLs: [String]
     var type: ReportType
     var address: String
-    var creationDate: Date?
-    var user: String?
+    var creationDate: Date
+    var user: String
 
     init(name: String,
          address: String,
@@ -349,13 +353,18 @@ struct Report: STWDataType {
             return nil
         }
 
-        // TODO: 2020-03-14 MDM We need to define what the various types are, it matters for iOS currently,
-        //                      we could just make it fall back to general and be done with it ¯\(°_o)/¯
-        let type = ReportType(rawValue: typeString) ?? ReportType.general
-//        guard let type = ReportType(rawValue: typeString) else {
-//            assertionFailure("⚠️: Type for Report not found")
-//            return nil
-//        }
+        // Because we are not versioning the API there is potential for there to be
+        //  a type in Firebase that the iOS app doesn't recognize. If that happens
+        //  let's just fall back to a "general" report type so that the app still works.
+        //  In development we throw an assertaion so that the dev can fix this in the
+        //  database.
+        var type: ReportType
+        if let unwrappedType = ReportType(rawValue: typeString) {
+            type = unwrappedType
+        } else {
+            assertionFailure("⚠️: Type \(typeString) for Report not found")
+            type = ReportType.general
+        }
 
         guard let user = dictionary["user"] as? String else {
             assertionFailure("⚠️: User for Report not found")
@@ -373,6 +382,37 @@ struct Report: STWDataType {
     }
 }
 
+extension Report {
+    static func createReportWithSnapshot(_ snapshot: DocumentSnapshot) -> Report? {
+        guard let snapshotDictionary = snapshot.data() else {
+            return nil
+        }
+        return self.createReportWithDictionary(snapshotDictionary)
+    }
+
+    func documentDataDictionary() -> [String: Any] {
+        let dataDictionary: [String: Any] = [
+            "name": name,
+            "address": address,
+            "coordinate": coordinate,
+            "creationDate": creationDate,
+            "description": description,
+            "imageURLs": imageURLs,
+            "type": type.rawValue,
+            "user": user]
+        return dataDictionary
+    }
+
+    func dateDisplayString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        let dateString = formatter.string(from: creationDate)
+        return dateString
+    }
+}
+
+// MARK: 🌎 WorldSurfingReserve
+
 struct WorldSurfingReserve: STWDataType {
     var name: String
     var coordinate: GeoPoint
@@ -383,8 +423,8 @@ struct WorldSurfingReserve: STWDataType {
     var type: ReportType
     var creationDate: Date?
     var address: String
-    var dedicated: Date?
-    var url: String?
+    var dedicated: Date
+    var url: String
 
     init(name: String,
          address: String,
@@ -407,6 +447,7 @@ struct WorldSurfingReserve: STWDataType {
         self.type = type
         self.url = url
     }
+
     static func createWsrWithDictionary(_ dictionary: [String: Any]) -> WorldSurfingReserve? {
 
         guard let name = dictionary["name"] as? String else {
@@ -471,41 +512,12 @@ struct WorldSurfingReserve: STWDataType {
     }
 }
 
-extension Report {
-    static func createReportWithSnapshot(_ snapshot: DocumentSnapshot) -> Report? {
-        // TODO: Fix this "!"
-        return self.createReportWithDictionary(snapshot.data()!)
-    }
-
-    func documentDataDictionary() -> [String: Any] {
-        let dataDictionary: [String: Any] = [
-            "name": name,
-            "address": address,
-            "coordinate": coordinate,
-            "creationDate": creationDate,
-            "description": description,
-            "imageURLs": imageURLs,
-            "type": type.rawValue,
-            "user": user]
-        return dataDictionary
-    }
-
-    func dateDisplayString() -> String {
-        if let creationDate = creationDate {
-            let formatter = DateFormatter()
-            formatter.dateStyle = .long
-            let dateString = formatter.string(from: creationDate)
-            return dateString
-        } else {
-            return ""
-        }
-    }
-}
-
 extension WorldSurfingReserve {
     static func createWsrWithSnapshot(_ snapshot: DocumentSnapshot) -> WorldSurfingReserve? {
-        // TODO: Fix this "!"
-        return self.createWsrWithDictionary(snapshot.data()!)
+        guard let snapshotDictionary = snapshot.data() else {
+            return nil
+        }
+        return self.createWsrWithDictionary(snapshotDictionary)
     }
 
     func documentDataDictionary() -> [String: Any] {
@@ -525,14 +537,9 @@ extension WorldSurfingReserve {
 
 extension WorldSurfingReserve {
     func dateDisplayString() -> String {
-        if let dedicated = dedicated {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
         let dateString = formatter.string(from: dedicated)
         return dateString
-        } else {
-            print("Dedication Date for World Surfing Reserve not found")
-            return ""
-        }
     }
 }
