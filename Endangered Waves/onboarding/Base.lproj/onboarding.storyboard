@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BdA-9h-eYY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BdA-9h-eYY">
     <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,9 +24,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="c6a-an-Ijt">
-                                <rect key="frame" x="140.5" y="406" width="39" height="37"/>
+                                <rect key="frame" x="99" y="415.5" width="122.5" height="27.5"/>
                             </pageControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjy-ns-acA">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjy-ns-acA">
                                 <rect key="frame" x="110" y="451" width="100" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Ynd-hB-yf9"/>
@@ -41,6 +40,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="odl-07-K85"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="U9d-hh-p3u" firstAttribute="top" secondItem="vDL-hW-HfZ" secondAttribute="top" id="2DW-Dv-IvP"/>
@@ -52,7 +52,6 @@
                             <constraint firstItem="yjy-ns-acA" firstAttribute="top" secondItem="c6a-an-Ijt" secondAttribute="bottom" constant="8" symbolic="YES" id="nNF-fM-UIt"/>
                             <constraint firstItem="yjy-ns-acA" firstAttribute="centerX" secondItem="vDL-hW-HfZ" secondAttribute="centerX" id="vd3-kZ-tSD"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="odl-07-K85"/>
                     </view>
                     <connections>
                         <outlet property="pageControl" destination="c6a-an-Ijt" id="swk-ha-GuD"/>
@@ -75,22 +74,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-trashed" translatesAutoresizingMaskIntoConstraints="NO" id="Dnc-cH-naa">
-                                <rect key="frame" x="341" y="161" width="692" height="592"/>
+                                <rect key="frame" x="200.5" y="20.5" width="346" height="296"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Dnc-cH-naa" secondAttribute="height" multiplier="173:148" id="S4d-A9-08c"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRASHED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ok5-mA-Eyn">
-                                <rect key="frame" x="622" y="688" width="69" height="17.5"/>
+                                <rect key="frame" x="481.5" y="251.5" width="69" height="17.5"/>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-large-circle" translatesAutoresizingMaskIntoConstraints="NO" id="ggn-wq-Ha9">
-                                <rect key="frame" x="-121" y="-41" width="562" height="562"/>
+                                <rect key="frame" x="19.5" y="99.5" width="281" height="281"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muP-Zz-vUu">
-                                <rect key="frame" x="80" y="-125" width="160.5" height="56"/>
+                                <rect key="frame" x="80" y="15.5" width="160.5" height="56"/>
                                 <string key="text">SEE AN ISSUE
 &amp; REPORT IT</string>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="24"/>
@@ -98,7 +97,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xlv-vM-jpf">
-                                <rect key="frame" x="135" y="491" width="50" height="50"/>
+                                <rect key="frame" x="135" y="350.5" width="50" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Fvd-ss-LUO"/>
@@ -106,13 +105,14 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus-sign-radiate" translatesAutoresizingMaskIntoConstraints="NO" id="bjN-pM-yWj">
-                                <rect key="frame" x="100" y="456" width="120" height="120"/>
+                                <rect key="frame" x="100" y="315.5" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="bjN-pM-yWj" secondAttribute="height" multiplier="1:1" id="585-5Z-Qsc"/>
                                     <constraint firstAttribute="height" constant="120" id="NK5-hW-dmF"/>
                                 </constraints>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="z0s-Vx-Zwy"/>
                         <constraints>
                             <constraint firstItem="xlv-vM-jpf" firstAttribute="centerX" secondItem="bjN-pM-yWj" secondAttribute="centerX" id="3j0-VG-B7o"/>
                             <constraint firstItem="bjN-pM-yWj" firstAttribute="centerX" secondItem="9mb-r4-Bzf" secondAttribute="centerX" id="8RL-ld-LQ0"/>
@@ -131,7 +131,6 @@
                             <constraint firstItem="bjN-pM-yWj" firstAttribute="top" secondItem="ggn-wq-Ha9" secondAttribute="bottom" constant="-65" id="vP1-qZ-HYh"/>
                             <constraint firstItem="vAK-xe-vKv" firstAttribute="leading" secondItem="9mb-r4-Bzf" secondAttribute="leading" id="xiz-YV-9ab"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="z0s-Vx-Zwy"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeJ-4W-vBZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -150,7 +149,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFY-Iy-UHr">
-                                <rect key="frame" x="72.5" y="-125" width="175" height="56"/>
+                                <rect key="frame" x="72.5" y="15.5" width="175" height="56"/>
                                 <string key="text">SHARE IT OUT
 &amp; TAKE ACTION</string>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="24"/>
@@ -158,33 +157,34 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-large-circle" translatesAutoresizingMaskIntoConstraints="NO" id="7oE-jM-MZp">
-                                <rect key="frame" x="-121" y="-41" width="562" height="562"/>
+                                <rect key="frame" x="19.5" y="99.5" width="281" height="281"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-oil-spill" translatesAutoresizingMaskIntoConstraints="NO" id="Vnj-L7-RLT">
-                                <rect key="frame" x="-409.5" y="401" width="1179" height="637.5"/>
+                                <rect key="frame" x="-115" y="260.5" width="590" height="319"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Vnj-L7-RLT" secondAttribute="height" multiplier="590:319" id="4Sd-HR-hat"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-sewage" translatesAutoresizingMaskIntoConstraints="NO" id="xFH-03-o8L">
-                                <rect key="frame" x="23.5" y="-109" width="546" height="456"/>
+                                <rect key="frame" x="23.5" y="31.5" width="273" height="228"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="xFH-03-o8L" secondAttribute="height" multiplier="91:76" id="7f7-OO-e8R"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEWAGE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyD-3o-Npf">
-                                <rect key="frame" x="23.5" y="307" width="63" height="17.5"/>
+                                <rect key="frame" x="23.5" y="219.5" width="63" height="17.5"/>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OIL SPILL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aqj-o9-RuW">
-                                <rect key="frame" x="-95.5" y="886.5" width="68" height="17.5"/>
+                                <rect key="frame" x="199" y="427.5" width="68" height="17.5"/>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="QXm-Sb-gdh"/>
                         <constraints>
                             <constraint firstItem="wyD-3o-Npf" firstAttribute="top" secondItem="xFH-03-o8L" secondAttribute="bottom" constant="-40" id="16e-7q-nwB"/>
                             <constraint firstItem="Aqj-o9-RuW" firstAttribute="leading" secondItem="Vnj-L7-RLT" secondAttribute="leading" constant="314" id="2uR-LX-ncC"/>
@@ -203,7 +203,6 @@
                             <constraint firstItem="7oE-jM-MZp" firstAttribute="centerX" secondItem="AHN-lz-Qf9" secondAttribute="centerX" id="vwZ-J6-rWg"/>
                             <constraint firstItem="nFY-Iy-UHr" firstAttribute="centerX" secondItem="AHN-lz-Qf9" secondAttribute="centerX" id="zsF-Sw-PBh"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="QXm-Sb-gdh"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oTq-4c-tpe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -222,7 +221,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0K-KZ-a1x">
-                                <rect key="frame" x="74" y="-125" width="172.5" height="56"/>
+                                <rect key="frame" x="74" y="15.5" width="172.5" height="56"/>
                                 <string key="text">BE PART OF
 THE SOLUTION</string>
                                 <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="24"/>
@@ -230,7 +229,7 @@ THE SOLUTION</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-large-circle" translatesAutoresizingMaskIntoConstraints="NO" id="Bft-De-smb">
-                                <rect key="frame" x="-121" y="-41" width="562" height="562"/>
+                                <rect key="frame" x="19.5" y="99.5" width="281" height="281"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vertical-logo" translatesAutoresizingMaskIntoConstraints="NO" id="71R-va-Bbt">
                                 <rect key="frame" x="48" y="151.5" width="224" height="177"/>
@@ -239,6 +238,7 @@ THE SOLUTION</string>
                                 </constraints>
                             </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="iRf-47-hOf"/>
                         <constraints>
                             <constraint firstItem="71R-va-Bbt" firstAttribute="centerY" secondItem="q1b-1b-VE9" secondAttribute="centerY" id="0Yn-lH-Dbj"/>
                             <constraint firstItem="Ugh-Wn-M9q" firstAttribute="bottom" secondItem="iRf-47-hOf" secondAttribute="bottom" id="22v-1D-4Lj"/>
@@ -252,7 +252,6 @@ THE SOLUTION</string>
                             <constraint firstItem="Bft-De-smb" firstAttribute="centerX" secondItem="q1b-1b-VE9" secondAttribute="centerX" id="g41-1b-Vih"/>
                             <constraint firstItem="Bft-De-smb" firstAttribute="centerY" secondItem="q1b-1b-VE9" secondAttribute="centerY" id="lTD-cP-Qwl"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="iRf-47-hOf"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZHD-TI-lpE" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -183,55 +183,55 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
     // swiftlint:disable cyclomatic_complexity
     func viewController(_ viewController: NewReportViewController, didSelectThreatCategory category: String) {
         switch category {
-        case "Oil Spill":
+        case "Oil Spill".localized():
             reportType = .oilSpill
-        case "Sewage Spill":
+        case "Sewage Spill".localized():
             reportType = .sewage
-        case "Other Trash Threat":
+        case "Other Trash Threat".localized():
             reportType = .trashed
-        case "Coastal Erosion":
+        case "Coastal Erosion".localized():
             reportType = .coastalErosion
-        case "Beach Access":
+        case "Beach Access".localized():
             reportType = .accessLost
-        case "General Alert":
+        case "General Alert".localized():
             reportType = .general
-        case "Competition":
+        case "Competition".localized():
             reportType = .competition
-        case "Runoff":
+        case "Runoff".localized():
             reportType = .runoff
-        case "Algal Bloom":
+        case "Algal Bloom".localized():
             reportType = .algalBloom
-        case "Other Water Quality Threat":
+        case "Other Water Quality Threat".localized():
             reportType = .waterQuality
-        case "Plastic Packaging":
+        case "Plastic Packaging".localized():
             reportType = .plasticPackaging
-        case "Micro-plastics":
+        case "Micro-plastics".localized():
             reportType = .microPlastics
-        case "Fishing Gear":
+        case "Fishing Gear".localized():
             reportType = .fishingGear
-        case "Seawall":
+        case "Seawall".localized():
             reportType = .seawall
-        case "Hard Armoring":
+        case "Hard Armoring".localized():
             reportType = .hardArmoring
-        case "Beachfront Construction":
+        case "Beachfront Construction".localized():
             reportType = .beachfrontConstruction
-        case "Jetty":
+        case "Jetty".localized():
             reportType = .jetty
-        case "Harbor":
+        case "Harbor".localized():
             reportType = .harbor
-        case "Other Coastal Development Threat":
+        case "Other Coastal Development Threat".localized():
             reportType = .coastalDevelopment
-        case "King Tides":
+        case "King Tides".localized():
             reportType = .kingTides
-        case "Other Sea-Level or Flooding Threat":
+        case "Other Sea-Level or Flooding Threat".localized():
             reportType = .seaLevelRiseOrFlooding
-        case "Destructive Fishing":
+        case "Destructive Fishing".localized():
             reportType = .destructiveFishing
-        case "Bleaching":
+        case "Bleaching".localized():
             reportType = .bleaching
-        case "Infrastructure":
+        case "Infrastructure".localized():
             reportType = .infrastructure
-        case "Other Coral Reef Impact Threat":
+        case "Other Coral Reef Impact Threat".localized():
             reportType = .coralReefImpacts
         default:
             assertionFailure("Missing type.")

@@ -121,7 +121,7 @@ class ReportMapAnnotationView: MKAnnotationView {
                                                          toItem: nil,
                                                          attribute: NSLayoutConstraint.Attribute.notAnAttribute,
                                                          multiplier: 1,
-                                                         constant: 210)
+                                                         constant: 250)
                 let heightConstraint = NSLayoutConstraint(item: newCustomCalloutView,
                                                           attribute: NSLayoutConstraint.Attribute.height,
                                                           relatedBy: NSLayoutConstraint.Relation.equal,

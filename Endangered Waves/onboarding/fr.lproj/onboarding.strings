@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "OIL SPILL"; ObjectID = "Aqj-o9-RuW"; */
+"Aqj-o9-RuW.text" = "OIL SPILL";
+
+/* Class = "UILabel"; text = "BE PART OF\nTHE SOLUTION"; ObjectID = "C0K-KZ-a1x"; */
+"C0K-KZ-a1x.text" = "FAIS PARTIE DE\nLA SOLUTION";
+
+/* Class = "UILabel"; text = "TRASHED"; ObjectID = "Ok5-mA-Eyn"; */
+"Ok5-mA-Eyn.text" = "TRASHED";
+
+/* Class = "UILabel"; text = "SEE AN ISSUE\n& REPORT IT"; ObjectID = "muP-Zz-vUu"; */
+"muP-Zz-vUu.text" = "IDENTIFIE ET SIGNALE\nDES ANOMALIES";
+
+/* Class = "UILabel"; text = "SHARE IT OUT\n& TAKE ACTION"; ObjectID = "nFY-Iy-UHr"; */
+"nFY-Iy-UHr.text" = "PARTAGE-LES ET\nPRENDS ACTION";
+
+/* Class = "UILabel"; text = "SEWAGE"; ObjectID = "wyD-3o-Npf"; */
+"wyD-3o-Npf.text" = "SEWAGE";
+
+/* Class = "UIButton"; normalTitle = "SKIP"; ObjectID = "yjy-ns-acA"; */
+"yjy-ns-acA.normalTitle" = "SUIVANT";

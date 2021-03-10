@@ -1,0 +1,189 @@
+
+/* Class = "UILabel"; text = "THREAT CATEGORY"; ObjectID = "06W-gh-CHS"; */
+"06W-gh-CHS.text" = "CATÉGORIES DE MENACES";
+
+/* Class = "UILabel"; text = "Other Coastal Development Threat"; ObjectID = "0BR-zJ-h5O"; */
+"0BR-zJ-h5O.text" = "Other Coastal Development Threat";
+
+/* Class = "UILabel"; text = "Infrastructure"; ObjectID = "0hJ-Yk-TQa"; */
+"0hJ-Yk-TQa.text" = "Infrastructure";
+
+/* Class = "UITableViewSection"; headerTitle = "CORAL REEF IMPACTS"; ObjectID = "3eg-58-XjO"; */
+"3eg-58-XjO.headerTitle" = "CORAL REEF IMPACTS";
+
+/* Class = "UILabel"; text = "Sewage Spill"; ObjectID = "6Dy-go-JLh"; */
+"6Dy-go-JLh.text" = "Sewage Spill";
+
+/* Class = "UILabel"; text = "King Tides"; ObjectID = "7lv-ri-rTe"; */
+"7lv-ri-rTe.text" = "King Tides";
+
+/* Class = "UINavigationItem"; title = "THREAT CATEGORY"; ObjectID = "8Oc-Sc-vXi"; */
+"8Oc-Sc-vXi.title" = "THREAT CATEGORY";
+
+/* Class = "UILabel"; text = "The loss of sand or landmass at the coast due to waves, winds, or tide and human interaction."; ObjectID = "A2R-M2-Y6i"; */
+"A2R-M2-Y6i.text" = "The loss of sand or landmass at the coast due to waves, winds, or tide and human interaction.";
+
+/* Class = "UILabel"; text = "Fishing Gear"; ObjectID = "AAv-IW-Azy"; */
+"AAv-IW-Azy.text" = "Fishing Gear";
+
+/* Class = "UILabel"; text = "DIRTY WAVE CHALLENGE"; ObjectID = "AKb-H6-EjI"; */
+"AKb-H6-EjI.text" = "DIRTY WAVE CHALLENGE";
+
+/* Class = "UINavigationItem"; title = "REPORT AN ISSUE"; ObjectID = "CYM-yO-PXe"; */
+"CYM-yO-PXe.title" = "SIGNALER UN PROBLÈME";
+
+/* Class = "UILabel"; text = "Algal Bloom"; ObjectID = "ELH-EM-Ncb"; */
+"ELH-EM-Ncb.text" = "Algal Bloom";
+
+/* Class = "UINavigationController"; title = "Threat Category"; ObjectID = "Eok-rz-qaa"; */
+"Eok-rz-qaa.title" = "Threat Category";
+
+/* Class = "UILabel"; text = "Harbor"; ObjectID = "FDK-Gz-xSz"; */
+"FDK-Gz-xSz.text" = "Harbor";
+
+/* Class = "UILabel"; text = "General Alert"; ObjectID = "FQb-m2-QCx"; */
+"FQb-m2-QCx.text" = "General Alert";
+
+/* Class = "UILabel"; text = "Beach Access"; ObjectID = "FgH-88-4vE"; */
+"FgH-88-4vE.text" = "Beach Access";
+
+/* Class = "UILabel"; text = "Plastic Packaging"; ObjectID = "Hfk-TD-XOH"; */
+"Hfk-TD-XOH.text" = "Plastic Packaging";
+
+/* Class = "UILabel"; text = "Associated with nutrient loading in coastal waters. Reflective of a green slime that covers the surface of the water or red tides in the Pacific commonly associated with murky water."; ObjectID = "JLk-q8-P1p"; */
+"JLk-q8-P1p.text" = "Associated with nutrient loading in coastal waters. Reflective of a green slime that covers the surface of the water or red tides in the Pacific commonly associated with murky water.";
+
+/* Class = "UILabel"; text = "Most commonly single-use plastic such as bags, Styrofoam, utensils."; ObjectID = "JoE-Tp-Cpq"; */
+"JoE-Tp-Cpq.text" = "Most commonly single-use plastic such as bags, Styrofoam, utensils.";
+
+/* Class = "UILabel"; text = "Thick, black liquid resting on the ocean surface. Most commonly come from ships/boats, oil derricks etc."; ObjectID = "KB6-8a-Odp"; */
+"KB6-8a-Odp.text" = "Thick, black liquid resting on the ocean surface. Most commonly come from ships/boats, oil derricks etc.";
+
+/* Class = "UILabel"; text = "Corals are damaged by coastal construction including housing, roads, etc."; ObjectID = "M43-vc-ONc"; */
+"M43-vc-ONc.text" = "Corals are damaged by coastal construction including housing, roads, etc.";
+
+/* Class = "UILabel"; text = "OCTOBER 20TH TO NOVEMBER 20TH, 2018"; ObjectID = "OU1-ez-API"; */
+"OU1-ez-API.text" = "OCTOBER 20TH TO NOVEMBER 20TH, 2018";
+
+/* Class = "UILabel"; text = "Jetty"; ObjectID = "Odo-bY-6Cx"; */
+"Odo-bY-6Cx.text" = "Jetty";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Oi4-2e-yfa"; */
+"Oi4-2e-yfa.normalTitle" = "Button";
+
+/* Class = "UITableViewController"; title = "REPORT AN ISSUE"; ObjectID = "QT1-n4-6Zb"; */
+"QT1-n4-6Zb.title" = "SIGNALER UN PROBLÈME";
+
+/* Class = "UILabel"; text = "Oil Spill"; ObjectID = "QeE-ie-Bbg"; */
+"QeE-ie-Bbg.text" = "Déversement de pétrole ou d'huile";
+
+/* Class = "UILabel"; text = "Micro-plastics"; ObjectID = "QgY-uU-bYh"; */
+"QgY-uU-bYh.text" = "Micro-plastics";
+
+/* Class = "UILabel"; text = "Coastal Erosion"; ObjectID = "Qhe-C9-cG9"; */
+"Qhe-C9-cG9.text" = "Coastal Erosion";
+
+/* Class = "UILabel"; text = "Constructions in the surf zone to protect boats, coastal property, or to manage sand. Can be industrial or small scale and generally protrude out into the ocean."; ObjectID = "R0E-vH-beT"; */
+"R0E-vH-beT.text" = "Constructions in the surf zone to protect boats, coastal property, or to manage sand. Can be industrial or small scale and generally protrude out into the ocean.";
+
+/* Class = "UILabel"; text = "The destruction of coral from warming water temperatures due to climate change. Coral changes color from bright to white."; ObjectID = "S0d-jK-Lxh"; */
+"S0d-jK-Lxh.text" = "The destruction of coral from warming water temperatures due to climate change. Coral changes color from bright to white.";
+
+/* Class = "UILabel"; text = "DESCRIPTION"; ObjectID = "SZ1-sH-e8A"; */
+"SZ1-sH-e8A.text" = "DESCRIPTION";
+
+/* Class = "UILabel"; text = "Corals are often destroyed by dynamite fishing using explosives, or any industrial fishing methods that harm the reef ecosystem."; ObjectID = "TnR-ty-6WH"; */
+"TnR-ty-6WH.text" = "Corals are often destroyed by dynamite fishing using explosives, or any industrial fishing methods that harm the reef ecosystem.";
+
+/* Class = "UILabel"; text = "Hard Armoring"; ObjectID = "Tr4-LV-GU2"; */
+"Tr4-LV-GU2.text" = "Hard Armoring";
+
+/* Class = "UILabel"; text = "A coastal defense built on the beach out of a hard material (rocks, concrete, metal), to protect coastal infrastructure."; ObjectID = "Vfo-dK-dyN"; */
+"Vfo-dK-dyN.text" = "A coastal defense built on the beach out of a hard material (rocks, concrete, metal), to protect coastal infrastructure.";
+
+/* Class = "UILabel"; text = "LOCATION"; ObjectID = "WGT-9M-TFg"; */
+"WGT-9M-TFg.text" = "ENDROIT";
+
+/* Class = "UITableViewSection"; headerTitle = "TRASH"; ObjectID = "Wye-3D-NgA"; */
+"Wye-3D-NgA.headerTitle" = "TRASH";
+
+/* Class = "UILabel"; text = "Destructive Fishing"; ObjectID = "XiI-7K-ZJK"; */
+"XiI-7K-ZJK.text" = "Destructive Fishing";
+
+/* Class = "UILabel"; text = "CONTACT"; ObjectID = "ZWL-Wk-UBn"; */
+"ZWL-Wk-UBn.text" = "CONTACT";
+
+/* Class = "UILabel"; text = "Runoff into coastal ecosystems. Often portrayed as large swath of brown water and associated with pipes."; ObjectID = "ZaX-Z6-7Uy"; */
+"ZaX-Z6-7Uy.text" = "Runoff into coastal ecosystems. Often portrayed as large swath of brown water and associated with pipes.";
+
+/* Class = "UILabel"; text = "Other Water Quality Threat"; ObjectID = "bBg-5g-FOm"; */
+"bBg-5g-FOm.text" = "Other Water Quality Threat";
+
+/* Class = "UILabel"; text = "Beachfront Construction"; ObjectID = "dW6-bh-cJk"; */
+"dW6-bh-cJk.text" = "Beachfront Construction";
+
+/* Class = "UILabel"; text = "Most commonly includes large nets, fishing line, or buoys and traps."; ObjectID = "deD-yB-oTF"; */
+"deD-yB-oTF.text" = "Most commonly includes large nets, fishing line, or buoys and traps.";
+
+/* Class = "UIBarButtonItem"; title = "Post"; ObjectID = "dh3-kF-1Y8"; */
+"dh3-kF-1Y8.title" = "Publier";
+
+/* Class = "UILabel"; text = "The highest tide of the year, often results in flooding and future vision of sea-level rise."; ObjectID = "e1h-2n-Ahi"; */
+"e1h-2n-Ahi.text" = "The highest tide of the year, often results in flooding and future vision of sea-level rise.";
+
+/* Class = "UILabel"; text = "Examples are bulkheads, revetments, dikes, tide-gates, and groins."; ObjectID = "ehL-B6-DYh"; */
+"ehL-B6-DYh.text" = "Examples are bulkheads, revetments, dikes, tide-gates, and groins.";
+
+/* Class = "UILabel"; text = "Other Trash Threat"; ObjectID = "fOS-ul-dvU"; */
+"fOS-ul-dvU.text" = "Other Trash Threat";
+
+/* Class = "UILabel"; text = "Access to the coast is blocked by private landowner, government agency, or pollution related issue."; ObjectID = "gEj-B1-8Wa"; */
+"gEj-B1-8Wa.text" = "Access to the coast is blocked by private landowner, government agency, or pollution related issue.";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "i1r-m6-RoM"; */
+"i1r-m6-RoM.title" = "Cancel";
+
+/* Class = "UILabel"; text = "Other Coral Reef Impact Threat"; ObjectID = "iQl-lr-1Vr"; */
+"iQl-lr-1Vr.text" = "Other Coral Reef Impact Threat";
+
+/* Class = "UILabel"; text = "Unintentional release of sewage and gray water into coastal ecosystems. Often portrayed as large swath of brown water and associated with pipes."; ObjectID = "ioY-e4-ClJ"; */
+"ioY-e4-ClJ.text" = "Unintentional release of sewage and gray water into coastal ecosystems. Often portrayed as large swath of brown water and associated with pipes.";
+
+/* Class = "UITableViewSection"; headerTitle = "OTHER"; ObjectID = "j7Y-Ch-vTV"; */
+"j7Y-Ch-vTV.headerTitle" = "OTHER";
+
+/* Class = "UILabel"; text = "Constructions in the surf zone to protect boats, coastal property, or to manage sand. Can be industrial or small scale."; ObjectID = "jyV-8J-tUY"; */
+"jyV-8J-tUY.text" = "Constructions in the surf zone to protect boats, coastal property, or to manage sand. Can be industrial or small scale.";
+
+/* Class = "UILabel"; text = "Seawall"; ObjectID = "khM-ng-Mdu"; */
+"khM-ng-Mdu.text" = "Seawall";
+
+/* Class = "UILabel"; text = "Defined as small plastic pieces broken up from larger pieces less than 5 millimeters in diameter."; ObjectID = "nm9-wG-AUw"; */
+"nm9-wG-AUw.text" = "Defined as small plastic pieces broken up from larger pieces less than 5 millimeters in diameter.";
+
+/* Class = "UITableViewController"; title = "Threat Category"; ObjectID = "oIr-PM-XJi"; */
+"oIr-PM-XJi.title" = "Threat Category";
+
+/* Class = "UILabel"; text = "Runoff"; ObjectID = "orz-Qq-KlK"; */
+"orz-Qq-KlK.text" = "Runoff";
+
+/* Class = "UILabel"; text = "Other Sea-Level or Flooding Threat"; ObjectID = "p1Q-lL-hCP"; */
+"p1Q-lL-hCP.text" = "Other Sea-Level or Flooding Threat";
+
+/* Class = "UITableViewSection"; headerTitle = "SEA-LEVEL RISE OR FLOODING"; ObjectID = "psH-RB-u3p"; */
+"psH-RB-u3p.headerTitle" = "SEA-LEVEL RISE OR FLOODING";
+
+/* Class = "UILabel"; text = "Bleaching"; ObjectID = "qbH-2M-eiX"; */
+"qbH-2M-eiX.text" = "Bleaching";
+
+/* Class = "UITableViewSection"; headerTitle = "COASTAL DEVELOPMENT"; ObjectID = "suN-MC-hF2"; */
+"suN-MC-hF2.headerTitle" = "COASTAL DEVELOPMENT";
+
+/* Class = "UITableViewSection"; headerTitle = "WATER QUALITY"; ObjectID = "ueP-b8-kpx"; */
+"ueP-b8-kpx.headerTitle" = "WATER QUALITY";
+
+/* Class = "UIButton"; normalTitle = "Select a threat category..."; ObjectID = "vm2-eu-Cjw"; */
+"vm2-eu-Cjw.normalTitle" = "Select a threat category...";
+
+/* Class = "UILabel"; text = "Any infrastructure, building, or human construction in the coastal area that appears to endanger the ecosystem or is built close to the beach."; ObjectID = "wSU-lh-Dft"; */
+"wSU-lh-Dft.text" = "Any infrastructure, building, or human construction in the coastal area that appears to endanger the ecosystem or is built close to the beach.";

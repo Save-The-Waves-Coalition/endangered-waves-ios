@@ -49,57 +49,57 @@ extension ReportType {
     func displayString() -> String {
         switch self {
         case .oilSpill:
-            return "Oil Spill"
+            return "Oil Spill".localized()
         case .sewage:
-            return "Sewage Spill"
+            return "Sewage Spill".localized()
         case .trashed:
-            return "Trash"
+            return "Trash".localized()
         case .coastalErosion:
-            return "Coastal Erosion"
+            return "Coastal Erosion".localized()
         case .accessLost:
-            return "Beach Access"
+            return "Beach Access".localized()
         case .general:
-            return "General Alert"
+            return "General Alert".localized()
         case .competition:
-            return "Competition"
+            return "Competition".localized()
         case .wsr:
-            return "World Surfing Reserve"
+            return "World Surfing Reserve".localized()
         case .runoff:
-            return "Runoff"
+            return "Runoff".localized()
         case .algalBloom:
-            return "Algal Bloom"
+            return "Algal Bloom".localized()
         case .waterQuality:
-            return "Water Quality"
+            return "Water Quality".localized()
         case .plasticPackaging:
-            return "Plastic Packaging"
+            return "Plastic Packaging".localized()
         case .microPlastics:
-            return "Micro-plastics"
+            return "Micro-plastics".localized()
         case .fishingGear:
-            return "Fishing Gear"
+            return "Fishing Gear".localized()
         case .seawall:
-            return "Seawall"
+            return "Seawall".localized()
         case .hardArmoring:
-            return "Hard Armoring"
+            return "Hard Armoring".localized()
         case .beachfrontConstruction:
-            return "Beachfront Construction"
+            return "Beachfront Construction".localized()
         case .jetty:
-            return "Jetty"
+            return "Jetty".localized()
         case .harbor:
-            return "Harbor"
+            return "Harbor".localized()
         case .coastalDevelopment:
-            return "Coastal Development"
+            return "Coastal Development".localized()
         case .kingTides:
-            return "King Tides"
+            return "King Tides".localized()
         case .seaLevelRiseOrFlooding:
-            return "Sea Level Rise or Flooding"
+            return "Sea Level Rise or Flooding".localized()
         case .destructiveFishing:
-            return "Destructive Fishing"
+            return "Destructive Fishing".localized()
         case .bleaching:
-            return "Bleaching"
+            return "Bleaching".localized()
         case .infrastructure:
-            return "Infrastructure"
+            return "Infrastructure".localized()
         case .coralReefImpacts:
-            return "Coral Reef Impacts"
+            return "Coral Reef Impacts".localized()
         }
     }
 
@@ -421,7 +421,6 @@ struct WorldSurfingReserve: STWDataType {
     var iconURL: String
     var kmlURL: String?
     var type: ReportType
-    var creationDate: Date?
     var address: String
     var dedicated: Date
     var url: String

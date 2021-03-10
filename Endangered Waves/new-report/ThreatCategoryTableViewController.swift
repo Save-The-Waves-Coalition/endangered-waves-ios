@@ -21,6 +21,18 @@ class ThreatCategoryTableViewController: UITableViewController {
     weak var threatCategorySelectionDelegate: ThreatCategoryTableViewControllerDelegate?
     var selectedThreatCategory: String?
 
+    // MARK: View Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Set up the nav bar title
+        let label = UILabel()
+        label.text = "THREAT CATEGORY".localized()
+        label.adjustsFontSizeToFitWidth = true
+        label.font = Style.fontBrandonGrotesqueBlack(size: 20)
+        self.navigationItem.titleView = label
+    }
+
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if cell.textLabel?.text == selectedThreatCategory {
             cell.setSelected(true, animated: false)

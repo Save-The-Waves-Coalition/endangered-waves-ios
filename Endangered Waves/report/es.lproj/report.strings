@@ -1,0 +1,24 @@
+
+/* Class = "UIBarButtonItem"; title = "   "; ObjectID = "5ev-bv-h5T"; */
+"5ev-bv-h5T.title" = "   ";
+
+/* Class = "UITableViewController"; title = "Issue"; ObjectID = "6gT-ox-CXr"; */
+"6gT-ox-CXr.title" = "Issue";
+
+/* Class = "UILabel"; text = "LOCATION"; ObjectID = "BWL-RG-GLj"; */
+"BWL-RG-GLj.text" = "UBICACIÓN";
+
+/* Class = "UILabel"; text = "Loading Images..."; ObjectID = "C33-jj-OX5"; */
+"C33-jj-OX5.text" = "Loading Images...";
+
+/* Class = "UIButton"; normalTitle = "Take Action"; ObjectID = "GNw-l4-vsZ"; */
+"GNw-l4-vsZ.normalTitle" = "Tomar acción";
+
+/* Class = "UINavigationItem"; title = "OIL SPILL"; ObjectID = "Lt8-XD-mxo"; */
+"Lt8-XD-mxo.title" = "OIL SPILL";
+
+/* Class = "UILabel"; text = "– November 12th, 2017 –"; ObjectID = "n9n-oJ-m8Q"; */
+"n9n-oJ-m8Q.text" = "– November 12th, 2017 –";
+
+/* Class = "UILabel"; text = "DESCRIPTION"; ObjectID = "yZ4-cZ-vIs"; */
+"yZ4-cZ-vIs.text" = "DESCRIPCIÓN";

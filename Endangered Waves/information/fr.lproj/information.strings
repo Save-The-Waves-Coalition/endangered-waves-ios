@@ -1,0 +1,69 @@
+
+/* Class = "UILabel"; text = "1.0 (334)"; ObjectID = "ByZ-ly-E6R"; */
+"ByZ-ly-E6R.text" = "1.0 (334)";
+
+/* Class = "UILabel"; text = "831.426.6169\n"; ObjectID = "CrU-eK-MGH"; */
+"CrU-eK-MGH.text" = "831.426.6169\n";
+
+/* Class = "UILabel"; text = "LinkedIn"; ObjectID = "EAJ-86-lYN"; */
+"EAJ-86-lYN.text" = "LinkedIn";
+
+/* Class = "UILabel"; text = "Facebook"; ObjectID = "JvE-hE-Re9"; */
+"JvE-hE-Re9.text" = "Facebook";
+
+/* Class = "UILabel"; text = "Make A Donation"; ObjectID = "KmA-XW-K76"; */
+"KmA-XW-K76.text" = "Faire un don";
+
+/* Class = "UILabel"; text = "Become A Sustaining Member"; ObjectID = "NBH-QV-ae0"; */
+"NBH-QV-ae0.text" = "Devenir membre perpétuel";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "OrN-fa-yzN"; */
+"OrN-fa-yzN.text" = "Courriel";
+
+/* Class = "UITableViewSection"; headerTitle = "FOLLOW US"; ObjectID = "Vtr-N0-Wze"; */
+"Vtr-N0-Wze.headerTitle" = "SUIS-NOUS";
+
+/* Class = "UILabel"; text = "Twitter"; ObjectID = "Z2J-44-XnE"; */
+"Z2J-44-XnE.text" = "Twitter";
+
+/* Class = "UITableViewSection"; headerTitle = "HELP"; ObjectID = "Z9K-YD-6hu"; */
+"Z9K-YD-6hu.headerTitle" = "SUPPORT";
+
+/* Class = "UILabel"; text = "An award winning creation by:"; ObjectID = "ZRC-eg-wRz"; */
+"ZRC-eg-wRz.text" = "Une création acclamée conçue par:";
+
+/* Class = "UILabel"; text = "Privacy Policy"; ObjectID = "c4Z-ig-MSC"; */
+"c4Z-ig-MSC.text" = "Politique de confidentialité";
+
+/* Class = "UILabel"; text = "Sign Up For Our Newsletter"; ObjectID = "cup-Ae-W8M"; */
+"cup-Ae-W8M.text" = "Souscrire à l'infolettre";
+
+/* Class = "UILabel"; text = "Instagram"; ObjectID = "d8b-mj-rQa"; */
+"d8b-mj-rQa.text" = "Instagram";
+
+/* Class = "UINavigationItem"; title = "INFORMATION"; ObjectID = "dbN-Xj-NgK"; */
+"dbN-Xj-NgK.title" = "INFORMATION";
+
+/* Class = "UILabel"; text = "Version:"; ObjectID = "eNy-RZ-H5l"; */
+"eNy-RZ-H5l.text" = "Version:";
+
+/* Class = "UILabel"; text = "App Survey"; ObjectID = "evS-It-F8F"; */
+"evS-It-F8F.text" = "Sondage";
+
+/* Class = "UITableViewSection"; headerTitle = "SUPPORT US"; ObjectID = "fMN-zY-aVk"; */
+"fMN-zY-aVk.headerTitle" = "ENCOURAGES-NOUS";
+
+/* Class = "UITableViewSection"; headerTitle = "CONTACT US"; ObjectID = "i5c-S5-nmI"; */
+"i5c-S5-nmI.headerTitle" = "ENTRER EN CONTACT";
+
+/* Class = "UILabel"; text = "PO Box 183\n3500 Highway One\nDavenport, CA 95017"; ObjectID = "o8c-yI-2Dk"; */
+"o8c-yI-2Dk.text" = "PO Box 183\n3500 Highway One\nDavenport, CA 95017";
+
+/* Class = "UILabel"; text = "YouTube"; ObjectID = "t4O-nN-0mU"; */
+"t4O-nN-0mU.text" = "YouTube";
+
+/* Class = "UILabel"; text = "Show Tutorial"; ObjectID = "tOg-TT-10x"; */
+"tOg-TT-10x.text" = "Consulter le tutoriel";
+
+/* Class = "UILabel"; text = "Become A Member"; ObjectID = "x04-Va-oI2"; */
+"x04-Va-oI2.text" = "Devenir membre";

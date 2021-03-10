@@ -117,6 +117,13 @@ class NewReportViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Set up the nav bar title
+        let label = UILabel()
+        label.text = "REPORT AN ISSUE".localized()
+        label.adjustsFontSizeToFitWidth = true
+        label.font = Style.fontBrandonGrotesqueBlack(size: 20)
+        self.navigationItem.titleView = label
+
         // TODO: Info button should show the competition modal
         competitionInfoButton.isHidden = true
 
@@ -141,6 +148,11 @@ class NewReportViewController: UITableViewController {
             competitionTitleLabel.text = competition.title.uppercased()
             competitionDateLabel.text = competition.dateDisplayString().uppercased()
         }
+
+        // Set up placeholder texts
+        descriptionTextView.attributedText = Style.userInputPlaceholderAttributedStringForString("Write a description...".localized())
+        locationLabel.attributedText = Style.userInputPlaceholderAttributedStringForString("Choose a location...".localized())
+        emailTextView.attributedText = Style.userInputPlaceholderAttributedStringForString("Enter email address...".localized())
     }
 
     // MARK: IBActions
@@ -172,9 +184,11 @@ class NewReportViewController: UITableViewController {
 
         // Remove any previously selected category
         if reportThreatCategory != nil {
-            let selectThreatCategoryButtonDefaultText = Style.userInputPlaceholderAttributedStringForString("Select a threat category...")
+            let selectThreatCategoryButtonDefaultText =
+                Style.userInputPlaceholderAttributedStringForString("Select a threat category...".localized())
             selectThreatCategoryButton.setAttributedTitle(selectThreatCategoryButtonDefaultText, for: .normal)
             selectedThreatCategoryIconButton.setImage(nil, for: .normal)
+            selectedThreatCategoryIconButton.isHidden = true
             reportThreatCategory = nil
         }
 
@@ -245,19 +259,20 @@ extension NewReportViewController: UITextViewDelegate {
     }
 
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.attributedText.string == "Write a description..." || textView.attributedText.string == "Enter email address..." {
-            // Have to have at least 1 character for the attributes to take
-            textView.attributedText = Style.userInputAttributedStringForString(" ")
-            textView.text = ""
+        if textView.attributedText.string == "Write a description...".localized() ||
+           textView.attributedText.string == "Enter email address...".localized() {
+                // Have to have at least 1 character for the attributes to take
+                textView.attributedText = Style.userInputAttributedStringForString(" ")
+                textView.text = ""
         }
         textView.becomeFirstResponder() // Optional
     }
 
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView === descriptionTextView && textView.attributedText.string == "" {
-            textView.attributedText = Style.userInputPlaceholderAttributedStringForString("Write a description...")
+            textView.attributedText = Style.userInputPlaceholderAttributedStringForString("Write a description...".localized())
         } else if textView === emailTextView && textView.attributedText.string == "" {
-            textView.attributedText = Style.userInputPlaceholderAttributedStringForString("Enter email address...")
+            textView.attributedText = Style.userInputPlaceholderAttributedStringForString("Enter email address...".localized())
         }
         textView.resignFirstResponder()
     }
@@ -284,6 +299,7 @@ extension NewReportViewController: ThreatCategoryTableViewControllerDelegate {
         // Set icon
         let threatCategory = typeFromThreatSelectionTableString(category)
         selectedThreatCategoryIconButton.setImage(threatCategory.icon(), for: .normal)
+        selectedThreatCategoryIconButton.isHidden = false
 
         // Set competition to inactive state
         if competitionDateLabel.textColor != Style.colorSTWGrey {
@@ -305,55 +321,55 @@ extension NewReportViewController: StoryboardInstantiable {
 extension NewReportViewController {
     func typeFromThreatSelectionTableString(_ displayString: String) -> ReportType {
         switch displayString {
-        case "Oil Spill":
+        case "Oil Spill".localized():
             return .oilSpill
-        case "Sewage Spill":
+        case "Sewage Spill".localized():
             return .sewage
-        case "Other Trash Threat":
+        case "Other Trash Threat".localized():
             return .trashed
-        case "Coastal Erosion":
+        case "Coastal Erosion".localized():
             return .coastalErosion
-        case "Beach Access":
+        case "Beach Access".localized():
             return .accessLost
-        case "General Alert":
+        case "General Alert".localized():
             return .general
-        case "Competition":
+        case "Competition".localized():
             return .competition
-        case "Runoff":
+        case "Runoff".localized():
             return .runoff
-        case "Algal Bloom":
+        case "Algal Bloom".localized():
             return .algalBloom
-        case "Other Water Quality Threat":
+        case "Other Water Quality Threat".localized():
             return .waterQuality
-        case "Plastic Packaging":
+        case "Plastic Packaging".localized():
             return .plasticPackaging
-        case "Micro-plastics":
+        case "Micro-plastics".localized():
             return .microPlastics
-        case "Fishing Gear":
+        case "Fishing Gear".localized():
             return .fishingGear
-        case "Seawall":
+        case "Seawall".localized():
             return .seawall
-        case "Hard Armoring":
+        case "Hard Armoring".localized():
             return .hardArmoring
-        case "Beachfront Construction":
+        case "Beachfront Construction".localized():
             return .beachfrontConstruction
-        case "Jetty":
+        case "Jetty".localized():
             return .jetty
-        case "Harbor":
+        case "Harbor".localized():
             return .harbor
-        case "Other Coastal Development Threat":
+        case "Other Coastal Development Threat".localized():
             return .coastalDevelopment
-        case "King Tides":
+        case "King Tides".localized():
             return .kingTides
-        case "Other Sea-Level or Flooding Threat":
+        case "Other Sea-Level or Flooding Threat".localized():
             return .seaLevelRiseOrFlooding
-        case "Destructive Fishing":
+        case "Destructive Fishing".localized():
             return .destructiveFishing
-        case "Bleaching":
+        case "Bleaching".localized():
             return .bleaching
-        case "Infrastructure":
+        case "Infrastructure".localized():
             return .infrastructure
-        case "Other Coral Reef Impact Threat":
+        case "Other Coral Reef Impact Threat".localized():
             return .coralReefImpacts
         default:
             assertionFailure("Received a non-existent report type Display String")

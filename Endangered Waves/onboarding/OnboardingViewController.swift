@@ -146,9 +146,9 @@ class OnboardingViewController: UIViewController {
 
     private func updateSkipText() {
         if currentPage == numberOfPages - 1 {
-            skipButton.setTitle("GET STARTED!", for: .normal)
+            skipButton.setTitle("GET STARTED!".localized(), for: .normal)
         } else {
-            skipButton.setTitle("SKIP", for: .normal)
+            skipButton.setTitle("SKIP".localized(), for: .normal)
         }
     }
 }

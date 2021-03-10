@@ -98,8 +98,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="WorldSurfingReserveNameLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0U-MR-TKH">
-                                                    <rect key="frame" x="12.760083782732181" y="4" width="348.00000000000028" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WorldSurfingReserveNameLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0U-MR-TKH">
+                                                    <rect key="frame" x="13" y="5" width="349" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -131,7 +131,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESCRIPTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZ4-cZ-vIs">
-                                                    <rect key="frame" x="16" y="11" width="79" height="17.5"/>
+                                                    <rect key="frame" x="16" y="11" width="343" height="17.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="17.5" id="VhV-dW-WJI"/>
                                                     </constraints>
@@ -159,6 +159,7 @@
                                                 <constraint firstItem="tX0-0M-TwC" firstAttribute="top" secondItem="yZ4-cZ-vIs" secondAttribute="bottom" constant="8" id="SLT-LX-OgP"/>
                                                 <constraint firstItem="yZ4-cZ-vIs" firstAttribute="top" secondItem="mww-Nd-z5z" secondAttribute="topMargin" id="Vb8-Qh-z3j"/>
                                                 <constraint firstItem="tX0-0M-TwC" firstAttribute="trailing" secondItem="mww-Nd-z5z" secondAttribute="trailingMargin" id="bsg-gf-oH3"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="yZ4-cZ-vIs" secondAttribute="trailing" id="gXP-ye-ack"/>
                                                 <constraint firstItem="yZ4-cZ-vIs" firstAttribute="leading" secondItem="mww-Nd-z5z" secondAttribute="leadingMargin" id="ubB-9w-22B"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -172,7 +173,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWL-RG-GLj">
-                                                    <rect key="frame" x="16" y="31" width="59" height="17.5"/>
+                                                    <rect key="frame" x="16" y="31" width="343" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
                                                     <color key="textColor" name="STW-Grey"/>
                                                     <nil key="highlightedColor"/>
@@ -214,6 +215,7 @@ line 3</string>
                                             <constraints>
                                                 <constraint firstItem="QSi-fo-DRO" firstAttribute="leading" secondItem="BWL-RG-GLj" secondAttribute="leading" id="8Sy-DH-FQu"/>
                                                 <constraint firstItem="43b-x4-8Os" firstAttribute="centerY" secondItem="ge7-92-pRO" secondAttribute="centerY" constant="-15" id="Acf-bn-dsq"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="BWL-RG-GLj" secondAttribute="trailing" id="EZc-SP-dv7"/>
                                                 <constraint firstItem="BWL-RG-GLj" firstAttribute="leading" secondItem="Qzi-ID-hwZ" secondAttribute="leadingMargin" id="GRY-qp-GqJ"/>
                                                 <constraint firstItem="43b-x4-8Os" firstAttribute="centerX" secondItem="ge7-92-pRO" secondAttribute="centerX" id="MUj-po-zWH"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="BWL-RG-GLj" secondAttribute="bottom" constant="92.5" id="bJL-2U-KrG"/>

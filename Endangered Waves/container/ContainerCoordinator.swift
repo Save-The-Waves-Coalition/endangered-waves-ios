@@ -149,7 +149,7 @@ class ContainerCoordinator: Coordinator {
         // swiftlint:disable line_length
         var message = """
             Thank you for being a part of the solution. We'll make sure the right people see this report. Please help us out by taking action and sharing your report.
-            """
+            """.localized()
         if report.type == .competition {
             if let competition = competition {
                 message = """
@@ -163,21 +163,21 @@ class ContainerCoordinator: Coordinator {
         }
         // swiftlint:enable line_length
 
-        let alertViewController = UIAlertController(title: "Thank You 🤙",
+        let alertViewController = UIAlertController(title: "Thank You 🤙".localized(),
                                                     message: message,
                                                     preferredStyle: .actionSheet)
 
-        let takeAction = UIAlertAction(title: "Take Action", style: .default, handler: { (_) in
+        let takeAction = UIAlertAction(title: "Take Action".localized(), style: .default, handler: { (_) in
             self.showTakeAction()
         })
         alertViewController.addAction(takeAction)
 
-        let shareAction = UIAlertAction(title: "Share Issue", style: .default, handler: { (_) in
+        let shareAction = UIAlertAction(title: "Share Issue".localized(), style: .default, handler: { (_) in
             self.showSharingWithReport(report)
         })
         alertViewController.addAction(shareAction)
 
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "OK".localized(), style: .default, handler: nil)
         alertViewController.addAction(okAction)
 
         self.containerViewController.present(alertViewController, animated: true, completion: nil)

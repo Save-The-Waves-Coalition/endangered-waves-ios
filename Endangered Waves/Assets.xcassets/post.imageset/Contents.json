@@ -1,15 +1,31 @@
 {
   "images" : [
     {
+      "filename" : "post.pdf",
+      "idiom" : "universal"
+    },
+    {
+      "filename" : "post-fr.pdf",
       "idiom" : "universal",
-      "filename" : "post.pdf"
+      "locale" : "fr"
+    },
+    {
+      "filename" : "post-pt.pdf",
+      "idiom" : "universal",
+      "locale" : "pt-BR"
+    },
+    {
+      "filename" : "post-es.pdf",
+      "idiom" : "universal",
+      "locale" : "es"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   },
   "properties" : {
+    "localizable" : true,
     "preserves-vector-representation" : true
   }
 }

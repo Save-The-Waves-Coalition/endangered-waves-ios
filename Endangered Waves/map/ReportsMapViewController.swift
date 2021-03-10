@@ -188,7 +188,6 @@ extension ReportsMapViewController: MKMapViewDelegate {
 
         if let annotationView = view as? ReportMapAnnotationView {
             let calloutView = annotationView.customCalloutView
-            let annotation = annotationView.annotation
             // If custom callout is offscreen recenter map so it is now onscreen
             let mapViewMaxXPostion = mapView.frame.maxX
             let annotationViewXPostion = annotationView.frame.origin.x
@@ -197,7 +196,9 @@ extension ReportsMapViewController: MKMapViewDelegate {
 
             if deltaX > 0 {
                 var newCenter = mapView.centerCoordinate
-                newCenter.longitude = annotation!.coordinate.longitude
+                let longitudePerPoint = mapView.region.span.longitudeDelta / Double(mapView.frame.maxX)
+                let extraPaddingOnRightSide = 8 * longitudePerPoint
+                newCenter.longitude += longitudePerPoint * Double(deltaX) + extraPaddingOnRightSide
                 mapView.setCenter(newCenter, animated: true)
             }
         } else {
