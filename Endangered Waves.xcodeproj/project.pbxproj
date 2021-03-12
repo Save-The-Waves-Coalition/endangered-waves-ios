@@ -258,9 +258,6 @@
 		221B85A925F2E1CF00EC1681 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/information.strings"; sourceTree = "<group>"; };
 		221B85AB25F2E1D400EC1681 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/information.strings; sourceTree = "<group>"; };
 		221B85AE25F2E20C00EC1681 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/new-report.storyboard"; sourceTree = "<group>"; };
-		221B85B325F2E21300EC1681 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = "fr.lproj/new-report.strings"; sourceTree = "<group>"; };
-		221B85B525F2E21800EC1681 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/new-report.strings"; sourceTree = "<group>"; };
-		221B85B725F2E21C00EC1681 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = "es.lproj/new-report.strings"; sourceTree = "<group>"; };
 		221B85C125F2E7DD00EC1681 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		221B85C525F2E7E200EC1681 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		221B85CE25F2EA0800EC1681 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/container.storyboard; sourceTree = "<group>"; };
@@ -276,6 +273,9 @@
 		2268A5C425F2D04500829F05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/report.storyboard; sourceTree = "<group>"; };
 		2268A5CB25F2D07D00829F05 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/report.strings; sourceTree = "<group>"; };
 		22B3E32725E5D80700E9F529 /* ThreatCategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatCategoryTableViewController.swift; sourceTree = "<group>"; };
+		22E45C6525FBE3A50050E0EA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = "fr.lproj/new-report.strings"; sourceTree = "<group>"; };
+		22E45C6725FBE3D60050E0EA /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/new-report.strings"; sourceTree = "<group>"; };
+		22E45C6925FBE3EE0050E0EA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = "es.lproj/new-report.strings"; sourceTree = "<group>"; };
 		4A00E12B1FCF9D1F00E4CEA4 /* UIActivities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivities.swift; sourceTree = "<group>"; };
 		4A00E12D1FD4A12200E4CEA4 /* GothamSSm-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothamSSm-Medium.otf"; sourceTree = "<group>"; };
 		4A0ABE6F1FBD2B4F007B06B9 /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
@@ -388,6 +388,7 @@
 		4AF773751FB223E1005BFE50 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4AF773771FB223EE005BFE50 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4AF773791FB22407005BFE50 /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BuddyBuildSDK.framework; path = Pods/BuddyBuildSDK/BuddyBuildSDK.framework; sourceTree = "<group>"; };
+		648DA48125FA5E17009A5271 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8719336F20488544000DD493 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8772FEE52044CCB6007F2E75 /* ReportDetailMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailMapViewController.swift; sourceTree = "<group>"; };
 		877407652048B9DA00ED36F1 /* Endangered Waves dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Endangered Waves dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -633,6 +634,7 @@
 			isa = PBXGroup;
 			children = (
 				4A5931AF1FCC667E00CFBF19 /* .swiftlint.yml */,
+				648DA48125FA5E17009A5271 /* README.md */,
 				4A7FA9181FAA966300C6A2BB /* Endangered Waves */,
 				4A7FA9171FAA966300C6A2BB /* Products */,
 				568EA3F3D670EFB352B1386E /* Frameworks */,
@@ -1427,9 +1429,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				221B85AE25F2E20C00EC1681 /* Base */,
-				221B85B325F2E21300EC1681 /* fr */,
-				221B85B525F2E21800EC1681 /* pt-BR */,
-				221B85B725F2E21C00EC1681 /* es */,
+				22E45C6525FBE3A50050E0EA /* fr */,
+				22E45C6725FBE3D60050E0EA /* pt-BR */,
+				22E45C6925FBE3EE0050E0EA /* es */,
 			);
 			name = "new-report.storyboard";
 			sourceTree = "<group>";

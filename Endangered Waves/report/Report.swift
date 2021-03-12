@@ -57,7 +57,7 @@ extension ReportType {
         case .coastalErosion:
             return "Coastal Erosion".localized()
         case .accessLost:
-            return "Beach Access".localized()
+            return "Access".localized()
         case .general:
             return "General Alert".localized()
         case .competition:
@@ -91,7 +91,7 @@ extension ReportType {
         case .kingTides:
             return "King Tides".localized()
         case .seaLevelRiseOrFlooding:
-            return "Sea Level Rise or Flooding".localized()
+            return "Sea Level Rise & Erosion".localized()
         case .destructiveFishing:
             return "Destructive Fishing".localized()
         case .bleaching:
@@ -162,14 +162,6 @@ extension ReportType {
 
     func placemarkIcon() -> UIImage {
         switch self {
-        case .oilSpill:
-            return Style.iconOilPlacemark
-        case .sewage:
-            return Style.iconSewagePlacemark
-        case .trashed:
-            return Style.iconTrashPlacemark
-        case .coastalErosion:
-            return Style.iconCoastalErosionPlacemark
         case .accessLost:
             return Style.iconAccessPlacemark
         case .general:
@@ -178,103 +170,63 @@ extension ReportType {
             return Style.iconCompetitionPlacemark
         case .wsr:
             return Style.iconWsrPlacemark
-        case .runoff:
-            return Style.iconGeneralPlacemark
-        case .algalBloom:
-            return Style.iconGeneralPlacemark
-        case .waterQuality:
-            return Style.iconGeneralPlacemark
-        case .plasticPackaging:
-            return Style.iconGeneralPlacemark
-        case .microPlastics:
-            return Style.iconGeneralPlacemark
-        case .fishingGear:
-            return Style.iconGeneralPlacemark
-        case .seawall:
-            return Style.iconGeneralPlacemark
-        case .hardArmoring:
-            return Style.iconGeneralPlacemark
-        case .beachfrontConstruction:
-            return Style.iconGeneralPlacemark
-        case .jetty:
-            return Style.iconGeneralPlacemark
-        case .harbor:
-            return Style.iconGeneralPlacemark
-        case .coastalDevelopment:
-            return Style.iconGeneralPlacemark
-        case .kingTides:
-            return Style.iconGeneralPlacemark
-        case .seaLevelRiseOrFlooding:
-            return Style.iconGeneralPlacemark
-        case .destructiveFishing:
-            return Style.iconGeneralPlacemark
-        case .bleaching:
-            return Style.iconGeneralPlacemark
-        case .infrastructure:
-            return Style.iconGeneralPlacemark
-        case .coralReefImpacts:
-            return Style.iconGeneralPlacemark
-        }
-    }
 
-    func icon() -> UIImage {
-        switch self {
-        case .oilSpill:
-            return Style.iconOil
-        case .sewage:
-            return Style.iconSewage
-        case .trashed:
-            return Style.iconTrash
-        case .coastalErosion:
-            return Style.iconCoastalErosion
-        case .accessLost:
-            return Style.iconAccess
-        case .general:
-            return Style.iconGeneral
-        case .competition:
-            return Style.iconCompetition
-        case .wsr:
-            return Style.iconWsr
-        case .runoff:
-            return Style.iconGeneral
-        case .algalBloom:
-            return Style.iconAlgalBloom
-        case .waterQuality:
-            return Style.iconWaterQuality
-        case .plasticPackaging:
-            return Style.iconGeneral
-        case .microPlastics:
-            return Style.iconGeneral
-        case .fishingGear:
-            return Style.iconGeneral
-        case .seawall:
-            return Style.iconGeneral
-        case .hardArmoring:
-            return Style.iconGeneral
-        case .beachfrontConstruction:
-            return Style.iconGeneral
-        case .jetty:
-            return Style.iconGeneral
-        case .harbor:
-            return Style.iconGeneral
-        case .coastalDevelopment:
-            return Style.iconCoastalDevelopment
+        // Sea-Level Rise & Erosion
         case .kingTides:
-            return Style.iconGeneral
+            return Style.iconGeneralPlacemark
         case .seaLevelRiseOrFlooding:
-            return Style.iconSeaLevelRiseOrFlooding
+            return Style.iconGeneralPlacemark
+        case .coastalErosion:
+            return Style.iconCoastalErosionPlacemark
+
+        // Water Quality
+        case .oilSpill:
+            return Style.iconOilPlacemark
+        case .sewage:
+            return Style.iconSewagePlacemark
+        case .runoff:
+            return Style.iconWaterQualityRunoffPlacemark
+        case .algalBloom:
+            return Style.iconWaterQualityAlgalBloomPlacemark
+        case .waterQuality:
+            return Style.iconWaterQualityPlacemark
+
+        // Coastal Development
+        case .seawall:
+            return Style.iconCoastalDevSeawallPlacemark
+        case .hardArmoring:
+            return Style.iconCoastalDevHardArmoringPlacemark
+        case .jetty:
+            return Style.iconCoastalDevJettyPlacemark
+        case .harbor:
+            return Style.iconCoastalDevHarborPlacemark
+        case .beachfrontConstruction:
+            return Style.iconCoastalDevConstructionPlacemark
+        case .coastalDevelopment:
+            return Style.iconCoastalDevelopmentPlacemark
+
+        // Trash
+        case .plasticPackaging:
+            return Style.iconTrashPlasticPackagingPlacemark
+        case .microPlastics:
+            return Style.iconTrashMicroPlasticsPlacemark
+        case .fishingGear:
+            return Style.iconTrashFishingGearPlacemark
+        case .trashed:
+            return Style.iconTrashPlacemark
+
+        // Coral Reef Impact
         case .destructiveFishing:
-            return Style.iconGeneral
+            return Style.iconCoralReefImapctFishingPlacemark
         case .bleaching:
-            return Style.iconGeneral
+            return Style.iconCoralReefImapctBleachingPlacemark
         case .infrastructure:
-            return Style.iconGeneral
+            return Style.iconCoralReefImapctInfraPlacemark
         case .coralReefImpacts:
-            return Style.iconCoralReefImpacts
+            return Style.iconCoralReefImapctPlacemark
         }
     }
 }
-// swiftlint:enable cyclomatic_complexity
 
 protocol STWDataType {
     var name: String {get set}

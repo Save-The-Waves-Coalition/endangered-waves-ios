@@ -22,5 +22,34 @@
 "Share Issue" = "Compartilhar";
 
 // Threat categories
-
 "Oil Spill" = "Derramamento de petróleo";
+"Sewage Spill" = "Sewage Spill";
+"Trash" = "Trash";
+"Coastal Erosion" = "Coastal Erosion";
+"Access" = "Access";
+"General Alert" = "General Alert";
+"Competition" = "Competition";
+"World Surfing Reserve" = "World Surfing Reserve";
+"Runoff" = "Runoff";
+"Algal Bloom" = "Algal Bloom";
+"Water Quality" = "Water Quality";
+"Plastic Packaging" = "Plastic Packaging";
+"Micro-plastics" = "Micro-plastics";
+"Fishing Gear" = "Fishing Gear";
+"Seawall" = "Seawall";
+"Hard Armoring" = "Hard Armoring";
+"Beachfront Construction" = "Beachfront Construction";
+"Jetty" = "Jetty";
+"Harbor" = "Harbor";
+"Coastal Development" = "Coastal Development";
+"King Tides" = "King Tides";
+"Sea Level Rise & Erosion" = "Sea Level Rise & Erosion";
+"Destructive Fishing" = "Destructive Fishing";
+"Bleaching" = "Bleaching";
+"Infrastructure" = "Infrastructure";
+"Coral Reef Impacts" = "Coral Reef Impacts";
+"Other Water Quality Threat" = "Other Water Quality Threat";
+"Other Coastal Development Threat" = "Other Coastal Development Threat";
+"Other Sea-Level & Erosion Threat" = "Other Sea-Level & Erosion Threat";
+"Other Coral Reef Impact Threat" = "Other Coral Reef Impact Threat";
+"Other Trash Threat" = "Other Trash Threat";

@@ -33,10 +33,13 @@ The iOS application utilizes Cocoapods for several support libraries. Because th
 
 ## Configurations
 
-- Endangered Waves
-- Endangered Waves - Development
-- Endangered Waves - First Launch
-- Endangered Waves - Release
+- EW - Development
+- EW - Production
+- EW - Release
+- EW First Launch - Production
+- EW French - Development
+- EW Portuguese - Development
+- EW Spanish - Development
 
 ## Linter
 

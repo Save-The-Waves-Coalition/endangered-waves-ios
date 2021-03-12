@@ -25,6 +25,9 @@ class ThreatCategoryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Remove extra rows at the bottom of the table
+        self.tableView.tableFooterView = UIView()
+
         // Set up the nav bar title
         let label = UILabel()
         label.text = "THREAT CATEGORY".localized()
@@ -36,6 +39,7 @@ class ThreatCategoryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if cell.textLabel?.text == selectedThreatCategory {
             cell.setSelected(true, animated: false)
+            cell.imageView?.tintColor = .black
         }
     }
 

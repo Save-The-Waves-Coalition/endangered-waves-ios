@@ -31,8 +31,20 @@ class NewReportViewController: UITableViewController {
 
     weak var delegate: NewReportViewControllerDelegate?
 
-    @IBOutlet weak var selectThreatCategoryButton: UIButton!
-    @IBOutlet weak var selectedThreatCategoryIconButton: UIButton!
+    @IBOutlet weak var generalImageButton: UIButton!
+    @IBOutlet weak var generalTextButton: UIButton!
+    @IBOutlet weak var coastalDevelopmentImageButton: UIButton!
+    @IBOutlet weak var coastalDevelopmentTextButton: UIButton!
+    @IBOutlet weak var trashImageButton: UIButton!
+    @IBOutlet weak var trashTextButton: UIButton!
+    @IBOutlet weak var seaLevelRiseImageButton: UIButton!
+    @IBOutlet weak var seaLevelRiseTextButton: UIButton!
+    @IBOutlet weak var accessImageButton: UIButton!
+    @IBOutlet weak var accessTextButton: UIButton!
+    @IBOutlet weak var coralReefImageButton: UIButton!
+    @IBOutlet weak var coralReefTextButton: UIButton!
+    @IBOutlet weak var waterQualityImageButton: UIButton!
+    @IBOutlet weak var waterQualityTextButton: UIButton!
 
     var competition: Competition?
     @IBOutlet weak var competitionTrophyImageView: UIImageView!
@@ -124,6 +136,9 @@ class NewReportViewController: UITableViewController {
         label.font = Style.fontBrandonGrotesqueBlack(size: 20)
         self.navigationItem.titleView = label
 
+        // Avoids flashing when tapping the button for the first time
+        setAllThreatCategoryButtonsToUnselectedState()
+
         // TODO: Info button should show the competition modal
         competitionInfoButton.isHidden = true
 
@@ -184,16 +199,35 @@ class NewReportViewController: UITableViewController {
 
         // Remove any previously selected category
         if reportThreatCategory != nil {
-            let selectThreatCategoryButtonDefaultText =
-                Style.userInputPlaceholderAttributedStringForString("Select a threat category...".localized())
-            selectThreatCategoryButton.setAttributedTitle(selectThreatCategoryButtonDefaultText, for: .normal)
-            selectedThreatCategoryIconButton.setImage(nil, for: .normal)
-            selectedThreatCategoryIconButton.isHidden = true
+            setAllThreatCategoryButtonsToUnselectedState()
             reportThreatCategory = nil
         }
 
         // Let the delegate know
         delegate?.viewControllerDidTapCompetition(viewController: self)
+    }
+
+    @IBAction func generalButtonWasTapped(_ sender: UIButton) {
+        threatCategoryWasSelected(category: "General Alert".localized())
+    }
+
+    @IBAction func accessButonWasTapped(_ sender: UIButton) {
+        threatCategoryWasSelected(category: "Access".localized())
+    }
+
+    func threatCategoryWasSelected(category: String) {
+        reportThreatCategory = category
+        delegate?.viewController(self, didSelectThreatCategory: category)
+
+        // Update UI
+        updateUIForThreatCategoryDisplayString(category)
+
+        // Set competition to inactive state
+        if competitionDateLabel.textColor != Style.colorSTWGrey {
+            competitionDateLabel.textColor = Style.colorSTWGrey
+            competitionTitleLabel.textColor = Style.colorSTWGrey
+            competitionTrophyImageView.image = UIImage(named: "grey-trophy")
+        }
     }
 
     // MARK: Segues
@@ -291,22 +325,7 @@ extension NewReportViewController: UITextViewDelegate {
 // MARK: ThreatCategoryTableViewControllerDelegate
 extension NewReportViewController: ThreatCategoryTableViewControllerDelegate {
     func viewController(_ viewController: ThreatCategoryTableViewController, didSelectThreatCategory category: String) {
-        reportThreatCategory = category
-        let attributedString = Style.userInputAttributedStringForString(category)
-        selectThreatCategoryButton.setAttributedTitle(attributedString, for: .normal)
-        delegate?.viewController(self, didSelectThreatCategory: category)
-
-        // Set icon
-        let threatCategory = typeFromThreatSelectionTableString(category)
-        selectedThreatCategoryIconButton.setImage(threatCategory.icon(), for: .normal)
-        selectedThreatCategoryIconButton.isHidden = false
-
-        // Set competition to inactive state
-        if competitionDateLabel.textColor != Style.colorSTWGrey {
-            competitionDateLabel.textColor = Style.colorSTWGrey
-            competitionTitleLabel.textColor = Style.colorSTWGrey
-            competitionTrophyImageView.image = UIImage(named: "grey-trophy")
-        }
+        threatCategoryWasSelected(category: category)
     }
 }
 
@@ -317,64 +336,92 @@ extension NewReportViewController: StoryboardInstantiable {
 }
 
 // MARK: Miscellaneous helpers
-// swiftlint:disable cyclomatic_complexity
 extension NewReportViewController {
-    func typeFromThreatSelectionTableString(_ displayString: String) -> ReportType {
-        switch displayString {
-        case "Oil Spill".localized():
-            return .oilSpill
-        case "Sewage Spill".localized():
-            return .sewage
-        case "Other Trash Threat".localized():
-            return .trashed
-        case "Coastal Erosion".localized():
-            return .coastalErosion
-        case "Beach Access".localized():
-            return .accessLost
-        case "General Alert".localized():
-            return .general
-        case "Competition".localized():
-            return .competition
-        case "Runoff".localized():
-            return .runoff
-        case "Algal Bloom".localized():
-            return .algalBloom
-        case "Other Water Quality Threat".localized():
-            return .waterQuality
-        case "Plastic Packaging".localized():
-            return .plasticPackaging
-        case "Micro-plastics".localized():
-            return .microPlastics
-        case "Fishing Gear".localized():
-            return .fishingGear
-        case "Seawall".localized():
-            return .seawall
-        case "Hard Armoring".localized():
-            return .hardArmoring
-        case "Beachfront Construction".localized():
-            return .beachfrontConstruction
-        case "Jetty".localized():
-            return .jetty
-        case "Harbor".localized():
-            return .harbor
-        case "Other Coastal Development Threat".localized():
-            return .coastalDevelopment
-        case "King Tides".localized():
-            return .kingTides
-        case "Other Sea-Level or Flooding Threat".localized():
-            return .seaLevelRiseOrFlooding
-        case "Destructive Fishing".localized():
-            return .destructiveFishing
-        case "Bleaching".localized():
-            return .bleaching
-        case "Infrastructure".localized():
-            return .infrastructure
-        case "Other Coral Reef Impact Threat".localized():
-            return .coralReefImpacts
-        default:
-            assertionFailure("Received a non-existent report type Display String")
-            return .general
+
+    func setThreatCategoryButtonToSelectedState(button: UIButton) {
+        button.tintColor = .black
+        if let currentAttributedString = button.currentAttributedTitle {
+            let newString = NSMutableAttributedString(attributedString: currentAttributedString)
+            newString.addAttribute(.foregroundColor, value: UIColor.black,
+                                   range: NSRange(location: 0, length: currentAttributedString.length))
+            button.setAttributedTitle(newString, for: .normal)
         }
     }
-    // swiftlint:enable cyclomatic_complexity
+
+    func setThreatCategoryButtonToUnselectedState(button: UIButton) {
+        button.tintColor = Style.colorSTWGrey
+        if let currentAttributedString = button.currentAttributedTitle {
+            let newString = NSMutableAttributedString(attributedString: currentAttributedString)
+            newString.addAttribute(.foregroundColor, value: Style.colorSTWGrey,
+                                   range: NSRange(location: 0, length: currentAttributedString.length))
+            button.setAttributedTitle(newString, for: .normal)
+        }
+    }
+
+    func setAllThreatCategoryButtonsToUnselectedState() {
+        setThreatCategoryButtonToUnselectedState(button: generalImageButton)
+        setThreatCategoryButtonToUnselectedState(button: generalTextButton)
+
+        setThreatCategoryButtonToUnselectedState(button: coastalDevelopmentImageButton)
+        setThreatCategoryButtonToUnselectedState(button: coastalDevelopmentTextButton)
+
+        setThreatCategoryButtonToUnselectedState(button: trashImageButton)
+        setThreatCategoryButtonToUnselectedState(button: trashTextButton)
+
+        setThreatCategoryButtonToUnselectedState(button: seaLevelRiseImageButton)
+        setThreatCategoryButtonToUnselectedState(button: seaLevelRiseTextButton)
+
+        setThreatCategoryButtonToUnselectedState(button: accessImageButton)
+        setThreatCategoryButtonToUnselectedState(button: accessTextButton)
+
+        setThreatCategoryButtonToUnselectedState(button: coralReefImageButton)
+        setThreatCategoryButtonToUnselectedState(button: coralReefTextButton)
+
+        setThreatCategoryButtonToUnselectedState(button: waterQualityImageButton)
+        setThreatCategoryButtonToUnselectedState(button: waterQualityTextButton)
+    }
+
+    func updateUIForThreatCategoryDisplayString(_ displayString: String) {
+
+        setAllThreatCategoryButtonsToUnselectedState()
+
+        switch displayString {
+        case "Oil Spill".localized(), "Sewage Spill".localized(), "Runoff".localized(),
+             "Algal Bloom".localized(), "Other Water Quality Threat".localized():
+            setThreatCategoryButtonToSelectedState(button: waterQualityImageButton)
+            setThreatCategoryButtonToSelectedState(button: waterQualityTextButton)
+            return
+        case "Access".localized():
+            setThreatCategoryButtonToSelectedState(button: accessImageButton)
+            setThreatCategoryButtonToSelectedState(button: accessTextButton)
+            return
+        case "General Alert".localized():
+            setThreatCategoryButtonToSelectedState(button: generalImageButton)
+            setThreatCategoryButtonToSelectedState(button: generalTextButton)
+            return
+        case "Plastic Packaging".localized(), "Micro-plastics".localized(), "Fishing Gear".localized(),
+             "Other Trash Threat".localized():
+            setThreatCategoryButtonToSelectedState(button: trashImageButton)
+            setThreatCategoryButtonToSelectedState(button: trashTextButton)
+            return
+        case "Seawall".localized(), "Hard Armoring".localized(), "Beachfront Construction".localized(), "Jetty".localized(),
+             "Harbor".localized(), "Other Coastal Development Threat".localized():
+            setThreatCategoryButtonToSelectedState(button: coastalDevelopmentImageButton)
+            setThreatCategoryButtonToSelectedState(button: coastalDevelopmentTextButton)
+            return
+        case "King Tides".localized(), "Other Sea-Level & Erosion Threat".localized(),
+             "Coastal Erosion".localized():
+            setThreatCategoryButtonToSelectedState(button: seaLevelRiseImageButton)
+            setThreatCategoryButtonToSelectedState(button: seaLevelRiseTextButton)
+            return
+        case "Destructive Fishing".localized(), "Bleaching".localized(), "Infrastructure".localized(),
+             "Other Coral Reef Impact Threat".localized():
+            setThreatCategoryButtonToSelectedState(button: coralReefImageButton)
+            setThreatCategoryButtonToSelectedState(button: coralReefTextButton)
+            return
+        default:
+            assertionFailure("Received a non-existent report type Display String")
+            return
+        }
+    }
 }

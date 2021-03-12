@@ -191,7 +191,7 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
             reportType = .trashed
         case "Coastal Erosion".localized():
             reportType = .coastalErosion
-        case "Beach Access".localized():
+        case "Access".localized():
             reportType = .accessLost
         case "General Alert".localized():
             reportType = .general
@@ -223,7 +223,7 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
             reportType = .coastalDevelopment
         case "King Tides".localized():
             reportType = .kingTides
-        case "Other Sea-Level or Flooding Threat".localized():
+        case "Other Sea-Level & Erosion Threat".localized():
             reportType = .seaLevelRiseOrFlooding
         case "Destructive Fishing".localized():
             reportType = .destructiveFishing
