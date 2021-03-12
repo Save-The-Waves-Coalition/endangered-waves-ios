@@ -1,5 +1,55 @@
 # Save the Waves
 
+https://www.savethewaves.org/app/
+
+The Save The Waves App empowers and incentivizes surfers and beachgoers to monitor the health of their own coastlines through crowdsourced data.
+
+How it works:
+
+1. Take a photo
+1. Select a threat
+1. Tag your location
+
+![Screenshots of the app](/screenshots.png)
+
+## Noteworthy Features
+
+- Onboarding screen that shows how to use the app
+- An information screen that has info about
+  - How to support Save the Waves
+  - How to find Save the Waves on social media
+  - Help
+  - Save the Waves contact info
+- Users can report issues that hard surfing ecosystems across the world
+- Map showing reports and World Surfing Reserves
+- List view of reports
+- A detail view for reports and World Surfing Reserves
+
+## Getting Started & Code Quality
+
+The main development branch is dev, and master keeps the most recent production releases.
+
+The iOS application utilizes Cocoapods for several support libraries. Because the Pods are checked into the project repo, you only need to open `Endangered Waves.xcworkspace` and run the project. In case of a build failure at first open, try cleaning the project and rebuilding. Failing that, reinstall pods using install and try again.
+
+## Configurations
+
+- Endangered Waves
+- Endangered Waves - Development
+- Endangered Waves - First Launch
+- Endangered Waves - Release
+
+## Linter
+
+SwiftLint
+
+To avoid getting warnings about whitespace from the linter, Enable the following setting in Xcode:
+
+Xcode Preferences -> Text Editing -> Editing -> "Automatically trim trailing whitespace" - "Including whitespace-only lines"
+
+## Dependencies
+
+Please see the comments in `Podfile` for information on this project's dependencies.
+
 ## Localization
 
 There is localization of strings and images in this project.
@@ -26,3 +76,7 @@ This can be done easily during development by modifying the development scheme b
 1. Click "Edit scheme..."
 1. In the "Options" tab in "Run" change the app language.
 1. Run the app.
+
+## License
+
+MIT

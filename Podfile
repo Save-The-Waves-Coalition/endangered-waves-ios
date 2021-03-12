@@ -24,11 +24,6 @@ abstract_target 'shared' do
   pod 'FirebaseUI/Auth', '~> 10.0'
   pod 'FirebaseUI/Storage', '~> 10.0'
   
-  # UI Bindings for Firebase
-  pod 'FirebaseUI/Firestore', '~> 10.0'
-  pod 'FirebaseUI/Auth', '~> 10.0'
-  pod 'FirebaseUI/Storage', '~> 10.0'
-  
   # UI Related
   pod 'SDWebImage', '~> 5.10'
   pod 'LocationPickerViewController', :git => 'https://github.com/zhuorantan/LocationPicker.git', :commit => '15d9bae350e8ffd6bf3640afc423a8350ea2b523'
