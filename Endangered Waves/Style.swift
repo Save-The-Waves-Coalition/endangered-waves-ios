@@ -80,15 +80,15 @@ struct Style {
 
     // Sea-Level Rise & Erosion
     static let iconCoastalErosionPlacemark = UIImage(named: "coastal-erosion-placemark")!
-    // Missing Sea Level Rise or Flooding
-    // Missing King Tides
+    static let iconSeaLevelRiseKingTidePlacemark = UIImage(named: "sealevel-rise-and-erosion-kingtide-placemark")!
+    static let iconSeaLevelRiseAndErosionPlacemark = UIImage(named: "sealevel-rise-and-erosion-placemark")!
 
     // Water Quality
     static let iconOilPlacemark = UIImage(named: "oil-placemark")!
     static let iconSewagePlacemark = UIImage(named: "sewage-placemark")!
     // Missing Runoff
-    // Missing AlgalBloom
-    // Missing Other Water Quality
+    static let iconWaterQualityAlgalBloomPlacemark = UIImage(named: "water-quality-algal-bloom-placemark")!
+    static let iconWaterQualityPlacemark = UIImage(named: "water-quality-placemark")!
 
     // Coastal Development
     static let iconCoastalDevHarborPlacemark = UIImage(named: "coastal-develeopment-harbor-placemark")!
@@ -96,13 +96,13 @@ struct Style {
     static let iconCoastalDevSeawallPlacemark = UIImage(named: "coastal-development-seawall-placemark")!
     static let iconCoastalDevJettyPlacemark = UIImage(named: "coastal-development-jetty-placemark")!
     static let iconCoastalDevConstructionPlacemark = UIImage(named: "coastal-development-beachfront-construction-placemark")!
-    // Missing Other Coastal Developement
+    static let iconCoastalDevelopmentPlacemark = UIImage(named: "coastal-development-placemark")!
 
     // Coral Reef Impact
     static let iconCoralReefImapctBleachingPlacemark = UIImage(named: "coral-reef-impact-bleaching-placemark")!
     static let iconCoralReefImapctFishingPlacemark = UIImage(named: "coral-reef-impact-destructive-fishing-placemark")!
     static let iconCoralReefImapctInfraPlacemark = UIImage(named: "coral-reef-impact-infrastructure-placemark")!
-    // Missing Other Coral Reef
+    static let iconCoralReefImapctPlacemark = UIImage(named: "coral-reef-impact-placemark")!
 
     // Trash
     static let iconTrashFishingGearPlacemark = UIImage(named: "trash-fishing-gear-placemark")!
@@ -111,14 +111,5 @@ struct Style {
     static let iconTrashPlacemark = UIImage(named: "trash-placemark")!
 
     // Missing
-    static let iconCoralReefImapctPlacemark = UIImage(named: "coral-reef-impact-bleaching-placemark")! // We have the larger version of this
-    static let iconCoastalDevelopmentPlacemark =
-        UIImage(named: "coastal-development-beachfront-construction-placemark")! // We have the larger version of this
-
     static let iconWaterQualityRunoffPlacemark = UIImage(named: "sewage-placemark")!
-    static let iconWaterQualityAlgalBloomPlacemark = UIImage(named: "sewage-placemark")! // We have the larger version of this
-    static let iconWaterQualityPlacemark = UIImage(named: "sewage-placemark")! // We have the larger version of this
-
-    static let iconSeaLevelRiseKingTidePlacemark = UIImage(named: "coastal-erosion-placemark")!
-    static let iconSeaLevelRiseOrFloodingPlacemark = UIImage(named: "coastal-erosion-placemark")! // We have the larger version of this
 }

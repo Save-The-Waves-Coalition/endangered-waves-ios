@@ -224,7 +224,7 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
         case "King Tides".localized():
             reportType = .kingTides
         case "Other Sea-Level & Erosion Threat".localized():
-            reportType = .seaLevelRiseOrFlooding
+            reportType = .seaLevelRiseAndErosion
         case "Destructive Fishing".localized():
             reportType = .destructiveFishing
         case "Bleaching".localized():

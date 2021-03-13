@@ -414,7 +414,7 @@ MARINE DEBRIS</string>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DIRTY WAVE CHALLENGE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKb-H6-EjI">
-                                                                    <rect key="frame" x="39" y="70" width="217" height="20"/>
+                                                                    <rect key="frame" x="41.5" y="70" width="212.5" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="LJm-lm-LYf"/>
                                                                     </constraints>
@@ -423,7 +423,7 @@ MARINE DEBRIS</string>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OCTOBER 20TH TO NOVEMBER 20TH, 2018" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU1-ez-API">
-                                                                    <rect key="frame" x="35.5" y="100" width="224.5" height="20"/>
+                                                                    <rect key="frame" x="39" y="100" width="217.5" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="kkZ-os-YD0"/>
                                                                     </constraints>
@@ -1139,19 +1139,19 @@ MARINE DEBRIS</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="King Tides" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ruh-J8-BNz">
-                                                    <rect key="frame" x="90.599999999999994" y="18" width="80.5" height="20"/>
+                                                    <rect key="frame" x="91" y="18" width="80.5" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="general" id="adr-aw-qPG">
-                                                    <rect key="frame" x="19.999999999999996" y="16.999999999999996" width="55.600000000000001" height="55.600000000000001"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="king-tide" id="adr-aw-qPG">
+                                                    <rect key="frame" x="20" y="17" width="56" height="56"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" name="STW-Grey"/>
                                                 </imageView>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="The highest tide of the year, often results in flooding and future vision of sea-level rise." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bYE-Et-QuG">
-                                                    <rect key="frame" x="90.599999999999994" y="41" width="299.5" height="29"/>
+                                                    <rect key="frame" x="91" y="41" width="299.5" height="29"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -1657,6 +1657,7 @@ MARINE DEBRIS</string>
         <image name="general" width="55.599998474121094" height="55.599998474121094"/>
         <image name="grey-trophy" width="278" height="317"/>
         <image name="information" width="22" height="22"/>
+        <image name="king-tide" width="56" height="56"/>
         <image name="oil" width="55.599998474121094" height="55.599998474121094"/>
         <image name="pin-filled" width="60" height="96"/>
         <image name="post" width="246" height="246"/>
