@@ -24,14 +24,14 @@ import UIKit
 
   // MARK: Titles
 
-  @objc public var OKButtonTitle = "OK"
-  @objc public var cancelButtonTitle = "Cancel"
-  @objc public var doneButtonTitle = "Done"
-  @objc public var noImagesTitle = "No images available"
-  @objc public var noCameraTitle = "Camera is not available"
-  @objc public var settingsTitle = "Settings"
-  @objc public var requestPermissionTitle = "Permission denied"
-  @objc public var requestPermissionMessage = "Please, allow the application to access to your photo library."
+  @objc public var OKButtonTitle = "OK".localized()
+  @objc public var cancelButtonTitle = "Cancel".localized()
+  @objc public var doneButtonTitle = "Done".localized()
+  @objc public var noImagesTitle = "No images available".localized()
+  @objc public var noCameraTitle = "Camera is not available".localized()
+  @objc public var settingsTitle = "Settings".localized()
+  @objc public var requestPermissionTitle = "Permission denied".localized()
+  @objc public var requestPermissionMessage = "Please, allow the application to access to your photo library.".localized()
 
   // MARK: Dimensions
 

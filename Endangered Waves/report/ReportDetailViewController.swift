@@ -147,7 +147,7 @@ class ReportDetailViewController: UITableViewController {
     func ifWSRUpdateDetailView() {
         wsrNameLabel.isHidden = true
         if let wsrReport = report as? WorldSurfingReserve {
-            actionButton.setTitle("Learn More", for: .normal)
+            actionButton.setTitle("Learn More".localized(), for: .normal)
             dateLabel.isHidden = true
             wsrNameLabel.isHidden = false
             if let wsrNameLabel = wsrNameLabel {

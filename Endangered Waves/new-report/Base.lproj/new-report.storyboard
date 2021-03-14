@@ -36,7 +36,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="NewReportComponent" title="REPORT AN ISSUE" id="QT1-n4-6Zb" customClass="NewReportViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fhz-eN-4Jj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="STW-White"/>
                         <color key="sectionIndexBackgroundColor" name="STW-White"/>
@@ -92,7 +92,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THREAT CATEGORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06W-gh-CHS">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THREAT CATEGORY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06W-gh-CHS" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="0.0" width="339" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="GCp-7R-iVE"/>
@@ -122,8 +122,8 @@
                                                                                 <segue destination="Eok-rz-qaa" kind="show" id="PVa-BE-zKb"/>
                                                                             </connections>
                                                                         </button>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Aa-gI-gsc">
-                                                                            <rect key="frame" x="8" y="50" width="76" height="50"/>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Aa-gI-gsc" customClass="UILocalizedButton" customModule="Endangered_Waves" customModuleProvider="target">
+                                                                            <rect key="frame" x="9.5" y="50" width="73" height="50"/>
                                                                             <state key="normal">
                                                                                 <attributedString key="attributedTitle">
                                                                                     <fragment>
@@ -131,7 +131,7 @@
 DEVELOPMENT</string>
                                                                                         <attributes>
                                                                                             <color key="NSColor" red="0.78032648559999995" green="0.78043633700000004" blue="0.79989689590000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                            <font key="NSFont" metaFont="system" size="10"/>
+                                                                                            <font key="NSFont" size="10" name="BrandonGrotesque-Black"/>
                                                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="charWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                         </attributes>
                                                                                     </fragment>
@@ -159,14 +159,14 @@ DEVELOPMENT</string>
                                                                                 <action selector="accessButonWasTapped:" destination="QT1-n4-6Zb" eventType="touchUpInside" id="770-Ln-iaM"/>
                                                                             </connections>
                                                                         </button>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="02G-ae-6be">
-                                                                            <rect key="frame" x="25" y="50" width="41" height="50"/>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="02G-ae-6be" customClass="UILocalizedButton" customModule="Endangered_Waves" customModuleProvider="target">
+                                                                            <rect key="frame" x="25.5" y="50" width="40" height="50"/>
                                                                             <state key="normal">
                                                                                 <attributedString key="attributedTitle">
                                                                                     <fragment content="ACCESS">
                                                                                         <attributes>
                                                                                             <color key="NSColor" red="0.78032648559999995" green="0.78043633700000004" blue="0.79989689590000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                            <font key="NSFont" metaFont="system" size="10"/>
+                                                                                            <font key="NSFont" size="10" name="BrandonGrotesque-Black"/>
                                                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="charWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                         </attributes>
                                                                                     </fragment>
@@ -194,8 +194,8 @@ DEVELOPMENT</string>
                                                                                 <segue destination="sNY-Rv-nsg" kind="show" id="347-l8-6KT"/>
                                                                             </connections>
                                                                         </button>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="axw-PQ-IZQ">
-                                                                            <rect key="frame" x="7" y="50" width="78" height="50"/>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="axw-PQ-IZQ" customClass="UILocalizedButton" customModule="Endangered_Waves" customModuleProvider="target">
+                                                                            <rect key="frame" x="7.5" y="50" width="77" height="50"/>
                                                                             <state key="normal">
                                                                                 <attributedString key="attributedTitle">
                                                                                     <fragment>
@@ -203,7 +203,7 @@ DEVELOPMENT</string>
 &amp; EROSION</string>
                                                                                         <attributes>
                                                                                             <color key="NSColor" red="0.78032648559999995" green="0.78043633700000004" blue="0.79989689590000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                            <font key="NSFont" metaFont="system" size="10"/>
+                                                                                            <font key="NSFont" size="10" name="BrandonGrotesque-Black"/>
                                                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="charWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                         </attributes>
                                                                                     </fragment>
@@ -231,8 +231,8 @@ DEVELOPMENT</string>
                                                                                 <segue destination="MVg-od-ZLQ" kind="show" id="TCS-jK-Afh"/>
                                                                             </connections>
                                                                         </button>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dS6-dX-VhZ">
-                                                                            <rect key="frame" x="23.5" y="50" width="44" height="50"/>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dS6-dX-VhZ" customClass="UILocalizedButton" customModule="Endangered_Waves" customModuleProvider="target">
+                                                                            <rect key="frame" x="24.5" y="50" width="42" height="50"/>
                                                                             <state key="normal">
                                                                                 <attributedString key="attributedTitle">
                                                                                     <fragment>
@@ -240,7 +240,7 @@ DEVELOPMENT</string>
 QUALITY</string>
                                                                                         <attributes>
                                                                                             <color key="NSColor" red="0.78032648559999995" green="0.78043633700000004" blue="0.79989689590000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                            <font key="NSFont" metaFont="system" size="10"/>
+                                                                                            <font key="NSFont" size="10" name="BrandonGrotesque-Black"/>
                                                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="charWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                         </attributes>
                                                                                     </fragment>
@@ -279,7 +279,7 @@ QUALITY</string>
                                                                                 <segue destination="6Ak-lo-fSN" kind="show" id="EHJ-iI-HVH"/>
                                                                             </connections>
                                                                         </button>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h5L-2c-ZZM">
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h5L-2c-ZZM" customClass="UILocalizedButton" customModule="Endangered_Waves" customModuleProvider="target">
                                                                             <rect key="frame" x="29.5" y="50" width="62" height="50"/>
                                                                             <state key="normal">
                                                                                 <attributedString key="attributedTitle">
@@ -288,7 +288,7 @@ QUALITY</string>
 IMPACT</string>
                                                                                         <attributes>
                                                                                             <color key="NSColor" red="0.78032648559999995" green="0.78043633700000004" blue="0.79989689590000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                            <font key="NSFont" metaFont="system" size="10"/>
+                                                                                            <font key="NSFont" size="10" name="BrandonGrotesque-Black"/>
                                                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="charWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                         </attributes>
                                                                                     </fragment>
@@ -316,8 +316,8 @@ IMPACT</string>
                                                                                 <segue destination="vpj-64-RqZ" kind="show" id="Wo6-mt-a4V"/>
                                                                             </connections>
                                                                         </button>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xw9-Fn-ghr">
-                                                                            <rect key="frame" x="17.5" y="50" width="90" height="50"/>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xw9-Fn-ghr" customClass="UILocalizedButton" customModule="Endangered_Waves" customModuleProvider="target">
+                                                                            <rect key="frame" x="19.5" y="50" width="86" height="50"/>
                                                                             <state key="normal">
                                                                                 <attributedString key="attributedTitle">
                                                                                     <fragment>
@@ -325,7 +325,7 @@ IMPACT</string>
 MARINE DEBRIS</string>
                                                                                         <attributes>
                                                                                             <color key="NSColor" red="0.78032648559999995" green="0.78043633700000004" blue="0.79989689590000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                            <font key="NSFont" metaFont="system" size="10"/>
+                                                                                            <font key="NSFont" size="10" name="BrandonGrotesque-Black"/>
                                                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="charWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                         </attributes>
                                                                                     </fragment>
@@ -353,14 +353,14 @@ MARINE DEBRIS</string>
                                                                                 <action selector="generalButtonWasTapped:" destination="QT1-n4-6Zb" eventType="touchUpInside" id="e5v-be-6Rk"/>
                                                                             </connections>
                                                                         </button>
-                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zmC-yF-qzE">
-                                                                            <rect key="frame" x="37" y="50" width="47" height="50"/>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zmC-yF-qzE" customClass="UILocalizedButton" customModule="Endangered_Waves" customModuleProvider="target">
+                                                                            <rect key="frame" x="37.5" y="50" width="46" height="50"/>
                                                                             <state key="normal">
                                                                                 <attributedString key="attributedTitle">
                                                                                     <fragment content="GENERAL">
                                                                                         <attributes>
                                                                                             <color key="NSColor" red="0.78032648559999995" green="0.78043633700000004" blue="0.79989689590000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                            <font key="NSFont" metaFont="system" size="10"/>
+                                                                                            <font key="NSFont" size="10" name="BrandonGrotesque-Black"/>
                                                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="charWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                         </attributes>
                                                                                     </fragment>
@@ -414,7 +414,7 @@ MARINE DEBRIS</string>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DIRTY WAVE CHALLENGE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKb-H6-EjI">
-                                                                    <rect key="frame" x="41.5" y="70" width="212.5" height="20"/>
+                                                                    <rect key="frame" x="39" y="70" width="217" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="LJm-lm-LYf"/>
                                                                     </constraints>
@@ -423,7 +423,7 @@ MARINE DEBRIS</string>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OCTOBER 20TH TO NOVEMBER 20TH, 2018" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OU1-ez-API">
-                                                                    <rect key="frame" x="39" y="100" width="217.5" height="20"/>
+                                                                    <rect key="frame" x="35.5" y="100" width="224.5" height="20"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="20" id="kkZ-os-YD0"/>
                                                                     </constraints>
@@ -485,7 +485,7 @@ MARINE DEBRIS</string>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="n1U-hX-tcI">
                                                     <rect key="frame" x="16" y="0.0" width="339" height="88"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESCRIPTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZ1-sH-e8A">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESCRIPTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZ1-sH-e8A" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="339" height="17.5"/>
                                                             <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
                                                             <nil key="highlightedColor"/>
@@ -526,7 +526,7 @@ MARINE DEBRIS</string>
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="152"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGT-9M-TFg">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGT-9M-TFg" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="20" y="11" width="225" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
                                                     <nil key="highlightedColor"/>
@@ -589,7 +589,7 @@ MARINE DEBRIS</string>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MCg-XP-5CY">
                                                     <rect key="frame" x="16" y="0.0" width="339" height="88"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTACT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWL-Wk-UBn">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTACT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWL-Wk-UBn" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="339" height="17.5"/>
                                                             <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
                                                             <nil key="highlightedColor"/>
@@ -659,18 +659,18 @@ MARINE DEBRIS</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="REPORT AN ISSUE" id="CYM-yO-PXe">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Sak-fl-OjC">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Sak-fl-OjC" customClass="UILocalizedBarButtonItem" customModule="Endangered_Waves" customModuleProvider="target">
                             <connections>
                                 <action selector="cancelButtonWasTapped:" destination="QT1-n4-6Zb" id="DlC-nN-5e0"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Post" id="dh3-kF-1Y8">
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="dh3-kF-1Y8" customClass="UILocalizedBarButtonItem" customModule="Endangered_Waves" customModuleProvider="target">
                             <connections>
                                 <action selector="didTapPostButton:" destination="QT1-n4-6Zb" id="ZoF-mv-u2E"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <size key="freeformSize" width="375" height="1200"/>
+                    <size key="freeformSize" width="375" height="1400"/>
                     <connections>
                         <outlet property="accessImageButton" destination="6Ok-EB-nmJ" id="SS2-ZD-zcJ"/>
                         <outlet property="accessTextButton" destination="02G-ae-6be" id="qNb-5Z-Fyd"/>
@@ -741,7 +741,7 @@ MARINE DEBRIS</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Seawall" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="khM-ng-Mdu">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Seawall" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="khM-ng-Mdu" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="91" y="11" width="59" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -753,7 +753,7 @@ MARINE DEBRIS</string>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" name="STW-Grey"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="A coastal defense built on the beach out of a hard material (rocks, concrete, metal), to protect coastal infrastructure." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vfo-dK-dyN">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="A coastal defense built on the beach out of a hard material (rocks, concrete, metal), to protect coastal infrastructure." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vfo-dK-dyN" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="91" y="34" width="294" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -770,7 +770,7 @@ MARINE DEBRIS</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Hard Armoring" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tr4-LV-GU2">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Hard Armoring" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tr4-LV-GU2" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="91" y="13" width="111.5" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -782,7 +782,7 @@ MARINE DEBRIS</string>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" name="STW-Grey"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Examples are bulkheads, revetments, dikes, tide-gates, and groins." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ehL-B6-DYh">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Examples are bulkheads, revetments, dikes, tide-gates, and groins." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ehL-B6-DYh" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="91" y="36" width="278" height="29"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -799,7 +799,7 @@ MARINE DEBRIS</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Beachfront Construction" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dW6-bh-cJk">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Beachfront Construction" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dW6-bh-cJk" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="91" y="11" width="186.5" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -811,7 +811,7 @@ MARINE DEBRIS</string>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" name="STW-Grey"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wSU-lh-Dft">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wSU-lh-Dft" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="91" y="34" width="303" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <string key="text">Any infrastructure, building, or human construction in the coastal area that appears to endanger the ecosystem or is built close to the beach.</string>
@@ -829,7 +829,7 @@ MARINE DEBRIS</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Jetty" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Odo-bY-6Cx">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Jetty" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Odo-bY-6Cx" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="91" y="14" width="37.5" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -841,7 +841,7 @@ MARINE DEBRIS</string>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" name="STW-Grey"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R0E-vH-beT">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R0E-vH-beT" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="91" y="37" width="290" height="57.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <string key="text">Constructions in the surf zone to protect boats, coastal property, or to manage sand. Can be industrial or small scale and generally protrude out into the ocean.</string>
@@ -859,7 +859,7 @@ MARINE DEBRIS</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Harbor" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FDK-Gz-xSz">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Harbor" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FDK-Gz-xSz" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="91" y="11" width="53" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -871,7 +871,7 @@ MARINE DEBRIS</string>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" name="STW-Grey"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Constructions in the surf zone to protect boats, coastal property, or to manage sand. Can be industrial or small scale." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jyV-8J-tUY">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Constructions in the surf zone to protect boats, coastal property, or to manage sand. Can be industrial or small scale." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jyV-8J-tUY" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="91" y="34" width="272.5" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -888,7 +888,7 @@ MARINE DEBRIS</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Other Coastal Development Threat" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0BR-zJ-h5O">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Other Coastal Development Threat" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0BR-zJ-h5O" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="90.599999999999994" y="20" width="264" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -900,7 +900,7 @@ MARINE DEBRIS</string>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" name="STW-Grey"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y6l-r1-9BP">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y6l-r1-9BP" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="90.599999999999994" y="43" width="44" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -919,7 +919,7 @@ MARINE DEBRIS</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="THREAT CATEGORY" id="8Oc-Sc-vXi">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="i1r-m6-RoM">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="i1r-m6-RoM" customClass="UILocalizedBarButtonItem" customModule="Endangered_Waves" customModuleProvider="target">
                             <connections>
                                 <action selector="cancelButtonTapped:" destination="oIr-PM-XJi" id="d1u-mc-t2v"/>
                             </connections>
@@ -969,7 +969,7 @@ MARINE DEBRIS</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Plastic Packaging" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RBg-nl-gf7">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Plastic Packaging" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RBg-nl-gf7" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="91" y="13" width="135.5" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -981,7 +981,7 @@ MARINE DEBRIS</string>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" name="STW-Grey"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Most commonly single-use plastic such as bags, Styrofoam, utensils." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="L0w-bM-mJ6">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Most commonly single-use plastic such as bags, Styrofoam, utensils." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="L0w-bM-mJ6" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="91" y="36" width="278" height="29"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -998,7 +998,7 @@ MARINE DEBRIS</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Micro-plastics" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lS9-ur-MNE">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Micro-plastics" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lS9-ur-MNE" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="91" y="18" width="108" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -1010,7 +1010,7 @@ MARINE DEBRIS</string>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" name="STW-Grey"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Defined as small plastic pieces broken up from larger pieces less than 5 millimeters in diameter." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2FN-mF-EKo">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Defined as small plastic pieces broken up from larger pieces less than 5 millimeters in diameter." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2FN-mF-EKo" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="91" y="41" width="303" height="29"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1027,7 +1027,7 @@ MARINE DEBRIS</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Fishing Gear" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6Hj-Tm-FAT">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Fishing Gear" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6Hj-Tm-FAT" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="91" y="13" width="96.5" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -1039,7 +1039,7 @@ MARINE DEBRIS</string>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" name="STW-Grey"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Most commonly includes large nets, fishing line, or buoys and traps." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="r9q-np-mRS">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Most commonly includes large nets, fishing line, or buoys and traps." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="r9q-np-mRS" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="91" y="36" width="290" height="29"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1056,7 +1056,7 @@ MARINE DEBRIS</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Other Trash Threat" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aB0-2R-lvg">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Other Trash Threat" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aB0-2R-lvg" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="90.599999999999994" y="20" width="141.5" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -1068,7 +1068,7 @@ MARINE DEBRIS</string>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" name="STW-Grey"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X3W-ao-zzJ">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X3W-ao-zzJ" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="90.599999999999994" y="43" width="44" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1087,7 +1087,7 @@ MARINE DEBRIS</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="THREAT CATEGORY" id="UZH-rv-Pjb">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="zIs-ZX-nR5">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="zIs-ZX-nR5" customClass="UILocalizedBarButtonItem" customModule="Endangered_Waves" customModuleProvider="target">
                             <connections>
                                 <action selector="cancelButtonTapped:" destination="2E2-49-ol1" id="9Ts-YW-gvJ"/>
                             </connections>
@@ -1138,7 +1138,7 @@ MARINE DEBRIS</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="King Tides" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ruh-J8-BNz">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="King Tides" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ruh-J8-BNz" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="91" y="18" width="80.5" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -1150,7 +1150,7 @@ MARINE DEBRIS</string>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" name="STW-Grey"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="The highest tide of the year, often results in flooding and future vision of sea-level rise." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bYE-Et-QuG">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="The highest tide of the year, often results in flooding and future vision of sea-level rise." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bYE-Et-QuG" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="91" y="41" width="299.5" height="29"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1167,7 +1167,7 @@ MARINE DEBRIS</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Coastal Erosion" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H3t-BN-4xZ">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Coastal Erosion" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H3t-BN-4xZ" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="90.599999999999994" y="18" width="120" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -1179,7 +1179,7 @@ MARINE DEBRIS</string>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" name="STW-Grey"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="The loss of sand or landmass at the coast due to waves, winds, or tide and human interaction." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yOb-fe-wfx">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="The loss of sand or landmass at the coast due to waves, winds, or tide and human interaction." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yOb-fe-wfx" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="90.599999999999994" y="41" width="278" height="29"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1196,7 +1196,7 @@ MARINE DEBRIS</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Other Sea-Level &amp; Erosion Threat" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n3c-zb-xEd">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Other Sea-Level &amp; Erosion Threat" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n3c-zb-xEd" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="90.599999999999994" y="25" width="253.5" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -1208,7 +1208,7 @@ MARINE DEBRIS</string>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" name="STW-Grey"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oEc-N0-6Xp">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oEc-N0-6Xp" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="90.599999999999994" y="48" width="44" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1227,7 +1227,7 @@ MARINE DEBRIS</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="THREAT CATEGORY" id="gSb-a0-P8w">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="sCb-mj-tiW">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="sCb-mj-tiW" customClass="UILocalizedBarButtonItem" customModule="Endangered_Waves" customModuleProvider="target">
                             <connections>
                                 <action selector="cancelButtonTapped:" destination="R37-2E-hlJ" id="6Dx-l7-Wim"/>
                             </connections>
@@ -1278,7 +1278,7 @@ MARINE DEBRIS</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Bleaching" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yHh-pd-bdb">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Bleaching" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yHh-pd-bdb" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="91" y="11" width="75.5" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -1290,7 +1290,7 @@ MARINE DEBRIS</string>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" name="STW-Grey"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="The destruction of coral from warming water temperatures due to climate change. Coral changes color from bright to white." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OSO-lb-Rxe">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="The destruction of coral from warming water temperatures due to climate change. Coral changes color from bright to white." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OSO-lb-Rxe" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="91" y="34" width="296" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1307,7 +1307,7 @@ MARINE DEBRIS</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Destructive Fishing" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ecx-hz-mZN">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Destructive Fishing" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ecx-hz-mZN" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="91" y="11" width="145.5" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -1319,7 +1319,7 @@ MARINE DEBRIS</string>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" name="STW-Grey"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="grk-Sf-9z3">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="grk-Sf-9z3" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="91" y="34" width="301.5" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <string key="text">Corals are often destroyed by dynamite fishing using explosives, or any industrial fishing methods that harm the reef ecosystem.</string>
@@ -1337,7 +1337,7 @@ MARINE DEBRIS</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Infrastructure" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="obU-n7-SLf">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Infrastructure" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="obU-n7-SLf" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="91" y="13" width="101.5" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -1349,7 +1349,7 @@ MARINE DEBRIS</string>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" name="STW-Grey"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Corals are damaged by coastal construction including housing, roads, etc." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9LZ-X7-h3B">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Corals are damaged by coastal construction including housing, roads, etc." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9LZ-X7-h3B" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="91" y="36" width="252.5" height="29"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1366,7 +1366,7 @@ MARINE DEBRIS</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Other Coral Reef Impact Threat" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zY9-Wd-ldn">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Other Coral Reef Impact Threat" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zY9-Wd-ldn" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="90.599999999999994" y="20" width="238" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -1378,7 +1378,7 @@ MARINE DEBRIS</string>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" name="STW-Grey"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g0Y-54-4hc">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g0Y-54-4hc" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="90.599999999999994" y="43" width="44" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1397,7 +1397,7 @@ MARINE DEBRIS</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="THREAT CATEGORY" id="8gd-gn-dht">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="eFc-7R-Yha">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="eFc-7R-Yha" customClass="UILocalizedBarButtonItem" customModule="Endangered_Waves" customModuleProvider="target">
                             <connections>
                                 <action selector="cancelButtonTapped:" destination="eag-E3-NPb" id="298-58-6jV"/>
                             </connections>
@@ -1448,7 +1448,7 @@ MARINE DEBRIS</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Sewage Spill" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EAN-q0-qfP">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Sewage Spill" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EAN-q0-qfP" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="90.599999999999994" y="16" width="98.5" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -1460,7 +1460,7 @@ MARINE DEBRIS</string>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" name="STW-Grey"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BDd-O8-RAk">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BDd-O8-RAk" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="90.599999999999994" y="39" width="296.5" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <string key="text">Unintentional release of sewage and gray water into coastal ecosystems. Often portrayed as large swath of brown water and associated with pipes.</string>
@@ -1478,7 +1478,7 @@ MARINE DEBRIS</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Runoff" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tmm-aM-y5A">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Runoff" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tmm-aM-y5A" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="90.599999999999994" y="6" width="50.5" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -1490,7 +1490,7 @@ MARINE DEBRIS</string>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" name="STW-Grey"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Runoff into coastal ecosystems. Often portrayed as large swath of brown water and associated with pipes." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AAr-Bb-Bqb">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Runoff into coastal ecosystems. Often portrayed as large swath of brown water and associated with pipes." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AAr-Bb-Bqb" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="90.599999999999994" y="29" width="294" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1507,7 +1507,7 @@ MARINE DEBRIS</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Oil Spill" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rJk-9C-xSi">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Oil Spill" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rJk-9C-xSi" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="90.599999999999994" y="18" width="58" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -1519,7 +1519,7 @@ MARINE DEBRIS</string>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" name="STW-Grey"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Thick, black liquid resting on the ocean surface. Most commonly come from ships/boats, oil derricks etc." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qyM-n2-Wwi">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Thick, black liquid resting on the ocean surface. Most commonly come from ships/boats, oil derricks etc." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qyM-n2-Wwi" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="90.599999999999994" y="41" width="303.39999999999998" height="29"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1536,7 +1536,7 @@ MARINE DEBRIS</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Algal Bloom" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EIA-qq-nnn">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Algal Bloom" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EIA-qq-nnn" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="90.599999999999994" y="9" width="92" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -1548,7 +1548,7 @@ MARINE DEBRIS</string>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" name="STW-Grey"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1hy-n5-k2d">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1hy-n5-k2d" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="90.599999999999994" y="32" width="302" height="57.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <string key="text">Associated with nutrient loading in coastal waters. Reflective of a green slime that covers the surface of the water or red tides in the Pacific commonly associated with murky water.</string>
@@ -1566,7 +1566,7 @@ MARINE DEBRIS</string>
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Other Water Quality Threat" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LjS-vi-NZu">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Other Water Quality Threat" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LjS-vi-NZu" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="90.599999999999994" y="20" width="202.5" height="20"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -1578,7 +1578,7 @@ MARINE DEBRIS</string>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" name="STW-Grey"/>
                                                 </imageView>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A1P-Qz-R2p">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A1P-Qz-R2p" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
                                                     <rect key="frame" x="90.599999999999994" y="43" width="44" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -1597,7 +1597,7 @@ MARINE DEBRIS</string>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="THREAT CATEGORY" id="kPK-77-zYy">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="o6G-6E-7Vy">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="o6G-6E-7Vy" customClass="UILocalizedBarButtonItem" customModule="Endangered_Waves" customModuleProvider="target">
                             <connections>
                                 <action selector="cancelButtonTapped:" destination="Do5-ng-4W6" id="Ofu-6E-en5"/>
                             </connections>

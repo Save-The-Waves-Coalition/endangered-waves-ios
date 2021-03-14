@@ -66,6 +66,7 @@ class ThreatCategoryTableViewController: UITableViewController {
             return
         }
 
+        headerLabel.text = headerLabel.text?.localized()
         headerLabel.font = Style.fontBrandonGrotesqueBlack(size: 12)
     }
 }

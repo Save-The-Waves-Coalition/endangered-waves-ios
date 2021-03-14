@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nLj-xp-u1V">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nLj-xp-u1V">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -34,6 +34,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="2jH-2v-aXE"/>
                         <color key="backgroundColor" name="STW-White"/>
                         <constraints>
                             <constraint firstItem="STE-So-hj2" firstAttribute="leading" secondItem="2jH-2v-aXE" secondAttribute="leading" id="5h5-Pg-o0C"/>
@@ -47,7 +48,6 @@
                             <constraint firstItem="nkX-Eq-HVy" firstAttribute="top" secondItem="2jH-2v-aXE" secondAttribute="bottom" constant="-64" id="uLh-Aa-54B"/>
                             <constraint firstItem="STE-So-hj2" firstAttribute="top" secondItem="b6f-pv-gKt" secondAttribute="bottom" id="xJW-lL-T4j"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="2jH-2v-aXE"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="USh-HU-mEA" userLabel="First Responder" sceneMemberID="firstResponder"/>
