@@ -453,7 +453,14 @@ struct WorldSurfingReserve: STWDataType {
         }
         let dedicated = dedicatedTimestamp.dateValue()
 
-        guard let description = dictionary["description"] as? String else {
+        let langCode = Bundle.main.preferredLocalizations[0]
+        let description: String
+        let firebaseDescriptionKey = "description_\(langCode)"
+        if let localizedDescription = dictionary[firebaseDescriptionKey] as? String {
+            description = localizedDescription
+        } else if let defaultDescription = dictionary["description"] as? String {
+            description = defaultDescription
+        } else {
             assertionFailure("⚠️: Description for World Surfing Reserve not found")
             return nil
         }

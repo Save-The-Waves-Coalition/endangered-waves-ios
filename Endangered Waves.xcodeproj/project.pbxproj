@@ -373,6 +373,7 @@
 		4AF773791FB22407005BFE50 /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BuddyBuildSDK.framework; path = Pods/BuddyBuildSDK/BuddyBuildSDK.framework; sourceTree = "<group>"; };
 		648DA48125FA5E17009A5271 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		64B9CCDD25FC12A100695C35 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		64C1131825FE8377003188E0 /* Ericeira Portugal.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Ericeira Portugal.gpx"; sourceTree = "<group>"; };
 		8719336F20488544000DD493 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8772FEE52044CCB6007F2E75 /* ReportDetailMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailMapViewController.swift; sourceTree = "<group>"; };
 		877407652048B9DA00ED36F1 /* Endangered Waves dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Endangered Waves dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -671,6 +672,7 @@
 				4A7F5B8F205979C2003FA075 /* development */,
 				4A7FA92B1FAA96ED00C6A2BB /* GoogleService-Info.plist */,
 				4A321A841FB61CDE001DA08A /* Black's Beach.gpx */,
+				64C1131825FE8377003188E0 /* Ericeira Portugal.gpx */,
 				221B85C225F2E7DD00EC1681 /* Localizable.strings */,
 			);
 			path = "Endangered Waves";

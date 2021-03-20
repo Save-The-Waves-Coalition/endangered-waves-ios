@@ -68,7 +68,6 @@ class ContainerViewController: UIViewController {
         label.font = Style.fontBrandonGrotesqueBlack(size: 20)
         self.navigationItem.titleView = label
 
-
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil) // Hack to remove the "Back" text
         navigationItem.backBarButtonItem?.tintColor = Style.colorSTWBlue
         applyActiveStyleToButton(mapButton)

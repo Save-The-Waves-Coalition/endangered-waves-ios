@@ -27,14 +27,37 @@ struct Competition {
     }
 
     static func createCompetitionWithDictionary(_ dictionary: [String: Any]) -> Competition? {
-        guard let title = dictionary["title"] as? String,
-            let description = dictionary["description"] as? String,
-            let introPageURLString = dictionary["introPageURL"] as? String,
+        guard let introPageURLString = dictionary["introPageURL"] as? String,
             let introPageURL = URL(string: introPageURLString),
             let startDateTimestamp = dictionary["startDate"] as? Timestamp,
             let endDateTimestamp = dictionary["endDate"] as? Timestamp
             else {
+                assertionFailure("⚠️: Missing value for competition")
                 return nil
+        }
+
+        let langCode = Bundle.main.preferredLocalizations[0]
+
+        let title: String
+        let firebaseTitleKey = "title_\(langCode)"
+        if let localizedTitle = dictionary[firebaseTitleKey] as? String {
+            title = localizedTitle
+        } else if let defaultTitle = dictionary["title"] as? String {
+            title = defaultTitle
+        } else {
+            assertionFailure("⚠️: Title for competition not found")
+            return nil
+        }
+
+        let description: String
+        let firebaseDescriptionKey = "description_\(langCode)"
+        if let localizedDescription = dictionary[firebaseDescriptionKey] as? String {
+            description = localizedDescription
+        } else if let defaultDescription = dictionary["description"] as? String {
+            description = defaultDescription
+        } else {
+            assertionFailure("⚠️: Description for competition not found")
+            return nil
         }
 
         let startDate = startDateTimestamp.dateValue()
