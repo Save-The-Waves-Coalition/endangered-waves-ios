@@ -8,7 +8,12 @@
 
 import UIKit
 
-class Coordinator {
+// MDM 2020-03-24
+// In order to keep using the ImagePicker library we have to have our
+// coordinators subclass NSObject. It does come with a performance hit
+// because now we are using the Objective-C runtime but doubt it's
+// actually noticable.
+class Coordinator: NSObject {
 
     var rootViewController: UIViewController
     var childCoordinators = [AnyObject]()
@@ -49,7 +54,7 @@ class Coordinator {
     }
 
     func removeChildCoordinator(_ coordinator: Coordinator) {
-        if let index = childCoordinators.index(where: { (item) -> Bool in
+        if let index = childCoordinators.firstIndex(where: { (item) -> Bool in
             return item === coordinator }) {
             childCoordinators.remove(at: index)
         } else {

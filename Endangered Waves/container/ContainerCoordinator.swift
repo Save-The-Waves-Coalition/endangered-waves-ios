@@ -91,7 +91,7 @@ class ContainerCoordinator: Coordinator {
         informationCoordinator.start()
     }
 
-    func showReportDetailsComponentForReport(_ report: Report) {
+    func showReportDetailsComponentForReport(_ report: STWDataType) {
         let reportCoordinator = ReportCoordinator(with: containerNavViewController, report: report)
         reportCoordinator.delegate = self
         childCoordinators.append(reportCoordinator)
@@ -124,9 +124,9 @@ class ContainerCoordinator: Coordinator {
         self.containerViewController.present(safariViewController, animated: true, completion: nil)
     }
 
-    fileprivate func showSharingWithReport(_ report: Report) {
+    fileprivate func showSharingWithReport(_ report: STWDataType) {
         if let firstImageURLString = report.imageURLs.first, let firstImageURL = URL(string: firstImageURLString) {
-            SDWebImageManager.shared().loadImage(with: firstImageURL,
+            SDWebImageManager.shared.loadImage(with: firstImageURL,
                                                  options: [],
                                                  progress: nil,
                                                  completed: { (image, data, error, cacheType, finished, imageURL) in
@@ -144,12 +144,12 @@ class ContainerCoordinator: Coordinator {
         }
     }
 
-    fileprivate func showSuccessfulSubmissionAlertWithReport(_ report: Report) {
+    fileprivate func showSuccessfulSubmissionAlertWithReport(_ report: STWDataType) {
 
         // swiftlint:disable line_length
         var message = """
             Thank you for being a part of the solution. We'll make sure the right people see this report. Please help us out by taking action and sharing your report.
-            """
+            """.localized()
         if report.type == .competition {
             if let competition = competition {
                 message = """
@@ -163,21 +163,21 @@ class ContainerCoordinator: Coordinator {
         }
         // swiftlint:enable line_length
 
-        let alertViewController = UIAlertController(title: "Thank You 🤙",
+        let alertViewController = UIAlertController(title: "Thank You 🤙".localized(),
                                                     message: message,
                                                     preferredStyle: .actionSheet)
 
-        let takeAction = UIAlertAction(title: "Take Action", style: .default, handler: { (_) in
+        let takeAction = UIAlertAction(title: "Take Action".localized(), style: .default, handler: { (_) in
             self.showTakeAction()
         })
         alertViewController.addAction(takeAction)
 
-        let shareAction = UIAlertAction(title: "Share Issue", style: .default, handler: { (_) in
+        let shareAction = UIAlertAction(title: "Share Issue".localized(), style: .default, handler: { (_) in
             self.showSharingWithReport(report)
         })
         alertViewController.addAction(shareAction)
 
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "OK".localized(), style: .default, handler: nil)
         alertViewController.addAction(okAction)
 
         self.containerViewController.present(alertViewController, animated: true, completion: nil)
@@ -205,7 +205,7 @@ extension ContainerCoordinator: ContainerViewControllerDelegate {
 
 // MARK: NewReportCoordinatorDelegate
 extension ContainerCoordinator: NewReportCoordinatorDelegate {
-    func coordinator(_ coordinator: NewReportCoordinator, didFinishNewReport report: Report?) {
+    func coordinator(_ coordinator: NewReportCoordinator, didFinishNewReport report: STWDataType?) {
         removeChildCoordinator(coordinator)
         if let report = report {
             showSuccessfulSubmissionAlertWithReport(report)
@@ -215,14 +215,14 @@ extension ContainerCoordinator: NewReportCoordinatorDelegate {
 
 // MARK: ReportsMapViewControllerDelegate
 extension ContainerCoordinator: ReportsMapViewControllerDelegate {
-    func viewController(_ viewController: ReportsMapViewController, didRequestDetailsForReport report: Report) {
+    func viewController(_ viewController: ReportsMapViewController, didRequestDetailsForReport report: STWDataType) {
         showReportDetailsComponentForReport(report)
     }
 }
 
 // MARK: ReportsTableViewControllerDelegate
 extension ContainerCoordinator: ReportsTableViewControllerDelegate {
-    func viewController(_ viewController: ReportsTableViewController, didRequestDetailsForReport report: Report) {
+    func viewController(_ viewController: ReportsTableViewController, didRequestDetailsForReport report: STWDataType) {
         showReportDetailsComponentForReport(report)
     }
 }

@@ -1,7 +1,10 @@
 project 'Endangered Waves.xcodeproj'
 
 # Uncomment the next line to define a global platform for your project
-platform :ios, '11.0'
+platform :ios, '13.0'
+
+# Fix from https://stackoverflow.com/questions/60884826/unable-to-add-a-source-with-url-https-cdn-cocoapods-org-named-trunk
+source 'https://github.com/CocoaPods/Specs.git'
 
 # ignore all warnings from all pods
 inhibit_all_warnings!
@@ -11,17 +14,25 @@ abstract_target 'shared' do
   use_frameworks!
 
   # Firebase
-  pod 'Firebase', '~> 4.10'
-  pod 'FirebaseUI', '~> 4.5'
-  pod 'Crashlytics', '~> 3.10'
-
+  pod 'Firebase/Auth', '~> 7.7'
+  pod 'Firebase/Crashlytics', '~> 7.7'
+  pod 'Firebase/Firestore', '~> 7.7'
+  pod 'Firebase/Storage', '~> 7.7'
+  
+  # UI Bindings for Firebase
+  pod 'FirebaseUI/Firestore', '~> 10.0'
+  pod 'FirebaseUI/Auth', '~> 10.0'
+  pod 'FirebaseUI/Storage', '~> 10.0'
+  
   # UI Related
-  pod 'LocationPickerViewController', '~> 3.3'
-  pod 'ImagePicker', '~> 3.0'
-  pod 'Lightbox', '~> 2.1'
+  pod 'SDWebImage', '~> 5.10'
+  pod 'LocationPickerViewController', :git => 'https://github.com/zhuorantan/LocationPicker.git', :commit => '15d9bae350e8ffd6bf3640afc423a8350ea2b523'
   pod 'SVProgressHUD', '~> 2.2'
 
-  # Other
+  # KML parser for WSR map polygons
+  pod 'Kml.swift', '~> 0.3.2'
+
+  # Dev stuff
   pod 'SwiftLint'
 
   # Target
@@ -29,24 +40,17 @@ abstract_target 'shared' do
   target 'Endangered Waves dev'
 end
 
-# See https://www.cerebralgardens.com/blog/entry/2017/10/04/mix-and-match-swift-3-swift-4-libraries-with-cocoapods
-post_install do |installer|
-    print "Setting the default SWIFT_VERSION to 4.2\n"
-    installer.pods_project.build_configurations.each do |config|
-        config.build_settings['SWIFT_VERSION'] = '4.2'
-    end
 
-    installer.pods_project.targets.each do |target|
-        if ['LocationPickerViewController'].include? "#{target}"
-            print "Setting #{target}'s SWIFT_VERSION to 3.0\n"
-            target.build_configurations.each do |config|
-                config.build_settings['SWIFT_VERSION'] = '3.0'
-            end
-            else
-            print "Setting #{target}'s SWIFT_VERSION to Undefined (Xcode will automatically resolve)\n"
-            target.build_configurations.each do |config|
-                config.build_settings.delete('SWIFT_VERSION')
-            end
-        end
+post_install do |installer|
+  # Fix from https://stackoverflow.com/questions/63607158/xcode-12-building-for-ios-simulator-but-linking-in-object-file-built-for-ios
+  installer.pods_project.build_configurations.each do |config|
+    config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+  end
+  
+  # Fix from https://www.jessesquires.com/blog/2020/07/20/xcode-12-drops-support-for-ios-8-fix-for-cocoapods/
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET'
     end
+  end
 end

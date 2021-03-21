@@ -16,6 +16,8 @@
  *
  */
 
+#include <grpc/support/port_platform.h>
+
 #include "src/core/lib/surface/channel.h"
 
 #include <string.h>
@@ -33,7 +35,7 @@ typedef struct {
   grpc_cq_completion completion_storage;
 } ping_result;
 
-static void ping_destroy(void* arg, grpc_cq_completion* storage) {
+static void ping_destroy(void* arg, grpc_cq_completion* /*storage*/) {
   gpr_free(arg);
 }
 

@@ -12,17 +12,15 @@ import Photos
 import CoreLocation
 import LocationPickerViewController
 import Firebase
-import ImagePicker
-import Lightbox
 import MapKit
 
 protocol NewReportViewControllerDelegate: class {
     func viewController(_ viewController: NewReportViewController, didTapCancelButton button: UIBarButtonItem)
-    func viewController(_ viewController: NewReportViewController, didTapPostButton button: Any)
+    func viewController(_ viewController: NewReportViewController, didTapPostButton button: Any?)
     func viewController(_ viewController: NewReportViewController, didTapImageAtIndex index: Int)
     func viewController(_ viewController: NewReportViewController, didTapAddButton button: UIButton)
     func viewController(_ viewController: NewReportViewController, didTapLocation sender: UITapGestureRecognizer)
-    func viewController(_ viewController: NewReportViewController, didTapReportType sender: STWButton)
+    func viewController(_ viewController: NewReportViewController, didSelectThreatCategory category: String)
     func viewControllerDidTapCompetition(viewController: NewReportViewController)
     func viewControllerDidTapCompetitionInfoButton(viewController: NewReportViewController)
     func viewController(_ viewController: NewReportViewController, didWriteDescription description: String)
@@ -32,6 +30,21 @@ protocol NewReportViewControllerDelegate: class {
 class NewReportViewController: UITableViewController {
 
     weak var delegate: NewReportViewControllerDelegate?
+
+    @IBOutlet weak var generalImageButton: UIButton!
+    @IBOutlet weak var generalTextButton: UIButton!
+    @IBOutlet weak var coastalDevelopmentImageButton: UIButton!
+    @IBOutlet weak var coastalDevelopmentTextButton: UIButton!
+    @IBOutlet weak var trashImageButton: UIButton!
+    @IBOutlet weak var trashTextButton: UIButton!
+    @IBOutlet weak var seaLevelRiseImageButton: UIButton!
+    @IBOutlet weak var seaLevelRiseTextButton: UIButton!
+    @IBOutlet weak var accessImageButton: UIButton!
+    @IBOutlet weak var accessTextButton: UIButton!
+    @IBOutlet weak var coralReefImageButton: UIButton!
+    @IBOutlet weak var coralReefTextButton: UIButton!
+    @IBOutlet weak var waterQualityImageButton: UIButton!
+    @IBOutlet weak var waterQualityTextButton: UIButton!
 
     var competition: Competition?
     @IBOutlet weak var competitionTrophyImageView: UIImageView!
@@ -47,53 +60,6 @@ class NewReportViewController: UITableViewController {
     @IBOutlet weak var emailTextView: UITextView!
 
     @IBOutlet weak var contactInfoStackView: UIStackView!
-
-    @IBOutlet var categoryTypeCollection: [STWButton]!
-
-    fileprivate func enableInActiveStateForButton(_ button: (STWButton)) {
-        button.tintColor = Style.colorSTWGrey
-        button.isSelected = false
-        button.titleLabel?.font = Style.fontBrandonGrotesqueBlack(size: 12)
-
-        if let currentAttributedTitle = button.currentAttributedTitle {
-            let style = NSMutableParagraphStyle()
-            style.alignment = .center
-            let attributes = [NSAttributedString.Key.font: Style.fontBrandonGrotesqueBlack(size: 12),
-                              NSAttributedString.Key.foregroundColor: Style.colorSTWGrey,
-                              NSAttributedString.Key.paragraphStyle: style]
-            let attributedString = NSAttributedString(string: currentAttributedTitle.string, attributes: attributes)
-            button.setAttributedTitle(attributedString, for: .normal)
-        }
-    }
-
-    @IBAction func categoryTypeButtonTapped(_ sender: STWButton) {
-        categoryTypeCollection.forEach { (button) in
-            if button === sender {
-                button.tintColor = .black
-                button.isSelected = true
-                button.titleLabel?.font = Style.fontBrandonGrotesqueBlack(size: 12)
-
-                if let currentAttributedTitle = button.currentAttributedTitle {
-                    let style = NSMutableParagraphStyle()
-                    style.alignment = .center
-                    let attributes = [NSAttributedString.Key.font: Style.fontBrandonGrotesqueBlack(size: 12),
-                                      NSAttributedString.Key.foregroundColor: UIColor.black,
-                                      NSAttributedString.Key.paragraphStyle: style]
-                    let attributedString = NSAttributedString(string: currentAttributedTitle.string, attributes: attributes)
-                    button.setAttributedTitle(attributedString, for: .normal)
-                }
-            } else {
-                enableInActiveStateForButton(button)
-            }
-        }
-
-        // Set competition to inactive state if a normal threat category is selected
-        competitionTitleLabel.textColor = Style.colorSTWGrey
-        competitionDateLabel.textColor = Style.colorSTWGrey
-        competitionTrophyImageView.image = UIImage(named: "grey-trophy")
-
-        delegate?.viewController(self, didTapReportType: sender)
-    }
 
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var mapImageView: UIImageView!
@@ -112,6 +78,8 @@ class NewReportViewController: UITableViewController {
             }
         }
     }
+
+    var reportThreatCategory: String?
 
     var emailAddress: String? {
         didSet {
@@ -136,7 +104,7 @@ class NewReportViewController: UITableViewController {
                     mapSnapshotOptions.region = region
 
                     mapSnapshotOptions.showsBuildings = false
-                    mapSnapshotOptions.showsPointsOfInterest = false
+                    mapSnapshotOptions.pointOfInterestFilter = .excludingAll
 
                     // Set the size of the image output.
                     mapSnapshotOptions.size = CGSize(width: 90, height: 90)
@@ -160,6 +128,16 @@ class NewReportViewController: UITableViewController {
     // MARK: View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Set up the nav bar title
+        let label = UILabel()
+        label.text = "REPORT AN ISSUE".localized()
+        label.adjustsFontSizeToFitWidth = true
+        label.font = Style.fontBrandonGrotesqueBlack(size: 20)
+        self.navigationItem.titleView = label
+
+        // Avoids flashing when tapping the button for the first time
+        setAllThreatCategoryButtonsToUnselectedState()
 
         // TODO: Info button should show the competition modal
         competitionInfoButton.isHidden = true
@@ -186,18 +164,10 @@ class NewReportViewController: UITableViewController {
             competitionDateLabel.text = competition.dateDisplayString().uppercased()
         }
 
-        // Attributed text set in the Storyboard is only working on the simulator, not in builds distributed via Buddybuild, this fixes that
-        categoryTypeCollection.forEach { (button) in
-            if let currentAttributedTitle = button.currentAttributedTitle {
-                let style = NSMutableParagraphStyle()
-                style.alignment = .center
-                let attributes = [NSAttributedString.Key.font: Style.fontBrandonGrotesqueBlack(size: 12),
-                                  NSAttributedString.Key.foregroundColor: Style.colorSTWGrey,
-                                  NSAttributedString.Key.paragraphStyle: style]
-                let attributedString = NSAttributedString(string: currentAttributedTitle.string, attributes: attributes)
-                button.setAttributedTitle(attributedString, for: .normal)
-            }
-        }
+        // Set up placeholder texts
+        descriptionTextView.attributedText = Style.userInputPlaceholderAttributedStringForString("Write a description...".localized())
+        locationLabel.attributedText = Style.userInputPlaceholderAttributedStringForString("Choose a location...".localized())
+        emailTextView.attributedText = Style.userInputPlaceholderAttributedStringForString("Enter email address...".localized())
     }
 
     // MARK: IBActions
@@ -227,13 +197,37 @@ class NewReportViewController: UITableViewController {
         competitionTitleLabel.textColor = .black
         competitionTrophyImageView.image = UIImage(named: "golden-trophy")
 
-        // Set other report types to inactive state
-        categoryTypeCollection.forEach { (button) in
-            enableInActiveStateForButton(button)
+        // Remove any previously selected category
+        if reportThreatCategory != nil {
+            setAllThreatCategoryButtonsToUnselectedState()
+            reportThreatCategory = nil
         }
 
         // Let the delegate know
         delegate?.viewControllerDidTapCompetition(viewController: self)
+    }
+
+    @IBAction func generalButtonWasTapped(_ sender: UIButton) {
+        threatCategoryWasSelected(category: "General Alert".localized())
+    }
+
+    @IBAction func accessButonWasTapped(_ sender: UIButton) {
+        threatCategoryWasSelected(category: "Access".localized())
+    }
+
+    func threatCategoryWasSelected(category: String) {
+        reportThreatCategory = category
+        delegate?.viewController(self, didSelectThreatCategory: category)
+
+        // Update UI
+        updateUIForThreatCategoryDisplayString(category)
+
+        // Set competition to inactive state
+        if competitionDateLabel.textColor != Style.colorSTWGrey {
+            competitionDateLabel.textColor = Style.colorSTWGrey
+            competitionTitleLabel.textColor = Style.colorSTWGrey
+            competitionTrophyImageView.image = UIImage(named: "grey-trophy")
+        }
     }
 
     // MARK: Segues
@@ -242,6 +236,13 @@ class NewReportViewController: UITableViewController {
             imageSliderViewController.images = self.images
             imageSliderViewController.imageSliderViewControllerDelegate = self
             self.imageSliderViewController = imageSliderViewController
+        }
+        if let threatCategoryNavigationController = segue.destination as? ThreatCategorySelectionNavController {
+            if let threatCategoryTableViewController = threatCategoryNavigationController.topViewController as?
+                ThreatCategoryTableViewController {
+                threatCategoryTableViewController.threatCategorySelectionDelegate = self
+                threatCategoryTableViewController.selectedThreatCategory = reportThreatCategory
+            }
         }
     }
 }
@@ -292,19 +293,20 @@ extension NewReportViewController: UITextViewDelegate {
     }
 
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.attributedText.string == "Write a description..." || textView.attributedText.string == "Enter email address..." {
-            // Have to have at least 1 character for the attributes to take
-            textView.attributedText = Style.userInputAttributedStringForString(" ")
-            textView.text = ""
+        if textView.attributedText.string == "Write a description...".localized() ||
+           textView.attributedText.string == "Enter email address...".localized() {
+                // Have to have at least 1 character for the attributes to take
+                textView.attributedText = Style.userInputAttributedStringForString(" ")
+                textView.text = ""
         }
         textView.becomeFirstResponder() // Optional
     }
 
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView === descriptionTextView && textView.attributedText.string == "" {
-            textView.attributedText = Style.userInputPlaceholderAttributedStringForString("Write a description...")
+            textView.attributedText = Style.userInputPlaceholderAttributedStringForString("Write a description...".localized())
         } else if textView === emailTextView && textView.attributedText.string == "" {
-            textView.attributedText = Style.userInputPlaceholderAttributedStringForString("Enter email address...")
+            textView.attributedText = Style.userInputPlaceholderAttributedStringForString("Enter email address...".localized())
         }
         textView.resignFirstResponder()
     }
@@ -320,8 +322,106 @@ extension NewReportViewController: UITextViewDelegate {
     }
 }
 
+// MARK: ThreatCategoryTableViewControllerDelegate
+extension NewReportViewController: ThreatCategoryTableViewControllerDelegate {
+    func viewController(_ viewController: ThreatCategoryTableViewController, didSelectThreatCategory category: String) {
+        threatCategoryWasSelected(category: category)
+    }
+}
+
 // MARK: 📖 StoryboardInstantiable
 extension NewReportViewController: StoryboardInstantiable {
     static var storyboardName: String { return "new-report" }
     static var storyboardIdentifier: String? { return "NewReportComponent" }
+}
+
+// MARK: Miscellaneous helpers
+extension NewReportViewController {
+
+    func setThreatCategoryButtonToSelectedState(button: UIButton) {
+        button.tintColor = .black
+        if let currentAttributedString = button.currentAttributedTitle {
+            let newString = NSMutableAttributedString(attributedString: currentAttributedString)
+            newString.addAttribute(.foregroundColor, value: UIColor.black,
+                                   range: NSRange(location: 0, length: currentAttributedString.length))
+            button.setAttributedTitle(newString, for: .normal)
+        }
+    }
+
+    func setThreatCategoryButtonToUnselectedState(button: UIButton) {
+        button.tintColor = Style.colorSTWGrey
+        if let currentAttributedString = button.currentAttributedTitle {
+            let newString = NSMutableAttributedString(attributedString: currentAttributedString)
+            newString.addAttribute(.foregroundColor, value: Style.colorSTWGrey,
+                                   range: NSRange(location: 0, length: currentAttributedString.length))
+            button.setAttributedTitle(newString, for: .normal)
+        }
+    }
+
+    func setAllThreatCategoryButtonsToUnselectedState() {
+        setThreatCategoryButtonToUnselectedState(button: generalImageButton)
+        setThreatCategoryButtonToUnselectedState(button: generalTextButton)
+
+        setThreatCategoryButtonToUnselectedState(button: coastalDevelopmentImageButton)
+        setThreatCategoryButtonToUnselectedState(button: coastalDevelopmentTextButton)
+
+        setThreatCategoryButtonToUnselectedState(button: trashImageButton)
+        setThreatCategoryButtonToUnselectedState(button: trashTextButton)
+
+        setThreatCategoryButtonToUnselectedState(button: seaLevelRiseImageButton)
+        setThreatCategoryButtonToUnselectedState(button: seaLevelRiseTextButton)
+
+        setThreatCategoryButtonToUnselectedState(button: accessImageButton)
+        setThreatCategoryButtonToUnselectedState(button: accessTextButton)
+
+        setThreatCategoryButtonToUnselectedState(button: coralReefImageButton)
+        setThreatCategoryButtonToUnselectedState(button: coralReefTextButton)
+
+        setThreatCategoryButtonToUnselectedState(button: waterQualityImageButton)
+        setThreatCategoryButtonToUnselectedState(button: waterQualityTextButton)
+    }
+
+    func updateUIForThreatCategoryDisplayString(_ displayString: String) {
+
+        setAllThreatCategoryButtonsToUnselectedState()
+
+        switch displayString {
+        case "Oil Spill".localized(), "Sewage Spill".localized(), "Runoff".localized(),
+             "Algal Bloom".localized(), "Other Water Quality Threat".localized():
+            setThreatCategoryButtonToSelectedState(button: waterQualityImageButton)
+            setThreatCategoryButtonToSelectedState(button: waterQualityTextButton)
+            return
+        case "Access".localized():
+            setThreatCategoryButtonToSelectedState(button: accessImageButton)
+            setThreatCategoryButtonToSelectedState(button: accessTextButton)
+            return
+        case "General Alert".localized():
+            setThreatCategoryButtonToSelectedState(button: generalImageButton)
+            setThreatCategoryButtonToSelectedState(button: generalTextButton)
+            return
+        case "Plastic Packaging".localized(), "Micro-plastics".localized(), "Fishing Gear".localized(),
+             "Other Trash Threat".localized():
+            setThreatCategoryButtonToSelectedState(button: trashImageButton)
+            setThreatCategoryButtonToSelectedState(button: trashTextButton)
+            return
+        case "Seawall".localized(), "Hard Armoring".localized(), "Beachfront Construction".localized(), "Jetty".localized(),
+             "Harbor".localized(), "Other Coastal Development Threat".localized():
+            setThreatCategoryButtonToSelectedState(button: coastalDevelopmentImageButton)
+            setThreatCategoryButtonToSelectedState(button: coastalDevelopmentTextButton)
+            return
+        case "King Tides".localized(), "Other Sea-Level & Erosion Threat".localized(),
+             "Coastal Erosion".localized():
+            setThreatCategoryButtonToSelectedState(button: seaLevelRiseImageButton)
+            setThreatCategoryButtonToSelectedState(button: seaLevelRiseTextButton)
+            return
+        case "Destructive Fishing".localized(), "Bleaching".localized(), "Infrastructure".localized(),
+             "Other Coral Reef Impact Threat".localized():
+            setThreatCategoryButtonToSelectedState(button: coralReefImageButton)
+            setThreatCategoryButtonToSelectedState(button: coralReefTextButton)
+            return
+        default:
+            assertionFailure("Received a non-existent report type Display String")
+            return
+        }
+    }
 }

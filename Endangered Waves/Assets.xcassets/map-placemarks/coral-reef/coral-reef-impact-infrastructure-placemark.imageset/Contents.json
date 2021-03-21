@@ -1,0 +1,15 @@
+{
+  "images" : [
+    {
+      "filename" : "Coral_Reef_Impact_Infrastructure_48×48.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true
+  }
+}

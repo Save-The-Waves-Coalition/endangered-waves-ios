@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import ImagePicker
-import Lightbox
 import LocationPickerViewController
 import FirebaseStorage
 import FirebaseFirestore
@@ -16,7 +14,7 @@ import SVProgressHUD
 import CoreLocation
 
 protocol NewReportCoordinatorDelegate: class {
-    func coordinator(_ coordinator: NewReportCoordinator, didFinishNewReport report: Report?)
+func coordinator(_ coordinator: NewReportCoordinator, didFinishNewReport report: STWDataType?)
 }
 
 class NewReportCoordinator: Coordinator {
@@ -61,7 +59,9 @@ class NewReportCoordinator: Coordinator {
     }
 
     override func start() {
-        rootViewController.present(imagePickerController, animated: true, completion: nil)
+        let viewController = imagePickerController
+        viewController.modalPresentationStyle = .fullScreen
+        rootViewController.present(viewController, animated: true, completion: nil)
     }
 
     override func stop() {
@@ -80,6 +80,7 @@ class NewReportCoordinator: Coordinator {
             topVC.delegate = self
             topVC.images = images
             topVC.competition = competition
+            navVC.presentationController?.delegate = self
             rootViewController.present(navVC, animated: true, completion: nil)
         }
     }
@@ -92,7 +93,6 @@ class NewReportCoordinator: Coordinator {
         locationPicker.searchResultLocationIconColor = Style.colorSTWBlue
         locationPicker.currentLocationIconColor = Style.colorSTWBlue
         locationPicker.pickCompletion = { (pickedLocationItem) in
-            // TODO: Should this be an unowned self
             self.location = pickedLocationItem
         }
         let locationNavVC = NavigationViewController(rootViewController: locationPicker)
@@ -116,7 +116,7 @@ extension NewReportCoordinator: CompetitionCoordinatorDelegate {
     }
 }
 
-// MARK:
+// MARK: NewReportCoordinator
 extension NewReportCoordinator {
     func lightboxForImages(_ images: [UIImage], withStartIndex index: Int) -> LightboxController? {
         guard images.count > 0 else { return nil }
@@ -128,13 +128,24 @@ extension NewReportCoordinator {
         let lightbox = LightboxController(images: lightboxImages, startIndex: index)
         return lightbox
     }
+
+    func lightboxWithNavigationViewControllerForImages(_ images: [UIImage], withStartIndex index: Int) -> UINavigationController? {
+        if let lightbox = lightboxForImages(images, withStartIndex: index) {
+            let navigationViewController = NavigationViewController(rootViewController: lightbox)
+            navigationViewController.isNavigationBarHidden = true
+            navigationViewController.modalPresentationStyle = .fullScreen
+            lightbox.dynamicBackground = true
+            return navigationViewController
+        }
+        return nil
+    }
 }
 
 // MARK: 📸 ImagePickerDelegate
 extension NewReportCoordinator: ImagePickerDelegate {
     func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        if let lightbox = lightboxForImages(images, withStartIndex: 0) {
-            imagePicker.present(lightbox, animated: true, completion: nil)
+        if let lightboxNavigationController = lightboxWithNavigationViewControllerForImages(images, withStartIndex: 0) {
+            imagePicker.present(lightboxNavigationController, animated: true, completion: nil)
         }
     }
 
@@ -169,26 +180,64 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
         reportEmailAddress = email
     }
 
-    func viewController(_ viewController: NewReportViewController, didTapReportType sender: STWButton) {
-        if let buttonTitleText = sender.titleLabel?.text {
-            switch buttonTitleText {
-            case "OIL SPILL":
-                reportType = .oilSpill
-            case "SEWAGE":
-                reportType = .sewage
-            case "TRASHED":
-                reportType = .trashed
-            case "COASTAL\nEROSION":
-                reportType = .coastalErosion
-            case "ACCESS\nLOST":
-                reportType = .accessLost
-            case "GENERAL\n ":
-                reportType = .general
-            default:
-                assertionFailure("Missing type.")
-            }
+    // swiftlint:disable cyclomatic_complexity
+    func viewController(_ viewController: NewReportViewController, didSelectThreatCategory category: String) {
+        switch category {
+        case "Oil Spill".localized():
+            reportType = .oilSpill
+        case "Sewage Spill".localized():
+            reportType = .sewage
+        case "Other Trash Threat".localized():
+            reportType = .trashed
+        case "Coastal Erosion".localized():
+            reportType = .coastalErosion
+        case "Access".localized():
+            reportType = .accessLost
+        case "General Alert".localized():
+            reportType = .general
+        case "Competition".localized():
+            reportType = .competition
+        case "Runoff".localized():
+            reportType = .runoff
+        case "Algal Bloom".localized():
+            reportType = .algalBloom
+        case "Other Water Quality Threat".localized():
+            reportType = .waterQuality
+        case "Plastic Packaging".localized():
+            reportType = .plasticPackaging
+        case "Micro-plastics".localized():
+            reportType = .microPlastics
+        case "Fishing Gear".localized():
+            reportType = .fishingGear
+        case "Seawall".localized():
+            reportType = .seawall
+        case "Hard Armoring".localized():
+            reportType = .hardArmoring
+        case "Beachfront Construction".localized():
+            reportType = .beachfrontConstruction
+        case "Jetty".localized():
+            reportType = .jetty
+        case "Harbor".localized():
+            reportType = .harbor
+        case "Other Coastal Development Threat".localized():
+            reportType = .coastalDevelopment
+        case "King Tides".localized():
+            reportType = .kingTides
+        case "Other Sea-Level & Erosion Threat".localized():
+            reportType = .seaLevelRiseAndErosion
+        case "Destructive Fishing".localized():
+            reportType = .destructiveFishing
+        case "Bleaching".localized():
+            reportType = .bleaching
+        case "Infrastructure".localized():
+            reportType = .infrastructure
+        case "Other Coral Reef Impact Threat".localized():
+            reportType = .coralReefImpacts
+        default:
+            assertionFailure("Missing type.")
         }
     }
+    // swiftlint:enable cyclomatic_complexity
 
     func viewControllerDidTapCompetition(viewController: NewReportViewController) {
         reportType = .competition
@@ -199,8 +248,9 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
     }
 
     func viewController(_ viewController: NewReportViewController, didTapImageAtIndex index: Int) {
-        if let images = images, let lightbox = lightboxForImages(images, withStartIndex: index) {
-            viewController.present(lightbox, animated: true, completion: nil)
+        if let images = images, let lightboxNavigationController =
+            lightboxWithNavigationViewControllerForImages(images, withStartIndex: index) {
+            viewController.present(lightboxNavigationController, animated: true, completion: nil)
         }
     }
 
@@ -210,7 +260,7 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
         }
     }
 
-    func viewController(_ viewController: NewReportViewController, didTapPostButton button: Any) {
+    func viewController(_ viewController: NewReportViewController, didTapPostButton button: Any?) {
         // validate picture
         guard let images = images else {
             showValidationError(title: "Missing Images", message: "Please select at least 1 image.", withViewController: viewController)
@@ -255,7 +305,10 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
 
         guard let reportDescription = reportDescription, let location = location,
             let reportType = reportType, let reportEmailAddress = reportEmailAddress else {
-            // TODO: what to do here? This should never happen, show error
+            assertionFailure("⚠️: Missing Field")
+            showValidationError(title: "Invalid Field", message: "Please make sure all fields have been filled out properly.",
+                                withViewController: viewController)
+            // TODO: Log to Crashlytics
             return
         }
 
@@ -289,10 +342,47 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
     } // func
 
     func viewController(_ viewController: NewReportViewController, didTapAddButton button: UIButton) {
-        viewController.present(imagePickerController, animated: true, completion: nil)
+        let imagePickerViewController = imagePickerController
+        imagePickerViewController.modalPresentationStyle = .fullScreen
+        viewController.present(imagePickerViewController, animated: true, completion: nil)
     }
 }
 
+// MARK: UIAdaptivePresentationControllerDelegate
+extension NewReportCoordinator: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        stop()
+    }
+
+    func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
+        if let descriptionString = reportDescription {
+            if descriptionString.count > 15 { // MDM 20200326 - 15 was arbitrarly determined, seems right
+                if let reportVC = newReportVC {
+                    let discardReportAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                    let postAction = UIAlertAction(title: "Post", style: .default, handler: { action in
+                        if let newReportVC = self.newReportVC {
+                            self.viewController(newReportVC, didTapPostButton: nil)
+                        }
+                    })
+                    let discardAction = UIAlertAction(title: "Discard", style: .destructive, handler: { action in
+                        reportVC.dismiss(animated: true) {
+                            self.stop()
+                        }
+                    })
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+                    discardReportAlert.addAction(postAction)
+                    discardReportAlert.addAction(discardAction)
+                    discardReportAlert.addAction(cancelAction)
+                    reportVC.present(discardReportAlert, animated: true, completion: nil)
+                }
+                return false
+            }
+        }
+        return true
+    }
+}
+
+// MARK: Error Handling
 extension NewReportCoordinator {
     func showValidationError(title: String, message: String, withViewController viewController: UIViewController) {
         let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .alert)

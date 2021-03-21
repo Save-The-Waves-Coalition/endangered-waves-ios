@@ -16,6 +16,8 @@
  *
  */
 
+#include <grpc/support/port_platform.h>
+
 #include "src/core/tsi/transport_security_grpc.h"
 
 /* This method creates a tsi_zero_copy_grpc_protector object.  */
@@ -61,4 +63,11 @@ tsi_result tsi_zero_copy_grpc_protector_unprotect(
 void tsi_zero_copy_grpc_protector_destroy(tsi_zero_copy_grpc_protector* self) {
   if (self == nullptr) return;
   self->vtable->destroy(self);
+}
+
+tsi_result tsi_zero_copy_grpc_protector_max_frame_size(
+    tsi_zero_copy_grpc_protector* self, size_t* max_frame_size) {
+  if (self == nullptr || max_frame_size == nullptr) return TSI_INVALID_ARGUMENT;
+  if (self->vtable->max_frame_size == nullptr) return TSI_UNIMPLEMENTED;
+  return self->vtable->max_frame_size(self, max_frame_size);
 }

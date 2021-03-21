@@ -40,7 +40,7 @@ class APIManager {
                     return
                 }
 
-                var activeCompetition: Competition? = nil
+                var activeCompetition: Competition?
                 for document in querySnapshot.documents where activeCompetition == nil {
                     guard let competition = Competition.createCompetitionWithSnapshot(document) else {
                         // Issue with the record on Firebase, go to the next document
@@ -146,7 +146,7 @@ class APIManager {
     static func uploadReport(_ report: Report, completionHandler: @escaping (DocumentReference?, Error?) -> Void) {
         let dataDictionary = report.documentDataDictionary()
         let collection = Firestore.firestore().collection("reports")
-        var ref: DocumentReference? = nil
+        var ref: DocumentReference?
         ref = collection.addDocument(data: dataDictionary, completion: { (error) in
             if let error = error {
                 completionHandler(nil, error)
@@ -159,7 +159,7 @@ class APIManager {
     static func uploadReportEntry(_ reportEntry: ReportEntry, completionHandler: @escaping (String?, Error?) -> Void) {
         let dataDictionary = reportEntry.documentDataDictionary()
         let collection = Firestore.firestore().collection("reportEntries")
-        var ref: DocumentReference? = nil
+        var ref: DocumentReference?
         ref = collection.addDocument(data: dataDictionary, completion: { (error) in
             if let error = error {
                 completionHandler(nil, error)
@@ -196,11 +196,10 @@ class APIManager {
             let metadata = StorageMetadata()
             metadata.contentType = "image/jpeg"
 
-            let uploadTask = imageRef.putData(imageData, metadata: metadata)
+            let uploadTask = imageRef.putData(imageData, metadata: metadata) { (storageMetadata, error) in
 
-            uploadTask.observe(.success, handler: { (storageTaskSnapshot) in
-
-                guard let metaData = storageTaskSnapshot.metadata, let downloadURL = metaData.downloadURL() else {
+                guard storageMetadata != nil else {
+                    // An Error occured!
                     failureUploadCount += 1
                     if (successfulUploadCount + failureUploadCount) == imagesCount {
                         completionHandler(nil, NSError(domain: "STW", code: 0, userInfo: nil))
@@ -208,16 +207,29 @@ class APIManager {
                     return
                 }
 
-                let downloadURLString = downloadURL.absoluteString
-                uploadedImageURLStrings.append(downloadURLString)
+                // Download URL becomes available after upload
+                imageRef.downloadURL { (url, error) in
 
-                successfulUploadCount += 1
-                progressHandler(Double(successfulUploadCount)/Double(imagesCount))
+                    guard let downloadURL = url else {
+                        // An Error occured!
+                        failureUploadCount += 1
+                        if (successfulUploadCount + failureUploadCount) == imagesCount {
+                            completionHandler(nil, NSError(domain: "STW", code: 0, userInfo: nil))
+                        }
+                        return
+                    }
 
-                if (successfulUploadCount + failureUploadCount) == imagesCount {
-                    completionHandler(uploadedImageURLStrings, nil)
+                    let downloadURLString = downloadURL.absoluteString
+                    uploadedImageURLStrings.append(downloadURLString)
+
+                    successfulUploadCount += 1
+                    progressHandler(Double(successfulUploadCount)/Double(imagesCount))
+
+                    if (successfulUploadCount + failureUploadCount) == imagesCount {
+                        completionHandler(uploadedImageURLStrings, nil)
+                    }
                 }
-            })
+            }
 
             uploadTask.observe(.failure, handler: { (storageTaskSnapshot) in
                 failureUploadCount += 1

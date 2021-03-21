@@ -38,7 +38,7 @@ class ImageActivity: NSObject, UIActivityItemSource {
     }
 
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
-        return image
+        return image!
     }
 
     func activityViewController(_ activityViewController: UIActivityViewController,

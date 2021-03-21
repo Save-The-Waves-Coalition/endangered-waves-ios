@@ -23,7 +23,7 @@ class ReportDetailViewController: UITableViewController {
 
     fileprivate lazy var imageDownloadManager = ImageDownloadManager()
 
-    var report: Report! {
+    var report: STWDataType! {
         didSet {
             if isViewLoaded {
                 updateView()
@@ -43,22 +43,20 @@ class ReportDetailViewController: UITableViewController {
     var imageSliderViewController: ImageSliderViewController!
     @IBOutlet weak var typeImageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var wsrNameLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var mapPinImageView: UIImageView!
     @IBOutlet weak var mapButton: UIButton!
+    @IBOutlet weak var actionButton: UIButton!
 
-    // View Lifecycle
+    // MARK: View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         assert(report != nil, "Forgot to set Report dependency")
         updateView()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: animated) // TODO: Do we  need this anymore?
-        super.viewWillAppear(animated)
+        ifWSRUpdateDetailView()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -69,8 +67,11 @@ class ReportDetailViewController: UITableViewController {
     }
 
     func updateView() {
-
-        title = report.type.displayString().uppercased()
+        let label = UILabel()
+        label.text = report.type.displayString().uppercased()
+        label.adjustsFontSizeToFitWidth = true
+        label.font = Style.fontBrandonGrotesqueBlack(size: 20)
+        self.navigationItem.titleView = label
 
         if let typeImageView = typeImageView {
             typeImageView.image = report.type.placemarkIcon()
@@ -87,7 +88,8 @@ class ReportDetailViewController: UITableViewController {
             self.navigationItem.rightBarButtonItem?.isEnabled = true
         })
 
-        if let dateLabel = dateLabel {
+        if let report = report as? Report,
+           let dateLabel = dateLabel {
             dateLabel.text = "– \(report.dateDisplayString()) –"
         }
 
@@ -97,8 +99,14 @@ class ReportDetailViewController: UITableViewController {
             let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
                               NSAttributedString.Key.font: Style.fontGeorgia(size: 15),
                               NSAttributedString.Key.paragraphStyle: paragraphStyle]
-            let newString = NSMutableAttributedString(string: "\(report.name)\n\(report.address)", attributes: attributes)
-            locationLabel.attributedText = newString
+            let newString: NSMutableAttributedString
+            if let report = report as? Report {
+                newString = NSMutableAttributedString(string: "\(report.name)\n\(report.address)", attributes: attributes)
+                locationLabel.attributedText = newString
+            } else if let report = report as? WorldSurfingReserve {
+                newString = NSMutableAttributedString(string: "\(report.address)", attributes: attributes)
+                locationLabel.attributedText = newString
+            }
         }
 
         let coordinate = CLLocationCoordinate2DMake(report.coordinate.latitude, report.coordinate.longitude)
@@ -109,7 +117,7 @@ class ReportDetailViewController: UITableViewController {
         mapSnapshotOptions.region = region
 
         mapSnapshotOptions.showsBuildings = false
-        mapSnapshotOptions.showsPointsOfInterest = false
+        mapSnapshotOptions.pointOfInterestFilter = .excludingAll
 
         // Set the size of the image output.
         mapSnapshotOptions.size = CGSize(width: 90, height: 90)
@@ -136,7 +144,36 @@ class ReportDetailViewController: UITableViewController {
         }
     }
 
-    // Actions
+    func ifWSRUpdateDetailView() {
+        wsrNameLabel.isHidden = true
+        if let wsrReport = report as? WorldSurfingReserve {
+            actionButton.setTitle("Learn More".localized(), for: .normal)
+            dateLabel.isHidden = true
+            wsrNameLabel.isHidden = false
+            if let wsrNameLabel = wsrNameLabel {
+                let attributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
+                                  NSAttributedString.Key.font: Style.fontBrandonGrotesqueBold(size: 17)]
+                let wsrNameString = NSMutableAttributedString(string: report.name.uppercased(), attributes: attributes)
+                wsrNameLabel.attributedText = wsrNameString
+            }
+
+            typeImageView.image = Style.iconWsrPlacemark // Set default icon before downloading and animating in the WSR specific one
+            typeImageView.sd_setImage(with: URL(string: wsrReport.iconURL), completed: { (image, error, cacheType, url) in
+                if image == nil {
+                    return
+                }
+                if cacheType == SDImageCacheType.none {
+                    UIView.animate(withDuration: 0.25, animations: {
+                        self.typeImageView.alpha = 1.0
+                    })
+                } else {
+                    self.typeImageView.alpha = 1.0
+                }
+            })
+        }
+    }
+
+// MARK: Actions
 
     @IBAction func userTappedActionButton(_ sender: UIBarButtonItem) {
         if let images = images, let firstImage = images.first {
@@ -147,7 +184,7 @@ class ReportDetailViewController: UITableViewController {
             let activityItems: [Any] = [imageActivity, messageActivity]
 
             let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: [])
-            present(activityViewController, animated: true, completion: nil) // TODO: coordinator should do this
+            present(activityViewController, animated: true, completion: nil) // Coordinator could do this
         }
     }
     @IBAction func userTappedMapButton(_ sender: UIButton) {
@@ -155,11 +192,17 @@ class ReportDetailViewController: UITableViewController {
     }
 
     @IBAction func userTappedTakeActionButton(_ sender: UIButton) {
-        // TODO: Duplicate code, should keep this dry
-        let url = URL(string: "http://www.savethewaves.org/endangered-waves/take-action/")!
-        let safariViewController = SFSafariViewController(url: url)
-        safariViewController.preferredControlTintColor = Style.colorSTWBlue
-        present(safariViewController, animated: true, completion: nil) // TODO: coordinator should do this
+        // Coordinator could do this
+        if report is Report {
+            let url = URL(string: "http://www.savethewaves.org/endangered-waves/take-action/")!
+            let safariViewController = SFSafariViewController(url: url)
+            safariViewController.preferredControlTintColor = Style.colorSTWBlue
+            present(safariViewController, animated: true, completion: nil)
+        } else if let report = report as? WorldSurfingReserve, let url = URL(string: report.url) {
+            let safariViewController = SFSafariViewController(url: url)
+            safariViewController.preferredControlTintColor = Style.colorSTWBlue
+            present(safariViewController, animated: true, completion: nil)
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

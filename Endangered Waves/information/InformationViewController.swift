@@ -31,6 +31,13 @@ class InformationViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Set up the nav bar title
+        let label = UILabel()
+        label.text = "INFORMATION".localized()
+        label.adjustsFontSizeToFitWidth = true
+        label.font = Style.fontBrandonGrotesqueBlack(size: 20)
+        self.navigationItem.titleView = label
+
         if let infoDictionary = Bundle.main.infoDictionary,
             let version = infoDictionary["CFBundleShortVersionString"] as? String,
             let build = infoDictionary["CFBundleVersion"] as? String {
@@ -41,7 +48,7 @@ class InformationViewController: UITableViewController {
     // Actions
 
     @IBAction func mjdButtonWasTapped(_ sender: UIButton) {
-        let url = URL(string: "https://www.mjdinteractive.com/")!
+        let url = URL(string: "https://www.valtech.com/")!
         delegate?.viewController(self, wantsToOpenURL: url)
     }
 
@@ -52,6 +59,7 @@ class InformationViewController: UITableViewController {
 
 // MARK: UITableViewDelegate
 extension InformationViewController {
+    // swiftlint:disable cyclomatic_complexity function_body_length
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
@@ -122,11 +130,13 @@ extension InformationViewController {
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    // swiftlint:enable cyclomatic_complexity function_body_length
 
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        if let headerView = view as? UITableViewHeaderFooterView {
-            headerView.textLabel?.font = Style.fontBrandonGrotesqueBold(size: 17)
-            headerView.textLabel?.textColor = UIColor.black
+        if let headerView = view as? UITableViewHeaderFooterView, let headerLabel = headerView.textLabel {
+            headerLabel.text = headerLabel.text?.localized()
+            headerLabel.font = Style.fontBrandonGrotesqueBold(size: 17)
+            headerLabel.textColor = UIColor.black
         }
     }
 

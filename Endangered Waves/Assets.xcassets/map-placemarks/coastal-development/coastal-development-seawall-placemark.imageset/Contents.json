@@ -1,0 +1,15 @@
+{
+  "images" : [
+    {
+      "filename" : "Coast_Development_Seawall_48×48.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true
+  }
+}

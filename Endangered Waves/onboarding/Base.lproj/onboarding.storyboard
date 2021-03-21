@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BdA-9h-eYY">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Brandon_blk.otf">
+            <string>BrandonGrotesque-Black</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Onboarding View Controller-->
+        <scene sceneID="cVp-zJ-CmW">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingPageComponent" id="BdA-9h-eYY" customClass="OnboardingViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vDL-hW-HfZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stock01" translatesAutoresizingMaskIntoConstraints="NO" id="U9d-hh-p3u">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="c6a-an-Ijt">
+                                <rect key="frame" x="127" y="709.66666666666663" width="121.33333333333331" height="27.333333333333371"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yjy-ns-acA" customClass="UILocalizedButton" customModule="Endangered_Waves" customModuleProvider="target">
+                                <rect key="frame" x="137.66666666666666" y="745" width="100" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Ynd-hB-yf9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="14"/>
+                                <state key="normal" title="SKIP">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="skipButtonWasTapped:" destination="BdA-9h-eYY" eventType="touchUpInside" id="tjJ-I0-GwR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="odl-07-K85"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="U9d-hh-p3u" firstAttribute="top" secondItem="vDL-hW-HfZ" secondAttribute="top" id="2DW-Dv-IvP"/>
+                            <constraint firstItem="odl-07-K85" firstAttribute="bottom" secondItem="yjy-ns-acA" secondAttribute="bottom" id="EnW-Ax-8j0"/>
+                            <constraint firstAttribute="bottom" secondItem="U9d-hh-p3u" secondAttribute="bottom" id="Yjn-YA-Inm"/>
+                            <constraint firstItem="U9d-hh-p3u" firstAttribute="leading" secondItem="vDL-hW-HfZ" secondAttribute="leading" id="evn-od-ccO"/>
+                            <constraint firstItem="c6a-an-Ijt" firstAttribute="centerX" secondItem="vDL-hW-HfZ" secondAttribute="centerX" id="hE7-yg-zDe"/>
+                            <constraint firstAttribute="trailing" secondItem="U9d-hh-p3u" secondAttribute="trailing" id="lQ8-3t-Nh4"/>
+                            <constraint firstItem="yjy-ns-acA" firstAttribute="top" secondItem="c6a-an-Ijt" secondAttribute="bottom" constant="8" symbolic="YES" id="nNF-fM-UIt"/>
+                            <constraint firstItem="yjy-ns-acA" firstAttribute="centerX" secondItem="vDL-hW-HfZ" secondAttribute="centerX" id="vd3-kZ-tSD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pageControl" destination="c6a-an-Ijt" id="swk-ha-GuD"/>
+                        <outlet property="skipButton" destination="yjy-ns-acA" id="1aG-ZK-7q0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bPv-Bb-nj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="274" y="149"/>
+        </scene>
+        <!--Onboarding Page One View Controller-->
+        <scene sceneID="ggO-Lw-D57">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingPageOneComponent" id="yTb-r7-X99" customClass="OnboardingPageOneViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9mb-r4-Bzf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stock01" translatesAutoresizingMaskIntoConstraints="NO" id="vAK-xe-vKv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-trashed" translatesAutoresizingMaskIntoConstraints="NO" id="Dnc-cH-naa">
+                                <rect key="frame" x="228" y="186.66666666666663" width="346" height="296"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Dnc-cH-naa" secondAttribute="height" multiplier="173:148" id="S4d-A9-08c"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRASHED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ok5-mA-Eyn" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
+                                <rect key="frame" x="498" y="427.66666666666669" width="100" height="21.333333333333314"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="P7f-vc-4Vq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-large-circle" translatesAutoresizingMaskIntoConstraints="NO" id="ggn-wq-Ha9">
+                                <rect key="frame" x="47" y="265.66666666666669" width="281" height="281.00000000000006"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muP-Zz-vUu" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
+                                <rect key="frame" x="111.66666666666669" y="169" width="152" height="68.666666666666686"/>
+                                <string key="text">SEE AN ISSUE
+&amp; REPORT IT</string>
+                                <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xlv-vM-jpf">
+                                <rect key="frame" x="162.66666666666666" y="516.66666666666663" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Fvd-ss-LUO"/>
+                                    <constraint firstAttribute="height" constant="50" id="gZc-d3-jtu"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus-sign-radiate" translatesAutoresizingMaskIntoConstraints="NO" id="bjN-pM-yWj">
+                                <rect key="frame" x="127.66666666666669" y="481.66666666666674" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bjN-pM-yWj" secondAttribute="height" multiplier="1:1" id="585-5Z-Qsc"/>
+                                    <constraint firstAttribute="height" constant="120" id="NK5-hW-dmF"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="z0s-Vx-Zwy"/>
+                        <constraints>
+                            <constraint firstItem="xlv-vM-jpf" firstAttribute="centerX" secondItem="bjN-pM-yWj" secondAttribute="centerX" id="3j0-VG-B7o"/>
+                            <constraint firstItem="bjN-pM-yWj" firstAttribute="centerX" secondItem="9mb-r4-Bzf" secondAttribute="centerX" id="8RL-ld-LQ0"/>
+                            <constraint firstAttribute="trailing" secondItem="vAK-xe-vKv" secondAttribute="trailing" id="9Yo-Dh-t4a"/>
+                            <constraint firstItem="vAK-xe-vKv" firstAttribute="top" secondItem="9mb-r4-Bzf" secondAttribute="top" id="CC0-5p-E4h"/>
+                            <constraint firstItem="ggn-wq-Ha9" firstAttribute="centerX" secondItem="9mb-r4-Bzf" secondAttribute="centerX" id="DsZ-Qd-MVT"/>
+                            <constraint firstItem="Dnc-cH-naa" firstAttribute="top" secondItem="ggn-wq-Ha9" secondAttribute="bottom" constant="-360" id="NSU-sb-b1w"/>
+                            <constraint firstItem="ggn-wq-Ha9" firstAttribute="centerY" secondItem="9mb-r4-Bzf" secondAttribute="centerY" id="OTq-HM-lGQ"/>
+                            <constraint firstItem="Ok5-mA-Eyn" firstAttribute="top" secondItem="Dnc-cH-naa" secondAttribute="bottom" constant="-55" id="QVe-kO-3ya"/>
+                            <constraint firstItem="muP-Zz-vUu" firstAttribute="centerX" secondItem="9mb-r4-Bzf" secondAttribute="centerX" id="UPF-2r-U5i"/>
+                            <constraint firstItem="xlv-vM-jpf" firstAttribute="centerY" secondItem="bjN-pM-yWj" secondAttribute="centerY" id="Upb-Yq-spB"/>
+                            <constraint firstItem="Dnc-cH-naa" firstAttribute="leading" secondItem="Ok5-mA-Eyn" secondAttribute="trailing" constant="-370" id="cqb-JU-Hy5"/>
+                            <constraint firstAttribute="bottom" secondItem="vAK-xe-vKv" secondAttribute="bottom" id="g8c-es-oGV"/>
+                            <constraint firstItem="Dnc-cH-naa" firstAttribute="leading" secondItem="ggn-wq-Ha9" secondAttribute="trailing" constant="-100" id="hEa-za-fi6"/>
+                            <constraint firstItem="Ok5-mA-Eyn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vAK-xe-vKv" secondAttribute="trailing" constant="8" symbolic="YES" id="l8g-2F-RIo"/>
+                            <constraint firstItem="ggn-wq-Ha9" firstAttribute="top" secondItem="muP-Zz-vUu" secondAttribute="bottom" constant="27.999999999999972" id="tRH-Re-fwE"/>
+                            <constraint firstItem="bjN-pM-yWj" firstAttribute="top" secondItem="ggn-wq-Ha9" secondAttribute="bottom" constant="-65" id="vP1-qZ-HYh"/>
+                            <constraint firstItem="vAK-xe-vKv" firstAttribute="leading" secondItem="9mb-r4-Bzf" secondAttribute="leading" id="xiz-YV-9ab"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eeJ-4W-vBZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1005.6" y="148.52216748768473"/>
+        </scene>
+        <!--Onboarding Page Two View Controller-->
+        <scene sceneID="jXb-aj-hh3">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingPageTwoComponent" id="af4-xc-hVl" customClass="OnboardingPageTwoViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AHN-lz-Qf9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stock01" translatesAutoresizingMaskIntoConstraints="NO" id="ZAx-o3-nK3">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nFY-Iy-UHr" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
+                                <rect key="frame" x="100.33333333333333" y="169" width="174.66666666666669" height="68.666666666666686"/>
+                                <string key="text">SHARE IT OUT
+&amp; TAKE ACTION</string>
+                                <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-large-circle" translatesAutoresizingMaskIntoConstraints="NO" id="7oE-jM-MZp">
+                                <rect key="frame" x="47" y="265.66666666666669" width="281" height="281.00000000000006"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-oil-spill" translatesAutoresizingMaskIntoConstraints="NO" id="Vnj-L7-RLT">
+                                <rect key="frame" x="-87.666666666666686" y="426.66666666666674" width="590.33333333333337" height="319"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Vnj-L7-RLT" secondAttribute="height" multiplier="590:319" id="4Sd-HR-hat"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-sewage" translatesAutoresizingMaskIntoConstraints="NO" id="xFH-03-o8L">
+                                <rect key="frame" x="23.666666666666657" y="197.66666666666663" width="273" height="228"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="xFH-03-o8L" secondAttribute="height" multiplier="91:76" id="7f7-OO-e8R"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEWAGE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyD-3o-Npf" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
+                                <rect key="frame" x="3.6666666666666643" y="385.66666666666669" width="100" height="21.666666666666686"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="zUL-Ck-f6c"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OIL SPILL" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aqj-o9-RuW" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
+                                <rect key="frame" x="212.66666666666663" y="593.66666666666663" width="100" height="21.666666666666629"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="ag8-zG-5In"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QXm-Sb-gdh"/>
+                        <constraints>
+                            <constraint firstItem="wyD-3o-Npf" firstAttribute="top" secondItem="xFH-03-o8L" secondAttribute="bottom" constant="-40" id="16e-7q-nwB"/>
+                            <constraint firstItem="Aqj-o9-RuW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Vnj-L7-RLT" secondAttribute="leading" id="2uR-LX-ncC"/>
+                            <constraint firstItem="ZAx-o3-nK3" firstAttribute="top" secondItem="AHN-lz-Qf9" secondAttribute="top" id="43c-rZ-nkI"/>
+                            <constraint firstItem="ZAx-o3-nK3" firstAttribute="trailing" secondItem="QXm-Sb-gdh" secondAttribute="trailing" id="CF0-Ia-B3R"/>
+                            <constraint firstItem="Aqj-o9-RuW" firstAttribute="top" secondItem="Vnj-L7-RLT" secondAttribute="bottom" constant="-152" id="CQ1-hj-ViF"/>
+                            <constraint firstItem="Vnj-L7-RLT" firstAttribute="top" secondItem="7oE-jM-MZp" secondAttribute="bottom" constant="-120" id="CoD-mR-7yI"/>
+                            <constraint firstItem="7oE-jM-MZp" firstAttribute="top" secondItem="nFY-Iy-UHr" secondAttribute="bottom" constant="28" id="Hjg-xJ-bQl"/>
+                            <constraint firstItem="Vnj-L7-RLT" firstAttribute="centerX" secondItem="AHN-lz-Qf9" secondAttribute="centerX" constant="20" id="IGQ-Rq-H2I"/>
+                            <constraint firstItem="wyD-3o-Npf" firstAttribute="leading" secondItem="xFH-03-o8L" secondAttribute="leading" constant="-20" id="JdZ-Hs-HVx"/>
+                            <constraint firstItem="xFH-03-o8L" firstAttribute="leading" secondItem="QXm-Sb-gdh" secondAttribute="leading" constant="23.5" id="c2c-Xe-fQm"/>
+                            <constraint firstItem="7oE-jM-MZp" firstAttribute="centerY" secondItem="AHN-lz-Qf9" secondAttribute="centerY" id="fFX-hT-F2J"/>
+                            <constraint firstItem="QXm-Sb-gdh" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wyD-3o-Npf" secondAttribute="trailing" symbolic="YES" id="ftM-B2-7Vd"/>
+                            <constraint firstItem="QXm-Sb-gdh" firstAttribute="trailing" secondItem="Aqj-o9-RuW" secondAttribute="trailing" constant="62.333333333333371" id="hdc-uj-cU9"/>
+                            <constraint firstItem="ZAx-o3-nK3" firstAttribute="leading" secondItem="QXm-Sb-gdh" secondAttribute="leading" id="keq-Df-gwO"/>
+                            <constraint firstItem="xFH-03-o8L" firstAttribute="top" secondItem="nFY-Iy-UHr" secondAttribute="bottom" constant="-40" id="pC7-BC-1nW"/>
+                            <constraint firstAttribute="bottom" secondItem="ZAx-o3-nK3" secondAttribute="bottom" id="sTx-E2-JaW"/>
+                            <constraint firstItem="7oE-jM-MZp" firstAttribute="centerX" secondItem="AHN-lz-Qf9" secondAttribute="centerX" id="vwZ-J6-rWg"/>
+                            <constraint firstItem="nFY-Iy-UHr" firstAttribute="centerX" secondItem="AHN-lz-Qf9" secondAttribute="centerX" id="zsF-Sw-PBh"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oTq-4c-tpe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1708" y="148.52216748768473"/>
+        </scene>
+        <!--Onboarding Page Three View Controller-->
+        <scene sceneID="WH7-1Q-DUm">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingPageThreeComponent" id="cej-6k-gnr" customClass="OnboardingPageThreeViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q1b-1b-VE9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stock01" translatesAutoresizingMaskIntoConstraints="NO" id="Ugh-Wn-M9q">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0K-KZ-a1x" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
+                                <rect key="frame" x="103.00000000000001" y="169" width="169.33333333333337" height="68.666666666666686"/>
+                                <string key="text">BE PART OF
+THE SOLUTION</string>
+                                <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-large-circle" translatesAutoresizingMaskIntoConstraints="NO" id="Bft-De-smb">
+                                <rect key="frame" x="47" y="265.66666666666669" width="281" height="281.00000000000006"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vertical-logo" translatesAutoresizingMaskIntoConstraints="NO" id="71R-va-Bbt">
+                                <rect key="frame" x="56.333333333333343" y="302.33333333333331" width="262.33333333333326" height="207.33333333333331"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="71R-va-Bbt" secondAttribute="height" multiplier="239:189" id="lGZ-eg-BTq"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iRf-47-hOf"/>
+                        <constraints>
+                            <constraint firstItem="71R-va-Bbt" firstAttribute="centerY" secondItem="q1b-1b-VE9" secondAttribute="centerY" id="0Yn-lH-Dbj"/>
+                            <constraint firstItem="Ugh-Wn-M9q" firstAttribute="bottom" secondItem="iRf-47-hOf" secondAttribute="bottom" id="22v-1D-4Lj"/>
+                            <constraint firstItem="C0K-KZ-a1x" firstAttribute="centerX" secondItem="q1b-1b-VE9" secondAttribute="centerX" id="8gX-Qj-Xrm"/>
+                            <constraint firstItem="71R-va-Bbt" firstAttribute="width" secondItem="q1b-1b-VE9" secondAttribute="width" multiplier="0.7" id="957-tb-C44"/>
+                            <constraint firstItem="Ugh-Wn-M9q" firstAttribute="top" secondItem="q1b-1b-VE9" secondAttribute="top" id="AWB-Zm-o38"/>
+                            <constraint firstItem="Ugh-Wn-M9q" firstAttribute="leading" secondItem="iRf-47-hOf" secondAttribute="leading" id="GqR-Ox-4gb"/>
+                            <constraint firstItem="Ugh-Wn-M9q" firstAttribute="trailing" secondItem="iRf-47-hOf" secondAttribute="trailing" id="aVl-RG-ru7"/>
+                            <constraint firstItem="71R-va-Bbt" firstAttribute="centerX" secondItem="q1b-1b-VE9" secondAttribute="centerX" id="aas-xS-MNf"/>
+                            <constraint firstItem="Bft-De-smb" firstAttribute="top" secondItem="C0K-KZ-a1x" secondAttribute="bottom" constant="28" id="cEd-od-wPe"/>
+                            <constraint firstItem="Bft-De-smb" firstAttribute="centerX" secondItem="q1b-1b-VE9" secondAttribute="centerX" id="g41-1b-Vih"/>
+                            <constraint firstItem="Bft-De-smb" firstAttribute="centerY" secondItem="q1b-1b-VE9" secondAttribute="centerY" id="lTD-cP-Qwl"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZHD-TI-lpE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2399" y="149"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="onboarding-large-circle" width="280.66665649414062" height="280.66665649414062"/>
+        <image name="onboarding-oil-spill" width="589.33331298828125" height="318.66665649414062"/>
+        <image name="onboarding-sewage" width="273" height="227.66667175292969"/>
+        <image name="onboarding-trashed" width="345.66665649414062" height="296"/>
+        <image name="plus-sign-radiate" width="82" height="82"/>
+        <image name="stock01" width="1499" height="2332"/>
+        <image name="vertical-logo" width="717" height="567"/>
+    </resources>
+</document>

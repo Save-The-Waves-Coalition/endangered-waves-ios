@@ -92,21 +92,21 @@ class OnboardingViewController: UIViewController {
         viewController.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[view(h)]",
                                                                           options: [],
                                                                           metrics: metrics,
-                                                                          views: ["view": viewController.view]))
+                                                                          views: ["view": viewController.view!]))
         viewController.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[view(w)]",
                                                                           options: [],
                                                                           metrics: metrics,
-                                                                          views: ["view": viewController.view]))
+                                                                          views: ["view": viewController.view!]))
         scrollView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]|",
                                                                  options: [],
                                                                  metrics: nil,
-                                                                 views: ["view": viewController.view]))
+                                                                 views: ["view": viewController.view!]))
 
         if self.numberOfPages == 1 {
             scrollView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]",
                                                                      options: [],
                                                                      metrics: nil,
-                                                                     views: ["view": viewController.view]))
+                                                                     views: ["view": viewController.view!]))
         } else {
             let previousVC = controllers[self.numberOfPages - 2]
             let previousView = previousVC.view!
@@ -114,7 +114,7 @@ class OnboardingViewController: UIViewController {
             scrollView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[previousView]-0-[view]",
                                                                      options: [],
                                                                      metrics: nil,
-                                                                     views: ["previousView": previousView, "view": viewController.view]))
+                                                                     views: ["previousView": previousView, "view": viewController.view!]))
 
             if let constraints = lastViewContraints {
                 scrollView.removeConstraints(constraints)
@@ -122,7 +122,7 @@ class OnboardingViewController: UIViewController {
             lastViewContraints = NSLayoutConstraint.constraints(withVisualFormat: "H:[view]-0-|",
                                                                 options: [],
                                                                 metrics: nil,
-                                                                views: ["view": viewController.view])
+                                                                views: ["view": viewController.view!])
             if let lastViewConstraints = lastViewContraints {
                 scrollView.addConstraints(lastViewConstraints)
             }
@@ -146,9 +146,9 @@ class OnboardingViewController: UIViewController {
 
     private func updateSkipText() {
         if currentPage == numberOfPages - 1 {
-            skipButton.setTitle("GET STARTED!", for: .normal)
+            skipButton.setTitle("GET STARTED!".localized(), for: .normal)
         } else {
-            skipButton.setTitle("SKIP", for: .normal)
+            skipButton.setTitle("SKIP".localized(), for: .normal)
         }
     }
 }

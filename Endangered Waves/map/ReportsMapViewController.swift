@@ -10,10 +10,11 @@ import UIKit
 import MapKit
 import CoreLocation
 import FirebaseFirestore
-import FirebaseFirestoreUI
+import FirebaseUI
+import Kml_swift
 
 protocol ReportsMapViewControllerDelegate: class {
-    func viewController(_ viewController: ReportsMapViewController, didRequestDetailsForReport report: Report)
+    func viewController(_ viewController: ReportsMapViewController, didRequestDetailsForReport report: STWDataType)
 }
 
 class ReportsMapViewController: UIViewController {
@@ -26,18 +27,25 @@ class ReportsMapViewController: UIViewController {
 
     fileprivate var didUpdateRegion = false
 
-    fileprivate lazy var batchedArray: FUIBatchedArray = {
+    fileprivate lazy var batchedArrayForReports: FUIBatchedArray = {
         let query = Firestore.firestore().collection("reports").order(by: "creationDate", descending: true)
         let array = FUIBatchedArray(query: query, delegate: self)
         return array
     }()
 
-    // View lifecycle
+    fileprivate lazy var batchedArrayForWSR: FUIBatchedArray = {
+        let query = Firestore.firestore().collection("wsr")
+        let array = FUIBatchedArray(query: query, delegate: self)
+        return array
+    }()
+
+    // MARK: View lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureMap()
-        batchedArray.observeQuery()
+        batchedArrayForReports.observeQuery()
+        batchedArrayForWSR.observeQuery()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -72,38 +80,76 @@ class ReportsMapViewController: UIViewController {
             self.mapView.setRegion(region, animated: true)
         }
     }
-
-    private func viewController(for annotation: ReportMapAnnotation) -> ReportDetailViewController {
-        // TODO: Coordinator should take care of this
-        let viewController = ReportDetailViewController.instantiate()
-        viewController.report = annotation.report
-        return viewController
-    }
 }
 
 // MARK: 🔥 FUIBatchedArrayDelegate
 extension ReportsMapViewController: FUIBatchedArrayDelegate {
 
+    func batchedArray(_ array: FUIBatchedArray, willUpdateWith diff: FUISnapshotArrayDiff<DocumentSnapshot>) {
+        // Not used but required by the compilier
+    }
+
     func batchedArray(_ array: FUIBatchedArray, didUpdateWith diff: FUISnapshotArrayDiff<DocumentSnapshot>) {
-        // TODO: Right now just removing all annotations and then adding everything back,
-        //       we really should be taking addvantage of the array diff
-        // print("ℹ️: Firestore udpated: \(diff)")
+        // Right now just removing all annotations and then adding everything back,
+        //  we really should be taking addvantage of the array diff, but so far
+        //  not seeing a performance hit
 
-        let annotations = mapView.annotations
-        mapView.removeAnnotations(annotations)
+        if array == batchedArrayForWSR {
+            // Only remove WSRs before re-adding them
+            let currentWSRAnnotations = mapView.annotations.filter { annotation in
+                guard let annotation = annotation as? ReportMapAnnotation else {
+                    return false
+                }
 
-        array.items.forEach { (snapshot) in
-            if let report = Report.createReportWithSnapshot(snapshot) {
-                let coordinate = CLLocationCoordinate2DMake(report.coordinate.latitude, report.coordinate.longitude)
-                let annotation = ReportMapAnnotation(coordinate: coordinate, report: report)
-                mapView.addAnnotation(annotation)
+                return annotation.report.type == .wsr
+            }
+            mapView.removeAnnotations(currentWSRAnnotations)
+
+            // Only remove WSR overlays before re-adding them
+            let currentWSROverlays = mapView.overlays.filter { overlay in
+                return overlay is KMLOverlayPolygon
+            }
+            mapView.removeOverlays(currentWSROverlays)
+
+            array.items.forEach { (snapshot) in
+                if let wsr = WorldSurfingReserve.createWsrWithSnapshot(snapshot) {
+                    let coordinate = CLLocationCoordinate2DMake(wsr.coordinate.latitude, wsr.coordinate.longitude)
+                    let annotation = ReportMapAnnotation(coordinate: coordinate, report: wsr)
+                    mapView.addAnnotation(annotation)
+
+                    if let kmlURL = wsr.kmlURL,
+                       let url = URL(string: kmlURL) {
+
+                        KMLDocument.parse(url: url, callback: { [unowned self] (kml) in
+                            self.mapView.addOverlays(kml.overlays)
+                        })
+                    }
+                }
+            }
+        } else if array == batchedArrayForReports {
+            // Only remove reports before re-adding them
+            let currentReportAnnotations = mapView.annotations.filter { annotation in
+                guard let annotation = annotation as? ReportMapAnnotation else {
+                    return false
+                }
+
+                return annotation.report.type != .wsr
+            }
+            mapView.removeAnnotations(currentReportAnnotations)
+
+            array.items.forEach { (snapshot) in
+                if let report = Report.createReportWithSnapshot(snapshot) {
+                    let coordinate = CLLocationCoordinate2DMake(report.coordinate.latitude, report.coordinate.longitude)
+                    let annotation = ReportMapAnnotation(coordinate: coordinate, report: report)
+                    mapView.addAnnotation(annotation)
+                }
             }
         }
     }
 
     func batchedArray(_ array: FUIBatchedArray, queryDidFailWithError error: Error) {
         assertionFailure("⚠️: \(error.localizedDescription)")
-        // TODO: Log this error
+        // TODO: Log this error to Crashlytics
     }
 }
 
@@ -122,44 +168,46 @@ extension ReportsMapViewController: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard let annotation = annotation as? ReportMapAnnotation else { return nil }
-
-        let identifier = "ReportMapAnnotationViewIdentifier"
-        var annotationView: ReportMapAnnotationView
-
-        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? ReportMapAnnotationView {
-            dequeuedView.annotation = annotation
-            annotationView = dequeuedView
+        if let annotation = annotation as? ReportMapAnnotation {
+            let identifier = "ReportMapAnnotationViewIdentifier"
+            var annotationView: ReportMapAnnotationView
+            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? ReportMapAnnotationView {
+                dequeuedView.annotation = annotation
+                annotationView = dequeuedView
+            } else {
+                annotationView = ReportMapAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                annotationView.calloutViewDelegate = self
+            }
+            return annotationView
         } else {
-            annotationView = ReportMapAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            annotationView.calloutViewDelegate = self
-            registerForPreviewing(with: self, sourceView: annotationView)
+            return nil
         }
-
-        return annotationView
     }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
 
-        guard let annotationView = view as? ReportMapAnnotationView,
-            let calloutView = annotationView.customCalloutView,
-            let annotation = annotationView.annotation else {
+        if let annotationView = view as? ReportMapAnnotationView {
+            let calloutView = annotationView.customCalloutView
+            // If custom callout is offscreen recenter map so it is now onscreen
+            let mapViewMaxXPostion = mapView.frame.maxX
+            let annotationViewXPostion = annotationView.frame.origin.x
+            let calloutViewWidth = calloutView!.bounds.size.width
+            let deltaX = (annotationViewXPostion + calloutViewWidth) - mapViewMaxXPostion
+
+            if deltaX > 0 {
+                var newCenter = mapView.centerCoordinate
+                let longitudePerPoint = mapView.region.span.longitudeDelta / Double(mapView.frame.maxX)
+                let extraPaddingOnRightSide = 8 * longitudePerPoint
+                newCenter.longitude += longitudePerPoint * Double(deltaX) + extraPaddingOnRightSide
+                mapView.setCenter(newCenter, animated: true)
+            }
+        } else {
                 return
         }
 
-        // If custom callout is offscreen recenter map so it is now onscreen
-        let mapViewMaxXPostion = mapView.frame.maxX
-        let annotationViewXPostion = annotationView.frame.origin.x
-        let calloutViewWidth = calloutView.bounds.size.width
-        let deltaX = (annotationViewXPostion + calloutViewWidth) - mapViewMaxXPostion
-
-        if deltaX > 0 {
-            var newCenter = mapView.centerCoordinate
-            newCenter.longitude = annotation.coordinate.longitude
-            mapView.setCenter(newCenter, animated: true)
-        }
     }
 
+// Would be cool to animate the pin drops but couldn't quite get this working
 // // Animation for the pin drops
 //
 //    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
@@ -208,59 +256,8 @@ extension ReportsMapViewController: MKMapViewDelegate {
 
 // MARK: ReportMapCalloutViewDelegate
 extension ReportsMapViewController: ReportMapCalloutViewDelegate {
-    func view(_ view: ReportMapCalloutView, didTapDetailsButton button: UIButton?, forReport report: Report) {
+    func view(_ view: ReportMapCalloutView, didTapDetailsButton button: UIButton?, forReport report: STWDataType) {
         delegate?.viewController(self, didRequestDetailsForReport: report)
-    }
-}
-
-// MARK: 🎑 UIViewControllerPreviewingDelegate
-extension ReportsMapViewController: UIViewControllerPreviewingDelegate {
-
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        guard let annotationView = previewingContext.sourceView as? ReportMapAnnotationView,
-            let annotation = annotationView.annotation as? ReportMapAnnotation else { return nil}
-
-        if let popoverFrame = rectForAnnotationViewWithPopover(view: annotationView) {
-            previewingContext.sourceRect = popoverFrame
-        }
-
-        let viewControllerForLocation = viewController(for: annotation)
-        return viewControllerForLocation
-    }
-
-    /*
-     If the annotation view has a popover, we need to get the rect
-     of the popover *and* the annotation view for the sourceRect.
-     You could also not add the annotation view height, if you
-     would just like the popover to not blur.
-     */
-    func rectForAnnotationViewWithPopover(view: MKAnnotationView) -> CGRect? {
-
-        var popover: UIView?
-
-        for view in view.subviews {
-            for view in view.subviews {
-                for view in view.subviews {
-                    popover = view
-                }
-            }
-        }
-
-        if let popover = popover, let frame = popover.superview?.convert(popover.frame, to: view) {
-            return CGRect(
-                x: frame.origin.x,
-                y: frame.origin.y,
-                width: frame.width,
-                height: frame.height + view.frame.height
-            )
-        }
-
-        return nil
-    }
-
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        // TODO: Coordinator should take care of this
-        navigationController?.pushViewController(viewControllerToCommit, animated: true)
     }
 }
 
@@ -268,4 +265,19 @@ extension ReportsMapViewController: UIViewControllerPreviewingDelegate {
 extension ReportsMapViewController: StoryboardInstantiable {
     static var storyboardName: String { return "map" }
     static var storyboardIdentifier: String? { return "ReportsMapComponent" }
+}
+
+// MARK: WSR polygon styling
+extension ReportsMapViewController {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if let wsrOverlay = overlay as? MKPolygon {
+            let renderer = MKPolygonRenderer(overlay: wsrOverlay)
+            renderer.alpha = 0.6
+            renderer.fillColor = Style.colorSTWBlue
+
+            return renderer
+        }
+
+        return MKOverlayRenderer()
+    }
 }

@@ -27,30 +27,52 @@ struct Competition {
     }
 
     static func createCompetitionWithDictionary(_ dictionary: [String: Any]) -> Competition? {
-        guard let title = dictionary["title"] as? String,
-            let description = dictionary["description"] as? String,
-            let introPageURLString = dictionary["introPageURL"] as? String,
+        guard let introPageURLString = dictionary["introPageURL"] as? String,
             let introPageURL = URL(string: introPageURLString),
-            let startDate = dictionary["startDate"] as? Date,
-            let endDate = dictionary["endDate"] as? Date
+            let startDateTimestamp = dictionary["startDate"] as? Timestamp,
+            let endDateTimestamp = dictionary["endDate"] as? Timestamp
             else {
+                assertionFailure("⚠️: Missing value for competition")
                 return nil
         }
+
+        let langCode = Bundle.main.preferredLocalizations[0]
+
+        let title: String
+        let firebaseTitleKey = "title_\(langCode)"
+        if let localizedTitle = dictionary[firebaseTitleKey] as? String {
+            title = localizedTitle
+        } else if let defaultTitle = dictionary["title"] as? String {
+            title = defaultTitle
+        } else {
+            assertionFailure("⚠️: Title for competition not found")
+            return nil
+        }
+
+        let description: String
+        let firebaseDescriptionKey = "description_\(langCode)"
+        if let localizedDescription = dictionary[firebaseDescriptionKey] as? String {
+            description = localizedDescription
+        } else if let defaultDescription = dictionary["description"] as? String {
+            description = defaultDescription
+        } else {
+            assertionFailure("⚠️: Description for competition not found")
+            return nil
+        }
+
+        let startDate = startDateTimestamp.dateValue()
+        let endDate = endDateTimestamp.dateValue()
+
         return Competition(title: title, description: description, introPageURL: introPageURL, startDate: startDate, endDate: endDate)
     }
 }
 
 extension Competition {
     static func createCompetitionWithSnapshot(_ snapshot: DocumentSnapshot) -> Competition? {
-        // TODO: Fix this "!"
-        return self.createCompetitionWithDictionary(snapshot.data()!)
-    }
-
-    static func createCompetitionWithSnapshot(_ snapshot: DocumentSnapshot, introPageHTML: String) -> Competition? {
-        // TODO: Fix this "!"
-        var competition = self.createCompetitionWithDictionary(snapshot.data()!)
-        competition?.introPageHTML = introPageHTML
-        return competition
+        guard let data = snapshot.data() else {
+            return nil
+        }
+        return self.createCompetitionWithDictionary(data)
     }
 
     func documentDataDictionary() -> [String: Any] {

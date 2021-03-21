@@ -49,7 +49,7 @@ class AppCoordinator: Coordinator {
         showContent()
 
         // If it's the user's first launch we show the onboarding screens on top of the dashboard/map
-        if isFirstLaunch() {
+        if UserDefaultsHandler.isFirstLaunch() {
             showOnboarding()
         } else if UserDefaultsHandler.shouldShowSurveryAlert() {
             showAppSurveyAlert()
@@ -113,18 +113,6 @@ class AppCoordinator: Coordinator {
             self.childCoordinators.append(competitionCoordinator)
             competitionCoordinator.start()
         }
-    }
-
-    // MARK: Miscellaneous helper functions
-    // TODO: move to user defaults helper class
-    func isFirstLaunch() -> Bool {
-        let hasBeenLaunchedBeforeFlag = "hasBeenLaunchedBeforeFlag"
-        let isFirstLaunch = !UserDefaults.standard.bool(forKey: hasBeenLaunchedBeforeFlag)
-        if isFirstLaunch {
-            UserDefaults.standard.set(true, forKey: hasBeenLaunchedBeforeFlag)
-            UserDefaults.standard.synchronize()
-        }
-        return isFirstLaunch
     }
 }
 

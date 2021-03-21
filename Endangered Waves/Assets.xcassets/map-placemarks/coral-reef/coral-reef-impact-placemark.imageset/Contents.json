@@ -1,0 +1,15 @@
+{
+  "images" : [
+    {
+      "filename" : "coral-reef-impact-placemark.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true
+  }
+}

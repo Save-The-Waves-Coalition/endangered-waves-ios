@@ -10,44 +10,78 @@ import UIKit
 import SDWebImage
 
 protocol ReportMapCalloutViewDelegate: class {
-    func view(_ view: ReportMapCalloutView, didTapDetailsButton button: UIButton?, forReport report: Report)
+    func view(_ view: ReportMapCalloutView, didTapDetailsButton button: UIButton?, forReport report: STWDataType)
 }
 
 class ReportMapCalloutView: UIView {
 
-    var report: Report! {
+    var report: STWDataType! {
         didSet {
-            if let reportTypeLabel = reportTypeLabel {
-                reportTypeLabel.text = report.type.displayString().uppercased()
+            if let report = report as? Report {
+                if let reportTypeLabel = reportTypeLabel {
+                    reportTypeLabel.text = report.type.displayString().uppercased()
+                }
+                if let dateLabel = dateLabel {
+                    dateLabel.text = report.dateDisplayString()
+                }
             }
-
-            if let dateLabel = dateLabel {
-                dateLabel.text = report.dateDisplayString()
+            if let report = report as? WorldSurfingReserve {
+                if let reportTypeLabel = reportTypeLabel {
+                    reportTypeLabel.text = report.name.uppercased()
+                }
+                if let dateLabel = dateLabel {
+                    dateLabel.text = report.type.displayString()
+                }
             }
 
             if let placemarkImageView = placemarkImageView {
-                placemarkImageView.image = report.type.placemarkIcon()
-            }
+                if report.type == .wsr {
+                    guard let wsrReport = report as? WorldSurfingReserve else {
+                        return
+                    }
 
+                    placemarkImageView.image = Style.iconWsrPlacemark
+
+                    // Could use Firebase storage references instead of URLs for better caching ¯\(°_o)/¯
+                    placemarkImageView.sd_setImage(with: URL(string: wsrReport.iconURL), completed: { (image, error, cacheType, url) in
+                        if image == nil {
+                            return
+                        }
+
+                        if cacheType == SDImageCacheType.none {
+                            UIView.animate(withDuration: 0.25, animations: {
+                                placemarkImageView.alpha = 1.0
+                            })
+                        } else {
+                            placemarkImageView.alpha = 1.0
+                        }
+                    })
+                } else {
+                    placemarkImageView.image = report.type.placemarkIcon()
+                }
+            }
             if let userImageView = userImageView,
                 let firstImageURLString = report.imageURLs.first,
                 let firstImageURL = URL(string: firstImageURLString) {
 
-                // TODO: Maybe use storage references instead of URLs for better caching ¯\(°_o)/¯
-                userImageView.sd_setImage(with: firstImageURL, completed: { (image, error, cacheType, url) in
-                    if image == nil {
-                        return
-                    }
+                if report.type == .wsr {
+                    userImageView.image = Style.iconWsrPlacemark
+                } else {
+                    // Could use Firebase storage references instead of URLs for better caching ¯\(°_o)/¯
+                    userImageView.sd_setImage(with: firstImageURL, completed: { (image, error, cacheType, url) in
+                        if image == nil {
+                            return
+                        }
 
-                    if cacheType == SDImageCacheType.none {
-                        UIView.animate(withDuration: 0.25, animations: {
+                        if cacheType == SDImageCacheType.none {
+                            UIView.animate(withDuration: 0.25, animations: {
+                                userImageView.alpha = 1.0
+                            })
+                        } else {
                             userImageView.alpha = 1.0
-                        })
-                    } else {
-                        userImageView.alpha = 1.0
-                    }
-                })
-
+                        }
+                    })
+                }
             }
         }
     }
@@ -64,7 +98,7 @@ class ReportMapCalloutView: UIView {
     @IBOutlet weak var userImageView: UIImageView!
 
     @IBAction func userDidTapDetailsButton(_ sender: UIButton) {
-        delegate?.view(self, didTapDetailsButton: sender, forReport: report)
+            delegate?.view(self, didTapDetailsButton: sender, forReport: report)
     }
 
     override func awakeFromNib() {
@@ -80,7 +114,7 @@ class ReportMapCalloutView: UIView {
         delegate?.view(self, didTapDetailsButton: nil, forReport: report)
     }
 
-    // MARK: - Hit test. We need to override this to detect hits in our custom callout. Is this really needed ¯\(°_o)/¯
+    // Hit test. We need to override this to detect hits in our custom callout. Is this really needed ¯\(°_o)/¯
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
 
         // Check if it hit our annotation detail view components.
