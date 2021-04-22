@@ -27,16 +27,36 @@ struct Competition {
     }
 
     static func createCompetitionWithDictionary(_ dictionary: [String: Any]) -> Competition? {
-        guard let introPageURLString = dictionary["introPageURL"] as? String,
-            let introPageURL = URL(string: introPageURLString),
-            let startDateTimestamp = dictionary["startDate"] as? Timestamp,
+        guard let startDateTimestamp = dictionary["startDate"] as? Timestamp,
             let endDateTimestamp = dictionary["endDate"] as? Timestamp
             else {
                 assertionFailure("⚠️: Missing value for competition")
                 return nil
         }
 
-        let langCode = Bundle.main.preferredLocalizations[0]
+        let langCode = Bundle.main.preferredLocalizations[0].prefix(2)
+
+
+        /*
+         let introPageURLString = dictionary["introPageURL"] as? String,
+             let introPageURL = URL(string: introPageURLString),
+         */
+
+        let introPageURLString: String
+        let firebaseIntroPageURLStringKey = "introPageURL_\(langCode)"
+        if let localizedIntroPageURLString = dictionary[firebaseIntroPageURLStringKey] as? String {
+            introPageURLString = localizedIntroPageURLString
+        } else if let defaultIntroPageURLString = dictionary["introPageURL"] as? String {
+            introPageURLString = defaultIntroPageURLString
+        } else {
+            assertionFailure("⚠️: introPageURL for competition not found")
+            return nil
+        }
+
+        guard let introPageURL = URL(string: introPageURLString) else {
+            assertionFailure("⚠️: Missing URL for competition")
+            return nil
+        }
 
         let title: String
         let firebaseTitleKey = "title_\(langCode)"

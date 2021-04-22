@@ -453,7 +453,7 @@ struct WorldSurfingReserve: STWDataType {
         }
         let dedicated = dedicatedTimestamp.dateValue()
 
-        let langCode = Bundle.main.preferredLocalizations[0]
+        let langCode = Bundle.main.preferredLocalizations[0].prefix(2)
         let description: String
         let firebaseDescriptionKey = "description_\(langCode)"
         if let localizedDescription = dictionary[firebaseDescriptionKey] as? String {
