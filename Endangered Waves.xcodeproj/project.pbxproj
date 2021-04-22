@@ -254,7 +254,6 @@
 		221B85AE25F2E20C00EC1681 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/new-report.storyboard"; sourceTree = "<group>"; };
 		221B85C525F2E7E200EC1681 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		221B85CE25F2EA0800EC1681 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/container.storyboard; sourceTree = "<group>"; };
-		221B86B025F6924E00EC1681 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		221B86B125F6932D00EC1681 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2261889825ED5791000E90F3 /* ThreatCategorySelectionNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatCategorySelectionNavController.swift; sourceTree = "<group>"; };
 		2268A5C425F2D04500829F05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/report.storyboard; sourceTree = "<group>"; };
@@ -371,6 +370,7 @@
 		4AF773751FB223E1005BFE50 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4AF773771FB223EE005BFE50 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4AF773791FB22407005BFE50 /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BuddyBuildSDK.framework; path = Pods/BuddyBuildSDK/BuddyBuildSDK.framework; sourceTree = "<group>"; };
+		641BE92D263221B9006F87FC /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		648DA48125FA5E17009A5271 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		64B9CCDD25FC12A100695C35 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		64C1131825FE8377003188E0 /* Ericeira Portugal.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Ericeira Portugal.gpx"; sourceTree = "<group>"; };
@@ -855,7 +855,7 @@
 				Base,
 				es,
 				fr,
-				"pt-BR",
+				pt,
 			);
 			mainGroup = 4A7FA90D1FAA966300C6A2BB;
 			productRefGroup = 4A7FA9171FAA966300C6A2BB /* Products */;
@@ -1420,8 +1420,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				221B85C525F2E7E200EC1681 /* fr */,
-				221B86B025F6924E00EC1681 /* pt-BR */,
 				221B86B125F6932D00EC1681 /* es */,
+				641BE92D263221B9006F87FC /* pt */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
