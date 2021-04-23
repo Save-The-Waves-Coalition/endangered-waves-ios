@@ -70,10 +70,7 @@ extension InformationViewController {
             case 1: // Donation
                 let url  = URL(string: "https://www.savethewaves.org/support-us/donate/")!
                 delegate?.viewController(self, wantsToOpenURL: url)
-            case 2: // Member
-                let url  = URL(string: "https://www.savethewaves.org/member/")!
-                delegate?.viewController(self, wantsToOpenURL: url)
-            case 3: // Sustaining
+            case 2: // Sustaining
                 let url  = URL(string: "https://www.savethewaves.org/support-us/sustaining-members/")!
                 delegate?.viewController(self, wantsToOpenURL: url)
             default:
