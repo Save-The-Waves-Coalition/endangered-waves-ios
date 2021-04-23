@@ -109,7 +109,7 @@ extension Competition {
     func dateDisplayString() -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
-        let dateString = "\(formatter.string(from: startDate)) to \(formatter.string(from: endDate))"
+        let dateString = "\(formatter.string(from: startDate)) - \(formatter.string(from: endDate))"
         return dateString
     }
 }
