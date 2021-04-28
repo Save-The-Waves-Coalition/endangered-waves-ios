@@ -118,7 +118,7 @@ class ContainerCoordinator: Coordinator {
     }
 
     fileprivate func showTakeAction() {
-        let url = URL(string: "http://www.savethewaves.org/endangered-waves/take-action/")!
+        let url = URL(string: "https://www.savethewaves.org/take-action/")!
         let safariViewController = SFSafariViewController(url: url)
         safariViewController.preferredControlTintColor = Style.colorSTWBlue
         self.containerViewController.present(safariViewController, animated: true, completion: nil)

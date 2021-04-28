@@ -194,7 +194,7 @@ class ReportDetailViewController: UITableViewController {
     @IBAction func userTappedTakeActionButton(_ sender: UIButton) {
         // Coordinator could do this
         if report is Report {
-            let url = URL(string: "http://www.savethewaves.org/endangered-waves/take-action/")!
+            let url = URL(string: "https://www.savethewaves.org/take-action/")!
             let safariViewController = SFSafariViewController(url: url)
             safariViewController.preferredControlTintColor = Style.colorSTWBlue
             present(safariViewController, animated: true, completion: nil)
