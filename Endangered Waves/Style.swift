@@ -106,8 +106,8 @@ struct Style {
 
     // Trash
     static let iconTrashFishingGearPlacemark = UIImage(named: "trash-fishing-gear-placemark")!
-    static let iconTrashMicroPlasticsPlacemark = UIImage(named: "trash-plastic-packaging-placemark")!
-    static let iconTrashPlasticPackagingPlacemark = UIImage(named: "trash-microplastics-placemark")!
+    static let iconTrashPlasticPackagingPlacemark = UIImage(named: "trash-plastic-packaging-placemark")!
+    static let iconTrashMicroPlasticsPlacemark = UIImage(named: "trash-microplastics-placemark")!
     static let iconTrashPlacemark = UIImage(named: "trash-placemark")!
 
     // Missing
