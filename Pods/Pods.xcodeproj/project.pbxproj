@@ -24246,6 +24246,7 @@
 			baseConfigurationReference = 14BA7CDDB2F0F0F0DBC8A6FDA9F2C9F3 /* FirebaseUI.debug.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FirebaseUI";
+				DEVELOPMENT_TEAM = 72RCH6T78N;
 				IBSC_MODULE = FirebaseUI;
 				INFOPLIST_FILE = "Target Support Files/FirebaseUI/ResourceBundle-FirebaseAuthUI-FirebaseUI-Info.plist";
 				PRODUCT_NAME = FirebaseAuthUI;
@@ -24655,6 +24656,7 @@
 			baseConfigurationReference = A9D9079F9F6E30C3CB3C90B696B45BCC /* FirebaseUI.release.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FirebaseUI";
+				DEVELOPMENT_TEAM = 72RCH6T78N;
 				IBSC_MODULE = FirebaseUI;
 				INFOPLIST_FILE = "Target Support Files/FirebaseUI/ResourceBundle-FirebaseAuthUI-FirebaseUI-Info.plist";
 				PRODUCT_NAME = FirebaseAuthUI;
@@ -24670,6 +24672,7 @@
 			baseConfigurationReference = 177666307D16E10E89F2D182E3E0AC5E /* gRPC-C++.debug.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/gRPC-C++";
+				DEVELOPMENT_TEAM = 72RCH6T78N;
 				IBSC_MODULE = grpcpp;
 				INFOPLIST_FILE = "Target Support Files/gRPC-C++/ResourceBundle-gRPCCertificates-Cpp-gRPC-C++-Info.plist";
 				PRODUCT_NAME = "gRPCCertificates-Cpp";
@@ -25328,6 +25331,7 @@
 			baseConfigurationReference = 69815D1FE24639365074FCE1DCDB60D9 /* gRPC-C++.release.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/gRPC-C++";
+				DEVELOPMENT_TEAM = 72RCH6T78N;
 				IBSC_MODULE = grpcpp;
 				INFOPLIST_FILE = "Target Support Files/gRPC-C++/ResourceBundle-gRPCCertificates-Cpp-gRPC-C++-Info.plist";
 				PRODUCT_NAME = "gRPCCertificates-Cpp";
