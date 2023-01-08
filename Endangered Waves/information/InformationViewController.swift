@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol InformationViewControllerDelegate: class {
+protocol InformationViewControllerDelegate: AnyObject {
     func viewController(_ viewController: InformationViewController, didTapDoneButton button: UIBarButtonItem)
     func viewController(_ viewController: InformationViewController, wantsToOpenURL url: URL)
     func viewController(_ viewController: InformationViewController, wantsToLaunchAppWithURL url: URL)

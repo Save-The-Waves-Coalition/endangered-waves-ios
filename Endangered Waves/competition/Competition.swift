@@ -36,7 +36,6 @@ struct Competition {
 
         let langCode = Bundle.main.preferredLocalizations[0].prefix(2)
 
-
         /*
          let introPageURLString = dictionary["introPageURL"] as? String,
              let introPageURL = URL(string: introPageURLString),
