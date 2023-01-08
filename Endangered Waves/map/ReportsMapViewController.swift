@@ -13,7 +13,7 @@ import FirebaseFirestore
 import FirebaseUI
 import Kml_swift
 
-protocol ReportsMapViewControllerDelegate: class {
+protocol ReportsMapViewControllerDelegate: AnyObject {
     func viewController(_ viewController: ReportsMapViewController, didRequestDetailsForReport report: STWDataType)
 }
 

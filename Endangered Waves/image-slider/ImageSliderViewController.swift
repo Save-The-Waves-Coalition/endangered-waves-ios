@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ImageSliderViewControllerDelegate: class {
+protocol ImageSliderViewControllerDelegate: AnyObject {
     func viewController(_ viewController: ImageSliderViewController, didTapImage image: UIImage, atIndex index: Int)
 }
 

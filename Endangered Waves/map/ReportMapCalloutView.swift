@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-protocol ReportMapCalloutViewDelegate: class {
+protocol ReportMapCalloutViewDelegate: AnyObject {
     func view(_ view: ReportMapCalloutView, didTapDetailsButton button: UIButton?, forReport report: STWDataType)
 }
 

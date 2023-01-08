@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ContainerViewControllerDelegate: class {
+protocol ContainerViewControllerDelegate: AnyObject {
     func controller(_ controller: ContainerViewController, didTapMapButton button: UIButton)
     func controller(_ controller: ContainerViewController, didTapListButton button: UIButton)
     func controller(_ controller: ContainerViewController, didTapAddButton button: UIButton)

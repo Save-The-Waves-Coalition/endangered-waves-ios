@@ -14,7 +14,7 @@ import SVProgressHUD
 import CoreLocation
 import PhotosUI
 
-protocol NewReportCoordinatorDelegate: class {
+protocol NewReportCoordinatorDelegate: AnyObject {
 func coordinator(_ coordinator: NewReportCoordinator, didFinishNewReport report: STWDataType?)
 }
 

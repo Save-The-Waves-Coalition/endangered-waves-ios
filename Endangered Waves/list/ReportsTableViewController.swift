@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseUI
 
-protocol ReportsTableViewControllerDelegate: class {
+protocol ReportsTableViewControllerDelegate: AnyObject {
     func viewController(_ viewController: ReportsTableViewController, didRequestDetailsForReport report: STWDataType)
 }
 

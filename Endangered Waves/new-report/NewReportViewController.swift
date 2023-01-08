@@ -14,7 +14,7 @@ import LocationPickerViewController
 import Firebase
 import MapKit
 
-protocol NewReportViewControllerDelegate: class {
+protocol NewReportViewControllerDelegate: AnyObject {
     func viewController(_ viewController: NewReportViewController, didTapCancelButton button: UIBarButtonItem)
     func viewController(_ viewController: NewReportViewController, didTapPostButton button: Any?)
     func viewController(_ viewController: NewReportViewController, didTapImageAtIndex index: Int)

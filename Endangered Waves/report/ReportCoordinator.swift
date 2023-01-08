@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ReportCoordinatorDelegate: class {
+protocol ReportCoordinatorDelegate: AnyObject {
     func coordinatorDidFinishViewingReport(_ coordinator: ReportCoordinator)
 }
 

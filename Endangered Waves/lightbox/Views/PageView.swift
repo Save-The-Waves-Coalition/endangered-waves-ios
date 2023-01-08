@@ -1,7 +1,7 @@
 import UIKit
 import WebKit
 
-protocol PageViewDelegate: class {
+protocol PageViewDelegate: AnyObject {
 
   func pageViewDidZoom(_ pageView: PageView)
   func remoteImageDidLoad(_ image: UIImage?, imageView: UIImageView)
