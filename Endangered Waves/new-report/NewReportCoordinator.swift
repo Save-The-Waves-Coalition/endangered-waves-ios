@@ -204,6 +204,7 @@ extension NewReportCoordinator: UIImagePickerControllerDelegate, UINavigationCon
 extension NewReportCoordinator: PHPickerViewControllerDelegate {
 
     // TODO: Images are large and this loading can take a while and is done async, should be showing a progress indictor here
+    // see https://christianselig.com/2020/09/phpickerviewcontroller-efficiently/
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
 
         if results.isEmpty {

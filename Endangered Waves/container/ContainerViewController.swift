@@ -29,11 +29,12 @@ class ContainerViewController: UIViewController {
     }
 
     @IBAction func addButtonWasTapped(_ sender: UIButton) {
+        // MDM 2023-01-13 - No longer needed, need to redo all of the status bars do us the island with iOS 14
         // Hide the status bar
-        statusBarShouldBeHidden = true
-        UIView.animate(withDuration: 0.25) {
-            self.setNeedsStatusBarAppearanceUpdate()
-        }
+//        statusBarShouldBeHidden = true
+//        UIView.animate(withDuration: 0.25) {
+//            self.setNeedsStatusBarAppearanceUpdate()
+//        }
         delegate?.controller(self, didTapAddButton: sender)
     }
 
@@ -73,22 +74,22 @@ class ContainerViewController: UIViewController {
         applyActiveStyleToButton(mapButton)
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        statusBarShouldBeHidden = false
-        UIView.animate(withDuration: 0.25) {
-            self.setNeedsStatusBarAppearanceUpdate()
-        }
-    }
-
-    var statusBarShouldBeHidden = false
-    override var prefersStatusBarHidden: Bool {
-        return statusBarShouldBeHidden
-    }
-
-    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
-        return .slide
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        statusBarShouldBeHidden = false
+//        UIView.animate(withDuration: 0.25) {
+//            self.setNeedsStatusBarAppearanceUpdate()
+//        }
+//    }
+//
+//    var statusBarShouldBeHidden = false
+//    override var prefersStatusBarHidden: Bool {
+//        return statusBarShouldBeHidden
+//    }
+//
+//    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+//        return .slide
+//    }
 }
 
 // MARK: 📖 StoryboardInstantiable
