@@ -64,14 +64,17 @@ extension InformationViewController {
         switch indexPath.section {
         case 0:
             switch indexPath.row {
-            case 0: // Newsletter
-                let url = URL(string: "https://www.savethewaves.org/media/newsletters/newsletter-signup/")!
+            case 0: // Learn More
+                let url = URL(string: "https://www.savethewaves.org/about/")!
                 delegate?.viewController(self, wantsToOpenURL: url)
-            case 1: // Donation
-                let url  = URL(string: "https://www.savethewaves.org/support-us/donate/")!
+            case 1: // Take Action
+                let url  = URL(string: "https://www.savethewaves.org/take-action/")!
                 delegate?.viewController(self, wantsToOpenURL: url)
-            case 2: // Sustaining
-                let url  = URL(string: "https://www.savethewaves.org/support-us/sustaining-members/")!
+            case 2: // Sign up
+                let url  = URL(string: "https://www.savethewaves.org/signup/")!
+                delegate?.viewController(self, wantsToOpenURL: url)
+            case 3: // Make a donation
+                let url  = URL(string: "https://www.savethewaves.org/giving/")!
                 delegate?.viewController(self, wantsToOpenURL: url)
             default:
                 break
@@ -109,7 +112,7 @@ extension InformationViewController {
         case 3:
             switch indexPath.row {
             case 0: // App Survey
-                let url  = URL(string: Constants.appSurveyURL)!
+                let url  = URL(string: "https://www.savethewaves.org/appsurvey/")!
                 delegate?.viewController(self, wantsToOpenURL: url)
             case 1: // Email
                 let url  = URL(string: "https://www.savethewaves.org/about-us/contact-us/#contactus")!
@@ -122,9 +125,18 @@ extension InformationViewController {
             default:
                 break
             }
+        case 4:
+            switch indexPath.row {
+            case 0: // Website
+                let url  = URL(string: "https://www.savethewaves.org/")!
+                delegate?.viewController(self, wantsToOpenURL: url)
+            default:
+                break
+            }
         default:
             break
         }
+
         tableView.deselectRow(at: indexPath, animated: true)
     }
     // swiftlint:enable cyclomatic_complexity function_body_length
