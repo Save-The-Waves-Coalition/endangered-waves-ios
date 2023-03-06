@@ -9,5 +9,5 @@
 import Foundation
 
 struct Constants {
-    static let appSurveyURL = "https://docs.google.com/forms/d/e/1FAIpQLSdm8-9apM3KFGuClz5hGwIWTCR0wIbQcQYYuEA0HoHSPIonMw/viewform?usp=sf_link"
+    static let appSurveyURL = "https://www.savethewaves.org/appsurvey/"
 }

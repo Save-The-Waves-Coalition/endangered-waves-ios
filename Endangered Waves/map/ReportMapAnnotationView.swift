@@ -32,10 +32,12 @@ class ReportMapAnnotationView: MKAnnotationView {
                     guard let wsrReport = reportMapAnnotation.report as? WorldSurfingReserve else {
                         return
                     }
+                    let transformer = SDImageResizingTransformer(size: CGSize(width: 48, height: 48), scaleMode: .aspectFill)
 
                     // Could use Firebase storage references instead of URLs for better caching ¯\(°_o)/¯
                     SDWebImageManager.shared.loadImage(with: URL(string: wsrReport.iconURL),
                                                        options: [],
+                                                       context: [.imageTransformer: transformer],
                                                        progress: nil) {(loadedImage, data, error, cacheType, finished, imageURL) in
                         if !finished {
                             return

@@ -112,7 +112,7 @@ extension InformationViewController {
         case 3:
             switch indexPath.row {
             case 0: // App Survey
-                let url  = URL(string: "https://www.savethewaves.org/appsurvey/")!
+                let url  = URL(string: Constants.appSurveyURL)!
                 delegate?.viewController(self, wantsToOpenURL: url)
             case 1: // Email
                 let url  = URL(string: "https://www.savethewaves.org/about-us/contact-us/#contactus")!
