@@ -45,8 +45,10 @@ class ImageSliderViewController: UIPageViewController {
 
     @objc func imageSliderViewControllerWasTapped(sender: UITapGestureRecognizer) {
         if let images = self.images {
-            let image = images[currentPageIndex]
-            imageSliderViewControllerDelegate?.viewController(self, didTapImage: image, atIndex: currentPageIndex)
+            if !images.isEmpty {
+                let image = images[currentPageIndex]
+                imageSliderViewControllerDelegate?.viewController(self, didTapImage: image, atIndex: currentPageIndex)
+            }
         }
     }
 
