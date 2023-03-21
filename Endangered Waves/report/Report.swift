@@ -208,7 +208,7 @@ extension ReportType {
         case .sewage: // V1 Threat Category
             return Style.iconSewagePlacemark
         case .runoff:
-            return Style.iconWaterQualityRunoffPlacemark
+            return Style.iconWaterQualityPlacemark
         case .algalBloom:
             return Style.iconWaterQualityAlgalBloomPlacemark
         case .waterQuality:
