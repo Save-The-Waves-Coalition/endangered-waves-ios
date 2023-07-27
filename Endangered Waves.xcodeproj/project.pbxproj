@@ -675,8 +675,9 @@
 		4A7FA90E1FAA966300C6A2BB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = "Save The Waves";
 				TargetAttributes = {
 					4A7FA9151FAA966300C6A2BB = {
