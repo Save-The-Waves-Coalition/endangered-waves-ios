@@ -46,7 +46,15 @@ class NewReportViewController: UITableViewController {
     @IBOutlet weak var waterQualityImageButton: UIButton!
     @IBOutlet weak var waterQualityTextButton: UIButton!
 
-    var competition: Competition?
+    var competition: Competition? {
+        didSet {
+            // Ignore the actual value and set competition to nil
+            self.competition = nil
+
+            // Update UI to reflect no competition
+            updateUIForNoCompetition()
+        }
+    }
     @IBOutlet weak var competitionTrophyImageView: UIImageView!
     @IBOutlet weak var competitionTitleLabel: UILabel!
     @IBOutlet weak var competitionDateLabel: UILabel!
@@ -124,7 +132,6 @@ class NewReportViewController: UITableViewController {
             }
         }
     }
-
     // MARK: View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -168,6 +175,14 @@ class NewReportViewController: UITableViewController {
         descriptionTextView.attributedText = Style.userInputPlaceholderAttributedStringForString("Write a description...".localized())
         locationLabel.attributedText = Style.userInputPlaceholderAttributedStringForString("Choose a location...".localized())
         emailTextView.attributedText = Style.userInputPlaceholderAttributedStringForString("Enter email address...".localized())
+    }
+    func updateUIForNoCompetition() {
+        guard isViewLoaded else { return }
+
+        competitionTrophyImageView.isHidden = true
+        competitionTitleLabel.isHidden = true
+        competitionDateLabel.isHidden = true
+        competitionInfoButton.isHidden = true
     }
 
     // MARK: IBActions
