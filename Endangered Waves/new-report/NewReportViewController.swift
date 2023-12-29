@@ -48,6 +48,9 @@ class NewReportViewController: UITableViewController {
 
     var competition: Competition? {
         didSet {
+            // We no longer want competitions to be presented as a threat category,
+            // but we will not currently delete that code, so for now this will have it never shown in the UI 12/29/23 - Teague Neschke
+
             // Ignore the actual value and set competition to nil
             self.competition = nil
 
