@@ -14,15 +14,15 @@ abstract_target 'shared' do
   use_frameworks!
 
   # Firebase
-  pod 'Firebase/Auth', '~> 7.7'
-  pod 'Firebase/Crashlytics', '~> 7.7'
-  pod 'Firebase/Firestore', '~> 7.7'
-  pod 'Firebase/Storage', '~> 7.7'
+  pod 'Firebase/Auth', '~> 11.0'
+  pod 'Firebase/Crashlytics', '~> 11.0'
+  pod 'Firebase/Firestore', '~> 11.0'
+  pod 'Firebase/Storage', '~> 11.0'
   
   # UI Bindings for Firebase
-  pod 'FirebaseUI/Firestore', '~> 10.0'
-  pod 'FirebaseUI/Auth', '~> 10.0'
-  pod 'FirebaseUI/Storage', '~> 10.0'
+  pod 'FirebaseUI/Firestore', '~> 14.0'
+  pod 'FirebaseUI/Auth', '~> 14.0'
+  pod 'FirebaseUI/Storage', '~> 14.0'
   
   # UI Related
   pod 'SDWebImage', '~> 5.10'
