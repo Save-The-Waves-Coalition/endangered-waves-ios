@@ -10,7 +10,9 @@ import UIKit
 import MapKit
 import CoreLocation
 import FirebaseFirestore
-import FirebaseUI
+import FirebaseAuthUI
+import FirebaseStorageUI
+import FirebaseFirestoreUI
 import Kml_swift
 
 protocol ReportsMapViewControllerDelegate: AnyObject {

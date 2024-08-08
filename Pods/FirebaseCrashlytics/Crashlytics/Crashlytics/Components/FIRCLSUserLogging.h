@@ -31,6 +31,8 @@ extern NSString* const FIRCLSUserNameKey;
 extern NSString* const FIRCLSUserEmailKey;
 extern NSString* const FIRCLSDevelopmentPlatformNameKey;
 extern NSString* const FIRCLSDevelopmentPlatformVersionKey;
+extern NSString* const FIRCLSOnDemandRecordedExceptionsKey;
+extern NSString* const FIRCLSOnDemandDroppedExceptionsKey;
 #endif
 
 extern const uint32_t FIRCLSUserLoggingMaxKVEntries;
@@ -79,7 +81,9 @@ void FIRCLSUserLoggingRecordUserKeysAndValues(NSDictionary* keysAndValues);
 void FIRCLSUserLoggingRecordInternalKeyValue(NSString* key, id value);
 void FIRCLSUserLoggingWriteInternalKeyValue(NSString* key, NSString* value);
 
-void FIRCLSUserLoggingRecordError(NSError* error, NSDictionary<NSString*, id>* additionalUserInfo);
+void FIRCLSUserLoggingRecordError(NSError* error,
+                                  NSDictionary<NSString*, id>* additionalUserInfo,
+                                  NSString* rolloutsInfoJSON);
 
 NSDictionary* FIRCLSUserLoggingGetCompactedKVEntries(FIRCLSUserLoggingKVStorage* storage,
                                                      bool decodeHex);
@@ -101,6 +105,11 @@ void FIRCLSUserLoggingWriteAndCheckABFiles(FIRCLSUserLoggingABStorage* storage,
 NSArray* FIRCLSUserLoggingStoredKeyValues(const char* path);
 
 OBJC_EXTERN void FIRCLSLog(NSString* format, ...) NS_FORMAT_FUNCTION(1, 2);
+OBJC_EXTERN void FIRCLSLogToStorage(FIRCLSUserLoggingABStorage* storage,
+                                    const char** activePath,
+                                    NSString* format,
+                                    ...) NS_FORMAT_FUNCTION(3, 4);
+
 #endif
 
 __END_DECLS
