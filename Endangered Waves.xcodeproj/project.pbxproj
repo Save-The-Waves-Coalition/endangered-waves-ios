@@ -59,7 +59,6 @@
 		4A321AC81FB9131D001DA08A /* ReportDetailNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A321AC71FB9131D001DA08A /* ReportDetailNavViewController.swift */; };
 		4A7704FB214D91C100EEB34E /* ReportEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7704FA214D91C100EEB34E /* ReportEntry.swift */; };
 		4A7704FC214D91C100EEB34E /* ReportEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7704FA214D91C100EEB34E /* ReportEntry.swift */; };
-		4A7F5B91205979C2003FA075 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A7F5B90205979C2003FA075 /* GoogleService-Info.plist */; };
 		4A7F5B9220597ABA003FA075 /* ReportDetailMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8772FEE52044CCB6007F2E75 /* ReportDetailMapViewController.swift */; };
 		4A7F5B9320597AE1003FA075 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8719336F20488544000DD493 /* Extensions.swift */; };
 		4A7F5B9420597B13003FA075 /* UserDefaultsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8774078B2048D39900ED36F1 /* UserDefaultsHandler.swift */; };
@@ -67,7 +66,6 @@
 		4A7FA91A1FAA966300C6A2BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7FA9191FAA966300C6A2BB /* AppDelegate.swift */; };
 		4A7FA9211FAA966300C6A2BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A7FA9201FAA966300C6A2BB /* Assets.xcassets */; };
 		4A7FA9241FAA966300C6A2BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A7FA9221FAA966300C6A2BB /* LaunchScreen.storyboard */; };
-		4A7FA92C1FAA96ED00C6A2BB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A7FA92B1FAA96ED00C6A2BB /* GoogleService-Info.plist */; };
 		4A8987681FAE0B4E0098E473 /* ReportsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8987671FAE0B4E0098E473 /* ReportsTableViewController.swift */; };
 		4A8B6A791FC3421C005A5989 /* NSObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8B6A781FC3421C005A5989 /* NSObjectExtensions.swift */; };
 		4A8B6A7B1FC3423D005A5989 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8B6A7A1FC3423D005A5989 /* NavigationBar.swift */; };
@@ -131,6 +129,8 @@
 		4AF773741FB223D9005BFE50 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773731FB223D3005BFE50 /* CoreVideo.framework */; };
 		4AF773761FB223E6005BFE50 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773751FB223E1005BFE50 /* QuartzCore.framework */; };
 		4AF773781FB223F4005BFE50 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF773771FB223EE005BFE50 /* SystemConfiguration.framework */; };
+		64761CDD2C67E80400E54D06 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64761CDC2C67E80400E54D06 /* GoogleService-Info.plist */; };
+		64761CE02C67E89100E54D06 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64761CDE2C67E89100E54D06 /* GoogleService-Info.plist */; };
 		64B9CCDE25FC12A100695C35 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B9CCDD25FC12A100695C35 /* Localization.swift */; };
 		64B9CCDF25FC12A100695C35 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B9CCDD25FC12A100695C35 /* Localization.swift */; };
 		8719337020488544000DD493 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8719336F20488544000DD493 /* Extensions.swift */; };
@@ -241,13 +241,11 @@
 		4A321AC71FB9131D001DA08A /* ReportDetailNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDetailNavViewController.swift; sourceTree = "<group>"; };
 		4A5931AF1FCC667E00CFBF19 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		4A7704FA214D91C100EEB34E /* ReportEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportEntry.swift; sourceTree = "<group>"; };
-		4A7F5B90205979C2003FA075 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4A7FA9161FAA966300C6A2BB /* Endangered Waves.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Endangered Waves.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A7FA9191FAA966300C6A2BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A7FA9201FAA966300C6A2BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A7FA9231FAA966300C6A2BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A7FA9251FAA966300C6A2BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4A7FA92B1FAA96ED00C6A2BB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4A8987671FAE0B4E0098E473 /* ReportsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsTableViewController.swift; sourceTree = "<group>"; };
 		4A8B6A781FC3421C005A5989 /* NSObjectExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectExtensions.swift; sourceTree = "<group>"; };
 		4A8B6A7A1FC3423D005A5989 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
@@ -296,6 +294,8 @@
 		4AF773771FB223EE005BFE50 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4AF773791FB22407005BFE50 /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BuddyBuildSDK.framework; path = Pods/BuddyBuildSDK/BuddyBuildSDK.framework; sourceTree = "<group>"; };
 		641BE92D263221B9006F87FC /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		64761CDC2C67E80400E54D06 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		64761CDE2C67E89100E54D06 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		648DA48125FA5E17009A5271 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		64B9CCDD25FC12A100695C35 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		64C1131825FE8377003188E0 /* Ericeira Portugal.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Ericeira Portugal.gpx"; sourceTree = "<group>"; };
@@ -347,6 +347,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		36A51A952C6509890037E7BE /* development */ = {
+			isa = PBXGroup;
+			children = (
+				64761CDC2C67E80400E54D06 /* GoogleService-Info.plist */,
+			);
+			path = development;
+			sourceTree = "<group>";
+		};
 		4A0ABE761FBE6EC9007B06B9 /* image-slider */ = {
 			isa = PBXGroup;
 			children = (
@@ -453,14 +461,6 @@
 			path = "report-entry";
 			sourceTree = "<group>";
 		};
-		4A7F5B8F205979C2003FA075 /* development */ = {
-			isa = PBXGroup;
-			children = (
-				4A7F5B90205979C2003FA075 /* GoogleService-Info.plist */,
-			);
-			path = development;
-			sourceTree = "<group>";
-		};
 		4A7FA90D1FAA966300C6A2BB = {
 			isa = PBXGroup;
 			children = (
@@ -485,6 +485,8 @@
 		4A7FA9181FAA966300C6A2BB /* Endangered Waves */ = {
 			isa = PBXGroup;
 			children = (
+				64761CDF2C67E89100E54D06 /* release */,
+				36A51A952C6509890037E7BE /* development */,
 				4A7FA9191FAA966300C6A2BB /* AppDelegate.swift */,
 				8774078B2048D39900ED36F1 /* UserDefaultsHandler.swift */,
 				8774078D2048D98700ED36F1 /* Constants.swift */,
@@ -513,8 +515,6 @@
 				4A9578D31FBBAE5C0051837C /* fonts */,
 				4A7FA9251FAA966300C6A2BB /* Info.plist */,
 				4A13593F205C339600A0F3AE /* Endangered Waves dev.plist */,
-				4A7F5B8F205979C2003FA075 /* development */,
-				4A7FA92B1FAA96ED00C6A2BB /* GoogleService-Info.plist */,
 				4A321A841FB61CDE001DA08A /* Black's Beach.gpx */,
 				64C1131825FE8377003188E0 /* Ericeira Portugal.gpx */,
 				221B85C225F2E7DD00EC1681 /* Localizable.strings */,
@@ -611,6 +611,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		64761CDF2C67E89100E54D06 /* release */ = {
+			isa = PBXGroup;
+			children = (
+				64761CDE2C67E89100E54D06 /* GoogleService-Info.plist */,
+			);
+			path = release;
+			sourceTree = "<group>";
+		};
 		DD005398008C4CAC4619DE96 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -635,7 +643,6 @@
 				4A7FA9141FAA966300C6A2BB /* Resources */,
 				4A5931AE1FCC661200CFBF19 /* SwiftLint */,
 				E973D5758A81192B2AA47C4C /* [CP] Embed Pods Frameworks */,
-				542222A4A9355FA370FB41FE /* [CP] Copy Pods Resources */,
 				64E24F3C25F6BEBA00215773 /* Crashlytics */,
 			);
 			buildRules = (
@@ -657,7 +664,6 @@
 				8774074D2048B9DA00ED36F1 /* Resources */,
 				877407612048B9DA00ED36F1 /* SwiftLint */,
 				C98A65FF43BE96C3AFE0DF01 /* [CP] Embed Pods Frameworks */,
-				A7C282ACC48F292B2A09A275 /* [CP] Copy Pods Resources */,
 				64E24F3925F6B9A100215773 /* Crashlytics */,
 			);
 			buildRules = (
@@ -729,13 +735,13 @@
 				4A119F672141A6CB006E75B5 /* competition.storyboard in Resources */,
 				4A0ABE7A1FBE6F15007B06B9 /* image-slider.storyboard in Resources */,
 				4A7FA9241FAA966300C6A2BB /* LaunchScreen.storyboard in Resources */,
-				4A7FA92C1FAA96ED00C6A2BB /* GoogleService-Info.plist in Resources */,
 				4A321A931FB67C3C001DA08A /* map.storyboard in Resources */,
 				4A321A8A1FB672A1001DA08A /* list.storyboard in Resources */,
 				2268A5C225F2D04500829F05 /* report.storyboard in Resources */,
 				4A7FA9211FAA966300C6A2BB /* Assets.xcassets in Resources */,
 				221B85CC25F2EA0800EC1681 /* container.storyboard in Resources */,
 				221B85AC25F2E20C00EC1681 /* new-report.storyboard in Resources */,
+				64761CE02C67E89100E54D06 /* GoogleService-Info.plist in Resources */,
 				221B859025F2E18B00EC1681 /* onboarding.storyboard in Resources */,
 				4A00E12E1FD4A12200E4CEA4 /* GothamSSm-Medium.otf in Resources */,
 			);
@@ -760,11 +766,11 @@
 				877407582048B9DA00ED36F1 /* list.storyboard in Resources */,
 				2268A5C325F2D04500829F05 /* report.storyboard in Resources */,
 				8774075A2048B9DA00ED36F1 /* Assets.xcassets in Resources */,
-				4A7F5B91205979C2003FA075 /* GoogleService-Info.plist in Resources */,
 				221B85CD25F2EA0800EC1681 /* container.storyboard in Resources */,
 				221B85AD25F2E20C00EC1681 /* new-report.storyboard in Resources */,
 				221B859125F2E18B00EC1681 /* onboarding.storyboard in Resources */,
 				8774075E2048B9DA00ED36F1 /* GothamSSm-Medium.otf in Resources */,
+				64761CDD2C67E80400E54D06 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -807,24 +813,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}\"/SwiftLint/swiftlint\n";
-		};
-		542222A4A9355FA370FB41FE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-shared-Endangered Waves/Pods-shared-Endangered Waves-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-shared-Endangered Waves/Pods-shared-Endangered Waves-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		64E24F3925F6B9A100215773 /* Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -881,24 +869,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}\"/SwiftLint/swiftlint\n";
 		};
-		A7C282ACC48F292B2A09A275 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-shared-Endangered Waves dev/Pods-shared-Endangered Waves dev-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-shared-Endangered Waves dev/Pods-shared-Endangered Waves dev-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C98A65FF43BE96C3AFE0DF01 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -908,19 +878,31 @@
 				"${PODS_ROOT}/Target Support Files/Pods-shared-Endangered Waves dev/Pods-shared-Endangered Waves dev-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AEXML/AEXML.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseAppCheckInterop/FirebaseAppCheckInterop.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseAuth/FirebaseAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseAuthInterop/FirebaseAuthInterop.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseAuthUI/FirebaseAuthUI.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseCoreDiagnostics/FirebaseCoreDiagnostics.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCoreExtension/FirebaseCoreExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCoreInternal/FirebaseCoreInternal.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseCrashlytics/FirebaseCrashlytics.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseFirestore/FirebaseFirestore.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseFirestoreInternal/FirebaseFirestoreInternal.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseFirestoreUI/FirebaseFirestoreUI.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseInstallations/FirebaseInstallations.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseRemoteConfigInterop/FirebaseRemoteConfigInterop.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseSessions/FirebaseSessions.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseSharedSwift/FirebaseSharedSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseStorage/FirebaseStorage.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseStorageUI/FirebaseStorageUI.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleDataTransport/GoogleDataTransport.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Kml.swift/Kml_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/LocationPickerViewController/LocationPickerViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesSwift/Promises.framework",
+				"${BUILT_PRODUCTS_DIR}/RecaptchaInterop/RecaptchaInterop.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/abseil/absl.framework",
@@ -933,19 +915,31 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AEXML.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseAppCheckInterop.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseAuthInterop.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseAuthUI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreDiagnostics.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreInternal.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCrashlytics.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseFirestore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseFirestoreInternal.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseFirestoreUI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseInstallations.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseRemoteConfigInterop.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseSessions.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseSharedSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseStorage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseStorageUI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleDataTransport.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kml_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LocationPickerViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Promises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RecaptchaInterop.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/absl.framework",
@@ -990,19 +984,31 @@
 				"${PODS_ROOT}/Target Support Files/Pods-shared-Endangered Waves/Pods-shared-Endangered Waves-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AEXML/AEXML.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseAppCheckInterop/FirebaseAppCheckInterop.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseAuth/FirebaseAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseAuthInterop/FirebaseAuthInterop.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseAuthUI/FirebaseAuthUI.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseCoreDiagnostics/FirebaseCoreDiagnostics.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCoreExtension/FirebaseCoreExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCoreInternal/FirebaseCoreInternal.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseCrashlytics/FirebaseCrashlytics.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseFirestore/FirebaseFirestore.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseFirestoreInternal/FirebaseFirestoreInternal.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseFirestoreUI/FirebaseFirestoreUI.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseInstallations/FirebaseInstallations.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseRemoteConfigInterop/FirebaseRemoteConfigInterop.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseSessions/FirebaseSessions.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseSharedSwift/FirebaseSharedSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/FirebaseStorage/FirebaseStorage.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseStorageUI/FirebaseStorageUI.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleDataTransport/GoogleDataTransport.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Kml.swift/Kml_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/LocationPickerViewController/LocationPickerViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesSwift/Promises.framework",
+				"${BUILT_PRODUCTS_DIR}/RecaptchaInterop/RecaptchaInterop.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/abseil/absl.framework",
@@ -1015,19 +1021,31 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AEXML.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseAppCheckInterop.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseAuthInterop.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseAuthUI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreDiagnostics.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreInternal.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCrashlytics.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseFirestore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseFirestoreInternal.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseFirestoreUI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseInstallations.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseRemoteConfigInterop.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseSessions.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseSharedSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseStorage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseStorageUI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleDataTransport.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kml_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LocationPickerViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Promises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RecaptchaInterop.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/absl.framework",
