@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ImageSliderViewControllerDelegate: class {
+protocol ImageSliderViewControllerDelegate: AnyObject {
     func viewController(_ viewController: ImageSliderViewController, didTapImage image: UIImage, atIndex index: Int)
 }
 
@@ -45,8 +45,10 @@ class ImageSliderViewController: UIPageViewController {
 
     @objc func imageSliderViewControllerWasTapped(sender: UITapGestureRecognizer) {
         if let images = self.images {
-            let image = images[currentPageIndex]
-            imageSliderViewControllerDelegate?.viewController(self, didTapImage: image, atIndex: currentPageIndex)
+            if !images.isEmpty {
+                let image = images[currentPageIndex]
+                imageSliderViewControllerDelegate?.viewController(self, didTapImage: image, atIndex: currentPageIndex)
+            }
         }
     }
 

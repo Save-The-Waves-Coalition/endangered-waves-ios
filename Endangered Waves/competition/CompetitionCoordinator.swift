@@ -9,7 +9,7 @@
 import UIKit
 import SafariServices
 
-protocol CompetitionCoordinatorDelegate: class {
+protocol CompetitionCoordinatorDelegate: AnyObject {
     func coordinatorDidFinishShowingCompetition(_ coordinator: CompetitionCoordinator, competition: Competition, andShowNewReport: Bool)
 }
 

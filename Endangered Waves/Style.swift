@@ -55,6 +55,7 @@ struct Style {
 
     static let colorSTWBlue = UIColor(named: "STW-Blue")!
     static let colorSTWGrey = UIColor(named: "STW-Grey")!
+    static let colorSTWWhite = UIColor(named: "STW-White")!
 
     static let iconOil = UIImage(named: "oil")!
     static let iconCoastalErosion = UIImage(named: "coastal-erosion")!

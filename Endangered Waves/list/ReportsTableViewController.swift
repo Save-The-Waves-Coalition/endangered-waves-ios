@@ -8,9 +8,11 @@
 
 import UIKit
 import Firebase
-import FirebaseUI
+import FirebaseAuthUI
+import FirebaseStorageUI
+import FirebaseFirestoreUI
 
-protocol ReportsTableViewControllerDelegate: class {
+protocol ReportsTableViewControllerDelegate: AnyObject {
     func viewController(_ viewController: ReportsTableViewController, didRequestDetailsForReport report: STWDataType)
 }
 

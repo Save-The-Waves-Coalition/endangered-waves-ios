@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol ThreatCategoryTableViewControllerDelegate: class {
+protocol ThreatCategoryTableViewControllerDelegate: AnyObject {
     func viewController(_ viewController: ThreatCategoryTableViewController, didSelectThreatCategory category: String)
 }
 

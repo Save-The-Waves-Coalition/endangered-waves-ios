@@ -12,8 +12,9 @@ import FirebaseStorage
 import FirebaseFirestore
 import SVProgressHUD
 import CoreLocation
+import PhotosUI
 
-protocol NewReportCoordinatorDelegate: class {
+protocol NewReportCoordinatorDelegate: AnyObject {
 func coordinator(_ coordinator: NewReportCoordinator, didFinishNewReport report: STWDataType?)
 }
 
@@ -44,24 +45,55 @@ class NewReportCoordinator: Coordinator {
 
     var reportType: ReportType?
 
-    lazy var imagePickerController: ImagePickerController = {
-        var configuration = Configuration()
-        configuration.allowVideoSelection = false
-        configuration.recordLocation = true
-        let imagePicker = ImagePickerController(configuration: configuration)
-        imagePicker.delegate = self
-        return imagePicker
-    }()
-
     init(with rootViewController: UIViewController, andCompetition competition: Competition?) {
         super.init(with: rootViewController)
         self.competition = competition
     }
 
     override func start() {
-        let viewController = imagePickerController
-        viewController.modalPresentationStyle = .fullScreen
-        rootViewController.present(viewController, animated: true, completion: nil)
+        showImagePickerOrCameraActionSheet(with: rootViewController)
+    }
+
+    func showImagePickerOrCameraActionSheet(with rootViewController: UIViewController) {
+        let alert = UIAlertController(title: "Take a picture or choose several from your library.", message: nil, preferredStyle: .actionSheet)
+
+        let cameraIsAviable = UIImagePickerController.isCameraDeviceAvailable(.front) || UIImagePickerController.isCameraDeviceAvailable(.rear)
+        if cameraIsAviable {
+            let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
+                self.showCamera(with: rootViewController)
+            }
+            alert.addAction(cameraAction)
+        }
+
+        let libraryAction = UIAlertAction(title: "Library", style: .default) { (action) in
+            self.showImagePicker(with: rootViewController)
+        }
+        alert.addAction(libraryAction)
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            self.stop()
+        }
+        alert.addAction(cancelAction)
+
+        rootViewController.present(alert, animated: true)
+    }
+
+    func showImagePicker(with rootViewController: UIViewController) {
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = 5 // Setting limit to 5, seems like a sensible limit but is not really based on anything - MDM 2023-01-04
+        configuration.filter = .images
+        configuration.preferredAssetRepresentationMode = .current
+
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        rootViewController.present(picker, animated: true)
+    }
+
+    func showCamera(with rootViewController: UIViewController) {
+        let imagePickerViewController = UIImagePickerController()
+        imagePickerViewController.sourceType = .camera
+        imagePickerViewController.delegate = self
+        rootViewController.present(imagePickerViewController, animated: true)
     }
 
     override func stop() {
@@ -141,27 +173,72 @@ extension NewReportCoordinator {
     }
 }
 
-// MARK: 📸 ImagePickerDelegate
-extension NewReportCoordinator: ImagePickerDelegate {
-    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        if let lightboxNavigationController = lightboxWithNavigationViewControllerForImages(images, withStartIndex: 0) {
-            imagePicker.present(lightboxNavigationController, animated: true, completion: nil)
-        }
-    }
-
-    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        self.images = images
-        let presentingViewController = imagePicker.presentingViewController
-        imagePicker.dismiss(animated: true) {
+// MARK: 📸 UIImagePickerControllerDelegate
+// UIImagePickerController requires us to include UINavigationControllerDelegate even if we don't use it
+extension NewReportCoordinator: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        let presentingViewController = picker.presentingViewController
+        picker.dismiss(animated: true) {
             if let presentingViewController = presentingViewController, !(presentingViewController is NewReportNavViewController) {
-                self.showNewReport()
+                self.stop()
             }
         }
     }
 
-    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
-        imagePicker.dismiss(animated: true) {
-            self.stop()
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            self.images = [image]
+            let presentingViewController = picker.presentingViewController
+            picker.dismiss(animated: true) {
+                if let presentingViewController = presentingViewController, !(presentingViewController is NewReportNavViewController) {
+                    self.showNewReport()
+                }
+            }
+        } else {
+            picker.dismiss(animated: true)
+        }
+    }
+}
+
+// MARK: 📸 PHPickerViewControllerDelegate
+extension NewReportCoordinator: PHPickerViewControllerDelegate {
+
+    // TODO: Images are large and this loading can take a while and is done async, should be showing a progress indictor here
+    // see https://christianselig.com/2020/09/phpickerviewcontroller-efficiently/
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+
+        if results.isEmpty {
+            picker.dismiss(animated: true)
+            return
+        }
+
+        let imageItems = results
+            .map { $0.itemProvider }
+            .filter { $0.canLoadObject(ofClass: UIImage.self) } // filter for possible UIImages
+
+        let dispatchGroup = DispatchGroup()
+        var images = [UIImage]()
+
+        for imageItem in imageItems {
+            dispatchGroup.enter() // signal IN
+
+            imageItem.loadObject(ofClass: UIImage.self) { image, _ in
+                if let image = image as? UIImage {
+                    images.append(image)
+                }
+                dispatchGroup.leave() // signal OUT
+            }
+        }
+
+        // This is called at the end; after all signals are matched (IN/OUT)
+        dispatchGroup.notify(queue: .main) {
+            self.images = images
+            let presentingViewController = picker.presentingViewController
+            picker.dismiss(animated: true) {
+                if let presentingViewController = presentingViewController, !(presentingViewController is NewReportNavViewController) {
+                    self.showNewReport()
+                }
+            }
         }
     }
 }
@@ -341,10 +418,9 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
         })
     } // func
 
+    // Called by image slider to change photos once you already in the new report
     func viewController(_ viewController: NewReportViewController, didTapAddButton button: UIButton) {
-        let imagePickerViewController = imagePickerController
-        imagePickerViewController.modalPresentationStyle = .fullScreen
-        viewController.present(imagePickerViewController, animated: true, completion: nil)
+        showImagePickerOrCameraActionSheet(with: viewController)
     }
 }
 

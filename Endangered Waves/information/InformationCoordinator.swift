@@ -10,7 +10,7 @@ import UIKit
 import SafariServices
 import MapKit
 
-protocol InformationCoordinatorDelegate: class {
+protocol InformationCoordinatorDelegate: AnyObject {
     func coordinatorDidFinish(_ coordinator: InformationCoordinator)
 }
 

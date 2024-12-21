@@ -10,7 +10,7 @@ import UIKit
 import WebKit
 import SafariServices
 
-protocol CompetitionViewControllerDelegate: class {
+protocol CompetitionViewControllerDelegate: AnyObject {
     func finishedViewingCompetitionViewController(_ controller: CompetitionViewController, andShowNewReport: Bool)
 }
 

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tgp-YU-pu1">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tgp-YU-pu1">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,7 +23,7 @@
                 <navigationController storyboardIdentifier="ReportDetailNavComponent" automaticallyAdjustsScrollViewInsets="NO" id="tgp-YU-pu1" customClass="ReportDetailNavViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XOl-kQ-mHe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -46,14 +47,14 @@
                             <tableViewSection id="8XQ-bx-Zgy">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="235" id="40D-GN-I0o">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="235"/>
+                                        <rect key="frame" x="0.0" y="50" width="375" height="235"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="40D-GN-I0o" id="nVv-Ot-mpx">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="235"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Images..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C33-jj-OX5" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
-                                                    <rect key="frame" x="118.5" y="96.5" width="138" height="20"/>
+                                                    <rect key="frame" x="118.66666666666669" y="96.666666666666671" width="138" height="20"/>
                                                     <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="17"/>
                                                     <color key="textColor" name="STW-Grey"/>
                                                     <nil key="highlightedColor"/>
@@ -92,20 +93,20 @@
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="30" id="SXf-uf-Osm">
-                                        <rect key="frame" x="0.0" y="263" width="375" height="30"/>
+                                        <rect key="frame" x="0.0" y="285" width="375" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SXf-uf-Osm" id="G5P-pD-VXn">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WorldSurfingReserveNameLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0U-MR-TKH">
-                                                    <rect key="frame" x="13" y="5" width="349" height="20"/>
+                                                    <rect key="frame" x="16.666666666666657" y="5" width="341.66666666666674" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="– November 12th, 2017 –" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9n-oJ-m8Q">
-                                                    <rect key="frame" x="120.5" y="11" width="134.5" height="14"/>
+                                                    <rect key="frame" x="120.33333333333333" y="11" width="134.33333333333337" height="14"/>
                                                     <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="12"/>
                                                     <color key="textColor" name="STW-Grey"/>
                                                     <nil key="highlightedColor"/>
@@ -124,14 +125,14 @@
                                         <gestureRecognizers/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="75" id="0sT-Uc-7fc">
-                                        <rect key="frame" x="0.0" y="293" width="375" height="75"/>
+                                        <rect key="frame" x="0.0" y="315" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0sT-Uc-7fc" id="mww-Nd-z5z">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESCRIPTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZ4-cZ-vIs" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="11" width="343" height="17.5"/>
+                                                    <rect key="frame" x="20" y="11.000000000000002" width="335" height="17.666666666666671"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="17.5" id="VhV-dW-WJI"/>
                                                     </constraints>
@@ -140,7 +141,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tX0-0M-TwC">
-                                                    <rect key="frame" x="16" y="36.5" width="343" height="18.5"/>
+                                                    <rect key="frame" x="20" y="36.666666666666664" width="335" height="18.333333333333336"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Choose a location...">
                                                             <attributes>
@@ -166,20 +167,20 @@
                                         <gestureRecognizers/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="152" id="bjX-bW-Cg7">
-                                        <rect key="frame" x="0.0" y="368" width="375" height="152"/>
+                                        <rect key="frame" x="0.0" y="390" width="375" height="152"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bjX-bW-Cg7" id="Qzi-ID-hwZ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="152"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWL-RG-GLj" customClass="UILocalizedLabel" customModule="Endangered_Waves" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="31" width="343" height="17.5"/>
+                                                    <rect key="frame" x="20" y="31" width="335" height="17.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Black" family="Brandon Grotesque" pointSize="12"/>
                                                     <color key="textColor" name="STW-Grey"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSi-fo-DRO">
-                                                    <rect key="frame" x="16" y="56.5" width="241" height="81.5"/>
+                                                    <rect key="frame" x="20" y="56.666666666666664" width="237" height="81.333333333333343"/>
                                                     <attributedString key="attributedText">
                                                         <fragment>
                                                             <string key="content">Choose a location...
@@ -195,7 +196,7 @@ line 3</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43b-x4-8Os">
-                                                    <rect key="frame" x="265" y="52.5" width="90" height="90"/>
+                                                    <rect key="frame" x="265" y="52.333333333333343" width="90" height="90"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="5Hu-ke-6Mq"/>
                                                         <constraint firstAttribute="height" constant="90" id="vce-4c-zss"/>
@@ -205,7 +206,7 @@ line 3</string>
                                                     </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin-filled" translatesAutoresizingMaskIntoConstraints="NO" id="ge7-92-pRO">
-                                                    <rect key="frame" x="300.5" y="97.5" width="19" height="30"/>
+                                                    <rect key="frame" x="300.66666666666669" y="97.333333333333329" width="18.666666666666686" height="30"/>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="QFd-yI-Q9Y"/>
@@ -230,14 +231,14 @@ line 3</string>
                                         <gestureRecognizers/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="3r9-wd-Gfd">
-                                        <rect key="frame" x="0.0" y="520" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="542" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3r9-wd-Gfd" id="nMD-Fl-0yC">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNw-l4-vsZ" customClass="UILocalizedButton" customModule="Endangered_Waves" customModuleProvider="target">
-                                                    <rect key="frame" x="135" y="33.5" width="105" height="33"/>
+                                                    <rect key="frame" x="139.66666666666666" y="33.666666666666664" width="96" height="32.999999999999993"/>
                                                     <color key="backgroundColor" name="STW-Blue"/>
                                                     <fontDescription key="fontDescription" name="BrandonGrotesque-Bold" family="Brandon Grotesque" pointSize="17"/>
                                                     <inset key="contentEdgeInsets" minX="8" minY="4" maxX="8" maxY="4"/>
@@ -298,11 +299,11 @@ line 3</string>
             <objects>
                 <viewController storyboardIdentifier="ReportDetailMapViewController" id="lhX-eA-wdD" customClass="ReportDetailMapViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="K0E-4R-O4j">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="glJ-tt-0oH">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="u1v-a4-BNg"/>

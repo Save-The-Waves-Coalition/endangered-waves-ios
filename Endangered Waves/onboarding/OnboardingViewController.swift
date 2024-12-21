@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol OnboardingViewControllerDelegate: class {
+protocol OnboardingViewControllerDelegate: AnyObject {
     func controller(_ controller: OnboardingViewController, didTapSkipButton button: UIButton?)
 }
 

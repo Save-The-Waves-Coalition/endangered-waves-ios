@@ -11,7 +11,7 @@ import SDWebImage
 import MapKit
 import SafariServices
 
-protocol ReportDetailViewControllerDelegate: class {
+protocol ReportDetailViewControllerDelegate: AnyObject {
     func finishedViewingDetailsViewController(_ viewController: ReportDetailViewController)
     func viewController(_ viewController: ReportDetailViewController, didTapImages images: [UIImage], atIndex index: Int)
     func showMapDetail()

@@ -1485,7 +1485,7 @@ MARINE DEBRIS</string>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="general" id="eMW-FK-kyX">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="water_quality" id="eMW-FK-kyX">
                                                     <rect key="frame" x="19.999999999999996" y="11.999999999999996" width="55.600000000000001" height="55.600000000000001"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" name="STW-Grey"/>

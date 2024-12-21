@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-protocol ReportsTableViewCellProtocol: class {
+protocol ReportsTableViewCellProtocol: AnyObject {
     func didTapImage(cell: UITableViewCell)
 }
 
