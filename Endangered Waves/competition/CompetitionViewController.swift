@@ -32,10 +32,8 @@ class CompetitionViewController: UIViewController {
 
         webView.navigationDelegate = self
 
-        if let introPageHTML = competition.introPageHTML {
-            let bundleURL = URL(fileURLWithPath: Bundle.main.bundlePath)
-            webView.loadHTMLString(introPageHTML, baseURL: bundleURL)
-        }
+        // Load the competition URL directly
+        webView.load(URLRequest(url: competition.introPageURL))
     }
 
     @IBAction func didTap(_ sender: UITapGestureRecognizer) {
@@ -82,10 +80,19 @@ extension CompetitionViewController: WKNavigationDelegate {
             return
         }
 
+        // Is it an external link? If so open it in Safari
+        if url.host != competition.introPageURL.host {
+            // Open external links in Safari
+            UIApplication.shared.open(url)
+            decisionHandler(.cancel)
+            return
+        }
+
         // If it's anyting else don't show it in the web view
         decisionHandler(.cancel)
 
         // Instead let SFSafariViewController handle it
+        // NOTE: this seems to cause a hang up currently. Instead I added the external link check above to open in Safari
         let safariViewController = SFSafariViewController(url: url)
         safariViewController.preferredControlTintColor = Style.colorSTWBlue
         present(safariViewController, animated: true, completion: nil)
