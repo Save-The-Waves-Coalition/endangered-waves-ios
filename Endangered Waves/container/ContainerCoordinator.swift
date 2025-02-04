@@ -201,6 +201,8 @@ extension ContainerCoordinator: ContainerViewControllerDelegate {
     func controller(_ controller: ContainerViewController, didTapAddButton button: UIButton) {
         showAddComponent()
     }
+    func controller(_ controller: ContainerViewController, didTapProfileButton button: UIBarButtonItem) {
+    }
 }
 
 // MARK: NewReportCoordinatorDelegate

@@ -30,7 +30,7 @@ final class UserMananger {
 
         if user == nil {
             // User doesn't currently exist so log them in anonymously
-            Auth.auth().signInAnonymously(completion: nil)
+            // Auth.auth().signInAnonymously(completion: nil)
         }
     }
 }

@@ -18,4 +18,7 @@ extension String {
 
         return regex.firstMatch(in: self, options: [], range: NSRange(location: 0, length: count)) != nil
     }
+    public init(deviceToken: Data) {
+        self = deviceToken.map { String(format: "%.2hhx", $0) }.joined()
+    }
 }

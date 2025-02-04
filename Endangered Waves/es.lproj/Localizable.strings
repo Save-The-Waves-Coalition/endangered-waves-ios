@@ -123,3 +123,53 @@
 "World Surfing Reserve" = "Reserva Mundial de Surf";
 "Write a description..." = "Escribe una descripción";
 "YouTube" = "YouTube";
+
+"Logout" = "Cerrar sesión";
+"Cancel" = "Cancelar";
+"Are you sure?" = "¿Estás seguro?";
+"Choose an option" = "Elige una opción";
+"Profile" = "Perfil";
+"User not logged in." = "Usuario no ha iniciado sesión.";
+"No user data found." = "No se encontraron datos de usuario.";
+
+"Invalid Email Address" = "Dirección de correo electrónico inválida";
+"Please enter a valid email address" = "Por favor, introduce una dirección de correo válida";
+"Invalid Password" = "Contraseña inválida";
+"Please enter a proper password." = "Por favor, introduce una contraseña válida.";
+"Password must be greaterthen of equal to 10 characters!" = "La contraseña debe tener al menos 10 caracteres.";
+"Error" = "Error";
+"Check your email for link to varify your email, and login again." = "Revisa tu correo para el enlace de verificación y vuelve a iniciar sesión.";
+"Activate  your email" = "Activa tu correo electrónico";
+"Send activation link to email" = "Enviar enlace de activación al correo";
+"Forgot Password" = "¿Olvidaste tu contraseña?";
+"Please Enter Register email" = "Por favor, introduce el correo registrado";
+
+"Send Email" = "Enviar correo";
+"Reset email has been sent to your  email, please check your email" = "Se ha enviado un correo de restablecimiento, por favor revisa tu correo.";
+"Enter your email" = "Introduce tu correo";
+"A verification email has been sent. Please check your inbox." = "Se ha enviado un correo de verificación. Revisa tu bandeja de entrada.";
+
+"Please enter first name" = "Por favor, introduce tu nombre";
+"Please enter last name" = "Por favor, introduce tu apellido";
+"Please enter email" = "Por favor, introduce tu correo electrónico";
+"Please enter password" = "Por favor, introduce tu contraseña";
+"Password must be at least 10 characters!" = "La contraseña debe tener al menos 10 caracteres.";
+"Please enter confirm password" = "Por favor, introduce la confirmación de contraseña";
+"Password and Confirm Password must be the same" = "La contraseña y la confirmación deben coincidir";
+
+"First Name" = "Nombre";
+"Last Name" = "Apellido";
+"Edit Profile" = "Editar perfil";
+"PROFILE" = "PERFIL";
+"Change Password" = "Cambiar contraseña";
+"Change password link has been sent to you, please check your email" = "El enlace de cambio de contraseña ha sido enviado, revisa tu correo.";
+"Ok" = "Ok";
+"Something wen't wrong!" = "¡Algo salió mal!";
+
+"SignIn" = "Iniciar sesión";
+"SignUp" = "Registrarse";
+"Forgot Password" = "¿Olvidaste tu contraseña?";
+"Password" = "Contraseña";
+" Back " = " Atrás ";
+" Save " = " Guardar ";
+"Confirm Password" = "Confirmar contraseña";

@@ -370,14 +370,8 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
 
         // validate email address
         if (reportEmailAddress ?? "").isEmpty {
-            showValidationError(title: "Missing Email Address", message: "Please enter a valid email address.",
-                                withViewController: viewController)
-            return
-        }
-        if let reportEmailAddress = reportEmailAddress, !reportEmailAddress.isValidEmail() {
-            showValidationError(title: "Invalid Email Address", message: "Please enter a valid email address.",
-                                withViewController: viewController)
-            return
+            let userInfo = Global.getModelFromUserDefault(model: AuthDataUserModel.self, key: .currentUser)
+            reportEmailAddress = userInfo?.email
         }
 
         guard let reportDescription = reportDescription, let location = location,
@@ -385,7 +379,6 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
             assertionFailure("⚠️: Missing Field")
             showValidationError(title: "Invalid Field", message: "Please make sure all fields have been filled out properly.",
                                 withViewController: viewController)
-            // TODO: Log to Crashlytics
             return
         }
 
@@ -400,13 +393,13 @@ extension NewReportCoordinator: NewReportViewControllerDelegate {
                                    description: reportDescription,
                                    emailAddress: reportEmailAddress,
                                    images: images,
-                                   type: reportType,
+                                   type: reportType, status: .notSolved,
             progressHandler: { (progress: Double) in
                 SVProgressHUD.showProgress(Float(progress), status: statusString)
         }, completionHandler: { (documentID: String?, report: Report?, error: Error?) in
             if let error = error {
                 print("Error adding document: \(error.localizedDescription)")
-                SVProgressHUD.showError(withStatus: "There was an issue creating your post. Please try again.")
+                SVProgressHUD.showError(withStatus: "There was an issue creating your post. Please try again.".localized())
             } else {
                 // Success
                 UserDefaultsHandler.setUserEmailAddress(reportEmailAddress)

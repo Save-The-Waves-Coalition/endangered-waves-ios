@@ -81,7 +81,7 @@ class NewReportViewController: UITableViewController {
             imageSliderViewController?.images = images
         }
     }
-
+    var thumbImages: [UIImage]?
     var reportDescription: String? {
         didSet {
             if let reportDescription = reportDescription, let descriptionTextView = descriptionTextView {
@@ -163,7 +163,9 @@ class NewReportViewController: UITableViewController {
         emailTextView.textContainer.lineFragmentPadding = 0
         emailTextView.textContainer.maximumNumberOfLines = 1
         emailTextView.textContainer.lineBreakMode = .byTruncatingTail
-        if let emailAddress = UserDefaultsHandler.getUserEmailAddress() {
+        let userInfo = Global.getModelFromUserDefault(model: AuthDataUserModel.self, key: .currentUser)
+        // if let emailAddress = UserDefaultsHandler.getUserEmailAddress() {
+        if let emailAddress = userInfo?.email {
             emailTextView.attributedText = Style.userInputAttributedStringForString(emailAddress)
             delegate?.viewController(self, didWriteEmailAddress: emailAddress)
         }

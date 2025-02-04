@@ -13,6 +13,8 @@ protocol ContainerViewControllerDelegate: AnyObject {
     func controller(_ controller: ContainerViewController, didTapListButton button: UIButton)
     func controller(_ controller: ContainerViewController, didTapAddButton button: UIButton)
     func controller(_ controller: ContainerViewController, didTapInfoButton button: UIBarButtonItem)
+    func controller(_ controller: ContainerViewController, didTapProfileButton button: UIBarButtonItem)
+
 }
 
 class ContainerViewController: UIViewController {
@@ -47,6 +49,10 @@ class ContainerViewController: UIViewController {
 
     @IBAction func inforButtonWasTapped(_ sender: UIBarButtonItem) {
         delegate?.controller(self, didTapInfoButton: sender)
+    }
+
+    @IBAction func profileButtonWasTapped(_ sender: UIBarButtonItem) {
+        showActionSheet()
     }
 
     func applyActiveStyleToButton(_ button: UIButton) {
@@ -90,6 +96,68 @@ class ContainerViewController: UIViewController {
 //    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
 //        return .slide
 //    }
+
+    // Function to display Action Sheet
+    @objc func showActionSheet() {
+        let actionSheet = UIAlertController(title: "Choose an option", message: "", preferredStyle: .actionSheet)
+
+        // Profile Action
+        let profileAction = UIAlertAction(title: "Profile", style: .default) { _ in
+            self.openProfile()
+        }
+
+        // Logout Action
+        let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { _ in
+            self.showLogoutAlert(in: self)
+        }
+
+        // Cancel Action
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        // Add actions to the Action Sheet
+        actionSheet.addAction(profileAction)
+        actionSheet.addAction(logoutAction)
+        actionSheet.addAction(cancelAction)
+
+        // Present the Action Sheet
+        present(actionSheet, animated: true, completion: nil)
+    }
+
+    // Function for Profile Action
+    func openProfile() {
+        // Navigate to Profile screen or show profile details
+        let profileVC = ProfileViewController()
+        navigationController?.pushViewController(profileVC, animated: true)
+    }
+
+    // Function for Logout Action
+    func performLogout() {
+        let user: AuthDataUserModel? = nil
+        Global.storeModelInUserDefault(obj: user, key: .currentUser)
+        self.navigationController?.popToRootViewController(animated: true)
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            appDelegate.switchToLogin()
+        }
+    }
+    func showLogoutAlert(in viewController: UIViewController) {
+        let alert = UIAlertController(title: "Are you sure?",
+                                      message: "You want to logout?",
+                                      preferredStyle: .alert)
+        // Logout Action
+        let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { _ in
+            self.performLogout()
+        }
+
+        // Cancel Action
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        // Add actions to alert
+        alert.addAction(cancelAction)
+        alert.addAction(logoutAction)
+
+        // Present alert
+        viewController.present(alert, animated: true, completion: nil)
+    }
 }
 
 // MARK: 📖 StoryboardInstantiable

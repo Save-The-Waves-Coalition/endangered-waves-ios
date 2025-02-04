@@ -123,3 +123,52 @@
 "World Surfing Reserve" = "Reserva Mundial de Surf";
 "Write a description..." = "Descreva";
 "YouTube" = "YouTube";
+
+"Logout" = "Sair";
+"Cancel" = "Cancelar";
+"Are you sure?" = "Você tem certeza?";
+"Choose an option" = "Escolha uma opção";
+"Profile" = "Perfil";
+"User not logged in." = "Usuário não está logado.";
+"No user data found." = "Nenhum dado de usuário encontrado.";
+
+"Invalid Email Address" = "Endereço de e-mail inválido";
+"Please enter a valid email address" = "Por favor, insira um endereço de e-mail válido";
+"Invalid Password" = "Senha inválida";
+"Please enter a proper password." = "Por favor, insira uma senha válida.";
+"Password must be greaterthen of equal to 10 characters!" = "A senha deve ter pelo menos 10 caracteres.";
+"Error" = "Erro";
+"Check your email for link to varify your email, and login again." = "Verifique seu e-mail para o link de verificação e faça login novamente.";
+"Activate  your email" = "Ative seu e-mail";
+"Send activation link to email" = "Enviar link de ativação para o e-mail";
+"Forgot Password" = "Esqueceu a senha?";
+"Please Enter Register email" = "Por favor, insira o e-mail cadastrado";
+
+"Send Email" = "Enviar e-mail";
+"Reset email has been sent to your  email, please check your email" = "O e-mail de redefinição foi enviado, por favor, verifique seu e-mail.";
+"Enter your email" = "Digite seu e-mail";
+"A verification email has been sent. Please check your inbox." = "Um e-mail de verificação foi enviado. Verifique sua caixa de entrada.";
+
+"Please enter first name" = "Por favor, insira seu primeiro nome";
+"Please enter last name" = "Por favor, insira seu sobrenome";
+"Please enter email" = "Por favor, insira seu e-mail";
+"Please enter password" = "Por favor, insira sua senha";
+"Password must be at least 10 characters!" = "A senha deve ter pelo menos 10 caracteres.";
+"Please enter confirm password" = "Por favor, insira a confirmação da senha";
+"Password and Confirm Password must be the same" = "A senha e a confirmação devem ser iguais";
+
+"First Name" = "Primeiro Nome";
+"Last Name" = "Sobrenome";
+"Edit Profile" = "Editar Perfil";
+"PROFILE" = "PERFIL";
+"Change Password" = "Alterar Senha";
+"Change password link has been sent to you, please check your email" = "O link de alteração de senha foi enviado, verifique seu e-mail.";
+"Ok" = "Ok";
+"Something wen't wrong!" = "Algo deu errado!";
+"SignIn" = "Entrar";
+"SignUp" = "Cadastrar-se";
+"Forgot Password" = "Esqueceu a senha?";
+"Password" = "Senha";
+" Back " = " Voltar ";
+" Save " = " Salvar ";
+"Confirm Password" = "Confirmar senha";
