@@ -29,16 +29,18 @@ struct UserModel: Codable {
     let lastName: String?
     let deviceUdId: String?
     let userId: String
+    let isSubscribe: Bool
 
-    init(firstName: String, lastName: String, deviceId: String, userId: String) {
+    init(firstName: String, lastName: String, deviceId: String, userId: String, isSubscribe: Bool) {
         self.firstName = firstName
         self.lastName = lastName
         self.deviceUdId = deviceId
         self.userId = userId
+        self.isSubscribe = isSubscribe
     }
 
     func documentDataDictionary() -> [String: Any] {
-        return ["firstName": firstName ?? "", "lastName": lastName ?? "", "UDID": deviceUdId ?? ""]
+        return ["firstName": firstName ?? "", "lastName": lastName ?? "", "UDID": deviceUdId ?? "", "isSubscribe": isSubscribe]
     }
 }
 

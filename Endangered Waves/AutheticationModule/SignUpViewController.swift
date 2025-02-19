@@ -30,6 +30,9 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var lblCPassword: UILabel!
     @IBOutlet weak var txtConfirmPassword: UITextField!
 
+    @IBOutlet weak var isAgreeToSubscribe: UIButton!
+    @IBOutlet weak var lblSubscribe: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         txtFirstName.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0) // Adjust padding width
@@ -58,7 +61,8 @@ class SignUpViewController: UIViewController {
 
         btnBack.setTitle(" Back ".localized(), for: .normal)
         btnSave.setTitle(" Save ".localized(), for: .normal)
-
+        lblSubscribe.text = "Subscribe to Save The Waves news and information".localized()
+        self.isAgreeToSubscribe.isSelected = false
         txtFirstName.delegate = self
         txtLastName.delegate = self
         txtEmail.delegate = self
@@ -87,6 +91,13 @@ class SignUpViewController: UIViewController {
         registerUser(email: email, password: password, firstName: firstName, lastName: lastName)
     }
 
+    @IBAction func btnSubscribeClick(sender: UIButton) {
+        if sender.isSelected {
+            sender.isSelected = false
+        } else {
+            sender.isSelected = true
+        }
+    }
     // 🔹 Function for Firebase Registration
     func registerUser(email: String, password: String, firstName: String, lastName: String) {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
@@ -114,24 +125,23 @@ class SignUpViewController: UIViewController {
                 print("Error sending verification email: \(error.localizedDescription)")
             } else {
                 self.showAlert(message: "A verification email has been sent. Please check your inbox.".localized())
-                self.saveUserData(user: user, firstName: self.txtFirstName.text ?? "", lastName: self.txtLastName.text ?? "")
+                self.saveUserData(user: user, firstName: self.txtFirstName.text ?? "", lastName: self.txtLastName.text ?? "", isSubscribe: self.isAgreeToSubscribe.isSelected)
             }
         }
     }
 
     // 🔹 Function for Saving User Data in Firestore
-    func saveUserData(user: User, firstName: String, lastName: String) {
-        let userModel = UserModel(firstName: firstName, lastName: lastName, deviceId: Global.deviceToken, userId: user.uid)
+    func saveUserData(user: User, firstName: String, lastName: String, isSubscribe: Bool) {
+        let userModel = UserModel(firstName: firstName, lastName: lastName, deviceId: Global.deviceToken, userId: user.uid, isSubscribe: isSubscribe)
 
         APIManager.createNewUserData(userData: userModel) { ref, error in
             SVProgressHUD.dismiss()
 
             if let error = error {
                 self.showAlert(message: error.localizedDescription)
-                return
+            } else {
+                self.showAlert(message: "Check your email for a link to verify your email.".localized())
             }
-
-            self.showAlert(message: "Check your email for a link to verify your email.".localized())
         }
     }
 

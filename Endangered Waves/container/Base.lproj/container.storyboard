@@ -477,12 +477,43 @@
                                                     </textField>
                                                 </subviews>
                                             </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="gGe-bI-5HB">
+                                                <rect key="frame" x="22" y="409" width="330" height="25"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P4v-e8-nzu">
+                                                        <rect key="frame" x="0.0" y="0.0" width="25" height="25"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="25" id="7gt-rA-gmX"/>
+                                                            <constraint firstAttribute="height" constant="25" id="7hb-gs-Wyt"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Button" image="UnChecked"/>
+                                                        <state key="selected" image="Checked"/>
+                                                        <connections>
+                                                            <action selector="btnSubscribeClickWithSender:" destination="el3-Ci-mbw" eventType="touchUpInside" id="Y0m-xe-UXW"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x23-B9-F9R">
+                                                        <rect key="frame" x="28" y="5" width="302" height="15"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="Subscribe to Save The Waves news and information">
+                                                                <attributes>
+                                                                    <font key="NSFont" size="13" name="Georgia"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="pjw-9E-Gbd" secondAttribute="trailing" constant="23" id="02z-Vs-Aps"/>
                                             <constraint firstAttribute="trailing" secondItem="ggJ-dv-yH6" secondAttribute="trailing" constant="23" id="3lL-kA-fVf"/>
                                             <constraint firstAttribute="trailing" secondItem="dbE-Cg-Cxq" secondAttribute="trailing" constant="23" id="E4p-WU-OS8"/>
+                                            <constraint firstItem="gGe-bI-5HB" firstAttribute="leading" secondItem="cSQ-H4-mfS" secondAttribute="leading" constant="22" id="EHQ-i4-o3k"/>
                                             <constraint firstItem="Vjc-oW-Icd" firstAttribute="leading" secondItem="cSQ-H4-mfS" secondAttribute="leading" constant="22" id="F3o-0B-hL1"/>
                                             <constraint firstAttribute="trailing" secondItem="sFf-i0-rcg" secondAttribute="trailing" constant="23" id="HZq-c3-zge"/>
                                             <constraint firstItem="pjw-9E-Gbd" firstAttribute="leading" secondItem="cSQ-H4-mfS" secondAttribute="leading" constant="22" id="MEE-qr-dzi"/>
@@ -493,7 +524,9 @@
                                             <constraint firstItem="pjw-9E-Gbd" firstAttribute="top" secondItem="cSQ-H4-mfS" secondAttribute="top" constant="26" id="ewH-EU-2SX"/>
                                             <constraint firstAttribute="trailing" secondItem="Vjc-oW-Icd" secondAttribute="trailing" constant="23" id="iKr-Jx-Qtg"/>
                                             <constraint firstItem="Vjc-oW-Icd" firstAttribute="top" secondItem="ggJ-dv-yH6" secondAttribute="bottom" constant="9.3333333333333428" id="k7G-cg-X1n"/>
+                                            <constraint firstAttribute="trailing" secondItem="gGe-bI-5HB" secondAttribute="trailing" constant="23" id="kOl-Zp-WkB"/>
                                             <constraint firstItem="dbE-Cg-Cxq" firstAttribute="leading" secondItem="cSQ-H4-mfS" secondAttribute="leading" constant="22" id="o9T-g2-3sC"/>
+                                            <constraint firstItem="gGe-bI-5HB" firstAttribute="top" secondItem="sFf-i0-rcg" secondAttribute="bottom" constant="10.67" id="tyn-wK-wkr"/>
                                             <constraint firstItem="ggJ-dv-yH6" firstAttribute="top" secondItem="dbE-Cg-Cxq" secondAttribute="bottom" constant="23.333333333333371" id="zR0-cG-xhq"/>
                                         </constraints>
                                     </view>
@@ -531,11 +564,13 @@
                     <connections>
                         <outlet property="btnBack" destination="S1l-YF-J8G" id="3HK-En-lMF"/>
                         <outlet property="btnSave" destination="phj-pI-x4d" id="x1H-ta-Ekm"/>
+                        <outlet property="isAgreeToSubscribe" destination="P4v-e8-nzu" id="lbf-LD-qDI"/>
                         <outlet property="lblCPassword" destination="66K-f3-Dlw" id="cYY-gZ-9pE"/>
                         <outlet property="lblEmail" destination="lwH-hN-tgE" id="fyO-G8-nTd"/>
                         <outlet property="lblFirstName" destination="E35-d2-kN4" id="y4P-Da-HkH"/>
                         <outlet property="lblLastName" destination="6aN-36-gkI" id="JZD-Mg-TbD"/>
                         <outlet property="lblPassword" destination="yFP-AR-tWn" id="nQw-xF-xOd"/>
+                        <outlet property="lblSubscribe" destination="x23-B9-F9R" id="66G-78-4j0"/>
                         <outlet property="txtConfirmPassword" destination="job-IE-kdW" id="b53-8t-wFP"/>
                         <outlet property="txtEmail" destination="oON-fP-qkS" id="MUH-g7-O4G"/>
                         <outlet property="txtFirstName" destination="xGj-uN-9ub" id="BVz-Xa-5bp"/>
@@ -586,6 +621,8 @@
     </scenes>
     <color key="tintColor" name="STW-Grey"/>
     <resources>
+        <image name="Checked" width="100" height="100"/>
+        <image name="UnChecked" width="100" height="100"/>
         <image name="information" width="22" height="22"/>
         <image name="list" width="79" height="68"/>
         <image name="map" width="93" height="80"/>
