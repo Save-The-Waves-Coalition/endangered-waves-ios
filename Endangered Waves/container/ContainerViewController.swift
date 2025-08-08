@@ -107,16 +107,16 @@ class ContainerViewController: UIViewController {
         }
 
         // Logout Action
-        let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { _ in
-            self.showLogoutAlert(in: self)
-        }
+//        let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { _ in
+//            self.showLogoutAlert(in: self)
+//        }
 
         // Cancel Action
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
 
         // Add actions to the Action Sheet
         actionSheet.addAction(profileAction)
-        actionSheet.addAction(logoutAction)
+        //actionSheet.addAction(logoutAction)
         actionSheet.addAction(cancelAction)
 
         // Present the Action Sheet

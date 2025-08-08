@@ -180,6 +180,7 @@ class NewReportViewController: UITableViewController {
         descriptionTextView.attributedText = Style.userInputPlaceholderAttributedStringForString("Write a description...".localized())
         locationLabel.attributedText = Style.userInputPlaceholderAttributedStringForString("Choose a location...".localized())
         emailTextView.attributedText = Style.userInputPlaceholderAttributedStringForString("Enter email address...".localized())
+        self.setupTapGesture()
     }
     func updateUIForNoCompetition() {
         guard isViewLoaded else { return }
@@ -264,6 +265,16 @@ class NewReportViewController: UITableViewController {
                 threatCategoryTableViewController.selectedThreatCategory = reportThreatCategory
             }
         }
+    }
+
+    func setupTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false // Allows other interactions
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 

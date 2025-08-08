@@ -59,12 +59,20 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UINavigation
         return button
     }()
 
+    let logOutButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Logout".localized(), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont(name: "BrandonGrotesque-Regular", size: 16) // Change to your custom font
+        return button
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         title = "PROFILE".localized()
         changePasswordButton.addTarget(self, action: #selector(changePassword), for: .touchUpInside)
         editButton.addTarget(self, action: #selector(editProfile), for: .touchUpInside)
+        logOutButton.addTarget(self, action: #selector(logOutButtonTaped), for: .touchUpInside)
 
         APIManager.fetchCurrentUserData { userData, error in
             if error == nil {
@@ -83,6 +91,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UINavigation
         view.addSubview(lastNameTextField)
         view.addSubview(editButton)
         view.addSubview(changePasswordButton)
+        view.addSubview(logOutButton)
         editButton.isHidden = true
         NSLayoutConstraint.activate([
             profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -102,7 +111,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UINavigation
             editButton.topAnchor.constraint(equalTo: lastNameTextField.bottomAnchor, constant: 20),
 
             changePasswordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            changePasswordButton.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 15)
+            changePasswordButton.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 15),
+
+            logOutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            logOutButton.topAnchor.constraint(equalTo: changePasswordButton.bottomAnchor, constant: 15)
         ])
     }
 
@@ -136,6 +148,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UINavigation
         }
     }
 
+    @objc func logOutButtonTaped() {
+        self.showLogoutAlert(in: self)
+    }
     // MARK: - Update Password
     private func updatePassword(_ newPassword: String?) {
         guard let newPassword = newPassword, !newPassword.isEmpty else {
@@ -156,6 +171,35 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UINavigation
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true)
+    }
+
+    func showLogoutAlert(in viewController: UIViewController) {
+        let alert = UIAlertController(title: "Are you sure?",
+                                      message: "You want to logout?",
+                                      preferredStyle: .alert)
+        // Logout Action
+        let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { _ in
+            self.performLogout()
+        }
+
+        // Cancel Action
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        // Add actions to alert
+        alert.addAction(cancelAction)
+        alert.addAction(logoutAction)
+
+        // Present alert
+        viewController.present(alert, animated: true, completion: nil)
+    }
+    // Function for Logout Action
+    func performLogout() {
+        let user: AuthDataUserModel? = nil
+        Global.storeModelInUserDefault(obj: user, key: .currentUser)
+        self.navigationController?.popToRootViewController(animated: true)
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            appDelegate.switchToLogin()
+        }
     }
 }
 extension ProfileViewController: UIImagePickerControllerDelegate {

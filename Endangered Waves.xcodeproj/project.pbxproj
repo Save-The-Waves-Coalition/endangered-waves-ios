@@ -29,6 +29,30 @@
 		370BE42D2CFDC18900F12985 /* Extension + UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370BE42B2CFDC16300F12985 /* Extension + UserDefault.swift */; };
 		3734E1962CF4778300A82AD6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3734E1942CF4778300A82AD6 /* GoogleService-Info.plist */; };
 		374407BB2CF48CF8008E87DD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3734E18F2CF4716C00A82AD6 /* GoogleService-Info.plist */; };
+		37707E172D8804F5002F89DF /* AvenirLTStd-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37707E0B2D8804F4002F89DF /* AvenirLTStd-Light.otf */; };
+		37707E182D8804F5002F89DF /* AvenirLTStd-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37707E0B2D8804F4002F89DF /* AvenirLTStd-Light.otf */; };
+		37707E192D8804F5002F89DF /* AvenirLTStd-MediumOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37707E0C2D8804F4002F89DF /* AvenirLTStd-MediumOblique.otf */; };
+		37707E1A2D8804F5002F89DF /* AvenirLTStd-MediumOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37707E0C2D8804F4002F89DF /* AvenirLTStd-MediumOblique.otf */; };
+		37707E1B2D8804F5002F89DF /* AvenirLTStd-Oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37707E0D2D8804F4002F89DF /* AvenirLTStd-Oblique.otf */; };
+		37707E1C2D8804F5002F89DF /* AvenirLTStd-Oblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37707E0D2D8804F4002F89DF /* AvenirLTStd-Oblique.otf */; };
+		37707E1D2D8804F5002F89DF /* AvenirLTStd-Roman.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37707E0E2D8804F4002F89DF /* AvenirLTStd-Roman.otf */; };
+		37707E1E2D8804F5002F89DF /* AvenirLTStd-Roman.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37707E0E2D8804F4002F89DF /* AvenirLTStd-Roman.otf */; };
+		37707E1F2D8804F5002F89DF /* AvenirLTStd-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37707E0F2D8804F4002F89DF /* AvenirLTStd-Book.otf */; };
+		37707E202D8804F5002F89DF /* AvenirLTStd-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37707E0F2D8804F4002F89DF /* AvenirLTStd-Book.otf */; };
+		37707E212D8804F5002F89DF /* AvenirLTStd-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37707E102D8804F4002F89DF /* AvenirLTStd-Heavy.otf */; };
+		37707E222D8804F5002F89DF /* AvenirLTStd-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37707E102D8804F4002F89DF /* AvenirLTStd-Heavy.otf */; };
+		37707E232D8804F5002F89DF /* AvenirLTStd-LightOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37707E112D8804F5002F89DF /* AvenirLTStd-LightOblique.otf */; };
+		37707E242D8804F5002F89DF /* AvenirLTStd-LightOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37707E112D8804F5002F89DF /* AvenirLTStd-LightOblique.otf */; };
+		37707E252D8804F5002F89DF /* AvenirLTStd-BookOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37707E122D8804F5002F89DF /* AvenirLTStd-BookOblique.otf */; };
+		37707E262D8804F5002F89DF /* AvenirLTStd-BookOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37707E122D8804F5002F89DF /* AvenirLTStd-BookOblique.otf */; };
+		37707E272D8804F5002F89DF /* AvenirLTStd-BlackOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37707E132D8804F5002F89DF /* AvenirLTStd-BlackOblique.otf */; };
+		37707E282D8804F5002F89DF /* AvenirLTStd-BlackOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37707E132D8804F5002F89DF /* AvenirLTStd-BlackOblique.otf */; };
+		37707E292D8804F5002F89DF /* AvenirLTStd-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37707E142D8804F5002F89DF /* AvenirLTStd-Medium.otf */; };
+		37707E2A2D8804F5002F89DF /* AvenirLTStd-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37707E142D8804F5002F89DF /* AvenirLTStd-Medium.otf */; };
+		37707E2B2D8804F5002F89DF /* AvenirLTStd-HeavyOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37707E152D8804F5002F89DF /* AvenirLTStd-HeavyOblique.otf */; };
+		37707E2C2D8804F5002F89DF /* AvenirLTStd-HeavyOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37707E152D8804F5002F89DF /* AvenirLTStd-HeavyOblique.otf */; };
+		37707E2D2D8804F5002F89DF /* AvenirLTStd-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37707E162D8804F5002F89DF /* AvenirLTStd-Black.otf */; };
+		37707E2E2D8804F5002F89DF /* AvenirLTStd-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 37707E162D8804F5002F89DF /* AvenirLTStd-Black.otf */; };
 		3788476F2CF9FAA1005BC78A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3788476D2CF9FAA1005BC78A /* LoginViewController.swift */; };
 		378847732CFA024C005BC78A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3788476D2CF9FAA1005BC78A /* LoginViewController.swift */; };
 		37EFD9FF2D4B57A80058AFC4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EFD9FE2D4B57A80058AFC4 /* ProfileViewController.swift */; };
@@ -220,6 +244,18 @@
 		370BE42B2CFDC16300F12985 /* Extension + UserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension + UserDefault.swift"; sourceTree = "<group>"; };
 		3734E18F2CF4716C00A82AD6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3734E1942CF4778300A82AD6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		37707E0B2D8804F4002F89DF /* AvenirLTStd-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-Light.otf"; sourceTree = "<group>"; };
+		37707E0C2D8804F4002F89DF /* AvenirLTStd-MediumOblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-MediumOblique.otf"; sourceTree = "<group>"; };
+		37707E0D2D8804F4002F89DF /* AvenirLTStd-Oblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-Oblique.otf"; sourceTree = "<group>"; };
+		37707E0E2D8804F4002F89DF /* AvenirLTStd-Roman.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-Roman.otf"; sourceTree = "<group>"; };
+		37707E0F2D8804F4002F89DF /* AvenirLTStd-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-Book.otf"; sourceTree = "<group>"; };
+		37707E102D8804F4002F89DF /* AvenirLTStd-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-Heavy.otf"; sourceTree = "<group>"; };
+		37707E112D8804F5002F89DF /* AvenirLTStd-LightOblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-LightOblique.otf"; sourceTree = "<group>"; };
+		37707E122D8804F5002F89DF /* AvenirLTStd-BookOblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-BookOblique.otf"; sourceTree = "<group>"; };
+		37707E132D8804F5002F89DF /* AvenirLTStd-BlackOblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-BlackOblique.otf"; sourceTree = "<group>"; };
+		37707E142D8804F5002F89DF /* AvenirLTStd-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-Medium.otf"; sourceTree = "<group>"; };
+		37707E152D8804F5002F89DF /* AvenirLTStd-HeavyOblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-HeavyOblique.otf"; sourceTree = "<group>"; };
+		37707E162D8804F5002F89DF /* AvenirLTStd-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-Black.otf"; sourceTree = "<group>"; };
 		3788476D2CF9FAA1005BC78A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		37EB5D3B2CFF30A800E64E1A /* Endangered Waves dev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Endangered Waves dev.entitlements"; sourceTree = "<group>"; };
 		37EB5D3C2CFF30C700E64E1A /* Endangered Waves.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Endangered Waves.entitlements"; sourceTree = "<group>"; };
@@ -571,6 +607,18 @@
 		4A9578D31FBBAE5C0051837C /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				37707E162D8804F5002F89DF /* AvenirLTStd-Black.otf */,
+				37707E132D8804F5002F89DF /* AvenirLTStd-BlackOblique.otf */,
+				37707E0F2D8804F4002F89DF /* AvenirLTStd-Book.otf */,
+				37707E122D8804F5002F89DF /* AvenirLTStd-BookOblique.otf */,
+				37707E102D8804F4002F89DF /* AvenirLTStd-Heavy.otf */,
+				37707E152D8804F5002F89DF /* AvenirLTStd-HeavyOblique.otf */,
+				37707E0B2D8804F4002F89DF /* AvenirLTStd-Light.otf */,
+				37707E112D8804F5002F89DF /* AvenirLTStd-LightOblique.otf */,
+				37707E142D8804F5002F89DF /* AvenirLTStd-Medium.otf */,
+				37707E0C2D8804F4002F89DF /* AvenirLTStd-MediumOblique.otf */,
+				37707E0D2D8804F4002F89DF /* AvenirLTStd-Oblique.otf */,
+				37707E0E2D8804F4002F89DF /* AvenirLTStd-Roman.otf */,
 				4A9578D11FBBAE530051837C /* Brandon_blk.otf */,
 				4AA85B941FBCA3CA009A72E8 /* Brandon_reg.otf */,
 				4A0ABE711FBD2D04007B06B9 /* Brandon_bld.otf */,
@@ -750,24 +798,36 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37707E2B2D8804F5002F89DF /* AvenirLTStd-HeavyOblique.otf in Resources */,
 				4A0ABE701FBD2B4F007B06B9 /* SF-Pro-Display-Semibold.otf in Resources */,
+				37707E272D8804F5002F89DF /* AvenirLTStd-BlackOblique.otf in Resources */,
+				37707E1F2D8804F5002F89DF /* AvenirLTStd-Book.otf in Resources */,
+				37707E172D8804F5002F89DF /* AvenirLTStd-Light.otf in Resources */,
 				4A9578D21FBBAE540051837C /* Brandon_blk.otf in Resources */,
+				37707E2D2D8804F5002F89DF /* AvenirLTStd-Black.otf in Resources */,
 				4AE137EA242BB41F00107085 /* Lightbox.bundle in Resources */,
 				4AB6AA8B1FC5D655001C36C2 /* ReportMapCalloutView.xib in Resources */,
 				221B85BF25F2E7DD00EC1681 /* Localizable.strings in Resources */,
+				37707E1B2D8804F5002F89DF /* AvenirLTStd-Oblique.otf in Resources */,
 				4AA85B951FBCA3CA009A72E8 /* Brandon_reg.otf in Resources */,
 				221B859C25F2E1C700EC1681 /* information.storyboard in Resources */,
 				4A0ABE721FBD2D04007B06B9 /* Brandon_bld.otf in Resources */,
+				37707E252D8804F5002F89DF /* AvenirLTStd-BookOblique.otf in Resources */,
 				4A119F672141A6CB006E75B5 /* competition.storyboard in Resources */,
 				4A0ABE7A1FBE6F15007B06B9 /* image-slider.storyboard in Resources */,
 				4A7FA9241FAA966300C6A2BB /* LaunchScreen.storyboard in Resources */,
+				37707E232D8804F5002F89DF /* AvenirLTStd-LightOblique.otf in Resources */,
 				4A321A931FB67C3C001DA08A /* map.storyboard in Resources */,
+				37707E1D2D8804F5002F89DF /* AvenirLTStd-Roman.otf in Resources */,
+				37707E192D8804F5002F89DF /* AvenirLTStd-MediumOblique.otf in Resources */,
 				4A321A8A1FB672A1001DA08A /* list.storyboard in Resources */,
+				37707E212D8804F5002F89DF /* AvenirLTStd-Heavy.otf in Resources */,
 				2268A5C225F2D04500829F05 /* report.storyboard in Resources */,
 				370BE4292CFDB80D00F12985 /* container.storyboard in Resources */,
 				4A7FA9211FAA966300C6A2BB /* Assets.xcassets in Resources */,
 				221B85AC25F2E20C00EC1681 /* new-report.storyboard in Resources */,
 				221B859025F2E18B00EC1681 /* onboarding.storyboard in Resources */,
+				37707E292D8804F5002F89DF /* AvenirLTStd-Medium.otf in Resources */,
 				4A00E12E1FD4A12200E4CEA4 /* GothamSSm-Medium.otf in Resources */,
 				3734E1962CF4778300A82AD6 /* GoogleService-Info.plist in Resources */,
 			);
@@ -777,24 +837,36 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37707E2C2D8804F5002F89DF /* AvenirLTStd-HeavyOblique.otf in Resources */,
 				8774074E2048B9DA00ED36F1 /* SF-Pro-Display-Semibold.otf in Resources */,
+				37707E282D8804F5002F89DF /* AvenirLTStd-BlackOblique.otf in Resources */,
+				37707E202D8804F5002F89DF /* AvenirLTStd-Book.otf in Resources */,
+				37707E182D8804F5002F89DF /* AvenirLTStd-Light.otf in Resources */,
 				8774074F2048B9DA00ED36F1 /* Brandon_blk.otf in Resources */,
+				37707E2E2D8804F5002F89DF /* AvenirLTStd-Black.otf in Resources */,
 				4AE137EB242BB41F00107085 /* Lightbox.bundle in Resources */,
 				877407502048B9DA00ED36F1 /* ReportMapCalloutView.xib in Resources */,
 				221B85C025F2E7DD00EC1681 /* Localizable.strings in Resources */,
+				37707E1C2D8804F5002F89DF /* AvenirLTStd-Oblique.otf in Resources */,
 				877407512048B9DA00ED36F1 /* Brandon_reg.otf in Resources */,
 				221B859D25F2E1C700EC1681 /* information.storyboard in Resources */,
 				877407532048B9DA00ED36F1 /* Brandon_bld.otf in Resources */,
+				37707E262D8804F5002F89DF /* AvenirLTStd-BookOblique.otf in Resources */,
 				4A119F682141A6CB006E75B5 /* competition.storyboard in Resources */,
 				877407542048B9DA00ED36F1 /* image-slider.storyboard in Resources */,
 				877407552048B9DA00ED36F1 /* LaunchScreen.storyboard in Resources */,
+				37707E242D8804F5002F89DF /* AvenirLTStd-LightOblique.otf in Resources */,
 				877407572048B9DA00ED36F1 /* map.storyboard in Resources */,
+				37707E1E2D8804F5002F89DF /* AvenirLTStd-Roman.otf in Resources */,
+				37707E1A2D8804F5002F89DF /* AvenirLTStd-MediumOblique.otf in Resources */,
 				877407582048B9DA00ED36F1 /* list.storyboard in Resources */,
+				37707E222D8804F5002F89DF /* AvenirLTStd-Heavy.otf in Resources */,
 				2268A5C325F2D04500829F05 /* report.storyboard in Resources */,
 				370BE42A2CFDB80E00F12985 /* container.storyboard in Resources */,
 				8774075A2048B9DA00ED36F1 /* Assets.xcassets in Resources */,
 				221B85AD25F2E20C00EC1681 /* new-report.storyboard in Resources */,
 				374407BB2CF48CF8008E87DD /* GoogleService-Info.plist in Resources */,
+				37707E2A2D8804F5002F89DF /* AvenirLTStd-Medium.otf in Resources */,
 				221B859125F2E18B00EC1681 /* onboarding.storyboard in Resources */,
 				8774075E2048B9DA00ED36F1 /* GothamSSm-Medium.otf in Resources */,
 			);
@@ -1439,7 +1511,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2.4.6.1;
+				CURRENT_PROJECT_VERSION = 2.4.6.2;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 72RCH6T78N;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -1475,7 +1547,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2.4.6.1;
+				CURRENT_PROJECT_VERSION = 2.4.6.2;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 72RCH6T78N;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -1510,7 +1582,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Endangered Waves dev.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.4.6.1;
+				CURRENT_PROJECT_VERSION = 2.4.6.2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 72RCH6T78N;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
@@ -1543,7 +1615,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Endangered Waves dev.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.4.6.1;
+				CURRENT_PROJECT_VERSION = 2.4.6.2;
 				DEVELOPMENT_TEAM = 72RCH6T78N;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				"EXCLUDED_ARCHS[sdk=*]" = arm64;

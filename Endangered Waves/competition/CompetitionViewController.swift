@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import WebKit
+@preconcurrency import WebKit
 import SafariServices
 
 protocol CompetitionViewControllerDelegate: AnyObject {

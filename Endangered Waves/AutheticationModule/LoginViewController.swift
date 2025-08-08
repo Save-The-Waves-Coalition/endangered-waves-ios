@@ -39,6 +39,7 @@ class LoginViewController: UIViewController {
         txtPassword.placeholder = "Password".localized()
         txtEmail.delegate = self
         txtPassword.delegate = self
+        self.setupTapGesture()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -59,8 +60,8 @@ class LoginViewController: UIViewController {
             showValidationError(title: "Invalid Password".localized(), message: "Please enter a proper password.".localized(),
                                 withViewController: self)
             return
-        } else if password.count < 10 {
-            showAlert(message: "Password must be greaterthen of equal to 10 characters!".localized())
+        } else if password.count < 7 {
+            showAlert(message: "Password must be greaterthen of equal to 7 characters!".localized())
             return
         } else {
             SVProgressHUD.showProgress(0)
@@ -68,7 +69,7 @@ class LoginViewController: UIViewController {
                 SVProgressHUD.dismiss()
                 if let error = error {
                     self.showValidationError(title: "Error".localized(), message: "\(error.localizedDescription)",
-                                        withViewController: self)
+                                        withViewController: self, isPushToSignUp: true)
                     return
                 } else {
 
@@ -109,12 +110,14 @@ class LoginViewController: UIViewController {
             }
         }
     }
+
     @IBAction func btnSignUpClick(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: ContainerViewController.storyboardName, bundle: nil)
         if let signUpVC = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController {
             self.show(signUpVC, sender: nil)
         }
     }
+
     @IBAction func btnForgotPasswordClick(_ sender: UIButton) {
         let title = "Forgot Password".localized()
         let message = "Please Enter Register email".localized()
@@ -178,11 +181,17 @@ class LoginViewController: UIViewController {
     }
     */
 
-    func showValidationError(title: String, message: String, withViewController viewController: UIViewController) {
+    func showValidationError(title: String, message: String, withViewController viewController: UIViewController, isPushToSignUp: Bool = false) {
         let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertViewController.view.tintColor = Style.colorSTWBlue
-        let okAction = UIAlertAction(title: "Ok".localized(), style: .default, handler: nil)
-        alertViewController.addAction(okAction)
+
+        alertViewController.addAction(UIAlertAction(title: "Ok".localized(),
+                                      style: UIAlertAction.Style.default,
+                                      handler: {(_: UIAlertAction!) in
+            if isPushToSignUp {
+                self.btnSignUpClick(self.btnSignUp)
+            }
+        }))
         viewController.present(alertViewController, animated: true, completion: nil)
     }
 
@@ -198,6 +207,16 @@ class LoginViewController: UIViewController {
         DispatchQueue.main.async {
             self.present(alert, animated: false, completion: nil)
         }
+    }
+
+    func setupTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false // Allows other interactions
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 extension LoginViewController: UITextFieldDelegate {

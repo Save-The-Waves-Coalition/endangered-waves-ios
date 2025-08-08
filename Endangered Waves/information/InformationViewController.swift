@@ -81,20 +81,20 @@ extension InformationViewController {
             }
         case 1:
             switch indexPath.row {
-            case 0: // Facebook
+            case 0: // Instagram
+                let url  = URL(string: "https://www.instagram.com/savethewavescoalition")!
+                delegate?.viewController(self, wantsToLaunchAppWithURL: url)
+            case 1: // Facebook
                 let url  = URL(string: "https://www.facebook.com/savethewavescoalition")!
                 delegate?.viewController(self, wantsToLaunchAppWithURL: url)
-            case 1: // Twitter
-                let url  = URL(string: "https://twitter.com/savethewaves")!
-                delegate?.viewController(self, wantsToLaunchAppWithURL: url)
-            case 2: // Instagram
-                let url  = URL(string: "https://www.instagram.com/savethewavescoalition")!
+//            case 1: // Twitter
+//                let url  = URL(string: "https://twitter.com/savethewaves")!
+//                delegate?.viewController(self, wantsToLaunchAppWithURL: url)
+            case 2: // LinkedIn
+                let url  = URL(string: "https://www.linkedin.com/company/save-the-waves-coalition---www.savethewaves.org/")!
                 delegate?.viewController(self, wantsToLaunchAppWithURL: url)
             case 3: // Youtube
                 let url  = URL(string: "https://www.youtube.com/user/SaveTheWaves/videos")!
-                delegate?.viewController(self, wantsToLaunchAppWithURL: url)
-            case 4: // LinkedIn
-                let url  = URL(string: "https://www.linkedin.com/company/save-the-waves-coalition---www.savethewaves.org/")!
                 delegate?.viewController(self, wantsToLaunchAppWithURL: url)
             default:
                 break

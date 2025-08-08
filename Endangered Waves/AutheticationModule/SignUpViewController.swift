@@ -68,6 +68,7 @@ class SignUpViewController: UIViewController {
         txtEmail.delegate = self
         txtPassword.delegate = self
         txtConfirmPassword.delegate = self
+        self.setupTapGesture()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -125,14 +126,18 @@ class SignUpViewController: UIViewController {
                 print("Error sending verification email: \(error.localizedDescription)")
             } else {
                 self.showAlert(message: "A verification email has been sent. Please check your inbox.".localized())
-                self.saveUserData(user: user, firstName: self.txtFirstName.text ?? "", lastName: self.txtLastName.text ?? "", isSubscribe: self.isAgreeToSubscribe.isSelected)
+                self.saveUserData(user: user,
+                                  firstName: self.txtFirstName.text ?? "",
+                                  lastName: self.txtLastName.text ?? "",
+                                  email: self.txtEmail.text ?? "",
+                                  isSubscribe: self.isAgreeToSubscribe.isSelected)
             }
         }
     }
 
     // 🔹 Function for Saving User Data in Firestore
-    func saveUserData(user: User, firstName: String, lastName: String, isSubscribe: Bool) {
-        let userModel = UserModel(firstName: firstName, lastName: lastName, deviceId: Global.deviceToken, userId: user.uid, isSubscribe: isSubscribe)
+    func saveUserData(user: User, firstName: String, lastName: String, email: String, isSubscribe: Bool) {
+        let userModel = UserModel(firstName: firstName, lastName: lastName, deviceId: Global.deviceToken, email: email, userId: user.uid, isSubscribe: isSubscribe)
 
         APIManager.createNewUserData(userData: userModel) { ref, error in
             SVProgressHUD.dismiss()
@@ -152,7 +157,7 @@ class SignUpViewController: UIViewController {
             (email.isEmpty, "Please enter email".localized()),
             (!email.isValidEmail(), "Please enter a valid email".localized()),
             (password.isEmpty, "Please enter password".localized()),
-            (password.count < 10, "Password must be at least 10 characters!".localized()),
+            (password.count < 7, "Password must be at least 7 characters!".localized()),
             (cpassword.isEmpty, "Please enter confirm password".localized()),
             (password != cpassword, "Password and Confirm Password must be the same".localized())
         ]
@@ -174,7 +179,7 @@ class SignUpViewController: UIViewController {
         self.dismiss(animated: true)
     }
 
-    func showAlert(title: String = "Endangered Waves".localized(), message: String?, isDismiss: Bool = true) {
+    func showAlert(title: String = "Let’s Get Started!".localized(), message: String?, isDismiss: Bool = true) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok".localized(),
                                       style: UIAlertAction.Style.default,
@@ -189,6 +194,16 @@ class SignUpViewController: UIViewController {
         DispatchQueue.main.async {
             self.present(alert, animated: false, completion: nil)
         }
+    }
+
+    func setupTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false // Allows other interactions
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 
