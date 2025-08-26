@@ -61,7 +61,7 @@ class LoginViewController: UIViewController {
                                 withViewController: self)
             return
         } else if password.count < 7 {
-            showAlert(message: "Password must be greaterthen of equal to 7 characters!".localized())
+            showAlert(message: "Password must be greater then or equal to 7 characters!".localized())
             return
         } else {
             SVProgressHUD.showProgress(0)
@@ -195,7 +195,7 @@ class LoginViewController: UIViewController {
         viewController.present(alertViewController, animated: true, completion: nil)
     }
 
-    func showAlert(title: String = "Endangered Waves".localized(), message: String?) {
+    func showAlert(title: String = Constants.appTitle, message: String?) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel".localized(), style: UIAlertAction.Style.default, handler: { _ in
             self.dismiss(animated: true, completion: nil)

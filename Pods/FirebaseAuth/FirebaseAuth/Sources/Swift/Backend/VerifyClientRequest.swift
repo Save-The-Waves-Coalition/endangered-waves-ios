@@ -27,26 +27,27 @@ class VerifyClientRequest: IdentityToolkitRequest, AuthRPCRequest {
   /// The key for the isSandbox request parameter.
   private static let isSandboxKey = "isSandbox"
 
-  func unencodedHTTPRequestBody() throws -> [String: AnyHashable] {
+  var unencodedHTTPRequestBody: [String: AnyHashable]? {
     var postBody = [String: AnyHashable]()
     if let appToken = appToken {
       postBody[Self.appTokenKey] = appToken
     }
-    postBody[Self.isSandboxKey] = isSandbox
+    if isSandbox {
+      postBody[Self.isSandboxKey] = true
+    }
     return postBody
   }
 
   /// The APNS device token.
-  private(set) var appToken: String?
+  let appToken: String?
 
   /// The flag that denotes if the appToken  pertains to Sandbox or Production.
-  private(set) var isSandbox: Bool
+  let isSandbox: Bool
 
-  init(withAppToken: String?,
+  init(withAppToken appToken: String?,
        isSandbox: Bool,
        requestConfiguration: AuthRequestConfiguration) {
-    appToken = withAppToken
-    self.isSandbox = isSandbox
+    self.appToken = appToken
     self.isSandbox = isSandbox
     super.init(endpoint: Self.verifyClientEndpoint, requestConfiguration: requestConfiguration)
   }

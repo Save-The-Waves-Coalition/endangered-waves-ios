@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import SVProgressHUD
+import IQKeyboardManagerSwift
 
 class SignUpViewController: UIViewController {
 
@@ -35,6 +36,7 @@ class SignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        IQKeyboardManager.shared.enable = true
         txtFirstName.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0) // Adjust padding width
         txtLastName.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0)
         txtEmail.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0)
@@ -179,7 +181,7 @@ class SignUpViewController: UIViewController {
         self.dismiss(animated: true)
     }
 
-    func showAlert(title: String = "Let’s Get Started!".localized(), message: String?, isDismiss: Bool = true) {
+    func showAlert(title: String = Constants.appTitle, message: String?, isDismiss: Bool = true) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok".localized(),
                                       style: UIAlertAction.Style.default,

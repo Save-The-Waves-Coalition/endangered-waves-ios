@@ -15,9 +15,9 @@
 import Foundation
 
 #if SWIFT_PACKAGE
-  @_implementationOnly import GoogleUtilities_NSData
+  internal import GoogleUtilities_NSData
 #else
-  @_implementationOnly import GoogleUtilities
+  internal import GoogleUtilities
 #endif // SWIFT_PACKAGE
 
 /// A type that provides a string representation for use in an HTTP header.
@@ -44,7 +44,7 @@ public protocol HTTPHeaderRepresentable {
 ///       ]
 ///     }
 ///
-public struct HeartbeatsPayload: Codable {
+public struct HeartbeatsPayload: Codable, Sendable {
   /// The version of the payload. See go/firebase-apple-heartbeats for details regarding current
   /// version.
   static let version: Int = 2
