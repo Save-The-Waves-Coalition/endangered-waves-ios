@@ -204,14 +204,14 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hAK-Gd-sK3">
-                                        <rect key="frame" x="102" y="454.33333333333331" width="171" height="85.999999999999943"/>
+                                        <rect key="frame" x="96" y="454.33333333333331" width="183" height="85.999999999999943"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oR-Kk-3xU">
-                                                <rect key="frame" x="0.0" y="0.0" width="171" height="33"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="183" height="33"/>
                                                 <color key="backgroundColor" name="STW-Blue"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="   Sign into your account  ">
+                                                <state key="normal" title="   Sign in to your account?  ">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -225,7 +225,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TP0-VU-3fX">
-                                                <rect key="frame" x="0.0" y="53.000000000000057" width="171" height="33"/>
+                                                <rect key="frame" x="0.0" y="53.000000000000057" width="183" height="33"/>
                                                 <color key="backgroundColor" name="STW-Blue"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -592,6 +592,7 @@
                 <navigationController storyboardIdentifier="ContainerNavComponent" automaticallyAdjustsScrollViewInsets="NO" id="geJ-2x-roY" customClass="ContainerNavViewController" customModule="Endangered_Waves" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="w1Y-pJ-Wst">
+                        <rect key="frame" x="0.0" y="100" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
