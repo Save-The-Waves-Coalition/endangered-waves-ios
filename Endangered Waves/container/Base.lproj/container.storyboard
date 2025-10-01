@@ -204,14 +204,14 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hAK-Gd-sK3">
-                                        <rect key="frame" x="96" y="454.33333333333331" width="183" height="85.999999999999943"/>
+                                        <rect key="frame" x="99.666666666666686" y="454.33333333333331" width="176" height="85.999999999999943"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oR-Kk-3xU">
-                                                <rect key="frame" x="0.0" y="0.0" width="183" height="33"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="176" height="33"/>
                                                 <color key="backgroundColor" name="STW-Blue"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="   Sign in to your account?  ">
+                                                <state key="normal" title="   Sign in to your account  ">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -225,7 +225,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TP0-VU-3fX">
-                                                <rect key="frame" x="0.0" y="53.000000000000057" width="183" height="33"/>
+                                                <rect key="frame" x="0.0" y="53.000000000000057" width="176" height="33"/>
                                                 <color key="backgroundColor" name="STW-Blue"/>
                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -245,21 +245,25 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Pkw-be-u04">
-                                        <rect key="frame" x="131.66666666666666" y="571" width="112" height="33"/>
+                                        <rect key="frame" x="119.66666666666669" y="571" width="136" height="34.666666666666629"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhi-iH-lP2">
-                                                <rect key="frame" x="0.0" y="0.0" width="112" height="33"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="136" height="34.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="Avenir-BookOblique" family="Avenir" pointSize="15"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Forgot Password">
                                                     <color key="titleColor" name="STW-White"/>
                                                 </state>
+                                                <buttonConfiguration key="configuration" style="plain" title="Forgot Password">
+                                                    <fontDescription key="titleFontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                                    <color key="baseForegroundColor" name="STW-White"/>
+                                                </buttonConfiguration>
                                                 <connections>
                                                     <action selector="btnForgotPasswordClick:" destination="M2P-cI-bMU" eventType="touchUpInside" id="wKe-jZ-yER"/>
                                                 </connections>
                                             </button>
                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7w-Pe-bGj">
-                                                <rect key="frame" x="-36.666666666666657" y="0.0" width="185" height="0.0"/>
+                                                <rect key="frame" x="-24.666666666666671" y="0.0" width="185" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="Resend Activation Link">
@@ -382,7 +386,7 @@
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aN-36-gkI">
                                                         <rect key="frame" x="0.0" y="0.0" width="327.33333333333331" height="20.666666666666668"/>
-                                                        <fontDescription key="fontDescription" name="Avenir-BookOblique" family="Avenir" pointSize="15"/>
+                                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
