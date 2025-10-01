@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.isEnabled = true
         // If the user is listening to music, this code makes sure the music does NOT stop when taking a picture
         do {
             try AVAudioSession.sharedInstance().setCategory(.ambient, mode: .default)

@@ -23,7 +23,8 @@ abstract_target 'shared' do
   pod 'FirebaseUI/Firestore', '~> 14.0'
   pod 'FirebaseUI/Auth', '~> 14.0'
   pod 'FirebaseUI/Storage', '~> 14.0'
-  pod 'IQKeyboardManagerSwift', '6.3.0'
+  # pod 'IQKeyboardManagerSwift', '6.3.0'
+  pod 'IQKeyboardManagerSwift'
 
   # UI Related
   pod 'SDWebImage', '~> 5.10'

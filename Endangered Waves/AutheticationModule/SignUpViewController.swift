@@ -36,7 +36,7 @@ class SignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.isEnabled = true
         txtFirstName.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0) // Adjust padding width
         txtLastName.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0)
         txtEmail.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0)
