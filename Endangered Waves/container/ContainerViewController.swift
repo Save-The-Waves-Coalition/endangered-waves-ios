@@ -14,16 +14,14 @@ protocol ContainerViewControllerDelegate: AnyObject {
     func controller(_ controller: ContainerViewController, didTapAddButton button: UIButton)
     func controller(_ controller: ContainerViewController, didTapInfoButton button: UIBarButtonItem)
     func controller(_ controller: ContainerViewController, didTapProfileButton button: UIBarButtonItem)
-
 }
 
 class ContainerViewController: UIViewController {
 
     weak var delegate: ContainerViewControllerDelegate?
-
     @IBOutlet weak var containerView: UIView!
-
     @IBOutlet weak var mapButton: UIButton!
+
     @IBAction func mapButtonWasTapped(_ sender: UIButton) {
         applyActiveStyleToButton(sender)
         applyInactiveStyleToButton(listButton)
@@ -80,39 +78,17 @@ class ContainerViewController: UIViewController {
         applyActiveStyleToButton(mapButton)
     }
 
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        statusBarShouldBeHidden = false
-//        UIView.animate(withDuration: 0.25) {
-//            self.setNeedsStatusBarAppearanceUpdate()
-//        }
-//    }
-//
-//    var statusBarShouldBeHidden = false
-//    override var prefersStatusBarHidden: Bool {
-//        return statusBarShouldBeHidden
-//    }
-//
-//    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
-//        return .slide
-//    }
-
     // Function to display Action Sheet
     @objc func showActionSheet() {
-        let actionSheet = UIAlertController(title: "Choose an option", message: "", preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: "Choose an option".localized(), message: "", preferredStyle: .actionSheet)
 
         // Profile Action
-        let profileAction = UIAlertAction(title: "Profile", style: .default) { _ in
+        let profileAction = UIAlertAction(title: "Profile".localized(), style: .default) { _ in
             self.openProfile()
         }
 
-        // Logout Action
-//        let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { _ in
-//            self.showLogoutAlert(in: self)
-//        }
-
         // Cancel Action
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil)
 
         // Add actions to the Action Sheet
         actionSheet.addAction(profileAction)
@@ -139,17 +115,18 @@ class ContainerViewController: UIViewController {
             appDelegate.switchToLogin()
         }
     }
+
     func showLogoutAlert(in viewController: UIViewController) {
-        let alert = UIAlertController(title: "Are you sure?",
-                                      message: "You want to logout?",
+        let alert = UIAlertController(title: "Are you sure?".localized(),
+                                      message: "You want to logout?".localized(),
                                       preferredStyle: .alert)
         // Logout Action
-        let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { _ in
+        let logoutAction = UIAlertAction(title: "Logout".localized(), style: .destructive) { _ in
             self.performLogout()
         }
 
         // Cancel Action
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil)
 
         // Add actions to alert
         alert.addAction(cancelAction)

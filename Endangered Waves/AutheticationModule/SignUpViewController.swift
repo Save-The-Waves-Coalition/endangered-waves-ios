@@ -34,6 +34,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var isAgreeToSubscribe: UIButton!
     @IBOutlet weak var lblSubscribe: UILabel!
 
+    @IBOutlet weak var lblTitle: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         IQKeyboardManager.shared.isEnabled = true
@@ -44,6 +45,7 @@ class SignUpViewController: UIViewController {
         txtConfirmPassword.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0)
         txtPassword.passwordRules = UITextInputPasswordRules(descriptor: "NO")
         txtConfirmPassword.passwordRules = UITextInputPasswordRules(descriptor: "NO")
+        lblTitle.text = "Create Account".localized()
 
         // Do any additional setup after loading the view.
         lblFirstName.text = "First Name".localized()

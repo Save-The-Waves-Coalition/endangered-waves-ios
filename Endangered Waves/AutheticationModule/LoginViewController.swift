@@ -37,6 +37,9 @@ class LoginViewController: UIViewController {
         txtEmail.placeholder = "Email".localized()
         lblPassword .text = "Password".localized()
         txtPassword.placeholder = "Password".localized()
+        btnSignIn.setTitle("   Sign in to your account ".localized(), for: .normal)
+        btnSignUp.setTitle("    Create Account   ".localized(), for: .normal)
+        btnForgotPassword.setTitle("Forgot Password".localized(), for: .normal)
         txtEmail.delegate = self
         txtPassword.delegate = self
         self.setupTapGesture()
@@ -91,7 +94,7 @@ class LoginViewController: UIViewController {
                             } else {
                                 let msg = "Check your email for link to varify your email, and login again.".localized()
                                 let alert = UIAlertController(title: "Activate  your email".localized(), message: msg, preferredStyle: .alert)
-                                let actionT = "Send activation link to email"
+                                let actionT = "Send activation link to email".localized()
                                 let action = UIAlertAction(title: actionT, style: .default) { (alertAction) in
                                     self.sendVerificationEmail(user: user)
                                 }
@@ -130,7 +133,7 @@ class LoginViewController: UIViewController {
                     if textField.text?.isEmpty==true || error != nil {
                         let errmsg = "Error \(String(describing: error?.localizedDescription))"
                         let resetFailedAlert = UIAlertController(title: title, message: errmsg, preferredStyle: .alert)
-                        resetFailedAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                        resetFailedAlert.addAction(UIAlertAction(title: "Ok".localized(), style: .default, handler: nil))
                         self.present(resetFailedAlert, animated: true, completion: nil)
                     }
                     if error == nil && textField.text?.isEmpty==false {
@@ -167,7 +170,7 @@ class LoginViewController: UIViewController {
                 print("Error sending verification email: \(error.localizedDescription)")
             } else {
                 print("✅ Verification email sent successfully.")
-                self.showAlert(message: "A verification email has been sent. Please check your inbox.")
+                self.showAlert(message: "A verification email has been sent. Please check your inbox.".localized())
             }
         }
     }
