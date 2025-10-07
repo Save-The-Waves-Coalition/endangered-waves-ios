@@ -175,9 +175,9 @@
 "Confirm Password" = "Confirmar contraseña";
 "Subscribe to Save The Waves news and information" = "Suscríbete a las noticias e información de Save The Waves";
 "Let’s Get Started!" = "¡Empecemos!";
-"Sign in to your account" = "Inicia sesión en tu cuenta";
-"Create Account" = "Crear cuenta]";
+"   Sign in to your account " = "   Inicia sesión en tu cuenta   ";
+"    Create Account   " = "   Crear cuenta   ";
+"Create Account" = "Crear cuenta";
 "Forgot Password" = "¿Olvidaste tu contraseña?";
-"Are you sure?" = "¿Estás seguro?";
 "You want to logout?" = "¿Quieres cerrar sesión?";
 "Logout" = "Cerrar sesión";

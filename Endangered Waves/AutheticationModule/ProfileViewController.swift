@@ -174,16 +174,16 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UINavigation
     }
 
     func showLogoutAlert(in viewController: UIViewController) {
-        let alert = UIAlertController(title: "Are you sure?",
-                                      message: "You want to logout?",
+        let alert = UIAlertController(title: "Are you sure?".localized(),
+                                      message: "You want to logout?".localized(),
                                       preferredStyle: .alert)
         // Logout Action
-        let logoutAction = UIAlertAction(title: "Logout", style: .destructive) { _ in
+        let logoutAction = UIAlertAction(title: "Logout".localized(), style: .destructive) { _ in
             self.performLogout()
         }
 
         // Cancel Action
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil)
 
         // Add actions to alert
         alert.addAction(cancelAction)
