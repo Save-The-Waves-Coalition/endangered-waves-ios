@@ -20,6 +20,7 @@ class ReportsTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var typeImageView: UIImageView!
     @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
 
     weak var delegate: ReportsTableViewCellProtocol?
     let imageSliderViewController = ImageSliderViewController.instantiate()
@@ -53,6 +54,13 @@ class ReportsTableViewCell: UITableViewCell {
 
             if let dateLabel = dateLabel {
                 dateLabel.text = report.dateDisplayString()
+            }
+
+            switch report.status {
+            case .solved:
+                statusLabel.backgroundColor = UIColor.green
+            case .notSolved:
+                statusLabel.backgroundColor = UIColor.red
             }
         }
     }

@@ -81,7 +81,7 @@ class NewReportViewController: UITableViewController {
             imageSliderViewController?.images = images
         }
     }
-
+    var thumbImages: [UIImage]?
     var reportDescription: String? {
         didSet {
             if let reportDescription = reportDescription, let descriptionTextView = descriptionTextView {
@@ -163,7 +163,9 @@ class NewReportViewController: UITableViewController {
         emailTextView.textContainer.lineFragmentPadding = 0
         emailTextView.textContainer.maximumNumberOfLines = 1
         emailTextView.textContainer.lineBreakMode = .byTruncatingTail
-        if let emailAddress = UserDefaultsHandler.getUserEmailAddress() {
+        let userInfo = Global.getModelFromUserDefault(model: AuthDataUserModel.self, key: .currentUser)
+        // if let emailAddress = UserDefaultsHandler.getUserEmailAddress() {
+        if let emailAddress = userInfo?.email {
             emailTextView.attributedText = Style.userInputAttributedStringForString(emailAddress)
             delegate?.viewController(self, didWriteEmailAddress: emailAddress)
         }
@@ -178,6 +180,7 @@ class NewReportViewController: UITableViewController {
         descriptionTextView.attributedText = Style.userInputPlaceholderAttributedStringForString("Write a description...".localized())
         locationLabel.attributedText = Style.userInputPlaceholderAttributedStringForString("Choose a location...".localized())
         emailTextView.attributedText = Style.userInputPlaceholderAttributedStringForString("Enter email address...".localized())
+        self.setupTapGesture()
     }
     func updateUIForNoCompetition() {
         guard isViewLoaded else { return }
@@ -262,6 +265,16 @@ class NewReportViewController: UITableViewController {
                 threatCategoryTableViewController.selectedThreatCategory = reportThreatCategory
             }
         }
+    }
+
+    func setupTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false // Allows other interactions
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 

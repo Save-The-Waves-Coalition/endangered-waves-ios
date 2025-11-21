@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseCore
 import AVFoundation
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-
+        IQKeyboardManager.shared.isEnabled = true
         // If the user is listening to music, this code makes sure the music does NOT stop when taking a picture
         do {
             try AVAudioSession.sharedInstance().setCategory(.ambient, mode: .default)
@@ -30,8 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         FirebaseApp.configure()
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = appCoordinator.rootViewController
-
         styleApp()
 //        listOutFonts()
 
@@ -41,8 +40,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window?.makeKeyAndVisible()
-        appCoordinator.start()
+        // Create a reference to the the appropriate storyboard
+        let storyboard = UIStoryboard(name: ContainerViewController.storyboardName, bundle: nil)
+
+        UIApplication.shared.registerForRemoteNotifications()
+        let userInfo = Global.getModelFromUserDefault(model: AuthDataUserModel.self, key: .currentUser)
+        if userInfo == nil {
+            if let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+                window?.rootViewController = loginVC
+            }
+        } else {
+            window?.rootViewController = appCoordinator.rootViewController
+            appCoordinator.start()
+        }
+
         return true
+    }
+
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let token1 = String(deviceToken: deviceToken)
+        print(token1)
+
+        let token3 = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        print(token3)
+        Global.deviceToken = token3
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -75,5 +96,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("== \(names)")
             }
         }
+    }
+    func switchToLogin() {
+        let storyboard = UIStoryboard(name: ContainerViewController.storyboardName, bundle: nil)
+        if let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+            window?.rootViewController = loginVC
+        }
+        window?.makeKeyAndVisible()
     }
 }

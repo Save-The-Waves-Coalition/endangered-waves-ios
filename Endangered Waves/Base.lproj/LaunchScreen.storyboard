@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nLj-xp-u1V">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nLj-xp-u1V">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,22 +17,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" image="stock01" translatesAutoresizingMaskIntoConstraints="NO" id="QtN-GC-xh1">
+                                <rect key="frame" x="0.0" y="-70" width="375" height="882"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nkX-Eq-HVy">
                                 <rect key="frame" x="0.0" y="714" width="375" height="64"/>
-                                <color key="backgroundColor" name="STW-White"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="NSB-2a-3iK"/>
                                 </constraints>
                             </view>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b6f-pv-gKt">
-                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                            <navigationBar hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b6f-pv-gKt">
+                                <rect key="frame" x="0.0" y="50" width="375" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="barTintColor" name="STW-White"/>
+                                <textAttributes key="largeTitleTextAttributes">
+                                    <color key="textColor" name="STW-White"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem id="akR-w5-coL"/>
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="STE-So-hj2">
-                                <rect key="frame" x="0.0" y="88" width="375" height="626"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="94" width="375" height="620"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2jH-2v-aXE"/>
@@ -39,11 +49,15 @@
                         <constraints>
                             <constraint firstItem="STE-So-hj2" firstAttribute="leading" secondItem="2jH-2v-aXE" secondAttribute="leading" id="5h5-Pg-o0C"/>
                             <constraint firstItem="nkX-Eq-HVy" firstAttribute="top" secondItem="STE-So-hj2" secondAttribute="bottom" id="61t-Xj-Ezd"/>
+                            <constraint firstItem="QtN-GC-xh1" firstAttribute="leading" secondItem="2jH-2v-aXE" secondAttribute="leading" id="A3d-JB-SxO"/>
                             <constraint firstItem="nkX-Eq-HVy" firstAttribute="trailing" secondItem="2jH-2v-aXE" secondAttribute="trailing" id="DfK-7F-yx4"/>
                             <constraint firstItem="b6f-pv-gKt" firstAttribute="trailing" secondItem="2jH-2v-aXE" secondAttribute="trailing" id="Gp1-ZV-3X2"/>
+                            <constraint firstItem="2jH-2v-aXE" firstAttribute="top" secondItem="QtN-GC-xh1" secondAttribute="top" constant="120" id="HNb-rl-vjq"/>
                             <constraint firstItem="b6f-pv-gKt" firstAttribute="top" secondItem="2jH-2v-aXE" secondAttribute="top" id="Ioc-mC-WMl"/>
                             <constraint firstItem="STE-So-hj2" firstAttribute="trailing" secondItem="2jH-2v-aXE" secondAttribute="trailing" id="JSX-ke-rNt"/>
                             <constraint firstItem="b6f-pv-gKt" firstAttribute="leading" secondItem="2jH-2v-aXE" secondAttribute="leading" id="PkA-ug-92O"/>
+                            <constraint firstItem="QtN-GC-xh1" firstAttribute="bottom" secondItem="2jH-2v-aXE" secondAttribute="bottom" constant="34" id="QMw-Ua-Jiy"/>
+                            <constraint firstItem="2jH-2v-aXE" firstAttribute="trailing" secondItem="QtN-GC-xh1" secondAttribute="trailing" id="Wpb-VW-J0l"/>
                             <constraint firstItem="nkX-Eq-HVy" firstAttribute="leading" secondItem="2jH-2v-aXE" secondAttribute="leading" id="kNL-Ig-VKf"/>
                             <constraint firstItem="nkX-Eq-HVy" firstAttribute="top" secondItem="2jH-2v-aXE" secondAttribute="bottom" constant="-64" id="uLh-Aa-54B"/>
                             <constraint firstItem="STE-So-hj2" firstAttribute="top" secondItem="b6f-pv-gKt" secondAttribute="bottom" id="xJW-lL-T4j"/>
@@ -56,8 +70,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="stock01" width="1499" height="2332"/>
         <namedColor name="STW-White">
-            <color red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.96862745098039216" green="0.96862745098039216" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

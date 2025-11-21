@@ -16,8 +16,7 @@ import Foundation
 
 /// Represents the parameters for the createAuthUri endpoint.
 /// See https: // developers.google.com/identity/toolkit/web/reference/relyingparty/createAuthUri
-
-class CreateAuthURIResponse: AuthRPCResponse {
+struct CreateAuthURIResponse: AuthRPCResponse {
   /// The URI used by the IDP to authenticate the user.
   var authURI: String?
 
@@ -33,18 +32,15 @@ class CreateAuthURIResponse: AuthRPCResponse {
   /// A list of provider IDs the passed identifier could use to sign in with.
   var allProviders: [String]?
 
-  /// A list of sign-in methods available for the passed  identifier.
-  var signinMethods: [String]?
+  /// A list of sign-in methods available for the passed identifier.
+  var signinMethods: [String] = []
 
-  /// Bare initializer.
-  required init() {}
-
-  func setFields(dictionary: [String: AnyHashable]) throws {
+  init(dictionary: [String: AnyHashable]) throws {
     providerID = dictionary["providerId"] as? String
     authURI = dictionary["authUri"] as? String
     registered = dictionary["registered"] as? Bool ?? false
     forExistingProvider = dictionary["forExistingProvider"] as? Bool ?? false
     allProviders = dictionary["allProviders"] as? [String]
-    signinMethods = dictionary["signinMethods"] as? [String]
+    signinMethods = dictionary["signinMethods"] as? [String] ?? []
   }
 }

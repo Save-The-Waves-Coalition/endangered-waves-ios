@@ -10,4 +10,5 @@ import Foundation
 
 struct Constants {
     static let appSurveyURL = "https://www.savethewaves.org/appsurvey/"
+    static let appTitle = "Save The Waves".localized()
 }

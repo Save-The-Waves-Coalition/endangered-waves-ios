@@ -151,7 +151,7 @@ extension ReportsMapViewController: FUIBatchedArrayDelegate {
 
     func batchedArray(_ array: FUIBatchedArray, queryDidFailWithError error: Error) {
         assertionFailure("⚠️: \(error.localizedDescription)")
-        // TODO: Log this error to Crashlytics
+        // todo: Log this error to Crashlytics
     }
 }
 

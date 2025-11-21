@@ -132,6 +132,7 @@ static NSString *const kAuthUICodingKey = @"authUI";
   UIActivityIndicatorView *activityIndicator =
       [[UIActivityIndicatorView alloc]
        initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
+  activityIndicator.color = [UIColor colorWithWhite:1 alpha:1];
   UIView *tintView = [[UIView alloc] initWithFrame:CGRectInset(activityIndicator.frame,
                                                                -kActivityIndiactorPadding,
                                                                -kActivityIndiactorPadding)];
@@ -430,7 +431,7 @@ static NSString *const kAuthUICodingKey = @"authUI";
 }
 
 + (NSString *)providerLocalizedName:(NSString *)providerId {
-  if ([providerId isEqualToString:@"email"]) {
+  if ([providerId isEqualToString:@"password"]) {
     return FUILocalizedString(kStr_ProviderTitlePassword);
   } else if ([providerId isEqualToString:@"google.com"]) {
     return FUILocalizedString(kStr_ProviderTitleGoogle);

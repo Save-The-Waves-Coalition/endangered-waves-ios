@@ -68,7 +68,7 @@ extension ReportType {
         case .wsr:
             return "World Surfing Reserve".localized()
 
-        // Water Quality
+            // Water Quality
         case .sewage: // V1 Threat Category
             return "Sewage Spill".localized()
         case .runoff:
@@ -80,7 +80,7 @@ extension ReportType {
         case .waterQuality:
             return "Water Quality".localized()
 
-        // Plastic Trash & Marine Debris
+            // Plastic Trash & Marine Debris
         case .plasticPackaging:
             return "Plastic Packaging".localized()
         case .microPlastics:
@@ -90,7 +90,7 @@ extension ReportType {
         case .trashed: // V1 Threat Category
             return "Trash".localized()
 
-        // Coastal Development
+            // Coastal Development
         case .seawall:
             return "Seawall".localized()
         case .hardArmoring:
@@ -104,7 +104,7 @@ extension ReportType {
         case .coastalDevelopment:
             return "Coastal Development".localized()
 
-        // Sea-Level Rise & Erosion
+            // Sea-Level Rise & Erosion
         case .kingTides:
             return "King Tides".localized()
         case .coastalErosion: // V1 Threat Category
@@ -112,7 +112,7 @@ extension ReportType {
         case .seaLevelRiseAndErosion:
             return "Sea Level Rise & Erosion".localized()
 
-        // Coral Reef Impacts
+            // Coral Reef Impacts
         case .bleaching:
             return "Bleaching".localized()
         case .destructiveFishing:
@@ -135,7 +135,7 @@ extension ReportType {
         case .wsr:
             return "#worldsurfingreserve"
 
-        // Water Quality
+            // Water Quality
         case .sewage: // V1 Threat Category
             return "#sewagespill"
         case .runoff:
@@ -147,7 +147,7 @@ extension ReportType {
         case .waterQuality:
             return "#waterquality"
 
-        // Plastic Trash & Marine Debris
+            // Plastic Trash & Marine Debris
         case .plasticPackaging:
             return "#plasticpackaging"
         case .microPlastics:
@@ -157,7 +157,7 @@ extension ReportType {
         case .trashed: // V1 Threat Category
             return "#trashed"
 
-        // Coastal Development
+            // Coastal Development
         case .seawall:
             return "#seawall"
         case .hardArmoring:
@@ -171,7 +171,7 @@ extension ReportType {
         case .coastalDevelopment:
             return "#coastaldevelopment"
 
-        // Sea-Level Rise & Erosion
+            // Sea-Level Rise & Erosion
         case .kingTides:
             return "#kingtides"
         case .coastalErosion: // V1 Threat Category
@@ -179,7 +179,7 @@ extension ReportType {
         case .seaLevelRiseAndErosion:
             return "#sealevelriseorerosion"
 
-        // Coral Reef Impacts
+            // Coral Reef Impacts
         case .bleaching:
             return "#bleaching"
         case .destructiveFishing:
@@ -202,7 +202,7 @@ extension ReportType {
         case .wsr:
             return Style.iconWsrPlacemark
 
-        // Water Quality
+            // Water Quality
         case .oilSpill: // V1 Threat Category
             return Style.iconOilPlacemark
         case .sewage: // V1 Threat Category
@@ -214,7 +214,7 @@ extension ReportType {
         case .waterQuality:
             return Style.iconWaterQualityPlacemark
 
-        // Plastic Trash & Marine Debris
+            // Plastic Trash & Marine Debris
         case .plasticPackaging:
             return Style.iconTrashPlasticPackagingPlacemark
         case .microPlastics:
@@ -224,7 +224,7 @@ extension ReportType {
         case .trashed: // V1 Threat Category
             return Style.iconTrashPlacemark
 
-        // Coastal Development
+            // Coastal Development
         case .seawall:
             return Style.iconCoastalDevSeawallPlacemark
         case .hardArmoring:
@@ -238,7 +238,7 @@ extension ReportType {
         case .coastalDevelopment:
             return Style.iconCoastalDevelopmentPlacemark
 
-        // Sea-Level Rise & Erosion
+            // Sea-Level Rise & Erosion
         case .kingTides:
             return Style.iconSeaLevelRiseKingTidePlacemark
         case .coastalErosion: // V1 Threat Category
@@ -246,7 +246,7 @@ extension ReportType {
         case .seaLevelRiseAndErosion:
             return Style.iconSeaLevelRiseAndErosionPlacemark
 
-        // Coral Reef Impact
+            // Coral Reef Impact
         case .destructiveFishing:
             return Style.iconCoralReefImapctFishingPlacemark
         case .bleaching:
@@ -258,7 +258,10 @@ extension ReportType {
         }
     }
 }
-
+enum ReportStauts: String {
+    case solved = "Solved" // V1 Threat Category
+    case notSolved = "Not Solved"
+}
 protocol STWDataType {
     var name: String {get set}
     var coordinate: GeoPoint {get set}
@@ -278,6 +281,8 @@ struct Report: STWDataType {
     var type: ReportType
     var address: String
     var creationDate: Date
+    var thumbImagesURLs: [String]
+    var status: ReportStauts
     var user: String
 
     init(name: String,
@@ -285,8 +290,8 @@ struct Report: STWDataType {
          coordinate: GeoPoint,
          creationDate: Date,
          description: String,
-         imageURLs: [String],
-         type: ReportType,
+         imageURLs: [String], thumbImagesURLs: [String],
+         type: ReportType, status: ReportStauts,
          user: String) {
         self.name = name
         self.address = address
@@ -294,8 +299,10 @@ struct Report: STWDataType {
         self.creationDate = creationDate
         self.description = description
         self.imageURLs = imageURLs
+        self.thumbImagesURLs = thumbImagesURLs
         self.type = type
         self.user = user
+        self.status = status
     }
 
     static func createReportWithDictionary(_ dictionary: [String: Any]) -> Report? {
@@ -349,6 +356,29 @@ struct Report: STWDataType {
             type = ReportType.general
         }
 
+        var statsuString: String = ""
+        if let statusString1 = dictionary["reportstatus"] as? String {
+            statsuString = statusString1
+        } else {
+            statsuString = ReportStauts.notSolved.rawValue
+        }
+
+        var thumbImageUrls: [String?]
+        if let imageURL = dictionary["thumbImagesURLs"] as? [String?] {
+            thumbImageUrls = imageURL
+            // assertionFailure("⚠️: thumbImagesURLs for Report not found")
+        } else {
+            thumbImageUrls = imageURLs
+        }
+
+        var statusReport: ReportStauts
+        if let unwrappedstatusType = ReportStauts(rawValue: statsuString) {
+            statusReport = unwrappedstatusType
+        } else {
+            //  assertionFailure("⚠️: Type \(typeString) for Report not found")
+            statusReport = ReportStauts.notSolved
+        }
+
         guard let user = dictionary["user"] as? String else {
             assertionFailure("⚠️: User for Report not found")
             return nil
@@ -360,7 +390,8 @@ struct Report: STWDataType {
                       creationDate: creationDate,
                       description: description,
                       imageURLs: imageURLs.compactMap { $0 }, // new array with all values unwrapped and all nil's filtered away
-                      type: type,
+                      thumbImagesURLs: thumbImageUrls.compactMap { $0 },
+                      type: type, status: statusReport,
                       user: user)
     }
 }
@@ -381,7 +412,9 @@ extension Report {
             "creationDate": creationDate,
             "description": description,
             "imageURLs": imageURLs,
+            "thumbImagesURLs": thumbImagesURLs,
             "type": type.rawValue,
+            "status": status.rawValue,
             "user": user]
         return dataDictionary
     }
@@ -407,6 +440,7 @@ struct WorldSurfingReserve: STWDataType {
     var address: String
     var dedicated: Date
     var url: String
+    var status: ReportStauts
 
     init(name: String,
          address: String,
@@ -417,7 +451,7 @@ struct WorldSurfingReserve: STWDataType {
          iconURL: String,
          kmlURL: String?,
          type: ReportType,
-         url: String) {
+         url: String, status: ReportStauts) {
         self.name = name
         self.address = address
         self.coordinate = coordinate
@@ -428,6 +462,7 @@ struct WorldSurfingReserve: STWDataType {
         self.kmlURL = kmlURL
         self.type = type
         self.url = url
+        self.status = status
     }
 
     static func createWsrWithDictionary(_ dictionary: [String: Any]) -> WorldSurfingReserve? {
@@ -438,9 +473,9 @@ struct WorldSurfingReserve: STWDataType {
         }
 
         guard let address = dictionary["address"] as? String else {
-                   assertionFailure("⚠️: Name Address of World Surfing Reserve not found")
-                   return nil
-               }
+            assertionFailure("⚠️: Name Address of World Surfing Reserve not found")
+            return nil
+        }
 
         guard let coordinate = dictionary["coordinate"] as? GeoPoint else {
             assertionFailure("⚠️: Coordinate for World Surfing Reserve not found")
@@ -488,16 +523,24 @@ struct WorldSurfingReserve: STWDataType {
             assertionFailure("⚠️: URL for World Surfing Reserve not found")
             return nil
         }
-        return WorldSurfingReserve(name: name,
-                                   address: address,
-                      coordinate: coordinate,
-                      dedicated: dedicated,
-                      description: description,
-                      imageURLs: imageURLs.compactMap { $0 }, // new array with all values unwrapped and all nil's filtered away
-                      iconURL: iconURL,
-                      kmlURL: kmlURL,
-                      type: type,
-                      url: url)
+        var statsuString: String = ""
+        if let statusString1 = dictionary["reportstatus"] as? String {
+            statsuString = statusString1
+        } else {
+            statsuString = ReportStauts.notSolved.rawValue
+        }
+        let status = ReportStauts(rawValue: statsuString) ?? ReportStauts.notSolved
+
+        return WorldSurfingReserve(name: name, address: address,
+                                   coordinate: coordinate,
+                                   dedicated: dedicated,
+                                   description: description,
+                                   imageURLs: imageURLs.compactMap { $0 }, // new array with all values unwrapped and all nil's filtered away
+                                   iconURL: iconURL,
+                                   kmlURL: kmlURL,
+                                   type: type,
+                                   url: url,
+                                   status: status)
     }
 }
 
@@ -519,7 +562,7 @@ extension WorldSurfingReserve {
             "imageURLs": imageURLs,
             "iconURL": iconURL,
             "type": type.rawValue,
-            "url": url]
+            "url": url, "reportstatus": status.rawValue]
         return dataDictionary
     }
 }

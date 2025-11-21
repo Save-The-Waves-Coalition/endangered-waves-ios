@@ -13,15 +13,15 @@ protocol ContainerViewControllerDelegate: AnyObject {
     func controller(_ controller: ContainerViewController, didTapListButton button: UIButton)
     func controller(_ controller: ContainerViewController, didTapAddButton button: UIButton)
     func controller(_ controller: ContainerViewController, didTapInfoButton button: UIBarButtonItem)
+    func controller(_ controller: ContainerViewController, didTapProfileButton button: UIBarButtonItem)
 }
 
 class ContainerViewController: UIViewController {
 
     weak var delegate: ContainerViewControllerDelegate?
-
     @IBOutlet weak var containerView: UIView!
-
     @IBOutlet weak var mapButton: UIButton!
+
     @IBAction func mapButtonWasTapped(_ sender: UIButton) {
         applyActiveStyleToButton(sender)
         applyInactiveStyleToButton(listButton)
@@ -49,6 +49,10 @@ class ContainerViewController: UIViewController {
         delegate?.controller(self, didTapInfoButton: sender)
     }
 
+    @IBAction func profileButtonWasTapped(_ sender: UIBarButtonItem) {
+        showActionSheet()
+    }
+
     func applyActiveStyleToButton(_ button: UIButton) {
         button.tintColor = .black
         button.isSelected = true
@@ -74,22 +78,63 @@ class ContainerViewController: UIViewController {
         applyActiveStyleToButton(mapButton)
     }
 
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        statusBarShouldBeHidden = false
-//        UIView.animate(withDuration: 0.25) {
-//            self.setNeedsStatusBarAppearanceUpdate()
-//        }
-//    }
-//
-//    var statusBarShouldBeHidden = false
-//    override var prefersStatusBarHidden: Bool {
-//        return statusBarShouldBeHidden
-//    }
-//
-//    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
-//        return .slide
-//    }
+    // Function to display Action Sheet
+    @objc func showActionSheet() {
+        let actionSheet = UIAlertController(title: "Choose an option".localized(), message: "", preferredStyle: .actionSheet)
+
+        // Profile Action
+        let profileAction = UIAlertAction(title: "Profile".localized(), style: .default) { _ in
+            self.openProfile()
+        }
+
+        // Cancel Action
+        let cancelAction = UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil)
+
+        // Add actions to the Action Sheet
+        actionSheet.addAction(profileAction)
+        //actionSheet.addAction(logoutAction)
+        actionSheet.addAction(cancelAction)
+
+        // Present the Action Sheet
+        present(actionSheet, animated: true, completion: nil)
+    }
+
+    // Function for Profile Action
+    func openProfile() {
+        // Navigate to Profile screen or show profile details
+        let profileVC = ProfileViewController()
+        navigationController?.pushViewController(profileVC, animated: true)
+    }
+
+    // Function for Logout Action
+    func performLogout() {
+        let user: AuthDataUserModel? = nil
+        Global.storeModelInUserDefault(obj: user, key: .currentUser)
+        self.navigationController?.popToRootViewController(animated: true)
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            appDelegate.switchToLogin()
+        }
+    }
+
+    func showLogoutAlert(in viewController: UIViewController) {
+        let alert = UIAlertController(title: "Are you sure?".localized(),
+                                      message: "You want to logout?".localized(),
+                                      preferredStyle: .alert)
+        // Logout Action
+        let logoutAction = UIAlertAction(title: "Logout".localized(), style: .destructive) { _ in
+            self.performLogout()
+        }
+
+        // Cancel Action
+        let cancelAction = UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil)
+
+        // Add actions to alert
+        alert.addAction(cancelAction)
+        alert.addAction(logoutAction)
+
+        // Present alert
+        viewController.present(alert, animated: true, completion: nil)
+    }
 }
 
 // MARK: 📖 StoryboardInstantiable
